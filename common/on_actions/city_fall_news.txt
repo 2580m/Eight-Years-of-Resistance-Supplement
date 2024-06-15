@@ -1,0 +1,1635 @@
+on_actions = {
+###---> On State Control Changed <><> <><> <><>
+#ROOT is new controller #FROM is old controller #FROM.FROM is state ID
+	on_state_control_changed = {
+		effect = {
+				
+			if = { #MOD. City-fall events. Now checks for state ID first, then extra conditions. Order preserved.
+				limit = {
+					has_war_with = FROM
+					FROM.FROM = {
+						is_owned_by = FROM
+						NOT = { has_state_flag = state_has_fallen }
+					}
+				}
+				# London
+				if = {
+					limit = { FROM.FROM = { state = 126 } }
+					if = {
+						limit = {
+							ROOT = {
+								NOT = {
+									tag = FRA
+									original_tag = ENG
+									tag = GER
+									tag = ITA
+									tag = JAP
+									tag = SPR
+									tag = USA
+									tag = SOV
+									tag = POL
+									tag = BEL
+								}
+							}
+						}
+						news_event = { id = cityfall.69 }
+					}
+					if = {	#Fall of London - Belgium
+						limit = {
+							ROOT = {
+								tag = BEL
+							}
+							FROM.FROM = {
+								is_owned_by = ENG
+							}
+							NOT = {
+								has_global_flag = fall_of_london_bel
+							}
+						}
+						news_event = { id = tblra.30 }
+					}
+					if = {	#Fall of London - USA
+						limit = {
+							ROOT = {
+								original_tag = USA
+							}
+							FROM.FROM = {
+								is_owned_by = ENG
+							}
+							NOT = { has_global_flag = fall_of_london_usa }
+						}
+						news_event = { id = cityfall.1 }
+					}
+					if = {	#Fall of London - France
+						limit = {
+							ROOT = {
+								original_tag = FRA
+							}
+							FROM.FROM = {
+								is_owned_by = ENG
+							}
+							NOT = { has_global_flag = fall_of_london_fra }
+						}
+						news_event = { id = cityfall.2 }
+					}
+					if = {	#Fall of London - Poland
+						limit = {
+							ROOT = {
+								original_tag = POL
+							}
+							FROM.FROM = {
+								is_owned_by = ENG
+							}
+							NOT = { has_global_flag = fall_of_london_pol }
+						}
+						news_event = { id = cityfall.3 }
+					}
+					if = {	#Fall of London - Japan
+						limit = {
+							ROOT = {
+								original_tag = JAP
+							}
+							FROM.FROM = {
+								is_owned_by = ENG
+							}
+							NOT = { has_global_flag = fall_of_london_jap }
+						}
+						news_event = { id = cityfall.4 }
+					}
+					if = {	#Fall of London - Spain
+						limit = {
+							ROOT = {
+								original_tag = SPR
+								has_government = fascism
+							}
+							FROM.FROM = {
+								is_owned_by = ENG
+							}
+							NOT = { has_global_flag = fall_of_london_spr }
+						}
+						news_event = { id = cityfall.5 }
+					}
+					if = {	#Fall of London - China
+						limit = {
+							ROOT = {
+								OR = { TAG = event_target:WTT_current_china_leader }
+							}
+							FROM.FROM = {
+								is_owned_by = ENG
+							}
+							NOT = { has_global_flag = fall_of_london_chi }
+						}
+						news_event = { id = cityfall.17 }
+					}
+					if = {	#Fall of London - Bhutan
+						limit = {
+							ROOT = {
+								original_tag = BHU
+							}
+							FROM.FROM = {
+								is_owned_by = ENG
+							}
+							NOT = { has_global_flag = fall_of_london_bhu }
+						}
+						news_event = { id = cityfall.18 }
+					}
+					if = {	#Fall of London - Ireland
+						limit = {
+							ROOT = {
+								original_tag = IRE
+							}
+							FROM.FROM = {
+								is_owned_by = ENG
+							}
+							NOT = { has_global_flag = fall_of_london_ire }
+						}
+						news_event = { id = cityfall.15 }
+					}
+				}
+				# Ottawa
+				else_if = {
+					limit = { FROM.FROM = { state = 276 } }
+					if = { #NCW
+						limit = {
+							ROOT = { has_civil_war = no }
+						}
+						news_event = { id = cityfall.70 }
+					}
+				}
+				# Berlin
+				else_if = {
+					limit = { FROM.FROM = { state = 64 } }
+					if = {
+						limit = {
+							ROOT = {
+								NOT = {
+									tag = FRA
+									tag = ENG
+									tag = YUG
+									tag = ITA
+									tag = CZE
+									tag = JAP
+									tag = SPR
+									tag = USA
+									tag = SOV
+									tag = POL
+									OR = { TAG = event_target:WTT_current_china_leader  TAG = event_target:WTT_communist_china }
+									tag = BHU
+									tag = BEL
+									original_tag = GER
+								}
+							}
+						}
+						news_event = { id = cityfall.71 }
+					}
+					if = {	#the Belgian Lion roars again!
+						limit = {
+							ROOT = {
+								tag = BEL
+							}
+							FROM.FROM = {
+								is_owned_by = GER
+							}
+							NOT = {
+								has_global_flag = fall_of_berlin_bel
+							}
+						}
+						news_event = { id = tblra.29 }
+					}
+					if = {
+						limit = {
+							ROOT = {
+								original_tag = JAP
+							}
+							FROM.FROM = {
+								is_owned_by = GER 
+							}
+							NOT = {
+								has_global_flag = fall_of_berlin_jap
+							}
+						}
+						news_event = { id = cityfall.6 }
+					}
+					if = {
+						limit = {
+							ROOT = {
+								original_tag = SPR
+							}
+							FROM.FROM = {
+								is_owned_by = GER 
+							}
+							NOT = {
+								has_global_flag = fall_of_berlin_spr
+							}
+						}
+						news_event = { id = cityfall.7 }
+					}
+					if = {
+						limit = {
+							ROOT = {
+								original_tag = YUG
+							}
+							FROM.FROM = {
+								is_owned_by = GER 
+							}
+							NOT = {
+								has_global_flag = fall_of_berlin_yug
+							}
+						}
+						news_event = { id = cityfall.8 }
+					}
+					if = {
+						limit = {
+							ROOT = {
+								original_tag = CZE
+							}
+							FROM.FROM = {
+								is_owned_by = GER 
+							}
+							NOT = {
+								has_global_flag = fall_of_berlin_cze
+							}
+						}
+						news_event = { id = cityfall.9 }
+					}
+					if = {
+						limit = {
+							ROOT = {
+								original_tag = ITA
+							}
+							FROM.FROM = {
+								is_owned_by = GER 
+							}
+							NOT = {
+								has_global_flag = fall_of_berlin_ita
+							}
+						}
+						news_event = { id = cityfall.10 }
+					}
+					if = {
+						limit = {
+							ROOT = {
+								OR = { TAG = event_target:WTT_current_china_leader  TAG = event_target:WTT_communist_china }
+							}
+							FROM.FROM = {
+								is_owned_by = GER 
+							}
+							NOT = {
+								has_global_flag = fall_of_berlin_chi
+							}
+						}
+						news_event = { id = cityfall.13 }
+					}
+					if = {
+						limit = {
+							ROOT = {
+								original_tag = BHU
+							}
+							FROM.FROM = {
+								is_owned_by = GER 
+							}
+							NOT = {
+								has_global_flag = fall_of_berlin_bhu
+							}
+						}
+						news_event = { id = cityfall.14 }
+					}
+				}
+				# Rio de Janeiro
+				else_if = {
+					limit = { FROM.FROM = { state = 500 } }
+					if = { #NCW
+						limit = {
+							NOT = {
+								ROOT = {
+									has_civil_war = yes
+									original_tag = BRA
+								}
+							}
+						}
+						news_event = { id = cityfall.72 }
+					}
+				}
+				# Buenos Aires
+				else_if = {
+					limit = { FROM.FROM = { state = 278 } }
+					if = { #NCW
+						limit = {
+							NOT = {
+								ROOT = {
+									has_civil_war = yes
+									original_tag = ARG
+								}
+							}
+						}
+						news_event = { id = cityfall.73 }
+					}
+				}
+				# Mexico
+				else_if = {
+					limit = { FROM.FROM = { state = 277 } }
+					if = {
+						limit = {
+							ROOT = {
+								NOT = { original_tag = MEX }
+							}
+						}
+						news_event = { id = cityfall.74 }
+					}
+				}
+				# Delhi
+				else_if = {
+					limit = { FROM.FROM = { state = 439 } }
+					if = {
+						limit = {
+							ROOT = {
+								NOT = { original_tag = RAJ }
+							}
+						}
+						news_event = { id = cityfall.75 }
+					}
+				}
+				# Panama Canal
+				else_if = {
+					limit = { FROM.FROM = { state = 685 } }
+					if = {
+						limit = {
+							ROOT = {
+								NOT = { original_tag = USA }
+							}
+						}
+						news_event = { id = cityfall.76 }
+					}
+				}
+				# Istanbul
+				else_if = {
+					limit = { FROM.FROM = { state = 797 } }
+					if = {
+						limit = {
+							ROOT = {
+								NOT = { original_tag = TUR }
+							}
+						}
+						news_event = { id = cityfall.77 }
+					}
+				}
+				# Tokyo
+				else_if = {
+					limit = { FROM.FROM = { state = 282 } }
+					if = {
+						limit = {
+							ROOT = {
+								NOT = {
+									OR = { TAG = event_target:WTT_current_china_leader   }
+									tag = USA
+									tag = SOV
+									original_tag = JAP
+								}
+							}
+						}
+						news_event = { id = cityfall.78 }
+					}
+				}
+				# Moscow
+				else_if = {
+					limit = { FROM.FROM = { state = 219 } }
+					if = {
+						limit = {
+							ROOT = {
+								NOT = {
+									tag = AST
+									tag = USA
+									tag = CAN
+									tag = FRA
+									tag = SAF
+									tag = NZL
+									tag = BEL
+									tag = ENG
+									tag = GER
+									tag = FRA
+									tag = YUG
+									tag = SPR
+									tag = JAP
+									tag = ITA
+									OR = { TAG = event_target:WTT_current_china_leader   }
+									tag = BHU
+									original_tag = SOV
+								}
+							}
+						}
+						news_event = { id = cityfall.79 }
+					}
+					if = {	#Fall of Moscow - Belgian
+						limit = {
+							ROOT = {
+								tag = BEL
+							}
+							FROM.FROM = {
+								is_owned_by = SOV
+							}
+							NOT = { has_global_flag = fall_of_moscow_bel }
+						}
+						news_event = { id = tblra.31 }
+					}
+					if = {	#France
+						limit = {
+							ROOT = {
+								original_tag = FRA
+							}
+							FROM.FROM = {
+								is_owned_by = SOV 
+							}
+							NOT = {
+								has_global_flag = fall_of_moscow_fra
+							}
+						}
+						news_event = { id = cityfall.31 }
+					}
+					if = {	#Italy
+						limit = {
+							ROOT = {
+								original_tag = ITA
+							}
+							FROM.FROM = {
+								is_owned_by = SOV 
+							}
+							NOT = {
+								has_global_flag = fall_of_moscow_ita
+							}
+						}
+						news_event = { id = cityfall.32 }
+					}
+					if = {	#Japan
+						limit = {
+							ROOT = {
+								original_tag = JAP
+							}
+							FROM.FROM = {
+								is_owned_by = SOV 
+							}
+							NOT = {
+								has_global_flag = fall_of_moscow_jap
+							}
+						}
+						news_event = { id = cityfall.33 }
+					}
+					if = {	#Spain
+						limit = {
+							ROOT = {
+								original_tag = SPR
+							}
+							FROM.FROM = {
+								is_owned_by = SOV 
+							}
+							NOT = {
+								has_global_flag = fall_of_moscow_spr
+							}
+						}
+						news_event = { id = cityfall.34 }
+					}
+					if = {	#Yugoslavia
+						limit = {
+							ROOT = {
+								original_tag = YUG
+							}
+							FROM.FROM = {
+								is_owned_by = SOV 
+							}
+							NOT = {
+								has_global_flag = fall_of_moscow_yug
+							}
+						}
+						news_event = { id = cityfall.35 }
+					}
+					if = {	#China
+						limit = {
+							ROOT = {
+								OR = { TAG = event_target:WTT_current_china_leader   }
+							}
+							FROM.FROM = {
+								is_owned_by = SOV 
+							}
+							NOT = {
+								has_global_flag = fall_of_moscow_chi
+							}
+						}
+						news_event = { id = cityfall.36 }
+					}
+					if = {	#Bhutanese conquest
+						limit = {
+							ROOT = {
+								original_tag = BHU
+							}
+							FROM.FROM = {
+								is_owned_by = SOV 
+							}
+							NOT = {
+								has_global_flag = fall_of_moscow_bhu
+							}
+						}
+						news_event = { id = cityfall.37 }
+					}
+				}
+				# Rome
+				else_if = {
+					limit = { FROM.FROM = { state = 2 } }
+					if = {
+						limit = {
+							ROOT = {
+								NOT = {
+									tag = AST
+									tag = USA
+									tag = CAN
+									tag = FRA
+									tag = SAF
+									tag = BEL
+									tag = ENG
+									tag = NZL
+									tag = FRA
+									original_tag = SOV
+									original_tag = ITA
+								}
+							}
+						}
+						news_event = { id = cityfall.80 }
+					}
+				}
+				# Budapest
+				else_if = {
+					limit = { FROM.FROM = { state = 43 } }
+					if = {
+						limit = {
+							ROOT = {
+								NOT = {
+									original_tag = HUN
+									tag = AUS
+								}
+							}
+						}
+						news_event = { id = cityfall.81 }
+					}
+				}
+				# Pretoria
+				else_if = {
+					limit = { FROM.FROM = { state = 275 } }
+					if = {
+						limit = {
+							ROOT = {
+								NOT = { original_tag = SAF }
+							}
+						}
+						news_event = { id = cityfall.82 }
+					}
+				}
+				# Athens
+				else_if = {
+					limit = { FROM.FROM = { state = 47 } }
+					if = {
+						limit = {
+							ROOT = {
+								NOT = { original_tag = GRE }
+							}
+						}
+						news_event = { id = cityfall.83 }
+					}
+				}
+				# Paris
+				else_if = {
+					limit = { FROM.FROM = { state = 16 } }
+					if = {
+						limit = {
+							ROOT = {
+								OR = {
+									tag = GER
+									tag = PRE
+									tag = WGR
+									tag = DDR
+								}
+							}
+						}
+						news_event = { id = news.101 }
+					}
+					else_if = {
+						limit = {
+							ROOT = { tag = ITA }
+						}
+						news_event = { id = news.114 }
+					}
+					else_if = {
+						limit = {
+							ROOT = {
+								tag = SOV
+								has_government = communism
+							}
+						}
+						news_event = { id = news.142 }
+					}
+					else_if = {
+						limit = {
+							ROOT = {
+								NOT = {
+									tag = BEL
+									original_tag = FRA
+								}
+							}
+							if = {
+								limit = { has_global_flag = fall_of_france }
+								NOT = {
+									ROOT = {
+										OR = {
+											tag = AST
+											tag = USA
+											tag = CAN
+											tag = FRA
+											tag = SAF
+											tag = ENG
+											tag = NZL
+											tag = RAJ
+										}
+									}
+								}
+							}
+						}
+						news_event = { id = cityfall.84 }
+					}
+					if = {
+						limit = {
+							ROOT = {
+								original_tag = BEL
+								has_government = fascism
+								#guo NOT = { has_completed_focus = tblra_choose_Verdinaso }
+							}
+							NOT = { has_global_flag = fall_of_paris_bel }
+						}
+						news_event = { id = tblra.33 }
+					}
+					if = {
+						limit = {
+							ROOT = {
+								original_tag = BEL
+								NOT = { has_government = fascism }
+							}
+							NOT = { has_global_flag = fall_of_paris_bel }
+						}
+						news_event = { id = tblra.34 }
+					}
+				}
+				# Bangkok
+				else_if = {
+					limit = { FROM.FROM = { state = 289 } }
+					if = {
+						limit = {
+							ROOT = {
+								NOT = { original_tag = SIA }
+							}
+						}
+						news_event = { id = cityfall.85 }
+					}
+				}
+				# Stockholm
+				else_if = {
+					limit = { FROM.FROM = { state = 141 } }
+					if = {
+						limit = {
+							ROOT = {
+								NOT = {
+									original_tag = SWE
+									original_tag = GER
+									original_tag = SOV
+									original_tag = USA
+									original_tag = ITA
+									original_tag = JAP
+									original_tag = SPR
+									original_tag = ENG
+									original_tag = NOR
+									original_tag = FIN
+									original_tag = BHU
+									original_tag = DEN
+									original_tag = POL
+								}
+							}
+						}
+						news_event = { id = cityfall.86 }
+					}
+					if = {
+						limit = {
+							ROOT = {
+								original_tag = GER
+							}
+							FROM.FROM = {
+								is_owned_by = SWE 
+							}
+							NOT = {
+								has_global_flag = fall_of_stockholm_ger
+							}
+						}
+						news_event = { id = cityfall.11 }
+					}
+					if = {
+						limit = {
+							ROOT = {
+								original_tag = SOV
+							}
+							FROM.FROM = {
+								is_owned_by = SWE 
+							}
+							NOT = {
+								has_global_flag = fall_of_stockholm_sov
+							}
+						}
+						news_event = { id = cityfall.12 }
+					}
+					if = {
+						limit = {
+							ROOT = {
+								original_tag = USA
+							}
+							FROM.FROM = {
+								is_owned_by = SWE 
+							}
+							NOT = {
+								has_global_flag = fall_of_stockholm_usa
+							}
+						}
+						news_event = { id = cityfall.54 }
+					}
+					if = {
+						limit = {
+							ROOT = {
+								original_tag = ITA
+							}
+							FROM.FROM = {
+								is_owned_by = SWE 
+							}
+							NOT = {
+								has_global_flag = fall_of_stockholm_ita
+							}
+						}
+						news_event = { id = cityfall.55 }
+					}
+					if = {
+						limit = {
+							ROOT = {
+								original_tag = JAP
+							}
+							FROM.FROM = {
+								is_owned_by = SWE 
+							}
+							NOT = {
+								has_global_flag = fall_of_stockholm_jap
+							}
+						}
+						news_event = { id = cityfall.56 }
+					}
+					if = {
+						limit = {
+							ROOT = {
+								original_tag = SPR
+							}
+							FROM.FROM = {
+								is_owned_by = SWE 
+							}
+							NOT = {
+								has_global_flag = fall_of_stockholm_spr
+							}
+						}
+						news_event = { id = cityfall.57 }
+					}
+					if = {
+						limit = {
+							ROOT = {
+								original_tag = ENG
+							}
+							FROM.FROM = {
+								is_owned_by = SWE 
+							}
+							NOT = {
+								has_global_flag = fall_of_stockholm_eng
+							}
+						}
+						news_event = { id = cityfall.58 }
+					}
+					if = {
+						limit = {
+							ROOT = {
+								original_tag = NOR
+							}
+							FROM.FROM = {
+								is_owned_by = SWE 
+							}
+							NOT = {
+								has_global_flag = fall_of_stockholm_nor
+							}
+						}
+						news_event = { id = cityfall.59 }
+					}
+					if = {
+						limit = {
+							ROOT = {
+								original_tag = FIN
+							}
+							FROM.FROM = {
+								is_owned_by = SWE 
+							}
+							NOT = {
+								has_global_flag = fall_of_stockholm_fin
+							}
+						}
+						news_event = { id = cityfall.60 }
+					}
+					if = {
+						limit = {
+							ROOT = {
+								original_tag = DEN
+							}
+							FROM.FROM = {
+								is_owned_by = SWE 
+							}
+							NOT = {
+								has_global_flag = fall_of_stockholm_den
+							}
+						}
+						news_event = { id = cityfall.61 }
+					}
+					if = {
+						limit = {
+							ROOT = {
+								original_tag = POL
+							}
+							FROM.FROM = {
+								is_owned_by = SWE 
+							}
+							NOT = {
+								has_global_flag = fall_of_stockholm_pol
+							}
+						}
+						news_event = { id = cityfall.62 }
+					}
+					if = {
+						limit = {
+							ROOT = {
+								original_tag = BHU
+							}
+							FROM.FROM = {
+								is_owned_by = SWE 
+							}
+							NOT = {
+								has_global_flag = fall_of_stockholm_bhu
+							}
+						}
+						news_event = { id = cityfall.63 }
+					}
+				}
+				# Oslo
+				else_if = {
+					limit = { FROM.FROM = { state = 110 } }
+					if = {
+						limit = {
+							ROOT = {
+								NOT = {
+									original_tag = SWE
+									original_tag = GER
+									original_tag = NOR
+									original_tag = FIN
+									original_tag = DEN
+								}
+							}
+						}
+						news_event = { id = cityfall.87 }
+					}
+					if = {
+						limit = {
+							ROOT = {
+								original_tag = GER
+							}
+							FROM.FROM = {
+								is_owned_by = NOR 
+							}
+							NOT = {
+								has_global_flag = fall_of_oslo_ger
+							}
+						}
+						news_event = { id = cityfall.64 }
+					}
+					if = {
+						limit = {
+							ROOT = {
+								original_tag = SWE
+							}
+							FROM.FROM = {
+								is_owned_by = NOR 
+							}
+							NOT = {
+								has_global_flag = fall_of_oslo_swe
+							}
+						}
+						news_event = { id = cityfall.65 }
+					}
+					if = {
+						limit = {
+							ROOT = {
+								original_tag = FIN
+							}
+							FROM.FROM = {
+								is_owned_by = NOR 
+							}
+							NOT = {
+								has_global_flag = fall_of_oslo_fin
+							}
+						}
+						news_event = { id = cityfall.66 }
+					}
+					if = {
+						limit = {
+							ROOT = {
+								original_tag = DEN
+							}
+							FROM.FROM = {
+								is_owned_by = NOR 
+							}
+							NOT = {
+								has_global_flag = fall_of_oslo_den
+							}
+						}
+						news_event = { id = cityfall.67 }
+					}
+				}
+				# Cundinamarca
+				else_if = {
+					limit = { FROM.FROM = { state = 306 } }
+					if = {
+						limit = {
+							ROOT = {
+								NOT = { original_tag = COL }
+							}
+						}
+						news_event = { id = cityfall.88 }
+					}
+				}
+				# Dublin
+				else_if = {
+					limit = { FROM.FROM = { state = 113 } }
+					if = {	#England
+						limit = {
+							ROOT = {
+								original_tag = ENG
+							}
+							FROM.FROM = {
+								is_owned_by = IRE 
+							}
+							NOT = {
+								has_global_flag = fall_of_dublin_eng
+							}
+						}
+						news_event = { id = cityfall.30 }
+					}
+					if = {	#USA
+						limit = {
+							ROOT = {
+								original_tag = USA
+							}
+							FROM.FROM = {
+								is_owned_by = IRE 
+							}
+							NOT = {
+								has_global_flag = fall_of_dublin_usa
+							}
+						}
+						news_event = { id = cityfall.28 }
+					}
+					if = {
+						limit = {
+							ROOT = { original_tag = GER }
+							FROM.FROM = {
+								is_owned_by = IRE 
+							}
+							NOT = {
+								has_global_flag = fall_of_dublin_ger
+							}
+						}
+						# Dublin
+						news_event = { id = cityfall.29 }
+					}
+					else_if = {
+						limit = {
+							ROOT = {
+								NOT = {
+									original_tag = IRE
+									original_tag = ENG
+								}
+							}
+						}
+						news_event = { id = cityfall.89 }
+					}
+				}
+				# Caracas
+				else_if = {
+					limit = { FROM.FROM = { state = 307 } }
+					if = {
+						limit = {
+							ROOT = {
+								NOT = { original_tag = VEN }
+							}
+						}
+						news_event = { id = cityfall.90 }
+					}
+				}
+				# Azerbaijan
+				else_if = {
+					limit = { FROM.FROM = { state = 229 } }
+					if = {
+						limit = {
+							ROOT = {
+								NOT = {
+									original_tag = SOV
+									original_tag = AZR
+									original_tag = GER
+								}
+							}
+						}
+						news_event = { id = cityfall.91 }
+					}
+				}
+				# Generic Stalingrad
+				else_if = {
+					limit = { FROM.FROM = { state = 217 } }
+					if = {
+						limit = {
+							ROOT = {
+								NOT = {
+									original_tag = GER
+									original_tag = SOV
+								}
+							}
+						}
+						news_event = { id = cityfall.92 }
+					}
+				}
+				# Generic Leningrad
+				else_if = {
+					limit = { FROM.FROM = { state = 195 } }
+					if = {
+						limit = {
+							ROOT = {
+								NOT = {
+									original_tag = GER
+									original_tag = FIN
+									original_tag = SOV
+								}
+							}
+						}
+						news_event = { id = cityfall.93 }
+					}
+				}
+				# California.
+				else_if = {
+					limit = { FROM.FROM = { state = 378 } }
+					if = {
+						limit = {
+							ROOT = {
+								NOT = {
+									original_tag = JAP
+									original_tag = PER
+									original_tag = USA
+								}
+							}
+						}
+						news_event = { id = cityfall.94 }
+					}
+				}
+				# Generic Tehran
+				else_if = {
+					limit = { FROM.FROM = { state = 266 } }
+					if = {
+						limit = {
+							ROOT = {
+								NOT = { original_tag = JAP }
+							}
+						}
+						news_event = { id = cityfall.95 }
+					}
+				}
+				# Sevastopol
+				else_if = {
+					limit = { FROM.FROM = { state = 137 } }
+					if = {
+						limit = {
+							ROOT = {
+								NOT = {
+									original_tag = SOV
+									original_tag = GER
+								}
+							}
+						}
+						news_event = { id = cityfall.96 }
+					}
+				}
+				# Gibraltar
+				else_if = {
+					limit = { FROM.FROM = { state = 118 } }
+					if = {
+						limit = {
+							ROOT = {
+								NOT = {
+									original_tag = SPR
+									original_tag = SPA
+									original_tag = ITA
+									original_tag = GER
+								}
+							}
+						}
+						news_event = { id = cityfall.97 }
+					}
+				}
+				# Sydney
+				else_if = {
+					limit = { FROM.FROM = { state = 285 } }
+					if = {
+						limit = {
+							ROOT = {
+								NOT = { original_tag = AST }
+							}
+						}
+						news_event = { id = cityfall.98 }
+					}
+				}
+				# Madrid
+				else_if = {
+					limit = { FROM.FROM = { state = 41 } }
+					if = {
+						limit = {
+							has_global_flag = scw_over
+							ROOT = {
+								NOT = { original_tag = SPR }
+							}
+						}
+						news_event = { id = cityfall.99 }
+					}
+				}	
+				#Vienna
+				else_if = {
+					limit = { FROM.FROM = { state = 4 } }
+					if = {
+						limit = {
+							ROOT = {
+								OR = {
+									NOT = { original_tag = AUS }
+									AND = {
+										NOT = { original_tag = GER }
+										GER = {
+											NOT = {
+												has_war_with = AUS
+												owns_state = 4
+											}
+										}
+									}
+									
+								}
+								
+							}
+						}
+						news_event = { id = cityfall.101 }
+					}
+				}
+				# Amsterdam
+				else_if = {
+					limit = { FROM.FROM = { state = 7 } }
+					if = {
+						limit = {
+							ROOT = {
+								original_tag = BEL
+							}
+							FROM.FROM = {
+								is_owned_by = HOL
+							}
+							NOT = {
+								has_global_flag = fall_of_amsterdam_bel
+							}
+						}
+						news_event = { id = tblra.32 }
+					}
+				}
+				# Beijing
+				else_if = {
+					limit = { FROM.FROM = { state = 608 } }
+					if = {
+						limit = {
+							ROOT = {
+								original_tag = JAP
+							}
+							FROM.FROM = {
+								OR = {
+									is_owned_by = CHI 
+									owner = {
+										is_subject_of = CHI
+									}
+								}
+							}
+							
+								has_global_flag = ofofofofo #guo let it lose efficacy
+							
+						}
+						news_event = { id = cityfall.102 }
+					}
+				}
+				# Leningrad
+				else_if = {
+					limit = { FROM.FROM = { state = 195 } }
+					if = {
+						limit = {
+							ROOT = {
+								original_tag = FIN
+							}
+							FROM.FROM = {
+								is_owned_by = SOV 
+							}
+							NOT = {
+								has_global_flag = fall_of_leningrad_fin
+							}
+						}
+						news_event = { id = cityfall.68 }
+					}
+				}
+				# New York
+				else_if = {
+					limit = { FROM.FROM = { state = 358 } }
+					if = {
+						limit = {
+							ROOT = {
+								original_tag = SOV
+							}
+							FROM.FROM = {
+								is_owned_by = USA 
+							}
+							NOT = {
+								has_global_flag = fall_of_newyork_sov
+							}
+						}
+						news_event = { id = cityfall.27 }
+					}
+					if = {
+						limit = {
+							ROOT = {
+								original_tag = ITA
+							}
+							FROM.FROM = {
+								is_owned_by = USA 
+							}
+							NOT = {
+								has_global_flag = fall_of_newyork_ita
+							}
+						}
+						news_event = { id = cityfall.44 }
+					}
+					if = {
+						limit = {
+							ROOT = {
+								original_tag = JAP
+							}
+							FROM.FROM = {
+								is_owned_by = USA 
+							}
+							NOT = {
+								has_global_flag = fall_of_newyork_jap
+							}
+						}
+						news_event = { id = cityfall.45 }
+					}
+					if = {
+						limit = {
+							ROOT = {
+								original_tag = SPR
+							}
+							FROM.FROM = {
+								is_owned_by = USA 
+							}
+							NOT = {
+								has_global_flag = fall_of_newyork_spr
+							}
+						}
+						news_event = { id = cityfall.46 }
+					}
+					if = {
+						limit = {
+							ROOT = {
+								original_tag = ENG
+							}
+							FROM.FROM = {
+								is_owned_by = USA 
+							}
+							NOT = {
+								has_global_flag = fall_of_newyork_eng
+							}
+						}
+						news_event = { id = cityfall.47 }
+					}
+					if = {
+						limit = {
+							ROOT = {
+								original_tag = CAN
+							}
+							FROM.FROM = {
+								is_owned_by = USA 
+							}
+							NOT = {
+								has_global_flag = fall_of_newyork_can
+							}
+						}
+						news_event = { id = cityfall.48 }
+					}
+					if = {
+						limit = {
+							ROOT = {
+								original_tag = MEX
+							}
+							FROM.FROM = {
+								is_owned_by = USA 
+							}
+							NOT = {
+								has_global_flag = fall_of_newyork_mex
+							}
+						}
+						news_event = { id = cityfall.49 }
+					}
+					if = {
+						limit = {
+							ROOT = {
+								original_tag = POL
+							}
+							FROM.FROM = {
+								is_owned_by = USA 
+							}
+							NOT = {
+								has_global_flag = fall_of_newyork_pol
+							}
+						}
+						news_event = { id = cityfall.50 }
+					}
+					if = {
+						limit = {
+							ROOT = {
+								original_tag = FRA
+							}
+							FROM.FROM = {
+								is_owned_by = USA 
+							}
+							NOT = {
+								has_global_flag = fall_of_newyork_fra
+							}
+						}
+						news_event = { id = cityfall.51 }
+					}
+					if = {
+						limit = {
+							ROOT = {
+								OR = { TAG = event_target:WTT_current_china_leader   }
+							}
+							FROM.FROM = {
+								is_owned_by = USA 
+							}
+							NOT = {
+								has_global_flag = fall_of_newyork_chi
+							}
+						}
+						news_event = { id = cityfall.52 }
+					}
+					if = {
+						limit = {
+							ROOT = {
+								original_tag = BHU
+							}
+							FROM.FROM = {
+								is_owned_by = USA 
+							}
+							NOT = {
+								has_global_flag = fall_of_newyork_bhu
+							}
+						}
+						news_event = { id = cityfall.53 }
+					}
+				}
+				# Washington
+				else_if = {
+					limit = { FROM.FROM = { state = 361 } }
+					if = {
+						limit = {
+							ROOT = {
+								original_tag = SOV
+							}
+							FROM.FROM = {
+								is_owned_by = USA 
+							}
+							NOT = {
+								has_global_flag = fall_of_washington_sov
+							}
+						}
+						news_event = { id = cityfall.18 }
+					}
+					if = {
+						limit = {
+							ROOT = {
+								original_tag = JAP
+							}
+							FROM.FROM = {
+								is_owned_by = USA 
+							}
+							NOT = {
+								has_global_flag = fall_of_washington_jap
+							}
+						}
+						news_event = { id = cityfall.19 }
+					}
+					if = {
+						limit = {
+							ROOT = {
+								original_tag = ITA
+							}
+							FROM.FROM = {
+								is_owned_by = USA 
+							}
+							NOT = {
+								has_global_flag = fall_of_washington_ita
+							}
+						}
+						news_event = { id = cityfall.20 }
+					}
+					if = {
+						limit = {
+							ROOT = {
+								original_tag = MEX
+							}
+							FROM.FROM = {
+								is_owned_by = USA 
+							}
+							NOT = {
+								has_global_flag = fall_of_washington_mex
+							}
+						}
+						news_event = { id = cityfall.21 }
+					}
+					if = {
+						limit = {
+							ROOT = {
+								original_tag = CAN
+							}
+							FROM.FROM = {
+								is_owned_by = USA 
+							}
+							NOT = {
+								has_global_flag = fall_of_washington_can
+							}
+						}
+						news_event = { id = cityfall.22 }
+					}
+					if = {
+						limit = {
+							ROOT = {
+								original_tag = SPR
+							}
+							FROM.FROM = {
+								is_owned_by = USA 
+							}
+							NOT = {
+								has_global_flag = fall_of_washington_spr
+							}
+						}
+						news_event = { id = cityfall.38 }
+					}
+					if = {
+						limit = {
+							ROOT = {
+								original_tag = ENG
+							}
+							FROM.FROM = {
+								is_owned_by = USA 
+							}
+							NOT = {
+								has_global_flag = fall_of_washington_eng
+							}
+						}
+						news_event = { id = cityfall.39 }
+					}
+					if = {
+						limit = {
+							ROOT = {
+								original_tag = POL
+							}
+							FROM.FROM = {
+								is_owned_by = USA 
+							}
+							NOT = {
+								has_global_flag = fall_of_washington_pol
+							}
+						}
+						news_event = { id = cityfall.40 }
+					}
+					if = {
+						limit = {
+							ROOT = {
+								original_tag = FRA
+							}
+							FROM.FROM = {
+								is_owned_by = USA 
+							}
+							NOT = {
+								has_global_flag = fall_of_washington_fra
+							}
+						}
+						news_event = { id = cityfall.41 }
+					}
+					if = {
+						limit = {
+							ROOT = {
+								OR = { TAG = event_target:WTT_current_china_leader   }
+							}
+							FROM.FROM = {
+								is_owned_by = USA 
+							}
+							NOT = {
+								has_global_flag = fall_of_washington_chi
+							}
+						}
+						news_event = { id = cityfall.42 }
+					}
+					if = {
+						limit = {
+							ROOT = {
+								original_tag = BHU
+							}
+							FROM.FROM = {
+								is_owned_by = USA 
+							}
+							NOT = {
+								has_global_flag = fall_of_washington_chi
+							}
+						}
+						news_event = { id = cityfall.43 }
+					}
+				}
+				# Belgrade
+				else_if = {
+					limit = { FROM.FROM = { state = 107 } }
+					if = {
+						limit = {
+							ROOT = {
+								original_tag = GER
+							}
+							FROM.FROM = {
+								is_owned_by = YUG 
+							}
+							NOT = {
+								has_global_flag = fall_of_belgrade
+							}
+						}
+						news_event = { id = cityfall.23 }
+					}
+					if = {
+						limit = {
+							ROOT = {
+								original_tag = ITA
+							}
+							FROM.FROM = {
+								is_owned_by = YUG 
+							}
+							NOT = {
+								has_global_flag = fall_of_belgrade
+							}
+						}
+						news_event = { id = cityfall.24 }
+					}
+					if = {
+						limit = {
+							ROOT = {
+								original_tag = GRE
+							}
+							FROM.FROM = {
+								is_owned_by = YUG 
+							}
+							NOT = {
+								has_global_flag = fall_of_belgrade
+							}
+						}
+						news_event = { id = cityfall.25 }
+					}
+					if = {
+						limit = {
+							ROOT = {
+								original_tag = SOV
+							}
+							FROM.FROM = {
+								is_owned_by = YUG 
+							}
+							NOT = {
+								has_global_flag = fall_of_belgrade_sov
+							}
+						}
+						news_event = { id = cityfall.26 }
+					}
+				}
+			}
+
+}
+
+}
+
+}

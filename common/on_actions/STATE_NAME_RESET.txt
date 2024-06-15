@@ -1,0 +1,55 @@
+on_actions = {
+	on_startup = {
+		effect = {
+			998 = {
+				set_state_name = "晋西"
+			}
+			1017 = {
+				set_state_name = "晋西北"
+			}
+			1015 = {
+				set_state_name = "苏南"
+			}
+			997 = {
+				set_state_name = "苏中"
+			}
+			1037 = {
+				set_state_name = "粤西"
+			}
+			1030 = {
+				set_state_name = "肤施"
+			}
+			1048 = {
+				set_state_name = "若羌"
+			}
+			set_province_name = { id = 12356 name = "定边" }
+			set_province_name = { id = 4525 name = "固阳" }
+			set_province_name = { id = 13405 name = "肤施" }
+			set_province_name = { id = 13410 name = "会宁" }
+			set_province_name = { id = 10880 name = "保安" }
+			
+			set_province_name = { id = 11752 name = "察哈尔" }
+			set_province_name = { id = 12356 name = "吴起镇" }
+			set_province_name = { id = 1029 name = "海州" }
+			set_province_name = { id = 7568 name = "信阳" }
+			set_province_name = { id = 4295 name = "汉中" }
+			set_province_name = { id = 13403 name = "延长" }
+			set_victory_points = {
+				province = 13404
+				value = 0
+			}
+			set_victory_points = {
+				province = 13402
+				value = 0
+			}
+			set_victory_points = {
+				province = 11822
+				value = 0
+			}
+			set_victory_points = {
+				province = 13410
+				value = 1
+			}
+		}
+	}
+}

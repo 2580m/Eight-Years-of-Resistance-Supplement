@@ -1,0 +1,21 @@
+on_actions = {
+	on_capitulation = {
+		#ROOT是停止抵抗的国家，FROM是战胜国
+		effect = {
+			if = {
+				limit = {
+					ROOT = {
+						has_country_flag = capitulation_transfer_navy
+					}
+				}
+				ROOT = {
+					navy_experience = 500 #guo
+					#给海军经验是因为改装花费的是建造者的海军经验#
+					transfer_navy = {
+						target = FROM
+					}
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,154 @@
+on_actions = {
+#####start
+	on_startup = {
+		effect = {
+
+##########vvvvvvvvvvvvvvvvvvvvv###################将领调整
+SOV = {
+
+SOV_semyon_timoshenko = { set_character_flag = SOV_historically_not_purged_flag }
+SOV_konstantin_vershinin = { set_character_flag = SOV_historically_not_purged_flag }
+SOV_konstantin_rokossovsky = { set_character_flag = SOV_historically_not_purged_flag }
+SOV_ivan_konev = { set_character_flag = SOV_historically_not_purged_flag }
+SOV_sergey_khudyakov = { set_character_flag = SOV_historically_not_purged_flag }
+SOV_pavel_zhigarev = { set_character_flag = SOV_historically_not_purged_flag }
+SOV_aleksandr_novikov = { set_character_flag = SOV_historically_not_purged_flag }
+SOV_nikita_khrushchyov = { set_character_flag = SOV_historically_not_purged_flag }
+SOV_nikolay_voznesensky = { set_character_flag = SOV_historically_not_purged_flag }
+SOV_mikhail_kalinin = { set_character_flag = SOV_historically_not_purged_flag }
+SOV_patriarch_sergy = { set_character_flag = SOV_historically_not_purged_flag }
+SOV_lavrenty_beriya = { set_character_flag = SOV_historically_not_purged_flag }
+SOV_lazar_kaganovich = { set_character_flag = SOV_historically_not_purged_flag }
+SOV_vsevolod_merkulov = { set_character_flag = SOV_historically_not_purged_flag }
+SOV_malinuofusiji = { set_character_flag = SOV_historically_not_purged_flag }
+SOV_meiliecikefu = { set_character_flag = SOV_historically_not_purged_flag }
+SOV_tuoerbuxin = { set_character_flag = SOV_historically_not_purged_flag }
+SOV_katukov = { set_character_flag = SOV_historically_not_purged_flag }
+SOV_biliuzuofu = { set_character_flag = SOV_historically_not_purged_flag }
+SOV_luotemisi = { set_character_flag = SOV_historically_not_purged_flag }
+
+SOV_kalashnikov = { set_character_flag = SOV_historically_not_purged_flag }
+SOV_Andrei_Andreyev = { set_character_flag = SOV_historically_not_purged_flag }
+SOV_Zhdanov = { set_character_flag = SOV_historically_not_purged_flag }
+SOV_Malenkov = { set_character_flag = SOV_historically_not_purged_flag }
+SOV_Ordzhonikidze = { set_character_flag = SOV_historically_not_purged_flag }
+SOV_Viktor_Abakumov = { set_character_flag = SOV_historically_not_purged_flag }
+SOV_Dmitri_Ustinov = { set_character_flag = SOV_historically_not_purged_flag }
+
+
+SOV_georgy_zhukov = {
+set_character_flag = SOV_historically_not_purged_flag
+}
+SOV_boris_shaposhnikov = {
+add_skill_level = 1
+add_attack = 1
+add_unit_leader_trait = organizer
+
+}
+SOV_aleksandr_vasilevsky = {
+set_character_flag = SOV_historically_not_purged_flag
+
+add_unit_leader_trait = brilliant_strategist
+add_unit_leader_trait = organizer
+add_unit_leader_trait = skilled_staffer
+add_unit_leader_trait = career_officer
+
+add_unit_leader_trait = rising_young_officer
+add_logistics = 3
+add_planning = 2
+add_attack = -1
+add_planning = -1
+}
+}
+
+GER = {
+#GER_ewald_von_kleist = {
+#add_skill_level = 2
+#add_unit_leader_trait = career_officer
+#}
+GER_erwin_rommel = {
+add_unit_leader_trait = brilliant_strategist
+add_unit_leader_trait = career_officer
+add_unit_leader_trait = adaptable
+
+add_unit_leader_trait = rising_young_officer
+add_planning = 2
+}
+}
+
+ENG = {
+ENG_bernard_montgomery = {
+add_skill_level = 1
+add_planning = 1
+
+add_logistics = 1
+add_unit_leader_trait = infantry_officer
+add_unit_leader_trait = career_officer
+add_unit_leader_trait = organizer
+add_unit_leader_trait = expert_delegator
+
+}
+}
+
+FRA = {
+FRA_charles_de_gaulle = {
+add_unit_leader_trait = brilliant_strategist
+add_unit_leader_trait = career_officer
+
+add_unit_leader_trait = rising_young_officer
+add_logistics = 1
+}
+}
+
+XSM = {
+XSM_ma_jiyuan = {
+add_unit_leader_trait = brilliant_strategist
+add_unit_leader_trait = career_officer
+add_unit_leader_trait = politically_connected
+add_unit_leader_trait = cavalry_officer
+add_unit_leader_trait = infantry_officer
+add_unit_leader_trait = rising_young_officer
+
+add_attack = 1
+}
+}
+
+HPC = {
+HPC_zhang_zizhong = {
+			add_country_leader_role = {
+				country_leader = {
+					expire = "1965.1.1"
+					ideology = despotism
+					#desc=prc_wang_ming_desc
+					traits = {
+					difangshilipai
+					}
+				}
+				promote_leader = no
+			}
+			add_country_leader_role = {
+				country_leader = {
+					expire = "1965.1.1"
+					ideology = fascism_ideology
+					#desc=prc_wang_ming_desc
+					traits = {
+					difangshilipai
+					}
+				}
+				promote_leader = no
+			}
+
+add_unit_leader_trait = career_officer
+add_unit_leader_trait = harsh_leader
+add_unit_leader_trait = organizer
+
+add_skill_level = 1
+}
+}
+
+#####vvvvvv#####
+}
+
+}
+
+}

@@ -1,0 +1,165 @@
+on_actions = {
+
+	on_startup = {
+		effect = {
+			ITA = {
+				add_equipment_production = {
+					equipment = {
+						type = train_equipment_1
+						creator = "ITA"
+					}
+					requested_factories = 1
+					progress = 0.1
+					efficiency = 50
+				}
+				add_equipment_production = {
+					equipment = {
+						type = anti_air_equipment_1
+						creator = "ITA"
+					}
+					requested_factories = 1
+					progress = 0.1
+					efficiency = 50
+				}
+				add_equipment_production = {
+					equipment = {
+						type = artillery_equipment_1
+						creator = "ITA"
+					}
+					requested_factories = 1
+					progress = 0.1
+					efficiency = 50
+				}
+			}
+			if = {
+				limit = {
+					ITA = { is_ai = yes }
+				}
+				ITA = { 
+					create_equipment_variant = {
+						type = small_plane_airframe_1
+						design_team = mio:ITA_savoia_marchetti_organization
+						parent_version = 1
+						modules = {
+							fixed_main_weapon_slot = light_mg_4x
+							fixed_auxiliary_weapon_slot_1 = light_mg_4x
+							engine_type_slot = engine_2_1x
+							special_type_slot_1 = empty
+							special_type_slot_2 = empty	
+						}
+					}
+					create_equipment_variant = {
+						type = small_plane_cas_airframe_1
+						design_team = mio:ITA_savoia_marchetti_organization
+						parent_version = 1
+						modules = {
+							fixed_main_weapon_slot = bomb_locks
+							fixed_auxiliary_weapon_slot_1 = empty
+							engine_type_slot = engine_2_1x
+							special_type_slot_1 = non_strategic_materials_small
+							special_type_slot_2 = empty
+						}
+					}
+					create_equipment_variant = {
+						type = small_plane_naval_bomber_airframe_1
+						design_team = mio:ITA_savoia_marchetti_organization
+						parent_version = 1
+						modules = {
+							fixed_main_weapon_slot = torpedo_mounting
+							fixed_auxiliary_weapon_slot_1 = empty
+							engine_type_slot = engine_2_1x
+							special_type_slot_1 = non_strategic_materials_small
+							special_type_slot_2 = floats
+						}
+					}
+					create_equipment_variant = {
+						type = small_plane_airframe_2
+						design_team = mio:ITA_savoia_marchetti_organization
+						parent_version = 0
+						modules = {
+							fixed_main_weapon_slot = heavy_mg_4x
+							fixed_auxiliary_weapon_slot_1 = aircraft_cannon_1_2x
+							fixed_auxiliary_weapon_slot_2 = aircraft_cannon_1_1x
+							engine_type_slot = engine_3_1x
+							special_type_slot_1 = self_sealing_fuel_tanks_small
+							special_type_slot_2 = drop_tanks
+							special_type_slot_3 = fuel_tanks_small
+						}
+					}
+					create_equipment_variant = {
+						type = medium_plane_airframe_1
+						design_team = mio:ITA_savoia_marchetti_organization
+						parent_version = 0
+						modules = {
+							fixed_main_weapon_slot = medium_bomb_bay
+							fixed_auxiliary_weapon_slot_1 = torpedo_mounting
+							fixed_auxiliary_weapon_slot_2 = bomb_locks
+							engine_type_slot = engine_1_2x
+							special_type_slot_1 = empty
+							special_type_slot_2 = empty
+							special_type_slot_3 = empty
+						}
+					}
+					#delete_unit = {
+					#	state = 158
+					#	disband = yes
+					#}
+					#delete_unit = {
+					#	state = 160
+					#	disband = yes
+					#}
+					#add_ideas = IB_no_armored_car_variant
+					set_technology = { force_rotation = 1 popup = no }
+				}
+				build_railway = {
+					level = 2
+					path = { 9990 4159 }
+				}
+				build_railway = {
+					level = 1
+					start_state = 448
+					target_state = 450
+				}
+				build_railway = {
+					level = 1
+					start_state = 450
+					target_state = 451
+				}
+			}
+			if = {
+				limit = {
+					ITA = { is_ai = yes }
+					has_dlc = "La Resistance"
+				}
+				ITA = { 
+					create_intelligence_agency = yes
+					upgrade_intelligence_agency = upgrade_economy_civilian
+					upgrade_intelligence_agency = upgrade_army_department
+					upgrade_intelligence_agency = upgrade_naval_department
+					upgrade_intelligence_agency = upgrade_airforce_department
+					upgrade_intelligence_agency = upgrade_passive_defense
+					upgrade_intelligence_agency = upgrade_passive_defense
+					upgrade_intelligence_agency = upgrade_passive_defense
+					upgrade_intelligence_agency = upgrade_passive_defense
+					upgrade_intelligence_agency = upgrade_suicide_pills
+					upgrade_intelligence_agency = upgrade_interrogation_techniques
+					upgrade_intelligence_agency = upgrade_training_centers
+					upgrade_intelligence_agency = upgrade_commando_training
+					upgrade_intelligence_agency = upgrade_form_department
+					upgrade_intelligence_agency = upgrade_decryption_boost
+					upgrade_intelligence_agency = upgrade_decryption_boost
+					upgrade_intelligence_agency = upgrade_decryption_boost_2
+					upgrade_intelligence_agency = upgrade_decryption_boost_2
+					upgrade_intelligence_agency = upgrade_decryption_boost_2
+				}
+			}
+			
+			158 = { set_state_flag = ITA_radar_station }#皮埃蒙特
+			114 = { set_state_flag = ITA_radar_station }#撒丁
+			115 = { set_state_flag = ITA_radar_station }#西西里
+			164 = { set_state_flag = ITA_radar_station }#十二群岛
+			451 = { set_state_flag = ITA_radar_station }#德尔纳
+		}
+	}
+	
+}

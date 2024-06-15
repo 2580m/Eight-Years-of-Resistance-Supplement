@@ -1,0 +1,2086 @@
+on_actions = {
+    on_startup = {
+		effect = {
+		
+		CHI = { save_global_event_target_as = WTT_current_china_leader }
+		PRC = { save_global_event_target_as = WTT_communist_china }
+		
+		PRC = {
+		
+		set_war_support = 0.35
+		set_stability = 0.3
+			
+			delete_unit = {
+				disband = no
+			}
+			load_oob = "PRC_1936"
+			
+			#add_relation_modifier = {
+			#	target = CHI
+			#	modifier = PRC_reorganized_departments_CHI
+			#}
+			#set_politics = {
+			#	ruling_party = communism
+			#	elections_allowed = yes
+			#	election_frequency = 60
+			#}
+		
+		add_ideas = PRC_xuanxiafu
+		
+		promote_character = PRC_songqingling
+		promote_character = prc_shen_junru
+		
+		set_party_name = {
+			ideology = democratic
+			name = "中国国民党左派"
+			long_name = "中国国民党左派"
+		}
+		set_party_name = {
+			ideology = n_socialism
+			name = "救国会"
+			long_name = "救国会"
+		}
+		
+		country_event = {
+            days = 3670 id = PRC_maoanying.1
+        }
+		
+        country_event = {
+            days = 3680 id = PRC_lilisan.1
+        }
+		
+        set_global_flag = Zhang_Wentian_as_maoist_leader
+        #set_global_flag = bogu_as_teb_leader
+	
+	    country_event = {
+            days = 698 id = RCM_comchina.1 #wang ming return
+        }
+        country_event = {
+            days = 561 id = RCM_comchina.2 #wang jiaxiang to moscow
+        }
+		#country_event = { #uses MTTH now to revent bugs
+		#    days = 1009 id = RCM_comchina.3 #wang jiaxiang return from moscow
+		#}
+        country_event = {
+            days = 1054 id = RCM_comchina.11 #mao's marriage
+        }
+        country_event = {
+            days = 741 id = RCM_comchina.12 #Xinhua Daily is created (only when Bo Gu is available)
+        }
+        country_event = {
+            days = 1962 id = RCM_comchina.14 #Jiefang Daily is created (only when Bo Gu is available)
+        }
+        country_event = {
+            days = 180 id = RCM_comchina.15 #deng fa to USSR
+        }
+        country_event = {
+            days = 624 id = RCM_comchina.16 #deng fa return to sinkiang
+        }
+        country_event = {
+            days = 1354 id = RCM_comchina.17 #Deng Fa return to PRC
+        }
+        country_event = {
+            days = 1292  id = RCM_comchina.19 #zhou head to moscow
+        }
+		
+		country_event = {
+            days = 1294  id = RCM_comchina.22 #1939.7 liu shaoqi published How to be a good communist
+        }
+		
+        country_event = {
+            days = 1536 id = RCM_comchina.20 #zhou return
+        }
+		country_event = {
+            days = 1536 id = PRC_sanzo_nosaka.1 #yebancansan come
+        }
+		
+        #country_event = {
+        #    days = 3750 id = RCM_comchina.21 #plane crash
+        #}
+        country_event = {
+            days = 95  id = RCM_comchina_trot.1 #Chen Duxiu publish article
+        }
+        country_event = {
+            days = 1965   id = RCM_comchina_mao.2 #reconstruct studies (mao)
+        }
+        country_event = {
+            days = 1292  id = RCM_comchina.19 #wang jiaxiang to moscow
+        }
+		
+        }
+		
+		}
+	}
+	
+	#ROOT is subject FROM is overlord
+	on_subject_annexed = {
+		effect = {
+			if = {
+				limit = {
+					original_tag = SIK
+					has_character = PRC_maozemin
+					FROM = { TAG = event_target:WTT_communist_china }
+				}
+				FROM = { country_event = PRC_raoshushi.4 }
+			}
+		}
+	}
+	
+	on_monthly_SIA = {
+		effect = {
+				if = {
+					limit = {
+						tag = SIA
+						is_historical_focus_on = yes
+						is_ai = yes
+						not = { OR = { has_war = yes is_in_faction = yes is_subject = yes } }
+						not = { has_idea = neutrality_idea }
+					}
+					add_ideas = neutrality_idea
+				}
+		}
+	}
+	
+	on_daily_TIB = {
+		effect = {
+				if = {
+					limit = {
+						tag = TIB
+						has_government = communism
+						has_global_flag = PRC_Apei_awangjinmei
+						exists = yes
+						is_subject = no
+						event_target:WTT_communist_china = {
+							is_subject = no
+							has_government = communism
+						}
+					}
+					event_target:WTT_communist_china = {
+						set_autonomy = { target = ROOT autonomy_state = autonomy_military_region freedom_level = 0.50 }
+					}
+				}
+		}
+	}
+	on_daily_JAP = {
+		effect = {
+				if = {
+					limit = {
+						tag = JAP
+						has_completed_focus = JAP_placate_military_focus
+						has_government = neutrality
+						is_subject = no
+						not = { has_cosmetic_tag = JAP_DIGUO }
+					}
+					set_cosmetic_tag = JAP_DIGUO
+				}
+		}
+	}
+	on_daily_SOV = {
+		effect = {
+				if = {
+					limit = {
+						tag = SOV
+					    not = {
+						capital_scope = {
+						state = 219
+						}
+						}
+						has_government = communism
+						has_global_flag = capital_653
+						controls_state = 219
+						owns_state = 219
+						surrender_progress < 0.3
+					}
+					set_capital = { state = 219 }
+				}
+		}
+	}
+	on_daily_PRC = {
+		effect = {
+				if = {
+				limit = {
+					tag = PRC
+				    has_completed_focus = PRC_grand_northwest_alliance_focus
+					has_global_flag = Secret_Northwest_Alliance
+					not = { has_global_flag = Secret_Northwest_Alliance_happen }
+					1030 = { not = { has_state_flag = I_choose_this_state_to_DMZ } }	
+					1030 = { is_demilitarized_zone = no }
+				}
+				set_global_flag = Secret_Northwest_Alliance_happen
+				transfer_state = 622
+				transfer_state = 1030
+				set_capital = { state = 1030 }
+				}
+				if = {
+					limit = {
+					tag = PRC
+						has_global_flag = PRC_civil_war_started
+						has_war_with = event_target:WTT_current_china_leader
+						not = { has_global_flag = roc_in_taiwan_flag }
+						any_owned_state = { is_controlled_by = event_target:WTT_current_china_leader }
+					}
+					every_owned_state = {
+					    limit = { is_controlled_by = event_target:WTT_current_china_leader }
+						event_target:WTT_current_china_leader = { set_state_owner = PREV }
+					}
+				}
+				if = {
+					limit = {
+					tag = PRC
+						any_unit_leader = {
+						has_trait = hidden_sympathies
+						}
+					}
+					every_unit_leader = {
+					limit = {
+						OR = {
+							has_trait = hidden_sympathies
+						}
+					}
+					remove_unit_leader_trait = hidden_sympathies
+				    }
+				}
+				if = {
+					limit = {
+						tag = PRC
+						or = {
+						is_subject = yes
+						exists = no
+						}
+						not = { has_global_flag = chi_remove_hidden_sympathies }
+					}
+					set_global_flag = chi_remove_hidden_sympathies
+					event_target:WTT_current_china_leader = {
+						every_unit_leader = {
+						limit = {
+							OR = {
+								has_trait = hidden_sympathies
+							}
+						}
+						remove_unit_leader_trait = hidden_sympathies
+						}
+					}
+				}
+		}
+	}
+	on_daily_CHI = {
+		effect = {
+				if = {
+					limit = {
+						tag = CHI
+						capital_scope = {
+						state = 744
+						}
+						controls_state = 605
+						owns_state = 605
+					}
+					set_capital = { state = 605 }
+				}
+				if = {
+					limit = {
+					tag = CHI
+						has_global_flag = PRC_civil_war_started
+						has_war_with = event_target:WTT_communist_china
+						not = { has_global_flag = roc_in_taiwan_flag }
+						any_owned_state = { is_controlled_by = event_target:WTT_communist_china }
+					}
+					every_owned_state = {
+					    limit = { is_controlled_by = event_target:WTT_communist_china }
+						event_target:WTT_communist_china = { set_state_owner = PREV }
+					}
+				}
+		}
+	}
+	
+	on_daily = {
+		effect = {
+			
+			1030 = { #延安 #傻逼bug日了狗了
+				if = {
+					limit = {
+						1030 = { has_state_flag = I_choose_this_state_to_DMZ }				
+						not = { has_global_flag = CHI_unite_PRC }
+						country_exists = NEA
+					}
+					NEA = { transfer_state = 1030 }
+					set_demilitarized_zone = yes
+					set_state_flag = I_choose_this_state_to_DMZ
+					teleport_armies = { 
+						to_state = 744
+					}
+					PRC = {
+					if = {
+					limit = {
+					not = { controls_state = 1030 }
+					not = { controls_state = 622 }
+					}
+					set_capital = { state = 1029 }
+					}
+					}
+				}
+				if = {
+					limit = {
+						is_demilitarized_zone = yes
+						1030 = { not = { has_state_flag = I_choose_this_state_to_DMZ } }	
+						1030 = { is_demilitarized_zone = no }
+					}
+					set_demilitarized_zone = no
+					clr_state_flag = I_choose_this_state_to_DMZ
+					PRC = {
+					country_event = { id = prc_yanan.1 days = 5 }
+					}
+				}
+			}
+			
+			622 = { #瓦窑堡
+				if = {
+					limit = {
+						1030 = { has_state_flag = I_choose_this_state_to_DMZ }			
+						not = { has_global_flag = CHI_unite_PRC }
+						has_global_flag = prc_baoan_happen
+						country_exists = NEA
+					}
+					NEA = { transfer_state = 622 }
+					set_demilitarized_zone = yes
+					set_state_flag = I_choose_this_state_to_DMZ
+				}
+				if = {
+					limit = {
+						is_demilitarized_zone = yes
+						1030 = { not = { has_state_flag = I_choose_this_state_to_DMZ } }	
+						1030 = { is_demilitarized_zone = no }
+					}
+					set_demilitarized_zone = no
+					clr_state_flag = I_choose_this_state_to_DMZ
+				}
+			}
+			
+		}
+	}
+	
+	on_puppet = {
+		effect = {
+			if = {
+				limit = {
+					NOT = { has_idea = PNSD_hidden }
+				}
+				add_ideas = PNSD_hidden
+			}
+			
+			if = {
+				limit = {
+					original_tag = HOL
+					not = { is_subject_of = HOL }
+				}
+				set_cosmetic_tag = INS_subject
+			}
+			
+			if = {
+				limit = {
+					original_tag = BOR
+					OR = { is_subject_of = event_target:WTT_current_china_leader is_puppet_of = event_target:WTT_current_china_leader }
+				}
+				set_cosmetic_tag = BOR_CHI
+			}
+		}
+	}
+	
+	###nuke_drop #FROM is state the nuke got dropped on - Borrowed from Equestria at War
+	on_nuke_drop = {
+		effect = {
+			
+			FROM = {
+			add_dynamic_modifier = { modifier = nuke_state_modifier days = 365 }
+            add_manpower = -300000
+			if = {
+			limit = {
+			or = {
+			arms_factory > 10
+			industrial_complex > 10
+			and = {
+			arms_factory > 5
+			industrial_complex > 5
+			}
+			}
+			}
+            #owner = { country_event = nuke_boom.1 }
+			state_event = nuke_boom.1
+			}
+			}
+		}
+	}
+	
+	on_government_change = {
+		effect = {
+			if = {
+				limit = {
+				    tag = SIK
+					NOT = { has_government = SOV }
+				}
+				SOV = {
+                    diplomatic_relation = {
+				    country = SIK
+				    relation = guarantee
+				    active = no
+                    }
+					add_ai_strategy = {
+                    type = protect
+		            value = -9999
+		            id = SIK
+                    }
+                }
+			}
+			
+			if = {
+				limit = {
+				    original_tag = JAP
+					has_government = communism
+				}
+				every_other_country = {
+				limit = { has_government = communism }
+				remove_opinion_modifier = { target = root modifier = hostile_status }
+				ROOT = { remove_opinion_modifier = { target = PREV modifier = hostile_status } }
+				}
+			}
+			
+			if = {
+				limit = {
+				    original_tag = CHI
+					is_fascism_type = no
+				}
+				every_unit_leader = {
+					limit = {
+						OR = {
+							has_trait = hidden_sympathies
+						}
+					}
+					remove_unit_leader_trait = hidden_sympathies
+				}
+			}
+			
+			if = {
+				limit = {
+				    is_subject_of = ENG
+					has_global_flag = stay_goverment_is_happenning
+					has_country_flag = democratic_eng_puppet
+					not = { has_country_flag = democratic_eng_puppet_already_back }
+				}
+				set_country_flag = democratic_eng_puppet_already_back
+				set_politics = {
+            ruling_party = democratic
+            election_frequency = 48
+            elections_allowed = yes
+                }
+			}
+			
+			if = {
+				limit = {
+				    is_subject_of = ENG
+					has_global_flag = stay_goverment_is_happenning
+					has_country_flag = neutrality_eng_puppet
+					not = { has_country_flag = neutrality_eng_puppet_already_back }
+				}
+				set_country_flag = neutrality_eng_puppet_already_back
+				set_politics = {
+            ruling_party = neutrality
+            elections_allowed = no
+                }
+			}
+		}
+	}
+	
+	#ROOT is subject FROM is previous overlord
+	on_subject_free = {
+		effect = {
+		    if = {
+				limit = {
+				    OR = {
+					TAG = DPR
+					original_tag = KOR
+					}
+					has_government = communism
+					FROM = {
+					    or = {
+						tag = SOV
+						is_in_faction_with = SOV
+						}
+						has_government = communism
+					}
+				}
+				set_cosmetic_tag = DPR
+				leave_faction = yes
+				add_opinion_modifier = { target = FROM modifier = liberator }
+				add_ideas = TO_chose_neutrality_modded
+				FROM = { give_guarantee = root }
+				give_military_access = FROM
+				diplomatic_relation = {
+	            country = FROM
+	            relation = non_aggression_pact
+	            active = yes
+                }
+				add_ai_strategy = {
+		        type = befriend
+		        id = FROM
+		        value = 500
+	            }
+				add_ai_strategy = {
+		        type = alliance
+		        id = FROM
+		        value = 500
+	            }
+				add_ai_strategy = {
+		        type = support
+		        id = FROM
+		        value = 500
+	            }
+			}
+			if = {
+				limit = {
+				    OR = {
+					TAG = KOR
+					original_tag = KOR
+					owns_state = 525
+					}
+					NOT = { has_government = communism }
+					FROM = {
+					    or = {
+						tag = USA
+						tag = ENG
+						tag = FRA
+						is_in_faction_with = USA
+						is_in_faction_with = ENG
+						is_in_faction_with = FRA
+						}
+						NOT = { has_government = communism }
+					}
+				}
+				set_cosmetic_tag = KOR_blue_blue
+				leave_faction = yes
+				add_opinion_modifier = { target = FROM modifier = liberator }
+				add_ideas = TO_chose_neutrality_modded
+				set_politics = {
+                ruling_party = democratic 
+                elections_allowed = yes
+			    election_frequency = 48
+                }
+				give_military_access = FROM
+				diplomatic_relation = {
+	            country = FROM
+	            relation = non_aggression_pact
+	            active = yes
+                }
+				add_ai_strategy = {
+		        type = befriend
+		        id = FROM
+		        value = 500
+	            }
+				add_ai_strategy = {
+		        type = alliance
+		        id = FROM
+		        value = 500
+	            }
+				add_ai_strategy = {
+		        type = support
+		        id = FROM
+		        value = 500
+	            }
+			}
+			
+			if = {
+				limit = {
+					TAG = JAP
+					is_democratic_type = yes
+					has_war = no
+					FROM = {
+					    or = {
+						tag = USA
+						tag = ENG
+						is_in_faction_with = USA
+						is_in_faction_with = ENG
+						}
+						is_democratic_type = yes
+					}
+				}
+				leave_faction = yes
+				add_opinion_modifier = { target = FROM modifier = liberator }
+				add_ideas = TO_chose_neutrality_modded
+				set_politics = {
+                ruling_party = democratic 
+                elections_allowed = yes
+			    election_frequency = 48
+                }
+				retire_country_leader = yes
+				retire_country_leader = yes
+				retire_country_leader = yes
+				retire_country_leader = yes
+				create_country_leader = { #Safe because Sokolovsky doesn't exist ingame
+				name="吉田茂"
+				#desc=POLITICS_SOKOLOVKSY_DESC
+				picture = "gfx/leaders/JAP/jitianmao.jpg"
+				ideology = liberalism
+				traits = { guojizhengzhihuodongjia smooth_talking_charmer democratic_reformer }
+		        }
+				if = {
+				limit = { not = { has_country_leader = { ruling_only = yes name = "吉田茂" } } }
+				create_country_leader = { #Safe because Sokolovsky doesn't exist ingame
+				name="吉田茂"
+				#desc=POLITICS_SOKOLOVKSY_DESC
+				picture = "gfx/leaders/JAP/jitianmao.jpg"
+				ideology = liberalism
+				traits = { guojizhengzhihuodongjia smooth_talking_charmer democratic_reformer }
+		        }
+				}
+				set_party_name = {
+					ideology = democratic
+					name = "民主自由党"
+					long_name = "民主自由党"
+				}
+				FROM = { give_guarantee = root }
+				give_military_access = FROM
+				diplomatic_relation = {
+	            country = FROM
+	            relation = non_aggression_pact
+	            active = yes
+                }
+				add_ai_strategy = {
+		        type = befriend
+		        id = FROM
+		        value = 500
+	            }
+				add_ai_strategy = {
+		        type = alliance
+		        id = FROM
+		        value = 500
+	            }
+				add_ai_strategy = {
+		        type = support
+		        id = FROM
+		        value = 500
+	            }
+			}
+			
+			if = {
+				limit = {
+					TAG = PHI
+					is_democratic_type = yes
+					has_war = no
+					FROM = {
+					    or = {
+						tag = USA
+						tag = ENG
+						is_in_faction_with = USA
+						is_in_faction_with = ENG
+						}
+						is_democratic_type = yes
+					}
+				}
+				leave_faction = yes
+				add_opinion_modifier = { target = FROM modifier = liberator }
+				add_ideas = TO_chose_neutrality_modded
+				FROM = { give_guarantee = root }
+				give_military_access = FROM
+				diplomatic_relation = {
+	            country = FROM
+	            relation = non_aggression_pact
+	            active = yes
+                }
+				add_ai_strategy = {
+		        type = befriend
+		        id = FROM
+		        value = 500
+	            }
+				add_ai_strategy = {
+		        type = alliance
+		        id = FROM
+		        value = 500
+	            }
+				add_ai_strategy = {
+		        type = support
+		        id = FROM
+		        value = 500
+	            }
+			}
+		}
+	}
+	
+	on_send_volunteers = {
+		effect = {
+			FROM = {
+			give_military_access = ROOT
+			add_ai_strategy = {
+		        type = befriend
+		        id = ROOT
+		        value = 50
+	           }
+		    }
+			
+			if = {
+			limit = {
+			ROOT = {
+			TAG = SOV
+			}
+			FROM = {
+					or = {
+					original_tag = SPR
+					}
+					or = {
+					has_government = democratic
+					has_government = communism
+					}
+				}
+			}
+			save_global_event_target_as = SOV_volunteers_in_democratic_SPR
+			}
+			
+			if = {
+			limit = {
+			ROOT = {
+			NOT = { TAG = SOV }
+			}
+			FROM = {
+					or = {
+					original_tag = SPR
+					}
+					or = {
+					has_government = democratic
+					has_government = communism
+					}
+				}
+			NOT = { has_global_flag = another_volunteers_in_democratic_SPR }
+			}
+			save_global_event_target_as = another_volunteers_in_democratic_SPR
+			set_global_flag = another_volunteers_in_democratic_SPR
+			}
+		}
+	}
+	
+	on_join_faction = {
+	    effect = {
+		
+		    if = {
+				limit = {
+					original_tag = FIC
+					has_idea = fic_be_loyal_to_vic
+					FROM = {
+						original_tag = JAP
+					}
+					NOT = { has_global_flag = remove_fic_be_loyal_to_vic }
+				}
+				set_global_flag = remove_fic_be_loyal_to_vic
+				FIC = {
+				remove_ideas = fic_be_loyal_to_vic
+			    }
+			
+			}
+			
+			if = {
+				limit = {
+					is_literally_china = yes
+					is_historical_focus_on = yes
+					is_ai = yes
+					not = { has_government = communism }
+					FROM = {
+						original_tag = SOV
+						has_government = communism
+						is_ai = yes
+					}
+					country_exists = event_target:WTT_communist_china
+				}
+				FROM = {
+					remove_from_faction = root
+				}
+				add_ideas = zhongguoshiwu
+			}
+			
+		    if = {
+				limit = {
+					original_tag = FIC
+					not = { is_democratic_type = yes }
+					FROM = {
+					always = yes
+					}
+					any_country = {
+					original_tag = FRA
+			        has_focus_tree = vichy_french_focus
+					}
+					has_global_flag = fall_of_france
+					NOT = { has_global_flag = FIC_leave_ally }
+				}
+				set_global_flag = FIC_leave_ally
+				FIC = {
+				country_event = hidden_eevv.10
+			    }
+			
+			}
+			
+			if = {
+				limit = {
+				always = no
+					original_tag = BUL
+					is_historical_focus_on = yes
+					is_ai = yes
+					not = { is_democratic_type = yes }
+					FROM = {
+					    original_tag = GER
+						not = { is_democratic_type = yes }
+					}
+					NOT = { has_global_flag = balance_idea_bul_hesitate }
+				}
+				set_global_flag = balance_idea_bul_hesitate
+				BUL = {
+				    add_ideas = balance_idea_bul_hesitate
+			    }
+			
+			}
+			
+			if = {
+				limit = {
+					original_tag = ITA
+					is_ai = yes
+					not = { is_democratic_type = yes }
+					FROM = {
+					    original_tag = GER
+						not = { is_democratic_type = yes }
+					}
+					NOT = { has_global_flag = balance_idea_ita_hesitate }
+				}
+				set_global_flag = balance_idea_ita_hesitate
+				ITA = {
+				    add_ideas = balance_idea_ita_hesitate
+			    }
+			
+			}
+			
+			if = {
+				limit = {
+					not = { is_subject_of = ENG }
+					is_major = yes
+					FROM = {
+					is_faction_leader = yes
+					is_democratic_type = yes
+					or = {
+					original_tag = ENG
+					}
+					}
+					NOT = { has_global_flag = eng_ally_rename }
+				}
+				set_global_flag = eng_ally_rename
+				FROM = {
+                set_faction_name = Allies
+				}
+			}
+			
+			if = {
+				limit = {
+					original_tag = ROM
+					46 = { is_owned_and_controlled_by = root }
+					is_ai = yes
+					FROM = {
+					is_faction_leader = yes
+					or = {
+					original_tag = GER
+					}
+					}
+				}
+				ROOT = {
+                give_resource_rights = { receiver = FROM state = 46 }
+				}
+			}
+			
+			if = {
+				limit = {
+					original_tag = ROM
+					46 = { is_owned_and_controlled_by = root }
+					is_ai = yes
+					FROM = {
+					is_faction_leader = yes
+					or = {
+					original_tag = ITA
+					}
+					}
+				}
+				ROOT = {
+                give_resource_rights = { receiver = FROM state = 46 }
+				}
+			}
+			
+			if = {
+				limit = {
+					original_tag = ROM
+					46 = { is_owned_and_controlled_by = root }
+					is_ai = yes
+					FROM = {
+					is_faction_leader = yes
+					or = {
+					original_tag = JAP
+					}
+					}
+				}
+				ROOT = {
+                give_resource_rights = { receiver = FROM state = 46 }
+				}
+			}
+			
+			if = {
+				limit = {
+					original_tag = POL
+					is_ai = yes
+					FROM = {
+					or = {
+					original_tag = SOV			
+					}
+					}
+				}
+				POL = { add_ideas = balance_idea_yug_pol_dont_call_sov_too_early }
+			}
+			
+			if = {
+				limit = {
+					original_tag = YUG
+					is_ai = yes
+					FROM = {
+					or = {
+					original_tag = SOV			
+					}
+					}
+				}
+				YUG = { add_ideas = balance_idea_yug_pol_dont_call_sov_too_early }
+			}
+			
+			if = {
+				limit = {
+					is_ai = yes
+					FROM = {
+					or = {
+					original_tag = SOV			
+					}
+					}
+				}
+				ROOT = { add_ideas = balance_idea_yug_pol_dont_call_sov_too_early }
+			}
+			
+			if = {
+				limit = {
+					TAG = SIA
+					FROM = {
+					or = {
+					original_tag = JAP			
+					}
+					}
+				}
+				set_global_flag = sia_join_japan
+			}
+		
+		}
+	}
+	
+	on_offer_join_faction = {
+		effect = {
+			if = {
+				limit = {
+					FROM = { tag = POL }
+					original_tag = SOV
+				}
+				POL = { add_ideas = balance_idea_yug_pol_dont_call_sov_too_early }
+			}
+			
+			if = {
+				limit = {
+					FROM = {
+						is_literally_china = yes
+						is_ai = yes
+						not = { has_government = communism }
+					}
+					root = {
+						original_tag = SOV
+						has_government = communism
+						is_ai = yes
+					}
+					country_exists = event_target:WTT_communist_china
+					is_historical_focus_on = yes
+				}
+				root = {
+					remove_from_faction = FROM
+				}
+				FROM = { add_ideas = zhongguoshiwu }
+			}
+			
+			if = {
+				limit = {
+					original_tag = JAP
+					FROM = {
+					original_tag = FIC
+					has_idea = fic_be_loyal_to_vic
+					}
+					NOT = { has_global_flag = remove_fic_be_loyal_to_vic }
+				}
+				set_global_flag = remove_fic_be_loyal_to_vic
+				FIC = {
+				remove_ideas = fic_be_loyal_to_vic
+			    }
+			
+			}
+			
+			if = {
+				limit = {
+				always = no
+					original_tag = GER
+					not = { is_democratic_type = yes }
+					FROM = {
+					    original_tag = BUL
+						is_historical_focus_on = yes
+					    is_ai = yes
+					    not = { is_democratic_type = yes }
+					}
+					NOT = { has_global_flag = balance_idea_bul_hesitate }
+				}
+				set_global_flag = balance_idea_bul_hesitate
+				BUL = {
+				    add_ideas = balance_idea_bul_hesitate
+			    }
+			
+			}
+			
+			if = {
+				limit = {
+					original_tag = GER
+					not = { is_democratic_type = yes }
+					FROM = {
+					    original_tag = ITA
+					    is_ai = yes
+					    not = { is_democratic_type = yes }
+					}
+					NOT = { has_global_flag = balance_idea_ita_hesitate }
+				}
+				set_global_flag = balance_idea_ita_hesitate
+				ITA = {
+				    add_ideas = balance_idea_ita_hesitate
+			    }
+			
+			}
+			
+			if = {
+				limit = {
+					FROM = { tag = YUG }
+					original_tag = SOV
+				}
+				YUG = { add_ideas = balance_idea_yug_pol_dont_call_sov_too_early }
+			}
+			
+			if = {
+				limit = {
+					FROM = { is_ai = yes }
+					original_tag = SOV
+				}
+				FROM = { add_ideas = balance_idea_yug_pol_dont_call_sov_too_early }
+			}
+			
+			if = {
+				limit = {
+					FROM = {
+					not = { is_subject_of = ENG }
+					is_major = yes
+					}
+					is_faction_leader = yes
+					is_democratic_type = yes
+					or = {
+					original_tag = ENG
+					}
+					not = { has_global_flag = eng_ally_rename }
+				}
+				set_global_flag = eng_ally_rename
+				set_faction_name = Allies
+			}
+			
+			if = {
+				limit = {
+					FROM = {
+					TAG = SIA
+					}
+					original_tag = JAP
+				}
+				set_global_flag = sia_join_japan
+			}
+			
+			if = {
+				limit = {
+					FROM = {
+					original_tag = ROM
+					is_ai = yes
+					46 = { is_owned_and_controlled_by = FROM }
+					}
+					is_faction_leader = yes
+					or = {
+					original_tag = GER
+					}
+				}
+				FROM = {
+                give_resource_rights = { receiver = ROOT state = 46 }
+				}
+			}
+			
+			if = {
+				limit = {
+					FROM = {
+					original_tag = ROM
+					is_ai = yes
+					46 = { is_owned_and_controlled_by = FROM }
+					}
+					is_faction_leader = yes
+					or = {
+					original_tag = ITA
+					}
+				}
+				FROM = {
+                give_resource_rights = { receiver = ROOT state = 46 }
+				}
+			}
+			
+			if = {
+				limit = {
+					FROM = {
+					original_tag = ROM
+					is_ai = yes
+					46 = { is_owned_and_controlled_by = FROM }
+					}
+					is_faction_leader = yes
+					or = {
+					original_tag = JAP
+					}
+				}
+				FROM = {
+                give_resource_rights = { receiver = ROOT state = 46 }
+				}
+			}
+			
+			if = {
+				limit = {
+					FROM = {
+					TAG = FIC
+					not = { is_democratic_type = yes }
+					}
+					any_country = {
+					original_tag = FRA
+			        has_focus_tree = vichy_french_focus
+					}
+					has_global_flag = fall_of_france
+					NOT = { has_global_flag = FIC_leave_ally }
+				}
+				set_global_flag = FIC_leave_ally
+				FIC = {
+				country_event = hidden_eevv.10
+			    }
+			}
+		}
+	}
+	
+	#ROOT = attacking side
+	#FROM = defending side
+	#fired when two countries end up at war with each other (on_war is fired when a country goes to war against anyone and is not fired again when it enters war against another country unless it went to peace first)
+	on_war_relation_added = { #以后都用这个 最普遍触发器
+		effect = {
+			if = {
+				limit = {
+					OR = {
+						AND = {
+							tag = JAP
+							is_ai = yes
+							FROM = {
+								OR = { tag = ENG tag = USA is_in_faction_with = ENG }
+							}
+						}
+						#AND = {
+						#	OR = { tag = ENG tag = USA is_in_faction_with = ENG }
+						#	FROM = {
+						#		tag = JAP
+						#		is_ai = yes
+						#	}	
+						#}
+					}
+					NOT = { has_global_flag = balance_idea_jap_push_south_east }
+				}
+				set_global_flag = balance_idea_jap_push_south_east
+				JAP = { add_timed_idea = { idea = balance_idea_jap_push_south_east days = 365 } }
+			}
+			
+			if = {
+				limit = {
+					OR = {
+						AND = {
+							original_tag = SIK
+							has_character = PRC_maozemin
+							FROM = {
+								tag = event_target:WTT_communist_china
+							}
+						}
+						AND = {
+							tag = event_target:WTT_communist_china
+							FROM = {
+								original_tag = SIK
+								has_character = PRC_maozemin
+							}
+						}
+					}
+				}
+				event_target:WTT_communist_china = { country_event = { id = PRC_raoshushi.5 days = 1 } }
+			}
+			
+			if = {
+				limit = {
+					OR = {
+						AND = {
+							is_literally_china = yes
+							FROM = {
+								tag = event_target:WTT_communist_china
+							}
+						}
+						AND = {
+							tag = event_target:WTT_communist_china
+							FROM = {
+								is_literally_china = yes
+							}
+						}
+						has_global_flag = CHI_no_longer_united_flag
+						NOT = { has_global_flag = roc_in_taiwan_flag }
+					}
+					NOT = { has_global_flag = warlord_ningsibuqu }
+				}
+				set_global_flag = warlord_ningsibuqu
+				every_country = { limit = { is_literally_china = yes has_war_with = event_target:WTT_communist_china not = { has_idea = chi_ningsibuqu } not = { has_idea = xsm_majiajun } }
+				add_ideas = chi_ningsibuqu
+				}
+			}
+			
+			if = {
+				limit = {
+					OR = {
+						AND = {
+							tag = USA
+							FROM = {
+								is_major = yes
+							}	
+						}
+						AND = {
+							is_major = yes
+							FROM = {
+								tag = USA
+							}	
+						}
+					}
+					NOT = { has_global_flag = usa_gei_in_war }
+				}
+				set_global_flag = usa_gei_in_war
+			}
+			
+			if = {
+				limit = {
+					OR = {
+						AND = {
+							tag = SIK
+							FROM = {
+								tag = TNG
+							}	
+						}
+						AND = {
+							tag = TNG
+							FROM = {
+								tag = SIK
+							}	
+						}
+					}
+					NOT = { has_global_flag = GFX_event_sheng_ma_war }
+				}
+				set_global_flag = GFX_event_sheng_ma_war
+				news_event = { id = zizhinews.27 days = 1 }
+				SIK = {
+				if = {
+				limit = { is_ai = yes }
+				add_ideas = balance_idea_SIK_ATTACK_hidden
+				add_to_variable = {
+		    var = This.supply_condition
+			value = 500 #MODDED
+		}
+		add_to_variable = {
+			var = This.supply_condition_base
+			value = 500 #MODDED
+		}
+				}
+				}
+			}
+			
+			if = {
+				limit = {
+					OR = {
+						AND = {
+							tag = NEA
+							FROM = {
+								OR = { tag = CHI tag = JAP }
+							}	
+						}
+						AND = {
+							OR = { tag = CHI tag = JAP }
+							FROM = {
+								tag = NEA
+							}	
+						}
+					}
+					NOT = { has_global_flag = remove_country_leader_trait_budikang }
+				}
+				set_global_flag = remove_country_leader_trait_budikang
+				NEA = { remove_country_leader_trait = budikang }
+			}
+			
+			if = {
+				limit = {
+					OR = {
+						AND = {
+							tag = GER
+							is_in_faction_with = BUL
+							FROM = {
+								tag = SOV
+							}	
+						}
+						AND = {
+							tag = SOV
+							FROM = {
+								tag = GER
+								is_in_faction_with = BUL
+							}	
+						}
+					}
+					BUL = { is_ai = yes is_historical_focus_on = yes }
+					NOT = { has_global_flag = balance_idea_bul_hesitate }
+				}
+				set_global_flag = balance_idea_bul_hesitate
+				BUL = {
+				    add_ideas = balance_idea_bul_hesitate
+			    }
+			}
+			
+			if = {
+				limit = {
+					OR = {
+						AND = {
+							tag = SIC
+							FROM = {
+								tag = JAP
+							}	
+						}
+						AND = {
+							tag = JAP
+							FROM = {
+								tag = SIC
+							}	
+						}
+					}
+					NOT = { has_global_flag = sic_zhuangshichuchuan }
+				}
+				set_global_flag = sic_zhuangshichuchuan
+				SIC = { country_event = { id = PRC_luobinghui.12 days = 0 } }
+			}
+			
+			if = {
+				limit = {
+					OR = {
+						AND = {
+							tag = ENG
+							has_war_with = GER
+							FROM = {
+								tag = IRQ
+								has_government = fascism
+							}	
+						}
+						AND = {
+							tag = IRQ
+							has_government = fascism
+							FROM = {
+								tag = ENG
+								has_war_with = GER
+							}	
+						}
+					}
+					NOT = { has_global_flag = GFX_event_eng_iraq }
+				}
+				set_global_flag = GFX_event_eng_iraq
+				news_event = { id = zizhinews.44 days = 1 }
+			}
+			
+			if = {
+				limit = {
+					OR = {
+						AND = {
+							original_tag = NOR
+							has_government = fascism
+							FROM = {
+								original_tag = NOR
+								is_democratic_type = yes
+							}	
+						}
+						AND = {
+							original_tag = NOR
+							is_democratic_type = yes
+							FROM = {
+								original_tag = NOR
+								has_government = fascism
+							}	
+						}
+					}
+				}
+				random_country = {
+				limit = { original_tag = NOR is_democratic_type = yes }
+				save_global_event_target_as = NOR_democratic
+				}
+			}
+			
+		    if = {
+				limit = {
+					OR = {
+						AND = {
+							original_tag = ITA
+							is_ai = yes
+							is_subject = no
+							has_civil_war = no
+							not = { has_idea = balance_idea_ITA_ATTACK_hidden }
+							FROM = {
+								is_in_faction_with = ENG
+							}
+						}
+						AND = {
+							is_in_faction_with = ENG
+							FROM = {
+								original_tag = ITA
+								is_ai = yes
+							    is_subject = no
+							    has_civil_war = no
+								not = { has_idea = balance_idea_ITA_ATTACK_hidden }
+							}
+						}
+					}
+				}
+				ITA = { add_ideas = balance_idea_ITA_ATTACK_hidden
+				division_template = {
+		name = "步兵师"
+		regiments = {
+		            infantry = { x = 0 y = 0 }
+					infantry = { x = 0 y = 1 }
+					infantry = { x = 0 y = 2 }
+					infantry = { x = 0 y = 3 }
+                    infantry = { x = 0 y = 4 }
+					
+					infantry = { x = 1 y = 0 }
+					infantry = { x = 1 y = 1 }
+					infantry = { x = 1 y = 2 }
+					infantry = { x = 1 y = 3 }
+                    infantry = { x = 1 y = 4 }
+					
+					infantry = { x = 2 y = 0 }
+					infantry = { x = 2 y = 1 }
+					infantry = { x = 2 y = 2 }
+					
+		artillery_brigade = { x = 3 y = 0 }
+		artillery_brigade = { x = 3 y = 1 }
+		artillery_brigade = { x = 3 y = 2 }
+		}
+		support = {
+		logistics_company = { x = 0 y = 0 } 
+		engineer = { x = 0 y = 1 }
+		artillery = { x = 0 y = 2 } 
+		anti_tank = { x = 0 y = 3 } 
+		anti_air = { x = 0 y = 4 }
+		}
+	    }
+		        random_owned_controlled_state = {
+	limit = {
+	or = {
+	any_neighbor_state = { is_core_of = EGY }
+	any_neighbor_state = { is_core_of = LBA }
+	}
+	}
+	create_unit = {
+				division = "name = \"步兵师\" division_template = \"步兵师\" start_experience_factor = 0.25 "
+				owner = ITA
+				count = 15
+			    }
+	}
+	            add_fuel = 500000 #yes the ai needs all this shit
+					add_manpower = 500000
+					
+					add_equipment_to_stockpile = {
+						type = infantry_equipment
+						amount = 50000
+						producer = GER
+					}
+                    add_equipment_to_stockpile = {
+				        type = train_equipment
+				        amount = 100
+				        producer = GER
+			        }
+					add_equipment_to_stockpile = {
+						type = medium_tank_chassis
+						amount = 1000
+						producer = GER
+					}
+					add_equipment_to_stockpile = {
+						type = anti_air_equipment
+						amount = 1500
+						producer = GER
+					}
+					add_equipment_to_stockpile = {
+						type = anti_tank_equipment
+						amount = 1500
+						producer = GER
+					}
+					add_equipment_to_stockpile = {
+						type = artillery_equipment
+						amount = 3500
+						producer = GER
+					}
+					add_equipment_to_stockpile = {#always biggest gap
+						type = support_equipment
+						amount = 3500 #not a typo
+						producer = GER
+					}
+					add_equipment_to_stockpile = {
+						type = motorized_equipment
+						amount = 1000
+						producer = GER
+					}
+					add_equipment_to_stockpile = {#always losing air war at this point
+						type = small_plane_airframe
+						amount = 250
+						producer = GER
+					}
+					add_equipment_to_stockpile = {
+						type = convoy
+						amount = 150
+						producer = GER
+					}
+				}
+			}
+			
+			if = {#解放战争
+				limit = {
+					OR = {
+						AND = {
+							tag = event_target:WTT_current_china_leader
+							NOT = {
+								has_completed_focus = CHI_the_fall_of_mainland
+							}
+							FROM = {
+								tag = event_target:WTT_communist_china
+							}	
+						}
+						AND = {
+							tag = event_target:WTT_communist_china
+							FROM = {
+								tag = event_target:WTT_current_china_leader
+								NOT = {
+									has_completed_focus = CHI_the_fall_of_mainland
+								}
+							}	
+						}
+					}
+					has_global_flag = CHI_no_longer_united_flag
+				}
+				
+				#news_event = { id = zizhi_hidden_event.2 days = 1 }
+				
+				if = {
+				limit = {
+					NOT = { #NO NEED TO Negotiate with traitor/fascists
+						event_target:WTT_current_china_leader = {
+							OR = {
+								AND = {
+									is_in_faction_with = JAP
+									JAP = {
+										is_puppet = no
+									}
+								}
+								has_government = fascism
+							}
+						}
+					}
+				}
+				set_global_flag = CCW_tension_ongoing_flag #CHINA gets the notif, informing that they can negotiate
+			    }
+			    else = {
+				set_global_flag = CCW_traitor_tension_ongoing_flag
+			    }
+				
+				event_target:WTT_communist_china = { add_ideas = prc_ningsibuqu }
+				event_target:WTT_current_china_leader = { add_ideas = chi_ningsibuqu }
+				
+				1015 = { add_dynamic_modifier = { modifier = gxc_anti_partisan_area scope = event_target:WTT_current_china_leader } } #guo
+		        613 = { add_dynamic_modifier = { modifier = gxc_anti_partisan_area scope = event_target:WTT_current_china_leader } } #guo
+				1034 = { add_dynamic_modifier = { modifier = gxc_anti_partisan_area scope = event_target:WTT_current_china_leader } } #guo
+		        605 = { add_dynamic_modifier = { modifier = gxc_anti_partisan_area scope = event_target:WTT_current_china_leader } } #guo
+				
+				615 = { add_dynamic_modifier = { modifier = gxc_anti_partisan_area scope = event_target:WTT_current_china_leader } } #guo
+		        744 = { add_dynamic_modifier = { modifier = gxc_anti_partisan_area scope = event_target:WTT_current_china_leader } } #guo
+				716 = { add_dynamic_modifier = { modifier = gxc_anti_partisan_area scope = event_target:WTT_current_china_leader } } #guo
+				524 = { add_dynamic_modifier = { modifier = gxc_anti_partisan_area scope = event_target:WTT_current_china_leader } } #guo
+				
+				event_target:WTT_communist_china = {
+				mark_focus_tree_layout_dirty = yes
+				
+				country_event = { id = PRC_linyuying.3 days = 0 } #guo
+				if = {
+			limit = {
+			has_country_leader = { ruling_only = yes character = prc_mao_zedong }
+			}
+			set_country_leader_portrait = {
+                portrait = "gfx/leaders/PRC/mao_jiefangzhanzheng.jpg"
+            }
+			prc_mao_zedong = {
+			    set_portraits = {
+					army = {
+						large = "gfx/leaders/PRC/mao_jiefangzhanzheng.jpg"
+					}
+			    }
+            }
+			}
+			    }
+			
+			}
+			
+	        if = {
+				limit = {
+					has_global_flag = prc_character_in_kmt
+					OR = {
+						AND = {
+							tag = event_target:WTT_current_china_leader
+							NOT = {
+								has_completed_focus = CHI_the_fall_of_mainland
+							}
+							FROM = {
+								tag = event_target:WTT_communist_china
+							}	
+						}
+						AND = {
+							tag = event_target:WTT_communist_china
+							FROM = {
+								tag = event_target:WTT_current_china_leader
+								NOT = {
+									has_completed_focus = CHI_the_fall_of_mainland
+								}
+							}	
+						}
+					}
+				}
+				event_target:WTT_current_china_leader = {
+				every_character = {
+				limit = {
+					has_character_flag = former_communist_forces
+				}
+				set_nationality = event_target:WTT_communist_china
+			    }
+				
+				every_unit_leader = {
+				limit = {
+					has_unit_leader_flag = former_communist_forces
+				}
+				set_nationality = event_target:WTT_communist_china
+			    }
+				
+				every_army_leader = {
+				limit = {
+					has_unit_leader_flag = former_communist_forces
+				}
+				set_nationality = event_target:WTT_communist_china
+			    }
+				
+				retire_ideology_leader = communism
+				retire_ideology_leader = communism
+				retire_ideology_leader = communism
+				retire_ideology_leader = communism
+				retire_ideology_leader = communism
+				retire_ideology_leader = communism
+				retire_ideology_leader = communism
+				retire_ideology_leader = communism
+				}
+				
+			event_target:WTT_communist_china = {
+				prc_mao_zedong = {
+		    add_country_leader_role = {
+			country_leader = {
+				expire = "1976.9.9"
+				ideology = maoism
+				desc=prc_mao_zedong_desc
+				traits = { tiancaidezhanluejia youjizhandashi hero_of_the_peasantry_MAO red_sun_of_the_people }
+			}
+			promote_leader = yes
+		    }
+		    }
+			    if = {
+			limit = {
+			not = {
+			has_country_flag = PRC_Establish_state_or_independent_government
+			}
+			}
+			add_country_leader_trait = {
+				ideology = maoism
+				trait = cornered_fox
+			}
+			}
+			}
+			
+			}
+			
+			if = {#反攻大陆
+				limit = {
+					OR = {
+						AND = {
+							tag = event_target:WTT_current_china_leader
+							FROM = {
+								tag = event_target:WTT_communist_china
+							}	
+						}
+						AND = {
+							tag = event_target:WTT_communist_china
+							FROM = {
+								tag = event_target:WTT_current_china_leader
+							}	
+						}
+					}
+					has_global_flag = chi_guoguangjihua
+				}
+				event_target:WTT_communist_china = { add_ideas = prc_ningsibuqu }
+				event_target:WTT_current_china_leader = { add_ideas = chi_ningsibuqu }
+			}
+			
+			if = {
+				limit = {
+					OR = {
+						AND = {
+							original_tag = JAP
+							NOT = { has_government = communism }
+							FROM = {
+								original_tag = JAP
+								has_government = communism
+							}	
+						}
+						AND = {
+							original_tag = JAP
+							has_government = communism
+							FROM = {
+								original_tag = JAP
+							    NOT = { has_government = communism }
+							}	
+						}
+					}
+				}
+				random_country = {
+				limit = { original_tag = JAP has_government = communism }
+				save_global_event_target_as = ribengongchandang
+				}
+				every_country = {
+				limit = { has_government = communism }
+				remove_opinion_modifier = { target = event_target:ribengongchandang modifier = hostile_status }
+				event_target:ribengongchandang = { remove_opinion_modifier = { target = PREV modifier = hostile_status } }
+				}
+			}
+		}
+	}
+	
+	on_war = {
+		effect = {
+		
+		if = {
+			limit = {
+			always = no
+				is_ai = yes
+				is_faction_leader = yes
+				is_democratic_type = yes
+			}
+			add_ideas = balance_idea_dont_kick_your_ally
+		}
+		
+		if = {
+				limit = {
+						OR = {
+                        original_tag = GER
+						}
+					}
+					country_event = age_leader.6
+		}
+		
+		if = {
+				limit = {
+						OR = {
+                        original_tag = USA
+						}
+						is_ai = yes
+						has_civil_war = no
+					}
+					remove_ideas = USA_malin_craig
+					add_ideas = dwight_eisenhower
+					add_ideas = USA_george_s_patton111
+					add_ideas = USA_omar_bradley111
+					remove_ideas = henry_arnold
+					add_ideas = carl_spaatz
+					add_ideas = william_halsey
+					add_ideas = mark_clark
+		}
+		
+		if = {
+				limit = {			
+						OR = {
+                        TAG = TNG
+                        TAG = SIK
+						}
+						OR = {
+                        has_war_with = TNG
+                        has_war_with = SIK
+						}
+						
+						NOT = { has_global_flag = GFX_event_sheng_ma_war }
+					}
+					set_global_flag = GFX_event_sheng_ma_war
+				    news_event = { id = zizhinews.27 days = 1 }
+		}
+			
+		if = {
+				limit = {
+				always = no
+					original_tag = SIA
+					has_offensive_war_with = FIC
+					NOT = { has_global_flag = taifazhanzheng }
+				}
+				set_global_flag = taifazhanzheng
+				add_ideas = fic_regional_war
+				FIC = { add_ideas = fic_regional_war }
+				random_country = {
+				limit = { has_focus_tree = vichy_french_focus }
+				add_ideas = fic_regional_war
+				}
+				if = {
+				limit = {
+					FIC = {
+					or = {
+					is_puppet_of = FRA
+					is_subject_of = FRA
+					}
+					}
+				}
+				FRA = { add_ideas = fic_regional_war }
+			    }
+		}
+		
+		if = {
+				limit = {
+					original_tag = USA
+					has_civil_war = yes
+					has_government = fascism
+					NOT = { has_global_flag = USB_fascism_junzhengfu_party }
+				}
+				set_global_flag = USB_fascism_junzhengfu_party
+				set_party_name = { ideology = fascism long_name = USB_fascism_junzhengfu_party name = USB_fascism_junzhengfu_party } #guo
+		}
+		
+		if = {
+				limit = {
+					is_ai = yes
+				    is_major = no
+					not = { tag = CHI }
+					not = { tag = NEA }
+				    is_historical_focus_on = yes
+					date > 1937.7.1
+					or = {
+					is_literally_china = yes
+					tag = SIA
+					tag = FIC
+					tag = LUX
+					tag = TUR
+					tag = GRE
+					}
+					NOT = { has_idea = balance_idea_ai_war_stability }
+				}
+				add_ideas = balance_idea_ai_war_stability
+		}
+		
+		if = {
+				limit = {
+					tag = FIN
+					has_war_together_with = GER
+					GER = { has_war_with = SOV }
+					has_war_with = SOV
+					NOT = { has_global_flag = molmansik_stronghold_for_sov_flag }
+				}
+				set_global_flag = molmansik_stronghold_for_sov_flag
+                213 = {
+			    add_dynamic_modifier = { modifier = molmansik_stronghold_for_sov scope = SOV }
+			    #add_dynamic_modifier = { modifier = molmansik_stronghold_for_fin scope = FIN }
+			    }
+			    215 = {
+			    add_dynamic_modifier = { modifier = molmansik_stronghold_for_sov scope = SOV }
+			    #add_dynamic_modifier = { modifier = molmansik_stronghold_for_fin scope = FIN }
+			    }
+				if = {
+				limit = {
+				FIN = { is_ai = yes }
+				SOV = { is_ai = yes }
+				}
+				213 = {
+			    add_dynamic_modifier = { modifier = molmansik_stronghold_for_fin scope = FIN }
+			    }
+			    215 = {
+			    add_dynamic_modifier = { modifier = molmansik_stronghold_for_fin scope = FIN }
+			    }
+				}
+		}
+		
+		if = {
+				limit = {
+					tag = SIA
+					NOT = { has_idea = balance_idea_jap_push_south_east }
+					is_in_faction_with = JAP
+					has_war = yes
+					NOT = { has_global_flag = SIA_IDEA }
+				}
+				set_global_flag = SIA_IDEA
+                SIA = {
+				add_timed_idea = { idea = balance_idea_jap_push_south_east days = 365 }
+				}
+		}
+		
+		if = {
+				limit = {
+					tag = ENG
+					has_war_with = GER
+					OR = {
+					has_government = democratic
+					has_government = n_socialism
+					}
+					NOT = { has_global_flag = WW2modded_factionname }
+				}
+				set_global_flag = WW2modded
+				set_global_flag = WW2modded_factionname
+                ENG = { set_faction_name = Allies }
+				if = {
+				limit = { is_ai = yes is_democratic_type = yes }
+				add_ideas = kenneth_anderson
+				add_ideas = sholto_douglas
+				add_ideas = charles_portal
+				add_ideas = john_vereker
+				add_ideas = bernard_montgomery
+				add_ideas = hugh_dowding
+				add_ideas = ENG_philip_kerr
+				add_ideas = ENG_maxwell_aitken
+				add_ideas = frederick_bowhill
+				add_ideas = archibald_wavell
+				add_ideas = andrew_cunningham
+				}
+		}
+		
+		if = {
+				limit = {
+					tag = ENG
+					has_war_with = GER
+					POL = { has_war_with = GER }
+					is_historical_focus_on = yes
+					not = { has_war_with = SOV }
+	                SOV = {
+	                has_idea = SOV_molotov_ribbentrop_pact
+	                not = { has_government = fascism }
+	                not = { is_in_faction_with = GER }
+	                }
+					NOT = { has_global_flag = ignore_pol }
+				}
+				set_global_flag = ignore_pol
+				set_global_flag = WW2modded
+				ENG = { set_faction_name = Allies }
+                POL = { add_ideas = balance_idea_pol_dont_call_eng }
+		}
+		
+		if = {
+				limit = {
+					tag = JAP
+					OR = { has_war_with = event_target:WTT_current_china_leader has_war_with = event_target:WTT_communist_china }
+				}
+				set_global_flag = kangri_begin
+		}
+		
+		if = {
+				limit = {
+					OR = {
+                    TAG = event_target:WTT_current_china_leader
+                    TAG = CHI
+					
+					TAG = event_target:WTT_communist_china
+                    TAG = PRC
+                    }
+					has_war_with = JAP
+				}
+				set_global_flag = kangri_begin
+		}
+		
+		if = {
+				limit = {
+				always = no #guo
+					tag = CHI
+					not = {
+					has_war_with = PRC
+					has_war_with = GXC
+					has_war_with = NEA
+					has_war_with = SIC
+					}
+					has_defensive_war_with = JAP
+					is_ai = no
+					is_historical_focus_on = yes
+					not = { has_global_flag = second_chi_jap_war }
+				}
+				set_global_flag = second_chi_jap_war
+				set_global_flag = kangri_begin
+                GXC = {
+				if = {
+				limit = { is_ai = yes }
+				every_unit_leader = {
+					limit = {
+						or = {
+							has_id = 2505
+							has_id = 9500
+						}
+					}
+					set_nationality = CHI
+				}
+				create_country_leader = {
+					name = "Li Zongren"
+					#desc = "POLITICS_Zhang_Guotao_DESC"
+					picture = "gfx/leaders/GXC/Portrait_GXC_Li_Zongren.dds"
+					expire = "1965.1.1"
+					ideology = despotism
+					traits = { junzhengzhuanjia } #guo
+				}
+				}
+				}
+				YUN = {
+				if = {
+				limit = { is_ai = yes }
+				every_unit_leader = {
+					limit = {
+						or = {
+							has_id = 9501
+						}
+					}
+					set_nationality = CHI
+				}
+				}
+				}
+				SIC = {
+				if = {
+				limit = { is_ai = yes }
+				every_unit_leader = {
+					limit = {
+						or = {
+							has_id = 9502
+						}
+					}
+					set_nationality = CHI
+				}
+				}
+				}
+		}
+		
+	  }
+    }
+}

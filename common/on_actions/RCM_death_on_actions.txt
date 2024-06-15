@@ -1,0 +1,254 @@
+on_actions = {
+
+	# From is owner country	
+	#on_army_leader_promoted = { #use for test if trigger#
+    on_army_leader_lost_combat = {
+        effect = {
+            if = {
+                limit = {                   
+                    date > 1937.7.1
+					has_id = 371002
+                    FROM = {
+					    tag = SHX
+                        has_war_with = JAP
+                        has_character = SHX_li_fuying
+						has_country_leader = {
+							character = SHX_yan_xishan ruling_only = yes
+						}
+                    }
+                }
+				unit_leader_event = { id = li_fuying_retreated.1 }	
+            }		
+            if = {
+                limit = {                   
+                    date > 1937.7.1
+					has_id = 2503
+                    FROM = {
+                        OR = {				
+					        tag = event_target:WTT_current_china_leader
+							tag = HPC
+						}	
+                        has_war_with = JAP
+                        has_character = HPC_zhao_dengyu
+                    }
+                }
+				unit_leader_event = { id = zhao_dengyu_dead.1 }
+            }
+            if = {
+                limit = {                   
+                    date > 1940.1.1
+					has_id = 2500
+                    FROM = {
+                        OR = {				
+					        tag = event_target:WTT_current_china_leader
+							tag = HPC
+						}	
+                        has_war_with = JAP
+                        has_character = HPC_zhang_zizhong
+                    }
+                }
+				unit_leader_event = { id = zhang_zizhong_dead.1 }
+            }
+            if = {
+                limit = {                   
+					has_id = 5016
+                    FROM = {
+					    tag = event_target:WTT_current_china_leader
+                        has_war_with = JAP
+                        has_character = CHI_pang_bingxun
+                    }
+                    EHB = {
+                        is_rrc = yes
+                        is_subject_of = JAP
+                    }
+                    has_global_flag = sun_dianying_in_rrc_flag					
+                }
+				unit_leader_event = { id = pang_bingxun_surrendered.1 }
+            }
+            if = {
+                limit = {                   
+					has_id = 420526
+                    FROM = {
+					    tag = event_target:WTT_current_china_leader
+                        has_war_with = JAP
+                        has_character = CHI_dai_anlan
+                    }
+                    JAP = {
+                        OR = {
+                            has_war_with = ENG
+                            has_war_with = BUR
+                        }
+                    }
+                }
+				unit_leader_event = { id = dai_anlan_dead.1 }
+            }
+            if = {
+                limit = {                    
+                    has_global_flag = CHI_no_longer_united_flag 
+					has_id = 470516
+                    FROM = {
+                        num_of_controlled_states < 20
+                        tag = event_target:WTT_current_china_leader
+                        has_war_with = event_target:WTT_communist_china
+                        has_character = CHI_zhang_lingfu
+                    }
+                }
+				unit_leader_event = { id = zhang_lingfu_dead.1 }
+            }
+            if = {
+                limit = {                    
+                    has_global_flag = CHI_no_longer_united_flag
+					has_id = 480303
+                    FROM = {
+                        num_of_controlled_states < 20
+                        tag = event_target:WTT_current_china_leader
+                        has_war_with = event_target:WTT_communist_china
+                        has_character = CHI_liu_kan 
+                    }
+                }
+				unit_leader_event = { id = liu_kan_dead.1 }
+            }			
+            if = {
+                limit = {                   
+                    has_global_flag = CHI_no_longer_united_flag  
+					has_id = 481122
+                    FROM = {
+					    num_of_controlled_states < 15
+                        tag = event_target:WTT_current_china_leader
+                        has_war_with = event_target:WTT_communist_china
+                        has_character = CHI_huang_baitao
+                    }
+                }
+				unit_leader_event = { id = huang_baitao_dead.1 }
+            }				
+            if = {
+                limit = {                   
+                    has_global_flag = CHI_no_longer_united_flag
+					has_id = 490110
+                    FROM = {
+					    num_of_controlled_states < 15
+                        tag = event_target:WTT_current_china_leader
+                        has_war_with = event_target:WTT_communist_china
+                        has_character = CHI_qiu_qingquan
+                    }
+                }
+				unit_leader_event = { id = qiu_qingquan_dead.1 }
+            }
+            if = {
+                limit = {  
+				always = no #guo
+                    date > 1937.7.1
+					has_id = 9000
+                    FROM = {
+					    tag = event_target:WTT_communist_china
+                        has_war_with = JAP
+                        has_character = PRC_lin_biao
+						NOT = { has_country_flag = lin_biao_returned }
+                    }
+                    SHX = {
+                        exists = yes
+                    }						
+                }
+				unit_leader_event = { id = lin_biao_wounded.1 }
+            }			
+            if = {
+                limit = {       
+				always = no #guo
+                    date > 1942.1.1
+					has_id = 420525
+                    FROM = {
+					    tag = event_target:WTT_communist_china
+                        has_war_with = JAP
+                        has_character = prc_zuo_quan
+                    }
+                }
+				unit_leader_event = { id = zuo_quan_dead.1 }
+            }
+            if = {
+                limit = {     
+                    date > 1944.1.1
+					has_id = 440911
+                    FROM = {
+					    tag = event_target:WTT_communist_china
+                        has_war_with = event_target:WTT_current_china_leader
+                        has_character = PRC_peng_xuefeng
+                    }
+                }
+				unit_leader_event = { id = peng_xuefeng_dead.1 }
+            }
+            if = {
+                limit = {         
+				always = no #guo
+                    date > 1946.1.1
+					has_id = 481001
+                    FROM = {
+					    tag = event_target:WTT_communist_china
+                        has_war_with = event_target:WTT_current_china_leader
+                        has_character = PRC_zhu_rui 
+                    }
+                }
+				unit_leader_event = { id = zhu_rui_dead.1 }
+            }			
+            if = {
+                limit = {                   
+                    date > 1942.1.1
+					has_id = 420905
+                    FROM = {
+					    tag = JAP
+                        has_war_with = ENG
+                        has_character = toshinari_maeda #前田 利為
+                    }
+                }
+				unit_leader_event = { id = toshinari_maeda_dead.1 }
+            }
+            if = {
+                limit = {                   
+                    date > 1942.1.1
+					has_id = 421218
+                    FROM = {
+					    tag = JAP
+                        has_war_with = event_target:WTT_current_china_leader
+                        has_character = osamu_tsukada #塚田 攻
+                    }
+                }
+				unit_leader_event = { id = osamu_tsukada_dead.1 }
+            }
+            if = {
+                limit = {                   
+                    date > 1944.1.1
+					has_id = 450623
+                    FROM = {
+					    tag = JAP
+                        has_war_with = USA
+                        has_character = mitsuru_ushijima #牛島 満
+                    }
+                }
+				unit_leader_event = { id = mitsuru_ushijima_dead.1 }
+            }
+            if = {
+                limit = {                   
+                    date > 1944.1.1
+					has_id = 450419
+                    FROM = {
+					    tag = JAP
+                        has_war_with = USA
+                        has_character = sosaku_suzuki #鈴木 宗作
+                    }
+                }
+				unit_leader_event = { id = sosaku_suzuki_dead.1 }
+            }
+            if = {
+                limit = {                   
+                    date > 1944.1.1
+					has_id = 450317
+                    FROM = {
+					    tag = JAP
+                        has_war_with = USA
+                        has_character = tadamichi_kuribayashi #栗林 忠道
+                    }
+                }
+				unit_leader_event = { id = tadamichi_kuribayashi_dead.1 }
+            }			
+		}
+	}	
+}

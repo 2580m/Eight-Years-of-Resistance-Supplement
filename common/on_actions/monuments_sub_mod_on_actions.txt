@@ -1,0 +1,11 @@
+on_actions = {
+    on_startup = {
+        effect = {
+            random_country = {
+                chn_monuments_sub_mod_set_up_scripted_effects = yes
+                mng_monuments_sub_mod_set_up_scripted_effects = yes
+                jpn_monuments_sub_mod_set_up_scripted_effects = yes
+            }
+        }
+    }
+}

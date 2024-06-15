@@ -1,0 +1,102 @@
+on_actions = {
+#####start
+	on_startup = {
+		effect = {
+
+TIB = { add_ideas = agrarion_society_generic_3 }
+ECA = { add_ideas = agrarion_society_generic_3 }
+
+every_country = {
+                                                          limit = {
+is_literally_china = no
+NOT = { has_country_flag = zhongguo }
+num_of_factories < 10
+NOT = {
+tag = EHB
+tag = CUB
+tag = FIC
+tag = CHL
+tag = IRE
+tag = LUX
+tag = LIT
+tag = EST
+tag = DEN
+tag = NOR
+tag = GRE
+tag = NZL
+tag = SAF
+tag = ETH
+}
+NOT = { capital_scope = { is_on_continent = europe } }
+NOT = { capital_scope = { is_on_continent = north_america } }
+}
+add_ideas = agrarion_society_generic_3 
+}
+
+every_country = {
+                                                          limit = {
+is_literally_china = no
+NOT = { has_country_flag = zhongguo }
+OR = {
+tag = RAJ
+tag = ARG
+tag = CHL
+tag = BRA
+tag = ALB
+tag = MEX
+tag = TUR
+tag = GRE
+tag = BUL
+tag = YUG
+tag = CUB
+tag = LIT
+tag = LAT
+tag = EST
+tag = IRE
+tag = NZL
+tag = SAF
+}
+}
+add_ideas = agrarion_society_generic_2 
+}
+
+every_country = {
+                                                          limit = {
+is_literally_china = no
+NOT = { has_country_flag = zhongguo }
+OR = {
+tag = AST
+#tag = NZL
+#tag = SAF
+tag = POR
+tag = SPR
+tag = ROM
+tag = HUN
+#tag = POL
+#tag = FIN
+}
+}
+add_ideas = agrarion_society_generic_1 
+}
+
+}
+
+}
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
