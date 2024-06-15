@@ -1,0 +1,281 @@
+scripted_gui = {
+  prc_politburo_gui = {
+    window_name = "prc_scripted_gui_window"
+    context_type = player_context
+
+    visible = {
+	    original_tag = PRC
+	    has_country_flag = open_politburo_gui
+    }
+
+    effects = {
+	    close_politburo_click = {
+		    clr_country_flag = open_politburo_gui
+		}
+    }
+
+    triggers = {
+	    wang_ming_secretary_visible = {
+		    has_country_leader = { ruling_only = yes character = prc_wang_ming }
+		}
+		bo_gu_secretary_visible = {
+		    has_country_leader = { ruling_only = yes character = prc_bo_gu }
+		}
+		
+		#毛
+		zhang_wentian_secretary_visible = {#guo
+			or = {
+				has_country_leader = { ruling_only = yes character = prc_zhang_wentian }
+				has_country_leader = { ruling_only = yes character = prc_mao_zedong }
+			}
+			not = { has_completed_focus = PRC_7th_National_Congress_focus }
+			not = { has_country_flag = mao_becomes_chairman }
+		}
+		mao_zedong_chairman_visible = {
+		    has_country_flag = mao_becomes_chairman
+			has_idea = prc_mao_zedong
+			NOT = { has_country_flag = PRC_Establish_state_or_independent_government }
+			#has_completed_focus = PRC_7th_National_Congress_focus
+		}
+		mao_zedong_chairman_1946_visible = {
+		    has_country_flag = mao_becomes_chairman
+			has_country_flag = PRC_Establish_state_or_independent_government
+			has_idea = prc_mao_zedong
+			#has_completed_focus = PRC_7th_National_Congress_focus
+		}
+		#毛
+		
+		zhu_de_vice_president_visible = {
+		    has_country_flag = mao_becomes_chairman
+			has_idea = prc_mao_zedong
+			has_completed_focus = PRC_PLA
+		}
+		lin_biao_defense_minister_visible = {
+			has_country_leader = { ruling_only = yes character = prc_wang_ming }
+		}
+		
+		#毛
+		mao_zedong_chairman_right_visible = {
+		    or = {
+				has_country_leader = { ruling_only = yes character = prc_zhang_wentian }
+				has_country_leader = { ruling_only = yes character = prc_mao_zedong }
+			}
+			has_idea = prc_mao_zedong
+			not = { has_country_flag = mao_becomes_chairman }
+			not = { has_completed_focus = PRC_7th_National_Congress_focus }
+		}
+		chairman_politburo_right_visible = {
+			or = {
+				has_country_leader = { ruling_only = yes character = prc_zhang_wentian }
+				has_country_leader = { ruling_only = yes character = prc_mao_zedong }
+			}
+			has_idea = prc_mao_zedong
+			not = { has_country_flag = mao_becomes_chairman }
+			not = { has_completed_focus = PRC_7th_National_Congress_focus }
+		}
+		#毛
+		
+		zhou_enlai_premier_1944_visible = {
+		    OR = {
+			    has_country_flag = mao_becomes_chairman
+				has_country_leader = { ruling_only = yes character = prc_wang_ming }
+				has_country_leader = { ruling_only = yes character = prc_bo_gu }
+			}
+			has_country_flag = PRC_Establish_state_or_independent_government
+			always = no
+			NOT = { has_global_flag = zhou_enlai_marginalized }
+		}
+		zhou_enlai_premier_visible = {
+		    OR = {
+			    has_country_flag = mao_becomes_chairman
+				has_country_leader = { ruling_only = yes character = prc_wang_ming }
+				has_country_leader = { ruling_only = yes character = prc_bo_gu }
+			}
+			has_country_flag = PRC_Establish_state_or_independent_government
+			always = yes
+			NOT = { has_global_flag = zhou_enlai_marginalized }
+		}
+		defense_minister_politburo_visible = {
+			OR = {
+			    has_country_leader = { ruling_only = yes character = prc_wang_ming }
+			}
+		}
+		vice_president_politburo_visible = {
+		    has_country_flag = mao_becomes_chairman
+			has_completed_focus = PRC_PLA
+		}
+		premier_politburo_visible = {
+		    OR = {
+		        has_country_flag = mao_becomes_chairman
+				has_country_leader = { ruling_only = yes character = prc_wang_ming }
+				has_country_leader = { ruling_only = yes character = prc_bo_gu }
+			}
+			has_country_flag = PRC_Establish_state_or_independent_government
+		}
+		vacant_premier_politburo_visible = {
+		    #has_country_leader = { character = prc_zhang_wentian }
+			NOT = {
+			    OR = {
+				    has_country_leader = { character = prc_wang_ming }
+					has_country_leader = { character = prc_mao_zedong }
+					has_country_leader = { character = prc_bo_gu }
+					has_idea = prc_mao_zedong
+				}
+			}
+		}
+		politburo_premier_vacant_visible = {
+		    #has_country_leader = { ruling_only = yes character = prc_zhang_wentian }
+			NOT = {
+			    OR = {
+				    has_country_leader = { ruling_only = yes character = prc_wang_ming }
+					has_country_flag = mao_becomes_chairman
+					has_country_leader = { ruling_only = yes character = prc_bo_gu }
+					has_idea = prc_mao_zedong
+				}
+			}
+		}
+		
+		#毛
+		chairman_politburo_visible = {
+		    has_country_flag = mao_becomes_chairman
+			has_idea = prc_mao_zedong
+			#has_completed_focus = PRC_7th_National_Congress_focus
+			NOT = {
+			    OR = {
+				    has_country_leader = { ruling_only = yes character = prc_wang_ming }
+					has_country_leader = { ruling_only = yes character = prc_bo_gu }
+				}
+			}
+		}
+		#毛
+		
+		general_secretary_politburo_visible = {
+		    OR = {
+			    has_country_leader = { ruling_only = yes
+				    character = prc_wang_ming
+				}
+				has_country_leader = { ruling_only = yes
+				    character = prc_bo_gu
+				}
+				has_country_leader = { ruling_only = yes
+				    character = prc_zhang_wentian
+				}
+				has_country_leader = { ruling_only = yes
+				    character = prc_mao_zedong
+				}
+			}
+			if = {
+			limit = { has_country_flag = mao_becomes_chairman }
+			NOT = { has_completed_focus = PRC_7th_National_Congress_focus }
+			}
+			not = { has_country_flag = mao_becomes_chairman }
+		}
+		sixth_prc_politburo_text_visible = {
+		    NOT = { has_completed_focus = PRC_7th_National_Congress_focus }
+		}
+		eighth_prc_politburo_text_visible = {
+		    has_completed_focus = PRC_7th_National_Congress_focus
+		}
+		28_bol_politburo_visible = {
+			NOT = {
+			    OR = {
+			        has_country_leader = { ruling_only = yes character = prc_bo_gu }
+				    has_country_leader = { ruling_only = yes character = prc_wang_ming }
+					has_country_flag = mao_becomes_chairman
+				}
+				OR = {
+			        has_global_flag = bo_gu_self_criticized
+					has_global_flag = wang_ming_self_criticized
+				}
+			}
+		}
+		bo_gu_28bol_visible = {
+		    has_idea = prc_bo_gu
+			NOT = {
+			    OR = {
+			        has_country_leader = { ruling_only = yes character = prc_bo_gu }
+				    has_country_leader = { ruling_only = yes character = prc_wang_ming }
+					has_country_flag = mao_becomes_chairman
+					has_global_flag = PRC_wang_ming_returned_flag
+				}
+			}
+		}
+		wang_ming_28bol_visible = {
+		    has_global_flag = PRC_wang_ming_returned_flag
+			NOT = {
+				OR = {
+			        has_country_leader = { ruling_only = yes character = prc_bo_gu }
+				    has_country_leader = { ruling_only = yes character = prc_wang_ming }
+					has_country_flag = mao_becomes_chairman
+				}
+			}
+		}
+    }
+
+    dynamic_lists = {
+	}
+
+    properties = {
+	    large_flag = {
+		    image = [PRC.GetFlag]
+	    }
+    }
+
+    ai_enabled = {
+		always = no
+    }
+
+    ai_test_interval = 290  # The higher, the long it takes the ai to do actions
+	ai_test_variance = 0.5
+
+    ai_check = {
+    }
+
+    ai_check_scope = {
+    }
+
+    ai_weights = {
+    }
+  }
+ 
+  prc_open_gui = {
+    window_name = "prc_open_scripted_gui_window"
+    context_type = player_context
+	parent_window_token = politics_tab
+
+    visible = {
+	    original_tag = PRC
+    }
+
+    effects = {
+		open_politburo_gui_click = {
+		    set_country_flag = open_politburo_gui
+		}
+    }
+
+    triggers = {
+    }
+
+    dynamic_lists = {
+	}
+
+    properties = {
+    }
+
+    ai_enabled = {
+		always = no
+    }
+
+    ai_test_interval = 290  # The higher, the long it takes the ai to do actions
+	ai_test_variance = 0.5
+
+    ai_check = {
+    }
+
+    ai_check_scope = {
+    }
+
+    ai_weights = {
+    }
+  }
+}
