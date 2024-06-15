@@ -1,0 +1,778 @@
+#	Example:
+#
+#	example_trigger = {
+#		tag = GER
+#		is_ai = no
+#	}
+#
+#
+#	In a script file:
+#
+#	trigger = {
+#		example_trigger = yes
+#	}
+#
+#	THIS FILE IS FOR TRIGGERS SPECIFICALLY FOR THE CHI TAG
+WTT_can_ROOT_select_state_support_decision_state = {
+	custom_trigger_tooltip = {
+		tooltip = WTT_china_pol_struggle_state_controlled_by_leader
+		CONTROLLER = {
+			OR = {
+				has_country_flag = wtt_political_struggle #modded
+				tag = event_target:WTT_current_china_leader
+				is_subject_of = event_target:WTT_current_china_leader
+			}
+		}
+		CONTROLLER = { NOT = { has_war_with = ROOT } }
+	}
+	if = {
+		limit = {
+			check_variable = {
+				var = state_political_support_value
+				value = global.big_state_support_value
+				compare = greater_than_or_equals
+			}
+		}
+		ROOT = { WTT_has_politcal_support_points_17 = yes }
+	}
+}
+WTT_should_show_state_decision = {
+	has_variable = state_political_support_value
+	CONTROLLER = {
+		OR = {
+			has_country_flag = wtt_political_struggle #modded
+			tag = event_target:WTT_current_china_leader
+			is_subject_of = event_target:WTT_current_china_leader
+		}
+	}
+}
+WTT_show_build_support_decisions = {
+	has_country_flag = wtt_political_struggle
+	NOT = { has_country_flag = wtt_political_struggle_paused }
+	any_other_country = {
+		OR = {
+			tag = event_target:WTT_current_china_leader #modded
+			has_country_flag = wtt_political_struggle #modded
+		}
+	}
+	has_civil_war = no
+}
+is_ally_with_ROOT = {
+	custom_trigger_tooltip = {
+		tooltip = is_ally_with_ROOT_tt
+		is_ally_with = ROOT
+	}
+}
+is_ally_with_JAP = {
+	custom_trigger_tooltip = {
+		tooltip = is_ally_with_JAP_tt
+		is_ally_with = JAP
+	}
+}
+is_not_ally_with_JAP = {
+	custom_trigger_tooltip = {
+		tooltip = is_not_ally_with_JAP_tt
+		NOT = {
+			is_ally_with = JAP
+		}
+	}
+}
+CHI_autonomy_check = { #GUO
+	AND = {
+		OR = { is_literally_china = yes original_tag = SIK original_tag = TIB }
+		OVERLORD = { is_literally_china = yes }
+	}
+}
+JAP_autonomy_check = {
+	has_dlc = "Waking the Tiger"
+	AND = {#MODDED			
+		OR = {
+			has_government = fascism
+			has_government = neutrality
+			has_government = democratic
+		}
+		OVERLORD = { original_tag = JAP }
+	}#MODDED
+}
+JAP_or_its_puppet_dont_control_any_chinese_cores = {
+	custom_trigger_tooltip = {
+		tooltip = all_chinese_cores_is_NOT_controlled_by_jap_or_its_puppet_tt		
+		NOT = {
+			any_of_scopes = {
+				array = global.small_china #don't use big china
+				controller = {
+					OR = {
+						tag = JAP
+						is_subject_of = JAP
+					}
+				}
+			}
+		}
+	}
+}
+JAP_or_its_puppet_dont_control_any_chinese_cores_exclude_TW = {
+	custom_trigger_tooltip = {
+		tooltip = all_chinese_cores_is_NOT_controlled_by_jap_or_its_puppet_tt		
+		NOT = {
+			any_of_scopes = {
+				array = CHI.core_states #don't use big china
+				THIS = {				
+					AND = {
+						NOT = {
+							state = 524
+						}
+						is_controlled_by_jap_or_its_puppet = yes
+					}
+				}
+			}
+		}
+	}
+}
+check_if_no_sov_occupied_man = {
+	custom_trigger_tooltip = {
+		tooltip = no_foreign_occupation_in_china_except_hong_kong_macau_gdw_tt		
+		NOT = {
+			any_of_scopes = {
+				array = CHI.core_states #don't use big china
+				THIS = {				
+					AND = {
+						NOT = {
+							state = 524
+						}
+						NOT = {
+							state = 326
+						}
+						NOT = {
+							state = 729
+						}
+						NOT = {
+							state = 728
+						}
+						CONTROLLER = {
+							NOT = {
+								is_literally_china = yes
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+stilwell_check = {
+	NOT = {
+		has_global_flag = CHI_USA_ties_severed
+	}
+	NOT = { has_global_flag = stilwell_resign }
+	NOT = { has_government = fascism }
+	NOT = { has_war_with = USA }
+}
+chennalt_check = {
+	NOT = {
+		has_global_flag = CHI_USA_ties_severed
+	}
+	AND = {
+		NOT = { has_global_flag = chennault_return }
+		has_global_flag = flying_tiger
+	}
+	NOT = { has_government = fascism }
+	NOT = { has_war_with = USA }
+}
+wedemeyer_check = {
+	NOT = {
+		has_global_flag = CHI_USA_ties_severed
+	}
+	has_global_flag = stilwell_resign
+	NOT = { has_government = fascism }
+	NOT = { has_war_with = USA }
+}
+JAP_offered_peace = {
+	NOT = {
+		any_of_scopes = {
+			array = global.small_china
+			tooltip = small_china_tt
+			#custom_trigger_tooltip = {
+			#	tooltip = is_NOT_controlled_by_jap_or_its_puppet_tt
+				is_controlled_by_jap_or_its_puppet = yes
+			#}
+		}
+	}
+}
+is_using_RCM_advisors = {
+	NOT = { is_originally_warlord = yes } #MODDED
+	NOT = {
+		OR = {
+			tag = PLM
+			tag = MON
+			tag = GER
+			tag = ENG
+			tag = SOV
+			tag = CHI
+			tag = PRC
+			tag = FRA
+			tag = ITA
+			tag = MAN
+			tag = JAP
+			tag = USA
+			tag = FIC
+		}
+	}
+}
+is_using_generic_advisors = {
+	OR = {
+		original_tag = SER
+		original_tag = ICE
+		original_tag = SYR
+		original_tag = LEB
+		original_tag = EGY
+		original_tag = JOR
+		original_tag = CRO
+		original_tag = LBA
+		original_tag = INS
+		original_tag = MAL
+		original_tag = AZR
+		original_tag = UKR
+		original_tag = GEO
+		original_tag = ARM
+		original_tag = VIN
+		original_tag = CAM
+		original_tag = MNT
+		original_tag = LIB
+		original_tag = LAO
+		original_tag = PAL
+	}
+}
+
+is_potentially_communist_china = {
+	OR = {
+		original_tag = PRC
+		original_tag = CHI
+		original_tag = SIK
+		original_tag = PLM
+		original_tag = SUY
+		original_tag = GXC
+		original_tag = YUN
+		original_tag = SHX
+		original_tag = XSM
+		original_tag = XIK
+		original_tag = SIC
+		original_tag = GUD
+		original_tag = HPC
+		original_tag = NEA
+		original_tag = SHD
+		original_tag = NXM
+		original_tag = SHC
+		original_tag = GSM
+		original_tag = EGM
+		original_tag = TNG
+		original_tag = HMI
+		original_tag = XIA
+	}
+}
+is_independent_china_or_warlord = { #
+	OR = {
+		is_originally_warlord = yes
+		original_tag = SIK
+	}
+	is_subject = no
+}
+is_literally_china_including_chinese_puppets = {
+	OR = {
+		original_tag = PRC
+		original_tag = CHI
+		original_tag = SIK
+		original_tag = PLM
+		original_tag = GXC
+		original_tag = YUN
+		original_tag = SHX
+		original_tag = XSM
+		original_tag = XIK
+		original_tag = SIC
+		original_tag = GUD
+		original_tag = HPC
+		original_tag = NEA
+		original_tag = SHD
+		original_tag = NXM
+		original_tag = SHC
+		original_tag = GSM
+		original_tag = EGM
+		original_tag = TNG
+		original_tag = HMI
+		original_tag = MAN
+		original_tag = SCG
+		original_tag = NSG
+		original_tag = EHB
+		original_tag = CCP
+		original_tag = RFM
+		original_tag = ECA
+	    original_tag = KHR
+		original_tag = XIA
+		original_tag = KRS
+		original_tag = ATM
+		original_tag = SUY
+	}
+}
+is_literally_china = { #for allowed trigger
+	OR = {
+		original_tag = PRC
+		original_tag = CHI
+		original_tag = SIK
+		original_tag = PLM
+		original_tag = GXC
+		original_tag = YUN
+		original_tag = SHX
+		original_tag = XSM
+		original_tag = XIK
+		original_tag = SIC
+		original_tag = GUD
+		original_tag = HPC
+		original_tag = NEA
+		original_tag = SHD
+		original_tag = NXM
+		original_tag = SHC
+		original_tag = GSM
+		original_tag = EGM
+		original_tag = TNG
+		original_tag = HMI
+		original_tag = MAN
+	    original_tag = KHR
+		original_tag = XIA
+		original_tag = KRS
+		original_tag = ATM
+		original_tag = SUY
+	}
+}
+
+is_chinese_warlord = { #for allowed trigger #no MAN no PRC no CHI
+	OR = {
+		original_tag = PLM
+		original_tag = GXC
+		original_tag = YUN
+		original_tag = SHX
+		original_tag = XSM
+		original_tag = XIK
+		original_tag = SIC
+		original_tag = GUD
+		original_tag = HPC
+		original_tag = NEA
+		original_tag = SHD
+		original_tag = SHC
+		original_tag = GSM
+		original_tag = EGM
+		original_tag = NXM
+		original_tag = TNG
+		original_tag = HMI
+		original_tag = SIK
+	    original_tag = KHR
+		original_tag = XIA
+		original_tag = KRS
+		original_tag = ATM
+		original_tag = SUY
+	}
+}
+check_has_focus_tree_to_switch_to_fascism = {
+	NOT = { tag = JAP }
+	NOT = { tag = GER }
+	NOT = { tag = MAN }
+	NOT = { tag = ITA }
+	NOT = { tag = CHI }
+	NOT = {
+		AND = {
+			tag = SAF
+			has_dlc = "Together for Victory"
+		}
+	}
+	NOT = {
+		AND = {
+			tag = RAJ
+			has_dlc = "Together for Victory"
+		}
+	}
+	NOT = {
+		AND = {
+			is_warlord = yes
+			has_dlc = "Waking the Tiger"
+		}
+	}
+}
+
+check_has_focus_tree_to_switch_to_democratic = {
+	NOT = { tag = CHI }
+	NOT = { tag = MAN }
+	NOT = { tag = FRA }
+	NOT = { tag = USA }
+	NOT = { tag = ENG }
+	NOT = { tag = CAN }
+	NOT = { tag = SAF }
+	NOT = { tag = AUS }
+	NOT = { tag = NZL }
+	NOT = { tag = RAJ }
+	NOT = { tag = CZE }
+	NOT = { tag = CHI }
+	NOT = {
+		AND = {
+			tag = HUN
+			has_dlc = "Death or Dishonor"
+		}
+	}
+	NOT = { tag = JAP }
+	NOT = {
+		AND = {
+			tag = GER
+			has_dlc = "Waking the Tiger"
+		}
+	}
+	NOT = {
+		AND = {
+			tag = YUN
+			has_dlc = "Waking the Tiger"
+			NOT = { has_focus_tree = warlord_generic_nationalist }
+		}
+	}
+	NOT = {
+		AND = {
+			tag = GXC
+			has_dlc = "Waking the Tiger"
+			NOT = { has_focus_tree = warlord_generic_nationalist }
+		}
+	}
+	NOT = {
+		AND = {
+			tag = XSM
+			has_dlc = "Waking the Tiger"
+			NOT = { has_focus_tree = warlord_generic_nationalist }
+		}
+	}
+	NOT = {
+		AND = {
+			tag = SHX
+			has_dlc = "Waking the Tiger"
+			NOT = { has_focus_tree = warlord_generic_nationalist }
+		}
+	}
+	NOT = {
+		AND = {
+			tag = SIK
+			has_dlc = "Waking the Tiger"
+			NOT = { has_focus_tree = warlord_generic_nationalist }
+		}
+	}
+	NOT = {
+		AND = {
+			is_warlord = yes
+			has_dlc = "Waking the Tiger"
+		}
+	}
+}
+
+check_has_focus_tree_to_switch_to_communism = {
+	NOT = { tag = PRC }
+	NOT = { tag = SIK }
+	NOT = { tag = MAN }
+	NOT = { tag = SOV }
+	NOT = { tag = CHI }
+	NOT = {
+		AND = {
+			tag = RAJ
+			has_dlc = "Together for Victory"
+		}
+	}
+	NOT = { tag = JAP }
+	NOT = {
+		AND = {
+			tag = YUN
+			has_dlc = "Waking the Tiger"
+		}
+	}
+	NOT = {
+		AND = {
+			tag = GXC
+			has_dlc = "Waking the Tiger"
+		}
+	}
+	NOT = {
+		AND = {
+			tag = XSM
+			has_dlc = "Waking the Tiger"
+		}
+	}
+	NOT = {
+		AND = {
+			tag = SHX
+			has_dlc = "Waking the Tiger"
+		}
+	}
+	NOT = {
+		AND = {
+			is_warlord = yes
+			has_dlc = "Waking the Tiger"
+		}
+	}
+}
+
+check_has_focus_tree_to_switch_to_n_socialism = {
+	NOT = {
+		AND = {
+			is_warlord = yes
+			has_dlc = "Waking the Tiger"
+		}
+	}
+	NOT = { tag = USA }
+	NOT = { tag = JAP }
+	NOT = { tag = CHI }
+}
+
+JAP_or_friend_controls_big_part_of_CHI_or_peace = { #guo
+	OR = {
+		NOT = { has_war_with = CHI }
+		AND = {
+		598 = { is_controlled_by_jap_or_its_puppet = yes }
+		1015 = { is_controlled_by_jap_or_its_puppet = yes }
+		613 = { is_controlled_by_jap_or_its_puppet = yes }
+		524 = { is_controlled_by_jap_or_its_puppet = yes }
+		526 = { is_controlled_by_jap_or_its_puppet = yes }
+		743 = { is_controlled_by_jap_or_its_puppet = yes }
+		
+			761 = { is_controlled_by_jap_or_its_puppet = yes }
+			1008 = { is_controlled_by_jap_or_its_puppet = yes }
+			328 = { is_controlled_by_jap_or_its_puppet = yes }
+			#1037 = { is_controlled_by_jap_or_its_puppet = yes }
+			#1039 = { is_controlled_by_jap_or_its_puppet = yes }
+			1007 = { is_controlled_by_jap_or_its_puppet = yes }
+			1006 = { is_controlled_by_jap_or_its_puppet = yes }
+			#1036 = { is_controlled_by_jap_or_its_puppet = yes }
+			714 = { is_controlled_by_jap_or_its_puppet = yes }
+			717 = { is_controlled_by_jap_or_its_puppet = yes }
+			#744 = { is_controlled_by_jap_or_its_puppet = yes }
+			1005 = { is_controlled_by_jap_or_its_puppet = yes }
+			715 = { is_controlled_by_jap_or_its_puppet = yes }
+			527 = { is_controlled_by_jap_or_its_puppet = yes }
+			525 = { is_controlled_by_jap_or_its_puppet = yes }
+			716 = { is_controlled_by_jap_or_its_puppet = yes }
+			610 = { is_controlled_by_jap_or_its_puppet = yes }
+			612 = { is_controlled_by_jap_or_its_puppet = yes }
+			611 = { is_controlled_by_jap_or_its_puppet = yes }
+			608 = { is_controlled_by_jap_or_its_puppet = yes }
+			614 = { is_controlled_by_jap_or_its_puppet = yes }
+			597 = { is_controlled_by_jap_or_its_puppet = yes }
+			1028 = { is_controlled_by_jap_or_its_puppet = yes }
+			999 = { is_controlled_by_jap_or_its_puppet = yes }
+			1000 = { is_controlled_by_jap_or_its_puppet = yes }
+			1001 = { is_controlled_by_jap_or_its_puppet = yes }
+			1002 = { is_controlled_by_jap_or_its_puppet = yes }
+            1003 = { is_controlled_by_jap_or_its_puppet = yes }
+			1004 = { is_controlled_by_jap_or_its_puppet = yes }				
+		}
+	}
+}
+
+####
+one_among_three_ikki_kanji_appeasement = {
+	OR = {
+		event_target:WTT_current_china_leader = { has_idea = appeasement_policy }
+		JAP = { has_idea = ikki_kita }
+		JAP = { has_idea = kanji_ishiwara }
+	}
+	NOT = {
+		OR = {
+			AND = {
+				event_target:WTT_current_china_leader = { has_idea = appeasement_policy }
+				JAP = { has_idea = ikki_kita }
+			}
+			AND = {
+				JAP = { has_idea = ikki_kita }
+				JAP = { has_idea = kanji_ishiwara }
+			}
+			AND = {
+				event_target:WTT_current_china_leader = { has_idea = appeasement_policy }
+				JAP = { has_idea = kanji_ishiwara }
+			}
+		}
+	}
+	NOT = {
+		AND ={
+			event_target:WTT_current_china_leader = { has_idea = appeasement_policy }
+			JAP = { has_idea = ikki_kita }
+			JAP = { has_idea = kanji_ishiwara }
+		}
+	}
+}
+
+two_among_three_ikki_kanji_appeasement = {
+	OR = {
+		AND = {
+			event_target:WTT_current_china_leader = { has_idea = appeasement_policy }
+			JAP = { has_idea = ikki_kita }
+		}
+		AND = {
+			JAP = { has_idea = ikki_kita }
+			JAP = { has_idea = kanji_ishiwara }
+		}
+		AND = {
+			event_target:WTT_current_china_leader = { has_idea = appeasement_policy }
+			JAP = { has_idea = kanji_ishiwara }
+		}
+	}
+	NOT = {
+		AND ={
+			event_target:WTT_current_china_leader = { has_idea = appeasement_policy }
+			JAP = { has_idea = ikki_kita }
+			JAP = { has_idea = kanji_ishiwara }
+		}
+	}
+}
+
+all_three_ikki_kanji_appeasement = {
+	AND ={
+		event_target:WTT_current_china_leader = { has_idea = appeasement_policy }
+		JAP = { has_idea = ikki_kita }
+		JAP = { has_idea = kanji_ishiwara }
+	}
+}
+
+two_and_three_ikki_kanji_appeasement = {
+	OR = {
+		AND = {
+			event_target:WTT_current_china_leader = { has_idea = appeasement_policy }
+			JAP = { has_idea = ikki_kita }
+		}
+		AND = {
+			JAP = { has_idea = ikki_kita }
+			JAP = { has_idea = kanji_ishiwara }
+		}
+		AND = {
+			event_target:WTT_current_china_leader = { has_idea = appeasement_policy }
+			JAP = { has_idea = kanji_ishiwara }
+		}
+	}
+}
+
+not_has_appeasement_policy_2 = {
+	custom_trigger_tooltip = {
+		tooltip = not_has_appeasement_policy_2_tt
+		NOT = {
+			OR = {
+				has_idea = appeasement_policy_2
+				has_idea = appeasement_policy_2_a
+				has_idea = appeasement_policy_2_b
+				has_idea = appeasement_policy_2_c
+				has_idea = appeasement_policy_2_d
+			}
+		}
+	}
+
+}
+
+not_has_fractured_administration = {
+	custom_trigger_tooltip = {
+		tooltip = not_has_fractured_administration_tt
+		NOT = {
+			OR = {
+				has_idea = CHI_fractured_administration_idea_1
+				has_idea = CHI_fractured_administration_idea_2
+				has_idea = CHI_fractured_administration_idea_3
+				has_idea = CHI_fractured_administration_idea_4
+			}
+		}
+	}
+}
+has_fractured_administration = {
+	custom_trigger_tooltip = {
+		tooltip = has_fractured_administration_tt
+		OR = {
+			has_idea = CHI_fractured_administration_idea_1
+			has_idea = CHI_fractured_administration_idea_2
+			has_idea = CHI_fractured_administration_idea_3
+			has_idea = CHI_fractured_administration_idea_4
+		}
+	}
+}
+
+has_troops_against_its_border = {
+	custom_trigger_tooltip = {
+		tooltip = has_troops_against_its_border_tt
+		#always = yes
+		OR = {
+			AND = {
+				FROM = { owns_state = 326 }
+				ROOT = {
+					divisions_in_border_state = {
+						state = 593
+						border_state = 326
+						size > 0
+					}
+				}
+			}
+			AND = {
+				FROM = { owns_state = 729 }
+				ROOT = {
+					divisions_in_border_state = {
+						state = 592
+						border_state = 729
+						size > 0
+					}
+				}
+			}
+			AND = {
+				FROM = { owns_state = 728 }
+				OR = {
+					ROOT = {
+						divisions_in_border_state = {
+							state = 592
+							border_state = 728
+							size > 0
+						}
+					}
+					ROOT = {
+						divisions_in_border_state = {
+							state = 1037
+							border_state = 728
+							size > 0
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+
+#USA rework, compare with the MTG congress trigger file when updating #MODDED
+congress_low_support_trigger = {
+	custom_trigger_tooltip = {
+		tooltip = congress_low_support_trigger_tt
+		OR = {
+			has_completed_focus = USA_suspend_the_congress_focus
+			AND = {
+				check_variable = { var = senators_support value = quorum_low compare = greater_than_or_equals }
+				check_variable = { var = representatives_support value = 174 compare = greater_than_or_equals }
+			}
+		}
+	}
+}
+
+congress_medium_support_trigger = {
+	custom_trigger_tooltip = {
+		tooltip = congress_medium_support_trigger_tt
+		OR = {
+			has_completed_focus = USA_suspend_the_congress_focus
+			AND = {
+				check_variable = { var = senators_support value = quorum_medium compare = greater_than_or_equals }
+				check_variable = { var = representatives_support value = 218 compare = greater_than_or_equals }
+			}
+		}
+	}
+}
+
+congress_high_support_trigger = {
+	custom_trigger_tooltip = {
+		tooltip = congress_high_support_trigger_tt
+		OR = {
+			has_completed_focus = USA_suspend_the_congress_focus
+			AND = {
+				check_variable = { var = senators_support value = quorum_high compare = greater_than_or_equals }
+				check_variable = { var = representatives_support value = 261 compare = greater_than_or_equals }
+			}
+		}
+	}
+}
