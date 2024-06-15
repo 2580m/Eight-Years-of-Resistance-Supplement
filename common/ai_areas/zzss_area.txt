@@ -1,0 +1,130 @@
+areas = {
+
+    west_europe = {
+		strategic_regions = {
+            5
+			6
+			7
+			19
+			208
+			20
+			
+			23
+			169
+			21
+			25
+			275
+			11
+			24
+        }
+    }
+	
+	east_europe = {
+		strategic_regions = {
+            38
+			22
+			27
+			26
+			24
+        }
+    }
+	
+	gaojiasuo = {
+		strategic_regions = {
+            135
+		    134
+		    137
+		    239
+        }
+    }
+	
+	zhongmianyinzhanqu = {
+		strategic_regions = {
+            141
+		    189
+		    229
+		    142
+			249
+			228
+			231
+			188
+        }
+    }
+	
+	north_finlan = {
+		strategic_regions = {
+           13
+		   265
+		   150
+		   12
+        }
+    }
+	
+	daxibei = {
+		strategic_regions = {
+            144
+		    200
+		    250
+		    
+        }
+    }
+	
+	china_coast_guo = { #MODDED
+		strategic_regions = {
+			247
+		    164
+			
+			143 #guo
+			248 #guo
+		}
+	} #MODDED
+	
+	West_of_Ural_Mountains = {
+        strategic_regions = {
+            265
+            264
+            40
+            150
+            137
+            135
+            134
+            132
+            131
+            130
+            37
+            39
+            133
+            208 # france
+            19
+            20
+            5 # benelux
+            41 # iberia
+            209
+            210
+            23 # italy
+            21
+            7 # germany
+            6
+            8
+            22 # chechoslovakia
+            38 # poland
+            39
+            37 # baltics
+            27 # balkans
+            24
+            26
+            25 # greece
+        }
+    }
+	
+	italy_core_state = {
+        strategic_regions = {
+            23 # italy
+            25 # greece
+			21
+			24
+			20
+			7
+        }
+    }
+}
