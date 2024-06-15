@@ -4,7 +4,7 @@ This is a game submod of the game mod "<Eight Years of Resistance >" of the game
 ##提交issue##
 在提交issue之前，请验证这些步骤并提供以下信息
 Before creating a issue,please verify these steps and provide the following information.
-Stpes:
+Steps:
 1.Tracker(未重复的):您是否已经在SteamCommunity讨论区或该项目issue tracker中寻找过该issue
 2.Need(需要):当前本Submod并不包含或还未完善
 3.Meaningful(有意义的):我提交的issue并不是无意义的。
