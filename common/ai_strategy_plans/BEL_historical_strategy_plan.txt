@@ -1,0 +1,73 @@
+BEL_historical_plan = {
+	name = "Belgium Historical Plan"
+	desc = "Belgium will pursue neutrality for as long as possible."
+
+	allowed = {
+		original_tag = BEL
+	}
+	enable = {
+		is_historical_focus_on = yes
+	}
+	abort = {
+		OR = {
+			has_war_with = FRA
+			has_war_with = ENG
+			has_war_with = SOV
+			has_government = communism
+			has_government = neutrality
+			has_government = fascism
+		}
+	}
+
+	ai_national_focuses = {
+		BEL_belgian_highways
+		BEL_support_domestic_industry
+		BEL_agricultural_reforms
+		BEL_strengthen_government
+		BEL_stay_neutral
+		BEL_ban_foreign_nazi_propoganda
+		BEL_provide_employment
+		BEL_invigorate_the_industry
+		BEL_encourage_investors
+		BEL_industrial_plan
+		BEL_better_labour_conditions
+		BEL_improve_mining_conditions
+		BEL_fortify_focus
+		BEL_armed_nation
+		BEL_closer_ties_with_benelux
+		BEL_benelux_economic_pact
+		BEL_clearing_lands_for_industrial_expansion
+		BEL_research_grants
+		BEL_ignore_germans
+		BEL_industrial_expansion
+		BEL_national_defence_industry
+		BEL_army_modernization
+		BEL_focus_on_defence
+		BEL_static_warfare
+		BEL_mechanizing_our_army
+		BEL_veteran_officers
+		BEL_refugees_from_abroad
+		BEL_wartime_industry
+		BEL_request_weapon
+	}
+
+	research = {
+
+	}
+
+	ideas = {
+		BEL_paul_van_zeeland = 15
+		BEL_paul-henri_spaak = 10
+		BEL_albert_de_vleeschauwe = 7
+	}
+
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+
+}
