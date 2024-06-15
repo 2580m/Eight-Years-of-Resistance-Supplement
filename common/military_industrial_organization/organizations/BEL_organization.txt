@@ -1,0 +1,131 @@
+#####################
+
+###  ##  #  # # #  ## 
+ #  #  # ## # # # #   
+ #  #### # ## ##   #  
+ #  #  # #  # # #   # 
+ #  #  # #  # # # ## 
+
+ #################### 
+
+renault_bel_tank_organization = {
+	include = generic_mobile_tank_organization
+	icon = GFX_idea_renault
+	allowed = {	
+		original_tag = BEL
+	}
+}
+vickers_armstrong_bel_tank_organization = {
+	include = generic_medium_tank_organization
+	icon = GFX_idea_vickers_armstrong
+	allowed = {	
+		original_tag = BEL
+	}
+}
+fn_herstal_tank_organization = {
+	include = generic_tank_organization
+	icon = GFX_idea_fn_herstal
+	allowed = {	
+		original_tag = BEL
+	}
+}
+
+#####################
+
+ ## #  # ### ###   ## 
+#   #  #  #  #  # #   
+ #  ####  #  ###   #  
+  # #  #  #  #      # 
+##  #  # ### #    ##  
+ 
+#####################
+
+cockerill_organization = {
+	include = generic_refurbishment_repair_organization 
+	icon = GFX_idea_cockerill
+	allowed = {	
+		original_tag = BEL
+	}
+}
+
+###########################
+
+###  #    ##  #  # ###  ## 
+#  # #   #  # ## # #   #   
+###  #   #### # ## ##   #  
+#    #   #  # #  # #     # 
+#    ### #  # #  # ### ##  
+
+###########################
+
+avions_fairey_organization = {
+	include = generic_light_aircraft_organization
+	icon = GFX_idea_avions_fairey
+	allowed = {	
+		original_tag = BEL
+	}
+}
+renard_air_organization = {
+	include = generic_medium_aircraft_organization
+	icon = GFX_idea_renard
+	allowed = {	
+		original_tag = BEL
+	}
+}
+sabena_organization = {
+	include = generic_heavy_aircraft_organization
+	icon = GFX_idea_sabena
+	allowed = {	
+		original_tag = BEL
+	}
+}
+sabca_organization = {
+	include = generic_cas_aircraft_organization 
+	icon = GFX_idea_sabca
+	allowed = {	
+		original_tag = BEL
+	}
+}
+
+################################### 
+
+#   #  ##  ### ### ###  ### ### #   
+## ## #  #  #  #   #  #  #  #   #   
+# # # ####  #  ##  ###   #  ##  #   
+#   # #  #  #  #   #  #  #  #   #   
+#   # #  #  #  ### #  # ### ### ### 
+
+
+###################################
+
+mecar_organization = {
+	include = generic_infantry_equipment_organization 
+	icon = GFX_idea_mecar
+	allowed = {	
+		original_tag = BEL
+	}
+}
+
+fn_herstal_organization = {
+	include = generic_infantry_equipment_organization 
+	icon = GFX_idea_fn_herstal
+	allowed = {	
+		original_tag = BEL
+	}
+}
+
+cockerill_artillery_organization = {
+	include = generic_artillery_organization 
+	icon = GFX_idea_cockerill
+	allowed = {	
+		original_tag = BEL
+	}
+}
+
+moes_organization = {
+	include = generic_motorized_mechanized_organization 
+	icon = GFX_idea_moes
+	allowed = {	
+		original_tag = BEL
+	}
+}

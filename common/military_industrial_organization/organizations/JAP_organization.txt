@@ -1,0 +1,245 @@
+#####################
+
+###  ##  #  # # #  ## 
+ #  #  # ## # # # #   
+ #  #### # ## ##   #  
+ #  #  # #  # # #   # 
+ #  #  # #  # # # ## 
+
+ #################### 
+
+JAP_sagami_arsenal_organization = {
+	name = sagami_arsenal
+	include = generic_mobile_tank_organization
+	icon = GFX_idea_sagami_arsenal
+	allowed = {	
+		#tag = JAP
+		has_dlc = "Arms Against Tyranny"
+		
+	}
+	
+	available = {
+		owner = {
+			has_country_flag = ROOT.ke_yi_shi_yong_flag
+		}
+	}
+} 
+
+JAP_mitsubishi_tank_organization = {
+	name = mitsubishi_tank
+	include = generic_infantry_tank_organization
+	icon = GFX_idea_mitsubishi
+	allowed = {	
+		#tag = JAP
+		has_dlc = "Arms Against Tyranny"
+		
+	}
+	
+	available = {
+		owner = {
+			has_country_flag = ROOT.ke_yi_shi_yong_flag
+		}
+	}
+} 
+
+JAP_kawasaki_tank_organization = {
+	name = kawasaki_tank
+	include = generic_heavy_tank_organization
+	icon = GFX_idea_kawasaki
+	allowed = {	
+		#tag = JAP
+		has_dlc = "Arms Against Tyranny"
+		
+	}
+	
+	available = {
+		owner = {
+			has_country_flag = ROOT.ke_yi_shi_yong_flag
+		}
+	}
+} 
+
+JAP_hitachi_tank_organization = {
+	name = hitachi_tank
+	include = generic_medium_tank_organization
+	icon = GFX_idea_hitachi
+	allowed = {	
+		#tag = JAP
+		has_dlc = "Arms Against Tyranny"
+		
+	}
+	
+	available = {
+		owner = {
+			has_country_flag = ROOT.ke_yi_shi_yong_flag
+		}
+	}
+} 
+
+#####################
+
+ ## #  # ### ###   ## 
+#   #  #  #  #  # #   
+ #  ####  #  ###   #  
+  # #  #  #  #      # 
+##  #  # ### #    ##  
+ 
+#####################
+
+JAP_ishikawajima_naval_arsenal_organization = {
+	name = ishikawajima_naval
+	include = generic_refurbishment_repair_organization
+	icon = GFX_idea_ishikawajima
+	allowed = {	 
+		#tag = JAP
+		has_dlc = "Arms Against Tyranny"
+		
+	}
+	
+	available = {
+		owner = {
+			has_country_flag = ROOT.ke_yi_shi_yong_flag
+		}
+	}
+}
+
+JAP_mitsubishi_naval_arsenal_organization = {
+	name = mitsubishi_naval
+	include = generic_black_sea_fleet_organization
+	icon = GFX_idea_mitsubishi
+	allowed = {	 
+		#tag = JAP
+		has_dlc = "Arms Against Tyranny"
+		
+	}
+	
+	available = {
+		owner = {
+			has_country_flag = ROOT.ke_yi_shi_yong_flag
+		}
+	}
+}
+
+###########################
+
+###  #    ##  #  # ###  ## 
+#  # #   #  # ## # #   #   
+###  #   #### # ## ##   #  
+#    #   #  # #  # #     # 
+#    ### #  # #  # ### ##  
+
+###########################
+
+JAP_kawasaki_aircraft_organization = {
+	name = kawasaki_aircraft
+	include = generic_general_aircraft_organization
+	icon = GFX_idea_kawasaki
+	allowed = {	
+		#tag = JAP
+		has_dlc = "Arms Against Tyranny"
+		
+	}
+	
+	available = {
+		owner = {
+			has_country_flag = ROOT.ke_yi_shi_yong_flag
+		}
+	}
+}
+
+JAP_kawanishi_aircraft_organization = {
+	name = kawanishi_aircraft
+	include = generic_light_aircraft_organization
+	icon = GFX_idea_kawanishi
+	allowed = {	
+		#tag = JAP
+		has_dlc = "Arms Against Tyranny"
+		
+	}
+	
+	available = {
+		owner = {
+			has_country_flag = ROOT.ke_yi_shi_yong_flag
+		}
+	}
+}
+
+JAP_tachikawa_aircraft_organization = {
+	name = tachikawa_aircraft
+	include = generic_multi_role_aircraft_organization
+	icon = GFX_idea_tachikawa
+	allowed = {	
+		#tag = JAP
+		has_dlc = "Arms Against Tyranny"
+		
+	}
+	
+	available = {
+		owner = {
+			has_country_flag = ROOT.ke_yi_shi_yong_flag
+		}
+	}
+}
+
+JAP_kyushu_hikoki_organization = {
+	name = kyushu_hikoki
+	include = generic_medium_aircraft_organization
+	icon = GFX_idea_kyushu_hikoki
+	allowed = {	
+		#tag = JAP
+		has_dlc = "Arms Against Tyranny"
+		
+	}
+	
+	available = {
+		owner = {
+			has_country_flag = ROOT.ke_yi_shi_yong_flag
+		}
+	}
+}
+
+################################### 
+
+#   #  ##  ### ### ###  ### ### #   
+## ## #  #  #  #   #  #  #  #   #   
+# # # ####  #  ##  ###   #  ##  #   
+#   # #  #  #  #   #  #  #  #   #   
+#   # #  #  #  ### #  # ### ### ### 
+
+
+###################################
+
+JAP_national_materiel_organization = {
+	name = national_materiel
+	include = generic_support_equipment_organization
+	icon = GFX_idea_national_materiel
+	allowed = {	
+		#tag = JAP
+		has_dlc = "Arms Against Tyranny"
+		
+	}
+	
+	available = {
+		owner = {
+			has_country_flag = ROOT.ke_yi_shi_yong_flag
+		}
+	}
+}
+
+JAP_hitachi_materiel_organization = {
+	name = hitachi_materiel
+	include = generic_armored_car_organization
+	icon = GFX_idea_hitachi
+	allowed = {	
+		#tag = JAP
+		has_dlc = "Arms Against Tyranny"
+		
+	}
+	
+	available = {
+		owner = {
+			has_country_flag = ROOT.ke_yi_shi_yong_flag
+		}
+	}
+}
+
