@@ -1,0 +1,30 @@
+
+state={
+	id=1010
+	name="STATE_1010"
+
+	history={
+		owner = MAN
+		add_core_of = MAN
+		add_core_of = CHI
+		buildings = {
+			infrastructure = 2
+			arms_factory = 1
+			industrial_complex = 1
+			6837 = {
+				naval_base = 1
+
+			}
+
+		}
+
+	}
+
+	provinces={
+		934 3814 3934 6837 6893 6898 9788 9835 9905 11815 11886 
+	}
+	manpower=4317822
+	buildings_max_level_factor=1.000
+	state_category=town
+	local_supplies=0.000
+}

@@ -1,0 +1,27 @@
+state={
+	id=1054
+	name="STATE_1054"
+	provinces={
+		1708 1783 1844 
+	}
+	resources={
+		chromium=22
+	}
+	history={
+		owner = SIK
+		add_claim_by = CHI
+		
+		buildings = {
+			infrastructure = 2
+			#industrial_complex = 1			
+		}
+		victory_points = {
+			1708 1 
+		}
+
+	}
+	manpower=327000 # (4360000 x0.075)
+	buildings_max_level_factor=1.000
+	local_supplies=0.000
+	state_category=pastoral
+}

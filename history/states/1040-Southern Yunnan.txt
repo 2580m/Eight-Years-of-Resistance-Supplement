@@ -1,0 +1,33 @@
+state={
+	id=1040
+	name="STATE_1040"
+	provinces={
+		1114 1172 1196 1383 1522 1653 4501 10346  
+	}
+	resources={
+		rubber=18
+	}
+	history={
+		owner = YUN
+		add_core_of = YUN
+		add_core_of = CHI
+		
+		buildings = {
+			infrastructure = 2
+			industrial_complex = 1
+			arms_factory = 1
+		}
+		1939.1.1 = {
+			owner = YUN
+
+		}
+		victory_points = {
+			4501 3 
+		}
+	}
+	
+	manpower=3612600 # (12042000 x0.3)
+	buildings_max_level_factor=1.000
+	local_supplies=0.000
+	state_category=town
+}

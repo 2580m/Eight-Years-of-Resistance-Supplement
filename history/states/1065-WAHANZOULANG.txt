@@ -1,0 +1,25 @@
+
+state={
+	id=1065
+	name="STATE_1065" # Kabul
+	manpower = 50000
+	
+	state_category = rural
+	
+	resources={
+		
+	}
+	history={
+		owner = AFG
+		buildings = {
+			infrastructure = 1
+		}
+		add_core_of = AFG
+	}
+
+	provinces={
+		7519
+	}
+
+	local_supplies=0.0
+}

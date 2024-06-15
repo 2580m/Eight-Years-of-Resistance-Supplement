@@ -1,0 +1,39 @@
+
+state={
+	id=598
+	name="STATE_598" # Kiangsu
+	provinces={
+		1029 1076 1121 4005 4031 4082 4123 7142 9995 11973 12055 12067 13144 
+	}
+	history={
+		owner = CHI
+		add_core_of = CHI
+		buildings = {
+			infrastructure = 3
+			#industrial_complex = 1
+			1029 = {
+				naval_base = 1
+			}
+		}
+		1939.1.1 = {
+			owner = CHI
+			controller = RFM
+			add_core_of = RFM
+
+		}
+		victory_points = {
+			11973 3
+		}
+		victory_points = {
+			1029 1 
+		}
+		victory_points = {
+			7142 1 
+		}
+
+	}
+	manpower=8752560 # (36469000 x0.6*0.4)
+	buildings_max_level_factor=1.000
+	state_category=large_town
+	local_supplies=0.000
+}

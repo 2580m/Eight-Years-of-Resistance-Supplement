@@ -1,0 +1,44 @@
+state={
+	id=1066
+	name="STATE_1066"
+	provinces={
+		1018 4023 10004 11926 
+	}
+
+	state_category=town
+
+	resources={
+		tungsten=4.000
+		steel=4.000
+	}
+
+	history={
+		owner = GUD
+		add_core_of = GUD
+		add_core_of = CHI
+		buildings = {
+			infrastructure = 2
+			arms_factory = 1
+			1018 = {
+				naval_base = 1
+				coastal_bunker = 1
+			}
+		}
+		victory_points = {
+			12077 1 
+		}
+		1939.1.1 = {
+			remove_core_of = GUD
+			owner = CHI
+			JAP = {
+				set_province_controller = 1018
+			}
+
+		}
+
+	}
+
+	manpower=1522000 #
+	buildings_max_level_factor=1.000
+	local_supplies=0.000
+}

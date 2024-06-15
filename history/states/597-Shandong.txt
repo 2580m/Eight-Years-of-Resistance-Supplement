@@ -1,0 +1,39 @@
+
+state={
+	id=597
+	name="STATE_597" # Western Shantung
+    resources={
+		steel=5
+		
+	}
+	history={
+		owner = SHD
+		add_core_of = SHD
+		add_core_of = CHI
+		victory_points = {
+			1069 10
+		}
+		buildings = {
+			infrastructure = 3
+			industrial_complex = 2
+			arms_factory = 1
+			air_base = 2
+
+		}
+		1938.10.25 = {
+			owner = CHI
+			controller = EHB
+			add_core_of = EHB
+
+		}
+
+	}
+
+	provinces={
+		1069 1084 1124 1154 4010 4037 4071 4089 4181 7025 7055 7085 7129 7160 7189 7200 9956 9971 9987 10043 10072 10102 11933 11962 12015 12045 12069 12093 
+	}
+	manpower=22860000 # (38100000 x0.6)
+	buildings_max_level_factor=1.000
+	state_category=large_town
+	local_supplies=4.000
+}

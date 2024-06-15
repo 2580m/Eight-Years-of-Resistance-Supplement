@@ -1,0 +1,42 @@
+
+state={
+	id=615
+	name="STATE_615" # Central Shansi
+	resources={
+		steel=15
+		
+	}
+	history={
+		owner = SHX
+		add_core_of = SHX
+		add_core_of = CHI
+		
+		victory_points = {
+			12344 10 
+		}
+		buildings = {
+			infrastructure = 2
+			arms_factory = 2
+			industrial_complex = 1
+			air_base = 2
+			12344 = {
+				bunker = 2
+			}
+
+		}
+		1939.1.1 = {
+			add_core_of = EHB
+			owner = SHX
+			controller = EHB
+		}
+
+	}
+
+	provinces={
+		1203 1519 4174 4469 4538 12078 12344 
+	}
+	manpower=5800500 # (11601000 x0.5)
+	buildings_max_level_factor=1.000
+	state_category=town
+	local_supplies=0.000
+}

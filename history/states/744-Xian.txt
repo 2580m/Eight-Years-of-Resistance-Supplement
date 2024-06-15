@@ -1,0 +1,55 @@
+
+state={
+	id=744
+	name="STATE_744" # Southern Shensi
+	resources={
+		steel=6
+		
+	}
+	history={
+		owner = NEA
+		add_core_of = NEA
+		#add_core_of = SHC
+		add_core_of = CHI
+		buildings = {
+			infrastructure = 2
+			arms_factory = 1
+			industrial_complex = 2
+			air_base = 2
+            7301 = {
+				bunker = 3
+			}
+			7406 = {
+				bunker = 2
+			}
+			2006 = {
+				bunker = 2
+			}
+		}
+		1939.1.1 = {
+			owner = CHI
+			remove_core_of = NEA
+
+		}
+		victory_points = {
+			7301 15
+		}
+		victory_points = {
+			4295 3
+		}
+        victory_points = {
+			12156 1
+		}
+		victory_points = {
+			8049 1
+		}
+	}
+
+	provinces={
+		1976 2006 4167 4256 4295 5007 5092 7301 7406 7418 8049 10257 10733 12156 12713 
+	}
+	manpower=6873504 # (9780000 x0.5 +206000+1777504)
+	buildings_max_level_factor=1.000
+	state_category=large_town
+	local_supplies=0.000
+}

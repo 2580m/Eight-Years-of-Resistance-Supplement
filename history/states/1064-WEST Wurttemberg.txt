@@ -1,0 +1,36 @@
+
+state={
+	id=1064
+	name="STATE_1064"
+
+	history={
+		owner = GER
+		buildings = {
+			infrastructure = 4		
+			air_base = 2
+		}
+		add_core_of = GER
+		set_demilitarized_zone = yes
+		1936.3.7 = {
+			set_demilitarized_zone = no
+
+		}
+		1939.1.1 = {
+			buildings = {
+				arms_factory = 11
+				industrial_complex = 3
+
+			}
+
+		}
+
+	}
+
+	provinces={
+		3530 3679 3692 6542 6568 6581 6712 11640 
+	}
+	manpower=2543427
+	buildings_max_level_factor=1.000
+	state_category=city
+	local_supplies=0.000
+}

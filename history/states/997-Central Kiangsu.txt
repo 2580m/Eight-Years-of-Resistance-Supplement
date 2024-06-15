@@ -1,0 +1,28 @@
+
+state={
+	id=997
+	name="STATE_997" 
+	manpower = 10453000
+	state_category=town
+
+	history={
+		owner = CHI
+		victory_points = {
+			4001 3
+		}
+		victory_points = {
+			4091 1
+		}
+		buildings = {
+			infrastructure = 3
+			industrial_complex = 1
+		}
+		add_core_of = CHI
+	}
+
+	provinces={
+		1089 4001 4091 7181 9953 10095 11928
+	}
+
+	local_supplies=0.0 
+}

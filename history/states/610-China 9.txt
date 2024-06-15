@@ -1,0 +1,28 @@
+
+state={
+	id=610
+	name="STATE_610"
+
+	history={
+		owner = MAN
+		add_core_of = MAN
+		add_core_of = CHI
+		buildings = {
+			infrastructure = 2
+			industrial_complex = 1
+
+		}
+		victory_points = {
+			11801 3 
+		}
+
+	}
+
+	provinces={
+		814 881 952 972 3828 3881 3955 6937 7575 7633 9768 9873 10331 10426 11801 11855 
+	}
+	manpower=4553228
+	buildings_max_level_factor=1.000
+	state_category=town
+	local_supplies=0.000
+}

@@ -1,0 +1,33 @@
+
+state={
+	id=1005
+	name="STATE_1005"
+
+	history={
+		owner = MAN
+		add_core_of = MAN
+		add_core_of = CHI
+		victory_points = {
+			10433 10 
+		}
+		victory_points = {
+			11906 1 
+		}
+		buildings = {
+			infrastructure = 2
+			air_base = 2
+			arms_factory = 1
+			industrial_complex = 1
+
+		}
+
+	}
+
+	provinces={
+		783 927 946 1645 3791 3815 3947 4592 5427 6811 6863 7523 7526 7582 7591 7652 7767 9766 9782 9798 9883 9913 9928 10376 10433 10503 11850 11862 11864 11893 11906 12412 12500 13392 13433 13434 13436 
+	}
+	manpower=4234206
+	buildings_max_level_factor=1.000
+	state_category=town
+	local_supplies=0.000
+}

@@ -1,0 +1,41 @@
+
+state={
+	id=591
+	name="STATE_591" # Hainan
+resources={
+		
+rubber=18
+	}
+	history = {
+		owner = GUD
+		add_core_of = GUD
+		add_core_of = CHI
+		
+
+		victory_points = {
+			1038 1
+		}
+
+		buildings = {
+			infrastructure = 2
+			arms_factory = 1			
+			1038 = {
+				naval_base = 1
+			}
+
+		}
+
+		1939.1.1 = {
+			owner = CHI
+			controller = JAP
+		}
+	}
+
+	provinces={
+		994 1038 1070 11963 11990 
+	}
+	manpower = 4350000
+	buildings_max_level_factor=1.000
+	state_category=town
+	local_supplies=1.000
+}
