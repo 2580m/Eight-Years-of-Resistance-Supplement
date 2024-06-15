@@ -1,0 +1,14 @@
+日本战后处理方案 = {       
+     icon = generic_prepare_civil_war 
+    allowed ={
+        tag = USA
+    }
+    		available = {
+			has_government = democratic
+            USA ={ puppet = JAP }		
+			}
+    visible = {
+			has_government = democratic
+            USA ={ puppet = JAP }	
+	}
+}

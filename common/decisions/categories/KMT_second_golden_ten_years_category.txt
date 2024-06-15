@@ -1,0 +1,61 @@
+attack_prc_area_plan = {
+	icon = border_conflicts
+	picture = GFX_decision_cat_picture_chi_army_reform
+	allowed = {
+		is_literally_china = yEs
+	}
+	visible = {
+		is_ai = no
+		has_war_with = event_target:WTT_communist_china
+		has_global_flag = PRC_civil_war_started
+		not = { has_government = communism }
+	}
+	priority = 9999
+}
+
+KMT_second_golden_ten_years_category = {
+    priority = 9999
+	icon = generic_industry
+	picture = GFX_decision_cat_picture_generic_shipbuilding
+	
+	allowed = {
+		OR = {
+            TAG = event_target:WTT_current_china_leader
+            TAG = CHI
+            }
+	}
+	visible = {
+	    NOT = { has_war_with = USA }
+		NOT = { has_global_flag = usa_qingdao_angry_flag }
+		is_subject = no
+		USA = {
+		exists = yes
+		has_opinion = {
+					target = ROOT
+					value > -50
+		}
+		}
+		if = {
+		limit = {
+		USA = {
+		OR = { has_government = democratic has_government = n_socialism }
+		}
+		}
+		NOT = { 
+		has_government = fascism
+		has_government = communism
+		}
+		}
+	    #完成统一   
+	    #is_in_faction_with = USA
+		#	USA = {
+        #       NOT = { has_war_with = ROOT }
+		#		exists = yes
+		#		OR = { has_government = democratic has_government = n_socialism }
+		#		has_opinion = {
+		#			target = ROOT
+		#			value > 0
+		#		}
+		#	}
+    }         
+}

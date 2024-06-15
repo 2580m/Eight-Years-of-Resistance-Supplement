@@ -1,0 +1,17 @@
+MAN_xiangribenjiedongxi_decisions_categories = {
+    icon = GFX_decision_eng_blackshirt_speech
+    picture = GFX_decision_cat_picture_1936_election
+    priority = 50
+    allowed = {
+	}
+    available = {
+        not = {
+            has_war_with = JAP
+        }
+    }
+	visible = {
+		OR = {
+			has_completed_focus = MAN_assertiveness
+		}
+	}
+}

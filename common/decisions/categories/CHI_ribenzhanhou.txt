@@ -1,0 +1,91 @@
+ 日本战后处理问题 = {      
+     icon = generic_prepare_civil_war 
+    priority = 50
+    allowed = {
+        tag = CHI
+    }
+		available = {
+			has_government = neutrality
+			531 = {
+				is_controlled_by_ROOT_or_puppet = yes
+			}
+			532 = {
+				is_controlled_by_ROOT_or_puppet = yes
+			}
+			535 = {
+				is_controlled_by_ROOT_or_puppet = yes
+			}
+			534 = {
+				is_controlled_by_ROOT_or_puppet = yes
+			}
+			282 = {
+				is_controlled_by_ROOT_or_puppet = yes
+			}
+			533 = {
+				is_controlled_by_ROOT_or_puppet = yes
+			}
+			536 = {
+				is_controlled_by_ROOT_or_puppet = yes
+			}
+			996 = {
+				is_controlled_by_ROOT_or_puppet = yes
+			}
+			530 = {
+				is_controlled_by_ROOT_or_puppet = yes
+			}
+			529 = {
+				is_controlled_by_ROOT_or_puppet = yes
+			}
+			528 = {
+				is_controlled_by_ROOT_or_puppet = yes
+			}
+			994 = {
+				is_controlled_by_ROOT_or_puppet = yes
+			}
+			995 = {
+				is_controlled_by_ROOT_or_puppet = yes
+			}						
+		           }
+    visible = {
+			has_government = neutrality
+			531 = {
+				is_controlled_by_ROOT_or_puppet = yes
+			}
+			532 = {
+				is_controlled_by_ROOT_or_puppet = yes
+			}
+			535 = {
+				is_controlled_by_ROOT_or_puppet = yes
+			}
+			534 = {
+				is_controlled_by_ROOT_or_puppet = yes
+			}
+			282 = {
+				is_controlled_by_ROOT_or_puppet = yes
+			}
+			533 = {
+				is_controlled_by_ROOT_or_puppet = yes
+			}
+			536 = {
+				is_controlled_by_ROOT_or_puppet = yes
+			}
+			996 = {
+				is_controlled_by_ROOT_or_puppet = yes
+			}
+			530 = {
+				is_controlled_by_ROOT_or_puppet = yes
+			}
+			529 = {
+				is_controlled_by_ROOT_or_puppet = yes
+			}
+			528 = {
+				is_controlled_by_ROOT_or_puppet = yes
+			}
+			994 = {
+				is_controlled_by_ROOT_or_puppet = yes
+			}
+			995 = {
+				is_controlled_by_ROOT_or_puppet = yes
+			}	
+	     }
+        }

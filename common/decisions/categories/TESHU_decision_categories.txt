@@ -1,0 +1,13 @@
+特殊行动 = {
+	icon = generic_political_actions
+	allowed = {
+                     OR = {
+                     TAG = CHI
+                     TAG = PRC
+                           }
+	}
+	visible = {
+                      has_war_with = JAP
+	}
+}
+

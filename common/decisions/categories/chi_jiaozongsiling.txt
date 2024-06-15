@@ -1,0 +1,8 @@
+建立各地剿匪总司令部 = {       #建立各地剿匪总司令部
+    allowed ={
+        tag = CHI
+    }
+    visible = {
+		always = yes
+	}
+}

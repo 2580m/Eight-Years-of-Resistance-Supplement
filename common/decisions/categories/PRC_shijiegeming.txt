@@ -1,0 +1,15 @@
+联系世界各地的革命同志 = {
+     icon = generic_prepare_civil_war
+    priority = 50
+    allowed ={
+        tag = PRC
+    }
+    available = {
+			has_completed_focus = PRC_internationalist_clique_focus
+			has_government = communism
+    }
+    visible = {
+			has_completed_focus = PRC_internationalist_clique_focus
+			has_government = communism
+	}
+}

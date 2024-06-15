@@ -1,0 +1,113 @@
+PRC_comecon_dec_cat = {
+	priority = 7500
+
+	icon = SOV_civil_puppet_interaction
+	picture = GFX_decision_cat_picture_soviet_comecon
+
+	allowed = {
+		OR = {
+			TAG = event_target:WTT_communist_china
+			TAG = PRC
+		}
+	}
+
+	visible = {
+		has_completed_focus = PRC_internationalist_clique_focus
+	}
+}
+
+PRC_156_project_category = {	
+    priority = 9999
+	icon = generic_industry
+	picture = GFX_decision_cat_picture_generic_shipbuilding
+	
+	allowed = {
+		OR = {
+            TAG = event_target:WTT_communist_china
+            TAG = PRC
+            }
+	}
+	visible = {
+	    NOT = { has_war_with = SOV }
+		is_subject = no
+		has_government = SOV
+		SOV = {
+		has_opinion = {
+					target = ROOT
+					value > 4
+		}
+		}
+        #has_idea = prc_sov_youhaohuzhu 
+	    #is_in_faction_with = SOV
+		#	SOV = {
+        #        NOT = { has_war_with = ROOT }
+		#		exists = yes
+		#		has_government = ROOT
+		#		has_opinion = {
+		#			target = ROOT
+		#			value > 4
+		#		}
+		#	}
+    }         
+}
+
+jap_dasaodang_dongbeikanglian_category = {
+    priority = 9500	
+	icon = infiltration
+	picture = GFX_decision_cat_picture_chi_infiltration	
+	
+	allowed = {
+		
+		TAG = JAP
+		
+	}
+	
+    visible = {
+     any_state = {
+	 has_dynamic_modifier = { modifier = PRC_dongbeikanglian_genjudi scope = JAP }
+	 controller = { is_in_faction_with = JAP }
+	 }
+	 is_subject = no
+	 OR = {
+	 has_government = fascism
+	 has_government = neutrality
+	 }
+	 country_exists = PRC
+	}
+}
+
+jap_unplanned_offensive_prepare_catagory = {
+    priority = 9999	
+	icon = spr_civil_war_offensives
+	picture = GFX_decision_cat_picture_generic_border_conflicts   #GFX_decision_cat_war_of_resistance	
+	
+	allowed = {
+		
+		TAG = JAP
+		
+	}
+	
+    visible = {
+     any_state = {
+	 is_core_of = event_target:WTT_current_china_leader
+	 has_dynamic_modifier = { modifier = jap_unplanned_offensive_state }
+	 }
+	 has_global_flag = jap_unplanned_offensive_happen
+	 has_war_with = event_target:WTT_current_china_leader
+	}
+}
+
+chi_unplanned_offensive_prepare_catagory = {
+    priority = 9999
+	icon = spr_civil_war_offensives
+	picture = GFX_decision_cat_picture_generic_border_conflicts   #GFX_decision_cat_war_of_resistance	
+	
+	allowed = {
+	    is_literally_china = yes
+	}
+	
+    visible = {
+	    has_global_flag = jap_unplanned_offensive_happen
+	    has_war_with = JAP
+	}
+}

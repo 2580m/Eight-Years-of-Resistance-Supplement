@@ -1,0 +1,8 @@
+建立少数民族自治区政府 = {       #建立少数民族自治区政府
+    allowed ={
+        tag = CHI
+    }
+    visible = {
+		always = yes
+	}
+}

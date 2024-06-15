@@ -1,0 +1,16 @@
+industrialization_process_ca = {	
+    priority = 9500
+	icon = generic_industry
+	picture = GFX_decision_cat_picture_generic_shipbuilding
+	
+	allowed = {
+		always = yes
+	}
+	visible = {
+	OR = {
+    has_idea = agrarion_society_generic_3 
+    has_idea = agrarion_society_generic_2
+    has_idea = agrarion_society_generic_1
+    }
+    }           
+}

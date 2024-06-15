@@ -1,0 +1,22 @@
+X_xchinese_propaganda_campaigns = {
+	priority = 100
+	icon = SOV_propaganda
+	scripted_gui = xchinese_propaganda_campaigns_ui
+	allowed = {
+		or = { is_literally_china = yes original_tag = SIK }
+	}
+
+	visible = {
+		has_civil_war = no
+		is_subject = no
+		or = { tag = event_target:WTT_communist_china tag = event_target:WTT_current_china_leader }
+		if = {
+		limit = { original_tag = PRC }
+		has_completed_focus = PRC_kuodaxuanchuan
+		}
+		if = {
+		limit = { original_tag = CHI }
+		has_completed_focus = CHI_compulsory_education_chi
+		}
+	}
+}

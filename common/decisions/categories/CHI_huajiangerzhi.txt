@@ -1,0 +1,8 @@
+划江而治？玩家专属，半成品 = {       #划江而治？玩家专属，半成品
+    allowed ={
+        tag = CHI
+    }
+    visible = {
+		always = yes
+	}
+}

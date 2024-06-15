@@ -1,0 +1,15 @@
+parliament_gui_decision_category = {
+	icon = generic_communism
+
+	# picture = 
+
+	allowed = { original_tag = PRC }
+
+	priority = 1000
+	visible = {
+		NOT = { has_country_leader = { character = prc_wang_fanxi ruling_only = yes } }
+		NOT = { has_completed_focus = PRC_7th_National_Congress_focus } #guo
+	}
+	scripted_gui = parliament_gui
+	visible_when_empty = yes
+}

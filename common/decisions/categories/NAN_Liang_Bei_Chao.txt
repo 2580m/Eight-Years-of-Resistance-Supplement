@@ -1,0 +1,12 @@
+form_east_asia_union_category = {
+	icon = chinese_petroleum_corporation
+	picture = GFX_decision_cat_picture_east_asia_union
+	allowed = {
+	}
+}
+form_CHI_emergency_power_category = {
+	icon = 
+	picture = 
+	allowed = {
+	}
+}

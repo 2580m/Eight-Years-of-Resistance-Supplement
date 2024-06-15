@@ -1,0 +1,9 @@
+fuck_you_donot_bother_me_AI_NMSL = {
+	priority = 15000
+	visible = {
+		is_ai = no
+	}
+	allowed = {
+		is_ai = no
+	}
+}
