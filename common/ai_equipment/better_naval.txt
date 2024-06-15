@@ -1,0 +1,1776 @@
+better_destroyers = {
+	category = naval
+	
+	blocked_for = { BHU
+	}
+	
+	
+	
+	roles = {
+		naval_better_screen
+	}
+	
+	priority = {
+		factor = 4000
+	}
+	
+	better_screen_1 = {
+	
+		priority = {
+			factor = 100
+			modifier = { 
+				has_tech = basic_ship_hull_light  
+				factor = 0.5
+			}
+			modifier = { 
+				has_country_flag = torpedo_focus 
+				factor = -1
+			}
+		}
+		
+		role_icon_index = 2
+		
+		target_variant = {
+			match_value = 11000.0
+			
+			type = ship_hull_light_1
+			modules = {
+				fixed_ship_battery_slot = ship_light_battery
+				fixed_ship_anti_air_slot = empty
+				fixed_ship_fire_control_system_slot = ship_sonar
+				fixed_ship_radar_slot = ship_radar
+				fixed_ship_engine_slot = light_ship_engine
+				fixed_ship_torpedo_slot = ship_torpedo
+				mid_1_custom_slot = ship_torpedo
+				rear_1_custom_slot = ship_depth_charge
+			}
+		}
+		
+		allowed_modules = {
+			ship_light_battery
+			ship_torpedo
+			ship_anti_air
+			ship_depth_charge
+			light_ship_engine
+			ship_radar
+			ship_sonar
+		}
+	}
+	
+	better_screen_1_2 = {
+	
+		priority = {
+			factor = 100
+			modifier = { 
+				has_tech = basic_ship_hull_light  
+				factor = 0.5
+			}
+			modifier = { 
+				NOT = { has_country_flag = torpedo_focus }
+				factor = -1
+			}
+		}
+		
+		role_icon_index = 2
+		
+		target_variant = {
+			match_value = 11000.0
+			
+			type = ship_hull_light_1
+			modules = {
+				fixed_ship_battery_slot = ship_light_battery
+				fixed_ship_anti_air_slot = empty
+				fixed_ship_fire_control_system_slot = ship_sonar
+				fixed_ship_radar_slot = ship_radar
+				fixed_ship_engine_slot = light_ship_engine
+				fixed_ship_torpedo_slot = ship_torpedo
+				mid_1_custom_slot = ship_torpedo
+				rear_1_custom_slot = ship_torpedo
+			}
+		}
+		
+		allowed_modules = {
+			ship_light_battery
+			ship_torpedo
+			ship_anti_air
+			ship_depth_charge
+			light_ship_engine
+			ship_radar
+			ship_sonar
+		}
+	}
+	
+	better_screen_2 = {
+	
+		priority = {
+			factor = 200
+			modifier = { 
+				has_tech = improved_ship_hull_light   
+				factor = 0.5 
+			}
+			modifier = { 
+				has_country_flag = torpedo_focus 
+				factor = -1
+			}
+		}
+		
+		role_icon_index = 2
+		
+		target_variant = {
+			match_value = 11500.0
+			
+			type = ship_hull_light_2
+			modules = {
+				fixed_ship_battery_slot = dp_light_battery
+				fixed_ship_anti_air_slot = ship_anti_air
+				fixed_ship_fire_control_system_slot = ship_sonar
+				fixed_ship_radar_slot = ship_radar
+				fixed_ship_engine_slot = light_ship_engine
+				fixed_ship_torpedo_slot = ship_torpedo
+				mid_1_custom_slot = ship_depth_charge
+				rear_1_custom_slot = dp_light_battery
+			}
+		}
+		
+		allowed_modules = {
+			ship_light_battery
+			dp_light_battery
+			ship_torpedo
+			ship_anti_air
+			ship_depth_charge
+			light_ship_engine
+			ship_radar
+			ship_sonar
+		}
+	}
+	
+	better_screen_2_2 = {
+	
+		priority = {
+			factor = 200
+			modifier = { 
+				has_tech = improved_ship_hull_light   
+				factor = 0.5 
+			}
+			modifier = { 
+				NOT = { has_country_flag = torpedo_focus }
+				factor = -1
+			}
+		}
+		
+		role_icon_index = 2
+		
+		target_variant = {
+			match_value = 11500.0
+			
+			type = ship_hull_light_2
+			modules = {
+				fixed_ship_battery_slot = dp_light_battery
+				fixed_ship_anti_air_slot = ship_anti_air
+				fixed_ship_fire_control_system_slot = ship_sonar
+				fixed_ship_radar_slot = ship_radar
+				fixed_ship_engine_slot = light_ship_engine
+				fixed_ship_torpedo_slot = ship_torpedo
+				mid_1_custom_slot = ship_torpedo
+				rear_1_custom_slot = ship_torpedo
+			}
+		}
+		
+		allowed_modules = {
+			ship_light_battery
+			dp_light_battery
+			ship_torpedo
+			ship_anti_air
+			ship_depth_charge
+			light_ship_engine
+			ship_radar
+			ship_sonar
+		}
+	}
+	
+	better_screen_3 = {
+	
+		priority = {
+			factor = 300
+			modifier = { 
+				has_tech = advanced_ship_hull_light    
+				factor = 0.5 
+			}
+			modifier = { 
+				has_country_flag = torpedo_focus
+				factor = -1
+			}
+		}
+		
+		role_icon_index = 2
+		
+		target_variant = {
+			match_value = 12000.0
+			
+			type = ship_hull_light_3
+			modules = {
+				fixed_ship_battery_slot = dp_light_battery
+				fixed_ship_anti_air_slot = ship_anti_air
+				fixed_ship_fire_control_system_slot = ship_sonar
+				fixed_ship_radar_slot = ship_radar
+				fixed_ship_engine_slot = light_ship_engine
+				fixed_ship_torpedo_slot = ship_torpedo
+				front_1_custom_slot = dp_light_battery
+				mid_1_custom_slot = ship_torpedo
+				rear_1_custom_slot = ship_depth_charge
+			}
+		}
+		
+		allowed_modules = {
+			ship_light_battery
+			dp_light_battery
+			ship_torpedo
+			ship_anti_air
+			ship_depth_charge
+			light_ship_engine
+			ship_radar
+			ship_sonar
+		}
+	}
+	
+	better_screen_3_2 = {
+	
+		priority = {
+			factor = 300
+			modifier = { 
+				has_tech = advanced_ship_hull_light    
+				factor = 0.5 
+			}
+			modifier = { 
+				NOT = { has_country_flag = torpedo_focus }
+				factor = -1
+			}
+		}
+		
+		role_icon_index = 2
+		
+		target_variant = {
+			match_value = 12000.0
+			
+			type = ship_hull_light_3
+			modules = {
+				fixed_ship_battery_slot = dp_light_battery
+				fixed_ship_anti_air_slot = ship_anti_air
+				fixed_ship_fire_control_system_slot = ship_sonar
+				fixed_ship_radar_slot = ship_radar
+				fixed_ship_engine_slot = light_ship_engine
+				fixed_ship_torpedo_slot = ship_torpedo
+				front_1_custom_slot = ship_depth_charge
+				mid_1_custom_slot = ship_torpedo
+				rear_1_custom_slot = ship_torpedo
+			}
+		}
+		
+		allowed_modules = {
+			ship_light_battery
+			dp_light_battery
+			ship_torpedo
+			ship_anti_air
+			ship_depth_charge
+			light_ship_engine
+			ship_radar
+			ship_sonar
+		}
+	}
+	
+	better_screen_4 = {
+	
+		priority = {
+			factor = 500
+			modifier = { 
+				has_country_flag = torpedo_focus
+				factor = -1
+			}
+		}
+		
+		role_icon_index = 2
+		
+		target_variant = {
+			match_value = 12500.0
+			
+			type = ship_hull_light_4
+			modules = {
+				fixed_ship_battery_slot = dp_light_battery
+				fixed_ship_anti_air_slot = ship_anti_air
+				fixed_ship_fire_control_system_slot = ship_sonar
+				fixed_ship_radar_slot = ship_radar
+				fixed_ship_engine_slot = light_ship_engine
+				fixed_ship_torpedo_slot = ship_torpedo
+				front_1_custom_slot = dp_light_battery
+				mid_1_custom_slot = ship_torpedo
+				mid_2_custom_slot = ship_torpedo
+				rear_1_custom_slot = ship_depth_charge
+			}
+		}
+		
+		allowed_modules = {
+			ship_light_battery
+			dp_light_battery
+			ship_torpedo
+			ship_anti_air
+			ship_depth_charge
+			light_ship_engine
+			ship_radar
+			ship_sonar
+		}
+	}
+	better_screen_4_2 = {
+	
+		priority = {
+			factor = 500
+			modifier = { 
+				NOT = { has_country_flag = torpedo_focus }
+				factor = -1
+			}
+		}
+		
+		role_icon_index = 2
+		
+		target_variant = {
+			match_value = 12500.0
+			
+			type = ship_hull_light_4
+			modules = {
+				fixed_ship_battery_slot = dp_light_battery
+				fixed_ship_anti_air_slot = ship_anti_air
+				fixed_ship_fire_control_system_slot = ship_sonar
+				fixed_ship_radar_slot = ship_radar
+				fixed_ship_engine_slot = light_ship_engine
+				fixed_ship_torpedo_slot = ship_torpedo
+				front_1_custom_slot = ship_depth_charge
+				mid_1_custom_slot = ship_torpedo
+				mid_2_custom_slot = ship_torpedo
+				rear_1_custom_slot = ship_torpedo
+			}
+		}
+		
+		allowed_modules = {
+			ship_light_battery
+			dp_light_battery
+			ship_torpedo
+			ship_anti_air
+			ship_depth_charge
+			light_ship_engine
+			ship_radar
+			ship_sonar
+		}
+	}
+	
+}
+
+better_light_cruiser = {
+	category = naval
+	
+	blocked_for = { BHU
+	}
+	
+	
+	
+	roles = {
+		naval_better_cruiser_light
+	}
+	
+	priority = {
+		factor = 5000
+	}
+	better_cruiser_light_1 = {
+		
+		priority = {
+			factor = 1000
+			modifier = {
+				factor = 0.5
+				has_tech = basic_ship_hull_cruiser     
+			}
+			modifier = { 
+				has_country_flag = torpedo_focus
+				factor = -1
+			}
+		}
+
+		role_icon_index = 2
+		
+		target_variant = {
+			match_value = 11000.0
+			
+			type = ship_hull_cruiser_1
+			modules = {
+				fixed_ship_battery_slot = ship_light_medium_battery
+				fixed_ship_anti_air_slot = ship_anti_air
+				fixed_ship_fire_control_system_slot = ship_fire_control_system
+				fixed_ship_radar_slot = ship_radar
+				fixed_ship_engine_slot = cruiser_ship_engine
+				fixed_ship_armor_slot = ship_cruiser_armor
+				fixed_ship_secondaries_slot = ship_secondaries
+				rear_1_custom_slot = ship_light_medium_battery
+				mid_1_custom_slot = ship_light_medium_battery
+				mid_2_custom_slot = ship_light_medium_battery
+			}
+		}
+		
+		allowed_modules = {
+			ship_light_medium_battery
+			ship_secondaries
+			ship_torpedo
+			ship_anti_air
+			ship_fire_control_system
+			cruiser_ship_engine
+			ship_radar
+			ship_sonar
+			ship_cruiser_armor
+		}
+	}
+	better_cruiser_light_1_2 = {
+		
+		priority = {
+			factor = 1000
+			modifier = {
+				factor = 0.5
+				has_tech = basic_ship_hull_cruiser     
+			}
+			modifier = { 
+				NOT = { has_country_flag = torpedo_focus }
+				factor = -1
+			}
+		}
+
+		role_icon_index = 2
+		
+		target_variant = {
+			match_value = 11000.0
+			
+			type = ship_hull_cruiser_1
+			modules = {
+				fixed_ship_battery_slot = ship_light_medium_battery
+				fixed_ship_anti_air_slot = ship_anti_air
+				fixed_ship_fire_control_system_slot = ship_fire_control_system
+				fixed_ship_radar_slot = ship_radar
+				fixed_ship_engine_slot = cruiser_ship_engine
+				fixed_ship_armor_slot = ship_cruiser_armor
+				fixed_ship_secondaries_slot = ship_secondaries
+				rear_1_custom_slot = ship_light_medium_battery
+				mid_1_custom_slot = ship_torpedo
+				mid_2_custom_slot = ship_torpedo
+			}
+		}
+		
+		allowed_modules = {
+			ship_light_medium_battery
+			ship_secondaries
+			ship_torpedo
+			ship_anti_air
+			ship_fire_control_system
+			cruiser_ship_engine
+			ship_radar
+			ship_sonar
+			ship_cruiser_armor
+		}
+	}
+	better_cruiser_light_2 = {
+		
+		priority = {
+			factor = 2000
+			modifier = {
+				factor = 0.5
+				has_tech = improved_ship_hull_cruiser     
+			}
+			modifier = { 
+				has_country_flag = torpedo_focus
+				factor = -1
+			}
+		}
+
+		role_icon_index = 2
+		
+		target_variant = {
+			match_value = 11500.0
+			
+			type = ship_hull_cruiser_2
+			modules = {
+				fixed_ship_battery_slot = ship_light_medium_battery
+				fixed_ship_anti_air_slot = ship_anti_air
+				fixed_ship_fire_control_system_slot = ship_fire_control_system
+				fixed_ship_radar_slot = ship_radar
+				fixed_ship_engine_slot = cruiser_ship_engine
+				fixed_ship_armor_slot = ship_cruiser_armor
+				fixed_ship_secondaries_slot = ship_dp_secondaries
+				front_1_custom_slot = ship_light_medium_battery
+				mid_1_custom_slot = ship_light_medium_battery
+				mid_2_custom_slot = ship_light_medium_battery
+				rear_1_custom_slot = ship_light_medium_battery
+			}
+		}
+		
+		allowed_modules = {
+			ship_light_medium_battery
+			ship_secondaries
+			ship_dp_secondaries
+			ship_torpedo
+			ship_anti_air
+			ship_fire_control_system
+			cruiser_ship_engine
+			ship_radar
+			ship_sonar
+			ship_cruiser_armor
+		}
+	}
+	better_cruiser_light_2_2 = {
+		
+		priority = {
+			factor = 2000
+			modifier = {
+				factor = 0.5
+				has_tech = improved_ship_hull_cruiser     
+			}
+			modifier = { 
+				NOT = { has_country_flag = torpedo_focus }
+				factor = -1
+			}
+		}
+
+		role_icon_index = 2
+		
+		target_variant = {
+			match_value = 11500.0
+			
+			type = ship_hull_cruiser_2
+			modules = {
+				fixed_ship_battery_slot = ship_light_medium_battery
+				fixed_ship_anti_air_slot = ship_anti_air
+				fixed_ship_fire_control_system_slot = ship_fire_control_system
+				fixed_ship_radar_slot = ship_radar
+				fixed_ship_engine_slot = cruiser_ship_engine
+				fixed_ship_armor_slot = ship_cruiser_armor
+				fixed_ship_secondaries_slot = ship_dp_secondaries
+				front_1_custom_slot = ship_light_medium_battery
+				mid_1_custom_slot = ship_torpedo
+				mid_2_custom_slot = ship_torpedo
+				rear_1_custom_slot = ship_light_medium_battery
+			}
+		}
+		
+		allowed_modules = {
+			ship_light_medium_battery
+			ship_secondaries
+			ship_dp_secondaries
+			ship_torpedo
+			ship_anti_air
+			ship_fire_control_system
+			cruiser_ship_engine
+			ship_radar
+			ship_sonar
+			ship_cruiser_armor
+		}
+	}
+	better_cruiser_light_3 = {
+		
+		priority = {
+			factor = 3000
+			modifier = {
+				factor = 0.5
+				has_tech = advanced_ship_hull_cruiser     
+			}
+			modifier = { 
+				has_country_flag = torpedo_focus
+				factor = -1
+			}
+		}
+
+		role_icon_index = 2
+		
+		target_variant = {
+			match_value = 12000.0
+			
+			type = ship_hull_cruiser_3
+			modules = {
+				fixed_ship_battery_slot = ship_light_medium_battery
+				fixed_ship_anti_air_slot = ship_anti_air
+				fixed_ship_fire_control_system_slot = ship_fire_control_system
+				fixed_ship_radar_slot = ship_radar
+				fixed_ship_engine_slot = cruiser_ship_engine
+				fixed_ship_armor_slot = ship_cruiser_armor
+				fixed_ship_secondaries_slot = ship_dp_secondaries
+				front_1_custom_slot = ship_light_medium_battery
+				mid_1_custom_slot = ship_light_medium_battery
+				mid_2_custom_slot = ship_light_medium_battery
+				rear_1_custom_slot = ship_light_medium_battery
+				rear_2_custom_slot = ship_light_medium_battery
+			}
+		}
+		
+		allowed_modules = {
+			ship_light_medium_battery
+			ship_secondaries
+			ship_torpedo
+			ship_anti_air
+			ship_fire_control_system
+			cruiser_ship_engine
+			ship_radar
+			ship_sonar
+			ship_cruiser_armor
+		}
+	}
+	better_cruiser_light_3_2 = {
+		
+		priority = {
+			factor = 3000
+			modifier = {
+				factor = 0.5
+				has_tech = advanced_ship_hull_cruiser     
+			}
+			modifier = { 
+				NOT = { has_country_flag = torpedo_focus }
+				factor = -1
+			}
+		}
+
+		role_icon_index = 2
+		
+		target_variant = {
+			match_value = 12000.0
+			
+			type = ship_hull_cruiser_3
+			modules = {
+				fixed_ship_battery_slot = ship_light_medium_battery
+				fixed_ship_anti_air_slot = ship_anti_air
+				fixed_ship_fire_control_system_slot = ship_fire_control_system
+				fixed_ship_radar_slot = ship_radar
+				fixed_ship_engine_slot = cruiser_ship_engine
+				fixed_ship_armor_slot = ship_cruiser_armor
+				fixed_ship_secondaries_slot = ship_dp_secondaries
+				front_1_custom_slot = ship_light_medium_battery
+				mid_1_custom_slot = ship_torpedo
+				mid_2_custom_slot = ship_torpedo
+				rear_1_custom_slot = ship_light_medium_battery
+				rear_2_custom_slot = ship_light_medium_battery
+			}
+		}
+		
+		allowed_modules = {
+			ship_light_medium_battery
+			ship_secondaries
+			ship_torpedo
+			ship_anti_air
+			ship_fire_control_system
+			cruiser_ship_engine
+			ship_radar
+			ship_sonar
+			ship_cruiser_armor
+		}
+	}
+	better_cruiser_light_4 = {
+		
+		priority = {
+			factor = 5000
+			modifier = { 
+				has_country_flag = torpedo_focus
+				factor = -1
+			}
+		}
+
+		role_icon_index = 2
+		
+		target_variant = {
+			match_value = 12500.0
+			
+			type = ship_hull_cruiser_4
+			modules = {
+				fixed_ship_battery_slot = ship_light_medium_battery
+				fixed_ship_anti_air_slot = ship_anti_air
+				fixed_ship_fire_control_system_slot = ship_fire_control_system
+				fixed_ship_radar_slot = ship_radar
+				fixed_ship_engine_slot = cruiser_ship_engine
+				fixed_ship_armor_slot = ship_cruiser_armor
+				fixed_ship_secondaries_slot = ship_dp_secondaries
+				front_1_custom_slot = ship_light_medium_battery
+				mid_1_custom_slot = ship_light_medium_battery
+				mid_2_custom_slot = ship_light_medium_battery
+				rear_1_custom_slot = ship_light_medium_battery
+				rear_2_custom_slot = ship_light_medium_battery
+			}
+		}
+		
+		allowed_modules = {
+			ship_light_medium_battery
+			ship_secondaries
+			ship_torpedo
+			ship_anti_air
+			ship_fire_control_system
+			cruiser_ship_engine
+			ship_radar
+			ship_sonar
+			ship_cruiser_armor
+		}
+	}
+	better_cruiser_light_4_2 = {
+		
+		priority = {
+			factor = 5000
+			modifier = { 
+				NOT = { has_country_flag = torpedo_focus }
+				factor = -1
+			}
+		}
+
+		role_icon_index = 2
+		
+		target_variant = {
+			match_value = 12500.0
+			
+			type = ship_hull_cruiser_4
+			modules = {
+				fixed_ship_battery_slot = ship_light_medium_battery
+				fixed_ship_anti_air_slot = ship_anti_air
+				fixed_ship_fire_control_system_slot = ship_fire_control_system
+				fixed_ship_radar_slot = ship_radar
+				fixed_ship_engine_slot = cruiser_ship_engine
+				fixed_ship_armor_slot = ship_cruiser_armor
+				fixed_ship_secondaries_slot = ship_dp_secondaries
+				front_1_custom_slot = ship_light_medium_battery
+				mid_1_custom_slot = ship_torpedo
+				mid_2_custom_slot = ship_torpedo
+				rear_1_custom_slot = ship_light_medium_battery
+				rear_2_custom_slot = ship_light_medium_battery
+			}
+		}
+		
+		allowed_modules = {
+			ship_light_medium_battery
+			ship_secondaries
+			ship_torpedo
+			ship_anti_air
+			ship_fire_control_system
+			cruiser_ship_engine
+			ship_radar
+			ship_sonar
+			ship_cruiser_armor
+		}
+	}
+}
+
+better_heavy_cruiser = {
+	category = naval
+	
+	blocked_for = { BHU
+	}
+	
+	
+	
+	roles = {
+		naval_better_cruiser_heavy
+	}
+	
+	priority = {
+		factor = 6000
+	}
+	better_cruiser_heavy_1 = {
+	
+		priority = {
+			factor = 1000
+			modifier = {
+				factor = 0.5
+				has_tech = basic_ship_hull_cruiser     
+			}
+		}
+
+		role_icon_index = 1
+		
+		target_variant = {
+			match_value = 11000.0
+			
+			type = ship_hull_cruiser_1
+			modules = {
+				fixed_ship_battery_slot = ship_medium_battery
+				fixed_ship_anti_air_slot = ship_anti_air
+				fixed_ship_fire_control_system_slot = ship_fire_control_system
+				fixed_ship_radar_slot = ship_radar
+				fixed_ship_engine_slot = cruiser_ship_engine
+				fixed_ship_armor_slot = ship_cruiser_armor
+				fixed_ship_secondaries_slot = ship_secondaries
+				mid_1_custom_slot = ship_medium_battery
+				mid_2_custom_slot = ship_medium_battery
+				rear_1_custom_slot = ship_medium_battery
+			}
+		}
+		
+		allowed_modules = {
+			ship_anti_air
+			ship_medium_battery
+			ship_radar
+			ship_fire_control_system
+			ship_secondaries
+			cruiser_ship_engine
+			ship_cruiser_armor
+		}
+	}
+	better_cruiser_heavy_2 = {
+	
+		priority = {
+			factor = 2000
+			modifier = {
+				factor = 0.5
+				has_tech = improved_ship_hull_cruiser     
+			}
+		}
+
+		role_icon_index = 1
+		
+		target_variant = {
+			match_value = 11500.0
+			
+			type = ship_hull_cruiser_2
+			modules = {
+				fixed_ship_battery_slot = ship_medium_battery
+				fixed_ship_anti_air_slot = ship_anti_air
+				fixed_ship_fire_control_system_slot = ship_fire_control_system
+				fixed_ship_radar_slot = ship_radar
+				fixed_ship_engine_slot = cruiser_ship_engine
+				fixed_ship_armor_slot = ship_cruiser_armor
+				fixed_ship_secondaries_slot = ship_dp_secondaries
+				front_1_custom_slot = ship_medium_battery
+				mid_1_custom_slot = ship_medium_battery
+				mid_2_custom_slot = ship_medium_battery
+				rear_1_custom_slot = ship_medium_battery
+			}
+		}
+		
+		allowed_modules = {
+			ship_anti_air
+			ship_medium_battery
+			ship_radar
+			ship_fire_control_system
+			ship_secondaries
+			ship_dp_secondaries
+			cruiser_ship_engine
+			ship_cruiser_armor
+		}
+	}
+	better_cruiser_heavy_3 = {
+	
+		priority = {
+			factor = 3000
+			modifier = {
+				factor = 0.5
+				has_tech = advanced_ship_hull_cruiser     
+			}
+		}
+
+		role_icon_index = 1
+		
+		target_variant = {
+			match_value = 12000.0
+			
+			type = ship_hull_cruiser_3
+			modules = {
+				fixed_ship_battery_slot = ship_medium_battery
+				fixed_ship_anti_air_slot = ship_anti_air
+				fixed_ship_fire_control_system_slot = ship_fire_control_system
+				fixed_ship_radar_slot = ship_radar
+				fixed_ship_engine_slot = cruiser_ship_engine
+				fixed_ship_armor_slot = ship_cruiser_armor
+				fixed_ship_secondaries_slot = ship_dp_secondaries
+				front_1_custom_slot = ship_medium_battery
+				mid_1_custom_slot = ship_medium_battery
+				mid_2_custom_slot = ship_medium_battery
+				rear_1_custom_slot = ship_medium_battery
+				rear_2_custom_slot = ship_medium_battery
+			}
+		}
+		
+		allowed_modules = {
+			ship_anti_air
+			ship_medium_battery
+			ship_radar
+			ship_fire_control_system
+			ship_secondaries
+			cruiser_ship_engine
+			ship_cruiser_armor
+			ship_dp_secondaries
+		}
+	}
+	better_cruiser_heavy_4 = {
+	
+		priority = {
+			factor = 5000
+		}
+
+		role_icon_index = 1
+		
+		target_variant = {
+			match_value = 12500.0
+			
+			type = ship_hull_cruiser_4
+			modules = {
+				fixed_ship_battery_slot = ship_medium_battery
+				fixed_ship_anti_air_slot = ship_anti_air
+				fixed_ship_fire_control_system_slot = ship_fire_control_system
+				fixed_ship_radar_slot = ship_radar
+				fixed_ship_engine_slot = cruiser_ship_engine
+				fixed_ship_armor_slot = ship_cruiser_armor
+				fixed_ship_secondaries_slot = ship_dp_secondaries
+				front_1_custom_slot = ship_medium_battery
+				mid_1_custom_slot = ship_medium_battery
+				mid_2_custom_slot = ship_medium_battery
+				rear_1_custom_slot = ship_medium_battery
+				rear_2_custom_slot = ship_medium_battery
+			}
+		}
+		
+		allowed_modules = {
+			ship_anti_air
+			ship_medium_battery
+			ship_radar
+			ship_fire_control_system
+			ship_secondaries
+			cruiser_ship_engine
+			ship_cruiser_armor
+			ship_dp_secondaries
+		}
+	}
+}
+
+better_capital_battleship = {
+	category = naval
+	
+	blocked_for = { BHU
+	}
+	
+	
+	
+	roles = {
+		naval_better_battleship
+	}
+	
+	priority = {
+		factor = 7000
+	}
+	naval_better_battleship_1 = {
+	
+		priority = {
+			factor = 1000
+			modifier = {
+				has_tech = basic_ship_hull_heavy 
+				factor = 0.5
+			}
+			modifier = { 
+				has_country_flag = battlecruiser_focus
+				factor = -1
+			}
+		}
+
+		role_icon_index = 1
+		
+		target_variant = {
+			match_value = 11000.0
+			
+			type = ship_hull_heavy_1
+			modules = {
+				fixed_ship_battery_slot = ship_heavy_battery
+				fixed_ship_anti_air_slot = ship_anti_air
+				fixed_ship_fire_control_system_slot = ship_fire_control_system
+				fixed_ship_radar_slot = ship_radar
+				fixed_ship_engine_slot = heavy_ship_engine
+				fixed_ship_armor_slot = {
+					any_of = { 
+						ship_armor_bb_1
+						ship_armor_bb_2
+						ship_armor_bb_3
+					} 
+				}
+				fixed_ship_secondaries_slot = ship_dp_secondaries
+				front_1_custom_slot = ship_heavy_battery
+				mid_1_custom_slot = ship_dp_secondaries
+				mid_2_custom_slot = ship_dp_secondaries
+				rear_1_custom_slot = ship_heavy_battery
+			}
+		}
+		
+		allowed_modules = {
+			ship_anti_air
+			ship_heavy_battery
+			ship_radar
+			ship_fire_control_system
+			ship_heavy_armor
+			ship_secondaries
+			heavy_ship_engine
+			ship_dp_secondaries
+		}
+	}
+	naval_better_battleship_1_2 = {
+	
+		priority = {
+			factor = 1000
+			modifier = {
+				has_tech = basic_ship_hull_heavy 
+				factor = 0.5
+			}
+			modifier = { 
+				NOT = { has_country_flag = battlecruiser_focus }
+				factor = -1
+			}
+		}
+
+		role_icon_index = 1
+		
+		target_variant = {
+			match_value = 11000.0
+			
+			type = ship_hull_heavy_1
+			modules = {
+				fixed_ship_battery_slot = ship_heavy_battery
+				fixed_ship_anti_air_slot = ship_anti_air
+				fixed_ship_fire_control_system_slot = ship_fire_control_system
+				fixed_ship_radar_slot = ship_radar
+				fixed_ship_engine_slot = heavy_ship_engine
+				fixed_ship_armor_slot = {
+					any_of = { 
+						ship_armor_bc_1
+						ship_armor_bc_2
+						ship_armor_bc_3
+					} 
+				}
+				fixed_ship_secondaries_slot = ship_dp_secondaries
+				front_1_custom_slot = ship_heavy_battery
+				mid_1_custom_slot = ship_dp_secondaries
+				mid_2_custom_slot = ship_dp_secondaries
+				rear_1_custom_slot = ship_heavy_battery
+			}
+		}
+		
+		allowed_modules = {
+			ship_anti_air
+			ship_heavy_battery
+			ship_radar
+			ship_fire_control_system
+			ship_heavy_armor
+			ship_secondaries
+			heavy_ship_engine
+			ship_dp_secondaries
+		}
+	}
+	naval_better_battleship_2 = {
+	
+		priority = {
+			factor = 2000
+			modifier = {
+				has_tech = improved_ship_hull_heavy
+				factor = 0.5
+			}
+			modifier = { 
+				has_country_flag = battlecruiser_focus
+				factor = -1
+			}
+		}
+
+		role_icon_index = 1
+		
+		target_variant = {
+			match_value = 11500.0
+			
+			type = ship_hull_heavy_2
+			modules = {
+				fixed_ship_battery_slot = ship_heavy_battery
+				fixed_ship_anti_air_slot = ship_anti_air
+				fixed_ship_fire_control_system_slot = ship_fire_control_system
+				fixed_ship_radar_slot = ship_radar
+				fixed_ship_engine_slot = heavy_ship_engine
+				fixed_ship_armor_slot = {
+					any_of = { 
+						ship_armor_bb_2
+						ship_armor_bb_3
+					} 
+				}
+				fixed_ship_secondaries_slot = ship_dp_secondaries
+				front_1_custom_slot = ship_heavy_battery
+				mid_1_custom_slot = ship_dp_secondaries
+				mid_2_custom_slot = ship_dp_secondaries
+				rear_1_custom_slot = ship_heavy_battery
+			}
+		}
+		
+		allowed_modules = {
+			ship_anti_air
+			ship_heavy_battery
+			ship_radar
+			ship_fire_control_system
+			ship_heavy_armor
+			ship_secondaries
+			heavy_ship_engine
+			ship_dp_secondaries
+		}
+	}
+	naval_better_battleship_2_2 = {
+	
+		priority = {
+			factor = 2000
+			modifier = {
+				has_tech = improved_ship_hull_heavy
+				factor = 0.5
+			}
+			modifier = { 
+				NOT = { has_country_flag = battlecruiser_focus }
+				factor = -1
+			}
+		}
+
+		role_icon_index = 1
+		
+		target_variant = {
+			match_value = 11500.0
+			
+			type = ship_hull_heavy_2
+			modules = {
+				fixed_ship_battery_slot = ship_heavy_battery
+				fixed_ship_anti_air_slot = ship_anti_air
+				fixed_ship_fire_control_system_slot = ship_fire_control_system
+				fixed_ship_radar_slot = ship_radar
+				fixed_ship_engine_slot = heavy_ship_engine
+				fixed_ship_armor_slot = {
+					any_of = { 
+						ship_armor_bc_2
+						ship_armor_bc_3
+					} 
+				}
+				fixed_ship_secondaries_slot = ship_dp_secondaries
+				front_1_custom_slot = ship_heavy_battery
+				mid_1_custom_slot = ship_dp_secondaries
+				mid_2_custom_slot = ship_dp_secondaries
+				rear_1_custom_slot = ship_heavy_battery
+			}
+		}
+		
+		allowed_modules = {
+			ship_anti_air
+			ship_heavy_battery
+			ship_radar
+			ship_fire_control_system
+			ship_heavy_armor
+			ship_secondaries
+			heavy_ship_engine
+			ship_dp_secondaries
+		}
+	}
+	naval_better_battleship_3 = {
+	
+		priority = {
+			factor = 3000
+			modifier = {
+				has_tech = advanced_ship_hull_heavy 
+				factor = 0.5
+			}
+			modifier = { 
+				has_country_flag = battlecruiser_focus
+				factor = -1
+			}
+		}
+
+		role_icon_index = 1
+		
+		target_variant = {
+			match_value = 12000.0
+			
+			type = ship_hull_heavy_3
+			modules = {
+				fixed_ship_battery_slot = ship_heavy_battery
+				fixed_ship_anti_air_slot = ship_anti_air
+				fixed_ship_fire_control_system_slot = ship_fire_control_system
+				fixed_ship_radar_slot = ship_radar
+				fixed_ship_engine_slot = heavy_ship_engine
+				fixed_ship_armor_slot = {
+					any_of = { 
+						ship_armor_shbb
+						ship_armor_bb_3
+					} 
+				}
+				fixed_ship_secondaries_slot = ship_dp_secondaries
+				front_1_custom_slot = ship_heavy_battery
+				mid_1_custom_slot = ship_dp_secondaries
+				mid_2_custom_slot = ship_dp_secondaries
+				mid_3_custom_slot = ship_dp_secondaries
+				rear_1_custom_slot = ship_heavy_battery
+			}
+		}
+		
+		allowed_modules = {
+			ship_anti_air
+			ship_heavy_battery
+			ship_radar
+			ship_fire_control_system
+			ship_heavy_armor
+			ship_secondaries
+			heavy_ship_engine
+			ship_dp_secondaries
+		}
+	}
+	
+	naval_better_battleship_3_2 = {
+	
+		priority = {
+			factor = 3000
+			modifier = {
+				has_tech = advanced_ship_hull_heavy 
+				factor = 0.5
+			}
+			modifier = { 
+				NOT = { has_country_flag = battlecruiser_focus }
+				factor = -1
+			}
+		}
+
+		role_icon_index = 1
+		
+		target_variant = {
+			match_value = 12000.0
+			
+			type = ship_hull_heavy_3
+			modules = {
+				fixed_ship_battery_slot = ship_heavy_battery
+				fixed_ship_anti_air_slot = ship_anti_air
+				fixed_ship_fire_control_system_slot = ship_fire_control_system
+				fixed_ship_radar_slot = ship_radar
+				fixed_ship_engine_slot = heavy_ship_engine
+				fixed_ship_armor_slot = ship_armor_bc_3
+				fixed_ship_secondaries_slot = ship_dp_secondaries
+				front_1_custom_slot = ship_heavy_battery
+				mid_1_custom_slot = ship_dp_secondaries
+				mid_2_custom_slot = ship_dp_secondaries
+				mid_3_custom_slot = ship_dp_secondaries
+				rear_1_custom_slot = ship_heavy_battery
+			}
+		}
+		
+		allowed_modules = {
+			ship_anti_air
+			ship_heavy_battery
+			ship_radar
+			ship_fire_control_system
+			ship_heavy_armor
+			ship_secondaries
+			heavy_ship_engine
+			ship_dp_secondaries
+		}
+	}
+	
+	naval_better_battleship_4 = {
+	
+		priority = {
+			factor = 5000
+			modifier = { 
+				has_country_flag = battlecruiser_focus
+				factor = -1
+			}
+		}
+
+		role_icon_index = 1
+		
+		target_variant = {
+			match_value = 12500.0
+			
+			type = ship_hull_heavy_4
+			modules = {
+				fixed_ship_battery_slot = ship_heavy_battery
+				fixed_ship_anti_air_slot = ship_anti_air
+				fixed_ship_fire_control_system_slot = ship_fire_control_system
+				fixed_ship_radar_slot = ship_radar
+				fixed_ship_engine_slot = heavy_ship_engine
+				fixed_ship_armor_slot = {
+					any_of = { 
+						ship_armor_shbb
+						ship_armor_bb_3
+					} 
+				}
+				fixed_ship_secondaries_slot = ship_dp_secondaries
+				front_1_custom_slot = ship_heavy_battery
+				mid_1_custom_slot = ship_dp_secondaries
+				mid_2_custom_slot = ship_dp_secondaries
+				mid_3_custom_slot = ship_dp_secondaries
+				rear_1_custom_slot = ship_heavy_battery
+			}
+		}
+		
+		allowed_modules = {
+			ship_anti_air
+			ship_heavy_battery
+			ship_radar
+			ship_fire_control_system
+			ship_heavy_armor
+			ship_secondaries
+			heavy_ship_engine
+			ship_dp_secondaries
+		}
+	}
+	
+	naval_better_battleship_4_2 = {
+	
+		priority = {
+			factor = 5000
+			modifier = { 
+				NOT = { has_country_flag = battlecruiser_focus }
+				factor = -1
+			}
+		}
+
+		role_icon_index = 1
+		
+		target_variant = {
+			match_value = 12500.0
+			
+			type = ship_hull_heavy_4
+			modules = {
+				fixed_ship_battery_slot = ship_heavy_battery
+				fixed_ship_anti_air_slot = ship_anti_air
+				fixed_ship_fire_control_system_slot = ship_fire_control_system
+				fixed_ship_radar_slot = ship_radar
+				fixed_ship_engine_slot = heavy_ship_engine
+				fixed_ship_armor_slot = ship_armor_bc_3
+				fixed_ship_secondaries_slot = ship_dp_secondaries
+				front_1_custom_slot = ship_heavy_battery
+				mid_1_custom_slot = ship_dp_secondaries
+				mid_2_custom_slot = ship_dp_secondaries
+				mid_3_custom_slot = ship_dp_secondaries
+				rear_1_custom_slot = ship_heavy_battery
+			}
+		}
+		
+		allowed_modules = {
+			ship_anti_air
+			ship_heavy_battery
+			ship_radar
+			ship_fire_control_system
+			ship_heavy_armor
+			ship_secondaries
+			heavy_ship_engine
+			ship_dp_secondaries
+		}
+	}
+}
+
+better_capital_super_heavy_battleship = {
+	category = naval
+	
+	blocked_for = { BHU
+	}
+	
+	
+	
+	roles = {
+		naval_better_super_heavy_battleship
+	}
+	
+	priority = {
+		factor = 8000
+	}
+	naval_super_heavy_better_battleship_1 = {
+	
+		priority = {
+			factor = 2000
+			modifier = {
+				has_tech = improved_ship_hull_heavy 
+				factor = 0.1
+			}
+		}
+
+		role_icon_index = 1
+		
+		target_variant = {
+			match_value = 11500.0
+			
+			type = ship_hull_super_heavy_1
+			modules = {
+				fixed_ship_battery_slot = ship_super_heavy_battery 
+				fixed_ship_anti_air_slot = ship_anti_air
+				fixed_ship_fire_control_system_slot = ship_fire_control_system
+				fixed_ship_radar_slot = ship_radar
+				fixed_ship_engine_slot = heavy_ship_engine
+				fixed_ship_armor_slot = ship_armor_shbb 
+				fixed_ship_secondaries_slot = ship_dp_secondaries
+				front_1_custom_slot = ship_super_heavy_battery
+				front_2_custom_slot = empty
+				mid_1_custom_slot = ship_dp_secondaries
+				mid_2_custom_slot = ship_dp_secondaries
+				mid_3_custom_slot = ship_dp_secondaries
+				rear_1_custom_slot = ship_dp_secondaries
+				rear_2_custom_slot = ship_dp_secondaries
+			}
+		}
+		
+		allowed_modules = {
+			ship_anti_air
+			ship_super_heavy_battery
+			ship_radar
+			ship_fire_control_system
+			ship_heavy_armor
+			ship_secondaries
+			heavy_ship_engine
+			ship_armor_shbb
+			ship_dp_secondaries
+		}
+	}
+	
+	naval_super_heavy_better_battleship_2 = {
+	
+		priority = {
+			factor = 10
+			modifier = {
+				has_tech = improved_ship_hull_heavy 
+				factor = 50000
+			}
+		}
+
+		role_icon_index = 1
+		
+		target_variant = {
+			match_value = 12500.0
+			
+			type = ship_hull_super_heavy_1
+			modules = {
+				fixed_ship_battery_slot = ship_super_heavy_battery 
+				fixed_ship_anti_air_slot = ship_anti_air
+				fixed_ship_fire_control_system_slot = ship_fire_control_system
+				fixed_ship_radar_slot = ship_radar
+				fixed_ship_engine_slot > heavy_ship_engine_2
+				fixed_ship_armor_slot = ship_armor_shbb 
+				fixed_ship_secondaries_slot = ship_dp_secondaries
+				front_1_custom_slot = ship_super_heavy_battery
+				front_2_custom_slot = ship_super_heavy_battery
+				mid_1_custom_slot = ship_dp_secondaries
+				mid_2_custom_slot = ship_dp_secondaries
+				mid_3_custom_slot = ship_dp_secondaries
+				rear_1_custom_slot = ship_dp_secondaries
+				rear_2_custom_slot = ship_dp_secondaries
+			}
+		}
+		
+		allowed_modules = {
+			ship_anti_air
+			ship_super_heavy_battery
+			ship_radar
+			ship_fire_control_system
+			ship_heavy_armor
+			ship_secondaries
+			heavy_ship_engine
+			ship_armor_shbb
+			ship_dp_secondaries
+		}
+	}
+}
+
+better_carrier = {
+	category = naval
+	
+	blocked_for = { BHU
+	}
+	
+	
+	
+	roles = {
+		naval_better_carrier
+	}
+	
+	priority = {
+		factor = 9000
+	}
+	naval_better_carrier_1 = {
+	
+		priority = {
+			factor = 1000
+			modifier = {
+				has_tech = basic_ship_hull_carrier  
+				factor = 0.5
+			}
+		}
+
+		role_icon_index = 7
+		
+		target_variant = {
+			match_value = 12000.0
+			
+			type = ship_hull_carrier_conversion_bb 
+			modules = {
+				fixed_ship_deck_slot_1 = ship_deck_space
+				fixed_ship_deck_slot_2 = ship_deck_space
+				fixed_ship_anti_air_slot = ship_anti_air
+				fixed_ship_radar_slot = ship_radar
+				fixed_ship_engine_slot = carrier_ship_engine
+				fixed_ship_secondaries_slot = ship_dp_secondaries
+				mid_1_custom_slot = ship_deck_space
+			}
+		}
+		
+		allowed_modules = {
+			ship_secondaries
+			ship_dp_secondaries
+			ship_anti_air
+			ship_fire_control_system
+			cruiser_ship_engine
+			heavy_ship_engine
+			carrier_ship_engine
+			ship_radar
+			ship_deck_space
+			ship_carrier_armor
+		}
+	}
+	naval_better_carrier_2 = {
+	
+		priority = {
+			factor = 2000
+			modifier = {
+				has_tech = improved_ship_hull_carrier   
+				factor = 0.5
+			}
+		}
+
+		role_icon_index = 7
+		
+		target_variant = {
+			match_value = 13000.0
+			
+			type = ship_hull_carrier_1 
+			modules = {
+				fixed_ship_deck_slot_1 = ship_deck_space
+				fixed_ship_deck_slot_2 = ship_deck_space
+				fixed_ship_anti_air_slot = ship_anti_air
+				fixed_ship_radar_slot = ship_radar
+				fixed_ship_engine_slot = carrier_ship_engine
+				fixed_ship_secondaries_slot = ship_dp_secondaries
+				front_1_custom_slot = ship_deck_space
+				mid_1_custom_slot = ship_deck_space
+			}
+		}
+		
+		allowed_modules = {
+			ship_secondaries
+			ship_dp_secondaries
+			ship_anti_air
+			ship_fire_control_system
+			cruiser_ship_engine
+			heavy_ship_engine
+			carrier_ship_engine
+			ship_radar
+			ship_deck_space
+			ship_carrier_armor
+		}
+	}
+	naval_better_carrier_3 = {
+	
+		priority = {
+			factor = 3000
+			modifier = {
+				has_tech = advanced_ship_hull_carrier    
+				factor = 0.5
+			}
+		}
+
+		role_icon_index = 7
+		
+		target_variant = {
+			match_value = 14000.0
+			
+			type = ship_hull_carrier_2 
+			modules = {
+				fixed_ship_deck_slot_1 = ship_deck_space
+				fixed_ship_deck_slot_2 = ship_deck_space
+				fixed_ship_anti_air_slot = ship_anti_air
+				fixed_ship_radar_slot = ship_radar
+				fixed_ship_engine_slot = carrier_ship_engine
+				fixed_ship_secondaries_slot = ship_dp_secondaries
+				front_1_custom_slot = ship_deck_space
+				mid_1_custom_slot = ship_deck_space
+				mid_2_custom_slot = ship_deck_space
+			}
+		}
+		
+		allowed_modules = {
+			ship_secondaries
+			ship_dp_secondaries
+			ship_anti_air
+			ship_fire_control_system
+			cruiser_ship_engine
+			heavy_ship_engine
+			carrier_ship_engine
+			ship_radar
+			ship_deck_space
+			ship_carrier_armor
+		}
+	}
+	naval_better_carrier_4 = {
+	
+		priority = {
+			factor = 5000
+		}
+
+		role_icon_index = 7
+		
+		target_variant = {
+			match_value = 15000.0
+			
+			type = ship_hull_carrier_3
+			modules = {
+				fixed_ship_deck_slot_1 = ship_deck_space
+				fixed_ship_deck_slot_2 = ship_deck_space
+				fixed_ship_anti_air_slot = ship_anti_air
+				fixed_ship_radar_slot = ship_radar
+				fixed_ship_engine_slot = carrier_ship_engine
+				fixed_ship_secondaries_slot = ship_dp_secondaries
+				front_1_custom_slot = ship_deck_space
+				mid_1_custom_slot = ship_deck_space
+				mid_2_custom_slot = ship_deck_space
+				rear_1_custom_slot = ship_deck_space
+			}
+		}
+		
+		allowed_modules = {
+			ship_secondaries
+			ship_dp_secondaries
+			ship_anti_air
+			ship_fire_control_system
+			cruiser_ship_engine
+			heavy_ship_engine
+			carrier_ship_engine
+			ship_radar
+			ship_deck_space
+			ship_carrier_armor
+		}
+	}
+}
+
+better_submarine = {
+	category = naval
+	
+	blocked_for = { BHU
+	}
+	
+	
+	
+	roles = {
+		naval_better_submarine
+	}
+	
+	priority = {
+		factor = 9000
+	}
+	naval_better_submarine_1 = {
+	
+		priority = {
+			factor = 100
+			modifier = {
+				has_tech = basic_ship_hull_submarine    
+				factor = 0.5
+			}
+		}
+		role_icon_index = 6
+		
+		target_variant = {
+			match_value = 11000.0
+			
+			type = ship_hull_submarine_1
+			modules = {
+				fixed_ship_engine_slot = sub_ship_engine
+				fixed_ship_torpedo_slot = ship_torpedo_sub
+				rear_1_custom_slot = ship_torpedo_sub
+			}
+		}
+		
+		allowed_modules = {
+			ship_torpedo_sub
+			sub_ship_engine
+			ship_mine_layer_sub
+			ship_sub_snorkel
+			ship_radar
+		}
+	}
+	naval_better_submarine_2 = {
+	
+		priority = {
+			factor = 200
+			modifier = {
+				has_tech = improved_ship_hull_submarine    
+				factor = 0.5
+			}
+		}
+		role_icon_index = 6
+		
+		target_variant = {
+			match_value = 11500.0
+			
+			type = ship_hull_submarine_2
+			modules = {
+				fixed_ship_engine_slot = sub_ship_engine
+				fixed_ship_torpedo_slot = ship_torpedo_sub
+				rear_1_custom_slot = ship_torpedo_sub
+			}
+		}
+		
+		allowed_modules = {
+			ship_torpedo_sub
+			sub_ship_engine
+			ship_mine_layer_sub
+			ship_sub_snorkel
+			ship_radar
+		}
+	}
+	naval_better_submarine_3 = {
+	
+		priority = {
+			factor = 300
+			modifier = {
+				has_tech = advanced_ship_hull_submarine    
+				factor = 0.5
+			}
+		}
+		role_icon_index = 6
+		
+		target_variant = {
+			match_value = 12000.0
+			
+			type = ship_hull_submarine_3
+			modules = {
+				fixed_ship_engine_slot = sub_ship_engine
+				fixed_ship_torpedo_slot = ship_torpedo_sub
+				front_1_custom_slot = ship_torpedo_sub
+				mid_1_custom_slot = ship_sub_snorkel
+				rear_1_custom_slot = ship_torpedo_sub
+			}
+		}
+		
+		allowed_modules = {
+			ship_torpedo_sub
+			sub_ship_engine
+			ship_mine_layer_sub
+			ship_sub_snorkel
+			ship_radar
+		}
+	}
+	naval_better_submarine_4 = {
+	
+		priority = {
+			factor = 500
+		}
+		role_icon_index = 6
+		
+		target_variant = {
+			match_value = 12500.0
+			
+			type = ship_hull_submarine_4
+			modules = {
+				fixed_ship_engine_slot = sub_ship_engine
+				fixed_ship_torpedo_slot = ship_torpedo_sub
+				front_1_custom_slot = ship_torpedo_sub
+				mid_1_custom_slot = ship_sub_snorkel
+				rear_1_custom_slot = ship_torpedo_sub
+			}
+		}
+		
+		allowed_modules = {
+			ship_torpedo_sub
+			sub_ship_engine
+			ship_mine_layer_sub
+			ship_sub_snorkel
+			ship_radar
+		}
+	}
+}
