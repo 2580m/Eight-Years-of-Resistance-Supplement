@@ -1,0 +1,3458 @@
+difficulty_settings = {
+	difficulty_setting = {
+		key = "加强法国"
+		modifier = diff_strong_ai_generic
+		countries = { FRA }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强美国"
+		modifier = diff_strong_ai_generic
+		countries = { USA }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强英国"
+		modifier = diff_strong_ai_generic
+		countries = { ENG }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强德国"
+		modifier = diff_strong_ai_generic
+		countries = { GER }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强意大利"
+		modifier = diff_strong_ai_generic
+		countries = { ITA }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强日本"
+		modifier = diff_strong_ai_generic
+		countries = { JAP }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强中国"
+		modifier = diff_strong_ai_generic
+		countries = { CHI }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强中共"
+		modifier = diff_strong_ai_generic
+		countries = { PRC }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强苏联"
+		modifier = diff_strong_ai_generic
+		countries = { SOV }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强新疆"
+		modifier = diff_strong_ai_generic
+		countries = { SIK }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强东北军"
+		modifier = diff_strong_ai_generic
+		countries = { NEA }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强桂系"
+		modifier = diff_strong_ai_generic
+		countries = { GXC }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强晋系"
+		modifier = diff_strong_ai_generic
+		countries = { SHX }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强百灵庙"
+		modifier = diff_strong_ai_generic
+		countries = { PLM }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强滇系"
+		modifier = diff_strong_ai_generic
+		countries = { YUN }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强粤系"
+		modifier = diff_strong_ai_generic
+		countries = { GUD }
+		multiplier = 2.0
+	}
+		difficulty_setting = {
+		key = "加强川系"
+		modifier = diff_strong_ai_generic
+		countries = { SIC }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强川边"
+		modifier = diff_strong_ai_generic
+		countries = { XIK }
+		multiplier = 2.0
+	}
+		difficulty_setting = {
+		key = "加强鲁系"
+		modifier = diff_strong_ai_generic
+		countries = { SHD }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强陕西"
+		modifier = diff_strong_ai_generic
+		countries = { SHC }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强湘系"
+		modifier = diff_strong_ai_generic
+		countries = { XIA }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强青马"
+		modifier = diff_strong_ai_generic
+		countries = { XSM }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强宁马"
+		modifier = diff_strong_ai_generic
+		countries = { NXM }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强甘马"
+		modifier = diff_strong_ai_generic
+		countries = { GSM }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强东干斯坦"
+		modifier = diff_strong_ai_generic
+		countries = { TNG }
+		multiplier = 2.0
+	}
+		difficulty_setting = {
+		key = "加强冀察政务委员会"
+		modifier = diff_strong_ai_generic
+		countries = { HPC }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强哈密"
+		modifier = diff_strong_ai_generic
+		countries = { HMI }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强喀什"
+		modifier = diff_strong_ai_generic
+		countries = { KHR }
+		multiplier = 2.0
+	}
+		difficulty_setting = {
+		key = "加强阿山"
+		modifier = diff_strong_ai_generic
+		countries = { ATM }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强焉者"
+		modifier = diff_strong_ai_generic
+		countries = { KRS }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强骑兵第六师"
+		modifier = diff_strong_ai_generic
+		countries = { KHR }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强韩国"
+		modifier = diff_strong_ai_generic
+		countries = { KOR }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强满洲"
+		modifier = diff_strong_ai_generic
+		countries = { MAN }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强察东自治区"
+		modifier = diff_strong_ai_generic
+		countries = { ECA }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强冀东自治区"
+		modifier = diff_strong_ai_generic
+		countries = { EHB }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强中华民国维新政府"
+		modifier = diff_strong_ai_generic
+		countries = { RFM }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强察南自治政府"
+		modifier = diff_strong_ai_generic
+		countries = { SCG }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强晋北自治政府"
+		modifier = diff_strong_ai_generic
+		countries = { NSG }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强上海大道政府"
+		modifier = diff_strong_ai_generic
+		countries = { CCP }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强暹罗"
+		modifier = diff_strong_ai_generic
+		countries = { SIA }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强西藏"
+		modifier = diff_strong_ai_generic
+		countries = { TIB }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强蒙古"
+		modifier = diff_strong_ai_generic
+		countries = { MON }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强图瓦"
+		modifier = diff_strong_ai_generic
+		countries = { TAN }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强立陶宛"
+		modifier = diff_strong_ai_generic
+		countries = { LIT }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强拉脱维亚"
+		modifier = diff_strong_ai_generic
+		countries = { LAT }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强爱沙尼亚"
+		modifier = diff_strong_ai_generic
+		countries = { EST }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强德意志专员辖区"
+		modifier = diff_strong_ai_generic
+		countries = { R01 R02 R03 R04 R05 R06 R07 R08 R09 R10 R11 R12 R13 R15 R16 R17 R18 R19 R20 R21 R22 R23 R24 R25 R26 R27 R28 R29 R30 R31 R32 R33 R34 R35 R36 R37 R38 R39 R40 R41 R42 R43 R44 R45 R46 R47 R48 R49 R50 R51 R52 R53 R54 R55 }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强奥地利"
+		modifier = diff_strong_ai_generic
+		countries = { AUS }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强捷克斯洛伐克"
+		modifier = diff_strong_ai_generic
+		countries = { CZE }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强斯洛伐克"
+		modifier = diff_strong_ai_generic
+		countries = { SLO }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强匈牙利"
+		modifier = diff_strong_ai_generic
+		countries = { HUN }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强罗马尼亚"
+		modifier = diff_strong_ai_generic
+		countries = { ROM }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强保加利亚"
+		modifier = diff_strong_ai_generic
+		countries = { BUL }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强阿尔巴尼亚"
+		modifier = diff_strong_ai_generic
+		countries = { ALB }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强芬兰"
+		modifier = diff_strong_ai_generic
+		countries = { FIN }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强瑞典"
+		modifier = diff_strong_ai_generic
+		countries = { SWE }
+		multiplier = 2.0
+	}
+		difficulty_setting = {
+		key = "加强挪威"
+		modifier = diff_strong_ai_generic
+		countries = { NOR }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强丹麦"
+		modifier = diff_strong_ai_generic
+		countries = { DEN }
+		multiplier = 2.0
+	}
+		difficulty_setting = {
+		key = "加强波兰"
+		modifier = diff_strong_ai_generic
+		countries = { POL }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强南斯拉夫"
+		modifier = diff_strong_ai_generic
+		countries = { YUG }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强希腊"
+		modifier = diff_strong_ai_generic
+		countries = { GRE }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强土耳其"
+		modifier = diff_strong_ai_generic
+		countries = { TUR }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强加拿大"
+		modifier = diff_strong_ai_generic
+		countries = { CAN }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强墨西哥"
+		modifier = diff_strong_ai_generic
+		countries = { MEX }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强爱尔兰"
+		modifier = diff_strong_ai_generic
+		countries = { IRE }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强荷兰"
+		modifier = diff_strong_ai_generic
+		countries = { HOL }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强比利时"
+		modifier = diff_strong_ai_generic
+		countries = { BEL }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强卢森堡"
+		modifier = diff_strong_ai_generic
+		countries = { LUX }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强印度"
+		modifier = diff_strong_ai_generic
+		countries = { RAJ }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强印度尼西亚"
+		modifier = diff_strong_ai_generic
+		countries = { INS }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强南非"
+		modifier = diff_strong_ai_generic
+		countries = { SAF }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强澳大利亚"
+		modifier = diff_strong_ai_generic
+		countries = { AST }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强西班牙"
+		modifier = diff_strong_ai_generic
+		countries = { SPR }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强葡萄牙"
+		modifier = diff_strong_ai_generic
+		countries = { POR }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强瑞士"
+		modifier = diff_strong_ai_generic
+		countries = { SWI }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强菲律宾"
+		modifier = diff_strong_ai_generic
+		countries = { PHI }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强缅甸"
+		modifier = diff_strong_ai_generic
+		countries = { BUR }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强马来西亚"
+		modifier = diff_strong_ai_generic
+		countries = { MAL }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强海峡殖民地"
+		modifier = diff_strong_ai_generic
+		countries = { SST }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强砂拉越"
+		modifier = diff_strong_ai_generic
+		countries = { SAR }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强北婆罗洲"
+		modifier = diff_strong_ai_generic
+		countries = { BOR }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强新西兰"
+		modifier = diff_strong_ai_generic
+		countries = { NZL }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强印度支那"
+		modifier = diff_strong_ai_generic
+		countries = { FIC }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强老挝"
+		modifier = diff_strong_ai_generic
+		countries = { LAO }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强越南"
+		modifier = diff_strong_ai_generic
+		countries = { VIN }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强占巴塞"
+		modifier = diff_strong_ai_generic
+		countries = { CHP }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强柬埔寨"
+		modifier = diff_strong_ai_generic
+		countries = { CAM }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强孟加拉国"
+		modifier = diff_strong_ai_generic
+		countries = { BAN }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强巴基斯坦"
+		modifier = diff_strong_ai_generic
+		countries = { PAK }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强斯里兰卡"
+		modifier = diff_strong_ai_generic
+		countries = { SRL }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强马尔代夫"
+		modifier = diff_strong_ai_generic
+		countries = { MLD }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强尼泊尔"
+		modifier = diff_strong_ai_generic
+		countries = { NEP }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强不丹"
+		modifier = diff_strong_ai_generic
+		countries = { BHU }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强伊朗"
+		modifier = diff_strong_ai_generic
+		countries = { PER }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强沙特阿拉伯"
+		modifier = diff_strong_ai_generic
+		countries = { SAU }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强伊拉克"
+		modifier = diff_strong_ai_generic
+		countries = { IRQ }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强也门"
+		modifier = diff_strong_ai_generic
+		countries = { YEM }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强阿曼"
+		modifier = diff_strong_ai_generic
+		countries = { OMA }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强阿富汗"
+		modifier = diff_strong_ai_generic
+		countries = { AFG }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强库尔德斯坦"
+		modifier = diff_strong_ai_generic
+		countries = { KUR }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强卡塔尔"
+		modifier = diff_strong_ai_generic
+		countries = { QAT }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强阿拉伯酋长"
+		modifier = diff_strong_ai_generic
+		countries = { UAE }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强科威特"
+		modifier = diff_strong_ai_generic
+		countries = { KUW }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强叙利亚"
+		modifier = diff_strong_ai_generic
+		countries = { SYR }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强约旦"
+		modifier = diff_strong_ai_generic
+		countries = { JOR }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强巴勒斯坦"
+		modifier = diff_strong_ai_generic
+		countries = { PAL }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强黎巴嫩"
+		modifier = diff_strong_ai_generic
+		countries = { LEB }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强以色列"
+		modifier = diff_strong_ai_generic
+		countries = { ISR }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强塞尔维亚"
+		modifier = diff_strong_ai_generic
+		countries = { SER }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强马其顿"
+		modifier = diff_strong_ai_generic
+		countries = { MAC }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强黑山"
+		modifier = diff_strong_ai_generic
+		countries = { MNT }
+		multiplier = 2.0
+	}
+		difficulty_setting = {
+		key = "加强科索沃"
+		modifier = diff_strong_ai_generic
+		countries = { KOS }
+		multiplier = 2.0
+	}
+		difficulty_setting = {
+		key = "加强黑塞哥维纳"
+		modifier = diff_strong_ai_generic
+		countries = { HRZ }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强波斯尼亚"
+		modifier = diff_strong_ai_generic
+		countries = { BOS }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强斯洛文尼亚"
+		modifier = diff_strong_ai_generic
+		countries = { SLV }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强克罗地亚"
+		modifier = diff_strong_ai_generic
+		countries = { CRO }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强特兰西瓦尼亚"
+		modifier = diff_strong_ai_generic
+		countries = { TRA }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强塞浦路斯"
+		modifier = diff_strong_ai_generic
+		countries = { CYP }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强威尔士"
+		modifier = diff_strong_ai_generic
+		countries = { WLS }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强北爱尔兰"
+		modifier = diff_strong_ai_generic
+		countries = { NIR }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强苏格兰"
+		modifier = diff_strong_ai_generic
+		countries = { SCO }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强美利坚联盟国"
+		modifier = diff_strong_ai_generic
+		countries = { CSA }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强美利坚中立州邦"
+		modifier = diff_strong_ai_generic
+		countries = { USB }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强西撒哈拉"
+		modifier = diff_strong_ai_generic
+		countries = { WES }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强冰岛"
+		modifier = diff_strong_ai_generic
+		countries = { ICE }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强扬马延"
+		modifier = diff_strong_ai_generic
+		countries = { JAN }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强格陵兰"
+		modifier = diff_strong_ai_generic
+		countries = { GRN }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强东德"
+		modifier = diff_strong_ai_generic
+		countries = { DDR }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强西德"
+		modifier = diff_strong_ai_generic
+		countries = { WGR }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强巴伐利亚"
+		modifier = diff_strong_ai_generic
+		countries = { BAY }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强卡舒比"
+		modifier = diff_strong_ai_generic
+		countries = { KSH }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强普鲁士"
+		modifier = diff_strong_ai_generic
+		countries = { PRE }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强西里西亚"
+		modifier = diff_strong_ai_generic
+		countries = { SIL }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强但泽"
+		modifier = diff_strong_ai_generic
+		countries = { DNZ }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强萨克森"
+		modifier = diff_strong_ai_generic
+		countries = { SAX }
+		multiplier = 2.0
+	}
+		difficulty_setting = {
+		key = "加强汉诺威"
+		modifier = diff_strong_ai_generic
+		countries = { HAN }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强石勒苏益格"
+		modifier = diff_strong_ai_generic
+		countries = { SHL }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强梅克伦堡"
+		modifier = diff_strong_ai_generic
+		countries = { MEK }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强符腾堡"
+		modifier = diff_strong_ai_generic
+		countries = { WUR }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强奥克西塔尼亚"
+		modifier = diff_strong_ai_generic
+		countries = { OCC }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强布列塔尼"
+		modifier = diff_strong_ai_generic
+		countries = { BRI }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强科西嘉"
+		modifier = diff_strong_ai_generic
+		countries = { COR }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强纳瓦拉"
+		modifier = diff_strong_ai_generic
+		countries = { NAV }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强安达卢斯"
+		modifier = diff_strong_ai_generic
+		countries = { ADU }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强加泰罗尼亚"
+		modifier = diff_strong_ai_generic
+		countries = { CAT }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强加利西亚"
+		modifier = diff_strong_ai_generic
+		countries = { GLC }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强撒丁皮埃蒙特"
+		modifier = diff_strong_ai_generic
+		countries = { SPM }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强托斯卡纳"
+		modifier = diff_strong_ai_generic
+		countries = { TOS }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强教宗"
+		modifier = diff_strong_ai_generic
+		countries = { PAP }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强两西西里"
+		modifier = diff_strong_ai_generic
+		countries = { TTS }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强马耳他"
+		modifier = diff_strong_ai_generic
+		countries = { MLT }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强伦巴第威尼托"
+		modifier = diff_strong_ai_generic
+		countries = { LBV }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强萨普米"
+		modifier = diff_strong_ai_generic
+		countries = { SMI }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强卡累利阿"
+		modifier = diff_strong_ai_generic
+		countries = { KAR }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强白俄罗斯"
+		modifier = diff_strong_ai_generic
+		countries = { BLR }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强摩尔多瓦"
+		modifier = diff_strong_ai_generic
+		countries = { MOL }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强库班"
+		modifier = diff_strong_ai_generic
+		countries = { KUB }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强乌克兰"
+		modifier = diff_strong_ai_generic
+		countries = { UKR }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强克里米亚"
+		modifier = diff_strong_ai_generic
+		countries = { CRI }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强亚美尼亚"
+		modifier = diff_strong_ai_generic
+		countries = { ARM }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强阿塞拜疆"
+		modifier = diff_strong_ai_generic
+		countries = { AZR }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强格鲁吉亚"
+		modifier = diff_strong_ai_generic
+		countries = { GEO }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强阿布哈兹"
+		modifier = diff_strong_ai_generic
+		countries = { ABK }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强卡巴尔达-巴尔卡尔"
+		modifier = diff_strong_ai_generic
+		countries = { KBK }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强北鼻塞梯"
+		modifier = diff_strong_ai_generic
+		countries = { NOA }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强车臣印古什"
+		modifier = diff_strong_ai_generic
+		countries = { CIN }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强达吉斯坦"
+		modifier = diff_strong_ai_generic
+		countries = { DAG }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强卡尔梅克"
+		modifier = diff_strong_ai_generic
+		countries = { KAL }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强伏尔加德意志"
+		modifier = diff_strong_ai_generic
+		countries = { VGE }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强巴什科尔托斯坦"
+		modifier = diff_strong_ai_generic
+		countries = { BSK }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强鞑靼斯坦"
+		modifier = diff_strong_ai_generic
+		countries = { TAT }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强乌德穆尔特"
+		modifier = diff_strong_ai_generic
+		countries = { UDM }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强马里埃尔"
+		modifier = diff_strong_ai_generic
+		countries = { MEL }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强楚瓦什"
+		modifier = diff_strong_ai_generic
+		countries = { CHU }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强科米"
+		modifier = diff_strong_ai_generic
+		countries = { KOM }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强涅涅茨"
+		modifier = diff_strong_ai_generic
+		countries = { NEN }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强亚马尔"
+		modifier = diff_strong_ai_generic
+		countries = { YAM }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强奥斯恰克沃古尔"
+		modifier = diff_strong_ai_generic
+		countries = { OVO }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强泰梅尔"
+		modifier = diff_strong_ai_generic
+		countries = { TAY }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强雅库特"
+		modifier = diff_strong_ai_generic
+		countries = { YAK }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强萨科奇"
+		modifier = diff_strong_ai_generic
+		countries = { CKK }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强远东"
+		modifier = diff_strong_ai_generic
+		countries = { FER }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强符拉迪沃斯托克"
+		modifier = diff_strong_ai_generic
+		countries = { VLA }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强布里亚特"
+		modifier = diff_strong_ai_generic
+		countries = { BYA }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强哈卡斯"
+		modifier = diff_strong_ai_generic
+		countries = { KHA }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强阿尔泰"
+		modifier = diff_strong_ai_generic
+		countries = { ALT }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强哈萨克斯坦"
+		modifier = diff_strong_ai_generic
+		countries = { KAZ }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强卡拉卡尔帕克斯坦"
+		modifier = diff_strong_ai_generic
+		countries = { KKP }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强希瓦"
+		modifier = diff_strong_ai_generic
+		countries = { KHI }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强土库曼斯坦"
+		modifier = diff_strong_ai_generic
+		countries = { TMS }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强乌兹别克斯坦"
+		modifier = diff_strong_ai_generic
+		countries = { UZB }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强布哈拉"
+		modifier = diff_strong_ai_generic
+		countries = { BUK }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强塔吉克斯坦"
+		modifier = diff_strong_ai_generic
+		countries = { TAJ }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强吉尔吉斯斯坦"
+		modifier = diff_strong_ai_generic
+		countries = { KYR }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强顿河"
+		modifier = diff_strong_ai_generic
+		countries = { DON }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强巴西"
+		modifier = diff_strong_ai_generic
+		countries = { BRA }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强阿根廷"
+		modifier = diff_strong_ai_generic
+		countries = { ARG }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强委内瑞拉"
+		modifier = diff_strong_ai_generic
+		countries = { VEN }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强哥伦比亚"
+		modifier = diff_strong_ai_generic
+		countries = { COL }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强秘鲁"
+		modifier = diff_strong_ai_generic
+		countries = { PRU }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强玻利维亚"
+		modifier = diff_strong_ai_generic
+		countries = { BOL }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强厄瓜多尔"
+		modifier = diff_strong_ai_generic
+		countries = { ECU }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强巴拉圭"
+		modifier = diff_strong_ai_generic
+		countries = { PAR }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强乌拉圭"
+		modifier = diff_strong_ai_generic
+		countries = { URG }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强智利"
+		modifier = diff_strong_ai_generic
+		countries = { CHL }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强巴拿马"
+		modifier = diff_strong_ai_generic
+		countries = { PAN }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强哥斯达黎加"
+		modifier = diff_strong_ai_generic
+		countries = { COS }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强尼加拉瓜"
+		modifier = diff_strong_ai_generic
+		countries = { NIC }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强洪都拉斯"
+		modifier = diff_strong_ai_generic
+		countries = { HON }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强萨尔瓦多"
+		modifier = diff_strong_ai_generic
+		countries = { ELS }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强危地马拉"
+		modifier = diff_strong_ai_generic
+		countries = { GUA }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强古巴"
+		modifier = diff_strong_ai_generic
+		countries = { CUB }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强海地"
+		modifier = diff_strong_ai_generic
+		countries = { HAI }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强多米尼加"
+		modifier = diff_strong_ai_generic
+		countries = { DOM }
+		multiplier = 2.0
+	}
+difficulty_setting = {
+		key = "加强牙买加"
+		modifier = diff_strong_ai_generic
+		countries = { JAM }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强巴哈马"
+		modifier = diff_strong_ai_generic
+		countries = { BAH }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强波多黎各"
+		modifier = diff_strong_ai_generic
+		countries = { PUE }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强伯利兹"
+		modifier = diff_strong_ai_generic
+		countries = { BLZ }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强卡宴"
+		modifier = diff_strong_ai_generic
+		countries = { CAY }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强圭亚那"
+		modifier = diff_strong_ai_generic
+		countries = { GYA }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强苏里南"
+		modifier = diff_strong_ai_generic
+		countries = { SUR }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强荷属安的列斯"
+		modifier = diff_strong_ai_generic
+		countries = { CRC }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强特立尼达和多巴哥"
+		modifier = diff_strong_ai_generic
+		countries = { TRI }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强英属安的列斯"
+		modifier = diff_strong_ai_generic
+		countries = { BAS }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强瓜德罗普"
+		modifier = diff_strong_ai_generic
+		countries = { GDL }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强埃及"
+		modifier = diff_strong_ai_generic
+		countries = { EGY }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强埃塞俄比亚"
+		modifier = diff_strong_ai_generic
+		countries = { ETH }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强奥萨苏丹国"
+		modifier = diff_strong_ai_generic
+		countries = { AFA }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强厄立特里亚"
+		modifier = diff_strong_ai_generic
+		countries = { ERI }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强卡曼"
+		modifier = diff_strong_ai_generic
+		countries = { QEM }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强提格雷"
+		modifier = diff_strong_ai_generic
+		countries = { TIG }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强本尚古勒古马兹"
+		modifier = diff_strong_ai_generic
+		countries = { BEG }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强甘贝拉"
+		modifier = diff_strong_ai_generic
+		countries = { GBA }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强奥罗莫"
+		modifier = diff_strong_ai_generic
+		countries = { ORO }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强锡拉莫"
+		modifier = diff_strong_ai_generic
+		countries = { SID }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强哈勒尔"
+		modifier = diff_strong_ai_generic
+		countries = { HAR }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强索马里"
+		modifier = diff_strong_ai_generic
+		countries = { SOM }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强吉布提"
+		modifier = diff_strong_ai_generic
+		countries = { DJI }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强意属东非"
+		modifier = diff_strong_ai_generic
+		countries = { AOI }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强利比里亚"
+		modifier = diff_strong_ai_generic
+		countries = { LIB }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强利比亚"
+		modifier = diff_strong_ai_generic
+		countries = { LBA }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强苏丹"
+		modifier = diff_strong_ai_generic
+		countries = { SUD }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强突尼斯"
+		modifier = diff_strong_ai_generic
+		countries = { TUN }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强里夫"
+		modifier = diff_strong_ai_generic
+		countries = { RIF }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强阿尔及利亚"
+		modifier = diff_strong_ai_generic
+		countries = { ALG }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强摩洛哥"
+		modifier = diff_strong_ai_generic
+		countries = { MOR }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强毛里塔尼亚"
+		modifier = diff_strong_ai_generic
+		countries = { MRT }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强冈比亚"
+		modifier = diff_strong_ai_generic
+		countries = { GAM }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强塞内加尔"
+		modifier = diff_strong_ai_generic
+		countries = { SEN }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强几内亚"
+		modifier = diff_strong_ai_generic
+		countries = { GNA }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强几内亚比绍"
+		modifier = diff_strong_ai_generic
+		countries = { GNB }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强塞拉利昂"
+		modifier = diff_strong_ai_generic
+		countries = { SIE }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强马里"
+		modifier = diff_strong_ai_generic
+		countries = { MLI }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强科特迪瓦"
+		modifier = diff_strong_ai_generic
+		countries = { IVO }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强上沃尔特"
+		modifier = diff_strong_ai_generic
+		countries = { VOL }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强加纳"
+		modifier = diff_strong_ai_generic
+		countries = { GHA }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强多哥"
+		modifier = diff_strong_ai_generic
+		countries = { TOG }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强达荷美"
+		modifier = diff_strong_ai_generic
+		countries = { DAH }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强尼日尔"
+		modifier = diff_strong_ai_generic
+		countries = { NGR }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强尼日利亚"
+		modifier = diff_strong_ai_generic
+		countries = { NGA }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强乍得"
+		modifier = diff_strong_ai_generic
+		countries = { CHA }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强喀麦隆"
+		modifier = diff_strong_ai_generic
+		countries = { CMR }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强中非"
+		modifier = diff_strong_ai_generic
+		countries = { CAR }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强赤道几内亚"
+		modifier = diff_strong_ai_generic
+		countries = { EQG }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强加蓬"
+		modifier = diff_strong_ai_generic
+		countries = { GAB }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强刚果"
+		modifier = diff_strong_ai_generic
+		countries = { RCG }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强扎伊尔"
+		modifier = diff_strong_ai_generic
+		countries = { COG }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强卢旺达"
+		modifier = diff_strong_ai_generic
+		countries = { RWA }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强布隆迪"
+		modifier = diff_strong_ai_generic
+		countries = { BRD }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强乌干达"
+		modifier = diff_strong_ai_generic
+		countries = { UGA }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强肯尼亚"
+		modifier = diff_strong_ai_generic
+		countries = { KEN }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强坦桑尼亚"
+		modifier = diff_strong_ai_generic
+		countries = { TZN }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强安哥拉"
+		modifier = diff_strong_ai_generic
+		countries = { ANG }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强赞比亚"
+		modifier = diff_strong_ai_generic
+		countries = { ZAM }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强马拉维"
+		modifier = diff_strong_ai_generic
+		countries = { MLW }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强莫桑比克"
+		modifier = diff_strong_ai_generic
+		countries = { MZB }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强津巴布韦"
+		modifier = diff_strong_ai_generic
+		countries = { ZIM }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强博茨瓦纳"
+		modifier = diff_strong_ai_generic
+		countries = { BOT }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强纳米比亚"
+		modifier = diff_strong_ai_generic
+		countries = { NMB }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强马达加斯加"
+		modifier = diff_strong_ai_generic
+		countries = { MAD }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强塔希提"
+		modifier = diff_strong_ai_generic
+		countries = { TAH }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强斐济"
+		modifier = diff_strong_ai_generic
+		countries = { FIJ }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强萨摩亚"
+		modifier = diff_strong_ai_generic
+		countries = { SAM }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强夏威夷"
+		modifier = diff_strong_ai_generic
+		countries = { HAW }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强密克罗尼西亚"
+		modifier = diff_strong_ai_generic
+		countries = { FSM }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强马里亚纳"
+		modifier = diff_strong_ai_generic
+		countries = { GUM }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强所罗门"
+		modifier = diff_strong_ai_generic
+		countries = { SOL }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "加强巴布亚"
+		modifier = diff_strong_ai_generic
+		countries = { PNG }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱法国"
+		modifier = diff_thin_ai_generic
+		countries = { FRA }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱美国"
+		modifier = diff_thin_ai_generic
+		countries = { USA }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱英国"
+		modifier = diff_thin_ai_generic
+		countries = { ENG }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱德国"
+		modifier = diff_thin_ai_generic
+		countries = { GER }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱意大利"
+		modifier = diff_thin_ai_generic
+		countries = { ITA }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱日本"
+		modifier = diff_thin_ai_generic
+		countries = { JAP }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱中国"
+		modifier = diff_thin_ai_generic
+		countries = { CHI }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱中共"
+		modifier = diff_thin_ai_generic
+		countries = { PRC }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱苏联"
+		modifier = diff_thin_ai_generic
+		countries = { SOV }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱新疆"
+		modifier = diff_thin_ai_generic
+		countries = { SIK }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱东北军"
+		modifier = diff_thin_ai_generic
+		countries = { NEA }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱桂系"
+		modifier = diff_thin_ai_generic
+		countries = { GXC }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱晋系"
+		modifier = diff_thin_ai_generic
+		countries = { SHX }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱百灵庙"
+		modifier = diff_thin_ai_generic
+		countries = { PLM }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱滇系"
+		modifier = diff_thin_ai_generic
+		countries = { YUN }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱粤系"
+		modifier = diff_thin_ai_generic
+		countries = { GUD }
+		multiplier = 2.0
+	}
+		difficulty_setting = {
+		key = "削弱川系"
+		modifier = diff_thin_ai_generic
+		countries = { SIC }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱川边"
+		modifier = diff_thin_ai_generic
+		countries = { XIK }
+		multiplier = 2.0
+	}
+		difficulty_setting = {
+		key = "削弱鲁系"
+		modifier = diff_thin_ai_generic
+		countries = { SHD }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱陕西"
+		modifier = diff_thin_ai_generic
+		countries = { SHC }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱湘系"
+		modifier = diff_thin_ai_generic
+		countries = { XIA }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱青马"
+		modifier = diff_thin_ai_generic
+		countries = { XSM }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱宁马"
+		modifier = diff_thin_ai_generic
+		countries = { NXM }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱甘马"
+		modifier = diff_thin_ai_generic
+		countries = { GSM }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱东干斯坦"
+		modifier = diff_thin_ai_generic
+		countries = { TNG }
+		multiplier = 2.0
+	}
+		difficulty_setting = {
+		key = "削弱冀察政务委员会"
+		modifier = diff_thin_ai_generic
+		countries = { HPC }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱哈密"
+		modifier = diff_thin_ai_generic
+		countries = { HMI }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱喀什"
+		modifier = diff_thin_ai_generic
+		countries = { KHR }
+		multiplier = 2.0
+	}
+		difficulty_setting = {
+		key = "削弱阿山"
+		modifier = diff_thin_ai_generic
+		countries = { ATM }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱焉者"
+		modifier = diff_thin_ai_generic
+		countries = { KRS }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱骑兵第六师"
+		modifier = diff_thin_ai_generic
+		countries = { KHR }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱韩国"
+		modifier = diff_thin_ai_generic
+		countries = { KOR }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱满洲"
+		modifier = diff_thin_ai_generic
+		countries = { MAN }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱察东自治区"
+		modifier = diff_thin_ai_generic
+		countries = { ECA }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱冀东自治区"
+		modifier = diff_thin_ai_generic
+		countries = { EHB }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱中华民国维新政府"
+		modifier = diff_thin_ai_generic
+		countries = { RFM }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱察南自治政府"
+		modifier = diff_thin_ai_generic
+		countries = { SCG }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱晋北自治政府"
+		modifier = diff_thin_ai_generic
+		countries = { NSG }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱上海大道政府"
+		modifier = diff_thin_ai_generic
+		countries = { CCP }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱暹罗"
+		modifier = diff_thin_ai_generic
+		countries = { SIA }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱西藏"
+		modifier = diff_thin_ai_generic
+		countries = { TIB }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱蒙古"
+		modifier = diff_thin_ai_generic
+		countries = { MON }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱图瓦"
+		modifier = diff_thin_ai_generic
+		countries = { TAN }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱立陶宛"
+		modifier = diff_thin_ai_generic
+		countries = { LIT }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱拉脱维亚"
+		modifier = diff_thin_ai_generic
+		countries = { LAT }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱爱沙尼亚"
+		modifier = diff_thin_ai_generic
+		countries = { EST }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱德意志专员辖区"
+		modifier = diff_thin_ai_generic
+		countries = { R01 R02 R03 R04 R05 R06 R07 R08 R09 R10 R11 R12 R13 R15 R16 R17 R18 R19 R20 R21 R22 R23 R24 R25 R26 R27 R28 R29 R30 R31 R32 R33 R34 R35 R36 R37 R38 R39 R40 R41 R42 R43 R44 R45 R46 R47 R48 R49 R50 R51 R52 R53 R54 R55 }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱奥地利"
+		modifier = diff_thin_ai_generic
+		countries = { AUS }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱捷克斯洛伐克"
+		modifier = diff_thin_ai_generic
+		countries = { CZE }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱斯洛伐克"
+		modifier = diff_thin_ai_generic
+		countries = { SLO }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱匈牙利"
+		modifier = diff_thin_ai_generic
+		countries = { HUN }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱罗马尼亚"
+		modifier = diff_thin_ai_generic
+		countries = { ROM }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱保加利亚"
+		modifier = diff_thin_ai_generic
+		countries = { BUL }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱阿尔巴尼亚"
+		modifier = diff_thin_ai_generic
+		countries = { ALB }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱芬兰"
+		modifier = diff_thin_ai_generic
+		countries = { FIN }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱瑞典"
+		modifier = diff_thin_ai_generic
+		countries = { SWE }
+		multiplier = 2.0
+	}
+		difficulty_setting = {
+		key = "削弱挪威"
+		modifier = diff_thin_ai_generic
+		countries = { NOR }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱丹麦"
+		modifier = diff_thin_ai_generic
+		countries = { DEN }
+		multiplier = 2.0
+	}
+		difficulty_setting = {
+		key = "削弱波兰"
+		modifier = diff_thin_ai_generic
+		countries = { POL }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱南斯拉夫"
+		modifier = diff_thin_ai_generic
+		countries = { YUG }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱希腊"
+		modifier = diff_thin_ai_generic
+		countries = { GRE }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱土耳其"
+		modifier = diff_thin_ai_generic
+		countries = { TUR }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱加拿大"
+		modifier = diff_thin_ai_generic
+		countries = { CAN }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱墨西哥"
+		modifier = diff_thin_ai_generic
+		countries = { MEX }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱爱尔兰"
+		modifier = diff_thin_ai_generic
+		countries = { IRE }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱荷兰"
+		modifier = diff_thin_ai_generic
+		countries = { HOL }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱比利时"
+		modifier = diff_thin_ai_generic
+		countries = { BEL }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱卢森堡"
+		modifier = diff_thin_ai_generic
+		countries = { LUX }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱印度"
+		modifier = diff_thin_ai_generic
+		countries = { RAJ }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱印度尼西亚"
+		modifier = diff_thin_ai_generic
+		countries = { INS }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱南非"
+		modifier = diff_thin_ai_generic
+		countries = { SAF }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱澳大利亚"
+		modifier = diff_thin_ai_generic
+		countries = { AST }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱西班牙"
+		modifier = diff_thin_ai_generic
+		countries = { SPR }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱葡萄牙"
+		modifier = diff_thin_ai_generic
+		countries = { POR }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱瑞士"
+		modifier = diff_thin_ai_generic
+		countries = { SWI }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱菲律宾"
+		modifier = diff_thin_ai_generic
+		countries = { PHI }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱缅甸"
+		modifier = diff_thin_ai_generic
+		countries = { BUR }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱马来西亚"
+		modifier = diff_thin_ai_generic
+		countries = { MAL }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱海峡殖民地"
+		modifier = diff_thin_ai_generic
+		countries = { SST }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱砂拉越"
+		modifier = diff_thin_ai_generic
+		countries = { SAR }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱北婆罗洲"
+		modifier = diff_thin_ai_generic
+		countries = { BOR }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱新西兰"
+		modifier = diff_thin_ai_generic
+		countries = { NZL }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱印度支那"
+		modifier = diff_thin_ai_generic
+		countries = { FIC }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱老挝"
+		modifier = diff_thin_ai_generic
+		countries = { LAO }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱越南"
+		modifier = diff_thin_ai_generic
+		countries = { VIN }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱占巴塞"
+		modifier = diff_thin_ai_generic
+		countries = { CHP }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱柬埔寨"
+		modifier = diff_thin_ai_generic
+		countries = { CAM }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱孟加拉国"
+		modifier = diff_thin_ai_generic
+		countries = { BAN }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱巴基斯坦"
+		modifier = diff_thin_ai_generic
+		countries = { PAK }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱斯里兰卡"
+		modifier = diff_thin_ai_generic
+		countries = { SRL }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱马尔代夫"
+		modifier = diff_thin_ai_generic
+		countries = { MLD }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱尼泊尔"
+		modifier = diff_thin_ai_generic
+		countries = { NEP }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱不丹"
+		modifier = diff_thin_ai_generic
+		countries = { BHU }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱伊朗"
+		modifier = diff_thin_ai_generic
+		countries = { PER }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱沙特阿拉伯"
+		modifier = diff_thin_ai_generic
+		countries = { SAU }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱伊拉克"
+		modifier = diff_thin_ai_generic
+		countries = { IRQ }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱也门"
+		modifier = diff_thin_ai_generic
+		countries = { YEM }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱阿曼"
+		modifier = diff_thin_ai_generic
+		countries = { OMA }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱阿富汗"
+		modifier = diff_thin_ai_generic
+		countries = { AFG }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱库尔德斯坦"
+		modifier = diff_thin_ai_generic
+		countries = { KUR }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱卡塔尔"
+		modifier = diff_thin_ai_generic
+		countries = { QAT }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱阿拉伯酋长"
+		modifier = diff_thin_ai_generic
+		countries = { UAE }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱科威特"
+		modifier = diff_thin_ai_generic
+		countries = { KUW }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱叙利亚"
+		modifier = diff_thin_ai_generic
+		countries = { SYR }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱约旦"
+		modifier = diff_thin_ai_generic
+		countries = { JOR }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱巴勒斯坦"
+		modifier = diff_thin_ai_generic
+		countries = { PAL }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱黎巴嫩"
+		modifier = diff_thin_ai_generic
+		countries = { LEB }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱以色列"
+		modifier = diff_thin_ai_generic
+		countries = { ISR }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱塞尔维亚"
+		modifier = diff_thin_ai_generic
+		countries = { SER }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱马其顿"
+		modifier = diff_thin_ai_generic
+		countries = { MAC }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱黑山"
+		modifier = diff_thin_ai_generic
+		countries = { MNT }
+		multiplier = 2.0
+	}
+		difficulty_setting = {
+		key = "削弱科索沃"
+		modifier = diff_thin_ai_generic
+		countries = { KOS }
+		multiplier = 2.0
+	}
+		difficulty_setting = {
+		key = "削弱黑塞哥维纳"
+		modifier = diff_thin_ai_generic
+		countries = { HRZ }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱波斯尼亚"
+		modifier = diff_thin_ai_generic
+		countries = { BOS }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱斯洛文尼亚"
+		modifier = diff_thin_ai_generic
+		countries = { SLV }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱克罗地亚"
+		modifier = diff_thin_ai_generic
+		countries = { CRO }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱特兰西瓦尼亚"
+		modifier = diff_thin_ai_generic
+		countries = { TRA }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱塞浦路斯"
+		modifier = diff_thin_ai_generic
+		countries = { CYP }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱威尔士"
+		modifier = diff_thin_ai_generic
+		countries = { WLS }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱北爱尔兰"
+		modifier = diff_thin_ai_generic
+		countries = { NIR }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱苏格兰"
+		modifier = diff_thin_ai_generic
+		countries = { SCO }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱美利坚联盟国"
+		modifier = diff_thin_ai_generic
+		countries = { CSA }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱美利坚中立州邦"
+		modifier = diff_thin_ai_generic
+		countries = { USB }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱西撒哈拉"
+		modifier = diff_thin_ai_generic
+		countries = { WES }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱冰岛"
+		modifier = diff_thin_ai_generic
+		countries = { ICE }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱扬马延"
+		modifier = diff_thin_ai_generic
+		countries = { JAN }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱格陵兰"
+		modifier = diff_thin_ai_generic
+		countries = { GRN }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱东德"
+		modifier = diff_thin_ai_generic
+		countries = { DDR }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱西德"
+		modifier = diff_thin_ai_generic
+		countries = { WGR }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱巴伐利亚"
+		modifier = diff_thin_ai_generic
+		countries = { BAY }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱卡舒比"
+		modifier = diff_thin_ai_generic
+		countries = { KSH }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱普鲁士"
+		modifier = diff_thin_ai_generic
+		countries = { PRE }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱西里西亚"
+		modifier = diff_thin_ai_generic
+		countries = { SIL }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱但泽"
+		modifier = diff_thin_ai_generic
+		countries = { DNZ }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱萨克森"
+		modifier = diff_thin_ai_generic
+		countries = { SAX }
+		multiplier = 2.0
+	}
+		difficulty_setting = {
+		key = "削弱汉诺威"
+		modifier = diff_thin_ai_generic
+		countries = { HAN }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱石勒苏益格"
+		modifier = diff_thin_ai_generic
+		countries = { SHL }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱梅克伦堡"
+		modifier = diff_thin_ai_generic
+		countries = { MEK }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱符腾堡"
+		modifier = diff_thin_ai_generic
+		countries = { WUR }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱奥克西塔尼亚"
+		modifier = diff_thin_ai_generic
+		countries = { OCC }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱布列塔尼"
+		modifier = diff_thin_ai_generic
+		countries = { BRI }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱科西嘉"
+		modifier = diff_thin_ai_generic
+		countries = { COR }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱纳瓦拉"
+		modifier = diff_thin_ai_generic
+		countries = { NAV }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱安达卢斯"
+		modifier = diff_thin_ai_generic
+		countries = { ADU }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱加泰罗尼亚"
+		modifier = diff_thin_ai_generic
+		countries = { CAT }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱加利西亚"
+		modifier = diff_thin_ai_generic
+		countries = { GLC }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱撒丁皮埃蒙特"
+		modifier = diff_thin_ai_generic
+		countries = { SPM }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱托斯卡纳"
+		modifier = diff_thin_ai_generic
+		countries = { TOS }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱教宗"
+		modifier = diff_thin_ai_generic
+		countries = { PAP }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱两西西里"
+		modifier = diff_thin_ai_generic
+		countries = { TTS }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱马耳他"
+		modifier = diff_thin_ai_generic
+		countries = { MLT }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱伦巴第威尼托"
+		modifier = diff_thin_ai_generic
+		countries = { LBV }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱萨普米"
+		modifier = diff_thin_ai_generic
+		countries = { SMI }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱卡累利阿"
+		modifier = diff_thin_ai_generic
+		countries = { KAR }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱白俄罗斯"
+		modifier = diff_thin_ai_generic
+		countries = { BLR }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱摩尔多瓦"
+		modifier = diff_thin_ai_generic
+		countries = { MOL }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱库班"
+		modifier = diff_thin_ai_generic
+		countries = { KUB }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱乌克兰"
+		modifier = diff_thin_ai_generic
+		countries = { UKR }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱克里米亚"
+		modifier = diff_thin_ai_generic
+		countries = { CRI }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱亚美尼亚"
+		modifier = diff_thin_ai_generic
+		countries = { ARM }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱阿塞拜疆"
+		modifier = diff_thin_ai_generic
+		countries = { AZR }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱格鲁吉亚"
+		modifier = diff_thin_ai_generic
+		countries = { GEO }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱阿布哈兹"
+		modifier = diff_thin_ai_generic
+		countries = { ABK }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱卡巴尔达-巴尔卡尔"
+		modifier = diff_thin_ai_generic
+		countries = { KBK }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱北鼻塞梯"
+		modifier = diff_thin_ai_generic
+		countries = { NOA }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱车臣印古什"
+		modifier = diff_thin_ai_generic
+		countries = { CIN }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱达吉斯坦"
+		modifier = diff_thin_ai_generic
+		countries = { DAG }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱卡尔梅克"
+		modifier = diff_thin_ai_generic
+		countries = { KAL }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱伏尔加德意志"
+		modifier = diff_thin_ai_generic
+		countries = { VGE }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱巴什科尔托斯坦"
+		modifier = diff_thin_ai_generic
+		countries = { BSK }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱鞑靼斯坦"
+		modifier = diff_thin_ai_generic
+		countries = { TAT }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱乌德穆尔特"
+		modifier = diff_thin_ai_generic
+		countries = { UDM }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱马里埃尔"
+		modifier = diff_thin_ai_generic
+		countries = { MEL }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱楚瓦什"
+		modifier = diff_thin_ai_generic
+		countries = { CHU }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱科米"
+		modifier = diff_thin_ai_generic
+		countries = { KOM }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱涅涅茨"
+		modifier = diff_thin_ai_generic
+		countries = { NEN }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱亚马尔"
+		modifier = diff_thin_ai_generic
+		countries = { YAM }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱奥斯恰克沃古尔"
+		modifier = diff_thin_ai_generic
+		countries = { OVO }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱泰梅尔"
+		modifier = diff_thin_ai_generic
+		countries = { TAY }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱雅库特"
+		modifier = diff_thin_ai_generic
+		countries = { YAK }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱萨科奇"
+		modifier = diff_thin_ai_generic
+		countries = { CKK }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱远东"
+		modifier = diff_thin_ai_generic
+		countries = { FER }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱符拉迪沃斯托克"
+		modifier = diff_thin_ai_generic
+		countries = { VLA }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱布里亚特"
+		modifier = diff_thin_ai_generic
+		countries = { BYA }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱哈卡斯"
+		modifier = diff_thin_ai_generic
+		countries = { KHA }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱阿尔泰"
+		modifier = diff_thin_ai_generic
+		countries = { ALT }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱哈萨克斯坦"
+		modifier = diff_thin_ai_generic
+		countries = { KAZ }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱卡拉卡尔帕克斯坦"
+		modifier = diff_thin_ai_generic
+		countries = { KKP }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱希瓦"
+		modifier = diff_thin_ai_generic
+		countries = { KHI }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱土库曼斯坦"
+		modifier = diff_thin_ai_generic
+		countries = { TMS }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱乌兹别克斯坦"
+		modifier = diff_thin_ai_generic
+		countries = { UZB }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱布哈拉"
+		modifier = diff_thin_ai_generic
+		countries = { BUK }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱塔吉克斯坦"
+		modifier = diff_thin_ai_generic
+		countries = { TAJ }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱吉尔吉斯斯坦"
+		modifier = diff_thin_ai_generic
+		countries = { KYR }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱顿河"
+		modifier = diff_thin_ai_generic
+		countries = { DON }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱巴西"
+		modifier = diff_thin_ai_generic
+		countries = { BRA }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱阿根廷"
+		modifier = diff_thin_ai_generic
+		countries = { ARG }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱委内瑞拉"
+		modifier = diff_thin_ai_generic
+		countries = { VEN }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱哥伦比亚"
+		modifier = diff_thin_ai_generic
+		countries = { COL }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱秘鲁"
+		modifier = diff_thin_ai_generic
+		countries = { PRU }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱玻利维亚"
+		modifier = diff_thin_ai_generic
+		countries = { BOL }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱厄瓜多尔"
+		modifier = diff_thin_ai_generic
+		countries = { ECU }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱巴拉圭"
+		modifier = diff_thin_ai_generic
+		countries = { PAR }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱乌拉圭"
+		modifier = diff_thin_ai_generic
+		countries = { URG }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱智利"
+		modifier = diff_thin_ai_generic
+		countries = { CHL }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱巴拿马"
+		modifier = diff_thin_ai_generic
+		countries = { PAN }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱哥斯达黎加"
+		modifier = diff_thin_ai_generic
+		countries = { COS }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱尼加拉瓜"
+		modifier = diff_thin_ai_generic
+		countries = { NIC }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱洪都拉斯"
+		modifier = diff_thin_ai_generic
+		countries = { HON }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱萨尔瓦多"
+		modifier = diff_thin_ai_generic
+		countries = { ELS }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱危地马拉"
+		modifier = diff_thin_ai_generic
+		countries = { GUA }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱古巴"
+		modifier = diff_thin_ai_generic
+		countries = { CUB }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱海地"
+		modifier = diff_thin_ai_generic
+		countries = { HAI }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱多米尼加"
+		modifier = diff_thin_ai_generic
+		countries = { DOM }
+		multiplier = 2.0
+	}
+difficulty_setting = {
+		key = "削弱牙买加"
+		modifier = diff_thin_ai_generic
+		countries = { JAM }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱巴哈马"
+		modifier = diff_thin_ai_generic
+		countries = { BAH }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱波多黎各"
+		modifier = diff_thin_ai_generic
+		countries = { PUE }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱伯利兹"
+		modifier = diff_thin_ai_generic
+		countries = { BLZ }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱卡宴"
+		modifier = diff_thin_ai_generic
+		countries = { CAY }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱圭亚那"
+		modifier = diff_thin_ai_generic
+		countries = { GYA }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱苏里南"
+		modifier = diff_thin_ai_generic
+		countries = { SUR }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱荷属安的列斯"
+		modifier = diff_thin_ai_generic
+		countries = { CRC }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱特立尼达和多巴哥"
+		modifier = diff_thin_ai_generic
+		countries = { TRI }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱英属安的列斯"
+		modifier = diff_thin_ai_generic
+		countries = { BAS }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱瓜德罗普"
+		modifier = diff_thin_ai_generic
+		countries = { GDL }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱埃及"
+		modifier = diff_thin_ai_generic
+		countries = { EGY }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱埃塞俄比亚"
+		modifier = diff_thin_ai_generic
+		countries = { ETH }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱奥萨苏丹国"
+		modifier = diff_thin_ai_generic
+		countries = { AFA }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱厄立特里亚"
+		modifier = diff_thin_ai_generic
+		countries = { ERI }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱卡曼"
+		modifier = diff_thin_ai_generic
+		countries = { QEM }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱提格雷"
+		modifier = diff_thin_ai_generic
+		countries = { TIG }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱本尚古勒古马兹"
+		modifier = diff_thin_ai_generic
+		countries = { BEG }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱甘贝拉"
+		modifier = diff_thin_ai_generic
+		countries = { GBA }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱奥罗莫"
+		modifier = diff_thin_ai_generic
+		countries = { ORO }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱锡拉莫"
+		modifier = diff_thin_ai_generic
+		countries = { SID }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱哈勒尔"
+		modifier = diff_thin_ai_generic
+		countries = { HAR }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱索马里"
+		modifier = diff_thin_ai_generic
+		countries = { SOM }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱吉布提"
+		modifier = diff_thin_ai_generic
+		countries = { DJI }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱意属东非"
+		modifier = diff_thin_ai_generic
+		countries = { AOI }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱利比里亚"
+		modifier = diff_thin_ai_generic
+		countries = { LIB }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱利比亚"
+		modifier = diff_thin_ai_generic
+		countries = { LBA }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱苏丹"
+		modifier = diff_thin_ai_generic
+		countries = { SUD }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱突尼斯"
+		modifier = diff_thin_ai_generic
+		countries = { TUN }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱里夫"
+		modifier = diff_thin_ai_generic
+		countries = { RIF }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱阿尔及利亚"
+		modifier = diff_thin_ai_generic
+		countries = { ALG }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱摩洛哥"
+		modifier = diff_thin_ai_generic
+		countries = { MOR }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱毛里塔尼亚"
+		modifier = diff_thin_ai_generic
+		countries = { MRT }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱冈比亚"
+		modifier = diff_thin_ai_generic
+		countries = { GAM }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱塞内加尔"
+		modifier = diff_thin_ai_generic
+		countries = { SEN }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱几内亚"
+		modifier = diff_thin_ai_generic
+		countries = { GNA }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱几内亚比绍"
+		modifier = diff_thin_ai_generic
+		countries = { GNB }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱塞拉利昂"
+		modifier = diff_thin_ai_generic
+		countries = { SIE }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱马里"
+		modifier = diff_thin_ai_generic
+		countries = { MLI }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱科特迪瓦"
+		modifier = diff_thin_ai_generic
+		countries = { IVO }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱上沃尔特"
+		modifier = diff_thin_ai_generic
+		countries = { VOL }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱加纳"
+		modifier = diff_thin_ai_generic
+		countries = { GHA }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱多哥"
+		modifier = diff_thin_ai_generic
+		countries = { TOG }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱达荷美"
+		modifier = diff_thin_ai_generic
+		countries = { DAH }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱尼日尔"
+		modifier = diff_thin_ai_generic
+		countries = { NGR }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱尼日利亚"
+		modifier = diff_thin_ai_generic
+		countries = { NGA }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱乍得"
+		modifier = diff_thin_ai_generic
+		countries = { CHA }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱喀麦隆"
+		modifier = diff_thin_ai_generic
+		countries = { CMR }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱中非"
+		modifier = diff_thin_ai_generic
+		countries = { CAR }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱赤道几内亚"
+		modifier = diff_thin_ai_generic
+		countries = { EQG }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱加蓬"
+		modifier = diff_thin_ai_generic
+		countries = { GAB }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱刚果"
+		modifier = diff_thin_ai_generic
+		countries = { RCG }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱扎伊尔"
+		modifier = diff_thin_ai_generic
+		countries = { COG }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱卢旺达"
+		modifier = diff_thin_ai_generic
+		countries = { RWA }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱布隆迪"
+		modifier = diff_thin_ai_generic
+		countries = { BRD }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱乌干达"
+		modifier = diff_thin_ai_generic
+		countries = { UGA }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱肯尼亚"
+		modifier = diff_thin_ai_generic
+		countries = { KEN }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱坦桑尼亚"
+		modifier = diff_thin_ai_generic
+		countries = { TZN }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱安哥拉"
+		modifier = diff_thin_ai_generic
+		countries = { ANG }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱赞比亚"
+		modifier = diff_thin_ai_generic
+		countries = { ZAM }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱马拉维"
+		modifier = diff_thin_ai_generic
+		countries = { MLW }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱莫桑比克"
+		modifier = diff_thin_ai_generic
+		countries = { MZB }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱津巴布韦"
+		modifier = diff_thin_ai_generic
+		countries = { ZIM }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱博茨瓦纳"
+		modifier = diff_thin_ai_generic
+		countries = { BOT }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱纳米比亚"
+		modifier = diff_thin_ai_generic
+		countries = { NMB }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱马达加斯加"
+		modifier = diff_thin_ai_generic
+		countries = { MAD }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱塔希提"
+		modifier = diff_thin_ai_generic
+		countries = { TAH }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱斐济"
+		modifier = diff_thin_ai_generic
+		countries = { FIJ }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱萨摩亚"
+		modifier = diff_thin_ai_generic
+		countries = { SAM }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱夏威夷"
+		modifier = diff_thin_ai_generic
+		countries = { HAW }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱密克罗尼西亚"
+		modifier = diff_thin_ai_generic
+		countries = { FSM }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱马里亚纳"
+		modifier = diff_thin_ai_generic
+		countries = { GUM }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱所罗门"
+		modifier = diff_thin_ai_generic
+		countries = { SOL }
+		multiplier = 2.0
+	}
+	difficulty_setting = {
+		key = "削弱巴布亚"
+		modifier = diff_thin_ai_generic
+		countries = { PNG }
+		multiplier = 2.0
+	}
+}
