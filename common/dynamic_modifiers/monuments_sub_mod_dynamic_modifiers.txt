@@ -1,0 +1,1315 @@
+# dujiangyan
+monument_10000_level_0_modifier = {
+	enable = {
+		always = yes
+	}
+	remove_trigger = {
+		always = no
+	}
+}
+monument_10000_level_1_modifier = {
+	enable = {
+		always = yes
+	}
+	remove_trigger = {
+		always = no
+	}
+
+    local_building_slots = 1
+}
+monument_10000_level_2_modifier = {
+	enable = {
+		always = yes
+	}
+	remove_trigger = {
+		always = no
+	}
+
+    local_building_slots = 3
+    state_production_speed_buildings_factor = 0.2
+}
+monument_10000_level_3_modifier = {
+	enable = {
+		always = yes
+	}
+	remove_trigger = {
+		always = no
+	}
+
+    local_building_slots = 5
+    state_production_speed_buildings_factor = 0.2
+}
+
+# terracotta_army
+monument_10001_level_0_modifier = {
+	enable = {
+		always = yes
+	}
+	remove_trigger = {
+		always = no
+	}
+}
+monument_10001_level_1_modifier = {
+	enable = {
+		always = yes
+	}
+	remove_trigger = {
+		always = no
+	}
+}
+monument_10001_level_2_modifier = {
+	enable = {
+		always = yes
+	}
+	remove_trigger = {
+		always = no
+	}
+}
+monument_10001_level_3_modifier = {
+	enable = {
+		always = yes
+	}
+	remove_trigger = {
+		always = no
+	}
+}
+
+# silk_road
+monument_10002_level_0_modifier = {
+	enable = {
+		always = yes
+	}
+	remove_trigger = {
+		always = no
+	}
+}
+monument_10002_level_1_modifier = {
+	enable = {
+		always = yes
+	}
+	remove_trigger = {
+		always = no
+	}
+}
+monument_10002_level_2_modifier = {
+	enable = {
+		always = yes
+	}
+	remove_trigger = {
+		always = no
+	}
+}
+monument_10002_level_3_modifier = {
+	enable = {
+		always = yes
+	}
+	remove_trigger = {
+		always = no
+	}
+}
+
+# longmen_grottoes
+monument_10003_level_0_modifier = {
+	enable = {
+		always = yes
+	}
+	remove_trigger = {
+		always = no
+	}
+}
+monument_10003_level_1_modifier = {
+	enable = {
+		always = yes
+	}
+	remove_trigger = {
+		always = no
+	}
+
+    state_production_speed_buildings_factor = 0.1
+}
+monument_10003_level_2_modifier = {
+	enable = {
+		always = yes
+	}
+	remove_trigger = {
+		always = no
+	}
+
+    state_production_speed_buildings_factor = 0.1
+}
+monument_10003_level_3_modifier = {
+	enable = {
+		always = yes
+	}
+	remove_trigger = {
+		always = no
+	}
+
+    state_production_speed_buildings_factor = 0.1
+}
+
+# beijing_hangzhou_canal
+monument_10004_level_0_modifier = {
+	enable = {
+		always = yes
+	}
+	remove_trigger = {
+		always = no
+	}
+}
+monument_10004_level_1_modifier = {
+	enable = {
+		always = yes
+	}
+	remove_trigger = {
+		always = no
+	}
+
+    state_production_speed_buildings_factor = 0.1
+}
+monument_10004_level_2_modifier = {
+	enable = {
+		always = yes
+	}
+	remove_trigger = {
+		always = no
+	}
+
+    state_production_speed_buildings_factor = 0.1
+}
+monument_10004_level_3_modifier = {
+	enable = {
+		always = yes
+	}
+	remove_trigger = {
+		always = no
+	}
+
+    state_production_speed_buildings_factor = 0.1
+}
+
+# mount_tai
+monument_10005_level_0_modifier = {
+	enable = {
+		always = yes
+	}
+	remove_trigger = {
+		always = no
+	}
+}
+monument_10005_level_1_modifier = {
+	enable = {
+		always = yes
+	}
+	remove_trigger = {
+		always = no
+	}
+
+    state_production_speed_buildings_factor = 0.1
+}
+monument_10005_level_2_modifier = {
+	enable = {
+		always = yes
+	}
+	remove_trigger = {
+		always = no
+	}
+
+    state_production_speed_buildings_factor = 0.1
+}
+monument_10005_level_3_modifier = {
+	enable = {
+		always = yes
+	}
+	remove_trigger = {
+		always = no
+	}
+
+    state_production_speed_buildings_factor = 0.1
+}
+
+# shanhaiguan
+monument_10006_level_0_modifier = {
+	enable = {
+		always = yes
+	}
+	remove_trigger = {
+		always = no
+	}
+}
+monument_10006_level_1_modifier = {
+	enable = {
+		always = yes
+	}
+	remove_trigger = {
+		always = no
+	}
+
+    max_dig_in_factor = 0.3
+}
+monument_10006_level_2_modifier = {
+	enable = {
+		always = yes
+	}
+	remove_trigger = {
+		always = no
+	}
+
+    max_dig_in_factor = 0.3
+}
+monument_10006_level_3_modifier = {
+	enable = {
+		always = yes
+	}
+	remove_trigger = {
+		always = no
+	}
+
+    max_dig_in_factor = 0.3
+}
+
+# zhenbeitai
+monument_10007_level_0_modifier = {
+	enable = {
+		always = yes
+	}
+	remove_trigger = {
+		always = no
+	}
+}
+monument_10007_level_1_modifier = {
+	enable = {
+		always = yes
+	}
+	remove_trigger = {
+		always = no
+	}
+
+    max_dig_in_factor = 0.3
+}
+monument_10007_level_2_modifier = {
+	enable = {
+		always = yes
+	}
+	remove_trigger = {
+		always = no
+	}
+
+    max_dig_in_factor = 0.3
+}
+monument_10007_level_3_modifier = {
+	enable = {
+		always = yes
+	}
+	remove_trigger = {
+		always = no
+	}
+
+    max_dig_in_factor = 0.3
+}
+
+# jiayuguan
+monument_10008_level_0_modifier = {
+	enable = {
+		always = yes
+	}
+	remove_trigger = {
+		always = no
+	}
+}
+monument_10008_level_1_modifier = {
+	enable = {
+		always = yes
+	}
+	remove_trigger = {
+		always = no
+	}
+
+    max_dig_in_factor = 0.3
+}
+monument_10008_level_2_modifier = {
+	enable = {
+		always = yes
+	}
+	remove_trigger = {
+		always = no
+	}
+
+    max_dig_in_factor = 0.3
+}
+monument_10008_level_3_modifier = {
+	enable = {
+		always = yes
+	}
+	remove_trigger = {
+		always = no
+	}
+
+    max_dig_in_factor = 0.3
+}
+
+# mount_hua
+monument_10009_level_0_modifier = {
+    enable = {
+        always = yes
+    }
+    remove_trigger = {
+        always = no
+    }
+}
+monument_10009_level_1_modifier = {
+    enable = {
+        always = yes
+    }
+    remove_trigger = {
+        always = no
+    }
+
+    army_defence_factor = 0.1
+}
+monument_10009_level_2_modifier = {
+    enable = {
+        always = yes
+    }
+    remove_trigger = {
+        always = no
+    }
+
+    army_defence_factor = 0.1
+    enemy_army_bonus_air_superiority_factor = -0.1
+}
+monument_10009_level_3_modifier = {
+    enable = {
+        always = yes
+    }
+    remove_trigger = {
+        always = no
+    }
+
+    army_defence_factor = 0.1
+    enemy_army_bonus_air_superiority_factor = -0.1
+}
+
+# mount_heng
+monument_10010_level_0_modifier = {
+    enable = {
+        always = yes
+    }
+    remove_trigger = {
+        always = no
+    }
+}
+monument_10010_level_1_modifier = {
+    enable = {
+        always = yes
+    }
+    remove_trigger = {
+        always = no
+    }
+
+    army_defence_factor = 0.1
+}
+monument_10010_level_2_modifier = {
+    enable = {
+        always = yes
+    }
+    remove_trigger = {
+        always = no
+    }
+
+    army_defence_factor = 0.1
+    enemy_army_bonus_air_superiority_factor = -0.1
+}
+monument_10010_level_3_modifier = {
+    enable = {
+        always = yes
+    }
+    remove_trigger = {
+        always = no
+    }
+
+    army_defence_factor = 0.1
+    enemy_army_bonus_air_superiority_factor = -0.1
+}
+
+# mount_heng2
+monument_10011_level_0_modifier = {
+    enable = {
+        always = yes
+    }
+    remove_trigger = {
+        always = no
+    }
+}
+monument_10011_level_1_modifier = {
+    enable = {
+        always = yes
+    }
+    remove_trigger = {
+        always = no
+    }
+
+    army_defence_factor = 0.1
+}
+monument_10011_level_2_modifier = {
+    enable = {
+        always = yes
+    }
+    remove_trigger = {
+        always = no
+    }
+
+    army_defence_factor = 0.1
+    enemy_army_bonus_air_superiority_factor = -0.1
+}
+monument_10011_level_3_modifier = {
+    enable = {
+        always = yes
+    }
+    remove_trigger = {
+        always = no
+    }
+
+    army_defence_factor = 0.1
+    enemy_army_bonus_air_superiority_factor = -0.1
+}
+
+# mount_song
+monument_10012_level_0_modifier = {
+    enable = {
+        always = yes
+    }
+    remove_trigger = {
+        always = no
+    }
+}
+monument_10012_level_1_modifier = {
+    enable = {
+        always = yes
+    }
+    remove_trigger = {
+        always = no
+    }
+
+    army_defence_factor = 0.1
+}
+monument_10012_level_2_modifier = {
+    enable = {
+        always = yes
+    }
+    remove_trigger = {
+        always = no
+    }
+
+    army_defence_factor = 0.1
+    enemy_army_bonus_air_superiority_factor = -0.1
+}
+monument_10012_level_3_modifier = {
+    enable = {
+        always = yes
+    }
+    remove_trigger = {
+        always = no
+    }
+
+    army_defence_factor = 0.1
+    enemy_army_bonus_air_superiority_factor = -0.1
+}
+
+# mount_wutai
+monument_10013_level_0_modifier = {
+    enable = {
+        always = yes
+    }
+    remove_trigger = {
+        always = no
+    }
+}
+monument_10013_level_1_modifier = {
+    enable = {
+        always = yes
+    }
+    remove_trigger = {
+        always = no
+    }
+
+    army_defence_factor = 0.1
+}
+monument_10013_level_2_modifier = {
+    enable = {
+        always = yes
+    }
+    remove_trigger = {
+        always = no
+    }
+
+    army_defence_factor = 0.1
+}
+monument_10013_level_3_modifier = {
+    enable = {
+        always = yes
+    }
+    remove_trigger = {
+        always = no
+    }
+
+    army_defence_factor = 0.1
+}
+
+# mount_qingcheng
+monument_10014_level_0_modifier = {
+    enable = {
+        always = yes
+    }
+    remove_trigger = {
+        always = no
+    }
+}
+monument_10014_level_1_modifier = {
+    enable = {
+        always = yes
+    }
+    remove_trigger = {
+        always = no
+    }
+
+    army_defence_factor = 0.1
+}
+monument_10014_level_2_modifier = {
+    enable = {
+        always = yes
+    }
+    remove_trigger = {
+        always = no
+    }
+
+    army_defence_factor = 0.1
+}
+monument_10014_level_3_modifier = {
+    enable = {
+        always = yes
+    }
+    remove_trigger = {
+        always = no
+    }
+
+    army_defence_factor = 0.1
+}
+
+# yellow_crane_tower
+monument_10015_level_0_modifier = {
+    enable = {
+        always = yes
+    }
+    remove_trigger = {
+        always = no
+    }
+}
+monument_10015_level_1_modifier = {
+    enable = {
+        always = yes
+    }
+    remove_trigger = {
+        always = no
+    }
+
+    local_building_slots = 1
+}
+monument_10015_level_2_modifier = {
+    enable = {
+        always = yes
+    }
+    remove_trigger = {
+        always = no
+    }
+
+    local_building_slots = 3
+    state_production_speed_buildings_factor = 0.2
+}
+monument_10015_level_3_modifier = {
+    enable = {
+        always = yes
+    }
+    remove_trigger = {
+        always = no
+    }
+
+    local_building_slots = 5
+    state_production_speed_buildings_factor = 0.2
+}
+
+# pavilion_of_prince_teng
+monument_10016_level_0_modifier = {
+    enable = {
+        always = yes
+    }
+    remove_trigger = {
+        always = no
+    }
+}
+monument_10016_level_1_modifier = {
+    enable = {
+        always = yes
+    }
+    remove_trigger = {
+        always = no
+    }
+
+    local_building_slots = 1
+}
+monument_10016_level_2_modifier = {
+    enable = {
+        always = yes
+    }
+    remove_trigger = {
+        always = no
+    }
+
+    local_building_slots = 3
+    state_production_speed_buildings_factor = 0.2
+}
+monument_10016_level_3_modifier = {
+    enable = {
+        always = yes
+    }
+    remove_trigger = {
+        always = no
+    }
+
+    local_building_slots = 5
+    state_production_speed_buildings_factor = 0.2
+}
+
+# yueyang_tower
+monument_10017_level_0_modifier = {
+    enable = {
+        always = yes
+    }
+    remove_trigger = {
+        always = no
+    }
+}
+monument_10017_level_1_modifier = {
+    enable = {
+        always = yes
+    }
+    remove_trigger = {
+        always = no
+    }
+
+    local_building_slots = 1
+}
+monument_10017_level_2_modifier = {
+    enable = {
+        always = yes
+    }
+    remove_trigger = {
+        always = no
+    }
+
+    local_building_slots = 3
+    state_production_speed_buildings_factor = 0.2
+}
+monument_10017_level_3_modifier = {
+    enable = {
+        always = yes
+    }
+    remove_trigger = {
+        always = no
+    }
+
+    local_building_slots = 5
+    state_production_speed_buildings_factor = 0.2
+}
+
+# stork_tower
+monument_10018_level_0_modifier = {
+    enable = {
+        always = yes
+    }
+    remove_trigger = {
+        always = no
+    }
+}
+monument_10018_level_1_modifier = {
+    enable = {
+        always = yes
+    }
+    remove_trigger = {
+        always = no
+    }
+
+    local_building_slots = 1
+}
+monument_10018_level_2_modifier = {
+    enable = {
+        always = yes
+    }
+    remove_trigger = {
+        always = no
+    }
+
+    local_building_slots = 3
+    state_production_speed_buildings_factor = 0.2
+}
+monument_10018_level_3_modifier = {
+    enable = {
+        always = yes
+    }
+    remove_trigger = {
+        always = no
+    }
+
+    local_building_slots = 5
+    state_production_speed_buildings_factor = 0.2
+}
+
+# penglai_pavilion
+monument_10019_level_0_modifier = {
+    enable = {
+        always = yes
+    }
+    remove_trigger = {
+        always = no
+    }
+}
+monument_10019_level_1_modifier = {
+    enable = {
+        always = yes
+    }
+    remove_trigger = {
+        always = no
+    }
+
+    local_building_slots = 1
+}
+monument_10019_level_2_modifier = {
+    enable = {
+        always = yes
+    }
+    remove_trigger = {
+        always = no
+    }
+
+    local_building_slots = 3
+    state_production_speed_buildings_factor = 0.2
+}
+monument_10019_level_3_modifier = {
+    enable = {
+        always = yes
+    }
+    remove_trigger = {
+        always = no
+    }
+
+    local_building_slots = 5
+    state_production_speed_buildings_factor = 0.2
+    local_manpower = 0.1
+}
+
+# leifeng_tower
+monument_10020_level_0_modifier = {
+    enable = {
+        always = yes
+    }
+    remove_trigger = {
+        always = no
+    }
+}
+monument_10020_level_1_modifier = {
+    enable = {
+        always = yes
+    }
+    remove_trigger = {
+        always = no
+    }
+
+    local_building_slots = 1
+}
+monument_10020_level_2_modifier = {
+    enable = {
+        always = yes
+    }
+    remove_trigger = {
+        always = no
+    }
+
+    local_building_slots = 3
+    state_production_speed_buildings_factor = 0.2
+}
+monument_10020_level_3_modifier = {
+    enable = {
+        always = yes
+    }
+    remove_trigger = {
+        always = no
+    }
+
+    local_building_slots = 5
+    state_production_speed_buildings_factor = 0.2
+    local_manpower = 0.1
+}
+
+# dayan_pagoda
+monument_10021_level_0_modifier = {
+    enable = {
+        always = yes
+    }
+    remove_trigger = {
+        always = no
+    }
+}
+monument_10021_level_1_modifier = {
+    enable = {
+        always = yes
+    }
+    remove_trigger = {
+        always = no
+    }
+
+    local_building_slots = 1
+}
+monument_10021_level_2_modifier = {
+    enable = {
+        always = yes
+    }
+    remove_trigger = {
+        always = no
+    }
+
+    local_building_slots = 3
+    state_production_speed_buildings_factor = 0.2
+}
+monument_10021_level_3_modifier = {
+    enable = {
+        always = yes
+    }
+    remove_trigger = {
+        always = no
+    }
+
+    local_building_slots = 5
+    state_production_speed_buildings_factor = 0.2
+    local_manpower = 0.1
+}
+
+# bronze_bird_terrace
+monument_10022_level_0_modifier = {
+    enable = {
+        always = yes
+    }
+    remove_trigger = {
+        always = no
+    }
+}
+monument_10022_level_1_modifier = {
+    enable = {
+        always = yes
+    }
+    remove_trigger = {
+        always = no
+    }
+
+    local_building_slots = 1
+}
+monument_10022_level_2_modifier = {
+    enable = {
+        always = yes
+    }
+    remove_trigger = {
+        always = no
+    }
+
+    local_building_slots = 3
+    state_production_speed_buildings_factor = 0.2
+}
+monument_10022_level_3_modifier = {
+    enable = {
+        always = yes
+    }
+    remove_trigger = {
+        always = no
+    }
+    local_building_slots = 5
+    state_production_speed_buildings_factor = 0.2
+    local_manpower = 0.1
+}
+
+# loulan
+monument_10023_level_0_modifier = {
+    enable = {
+        always = yes
+    }
+    remove_trigger = {
+        always = no
+    }
+}
+monument_10023_level_1_modifier = {
+    enable = {
+        always = yes
+    }
+    remove_trigger = {
+        always = no
+    }
+
+    local_building_slots = 1
+}
+monument_10023_level_2_modifier = {
+    enable = {
+        always = yes
+    }
+    remove_trigger = {
+        always = no
+    }
+
+    local_building_slots = 3
+    state_production_speed_buildings_factor = 0.2
+}
+monument_10023_level_3_modifier = {
+    enable = {
+        always = yes
+    }
+    remove_trigger = {
+        always = no
+    }
+
+    local_building_slots = 5
+    state_production_speed_buildings_factor = 0.2
+}
+
+# mountain_khentii
+monument_10024_level_0_modifier = {
+    enable = {
+        always = yes
+    }
+    remove_trigger = {
+        always = no
+    }
+}
+monument_10024_level_1_modifier = {
+    enable = {
+        always = yes
+    }
+    remove_trigger = {
+        always = no
+    }
+}
+monument_10024_level_2_modifier = {
+    enable = {
+        always = yes
+    }
+    remove_trigger = {
+        always = no
+    }
+}
+monument_10024_level_3_modifier = {
+    enable = {
+        always = yes
+    }
+    remove_trigger = {
+        always = no
+    }
+}
+
+# sanxingdui_site
+monument_10025_level_0_modifier = {
+    enable = {
+        always = yes
+    }
+    remove_trigger = {
+        always = no
+    }
+}
+monument_10025_level_1_modifier = {
+    enable = {
+        always = yes
+    }
+    remove_trigger = {
+        always = no
+    }
+
+    state_production_speed_buildings_factor = 0.2
+}
+monument_10025_level_2_modifier = {
+    enable = {
+        always = yes
+    }
+    remove_trigger = {
+        always = no
+    }
+
+    state_production_speed_buildings_factor = 0.2
+}
+monument_10025_level_3_modifier = {
+    enable = {
+        always = yes
+    }
+    remove_trigger = {
+        always = no
+    }
+
+    state_production_speed_buildings_factor = 0.2
+}
+
+# huangdi_mausoleum
+monument_10026_level_0_modifier = {
+    enable = {
+        always = yes
+    }
+    remove_trigger = {
+        always = no
+    }
+}
+monument_10026_level_1_modifier = {
+    enable = {
+        always = yes
+    }
+    remove_trigger = {
+        always = no
+    }
+}
+monument_10026_level_2_modifier = {
+    enable = {
+        always = yes
+    }
+    remove_trigger = {
+        always = no
+    }
+}
+monument_10026_level_3_modifier = {
+    enable = {
+        always = yes
+    }
+    remove_trigger = {
+        always = no
+    }
+}
+
+# monument_to_the_people's_heroes
+monument_10027_level_0_modifier = {
+    enable = {
+        always = yes
+    }
+    remove_trigger = {
+        always = no
+    }
+}
+monument_10027_level_1_modifier = {
+    enable = {
+        always = yes
+    }
+    remove_trigger = {
+        always = no
+    }
+}
+monument_10027_level_2_modifier = {
+    enable = {
+        always = yes
+    }
+    remove_trigger = {
+        always = no
+    }
+}
+monument_10027_level_3_modifier = {
+    enable = {
+        always = yes
+    }
+    remove_trigger = {
+        always = no
+    }
+}
+
+# great_hall_of_the_people
+monument_10028_level_0_modifier = {
+    enable = {
+        always = yes
+    }
+    remove_trigger = {
+        always = no
+    }
+}
+monument_10028_level_1_modifier = {
+    enable = {
+        always = yes
+    }
+    remove_trigger = {
+        always = no
+    }
+}
+monument_10028_level_2_modifier = {
+    enable = {
+        always = yes
+    }
+    remove_trigger = {
+        always = no
+    }
+}
+monument_10028_level_3_modifier = {
+    enable = {
+        always = yes
+    }
+    remove_trigger = {
+        always = no
+    }
+}
+
+# heian_kyo
+monument_10029_level_0_modifier = {
+    enable = {
+        always = yes
+    }
+    remove_trigger = {
+        always = no
+    }
+}
+monument_10029_level_1_modifier = {
+    enable = {
+        always = yes
+    }
+    remove_trigger = {
+        always = no
+    }
+
+    local_building_slots = 1
+}
+monument_10029_level_2_modifier = {
+    enable = {
+        always = yes
+    }
+    remove_trigger = {
+        always = no
+    }
+
+    local_building_slots = 3
+    state_production_speed_buildings_factor = 0.2
+}
+monument_10029_level_3_modifier = {
+    enable = {
+        always = yes
+    }
+    remove_trigger = {
+        always = no
+    }
+
+    local_building_slots = 5
+    state_production_speed_buildings_factor = 0.2
+}
+
+# horyu_ji
+monument_10030_level_0_modifier = {
+    enable = {
+        always = yes
+    }
+    remove_trigger = {
+        always = no
+    }
+}
+monument_10030_level_1_modifier = {
+    enable = {
+        always = yes
+    }
+    remove_trigger = {
+        always = no
+    }
+
+    local_building_slots = 1
+}
+monument_10030_level_2_modifier = {
+    enable = {
+        always = yes
+    }
+    remove_trigger = {
+        always = no
+    }
+
+    local_building_slots = 3
+    state_production_speed_buildings_factor = 0.2
+}
+monument_10030_level_3_modifier = {
+    enable = {
+        always = yes
+    }
+    remove_trigger = {
+        always = no
+    }
+
+    local_building_slots = 5
+    state_production_speed_buildings_factor = 0.2
+}
+
+# rokuon_ji
+monument_10031_level_0_modifier = {
+    enable = {
+        always = yes
+    }
+    remove_trigger = {
+        always = no
+    }
+}
+monument_10031_level_1_modifier = {
+    enable = {
+        always = yes
+    }
+    remove_trigger = {
+        always = no
+    }
+
+    local_building_slots = 1
+}
+monument_10031_level_2_modifier = {
+    enable = {
+        always = yes
+    }
+    remove_trigger = {
+        always = no
+    }
+
+    local_building_slots = 3
+    state_production_speed_buildings_factor = 0.2
+}
+monument_10031_level_3_modifier = {
+    enable = {
+        always = yes
+    }
+    remove_trigger = {
+        always = no
+    }
+
+    local_building_slots = 5
+    state_production_speed_buildings_factor = 0.2
+}
+
+# itsukushima_shrine
+monument_10032_level_0_modifier = {
+    enable = {
+        always = yes
+    }
+    remove_trigger = {
+        always = no
+    }
+}
+monument_10032_level_1_modifier = {
+    enable = {
+        always = yes
+    }
+    remove_trigger = {
+        always = no
+    }
+}
+monument_10032_level_2_modifier = {
+    enable = {
+        always = yes
+    }
+    remove_trigger = {
+        always = no
+    }
+}
+monument_10032_level_3_modifier = {
+    enable = {
+        always = yes
+    }
+    remove_trigger = {
+        always = no
+    }
+}
+

@@ -1,0 +1,30 @@
+FRA_quanguoqiyi = { #STATE MODIFIER #for ger vic
+	enable = {
+	ROOT = {
+		controller = { has_war_with = FRA }
+		}
+	}
+    remove_trigger = {
+		FRA = { has_capitulated = no }
+    }
+	icon = GFX_modifiers_SOV_invaders_must_die
+	
+                army_speed_factor = -0.1
+                local_org_regain = -0.1
+                dig_in_speed_factor = -0.1		
+                supply_consumption_factor = 0.1
+                org_loss_when_moving = 0.1
+                army_org_factor = -0.05
+                SUPPLY_FACTOR = -0.1
+	SUPPLY_NODE_RANGE = -0.1
+                attrition = 0.1
+                compliance_growth = -0.5
+	resistance_growth = 1
+	resistance_target = 0.5
+	resistance_decay = -0.5
+	state_resources_factor = -0.5
+	disable_strategic_redeployment = 1
+                resistance_damage_to_garrison = 0.5
+				
+				local_supplies = -0.25
+}

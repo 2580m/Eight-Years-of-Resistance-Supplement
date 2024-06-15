@@ -1,0 +1,66 @@
+#	Example:
+#
+#	example_dynamic_modifier = {
+#		icon = "GFX_idea_unknown" # optional, will show up in guis if icon is specified
+#		enable = { always = yes } #optional, the modifier won't apply if not enabled
+#		remove_trigger = { always = no } #optional, will remove the modifier if true
+#       attacker_modifier = no  # if yes this modifier will also be read in combat for
+#                               # people engaging in the combat even if not in the state
+#
+#		# list of modifiers
+#		fuel_cost = 321
+#		max_fuel = var_max_fuel # will be taken from a variable
+#	}
+#
+#
+#	In a script file:
+#
+#	effect = {
+#		add_dynamic_modifier = {
+#			modifier = example_dynamic_modifier
+#			scope = GER # optional, if you specify this your dynamic modifier scoped to this scope (root is the effect scope)
+#			days = 14 # optional, will be removed after this many days passes
+#		}
+#	}
+#
+#	can be added to countries, states or unit leaders
+#	will only updated daily, unless forced by force_update_dynamic_modifier effect
+
+###################################
+
+### ### #  # ###  ##  ###  ###  ##
+#    #  #  #  #  #  # #  #  #  #  #
+##   #  ####  #  #  # ###   #  ####
+#    #  #  #  #  #  # #     #  #  #
+###  #  #  # ###  ##  #    ### #  #
+
+###################################
+
+###### COUNTRY MODIFIERS
+
+# Army Modifiers
+BEL_army_dynamic_modifier = { #NATIONAL SPIRIT
+	enable = { always = yes }
+
+	icon = GFX_idea_BEL_army
+
+	experience_gain_army_factor = BEL_experience_gain_army_factor
+	command_power_gain_mult = BEL_command_power_gain_mult
+	minimum_training_level = BEL_minimum_training_level
+	land_doctrine_cost_factor = BEL_land_doctrine_cost_factor
+	army_defence_factor = BEL_army_defence_factor
+	army_attack_factor = BEL_army_attack_factor
+	breakthrough_factor = BEL_breakthrough_factor
+	army_org_factor = BEL_army_org_factor
+	max_planning = BEL_max_planning
+	planning_speed = BEL_planning_speed
+	army_speed_factor = BEL_army_speed_factor
+	war_support_factor = BEL_war_support_factor
+	max_dig_in_factor = BEL_max_dig_in_factor
+	dig_in_speed_factor = BEL_dig_in_speed_factor
+	surrender_limit = BEL_surrender_limit
+	army_core_defence_factor = BEL_army_core_defence_factor
+	army_morale_factor = BEL_army_morale_factor
+	land_reinforce_rate = BEL_land_reinforce_rate
+
+}

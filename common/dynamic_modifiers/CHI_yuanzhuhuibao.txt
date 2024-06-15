@@ -1,0 +1,103 @@
+attack_prc_area_plan_dynamic = {
+	icon = GFX_modifiers_roc_fighting
+	enable = { always = yes }
+	remove_trigger = {
+		event_target:WTT_current_china_leader = {
+			not = { has_war_with = event_target:WTT_communist_china }
+		}
+	}
+	army_speed_factor = 0.15
+	army_attack_factor = 0.30
+	army_defence_factor = 0.30
+	breakthrough_factor = 0.30
+    army_strength_factor = 0.25
+	army_org_factor = 0.25
+	army_org = 10
+	local_org_regain = 0.25
+	local_supplies = 0.35
+	no_supply_grace = 72
+	attrition = -0.25
+	supply_factor = 0.20
+	SUPPLY_NODE_RANGE = 0.20
+    out_of_supply_factor = -0.25
+    supply_consumption_factor = -0.25
+	terrain_penalty_reduction = 0.25
+	naval_invasion_penalty = -0.25
+	amphibious_invasion_defence = 0.25
+	pocket_penalty = -0.35
+	org_loss_when_moving = -0.20
+	land_reinforce_rate = 0.10
+	max_dig_in_factor = 0.35
+	max_dig_in = 5
+	dig_in_speed_factor = 0.35
+}
+
+CHI_yuanzhuhuibao = { #STATE MODIFIER
+	enable = {
+	   ROOT = { controller = { has_idea = ger_zhuhuajunshiguwentuan } }
+	}
+    remove_trigger = {
+        OR = { has_global_flag = falkenhausen_recalled GER = { OR = { is_subject = yes exists = no has_war_with = event_target:WTT_current_china_leader } } }
+    }
+	icon = GFX_modifiers_increased_metal_production
+	
+	state_resource_tungsten = 100
+}
+CHI_yuanzhuhuibao_2 = { #STATE MODIFIER
+	enable = {
+	   ROOT = { controller = { has_idea = ger_zhuhuajunshiguwentuan } }
+	}
+    remove_trigger = {
+        OR = { has_global_flag = falkenhausen_recalled GER = { OR = { is_subject = yes exists = no has_war_with = event_target:WTT_current_china_leader } } }
+    }
+	icon = GFX_modifiers_increased_metal_production
+	
+	state_resource_tungsten = 150
+}
+
+SOV_usa_yuanzhu = { #STATE MODIFIER
+    enable = {
+	   213 = { is_controlled_by = SOV } 
+	}
+    remove_trigger = {
+        SOV = {
+            OR = {
+			NOT = { has_war = yes }
+			has_war_with = USA
+			#NOT = { controls_state = 213 }
+			}
+        }
+    }
+	icon = GFX_modifiers_increased_metal_production
+	
+	state_resource_tungsten = 50
+	state_resource_oil = 100
+	state_resource_steel = 100
+	state_resource_chromium = 50
+	state_resource_aluminium = 100
+	state_resource_rubber = 50
+}
+
+SOV_eng_yuanzhu = { #STATE MODIFIER
+    enable = {
+	   584 = { is_controlled_by = SOV } 
+	   413 = { controller = { has_war_together_with = SOV } }
+	}
+    remove_trigger = {
+        SOV = {
+            OR = {
+			NOT = { has_war = yes }
+			has_war_with = ENG
+			#NOT = { controls_state = 416 }
+			}
+        }
+    }
+	icon = GFX_modifiers_increased_metal_production
+	
+	state_resource_tungsten = 25
+	state_resource_oil = 25
+	state_resource_steel = 50
+	state_resource_chromium = 25
+	state_resource_aluminium = 50
+	state_resource_rubber = 50
+}

@@ -1,0 +1,37 @@
+spr_civil_war_balance = { #STATE MODIFIER #for all 
+	
+                remove_trigger = {
+                                          OR = {
+ROOT = { controller = { has_civil_war = no } }
+
+date > 1939.1.1
+
+any_country = {
+				is_major = yes
+                                                                
+				has_war_with = SPR
+			              }
+any_country = {
+				is_major = yes
+                                                                
+				has_war_with = SPA
+			              }
+any_country = {
+				is_major = yes
+                                                                
+				has_war_with = SPB
+			              }
+}
+
+
+
+                }
+
+	icon = GFX_modifiers_SOV_invaders_must_die
+	attacker_modifier = yes
+	
+	army_speed_factor = -0.5  
+                                                          local_org_regain = -0.5
+                                                                 army_attack_factor = -0.9
+                                                                 army_defence_factor = 0.5
+}

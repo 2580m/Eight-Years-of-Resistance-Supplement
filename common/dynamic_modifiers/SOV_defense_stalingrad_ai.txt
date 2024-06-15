@@ -1,0 +1,193 @@
+SOV_defense_stalingrad_ai = { #STATE MODIFIER #for sov 
+	remove_trigger = {
+	    or = {
+		SOV = {
+			has_defensive_war = no
+		}
+		SOV = {
+		any_enemy_country = {
+		is_ai = no
+		is_major = no
+		not = { is_in_faction_with = GER }
+		not = { tag = FIN }
+		}
+		}
+		}
+	} #optional, will remove the modifier if true
+	enable = { always = yes }
+
+	icon = GFX_modifiers_SOV_armored_battery
+	
+	army_org_factor = 0.5
+	army_defence_factor = 0.75
+	army_attack_factor = 0.4
+	cas_damage_reduction = 0.75
+	enemy_army_bonus_air_superiority_factor = -0.75
+	dig_in_speed_factor = 0.75
+	max_dig_in = 35
+	pocket_penalty = -0.75
+	out_of_supply_factor = -0.75
+	supply_consumption_factor = -0.75
+	attrition = -0.5
+	local_org_regain = 0.5
+    local_supplies = 0.5
+	army_strength_factor = 0.35
+	terrain_penalty_reduction = 0.35
+	org_loss_at_low_org_factor = -0.35
+	land_reinforce_rate = 1
+	land_night_attack = 0.25
+	recon_factor = 0.5
+}
+SOV_defense_moscow_ai = { #STATE MODIFIER #for sov 
+	remove_trigger = {
+	    or = {
+		SOV = {
+			has_defensive_war = no
+		}
+		SOV = {
+		any_enemy_country = {
+		is_ai = no
+		is_major = no
+		not = { is_in_faction_with = GER }
+		not = { tag = FIN }
+		}
+		}
+		}
+	} #optional, will remove the modifier if true
+	enable = { always = yes }
+
+	icon = GFX_modifiers_SOV_armored_battery
+	
+	army_org_factor = 0.5
+	army_defence_factor = 0.75
+	army_attack_factor = 0.4
+	cas_damage_reduction = 0.5
+	enemy_army_bonus_air_superiority_factor = -0.5
+	dig_in_speed_factor = 0.75
+	max_dig_in = 35
+	pocket_penalty = -0.5
+	out_of_supply_factor = -0.5
+	supply_consumption_factor = -0.5
+	attrition = -0.5
+	local_org_regain = 0.5
+    local_supplies = 0.5
+	army_strength_factor = 0.35
+	terrain_penalty_reduction = 0.35
+	org_loss_at_low_org_factor = -0.35
+	land_reinforce_rate = 1
+	land_night_attack = 0.25
+	recon_factor = 0.5
+}
+SOV_defense_leningrad_ai = { #STATE MODIFIER #for sov 
+	remove_trigger = {
+	    or = {
+		SOV = {
+			has_defensive_war = no
+		}
+		SOV = {
+		any_enemy_country = {
+		is_ai = no
+		is_major = no
+		not = { is_in_faction_with = GER }
+		not = { tag = FIN }
+		}
+		}
+		}
+	} #optional, will remove the modifier if true
+	enable = { always = yes }
+
+	icon = GFX_modifiers_SOV_armored_battery
+	
+	army_org_factor = 0.5
+	army_defence_factor = 1
+	army_attack_factor = 0.5
+	cas_damage_reduction = 0.95
+	enemy_army_bonus_air_superiority_factor = -0.95
+	dig_in_speed_factor = 1
+	max_dig_in = 50
+	pocket_penalty = -0.9
+	out_of_supply_factor = -0.9
+	supply_consumption_factor = -0.9
+	attrition = -0.75
+	local_org_regain = 0.75
+    local_supplies = 0.95
+	army_strength_factor = 0.5
+	terrain_penalty_reduction = 0.5
+	org_loss_at_low_org_factor = -0.5
+	land_reinforce_rate = 1
+	land_night_attack = 0.25
+	recon_factor = 1
+}
+
+molmansik_stronghold_for_sov = { #for state 213 and 215 #for sov 
+	enable = { always = yes }
+	remove_trigger = {
+		SOV = {
+		    or = {
+			NOT = {
+			    has_war_with = FIN
+			}
+			
+			}
+		}
+	}
+	icon = GFX_modifiers_stronghold
+	army_org_factor = 0.5
+	dig_in_speed_factor = 0.5
+	max_dig_in_factor = 0.5
+	army_defence_factor = 0.75
+	army_attack_factor = 0.25
+	local_org_regain = 0.5
+    local_supplies = 0.75
+	attrition = -0.75
+    out_of_supply_factor = -0.75
+    supply_consumption_factor = -0.75
+}
+molmansik_stronghold_for_fin = { #for state 213 and 215 #for fin  
+	enable = { always = yes }
+	remove_trigger = {
+		SOV = {
+			or = {
+			NOT = {
+			    has_war_with = FIN
+			}
+			any_enemy_country = { is_ai = no TAG = FIN }
+			}
+		}
+	}
+	icon = GFX_modifiers_stronghold
+	attacker_modifier = yes
+	
+	army_attack_factor = -0.9
+	breakthrough_factor = -0.9
+}
+
+GER_last_win = { #STATE MODIFIER #for ger 
+	remove_trigger = {
+	    GER = {
+		OR = {
+		exists = no
+		has_war = no
+		is_subject = yes
+		date > 1945.2.1
+		}
+		}
+	} #optional, will remove the modifier if true
+	enable = { always = yes }
+
+	icon = GFX_modifiers_battlefield
+	
+	army_org_factor = 0.25
+	army_defence_factor = 0.25
+	army_attack_factor = 0.25
+	cas_damage_reduction = 0.25
+	enemy_army_bonus_air_superiority_factor = -0.25
+	dig_in_speed_factor = 0.35
+	max_dig_in_factor = 0.35
+	pocket_penalty = -0.5
+	out_of_supply_factor = -0.5
+	supply_consumption_factor = -0.5
+	attrition = -0.25
+	local_org_regain = 0.25
+    local_supplies = 0.5
+}

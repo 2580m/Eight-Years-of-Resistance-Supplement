@@ -1,0 +1,1032 @@
+#	Example:
+# 
+#	example_dynamic_modifier = {
+#		icon = "GFX_idea_unknown" # optional, will show up in guis if icon is specified
+#		enable = { always = yes } #optional, the modifier won't apply if not enabled
+#		remove_trigger = { always = no } #optional, will remove the modifier if true
+#
+#		# list of modifiers
+#		fuel_cost = 321
+#		max_fuel = var_max_fuel # will be taken from a variable
+#	}
+#
+#
+#	In a script file:
+#
+#	effect = {
+#		add_dynamic_modifier = {
+#			modifier = example_dynamic_modifier
+#			scope = GER # optional, if you specify this your dynamic modifier scoped to this scope (root is the effect scope)
+#			days = 14 # optional, will be removed after this many days passes
+#		}
+#	}
+##
+#	can be added to countries, states or unit leaders
+#	will only updated daily, unless forced by force_update_dynamic_modifier effect
+
+###################MODDED		#MODDED		#MODDEDvvvv
+china_government_legitimacy = {
+	#icon = "GFX_idea_recognized_china" # optional, will show up in guis if icon is specified
+	enable = { tag = event_target:WTT_current_china_leader } #optional, the modifier won't apply if not enabled
+	remove_trigger = { NOT = { tag = event_target:WTT_current_china_leader } } #optional, will remove the modifier if true
+	# list of modifiers
+	political_power_factor = Root.PP_legitimacy
+    stability_factor = Root.Stability_legitimacy
+    war_support_factor = Root.war_support_legitimacy
+}
+
+RCM_supply_condition = {
+	#icon = "GFX_idea_recognized_china" # optional, will show up in guis if icon is specified
+	enable = { always = yes } #optional, the modifier won't apply if not enabled
+	remove_trigger = { always = no } #optional, will remove the modifier if true
+	war_support_factor = Root.war_support_supply
+	#attrition = Root.attrition_supply
+	supply_factor = Root.supply_supply
+	ammunition_factor = Root.supply_supply
+	fuel_gain_factor = Root.supply_supply
+	#supply_consumption_factor = Root.consumption_supply	
+	#army_morale_factor = Root.army_morale_supply
+	#army_org_factor = Root.army_org_supply
+	#army_defence_factor = Root.army_morale_supply
+	#army_attack_factorr = Root.army_morale_supply
+}
+
+RCM_great_patriotic_war = { #guo
+	icon = "GFX_idea_communist_spirit" # optional, will show up in guis if icon is specified
+	enable = { tag = SOV } #optional, the modifier won't apply if not enabled
+	remove_trigger = {
+		SOV = {
+		or = {
+		has_global_flag = ban_RCM_great_patriotic_war_buff
+		surrender_progress > 0.90
+		has_war_with_major = no
+		any_enemy_country = { original_tag = SOV has_government = SOV }
+		any_enemy_country = {
+		is_ai = no
+		is_major = no
+		not = { is_in_faction_with = GER }
+		not = { tag = FIN }
+		}
+		}
+		}
+	} #optional, will remove the modifier if true
+	
+	army_core_attack_factor = Root.three_fourth_surrender_progress#guo
+	army_core_defence_factor = Root.same_surrender_progress#guo
+	breakthrough_factor = Root.three_fourth_surrender_progress
+	army_speed_factor = Root.three_fourth_surrender_progress
+	army_attack_speed_factor = Root.three_fourth_surrender_progress
+	conscription = Root.one_fourth_surrender_progress
+	land_reinforce_rate = Root.half_surrender_progress#guo
+	supply_factor = Root.three_fourth_surrender_progress
+	army_org_factor = Root.three_fourth_surrender_progress
+	army_morale_factor = Root.three_fourth_surrender_progress
+	max_dig_in_factor = Root.three_fourth_surrender_progress
+	dig_in_speed_factor = Root.same_surrender_progress#guo
+	industrial_capacity_factory = Root.same_surrender_progress#guo
+	training_time_factor = Root.neg_half_surrender_progress
+    attrition = Root.neg_half_surrender_progress
+    out_of_supply_factor = Root.neg_half_surrender_progress
+    supply_consumption_factor = Root.neg_half_surrender_progress
+    weekly_casualties_war_support = 0.003 #MODDED
+	
+	#guo
+	coordination_bonus = Root.one_fourth_surrender_progress
+	initiative_factor = Root.one_fourth_surrender_progress
+	ammunition_factor = Root.same_surrender_progress
+	ammunition_capacity_factor = Root.same_surrender_progress
+	conversion_cost_civ_to_mil_factor = Root.neg_same_surrender_progress #民转军消耗
+	conversion_cost_mil_to_civ_factor = Root.neg_same_surrender_progress #军转民消耗
+	stability_factor = Root.same_surrender_progress
+	war_support_factor = Root.same_surrender_progress
+	command_power_gain_mult = Root.two_surrender_progress
+	political_power_factor = Root.same_surrender_progress
+	MOBILIZATION_SPEED = Root.same_surrender_progress
+	surrender_limit = 0.15
+	compliance_growth_on_our_occupied_states = Root.neg_same_surrender_progress #我们被敌人占领地区的顺从度增长速度
+	resistance_decay_on_our_occupied_states = Root.neg_half_surrender_progress
+	resistance_growth_on_our_occupied_states = Root.same_surrender_progress
+	resistance_damage_to_garrison_on_our_occupied_states = Root.half_surrender_progress
+	resistance_target_on_our_occupied_states = Root.half_surrender_progress
+	consumer_goods_factor = Root.neg_same_surrender_progress
+	terrain_penalty_reduction = Root.half_surrender_progress
+}
+
+suiyuan_stronghold = { #for state 621 and 746
+	enable = {
+		always = yes
+	}
+	remove_trigger = {
+		OR = {
+			event_target:WTT_current_china_leader = {
+				NOT = {
+					has_war_with = JAP
+				}
+			}
+			#ROOT = { exists = no }
+		}
+	}
+	icon = GFX_modifiers_stronghold
+	acclimatization_cold_climate_gain_factor = 0.15
+	acclimatization_hot_climate_gain_factor = 0.15
+	enemy_army_bonus_air_superiority_factor = -0.15
+	land_night_attack = 0.5
+	max_dig_in_factor = 0.35
+	dig_in_speed_factor = 0.35
+	pocket_penalty = -0.5
+	army_org_factor = 0.5
+	army_attack_factor = 0.2
+	army_defence_factor = 0.5
+	local_org_regain = 0.25
+    local_supplies = 0.75
+	attrition = -0.5
+    out_of_supply_factor = -0.5
+    supply_consumption_factor = -0.7
+}
+
+JAP_uninterested_states = { #suiyuan+ningsia
+	enable = {
+		always = yes
+	}
+	remove_trigger = {
+		event_target:WTT_current_china_leader = {
+			NOT = {
+				has_war_with = JAP
+			}
+		}
+	}
+	icon = GFX_modifiers_conscription_exemptions_granted
+	#attacker_modifier = yes
+	coordination_bonus = -0.15
+	#pocket_penalty = 0.25
+	army_org_factor = -0.25
+	air_superiority_bonus_in_combat = -0.5
+	army_attack_speed_factor = -0.25
+	#army_speed_factor = -0.5
+	army_attack_factor = -0.5
+	breakthrough_factor = -0.45
+}
+
+communist_stronghold = { #for civil_war #guo
+	enable = { always = yes }
+	remove_trigger = {
+		event_target:WTT_communist_china = {
+			NOT = {
+				has_war_with = event_target:WTT_current_china_leader
+			}
+		}
+	}
+	icon = GFX_modifiers_stronghold
+	terrain_penalty_reduction = 0.15
+	army_org = 5
+	army_morale_factor = 0.15
+	army_infantry_defence_factor = 0.10
+	pocket_penalty = -0.15
+	attrition = -0.25
+	out_of_supply_factor = -0.35
+	supply_consumption_factor = -0.35
+	#production_lack_of_resource_penalty_factor = -0.2
+	local_supplies = 0.5
+	#max_dig_in_factor = 0.05
+}
+
+
+suiyuan_stronghold_JAP = { #for state 621 and 746 
+	enable = { always = yes }
+	remove_trigger = {
+		event_target:WTT_current_china_leader = {
+			NOT = {
+			    has_war_with = JAP
+			}
+		}
+	}
+	icon = GFX_modifiers_stronghold	
+	#attacker_modifier = yes
+	coordination_bonus = -0.15
+	pocket_penalty = 0.25
+	army_org_factor = -0.2
+	air_superiority_bonus_in_combat = -0.5
+	army_attack_speed_factor = -0.5
+	army_speed_factor = -0.5
+	army_attack_factor = -0.6
+	breakthrough_factor = -0.6
+}
+
+anti_partisan_area = {
+	icon = GFX_modifiers_roc_army
+    enable = { always = yes }
+}
+
+jap_shanghai_modifier = { #GUO
+	enable = { always = yes }
+	remove_trigger = {
+		or = {
+		
+		AND = {
+		has_global_flag = the_Pacific_War_happen
+		USA = {
+			NOT = {
+			    has_war_with = JAP
+			}
+		}
+		ENG = {
+			NOT = {
+			    has_war_with = JAP
+			}
+		}
+		}
+		
+		AND = {
+		645 = { is_controlled_by_jap_or_its_puppet = no }
+		526 = { is_controlled_by_jap_or_its_puppet = no }
+		524 = { is_controlled_by_jap_or_its_puppet = no }
+		1015 = { is_controlled_by_jap_or_its_puppet = no }
+		613 = { is_controlled_by_jap_or_its_puppet = no }
+		}
+		
+		AND = {
+			root = {
+				is_core_of = event_target:WTT_current_china_leader
+			}
+			JAP = {
+				any_enemy_country = {
+					is_literally_china = no
+					is_major = yes
+				}
+			}
+		}
+		
+		}
+	}
+	icon = GFX_modifiers_navy
+	#army_speed_factor = 0.2
+	army_attack_factor = 0.25
+	army_defence_factor = 0.35
+	breakthrough_factor = 0.25
+    army_strength_factor = 0.15
+	army_org_factor = 0.20
+	army_morale_factor = 0.20
+	#local_org_regain = 0.25
+	local_supplies = 0.5
+	no_supply_grace = 48
+	attrition = -0.25
+	supply_factor = 0.25
+    out_of_supply_factor = -0.15
+    supply_consumption_factor = -0.15
+	terrain_penalty_reduction = 0.25 #guo
+	naval_invasion_penalty = -0.35
+	amphibious_invasion_defence = 0.35
+	
+	pocket_penalty = -0.5 #guo
+}
+
+new_guangxi_clique_modifier = { 
+	enable = { country_exists = GXC }
+	remove_trigger = {	
+		GXC = {
+			NOT = {
+				has_war_with = JAP
+			}
+		}
+	}
+	icon = GFX_modifiers_theater
+	#local_factories = -1
+    #local_resources = -1
+    army_attack_factor = 0.05
+	army_defence_factor = 0.05
+    #army_org_factor = 0.02
+}
+
+sik_united_government_modifier = { 
+	enable = { always = yes }
+	icon = GFX_modifiers_tur_pan_turkic_propaganda
+	local_factories = -0.3
+    local_resources = -0.3
+    compliance_gain = 0.05
+	compliance_growth = 0.2
+	resistance_growth = -0.3
+}
+shd_modifier = { 
+	enable = { 
+		country_exists = SHD 
+	}
+	remove_trigger = {	
+		OR = {
+			event_target:WTT_current_china_leader = {
+			    NOT = {
+			        has_war_with = JAP
+			    }
+		    }
+			NOT = { country_exists = SHD }
+		    SHD = {
+				OR = {
+					has_completed_focus = CHI_cooperation_with_the_nationalists
+					has_completed_focus = CHI_cooperation_with_the_communists
+				}
+			}
+		}
+	}
+	icon = GFX_modifiers_shd
+    army_attack_factor = 0.2
+	army_defence_factor = 0.2
+    breakthrough_factor = 0.1
+	army_org_factor = 0.05
+	terrain_penalty_reduction = 0.05
+}
+
+hainan_independent_column_modifier = { 
+	enable = { 
+		country_exists = event_target:WTT_communist_china
+	}
+	remove_trigger = {	
+		OR = {
+			event_target:WTT_communist_china = {
+				owns_state = 591
+				has_full_control_of_state = 591
+			}
+			NOT = { country_exists = event_target:WTT_communist_china }
+		}	
+	}
+	icon = GFX_modifiers_communist
+    #army_attack_factor = -0.15
+	#army_defence_factor = -0.15
+	#army_org_factor = -0.025
+	compliance_growth = -0.25
+	resistance_growth = 0.2
+	resistance_damage_to_garrison = 0.15
+	attrition_for_controller = 0.3
+	local_factories = -0.3
+}
+prc_hainan_independent_column_modifier = { 
+	enable = { 
+		country_exists = event_target:WTT_communist_china
+	}
+	remove_trigger = {	
+		OR = {
+			event_target:WTT_communist_china = {
+				owns_state = 591
+				has_full_control_of_state = 591
+			}
+			NOT = { country_exists = event_target:WTT_communist_china }
+		}	
+	}
+	icon = GFX_modifiers_communist
+    army_attack_factor = 0.25
+	army_defence_factor = 0.25
+	army_org_factor = 0.1
+	compliance_growth = 0.25
+	resistance_growth = -0.2
+	resistance_damage_to_garrison = -0.15
+	attrition_for_controller = -0.3
+	local_factories = 0.3
+}
+
+prc_unplanned_offensive = {
+	icon = GFX_unplanned_offensive
+	remove_trigger = {	
+		NOT = {
+			event_target:WTT_communist_china = {
+				has_war_with = event_target:WTT_current_china_leader
+			}
+		}	
+	}
+	attacker_modifier = yes
+
+	air_cas_present_factor = -0.75
+	army_attack_factor = -0.9
+	#army_speed_factor = -0.75
+	ground_attack_factor = -0.75
+	local_org_regain = -0.5
+}
+
+chinese_offensive = {
+	icon = GFX_modifiers_SOV_invaders_must_die
+	remove_trigger = {	
+		NOT = {
+			event_target:WTT_current_china_leader = {
+				has_war_with = JAP
+			}
+		}	
+	}
+    #attacker_modifier = yes
+	army_defence_factor = -0.2
+	army_org_factor = -0.1
+	local_org_regain = -0.25
+}
+
+suiyuan_offensive = {
+	icon = GFX_modifiers_SOV_invaders_must_die
+	remove_trigger = {	
+		NOT = {
+			SUY = {
+				has_war_with = JAP
+			}
+		}	
+	}
+	#attacker_modifier = yes
+	army_attack_factor = 0.15
+	breakthrough_factor = 0.1
+	army_speed_factor = 0.05
+	army_org_factor = 0.05
+}
+
+suiyuan_offensive_ccw = {
+	icon = GFX_modifiers_SOV_invaders_must_die
+	remove_trigger = {	
+		NOT = {
+			SUY = {
+				has_war_with = event_target:WTT_communist_china
+			}
+		}	
+	}
+	#attacker_modifier = yes
+	army_attack_factor = 0.25
+	breakthrough_factor = 0.15
+	army_speed_factor = 0.1
+	army_org_factor = 0.1
+}
+
+suiyuan_offensive_pingsui = {
+	icon = GFX_modifiers_SOV_invaders_must_die
+	remove_trigger = {	
+		NOT = {
+			SUY = {
+				has_border_war_with = event_target:WTT_communist_china
+			}
+		}	
+	}
+	#attacker_modifier = yes
+	army_attack_factor = 0.25
+	breakthrough_factor = 0.15
+	army_defence_factor = 0.25
+	army_org_factor = 0.12
+}
+
+sik_battlefield_modifier = { 
+	enable = { always = yes }
+	remove_trigger = {
+		NOT = {
+			SIK = {
+				has_war_with = TNG
+			}
+			SIK = {
+				has_war_with = KHR
+			}
+			SIK = {
+				has_war_with = HMI
+			}
+			SIK = {
+				has_war_with = KRS
+			}
+			SIK = {
+				has_war_with = ATM
+			}
+		}
+	}
+	icon = GFX_modifiers_battlefield
+	army_speed_factor = 0.1
+	local_supplies = 1.2
+	local_supply_impact_factor = -0.5
+	max_dig_in_factor = -1
+}
+
+sik_battlefield_modifier_2 = { 
+	enable = { always = yes }
+	remove_trigger = {
+		NOT = {
+			SIK = {
+				has_war_with = TNG
+			}
+			SIK = {
+				has_war_with = KHR
+			}
+			SIK = {
+				has_war_with = HMI
+			}
+			SIK = {
+				has_war_with = KRS
+			}
+			SIK = {
+				has_war_with = ATM
+			}
+		}
+	}
+	icon = GFX_modifiers_battlefield
+	no_supply_grace = 72
+	attrition = -0.25
+    out_of_supply_factor = -0.5
+    supply_consumption_factor = -0.5
+	breakthrough_factor = 0.2
+	terrain_penalty_reduction = 0.3
+	army_attack_factor = 0.25
+	army_defence_factor = -0.5
+}
+
+soveit_regiment_modifier = { 
+	enable = { 
+		always = yes 
+	}
+	remove_trigger = {	
+		OR = {
+			SOV = {
+				has_war_with = SIK
+			}
+			SOV = {
+				exists = no
+			}
+			NOT = {
+				SIK = {
+					has_government = communism
+				}
+			}
+		}	
+	}
+	icon = GFX_modifiers_communist
+	army_attack_factor = 0.3
+	army_defence_factor = 0.3
+	army_org_factor = 0.15
+}
+
+JAP_chumogun = { 
+	enable = {
+		always = yes
+	}
+	remove_trigger = {
+		OR = {
+			ECA = {
+				NOT = {
+					any_enemy_country = {
+						is_literally_china = yes
+					}
+				}
+			}
+			ECA = {
+				NOT = {
+					any_allied_country = {
+						original_tag = JAP
+					}
+				}
+			}
+			ECA = {
+				has_capitulated = yes
+			}
+			ECA = {
+				any_allied_country = {
+					original_tag = JAP
+					has_capitulated = yes
+				}
+			}
+		}
+	}
+	icon = GFX_modifiers_SWI_attack_from_the_mountains
+	max_dig_in_factor = 0.3
+	dig_in_speed_factor = 0.15
+	army_org_factor = 0.25
+	army_defence_factor = 0.5
+	local_org_regain = 0.25
+	attrition = -0.5
+    out_of_supply_factor = -0.5
+    supply_consumption_factor = -0.5
+}
+
+JAP_chumogun_man = { 
+	enable = {
+		always = yes
+	}
+	remove_trigger = {
+		OR = {
+			ECA = {
+				NOT = {
+					any_enemy_country = {
+						is_literally_china = yes
+					}
+				}
+			}
+			ECA = {
+				has_war_with = MAN
+			}
+			MAN = {
+				exists = no
+			}
+			ECA = {
+				NOT = {
+					any_allied_country = {
+						original_tag = JAP
+					}
+				}
+			}
+			ECA = {
+				has_capitulated = yes
+			}
+			ECA = {
+				any_allied_country = {
+					original_tag = JAP
+					has_capitulated = yes
+				}
+			}
+		}
+	}
+	icon = GFX_modifiers_SWI_attack_from_the_mountains
+	max_dig_in_factor = 0.3
+	dig_in_speed_factor = 0.15
+	army_org_factor = 0.25
+	army_defence_factor = 0.5
+	local_org_regain = 0.25
+	attrition = -0.5
+    out_of_supply_factor = -0.5
+    supply_consumption_factor = -0.5
+}
+
+JAP_chumogun_ehb = { 
+	enable = {
+		always = yes
+	}
+	remove_trigger = {
+		OR = {
+			ECA = {
+				NOT = {
+					any_enemy_country = {
+						is_literally_china = yes
+					}
+				}
+			}
+			ECA = {
+				has_war_with = EHB
+			}
+			EHB = {
+				exists = no
+			}
+			ECA = {
+				NOT = {
+					any_allied_country = {
+						original_tag = JAP
+					}
+				}
+			}
+			ECA = {
+				has_capitulated = yes
+			}
+			ECA = {
+				any_allied_country = {
+					original_tag = JAP
+					has_capitulated = yes
+				}
+			}
+		}
+	}
+	icon = GFX_modifiers_SWI_attack_from_the_mountains
+	max_dig_in_factor = 0.3
+	dig_in_speed_factor = 0.15
+	army_org_factor = 0.25
+	army_defence_factor = 0.5
+	local_org_regain = 0.25
+	attrition = -0.5
+    out_of_supply_factor = -0.5
+    supply_consumption_factor = -0.5
+}
+
+chi_mon_autonomy = {
+	enable = {
+		always = yes
+	}
+	icon = GFX_modifiers_nomadic
+	local_factories = -0.25
+	recruitable_population_factor = -0.5
+	local_building_slots_factor = -0.25
+}
+
+chi_mon_autonomy_weak = {
+	enable = {
+		always = yes
+	}
+	icon = GFX_modifiers_nomadic
+	local_factories = -0.1
+	recruitable_population_factor = -0.2
+	local_building_slots_factor = -0.1
+}
+
+chi_Customs_modifier = {
+	enable = {
+		always = yes
+	}
+	icon = GFX_modifiers_generic_economic_increase
+}
+
+prc_northeast_offensive = { 
+	enable = { 
+		always = yes 
+	}
+	remove_trigger = {	
+		OR = {
+			event_target:WTT_communist_china = {
+				exists = no
+			}
+			event_target:WTT_communist_china = {
+				all_enemy_country = {
+					is_literally_china = no
+				}
+			}
+		}
+	}
+	icon = GFX_modifiers_communist
+	army_attack_factor = 0.25
+	army_defence_factor = 0.25
+	army_org_factor = 0.2
+	acclimatization_cold_climate_gain_factor = 0.25
+	army_speed_factor = 0.1
+	coordination_bonus = 0.5
+	local_supplies = 1.5
+	local_supply_impact_factor = -0.5
+}
+
+#ROOT -> state itself if the modifier is used on states
+military_region_1_modifier = {
+	enable = { always = yes }
+    remove_trigger = {
+	    OR = {
+			event_target:WTT_current_china_leader = {
+				NOT = {
+					has_war_with = JAP
+				}
+			}
+			#ROOT = { exists = no }
+		}
+	}
+	icon = GFX_modifiers_generic_military_plans
+    #attacker_modifier = yes
+	enemy_attrition = event_target:WTT_current_china_leader.mr_1_value
+	equipment_capture_factor_for_controller =  event_target:WTT_current_china_leader.mr_1_value
+	local_org_regain = event_target:WTT_current_china_leader.mr_1_value
+	army_attack_factor = event_target:WTT_current_china_leader.mr_1_value
+	army_defence_factor = event_target:WTT_current_china_leader.mr_1_value
+	army_org_factor = event_target:WTT_current_china_leader.mr_1_value
+}
+
+military_region_2_modifier = {
+	enable = { always = yes }
+    remove_trigger = {
+		OR = {
+			event_target:WTT_current_china_leader = {
+				NOT = {
+					has_war_with = JAP
+				}
+			}
+		}
+	}
+	icon = GFX_modifiers_generic_military_plans
+	#attacker_modifier = yes
+	enemy_attrition = event_target:WTT_current_china_leader.mr_2_value
+	equipment_capture_factor_for_controller = event_target:WTT_current_china_leader.mr_2_value
+	local_org_regain = event_target:WTT_current_china_leader.mr_2_value
+	army_attack_factor = event_target:WTT_current_china_leader.mr_2_value
+	army_defence_factor = event_target:WTT_current_china_leader.mr_2_value
+	army_org_factor = event_target:WTT_current_china_leader.mr_2_value
+}
+
+military_region_3_modifier = {
+	enable = { always = yes }
+	remove_trigger = {
+		OR = {
+			event_target:WTT_current_china_leader = {
+				NOT = {
+					has_war_with = JAP
+				}
+			}
+			#ROOT = { exists = no }
+		}
+	}
+	icon = GFX_modifiers_generic_military_plans
+	#attacker_modifier = yes
+	enemy_attrition = event_target:WTT_current_china_leader.mr_3_value
+	equipment_capture_factor_for_controller = event_target:WTT_current_china_leader.mr_3_value
+	local_org_regain = event_target:WTT_current_china_leader.mr_3_value
+	army_attack_factor = event_target:WTT_current_china_leader.mr_3_value
+	army_defence_factor = event_target:WTT_current_china_leader.mr_3_value
+	army_org_factor = event_target:WTT_current_china_leader.mr_3_value
+}
+
+military_region_4_modifier = {
+	enable = { always = yes }
+    remove_trigger = {
+	    OR = {
+			event_target:WTT_current_china_leader = {
+				NOT = {
+					has_war_with = JAP
+				}
+			}
+			#ROOT = { exists = no }
+		}
+	}
+	icon = GFX_modifiers_generic_military_plans
+	#attacker_modifier = yes
+	enemy_attrition = event_target:WTT_current_china_leader.mr_4_value
+	equipment_capture_factor_for_controller = event_target:WTT_current_china_leader.mr_4_value
+	local_org_regain = event_target:WTT_current_china_leader.mr_4_value
+	army_attack_factor = event_target:WTT_current_china_leader.mr_4_value
+	army_defence_factor = event_target:WTT_current_china_leader.mr_4_value
+	army_org_factor = event_target:WTT_current_china_leader.mr_4_value
+}
+
+military_region_5_modifier = {
+	enable = { always = yes }
+	remove_trigger = {
+		OR = {
+			event_target:WTT_current_china_leader = {
+				NOT = {
+					has_war_with = JAP
+				}
+			}
+			#ROOT = { exists = no }
+		}
+	}
+	icon = GFX_modifiers_generic_military_plans
+	#attacker_modifier = yes
+	enemy_attrition = event_target:WTT_current_china_leader.mr_5_value
+	equipment_capture_factor_for_controller = event_target:WTT_current_china_leader.mr_5_value
+	local_org_regain = event_target:WTT_current_china_leader.mr_5_value
+	army_attack_factor = event_target:WTT_current_china_leader.mr_5_value
+	army_defence_factor = event_target:WTT_current_china_leader.mr_5_value
+	army_org_factor = event_target:WTT_current_china_leader.mr_5_value
+}
+
+military_region_6_modifier = {
+	enable = { always = yes }
+    remove_trigger = {
+	    OR = {
+			event_target:WTT_current_china_leader = {
+				NOT = {
+					has_war_with = JAP
+				}
+			}
+			#ROOT = { exists = no }
+		}
+	}
+	icon = GFX_modifiers_generic_military_plans
+	#attacker_modifier = yes
+	enemy_attrition = event_target:WTT_current_china_leader.mr_6_value
+	equipment_capture_factor_for_controller = event_target:WTT_current_china_leader.mr_6_value
+	local_org_regain = event_target:WTT_current_china_leader.mr_6_value
+	army_attack_factor = event_target:WTT_current_china_leader.mr_6_value
+	army_defence_factor = event_target:WTT_current_china_leader.mr_6_value
+	army_org_factor = event_target:WTT_current_china_leader.mr_6_value
+}
+
+military_region_7_modifier = {
+	enable = { always = yes }
+    remove_trigger = {
+	    OR = {
+			event_target:WTT_current_china_leader = {
+				NOT = {
+					has_war_with = JAP
+				}
+			}
+			#ROOT = { exists = no }
+		}
+	}
+	icon = GFX_modifiers_generic_military_plans
+	#attacker_modifier = yes
+	enemy_attrition = event_target:WTT_current_china_leader.mr_7_value
+	equipment_capture_factor_for_controller = event_target:WTT_current_china_leader.mr_7_value
+	local_org_regain = event_target:WTT_current_china_leader.mr_7_value
+	army_attack_factor = event_target:WTT_current_china_leader.mr_7_value
+	army_defence_factor = event_target:WTT_current_china_leader.mr_7_value
+	army_org_factor = event_target:WTT_current_china_leader.mr_7_value
+}
+
+military_region_8_modifier = {
+	enable = { always = yes }
+    remove_trigger = {
+	    OR = {
+			event_target:WTT_current_china_leader = {
+				NOT = {
+					has_war_with = JAP
+				}
+			}
+			#ROOT = { exists = no }
+		}
+	}
+	icon = GFX_modifiers_generic_military_plans
+	#attacker_modifier = yes
+	enemy_attrition = event_target:WTT_current_china_leader.mr_8_value
+	equipment_capture_factor_for_controller = event_target:WTT_current_china_leader.mr_8_value
+	local_org_regain = event_target:WTT_current_china_leader.mr_8_value
+	army_attack_factor = event_target:WTT_current_china_leader.mr_8_value
+	army_defence_factor = event_target:WTT_current_china_leader.mr_8_value
+	army_org_factor = event_target:WTT_current_china_leader.mr_8_value
+}
+
+military_region_9_modifier = {
+	enable = { always = yes }
+    remove_trigger = {
+	    OR = {
+			event_target:WTT_current_china_leader = {
+				NOT = {
+					has_war_with = JAP
+				}
+			}
+			#ROOT = { exists = no }
+		}
+	}
+	icon = GFX_modifiers_generic_military_plans
+	#attacker_modifier = yes
+	enemy_attrition = event_target:WTT_current_china_leader.mr_9_value
+	equipment_capture_factor_for_controller = event_target:WTT_current_china_leader.mr_9_value
+	local_org_regain = event_target:WTT_current_china_leader.mr_9_value
+	army_attack_factor = event_target:WTT_current_china_leader.mr_9_value
+	army_defence_factor = event_target:WTT_current_china_leader.mr_9_value
+	army_org_factor = event_target:WTT_current_china_leader.mr_9_value
+}
+
+military_region_10_modifier = {
+	enable = { always = yes }
+    remove_trigger = {
+	    OR = {
+			event_target:WTT_current_china_leader = {
+				NOT = {
+					has_war_with = JAP
+				}
+			}
+			#ROOT = { exists = no }
+		}
+	}
+	icon = GFX_modifiers_generic_military_plans
+	#attacker_modifier = yes
+	enemy_attrition = event_target:WTT_current_china_leader.mr_10_value
+	equipment_capture_factor_for_controller = event_target:WTT_current_china_leader.mr_10_value
+	local_org_regain = event_target:WTT_current_china_leader.mr_10_value
+	army_attack_factor = event_target:WTT_current_china_leader.mr_10_value
+	army_defence_factor = event_target:WTT_current_china_leader.mr_10_value
+	army_org_factor = event_target:WTT_current_china_leader.mr_10_value
+}
+
+military_region_11_modifier = {
+	enable = { always = yes }
+	
+	icon = GFX_modifiers_generic_military_plans
+	#attacker_modifier = yes
+	enemy_attrition = event_target:WTT_current_china_leader.mr_11_value
+	equipment_capture_factor_for_controller = event_target:WTT_current_china_leader.mr_11_value
+	local_org_regain = event_target:WTT_current_china_leader.mr_11_value
+	army_attack_factor = event_target:WTT_current_china_leader.mr_11_value
+	army_defence_factor = event_target:WTT_current_china_leader.mr_11_value
+	army_org_factor = event_target:WTT_current_china_leader.mr_11_value
+}
+
+military_region_12_modifier = {
+	enable = { always = yes }
+    
+	icon = GFX_modifiers_generic_military_plans
+	#attacker_modifier = yes
+	enemy_attrition = event_target:WTT_current_china_leader.mr_12_value
+	equipment_capture_factor_for_controller = event_target:WTT_current_china_leader.mr_12_value
+	local_org_regain = event_target:WTT_current_china_leader.mr_12_value
+	army_attack_factor = event_target:WTT_current_china_leader.mr_12_value
+	army_defence_factor = event_target:WTT_current_china_leader.mr_12_value
+	army_org_factor =event_target:WTT_current_china_leader.mr_12_value
+}
+
+rcm_home_rule_modifier = {
+	enable = { always = yes }
+	icon = GFX_modifiers_conscription_exemptions_granted
+	local_factories = -0.5
+	recruitable_population_factor = -0.75
+	mobilization_speed = -0.25
+	state_resources_factor = -0.5
+}
+
+#chi_area_northeast = {
+#	icon = GFX_modifiers_roc_army
+#	remove_trigger = {	
+#		OR = {
+#			NOT = {
+#				event_target:WTT_current_china_leader = {
+#					has_active_mission = CHI_occupy_northeast
+#				}
+#			}
+#			NOT = {
+#				event_target:WTT_communist_china = {
+#					has_active_mission = PRC_occupy_northeast
+#				}
+#			}
+#		}
+#	}
+#}
+
+#prc_area_northeast = {
+#	icon = GFX_modifiers_communist
+#	remove_trigger = {	
+#		OR = {
+#			NOT = {
+#				event_target:WTT_current_china_leader = {
+#					has_active_mission = CHI_occupy_northeast
+#				}
+#			}
+#			NOT = {
+#				event_target:WTT_communist_china = {
+#					has_active_mission = PRC_occupy_northeast
+#				}
+#			}
+#		}
+#	}
+#}
+##############		#MODDED		#MODDED		#MODDED^^^^^

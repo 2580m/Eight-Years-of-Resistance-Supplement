@@ -1,0 +1,13 @@
+
+HON_after_dark = {
+	enable = { always = yes } 
+
+	icon = GFX_modifiers_HON
+	army_speed_factor_for_controller = 0.25
+	local_building_slots_factor = 0.15
+	local_manpower = 0.35
+	local_supplies = 0.1
+	local_resources = 0.1
+	recruitable_population_factor = 0.05
+}
+

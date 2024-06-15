@@ -1,0 +1,45 @@
+nuke_state_modifier = { #STATE MODIFIER	#for all 
+	enable = { always = yes }
+
+	icon = GFX_modifiers_nuke_state
+	
+	army_defence_factor = -0.75
+	army_attack_factor = -0.75
+	breakthrough_factor = -0.75
+	army_speed_factor = -0.75
+	local_org_regain = -0.75
+	dig_in_speed_factor = -0.75		
+	supply_consumption_factor = 0.75
+	org_loss_when_moving = 0.75
+	army_org_factor = -0.75
+	SUPPLY_FACTOR = -0.75
+	SUPPLY_NODE_RANGE = -0.75
+	attrition = 0.5
+	global_building_slots_factor = -1
+	production_speed_buildings_factor = -1
+	disable_strategic_redeployment = 1
+	state_resources_factor = -1
+	local_manpower = -1
+}
+
+manhattan_project = { #for usa 
+	remove_trigger = { 
+		OR = {
+			USA = {
+				OR = {
+					exists = no
+					is_subject = yes
+				}
+			}
+			ROOT = {
+				NOT = {
+					is_controlled_by = USA
+				}
+			}
+		}
+	}
+	icon = GFX_modifiers_SOV_civilian_labor_in_defense
+	
+
+	production_speed_nuclear_reactor_factor = 0.75 
+}
