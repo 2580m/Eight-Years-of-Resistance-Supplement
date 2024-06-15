@@ -1,0 +1,134 @@
+BEL_give_aircraft_and_licences = {
+	if = {
+		limit = {
+			has_tech = jet_tactical_bomber2
+		}
+		create_production_license = {
+			target = ROOT
+			equipment = {
+				type = jet_tac_bomber_equipment_2
+			}
+			cost_factor = 0
+		}
+		ROOT = {
+			add_equipment_to_stockpile = {
+				type = jet_tac_bomber_equipment_2
+				amount = 100
+				producer = PREV
+			}
+		}
+	}
+	else_if = {
+		limit = {
+			has_tech = jet_tactical_bomber1
+		}
+		create_production_license = {
+			target = ROOT
+			equipment = {
+				type = jet_tac_bomber_equipment_1
+			}
+			cost_factor = 0
+		}
+		ROOT = {
+			add_equipment_to_stockpile = {
+				type = jet_tac_bomber_equipment_1
+				amount = 100
+				producer = PREV
+			}
+		}
+	}
+	else_if = {
+		limit = {
+			has_tech = tactical_bomber3
+		}
+		create_production_license = {
+			target = ROOT
+			equipment = {
+				type = tac_bomber_equipment_3
+			}
+			cost_factor = 0
+		}
+		ROOT = {
+			add_equipment_to_stockpile = {
+				type = tac_bomber_equipment_3
+				amount = 100
+				producer = PREV
+			}
+		}
+	}
+	else_if = {
+		limit = {
+			has_tech = tactical_bomber2
+		}
+		create_production_license = {
+			target = ROOT
+			equipment = {
+				type = tac_bomber_equipment_2
+			}
+			cost_factor = 0
+		}
+		ROOT = {
+			add_equipment_to_stockpile = {
+				type = tac_bomber_equipment_2
+				amount = 100
+				producer = PREV
+			}
+		}
+	}
+	else_if = {
+		limit = {
+			has_tech = tactical_bomber1
+		}
+		create_production_license = {
+			target = ROOT
+			equipment = {
+				type = tac_bomber_equipment_1
+			}
+			cost_factor = 0
+		}
+		ROOT = {
+			add_equipment_to_stockpile = {
+				type = tac_bomber_equipment_1
+				amount = 100
+				producer = PREV
+			}
+		}
+	}
+	else_if = {
+		limit = {
+			NOT = {
+				has_dlc = "By Blood Alone"
+			}
+		}
+		create_production_license = {
+			target = ROOT
+			equipment = {
+				type = tac_bomber_equipment_0 
+			}
+			cost_factor = 0
+		}
+		ROOT = {
+			add_equipment_to_stockpile = {
+				type = tac_bomber_equipment_0 
+				amount = 100
+				producer = PREV
+			}
+		}
+	}
+	else = {
+		create_production_license = {
+			target = ROOT
+			equipment = {
+				type = medium_plane_airframe_0
+			}
+			cost_factor = 0
+		}
+		ROOT = {
+			add_equipment_to_stockpile = {
+				type = medium_plane_airframe_0
+				amount = 100
+				producer = PREV
+			}
+		}
+	}
+}

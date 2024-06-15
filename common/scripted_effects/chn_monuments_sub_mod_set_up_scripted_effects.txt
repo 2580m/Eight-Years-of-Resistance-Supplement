@@ -1,0 +1,179 @@
+chn_monuments_sub_mod_set_up_scripted_effects = {
+    if = {
+        limit = {
+            has_dlc = "La Resistance"
+        }
+        set_variable = { global.monuments_alert_offset = 0 }
+    }
+    else = {
+        set_variable = { global.monuments_alert_offset = -55 }
+    }
+    753 = {
+        # Dujiangyan
+        set_temp_variable = { monument_id = 10000 }
+        set_temp_variable = { level = 1 }
+        add_monument_to_state = yes
+    }
+    744 = {
+        # Terracotta Army
+        set_temp_variable = { monument_id = 10001 }
+        set_temp_variable = { level = 1 }
+        add_monument_to_state = yes
+    }
+    744 = {
+        # Silk Road
+        set_temp_variable = { monument_id = 10002 }
+        set_temp_variable = { level = 0 }
+        add_monument_to_state = yes
+    }
+    607 = {
+        # Longmen Grottoes
+        set_temp_variable = { monument_id = 10003 }
+        set_temp_variable = { level = 1 }
+        add_monument_to_state = yes
+    }
+    598 = {
+        # Beijing Hangzhou Grand Canal
+        set_temp_variable = { monument_id = 10004 }
+        set_temp_variable = { level = 1 }
+        add_monument_to_state = yes
+    }
+    597 = {
+        # Mount Tai
+        set_temp_variable = { monument_id = 10005 }
+        set_temp_variable = { level = 3 }
+        add_monument_to_state = yes
+    }
+    609 = {
+        # Shanhaiguan
+        set_temp_variable = { monument_id = 10006 }
+        set_temp_variable = { level = 1 }
+        add_monument_to_state = yes
+    }
+    744 = {
+        # Zhenbeitai
+        set_temp_variable = { monument_id = 10007 }
+        set_temp_variable = { level = 1 }
+        add_monument_to_state = yes
+    }
+    283 = {
+        # Jiayuguan
+        set_temp_variable = { monument_id = 10008 }
+        set_temp_variable = { level = 1 }
+        add_monument_to_state = yes
+    }
+    744 = {
+        # Mount Hua
+        set_temp_variable = { monument_id = 10009 }
+        set_temp_variable = { level = 3 }
+        add_monument_to_state = yes
+    }
+    602 = {
+        # Mount Heng
+        set_temp_variable = { monument_id = 10010 }
+        set_temp_variable = { level = 3 }
+        add_monument_to_state = yes
+    }
+    615 = {
+        # Mount Heng2
+        set_temp_variable = { monument_id = 10011 }
+        set_temp_variable = { level = 3 }
+        add_monument_to_state = yes
+    }
+    607 = {
+        # Mount Song
+        set_temp_variable = { monument_id = 10012 }
+        set_temp_variable = { level = 3 }
+        add_monument_to_state = yes
+    }
+    615 = {
+        # Mount Wutai
+        set_temp_variable = { monument_id = 10013 }
+        set_temp_variable = { level = 1 }
+        add_monument_to_state = yes
+    }
+    753 = {
+        # Mount Qingcheng
+        set_temp_variable = { monument_id = 10014 }
+        set_temp_variable = { level = 1 }
+        add_monument_to_state = yes
+    }
+    1034 = {
+        # Yellow Crane Tower
+        set_temp_variable = { monument_id = 10015 }
+        set_temp_variable = { level = 1 }
+        add_monument_to_state = yes
+    }
+    1032 = {
+        # Pavilion of Prince Teng
+        set_temp_variable = { monument_id = 10016 }
+        set_temp_variable = { level = 1 }
+        add_monument_to_state = yes
+    }
+    1035 = {
+        # Yueyang Tower
+        set_temp_variable = { monument_id = 10017 }
+        set_temp_variable = { level = 1 }
+        add_monument_to_state = yes
+    }
+    615 = {
+        # Stork Tower
+        set_temp_variable = { monument_id = 10018 }
+        set_temp_variable = { level = 1 }
+        add_monument_to_state = yes
+    }
+    597 = {
+        # Penglai Pavilion
+        set_temp_variable = { monument_id = 10019 }
+        set_temp_variable = { level = 1 }
+        add_monument_to_state = yes
+    }
+    596 = {
+        # Leifeng Tower
+        set_temp_variable = { monument_id = 10020 }
+        set_temp_variable = { level = 1 }
+        add_monument_to_state = yes
+    }
+    744 = {
+        # Dayan Pagoda
+        set_temp_variable = { monument_id = 10021 }
+        set_temp_variable = { level = 1 }
+        add_monument_to_state = yes
+    }
+    614 = {
+        # Bronze Bird Terrace
+        set_temp_variable = { monument_id = 10022 }
+        set_temp_variable = { level = 1 }
+        add_monument_to_state = yes
+    }
+    1048 = {
+        # Loulan
+        set_temp_variable = { monument_id = 10023 }
+        set_temp_variable = { level = 0 }
+        add_monument_to_state = yes
+    }
+    753 = {
+        # Sanxingdui Site
+        set_temp_variable = { monument_id = 10025 }
+        set_temp_variable = { level = 0 }
+        add_monument_to_state = yes
+    }
+    744 = {
+        # Huangdi Mausoleum
+        set_temp_variable = { monument_id = 10026 }
+        set_temp_variable = { level = 0 }
+        add_monument_to_state = yes
+    }
+    608 = {
+        # Monument to the People's Heroes
+        set_temp_variable = { monument_id = 10027 }
+        set_temp_variable = { level = 0 }
+        add_monument_to_state = yes
+    }
+    608 = {
+        # Great Hall of the People
+        set_temp_variable = { monument_id = 10028 }
+        set_temp_variable = { level = 0 }
+        add_monument_to_state = yes
+    }
+}

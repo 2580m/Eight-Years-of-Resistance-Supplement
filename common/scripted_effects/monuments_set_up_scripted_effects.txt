@@ -1,0 +1,1047 @@
+# usage:
+## set_up_monuments_at_start_effect = yes
+set_up_monuments_at_start_effect = {
+	if = {
+		limit = {
+			has_dlc = "La Resistance"
+		}
+		set_variable = { global.monuments_alert_offset = 0 }
+	}
+	else = {
+		set_variable = { global.monuments_alert_offset = -55 }
+	}
+	64 = {
+		# Brandenburg Gate
+		set_temp_variable = { monument_id = 1 }
+		set_temp_variable = { level = 1 }
+		add_monument_to_state = yes
+		# Victory Column
+		set_temp_variable = { monument_id = 4 }
+		set_temp_variable = { level = 1 }
+		add_monument_to_state = yes
+		# Reichstag
+		set_temp_variable = { monument_id = 15 }
+		set_temp_variable = { level = 0 }
+		add_monument_to_state = yes
+		set_state_flag = monument_15_existed
+		# Halle des Volkes
+		set_temp_variable = { monument_id = 28 }
+		set_temp_variable = { level = 0 }
+		add_monument_to_state = yes
+	}
+	16 = {
+		# Arc de Triomphe
+		set_temp_variable = { monument_id = 2 }
+		set_temp_variable = { level = 2 }
+		add_monument_to_state = yes
+		# Eiffel Tower
+		set_temp_variable = { monument_id = 3 }
+		set_temp_variable = { level = 1 }
+		add_monument_to_state = yes
+		# Palace of Versailles
+		set_temp_variable = { monument_id = 90 }
+		set_temp_variable = { level = 2 }
+		add_monument_to_state = yes
+	}
+	126 = {
+		# Palace of Westminster
+		set_temp_variable = { monument_id = 5 }
+		set_temp_variable = { level = 2 }
+		add_monument_to_state = yes
+		# Buckingham Palace
+		set_temp_variable = { monument_id = 6 }
+		set_temp_variable = { level = 3 }
+		add_monument_to_state = yes
+		# Bletchley Park
+		if = {
+			limit = {
+				has_dlc = "La Resistance"
+			}
+			set_temp_variable = { monument_id = 25 }
+			set_temp_variable = { level = 0 }
+			add_monument_to_state = yes
+		}
+		# University of Oxford
+		set_temp_variable = { monument_id = 61 }
+		set_temp_variable = { level = 1 }
+		add_monument_to_state = yes
+	}
+	358 = {
+		# Statue of Liberty
+		set_temp_variable = { monument_id = 7 }
+		set_temp_variable = { level = 2 }
+		add_monument_to_state = yes
+		# Empire State Building
+		set_temp_variable = { monument_id = 29 }
+		set_temp_variable = { level = 1 }
+		add_monument_to_state = yes
+		# West Point
+		set_temp_variable = { monument_id = 171 }
+		set_temp_variable = { level = 1 }
+		add_monument_to_state = yes
+		# Headquarters of the United Nations
+		set_temp_variable = { monument_id = 179 }
+		set_temp_variable = { level = 0 }
+		add_monument_to_state = yes
+	}
+	390 = {
+		# Mount Rushmore National Memorial
+		set_temp_variable = { monument_id = 8 }
+		set_temp_variable = { level = 0 }
+		add_monument_to_state = yes
+	}
+	361 = {
+		# White House
+		set_temp_variable = { monument_id = 9 }
+		set_temp_variable = { level = 1 }
+		add_monument_to_state = yes
+		# United States Capitol
+		set_temp_variable = { monument_id = 10 }
+		set_temp_variable = { level = 1 }
+		add_monument_to_state = yes
+	}
+	195 = {
+		# Winter Palace
+		set_temp_variable = { monument_id = 11 }
+		set_temp_variable = { level = 2 }
+		add_monument_to_state = yes
+		# Saint Isaac's Cathedral
+		set_temp_variable = { monument_id = 151 }
+		set_temp_variable = { level = 1 }
+		add_monument_to_state = yes
+	}
+	219 = {
+		# Red Square
+		set_temp_variable = { monument_id = 12 }
+		set_temp_variable = { level = 1 }
+		add_monument_to_state = yes
+		# Kremlin
+		set_temp_variable = { monument_id = 177 }
+		set_temp_variable = { level = 1 }
+		add_monument_to_state = yes
+		# Palace of the Soviets
+		set_temp_variable = { monument_id = 64 }
+		set_temp_variable = { level = 0 }
+		add_monument_to_state = yes
+	}
+	137 = {
+		# Monument to the Sunken Ships
+		set_temp_variable = { monument_id = 13 }
+		set_temp_variable = { level = 1 }
+		add_monument_to_state = yes
+	}
+	2 = {
+		# Colosseum
+		set_temp_variable = { monument_id = 14 }
+		set_temp_variable = { level = 1 }
+		add_monument_to_state = yes
+		# Altare della Patria
+		set_temp_variable = { monument_id = 16 }
+		set_temp_variable = { level = 1 }
+		add_monument_to_state = yes
+		# Palazzo della Civiltà Italiana
+		set_temp_variable = { monument_id = 18 }
+		set_temp_variable = { level = 0 }
+		add_monument_to_state = yes
+		# St. Peter's Basilica
+		set_temp_variable = { monument_id = 101 }
+		set_temp_variable = { level = 2 }
+		add_monument_to_state = yes
+	}
+	158 = {
+		# Palace of Venaria
+		set_temp_variable = { monument_id = 17 }
+		set_temp_variable = { level = 1 }
+		add_monument_to_state = yes
+	}
+	378 = {
+		# Golden Gate Bridge
+		set_temp_variable = { monument_id = 19 }
+		set_temp_variable = { level = 0 }
+		add_monument_to_state = yes
+	}
+	907 = {#guo
+		# Giza Pyramid Complex
+		set_temp_variable = { monument_id = 20 }
+		set_temp_variable = { level = 2 }
+		add_monument_to_state = yes
+	}
+	6 = {
+		# Port of Antwerp
+		set_temp_variable = { monument_id = 21 }
+		set_temp_variable = { level = 2 }
+		add_monument_to_state = yes
+	}
+	36 = {
+		# Pyramid of Austerlitz
+		set_temp_variable = { monument_id = 22 }
+		set_temp_variable = { level = 1 }
+		add_monument_to_state = yes
+	}
+	65 = {
+		# Monument to the Battle of the Nations
+		set_temp_variable = { monument_id = 23 }
+		set_temp_variable = { level = 1 }
+		add_monument_to_state = yes
+	}
+	263 = {
+		# Millennium of Russia
+		set_temp_variable = { monument_id = 24 }
+		set_temp_variable = { level = 1 }
+		add_monument_to_state = yes
+	}
+	336 = {
+		# Istana
+		set_temp_variable = { monument_id = 26 }
+		set_temp_variable = { level = 1 }
+		add_monument_to_state = yes
+	}
+	545 = {
+		# Victoria Falls
+		set_temp_variable = { monument_id = 27 }
+		set_temp_variable = { level = 3 }
+		add_monument_to_state = yes
+	}
+	379 = {
+		# Boulder Dam
+		set_temp_variable = { monument_id = 30 }
+		set_temp_variable = { level = 1 }
+		add_monument_to_state = yes
+		# Groom Lake
+		set_temp_variable = { monument_id = 160 }
+		set_temp_variable = { level = 0 }
+		add_monument_to_state = yes
+	}
+	377 = {
+		# Grand Canyon
+		set_temp_variable = { monument_id = 31 }
+		set_temp_variable = { level = 3 }
+		add_monument_to_state = yes
+	}
+	276 = {
+		# Niagara Falls
+		set_temp_variable = { monument_id = 32 }
+		set_temp_variable = { level = 3 }
+		add_monument_to_state = yes
+	}
+	47 = {
+		# Acropolis
+		set_temp_variable = { monument_id = 33 }
+		set_temp_variable = { level = 1 }
+		add_monument_to_state = yes
+	}
+	674 = {
+		# Ayers Rock
+		set_temp_variable = { monument_id = 34 }
+		set_temp_variable = { level = 3 }
+		add_monument_to_state = yes
+	}
+	741 = {
+		# Angkor Wat
+		set_temp_variable = { monument_id = 35 }
+		set_temp_variable = { level = 2 }
+		add_monument_to_state = yes
+	}
+	797 = {
+		# Hagia Sophia
+		set_temp_variable = { monument_id = 36 }
+		set_temp_variable = { level = 2 }
+		add_monument_to_state = yes
+	}
+	474 = {
+		# Chichén Itzá
+		set_temp_variable = { monument_id = 37 }
+		set_temp_variable = { level = 1 }
+		add_monument_to_state = yes
+	}
+	282 = {
+		# Kotoku-in
+		set_temp_variable = { monument_id = 38 }
+		set_temp_variable = { level = 1 }
+		add_monument_to_state = yes
+	}
+	322 = {#guo
+		# Potala Palace
+		set_temp_variable = { monument_id = 39 }
+		set_temp_variable = { level = 2 }
+		add_monument_to_state = yes
+	}
+	556 = {
+		# Sankoré Madrasah
+		set_temp_variable = { monument_id = 40 }
+		set_temp_variable = { level = 2 }
+		add_monument_to_state = yes
+	}
+	335 = {
+		# Borobudur
+		set_temp_variable = { monument_id = 41 }
+		set_temp_variable = { level = 1 }
+		add_monument_to_state = yes
+	}
+	531 = {
+		# Himeji Castle
+		set_temp_variable = { monument_id = 42 }
+		set_temp_variable = { level = 1 }
+		add_monument_to_state = yes
+	}
+	162 = {
+		# Leaning Tower of Pisa
+		set_temp_variable = { monument_id = 43 }
+		set_temp_variable = { level = 1 }
+		add_monument_to_state = yes
+	}
+	494 = {
+		# Machu Picchu
+		set_temp_variable = { monument_id = 44 }
+		set_temp_variable = { level = 1 }
+		add_monument_to_state = yes
+	}
+	500 = {
+		# Cristo Redentor
+		set_temp_variable = { monument_id = 45 }
+		set_temp_variable = { level = 2 }
+		add_monument_to_state = yes
+	}
+	510 = {
+		# Iguazu Falls
+		set_temp_variable = { monument_id = 46 }
+		set_temp_variable = { level = 3 }
+		add_monument_to_state = yes
+	}
+	495 = {
+		# Amazon Rainforest
+		set_temp_variable = { monument_id = 47 }
+		set_temp_variable = { level = 3 }
+		add_monument_to_state = yes
+	}
+	681 = {
+		# Table Mountain
+		set_temp_variable = { monument_id = 48 }
+		set_temp_variable = { level = 3 }
+		add_monument_to_state = yes
+	}
+	438 = {
+		# Taj Mahal
+		set_temp_variable = { monument_id = 49 }
+		set_temp_variable = { level = 2 }
+		add_monument_to_state = yes
+	}
+	685 = {
+		# Panama Canal
+		set_temp_variable = { monument_id = 50 }
+		set_temp_variable = { level = 1 }
+		add_monument_to_state = yes
+	}
+	446 = {#guo
+		# Suez Canal
+		set_temp_variable = { monument_id = 51 }
+		set_temp_variable = { level = 1 }
+		add_monument_to_state = yes
+	}
+	360 = {
+		# Liberty Bell
+		set_temp_variable = { monument_id = 52 }
+		set_temp_variable = { level = 1 }
+		add_monument_to_state = yes
+	}
+	455 = {
+		# Petra
+		set_temp_variable = { monument_id = 53 }
+		set_temp_variable = { level = 1 }
+		add_monument_to_state = yes
+	}
+	532 = {
+		# Mount Fuji
+		set_temp_variable = { monument_id = 54 }
+		set_temp_variable = { level = 3 }
+		add_monument_to_state = yes
+	}
+	52 = {
+		# Neuschwanstein Castle
+		set_temp_variable = { monument_id = 55 }
+		set_temp_variable = { level = 1 }
+		add_monument_to_state = yes
+	}
+	57 = {
+		# Wewelsburg
+		set_temp_variable = { monument_id = 56 }
+		set_temp_variable = { level = 1 }
+		add_monument_to_state = yes
+	}
+	285 = {
+		# Sydney Harbour Bridge
+		set_temp_variable = { monument_id = 57 }
+		set_temp_variable = { level = 1 }
+		add_monument_to_state = yes
+		# Sydney Opera House
+		set_temp_variable = { monument_id = 63 }
+		set_temp_variable = { level = 0 }
+		add_monument_to_state = yes
+	}
+	608 = {
+		# Forbidden City
+		set_temp_variable = { monument_id = 58 }
+		set_temp_variable = { level = 1 }
+		add_monument_to_state = yes
+	}
+	173 = {
+		# Alhambra
+		set_temp_variable = { monument_id = 59 }
+		set_temp_variable = { level = 1 }
+		add_monument_to_state = yes
+	}
+	546 = {
+		# Kilwa Kisiwani
+		set_temp_variable = { monument_id = 60 }
+		set_temp_variable = { level = 1 }
+		add_monument_to_state = yes
+		# Mount Kilimanjaro
+		set_temp_variable = { monument_id = 66 }
+		set_temp_variable = { level = 3 }
+		add_monument_to_state = yes
+	}
+	169 = {
+		# Casa de Contratación
+		if = {
+			limit = {
+				OR = {
+					has_dlc = "La Resistance"
+					has_game_rule = {
+						rule = spr_fragmentation_status
+						option = SPR_EU4
+					}
+				}
+			}
+			set_temp_variable = { monument_id = 62 }
+			set_temp_variable = { level = 0 }
+			add_monument_to_state = yes
+			set_state_flag = monument_62_existed
+		}
+	}
+	41 = {
+		# El Escorial
+		set_temp_variable = { monument_id = 65 }
+		set_temp_variable = { level = 1 }
+		add_monument_to_state = yes
+	}
+	323 = {
+		# Mount Everest
+		set_temp_variable = { monument_id = 67 }
+		set_temp_variable = { level = 3 }
+		add_monument_to_state = yes
+	}
+	142 = {
+		# Trolltunga
+		set_temp_variable = { monument_id = 68 }
+		set_temp_variable = { level = 3 }
+		add_monument_to_state = yes
+		# Kjosfossen
+		set_temp_variable = { monument_id = 69 }
+		set_temp_variable = { level = 3 }
+		add_monument_to_state = yes
+		# Preikestolen
+		set_temp_variable = { monument_id = 70 }
+		set_temp_variable = { level = 3 }
+		add_monument_to_state = yes
+	}
+	144 = {
+		# Lofoten
+		set_temp_variable = { monument_id = 71 }
+		set_temp_variable = { level = 3 }
+		add_monument_to_state = yes
+	}
+	271 = {
+		# Rock-Hewn Churches of Lalibela
+		set_temp_variable = { monument_id = 72 }
+		set_temp_variable = { level = 2 }
+		add_monument_to_state = yes
+	}
+	458 = {
+		# Great Mosque of Kairouan
+		set_temp_variable = { monument_id = 73 }
+		set_temp_variable = { level = 2 }
+		add_monument_to_state = yes
+	}
+	462 = {
+		# El Badi Palace
+		set_temp_variable = { monument_id = 74 }
+		set_temp_variable = { level = 0 }
+		add_monument_to_state = yes
+		set_state_flag = monument_74_existed
+	}
+	461 = {
+		# Ouzoud Falls
+		set_temp_variable = { monument_id = 75 }
+		set_temp_variable = { level = 3 }
+		add_monument_to_state = yes
+	}
+	456 = {
+		# Abu Simbel
+		set_temp_variable = { monument_id = 76 }
+		set_temp_variable = { level = 1 }
+		add_monument_to_state = yes
+		# Aswan Low Dam
+		set_temp_variable = { monument_id = 174 }
+		set_temp_variable = { level = 1 }
+		add_monument_to_state = yes
+	}
+	7 = {
+		# Rijksmuseum
+		set_temp_variable = { monument_id = 77 }
+		set_temp_variable = { level = 1 }
+		add_monument_to_state = yes
+		# Nieuwe Kerk
+		set_temp_variable = { monument_id = 78 }
+		set_temp_variable = { level = 1 }
+		add_monument_to_state = yes
+	}
+	165 = {
+		# Basílica de la Sagrada Família
+		set_temp_variable = { monument_id = 79 }
+		set_temp_variable = { level = 1 }
+		add_monument_to_state = yes
+	}
+	454 = {
+		# Dome of the Rock
+		set_temp_variable = { monument_id = 80 }
+		set_temp_variable = { level = 2 }
+		add_monument_to_state = yes
+		# Church of the Holy Sepulchre
+		set_temp_variable = { monument_id = 81 }
+		set_temp_variable = { level = 1 }
+		add_monument_to_state = yes
+		# Church of All Nations
+		set_temp_variable = { monument_id = 82 }
+		set_temp_variable = { level = 1 }
+		add_monument_to_state = yes
+		# Western Wall
+		set_temp_variable = { monument_id = 83 }
+		set_temp_variable = { level = 2 }
+		add_monument_to_state = yes
+		# Church of the Redeemer
+		set_temp_variable = { monument_id = 84 }
+		set_temp_variable = { level = 1 }
+		add_monument_to_state = yes
+	}
+	679 = {
+		# Masjid al-Haram
+		set_temp_variable = { monument_id = 85 }
+		set_temp_variable = { level = 2 }
+		add_monument_to_state = yes
+	}
+	302 = {
+		# Salar de Uyuni
+		set_temp_variable = { monument_id = 86 }
+		set_temp_variable = { level = 3 }
+		add_monument_to_state = yes
+	}
+	423 = {
+		# Arulmigu Meenakshi Sundareshwarar Temple
+		set_temp_variable = { monument_id = 87 }
+		set_temp_variable = { level = 1 }
+		add_monument_to_state = yes
+	}
+	112 = {
+		# Torre de São Vicente
+		set_temp_variable = { monument_id = 88 }
+		set_temp_variable = { level = 1 }
+		add_monument_to_state = yes
+	}
+	338 = {
+		# Stonehenge
+		set_temp_variable = { monument_id = 89 }
+		set_temp_variable = { level = 1 }
+		add_monument_to_state = yes
+	}
+	217 = {
+		# The Motherland Calls
+		set_temp_variable = { monument_id = 91 }
+		set_temp_variable = { level = 0 }
+		add_monument_to_state = yes
+	}
+	113 = {
+		# Government Buildings
+		set_temp_variable = { monument_id = 92 }
+		set_temp_variable = { level = 1 }
+		add_monument_to_state = yes
+	}
+	119 = {
+		# Giant's Causeway
+		set_temp_variable = { monument_id = 93 }
+		set_temp_variable = { level = 2 }
+		add_monument_to_state = yes
+	}
+	641 = {
+		# Marae Taputapuatea
+		set_temp_variable = { monument_id = 94 }
+		set_temp_variable = { level = 0 }
+		add_monument_to_state = yes
+		set_state_flag = monument_94_existed
+	}
+	15 = {
+		# Le Mont-Saint-Michel
+		set_temp_variable = { monument_id = 95 }
+		set_temp_variable = { level = 1 }
+		add_monument_to_state = yes
+	}
+	31 = {
+		# Cité de Carcassonne
+		set_temp_variable = { monument_id = 96 }
+		set_temp_variable = { level = 1 }
+		add_monument_to_state = yes
+		# Canal du Midi
+		set_temp_variable = { monument_id = 182 }
+		set_temp_variable = { level = 1 }
+		add_monument_to_state = yes
+	}
+	381 = {
+		# Yellowstone National Park
+		set_temp_variable = { monument_id = 97 }
+		set_temp_variable = { level = 3 }
+		add_monument_to_state = yes
+	}
+	470 = {
+		# Moraine Lake
+		set_temp_variable = { monument_id = 98 }
+		set_temp_variable = { level = 3 }
+		add_monument_to_state = yes
+	}
+	1015 = {#guo
+		# Humble Administrator's Garden
+		set_temp_variable = { monument_id = 99 }
+		set_temp_variable = { level = 1 }
+		add_monument_to_state = yes
+	}
+	749 = {#guo
+		# Huangshan
+		set_temp_variable = { monument_id = 100 }
+		set_temp_variable = { level = 3 }
+		add_monument_to_state = yes
+	}
+	5 = {
+		# Malbork Castle
+		set_temp_variable = { monument_id = 102 }
+		set_temp_variable = { level = 1 }
+		add_monument_to_state = yes
+	}
+	9 = {
+		# Prague Castle
+		set_temp_variable = { monument_id = 103 }
+		set_temp_variable = { level = 2 }
+		add_monument_to_state = yes
+		# Charles Bridge
+		set_temp_variable = { monument_id = 104 }
+		set_temp_variable = { level = 1 }
+		add_monument_to_state = yes
+	}
+	4 = {
+		# Belvedere
+		set_temp_variable = { monument_id = 105 }
+		set_temp_variable = { level = 2 }
+		add_monument_to_state = yes
+		# Hofburg
+		set_temp_variable = { monument_id = 106 }
+		set_temp_variable = { level = 1 }
+		add_monument_to_state = yes
+	}
+	43 = {
+		# Parliament of Budapest
+		set_temp_variable = { monument_id = 107 }
+		set_temp_variable = { level = 1 }
+		add_monument_to_state = yes
+		# Hosök tere
+		set_temp_variable = { monument_id = 108 }
+		set_temp_variable = { level = 1 }
+		add_monument_to_state = yes
+	}
+	109 = {
+		# Zagreb Cathedral
+		set_temp_variable = { monument_id = 109 }
+		set_temp_variable = { level = 1 }
+		add_monument_to_state = yes
+	}
+	46 = {
+		# Monument to the Heroes of the Air
+		set_temp_variable = { monument_id = 110 }
+		set_temp_variable = { level = 1 }
+		add_monument_to_state = yes
+		# Arcul de Triumf
+		set_temp_variable = { monument_id = 172 }
+		set_temp_variable = { level = 1 }
+		add_monument_to_state = yes
+	}
+	84 = {
+		# Bran Castle
+		set_temp_variable = { monument_id = 111 }
+		set_temp_variable = { level = 2 }
+		add_monument_to_state = yes
+	}
+	48 = {
+		# Alexander Nevsky Cathedral
+		set_temp_variable = { monument_id = 112 }
+		set_temp_variable = { level = 2 }
+		add_monument_to_state = yes
+	}
+	107 = {
+		# Belgrade Fortress
+		set_temp_variable = { monument_id = 113 }
+		set_temp_variable = { level = 1 }
+		add_monument_to_state = yes
+	}
+	343 = {
+		# Pamukkale
+		set_temp_variable = { monument_id = 114 }
+		set_temp_variable = { level = 3 }
+		add_monument_to_state = yes
+	}
+	49 = {
+		# Anitkabir
+		set_temp_variable = { monument_id = 115 }
+		set_temp_variable = { level = 0 }
+		add_monument_to_state = yes
+	}
+	182 = {
+		# Psiloritis
+		set_temp_variable = { monument_id = 116 }
+		set_temp_variable = { level = 3 }
+		add_monument_to_state = yes
+	}
+	554 = {
+		# Mausoleum of Saladin
+		set_temp_variable = { monument_id = 117 }
+		set_temp_variable = { level = 1 }
+		add_monument_to_state = yes
+	}
+	291 = {
+		# Mustansiriya Madrasah
+		set_temp_variable = { monument_id = 118 }
+		set_temp_variable = { level = 0 }
+		add_monument_to_state = yes
+		set_state_flag = monument_118_existed
+	}
+	266 = {
+		# Golestan Palace
+		set_temp_variable = { monument_id = 119 }
+		set_temp_variable = { level = 1 }
+		add_monument_to_state = yes
+	}
+	327 = {
+		# Rizal Monument
+		set_temp_variable = { monument_id = 120 }
+		set_temp_variable = { level = 1 }
+		add_monument_to_state = yes
+	}
+	279 = {
+		# Churches of Chiloé
+		set_temp_variable = { monument_id = 121 }
+		set_temp_variable = { level = 2 }
+		add_monument_to_state = yes
+	}
+	463 = {
+		# Mount McKinley National Park
+		set_temp_variable = { monument_id = 122 }
+		set_temp_variable = { level = 3 }
+		add_monument_to_state = yes
+	}
+	313 = {
+		# Tikal
+		set_temp_variable = { monument_id = 123 }
+		set_temp_variable = { level = 1 }
+		add_monument_to_state = yes
+	}
+	312 = {
+		# Copán
+		set_temp_variable = { monument_id = 124 }
+		set_temp_variable = { level = 1 }
+		add_monument_to_state = yes
+	}
+	314 = {
+		# Tazumal
+		set_temp_variable = { monument_id = 125 }
+		set_temp_variable = { level = 0 }
+		add_monument_to_state = yes
+		set_state_flag = monument_125_existed
+		# Lake Coatepeque
+		set_temp_variable = { monument_id = 126 }
+		set_temp_variable = { level = 3 }
+		add_monument_to_state = yes
+	}
+	317 = {
+		# Concepción
+		set_temp_variable = { monument_id = 127 }
+		set_temp_variable = { level = 3 }
+		add_monument_to_state = yes
+	}
+	488 = {
+		# Kukenán
+		set_temp_variable = { monument_id = 128 }
+		set_temp_variable = { level = 3 }
+		add_monument_to_state = yes
+	}
+	305 = {
+		# Quilotoa
+		set_temp_variable = { monument_id = 129 }
+		set_temp_variable = { level = 3 }
+		add_monument_to_state = yes
+	}
+	284 = {
+		# Mount Ruapehu
+		set_temp_variable = { monument_id = 130 }
+		set_temp_variable = { level = 3 }
+		add_monument_to_state = yes
+	}
+	315 = {
+		# El Capitolio
+		set_temp_variable = { monument_id = 132 }
+		set_temp_variable = { level = 1 }
+		add_monument_to_state = yes
+		# Castillo de la Real Fuerza
+		set_temp_variable = { monument_id = 133 }
+		set_temp_variable = { level = 1 }
+		add_monument_to_state = yes
+	}
+	319 = {
+		# Alcázar de Colón
+		set_temp_variable = { monument_id = 134 }
+		set_temp_variable = { level = 1 }
+		add_monument_to_state = yes
+	}
+	180 = {
+		# Palácio da Bolsa
+		set_temp_variable = { monument_id = 135 }
+		set_temp_variable = { level = 1 }
+		add_monument_to_state = yes
+	}
+	808 = {
+		# Riga Castle
+		set_temp_variable = { monument_id = 136 }
+		set_temp_variable = { level = 2 }
+		add_monument_to_state = yes
+		# Freedom Monument
+		set_temp_variable = { monument_id = 137 }
+		set_temp_variable = { level = 1 }
+		add_monument_to_state = yes
+	}
+	608 = {#guo
+		# Great Wall of China
+		set_temp_variable = { monument_id = 138 }
+		set_temp_variable = { level = 1 }
+		add_monument_to_state = yes
+	}
+	328 = {
+		# Imperial Palace of Manchukuo
+		set_temp_variable = { monument_id = 139 }
+		set_temp_variable = { level = 0 }
+		add_monument_to_state = yes
+	}
+	88 = {
+		# Wawel Castle
+		set_temp_variable = { monument_id = 140 }
+		set_temp_variable = { level = 2 }
+		add_monument_to_state = yes
+		# Jagiellonian University
+		set_temp_variable = { monument_id = 141 }
+		set_temp_variable = { level = 1 }
+		add_monument_to_state = yes
+	}
+	10 = {
+		# Royal Castle
+		set_temp_variable = { monument_id = 142 }
+		set_temp_variable = { level = 2 }
+		add_monument_to_state = yes
+	}
+	784 = {
+		# Gate of Dawn
+		set_temp_variable = { monument_id = 143 }
+		set_temp_variable = { level = 1 }
+		add_monument_to_state = yes
+	}
+	161 = {
+		# University of Bologna
+		set_temp_variable = { monument_id = 144 }
+		set_temp_variable = { level = 1 }
+		add_monument_to_state = yes
+	}
+	629 = {
+		# 'Iolani Palace
+		set_temp_variable = { monument_id = 145 }
+		set_temp_variable = { level = 1 }
+		add_monument_to_state = yes
+		# USS Arizona Memorial
+		set_temp_variable = { monument_id = 131 }
+		set_temp_variable = { level = 0 }
+		add_monument_to_state = yes
+	}
+	18 = {
+		# Douaumont Ossuary
+		set_temp_variable = { monument_id = 146 }
+		set_temp_variable = { level = 1 }
+		add_monument_to_state = yes
+	}
+	566 = {
+		# Lake Baikal
+		set_temp_variable = { monument_id = 147 }
+		set_temp_variable = { level = 3 }
+		add_monument_to_state = yes
+	}
+	155 = {
+		# Lake Balaton
+		set_temp_variable = { monument_id = 148 }
+		set_temp_variable = { level = 3 }
+		add_monument_to_state = yes
+	}
+	278 = {
+		# El Obelisco
+		set_temp_variable = { monument_id = 149 }
+		set_temp_variable = { level = 1 }
+		add_monument_to_state = yes
+	}
+	111 = {
+		# Suomenlinna
+		set_temp_variable = { monument_id = 150 }
+		set_temp_variable = { level = 2 }
+		add_monument_to_state = yes
+	}
+	570 = {
+		# Trans-Siberian Railway
+		set_temp_variable = { monument_id = 152 }
+		set_temp_variable = { level = 1 }
+		add_monument_to_state = yes
+	}
+	140 = {
+		# Vänern
+		set_temp_variable = { monument_id = 153 }
+		set_temp_variable = { level = 3 }
+		add_monument_to_state = yes
+	}
+	110 = {
+		# Heddal Stave Church
+		set_temp_variable = { monument_id = 154 }
+		set_temp_variable = { level = 1 }
+		add_monument_to_state = yes
+	}
+	414 = {
+		# Arg-e Bam
+		set_temp_variable = { monument_id = 155 }
+		set_temp_variable = { level = 1 }
+		add_monument_to_state = yes
+	}
+	55 = {
+		# Niederwalddenkmal
+		set_temp_variable = { monument_id = 156 }
+		set_temp_variable = { level = 1 }
+		add_monument_to_state = yes
+	}
+	386 = {
+		# Hanford Engineer Works
+		set_temp_variable = { monument_id = 157 }
+		set_temp_variable = { level = 0 }
+		add_monument_to_state = yes
+	}
+	28 = {
+		# Strasbourg Cathedral
+		set_temp_variable = { monument_id = 158 }
+		set_temp_variable = { level = 1 }
+		add_monument_to_state = yes
+	}
+	324 = {
+		# Paro Taktsang
+		set_temp_variable = { monument_id = 159 }
+		set_temp_variable = { level = 2 }
+		add_monument_to_state = yes
+	}
+	221 = {
+		# Maidan Dzerzhynskoho
+		set_temp_variable = { monument_id = 161 }
+		set_temp_variable = { level = 1 }
+		add_monument_to_state = yes
+	}
+	1015 = {#guo
+		# Sun Yat-sen Mausoleum
+		set_temp_variable = { monument_id = 162 }
+		set_temp_variable = { level = 1 }
+		add_monument_to_state = yes
+	}
+	277 = {
+		# Monumento a la Independencia
+		set_temp_variable = { monument_id = 163 }
+		set_temp_variable = { level = 1 }
+		add_monument_to_state = yes
+	}
+	540 = {
+		# Fortress of São Miguel
+		set_temp_variable = { monument_id = 164 }
+		set_temp_variable = { level = 1 }
+		add_monument_to_state = yes
+		# Church of Nossa Senhora da Conceição da Muxima
+		set_temp_variable = { monument_id = 165 }
+		set_temp_variable = { level = 1 }
+		add_monument_to_state = yes
+	}
+	776 = {
+		# Royal Palaces of Abomey
+		set_temp_variable = { monument_id = 166 }
+		set_temp_variable = { level = 2 }
+		add_monument_to_state = yes
+	}
+	773 = {
+		# Waterfalls of Lobé
+		set_temp_variable = { monument_id = 167 }
+		set_temp_variable = { level = 3 }
+		add_monument_to_state = yes
+	}
+	543 = {
+		# Ambohimanga
+		set_temp_variable = { monument_id = 168 }
+		set_temp_variable = { level = 2 }
+		add_monument_to_state = yes
+	}
+	272 = {
+		# Senegambian Stone Circles
+		set_temp_variable = { monument_id = 169 }
+		set_temp_variable = { level = 2 }
+		add_monument_to_state = yes
+	}
+	548 = {
+		# Kasubi Tombs
+		set_temp_variable = { monument_id = 170 }
+		set_temp_variable = { level = 2 }
+		add_monument_to_state = yes
+	}
+	526 = {
+		# Shuri Castle
+		set_temp_variable = { monument_id = 173 }
+		set_temp_variable = { level = 1 }
+		add_monument_to_state = yes
+	}
+	171 = {
+		# Santiago de Compostela Cathedral
+		set_temp_variable = { monument_id = 175 }
+		set_temp_variable = { level = 1 }
+		add_monument_to_state = yes
+	}
+	51 = {
+		# Cologne Cathedral
+		set_temp_variable = { monument_id = 176 }
+		set_temp_variable = { level = 1 }
+		add_monument_to_state = yes
+	}
+	185 = {
+		# Monasteries of Meteora
+		set_temp_variable = { monument_id = 178 }
+		set_temp_variable = { level = 1 }
+		add_monument_to_state = yes
+	}
+	141 = {
+		# Uppsala Cathedral
+		set_temp_variable = { monument_id = 180 }
+		set_temp_variable = { level = 1 }
+		add_monument_to_state = yes
+	}
+	102 = {
+		# Plague Column
+		set_temp_variable = { monument_id = 181 }
+		set_temp_variable = { level = 1 }
+		add_monument_to_state = yes
+	}
+}

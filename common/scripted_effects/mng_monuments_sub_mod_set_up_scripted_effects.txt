@@ -1,0 +1,17 @@
+mng_monuments_sub_mod_set_up_scripted_effects = {
+    if = {
+        limit = {
+            has_dlc = "La Resistance"
+        }
+        set_variable = { global.monuments_alert_offset = 0 }
+    }
+    else = {
+        set_variable = { global.monuments_alert_offset = -55 }
+    }
+    330 = {
+        # Mountain Khentii
+        set_temp_variable = { monument_id = 10024 }
+        set_temp_variable = { level = 0 }
+        add_monument_to_state = yes
+    }
+}

@@ -1,0 +1,2250 @@
+#Important to put HIGHEST first
+RCM_increase_inflation_1_levels = {  #MODDED #guo
+	# level 5 not relevant. Cannot go above.
+	custom_effect_tooltip = CHI_inflation_up_tt
+	hidden_effect = { #MODDEDvv
+		if = {
+			limit = { has_idea = CHI_hyper_inflation_4 }
+			swap_ideas = {
+				remove_idea = CHI_hyper_inflation_4
+				add_idea = CHI_hyper_inflation_5
+			}
+		}
+		else_if = {
+			limit = { has_idea = CHI_hyper_inflation_3 }
+			swap_ideas = {
+				remove_idea = CHI_hyper_inflation_3
+				add_idea = CHI_hyper_inflation_4
+			}
+		}
+		else_if = {
+			limit = { has_idea = CHI_hyper_inflation_2 }
+			swap_ideas = {
+				remove_idea = CHI_hyper_inflation_2
+				add_idea = CHI_hyper_inflation_3
+			}
+		}
+		else_if = {
+			limit = { has_idea = CHI_hyper_inflation_1 }
+			swap_ideas = {
+				remove_idea = CHI_hyper_inflation_1
+				add_idea = CHI_hyper_inflation_2
+			}
+		}
+		else_if = {
+			limit = { NOT = { has_idea = CHI_hyper_inflation_1 } }
+			add_ideas = CHI_hyper_inflation_1
+		}
+	} #MODDEDvv
+}
+
+nea_PRC_untrained_soldiers_level_down = {
+	if = {
+		limit = { has_idea = nea_idea_PRC_untrained_soldiers_1 }
+		swap_ideas = {
+			remove_idea = nea_idea_PRC_untrained_soldiers_1
+			add_idea = nea_idea_PRC_untrained_soldiers_2
+		}
+	}
+	else_if = {
+		limit = { has_idea = nea_idea_PRC_untrained_soldiers_2 }
+		swap_ideas = {
+			remove_idea = nea_idea_PRC_untrained_soldiers_2
+			add_idea = nea_idea_PRC_untrained_soldiers_3
+		}
+	}
+	else_if = {
+		limit = { has_idea = nea_idea_PRC_untrained_soldiers_3 }
+		remove_ideas = nea_idea_PRC_untrained_soldiers_3
+	}
+}
+
+prc_manmuchuangyi_level_down = {
+		if = {
+			limit = { has_idea = prc_manmuchuangyi }
+			swap_ideas = {
+				remove_idea = prc_manmuchuangyi
+				add_idea = prc_manmuchuangyi_2
+			}
+		}
+		else_if = {
+			limit = { has_idea = prc_manmuchuangyi_2 }
+			swap_ideas = {
+				remove_idea = prc_manmuchuangyi_2
+				add_idea = prc_manmuchuangyi_3
+			}
+		}
+		else_if = {
+			limit = { has_idea = prc_manmuchuangyi_3 }
+			swap_ideas = {
+				remove_idea = prc_manmuchuangyi_3
+				add_idea = prc_manmuchuangyi_4
+			}
+		}
+		else_if = {
+			limit = { has_idea = prc_manmuchuangyi_4 }
+			swap_ideas = {
+				remove_idea = prc_manmuchuangyi_4
+				add_idea = prc_manmuchuangyi_5
+			}
+		}
+		else_if = {
+			limit = { has_idea = prc_manmuchuangyi_5 }
+			remove_ideas = prc_manmuchuangyi_5
+		}
+		
+			custom_effect_tooltip = gain_base_supp_cond_n10_tt
+		    add_to_variable = {
+		    var = This.supply_condition
+			value = 10 #MODDED
+		    }
+		    add_to_variable = {
+			var = This.supply_condition_base
+			value = 10 #MODDED
+		    }
+}
+
+add_mao_advisor_trait = {
+	if = {
+		limit = { has_idea = prc_mao_zedong not = { has_global_flag = add_mao_advisor_trait_happen } }
+				add_trait = {
+					character = prc_mao_zedong
+					slot = political_advisor
+					trait = tiancaidezhanluejia
+				}
+				add_trait = {
+					character = prc_mao_zedong
+					slot = political_advisor
+					trait = youjizhandashi
+				}
+				add_trait = {
+					character = prc_mao_zedong
+					slot = political_advisor
+					trait = hero_of_the_peasantry_MAO
+				}
+				add_trait = {
+					character = prc_mao_zedong
+					slot = political_advisor
+					trait = tiancaidesixiangjia
+				}
+				set_global_flag = add_mao_advisor_trait_happen
+	}
+}
+
+PRC_dihoukangrigenjudi_level_up = {
+	every_state = {
+		limit = { has_state_flag = PRC_dihoukangrigenjudi_flag }
+		if = {
+		limit = { has_dynamic_modifier = { modifier = PRC_dihoukangrigenjudi scope = JAP } }
+		remove_dynamic_modifier  = { modifier = PRC_dihoukangrigenjudi scope = JAP }
+		add_dynamic_modifier  = { modifier = PRC_dihoukangrigenjudi_2 scope = JAP }
+		set_global_flag = PRC_dihoukangrigenjudi_2
+		}
+		else_if = {
+		limit = { has_dynamic_modifier = { modifier = PRC_dihoukangrigenjudi_2 scope = JAP } }
+		remove_dynamic_modifier  = { modifier = PRC_dihoukangrigenjudi_2 scope = JAP }
+		add_dynamic_modifier  = { modifier = PRC_dihoukangrigenjudi_3 scope = JAP }
+		set_global_flag = PRC_dihoukangrigenjudi_3
+		}
+		else_if = {
+		limit = { has_dynamic_modifier = { modifier = PRC_dihoukangrigenjudi_3 scope = JAP } }
+		remove_dynamic_modifier  = { modifier = PRC_dihoukangrigenjudi_3 scope = JAP }
+		add_dynamic_modifier  = { modifier = PRC_dihoukangrigenjudi_4 scope = JAP }
+		set_global_flag = PRC_dihoukangrigenjudi_4
+		}
+		else_if = {
+		limit = { has_dynamic_modifier = { modifier = PRC_dihoukangrigenjudi_4 scope = JAP } }
+		remove_dynamic_modifier  = { modifier = PRC_dihoukangrigenjudi_4 scope = JAP }
+		add_dynamic_modifier  = { modifier = PRC_dihoukangrigenjudi_5 scope = JAP }
+		set_global_flag = PRC_dihoukangrigenjudi_5
+		}
+	}
+}
+add_PRC_dihoukangrigenjudi = {
+		if = {
+		limit = { not = { has_global_flag = PRC_dihoukangrigenjudi_2 } }
+		add_dynamic_modifier  = { modifier = PRC_dihoukangrigenjudi scope = JAP }
+		}
+		if = {
+		limit = { has_global_flag = PRC_dihoukangrigenjudi_2 not = { has_global_flag = PRC_dihoukangrigenjudi_3 } }
+		add_dynamic_modifier  = { modifier = PRC_dihoukangrigenjudi_2 scope = JAP }
+		}
+		if = {
+		limit = { has_global_flag = PRC_dihoukangrigenjudi_3 not = { has_global_flag = PRC_dihoukangrigenjudi_4 } }
+		add_dynamic_modifier  = { modifier = PRC_dihoukangrigenjudi_3 scope = JAP }
+		}
+		if = {
+		limit = { has_global_flag = PRC_dihoukangrigenjudi_4 not = { has_global_flag = PRC_dihoukangrigenjudi_5 } }
+		add_dynamic_modifier  = { modifier = PRC_dihoukangrigenjudi_4 scope = JAP }
+		}
+		if = {
+		limit = { has_global_flag = PRC_dihoukangrigenjudi_5 }
+		add_dynamic_modifier  = { modifier = PRC_dihoukangrigenjudi_5 scope = JAP }
+		}
+}
+
+PRC_A_new_country_effect = {
+			
+			custom_effect_tooltip = PRC_A_new_country_effect_tt_aa
+			show_ideas_tooltip = blank
+			
+			swap_ideas = {
+				remove_idea = xingxingzhihuo_keyiliaoyuan_4
+				add_idea = xingxingzhihuo_keyiliaoyuan_5
+			}
+			custom_effect_tooltip = xingxingzhihuo_keyiliaoyuan_5_tt
+			show_ideas_tooltip = blank
+			
+			if = {
+			limit = { has_global_flag = PRC_civil_war_started }
+		    custom_effect_tooltip = gain_base_supp_cond_n50_tt
+		    add_to_variable = {
+		    var = This.supply_condition
+			value = -50 #MODDED
+		    }
+		    add_to_variable = {
+			var = This.supply_condition_base
+			value = -50 #MODDED
+		    }
+			add_ideas = prc_manmuchuangyi
+			add_ideas = PRC_baifei
+			show_ideas_tooltip = blank
+			}
+
+			set_major = yes
+			custom_effect_tooltip = zhengzhiju_gui_will_change
+			custom_effect_tooltip = jiesuo_dahuitang
+			set_politics = {
+				ruling_party = communism
+				elections_allowed = yes
+				election_frequency = 60
+			}
+			if = {
+            limit = { has_global_flag = xibeiguofangzhengfu_FOUND }
+			set_party_name = {
+				ideology = communism
+				name = "中国共产党"
+				long_name = "中国共产党"
+			}
+			#set_party_name = {
+			#	ideology = neutrality
+			#	name = "中间派"
+			#	long_name = "中间派"
+			#}
+			}
+		
+			if = {
+            limit = { leader_is_maoist = yes }
+			prc_mao_zedong = { remove_country_leader_trait = cornered_fox }
+			
+			remove_trait = {
+				character = prc_mao_zedong
+				slot = political_advisor
+				trait = red_army_organizer
+			}
+			hidden_effect = {
+				remove_trait = {
+				character = prc_mao_zedong
+				slot = political_advisor
+				trait = maoists_trait_mao_zedong
+				}
+			}
+			add_trait = {
+				character = prc_mao_zedong
+				slot = political_advisor
+				trait = PRC_CPC_Army_nation_People_leader
+			}
+			hidden_effect = {
+				add_trait = {
+				character = prc_mao_zedong
+				slot = political_advisor
+				trait = maoists_trait_mao_zedong
+				}
+			}
+			
+			hidden_effect = {
+			prc_mao_zedong = {
+		    add_country_leader_role = {
+			country_leader = {
+				expire = "1976.9.9"
+				ideology = maoism
+				desc=POLITICS_MAO_ZEDONG_DESCzz
+				traits = { tiancaidesixiangjia tiancaidezhanluejia youjizhandashi hero_of_the_peasantry_MAO }
+			}
+			promote_leader = yes
+		    }
+		    }
+			}
+			
+			}
+			
+			add_country_leader_trait = triumphant_revolutionary
+			
+			if = {
+            limit = { or = { has_character = PRC_zhou_enlai has_character = PRC_zhou_enlai_2 } not = { has_global_flag = zhou_enlai_marginalized } }
+			
+			if = {
+            limit = { not = { has_global_flag = PRC_zhou_enlai_2_done } }
+			remove_trait = {
+				character = PRC_zhou_enlai
+				slot = political_advisor
+				trait = pingyijinrendegemingjia
+			}
+			add_trait = {
+				character = PRC_zhou_enlai
+				slot = political_advisor
+				trait = renminzongli
+			}
+			}
+			
+			if = {
+            limit = { has_global_flag = PRC_zhou_enlai_2_done }
+			remove_trait = {
+				character = PRC_zhou_enlai_2
+				slot = political_advisor
+				trait = pingyijinrendegemingjia
+			}
+			add_trait = {
+				character = PRC_zhou_enlai_2
+				slot = political_advisor
+				trait = renminzongli_2
+			}
+			}
+			
+			}
+			
+			add_political_power = 300
+			add_stability = 0.1
+            add_war_support = 0.1
+			
+			hidden_effect = {
+			set_global_flag = PRC_jianguo
+			PRC_general_portrait_change = yes
+            if = {
+            limit = { has_country_leader = { ruling_only = yes character = prc_mao_zedong } }
+			
+				if = {
+				limit = { NOT = { has_global_flag = prc_kmt_lianhezhengfu } }
+				news_event = wtt_news.37
+				#scoped_sound_effect = 137
+				play_song = "kaiguodadian" #guo
+				}
+				
+				country_event = super.37
+				set_country_leader_portrait = {
+                portrait = GFX_Mao_1949
+                }
+				hidden_effect = {
+		            prc_mao_zedong = {
+					set_portraits = {
+					army={
+						large="GFX_Mao_1949"
+					}
+				}
+				}
+		        } 
+	        }
+            set_province_name = { id = 11771 name = "shenyang"}
+            set_province_name = { id = 4572 name = "changchun"}
+            608 = { 
+				set_state_name = prc_beijing
+			}
+            716 = { 
+				set_state_name = liaoning
+			}
+            745 = { 
+				set_state_name = dalian
+			}
+            }
+			
+			#for_each_scope_loop = {
+			#	array = global.small_china #MODDED
+			#	tooltip = small_china_effect_tt
+			#	add_core_of = ROOT
+			#}
+			every_state = {
+				limit = {
+				    OR = {
+					is_core_of = CHI
+					is_core_of = event_target:WTT_current_china_leader
+					has_state_flag = original_chi_state
+					}
+					not = {
+					is_core_of = TAN
+					is_core_of = MON
+					is_core_of = SOV
+					}
+					NOT = { has_state_flag = original_tib_state }
+					NOT = { has_state_flag = original_sik_state }
+				}
+				add_core_of = ROOT
+			}
+			
+			show_ideas_tooltip = blank
+			#every_state = { 
+			#	limit = {
+			#		ROOT = {
+			#			is_legit_china = yes
+			#		}
+			#		OR = {
+			#			region = 143	#Notrh China
+			#			region = 144	#West China
+			#			region = 145	#Central Asia
+			#			region = 146	#Himalayas
+			#			region = 152	#Central Steppe
+            #           region = 155	#Manchuria
+			#			region = 164	#Southeast China
+			#			region = 165	#South China
+			#			region = 200	#Qinghai
+			#		}
+			#	}
+			#	add_core_of = ROOT 
+			#}
+			
+			
+			
+			hidden_effect = {
+				every_unit_leader = {
+					limit = {
+						OR = {
+							has_trait = hidden_sympathies
+						}
+					}
+					remove_unit_leader_trait = hidden_sympathies
+				}
+				
+				CHI = {
+			add_ai_strategy = {
+				type = protect
+				id = "SIK"
+				value = -9999
+			}
+	add_ai_strategy = {
+				type = protect
+				id = "TIB"
+				value = -9999
+			}		
+    diplomatic_relation = {
+				                               country = SIK
+				                               relation = guarantee
+				                               active = no
+                                                                }
+    diplomatic_relation = {
+				                               country = TIB
+				                               relation = guarantee
+				                               active = no
+                                                                }
+				}
+			}
+}
+
+add_current_party_support_ratio = {
+	if = {
+		limit = { has_government = democratic }
+		add_popularity = { ideology = democratic popularity = 0.05 }
+	}
+	if = {
+		limit = { has_government = n_socialism }
+		add_popularity = { ideology = n_socialism popularity = 0.05 }
+	}
+	if = {
+		limit = { has_government = fascism }
+		add_popularity = { ideology = fascism popularity = 0.05 }
+	}
+	if = {
+		limit = { has_government = communism }
+		add_popularity = { ideology = communism popularity = 0.05 }
+	}
+	if = {
+		limit = { has_government = neutrality }
+		add_popularity = { ideology = neutrality popularity = 0.05 }
+	}
+}
+
+reduce_current_party_support_ratio = {
+	if = {
+		limit = { has_government = democratic }
+		add_popularity = { ideology = democratic popularity = -0.05 }
+	}
+	if = {
+		limit = { has_government = n_socialism }
+		add_popularity = { ideology = n_socialism popularity = -0.05 }
+	}
+	if = {
+		limit = { has_government = fascism }
+		add_popularity = { ideology = fascism popularity = -0.05 }
+	}
+	if = {
+		limit = { has_government = communism }
+		add_popularity = { ideology = communism popularity = -0.05 }
+	}
+	if = {
+		limit = { has_government = neutrality }
+		add_popularity = { ideology = neutrality popularity = -0.05 }
+	}
+}
+
+second_china_civil_war_start_rcm = {
+	every_state = {
+				limit = {
+					OR = {
+						#northeast
+						region = 242
+						region = 243
+						region = 155
+						#north china
+						region = 143
+						#inner mongolia
+						region = 244
+						#outter mongolia
+						region = 152
+						region = 266
+						#northwest
+						region = 144
+						region = 200
+						#sinkiang
+						region = 252
+						region = 145
+						#shaan-gan-ning
+						region = 245
+						#kham and tibet
+						region = 250
+						region = 146
+						#west china
+						region = 165
+						#central china 
+						region = 246
+						#east china
+						region = 247
+						#southeast
+						region = 164
+						#south china
+						region = 248
+						#southwest
+						region = 249
+					}
+					owner = {
+						is_literally_china = yes
+					}
+				}
+				add_dynamic_modifier = {
+					modifier = prc_unplanned_offensive
+				}
+				set_state_flag = chi_unplanned_offensive_flag
+		}
+		custom_effect_tooltip = states_with_communist_support_will_join_commie
+		hidden_effect = {
+		598 = { add_dynamic_modifier = { modifier = prc_huaihai_zhiqian scope = event_target:WTT_communist_china } } #guo
+		606 = { add_dynamic_modifier = { modifier = prc_huaihai_zhiqian scope = event_target:WTT_communist_china } } #guo
+		1043 = { add_dynamic_modifier = { modifier = prc_huaihai_zhiqian scope = event_target:WTT_communist_china } } #guo
+		
+		    if = {
+				limit = { 
+					event_target:WTT_current_china_leader = { is_ai = no }
+					has_country_flag = SOV_reinforcement_flag
+				}
+				event_target:WTT_communist_china = {
+					add_equipment_to_stockpile = {
+						type = infantry_equipment
+						amount = 50000
+						producer = SOV
+					}  
+					add_equipment_to_stockpile = {
+					   type = artillery_equipment
+					   amount = 15000
+                       producer = SOV
+					}
+					add_equipment_to_stockpile = {
+						type = support_equipment
+						amount = 15000
+						producer = SOV
+					}
+				}   
+			}
+			if = {
+				limit = { 
+					event_target:WTT_current_china_leader = { is_ai = no }
+					NOT = {
+						has_country_flag = SOV_reinforcement_flag
+					}
+				}
+				event_target:WTT_communist_china = {
+					add_equipment_to_stockpile = {
+						type = infantry_equipment
+						amount = 25000
+					}  
+					add_equipment_to_stockpile = {
+					   type = artillery_equipment
+					   amount = 5000
+
+					}
+					add_equipment_to_stockpile = {
+						type = support_equipment
+						amount = 5000
+					}
+				}    
+			}
+			#1053 = {
+			#	add_core_of = event_target:WTT_communist_china
+			#}
+			#283 = { #guo
+			#	add_core_of = event_target:WTT_communist_china
+			#}
+			#guo1030 = {
+			#guo	add_core_of = event_target:WTT_communist_china
+			#guo}
+			#744 = { #guo
+			#	add_core_of = event_target:WTT_communist_china
+			#}
+			#guo607 = {
+			#guo	add_core_of = event_target:WTT_communist_china
+			#guo}
+			every_owned_state = {
+				limit = {
+					has_state_flag = commie_ridden_states
+					is_core_of = event_target:WTT_communist_china
+					is_controlled_by = ROOT
+				    NOT = { has_state_flag = we_will_help_the_legit_government }
+				    #NOT = { state = 598 }
+				    #NOT = { state = 606 }
+					NOT = {
+						is_MAN_state_for_liberation = yes
+					}
+				}
+				event_target:WTT_communist_china = {
+					transfer_state = PREV
+				}
+				#add_core_of = event_target:WTT_communist_china
+			}
+			###删除了国军叛逃内容（刚开打叛什么逃） #guo
+		}
+		if = {
+			limit = {
+				event_target:WTT_communist_china = { #Soviet transfer Manchuria
+					has_country_flag = SOV_reinforcement_flag
+				}
+			}
+			custom_effect_tooltip = gain_base_supp_cond_n30_tt
+			add_to_variable = {
+				Root.supply_condition_base = -30
+			}
+			set_equipment_fraction = 0.8
+		}
+		custom_effect_tooltip = blank_line		
+		#add_timed_idea = { idea = CHI_civil_war_deserters days = 180 }
+		RCM_increase_inflation_2_levels = yes
+		add_ideas = RCM_civil_war_economy_idea
+		add_timed_idea = {
+                 idea = KMT_Strategic_initiative
+                 days = 420
+        }
+			
+			hidden_effect = {
+			
+			event_target:WTT_communist_china = {
+			
+			if = {
+				limit = {
+					622 = {
+						is_owned_and_controlled_by = event_target:WTT_communist_china
+						is_fully_controlled_by = event_target:WTT_communist_china
+					}
+				}
+				622 = { 
+				    #add_extra_state_shared_building_slots = 1
+				    add_building_construction = {
+					    type = supply_node
+					    level = 1
+					    instant_build = yes
+					    province = 13403
+				    }
+			    }
+			}
+			
+			add_timed_idea = {
+				idea = PRC_War_of_Liberation
+				days = 765
+			}
+			for_each_scope_loop = {
+				array = global.big_china
+				#tooltip = big_china_tt
+				if = {
+					limit = {
+						is_owned_and_controlled_by = event_target:WTT_communist_china
+						is_core_of = event_target:WTT_communist_china
+					}					
+					add_dynamic_modifier = { modifier = communist_stronghold scope = event_target:WTT_communist_china }
+				}
+			}
+			custom_effect_tooltip = PRC_core_will_be_buffed
+			effect_tooltip = {
+				add_ideas = PRC_War_of_Liberation_defense
+			}
+			#add_ideas = PRC_War_of_Liberation_defense		#using communist strongholds instead	
+			add_war_support = 0.15 #MODDED
+			add_stability = 0.15  #MODDED
+			set_global_flag = PRC_civil_war_started #guo
+			if = {
+			limit = {
+			has_country_leader = { ruling_only = yes character = prc_mao_zedong }
+			}
+			set_country_leader_portrait = {
+                portrait = "gfx/leaders/PRC/mao_jiefangzhanzheng.jpg"
+            }
+			}
+			if = {
+				limit = {
+					event_target:WTT_communist_china = { is_ai = yes }
+				    event_target:WTT_current_china_leader = { is_ai = no }
+				}
+				add_ideas = balance_idea_prc_civil_war
+			}
+			#guoadd_state_core = 621
+			#guoadd_state_core = 746
+			#guoadd_state_core = 1019
+			#guoadd_state_core = 1014
+			#guoadd_to_variable = {
+			#guoRoot.supply_condition_base = 20
+			#guo}
+			}
+			
+			set_global_flag = CCW_restarts
+			
+			every_country = { #disable for now
+			limit = {
+				NOT = { tag = event_target:WTT_current_china_leader }
+				is_warlord = yes
+				is_puppet = no
+			}
+			country_event = { id = RCM_chinese_civil_war.8 }
+		    }
+			
+			news_event = { id = zizhinews.37 days = 1 }
+			
+			}
+}
+
+PRC_general_portrait_change = {
+	
+	remove_ideas = prepared_for_operation
+	
+	PRC_liu_shaoqi = {
+		set_portraits = {
+			civilian={
+				large="gfx/leaders/PRC/PRC_liu_shaoqi_pla.png"
+			}
+		}
+		set_portraits = {
+			army={
+				large="gfx/leaders/PRC/PRC_liu_shaoqi_pla.png"
+			}
+		}
+		add_skill_level = 1
+	}
+	
+	prc_ren_bishi = {
+		set_portraits = {
+			civilian={
+				large="gfx/leaders/PRC/prc_ren_bishi_pla.png"
+				small="gfx/interface/ideas/prc_ren_bishi_pla.dds"
+			}
+		}
+		set_portraits = {
+			army={
+				large="gfx/leaders/PRC/prc_ren_bishi_pla.png"
+				small="gfx/interface/ideas/prc_ren_bishi_pla.dds"
+			}
+		}
+		add_skill_level = 1
+	}
+	
+	PRC_chenguang = {
+		set_portraits = {
+			army={
+				large="gfx/leaders/PRC/Chen_Guang_PLA.dds"
+			}
+		}
+		
+	}
+	
+	PRC_zhangzongxun = {
+		set_portraits = {
+			army={
+				large="gfx/leaders/PRC/PRC_zhangzongxun_pla.png"
+			}
+		}
+		add_skill_level = 1
+	}
+	
+	PRC_wulanfu = {
+		set_portraits = {
+			army={
+				large="gfx/leaders/PRC/wulanfu.png"
+				small="gfx/interface/ideas/idea_Wu_lanfu.dds"
+			}
+		}
+		add_skill_level = 1
+	}
+	
+	prc_mao_zedong = {
+		set_portraits = {
+			civilian={
+				large="gfx/leaders/PRC/maozedong1949.jpg"
+				small="gfx/interface/ideas/idea_PRC_mao_zedong_1949.dds"
+			}
+		}
+		set_portraits = {
+			army={
+				large="gfx/leaders/PRC/maozedong1949.jpg"
+				small="gfx/interface/ideas/idea_PRC_mao_zedong_1949.dds"
+			}
+		}
+	}
+	
+	PRC_zhou_enlai = {
+		set_portraits = {
+			civilian={
+				large="gfx/leaders/PRC/zhouenlaizongli.png"
+				small="gfx/interface/ideas/idea_PRC_zhou_enlai_1949.dds"
+			}
+		}
+	}
+	PRC_zhou_enlai_2 = {
+		set_portraits = {
+			civilian={
+				large="gfx/leaders/PRC/zhouenlaizongli.png"
+				small="gfx/interface/ideas/idea_PRC_zhou_enlai_1949.dds"
+			}
+		}
+	}
+	
+	prc_wang_ming = {
+		set_portraits = {
+			civilian={
+				large="gfx/leaders/PRC/Wang_Ming_Old.dds"
+			}
+		}
+	}
+	
+	PRC_zhu_de = {
+		set_portraits = {
+			army={
+				large="gfx/leaders/PRC/Zhu_De_PLA.dds"
+				small="gfx/interface/ideas/idea_PRC_zhude_jianguo.dds"
+			}
+		}
+		add_unit_leader_trait = war_hero
+	}
+	
+	PRC_peng_dehuai = {
+		set_portraits = {
+			army={
+				large="gfx/leaders/PRC/Peng_Dehuai_PLA.dds"
+				small="gfx/interface/ideas/idea_PRC_pengdehuai_jianguo.dds"
+			}
+		}
+		add_unit_leader_trait = war_hero
+	}
+	
+	PRC_lin_biao = {
+		set_portraits = {
+			army={
+				large="gfx/leaders/PRC/Lin_Biao_PLA.dds"
+				small="gfx/interface/ideas/idea_PRC_linbiao_jianguo.dds"
+			}
+		}
+		add_unit_leader_trait = war_hero
+	}
+	
+	PRC_liu_bocheng = {
+		set_portraits = {
+			army={
+				large="gfx/leaders/PRC/Liu_Bocheng_PLA.dds"
+				small="gfx/interface/ideas/idea_PRC_liubocheng_jianguo.dds"
+			}
+		}
+		add_skill_level = 1
+		add_unit_leader_trait = war_hero
+	}
+	
+	PRC_he_long = {
+		set_portraits = {
+			army={
+				large="gfx/leaders/PRC/He_Long_PLA.dds"
+				small="gfx/interface/ideas/idea_PRC_helong_jianguo.dds"
+			}
+		}
+		add_skill_level = 1
+		add_unit_leader_trait = war_hero
+	}
+	
+	PRC_chen_yi = {
+		set_portraits = {
+			army={
+				large="gfx/leaders/PRC/Chen_Yi_PLA.dds"
+				small="gfx/interface/ideas/idea_PRC_chenyi_jianguo.dds"
+			}
+		}
+		add_skill_level = 1
+		add_unit_leader_trait = war_hero
+	}
+	
+	PRC_luo_ronghuan = {
+		set_portraits = {
+			army={
+				large="gfx/leaders/PRC/Luo_Ronghuan_PLA.dds"
+				small="gfx/interface/ideas/idea_PRC_luoronghuan_jianguo.dds"
+			}
+		}
+		add_skill_level = 1
+		add_unit_leader_trait = war_hero
+	}
+	
+	PRC_xu_xiangqian = {
+		set_portraits = {
+			army={
+				large="gfx/leaders/PRC/Xu_Xiangqian_PLA.dds"
+				small="gfx/interface/ideas/idea_PRC_xuxiangqian_jianguo.dds"
+			}
+		}
+		add_skill_level = 1
+		add_unit_leader_trait = war_hero
+	}
+	
+	PRC_nie_rongzhen = {
+		set_portraits = {
+			army={
+				large="gfx/leaders/PRC/Nie_Rongzhen_PLA.dds"
+				small="gfx/interface/ideas/idea_PRC_nierongzhen_jianguo.dds"
+			}
+		}
+		add_skill_level = 1
+		add_unit_leader_trait = war_hero
+	}
+	
+	PRC_ye_jianying = {
+		set_portraits = {
+			army={
+				large="gfx/leaders/PRC/Ye_Jianying_PLA.dds"
+				small="gfx/interface/ideas/idea_PRC_yejianying_jianguo.dds"
+			}
+		}
+		add_skill_level = 1
+		add_unit_leader_trait = war_hero
+	}
+	
+	PRC_liuzhidan = {
+		set_portraits = {
+			army={
+				#large="gfx/leaders/PRC/Ye_Jianying_PLA.dds"
+				small="gfx/interface/ideas/idea_PRC_Liu_Zhidan.dds"
+			}
+		}
+		add_skill_level = 1
+		add_unit_leader_trait = war_hero
+	}
+	
+	PRC_ye_ting = {
+		set_portraits = {
+			army={
+				large="gfx/leaders/PRC/Ye_Ting_PLA.dds"
+				small="gfx/interface/ideas/idea_prc_ye_ting.dds"
+			}
+		}
+		add_skill_level = 1
+		add_unit_leader_trait = war_hero
+	}
+	
+	PRC_xiang_ying = {
+		set_portraits = {
+			army={
+				large="gfx/leaders/PRC/Xiang_Ying_PLA.dds"
+			}
+		}
+		add_skill_level = 1
+		add_unit_leader_trait = war_hero
+	}
+	
+	PRC_xiao_ke = {
+		set_portraits = {
+			army={
+				large="gfx/leaders/PRC/Xiao_Ke_PLA.dds"
+			}
+		}
+		add_skill_level = 1
+	}
+	
+	PRC_su_yu = {
+		set_portraits = {
+			army={
+				large="gfx/leaders/PRC/Su_Yu_PLA.dds"
+				small="gfx/interface/ideas/idea_PRC_suyu_jianguo.dds"
+			}
+		}
+		add_unit_leader_trait = war_hero
+	}
+	PRC_suyu111 = {
+		set_portraits = {
+			army={
+				large="gfx/leaders/PRC/Su_Yu_PLA.dds"
+				small="gfx/interface/ideas/idea_PRC_suyu_jianguo.dds"
+			}
+		}
+		
+	}
+	
+	PRC_xu_haidong = {
+		set_portraits = {
+			army={
+				large="gfx/leaders/PRC/Xu_Haidong_PLA.dds"
+				small="gfx/interface/ideas/idea_PRC_Xu_Haidong.dds"
+			}
+		}
+		add_unit_leader_trait = war_hero
+	}
+	
+	PRC_chen_geng = {
+		set_portraits = {
+			army={
+				large="gfx/leaders/PRC/Chen_Geng_PLA.dds"
+				small="gfx/interface/ideas/idea_PRC_Chen_Gen.dds"
+			}
+		}
+		add_skill_level = 1
+		add_unit_leader_trait = war_hero
+	}
+	
+	PRC_xu_guangda = {
+		set_portraits = {
+			army={
+				#large="gfx/leaders/PRC/Chen_Geng_PLA.dds"
+				small="gfx/interface/ideas/idea_NewChina_PRC_Xu_Guangda.dds"
+			}
+		}
+		add_skill_level = 1
+		add_unit_leader_trait = war_hero
+	}
+	
+	PRC_xiao_jinguang = {
+		set_portraits = {
+			army={
+				large="gfx/leaders/PRC/xiaojinguang.jpg"
+			}
+		}
+		add_skill_level = 1
+		add_unit_leader_trait = war_hero
+	}
+	
+	PRC_wang_shusheng = {
+		set_portraits = {
+			army={
+				large="gfx/leaders/PRC/Wang_Shusheng_PLA.dds"
+			}
+		}
+		add_skill_level = 1
+		add_unit_leader_trait = war_hero
+	}
+	
+	PRC_peng_xuefeng = {
+		set_portraits = {
+			army={
+				large="gfx/leaders/PRC/Peng_Xuefeng_PLA.dds"
+			}
+		}
+		add_skill_level = 1
+	}
+	
+	PRC_chenzaidao = {
+		set_portraits = {
+			army={
+				large="gfx/leaders/PRC/General_Chen_Zaidao.dds"
+			}
+		}
+		add_skill_level = 1
+	}
+	
+	PRC_luoruiqing = {
+		set_portraits = {
+			army={
+				large="gfx/leaders/PRC/General_Luo_Ruiqing.dds"
+			}
+		}
+		add_skill_level = 1
+		add_unit_leader_trait = war_hero
+	}
+	
+	PRC_yefei = {
+		set_portraits = {
+			army={
+				large="gfx/leaders/PRC/General_Ye_Fei.dds"
+			}
+		}
+		add_skill_level = 1
+	}
+	
+	PRC_xushiyou = {
+		set_portraits = {
+			army={
+				large="gfx/leaders/PRC/General_Xu_Shiyou.dds"
+			}
+		}
+		add_skill_level = 1
+	}
+	
+	PRC_zhangyunyi = {
+		set_portraits = {
+			army={
+				large="gfx/leaders/PRC/zhangyunyi_pla.jpg"
+			}
+		}
+		add_skill_level = 1
+		add_unit_leader_trait = war_hero
+	}
+	
+	PRC_huangkecheng = {
+		set_portraits = {
+			army={
+				large="gfx/leaders/PRC/huangkecheng_pla.jpg"
+			}
+		}
+		add_skill_level = 1
+		add_unit_leader_trait = war_hero
+	}
+	
+	PRC_tanzheng = {
+		set_portraits = {
+			army={
+				large="gfx/leaders/PRC/tanzheng_pla.jpg"
+			}
+		}
+		add_skill_level = 1
+		add_unit_leader_trait = war_hero
+	}
+	
+	PRC_wangzhen = {
+		set_portraits = {
+			army={
+				large="gfx/leaders/PRC/wangzhen_pla.png"
+			}
+		}
+		add_skill_level = 1
+	}
+	
+	PRC_deng_xiaoping = {
+		set_portraits = {
+			army={
+				large="gfx/leaders/PRC/Deng_Xiaoping_1949.dds"
+			}
+		}
+		add_skill_level = 1
+	}
+	
+	PRC_zhu_rui = {
+		set_portraits = {
+			army = { large ="gfx/leaders/PRC/Zhu_Rui_PLA.dds" }
+		}
+		add_skill_level = 1
+		add_unit_leader_trait = war_hero
+	}
+	
+	PRC_yangyong = {
+		add_skill_level = 1
+	}
+	
+	PRC_yangchengwu = {
+		add_skill_level = 1
+	}
+	
+}
+
+warlord_traits_added = {
+
+	SHX = {
+				add_country_leader_trait = cunzaizhuyi
+				
+				add_country_leader_trait = {
+	ideology = despotism
+	trait = cunzaizhuyi
+}
+add_country_leader_trait = {
+	ideology = n_socialism_ideology
+	trait = cunzaizhuyi
+}
+add_country_leader_trait = {
+	ideology = conservatism
+	trait = cunzaizhuyi
+}
+add_country_leader_trait = {
+	ideology = fascism_ideology
+	trait = cunzaizhuyi
+}
+add_country_leader_trait = {
+	ideology = marxism
+	trait = cunzaizhuyi
+}
+			}
+
+	YUN = {
+				add_country_leader_trait = YUN_king_of_yunnan
+				add_country_leader_trait = YUN_great_reformer
+				add_country_leader_trait = YUN_excavation_priorities
+				add_country_leader_trait = YUN_infrastructure_builder
+				add_country_leader_trait = YUN_cares_for_agriculture
+				
+				add_country_leader_trait = {
+	ideology = despotism
+	trait = YUN_king_of_yunnan
+}
+add_country_leader_trait = {
+	ideology = n_socialism_ideology
+	trait = YUN_king_of_yunnan
+}
+add_country_leader_trait = {
+	ideology = conservatism
+	trait = YUN_king_of_yunnan
+}
+add_country_leader_trait = {
+	ideology = fascism_ideology
+	trait = YUN_king_of_yunnan
+}
+add_country_leader_trait = {
+	ideology = marxism
+	trait = YUN_king_of_yunnan
+}
+
+add_country_leader_trait = {
+	ideology = despotism
+	trait = YUN_great_reformer
+}
+add_country_leader_trait = {
+	ideology = n_socialism_ideology
+	trait = YUN_great_reformer
+}
+add_country_leader_trait = {
+	ideology = conservatism
+	trait = YUN_great_reformer
+}
+add_country_leader_trait = {
+	ideology = fascism_ideology
+	trait = YUN_great_reformer
+}
+add_country_leader_trait = {
+	ideology = marxism
+	trait = YUN_great_reformer
+}
+
+add_country_leader_trait = {
+	ideology = despotism
+	trait = YUN_excavation_priorities
+}
+add_country_leader_trait = {
+	ideology = n_socialism_ideology
+	trait = YUN_excavation_priorities
+}
+add_country_leader_trait = {
+	ideology = conservatism
+	trait = YUN_excavation_priorities
+}
+add_country_leader_trait = {
+	ideology = fascism_ideology
+	trait = YUN_excavation_priorities
+}
+add_country_leader_trait = {
+	ideology = marxism
+	trait = YUN_excavation_priorities
+}
+
+add_country_leader_trait = {
+	ideology = despotism
+	trait = YUN_infrastructure_builder
+}
+add_country_leader_trait = {
+	ideology = n_socialism_ideology
+	trait = YUN_infrastructure_builder
+}
+add_country_leader_trait = {
+	ideology = conservatism
+	trait = YUN_infrastructure_builder
+}
+add_country_leader_trait = {
+	ideology = fascism_ideology
+	trait = YUN_infrastructure_builder
+}
+add_country_leader_trait = {
+	ideology = marxism
+	trait = YUN_infrastructure_builder
+}
+
+add_country_leader_trait = {
+	ideology = despotism
+	trait = YUN_cares_for_agriculture
+}
+add_country_leader_trait = {
+	ideology = n_socialism_ideology
+	trait = YUN_cares_for_agriculture
+}
+add_country_leader_trait = {
+	ideology = conservatism
+	trait = YUN_cares_for_agriculture
+}
+add_country_leader_trait = {
+	ideology = fascism_ideology
+	trait = YUN_cares_for_agriculture
+}
+add_country_leader_trait = {
+	ideology = marxism
+	trait = YUN_cares_for_agriculture
+}
+			}
+			XIK = {
+				add_country_leader_trait = XIK_xikang_proponent
+				add_country_leader_trait = XIK_independent_stance
+				add_country_leader_trait = XIK_liu_xiang_rivalry
+				
+				add_country_leader_trait = {
+	ideology = despotism
+	trait = XIK_xikang_proponent
+}
+add_country_leader_trait = {
+	ideology = n_socialism_ideology
+	trait = XIK_xikang_proponent
+}
+add_country_leader_trait = {
+	ideology = conservatism
+	trait = XIK_xikang_proponent
+}
+add_country_leader_trait = {
+	ideology = fascism_ideology
+	trait = XIK_xikang_proponent
+}
+add_country_leader_trait = {
+	ideology = marxism
+	trait = XIK_xikang_proponent
+}
+
+add_country_leader_trait = {
+	ideology = despotism
+	trait = XIK_independent_stance
+}
+add_country_leader_trait = {
+	ideology = n_socialism_ideology
+	trait = XIK_independent_stance
+}
+add_country_leader_trait = {
+	ideology = conservatism
+	trait = XIK_independent_stance
+}
+add_country_leader_trait = {
+	ideology = fascism_ideology
+	trait = XIK_independent_stance
+}
+add_country_leader_trait = {
+	ideology = marxism
+	trait = XIK_independent_stance
+}
+
+add_country_leader_trait = {
+	ideology = despotism
+	trait = XIK_liu_xiang_rivalry
+}
+add_country_leader_trait = {
+	ideology = n_socialism_ideology
+	trait = XIK_liu_xiang_rivalry
+}
+add_country_leader_trait = {
+	ideology = conservatism
+	trait = XIK_liu_xiang_rivalry
+}
+add_country_leader_trait = {
+	ideology = fascism_ideology
+	trait = XIK_liu_xiang_rivalry
+}
+add_country_leader_trait = {
+	ideology = marxism
+	trait = XIK_liu_xiang_rivalry
+}
+			}
+			GUD = {
+				add_country_leader_trait = GUD_heavenly_king_of_the_south
+				add_country_leader_trait = GUD_promoted_public_education
+				add_country_leader_trait = GUD_liked_by_the_people
+				add_country_leader_trait = GUD_good_modernizer
+				
+				add_country_leader_trait = {
+	ideology = despotism
+	trait = GUD_heavenly_king_of_the_south
+}
+add_country_leader_trait = {
+	ideology = n_socialism_ideology
+	trait = GUD_heavenly_king_of_the_south
+}
+add_country_leader_trait = {
+	ideology = conservatism
+	trait = GUD_heavenly_king_of_the_south
+}
+add_country_leader_trait = {
+	ideology = fascism_ideology
+	trait = GUD_heavenly_king_of_the_south
+}
+add_country_leader_trait = {
+	ideology = marxism
+	trait = GUD_heavenly_king_of_the_south
+}
+
+add_country_leader_trait = {
+	ideology = despotism
+	trait = GUD_promoted_public_education
+}
+add_country_leader_trait = {
+	ideology = n_socialism_ideology
+	trait = GUD_promoted_public_education
+}
+add_country_leader_trait = {
+	ideology = conservatism
+	trait = GUD_promoted_public_education
+}
+add_country_leader_trait = {
+	ideology = fascism_ideology
+	trait = GUD_promoted_public_education
+}
+add_country_leader_trait = {
+	ideology = marxism
+	trait = GUD_promoted_public_education
+}
+
+add_country_leader_trait = {
+	ideology = despotism
+	trait = GUD_liked_by_the_people
+}
+add_country_leader_trait = {
+	ideology = n_socialism_ideology
+	trait = GUD_liked_by_the_people
+}
+add_country_leader_trait = {
+	ideology = conservatism
+	trait = GUD_liked_by_the_people
+}
+add_country_leader_trait = {
+	ideology = fascism_ideology
+	trait = GUD_liked_by_the_people
+}
+add_country_leader_trait = {
+	ideology = marxism
+	trait = GUD_liked_by_the_people
+}
+
+add_country_leader_trait = {
+	ideology = despotism
+	trait = GUD_good_modernizer
+}
+add_country_leader_trait = {
+	ideology = n_socialism_ideology
+	trait = GUD_good_modernizer
+}
+add_country_leader_trait = {
+	ideology = conservatism
+	trait = GUD_good_modernizer
+}
+add_country_leader_trait = {
+	ideology = fascism_ideology
+	trait = GUD_good_modernizer
+}
+add_country_leader_trait = {
+	ideology = marxism
+	trait = GUD_good_modernizer
+}
+			}
+			NEA = {
+				add_country_leader_trait = shaoshuai
+				add_country_leader_trait = budikang
+				add_country_leader_trait = NEA_hates_chiang
+				
+				add_country_leader_trait = {
+	ideology = despotism
+	trait = shaoshuai
+}
+add_country_leader_trait = {
+	ideology = n_socialism_ideology
+	trait = shaoshuai
+}
+add_country_leader_trait = {
+	ideology = conservatism
+	trait = shaoshuai
+}
+add_country_leader_trait = {
+	ideology = fascism_ideology
+	trait = shaoshuai
+}
+add_country_leader_trait = {
+	ideology = marxism
+	trait = shaoshuai
+}
+
+add_country_leader_trait = {
+	ideology = despotism
+	trait = NEA_hates_chiang
+}
+add_country_leader_trait = {
+	ideology = n_socialism_ideology
+	trait = NEA_hates_chiang
+}
+add_country_leader_trait = {
+	ideology = conservatism
+	trait = NEA_hates_chiang
+}
+add_country_leader_trait = {
+	ideology = fascism_ideology
+	trait = NEA_hates_chiang
+}
+add_country_leader_trait = {
+	ideology = marxism
+	trait = NEA_hates_chiang
+}
+			}
+			SHD = {
+				add_country_leader_trait = SHD_questionable_allegiances
+				
+				add_country_leader_trait = {
+	ideology = despotism
+	trait = SHD_questionable_allegiances
+}
+add_country_leader_trait = {
+	ideology = n_socialism_ideology
+	trait = SHD_questionable_allegiances
+}
+add_country_leader_trait = {
+	ideology = conservatism
+	trait = SHD_questionable_allegiances
+}
+add_country_leader_trait = {
+	ideology = fascism_ideology
+	trait = SHD_questionable_allegiances
+}
+add_country_leader_trait = {
+	ideology = marxism
+	trait = SHD_questionable_allegiances
+}
+			}
+			NXM = {
+				add_country_leader_trait = NXM_diabetes
+				add_country_leader_trait = difangshilipai
+				
+				add_country_leader_trait = {
+	ideology = despotism
+	trait = NXM_diabetes
+}
+add_country_leader_trait = {
+	ideology = n_socialism_ideology
+	trait = NXM_diabetes
+}
+add_country_leader_trait = {
+	ideology = conservatism
+	trait = NXM_diabetes
+}
+add_country_leader_trait = {
+	ideology = fascism_ideology
+	trait = NXM_diabetes
+}
+add_country_leader_trait = {
+	ideology = marxism
+	trait = NXM_diabetes
+}
+
+add_country_leader_trait = {
+	ideology = despotism
+	trait = difangshilipai
+}
+add_country_leader_trait = {
+	ideology = n_socialism_ideology
+	trait = difangshilipai
+}
+add_country_leader_trait = {
+	ideology = conservatism
+	trait = difangshilipai
+}
+add_country_leader_trait = {
+	ideology = fascism_ideology
+	trait = difangshilipai
+}
+add_country_leader_trait = {
+	ideology = marxism
+	trait = difangshilipai
+}
+			}
+			SHX = {
+				add_country_leader_trait = CHI_veteran_of_central_plains_war
+				
+				add_country_leader_trait = {
+	ideology = despotism
+	trait = CHI_veteran_of_central_plains_war
+}
+add_country_leader_trait = {
+	ideology = n_socialism_ideology
+	trait = CHI_veteran_of_central_plains_war
+}
+add_country_leader_trait = {
+	ideology = conservatism
+	trait = CHI_veteran_of_central_plains_war
+}
+add_country_leader_trait = {
+	ideology = fascism_ideology
+	trait = CHI_veteran_of_central_plains_war
+}
+add_country_leader_trait = {
+	ideology = marxism
+	trait = CHI_veteran_of_central_plains_war
+}
+			}
+			GXC = {
+				add_country_leader_trait = GXC_nra_general
+				add_country_leader_trait = GXC_new_guangxi_clique
+				add_country_leader_trait = GXC_guangxi_administrator
+				add_country_leader_trait = CHI_veteran_of_central_plains_war
+				add_country_leader_trait = CHI_dislikes_chiang
+				
+				add_country_leader_trait = {
+	ideology = despotism
+	trait = GXC_nra_general
+}
+add_country_leader_trait = {
+	ideology = n_socialism_ideology
+	trait = GXC_nra_general
+}
+add_country_leader_trait = {
+	ideology = conservatism
+	trait = GXC_nra_general
+}
+add_country_leader_trait = {
+	ideology = fascism_ideology
+	trait = GXC_nra_general
+}
+add_country_leader_trait = {
+	ideology = marxism
+	trait = GXC_nra_general
+}
+
+add_country_leader_trait = {
+	ideology = despotism
+	trait = GXC_new_guangxi_clique
+}
+add_country_leader_trait = {
+	ideology = n_socialism_ideology
+	trait = GXC_new_guangxi_clique
+}
+add_country_leader_trait = {
+	ideology = conservatism
+	trait = GXC_new_guangxi_clique
+}
+add_country_leader_trait = {
+	ideology = fascism_ideology
+	trait = GXC_new_guangxi_clique
+}
+add_country_leader_trait = {
+	ideology = marxism
+	trait = GXC_new_guangxi_clique
+}
+
+add_country_leader_trait = {
+	ideology = despotism
+	trait = GXC_guangxi_administrator
+}
+add_country_leader_trait = {
+	ideology = n_socialism_ideology
+	trait = GXC_guangxi_administrator
+}
+add_country_leader_trait = {
+	ideology = conservatism
+	trait = GXC_guangxi_administrator
+}
+add_country_leader_trait = {
+	ideology = fascism_ideology
+	trait = GXC_guangxi_administrator
+}
+add_country_leader_trait = {
+	ideology = marxism
+	trait = GXC_guangxi_administrator
+}
+
+add_country_leader_trait = {
+	ideology = despotism
+	trait = CHI_veteran_of_central_plains_war
+}
+add_country_leader_trait = {
+	ideology = n_socialism_ideology
+	trait = CHI_veteran_of_central_plains_war
+}
+add_country_leader_trait = {
+	ideology = conservatism
+	trait = CHI_veteran_of_central_plains_war
+}
+add_country_leader_trait = {
+	ideology = fascism_ideology
+	trait = CHI_veteran_of_central_plains_war
+}
+add_country_leader_trait = {
+	ideology = marxism
+	trait = CHI_veteran_of_central_plains_war
+}
+
+add_country_leader_trait = {
+	ideology = despotism
+	trait = CHI_dislikes_chiang
+}
+add_country_leader_trait = {
+	ideology = n_socialism_ideology
+	trait = CHI_dislikes_chiang
+}
+add_country_leader_trait = {
+	ideology = conservatism
+	trait = CHI_dislikes_chiang
+}
+add_country_leader_trait = {
+	ideology = fascism_ideology
+	trait = CHI_dislikes_chiang
+}
+add_country_leader_trait = {
+	ideology = marxism
+	trait = CHI_dislikes_chiang
+}
+			}
+			XSM = { #Ma Bufang based as fuck
+				XSM_ma_bufang = {
+					add_country_leader_trait = {
+						trait = XSM_king_of_qinghai
+						ideology = despotism
+					}
+					add_country_leader_trait = {
+						trait = XSM_good_humored_and_jovial
+						ideology = despotism
+					}
+					add_country_leader_trait = {
+						trait = XSM_industrializer
+						ideology = despotism
+					}
+					add_country_leader_trait = {
+						trait = XSM_environment_protecter
+						ideology = despotism
+					}
+					add_country_leader_trait = {
+						trait = XSM_education_promoter
+						ideology = despotism
+					}
+					add_country_leader_trait = {
+						trait = XSM_destroyer_of_tibetans
+						ideology = despotism
+					}
+					add_country_leader_trait = {
+						trait = anti_communist
+						ideology = despotism
+					}
+					
+					add_country_leader_trait = {
+						trait = XSM_king_of_qinghai
+						ideology = n_socialism_ideology
+					}
+					add_country_leader_trait = {
+						trait = XSM_good_humored_and_jovial
+						ideology = n_socialism_ideology
+					}
+					add_country_leader_trait = {
+						trait = XSM_industrializer
+						ideology = n_socialism_ideology
+					}
+					add_country_leader_trait = {
+						trait = XSM_environment_protecter
+						ideology = n_socialism_ideology
+					}
+					add_country_leader_trait = {
+						trait = XSM_education_promoter
+						ideology = n_socialism_ideology
+					}
+					add_country_leader_trait = {
+						trait = XSM_destroyer_of_tibetans
+						ideology = n_socialism_ideology
+					}
+					add_country_leader_trait = {
+						trait = anti_communist
+						ideology = n_socialism_ideology
+					}
+					
+					add_country_leader_trait = {
+						trait = XSM_king_of_qinghai
+						ideology = conservatism
+					}
+					add_country_leader_trait = {
+						trait = XSM_good_humored_and_jovial
+						ideology = conservatism
+					}
+					add_country_leader_trait = {
+						trait = XSM_industrializer
+						ideology = conservatism
+					}
+					add_country_leader_trait = {
+						trait = XSM_environment_protecter
+						ideology = conservatism
+					}
+					add_country_leader_trait = {
+						trait = XSM_education_promoter
+						ideology = conservatism
+					}
+					add_country_leader_trait = {
+						trait = XSM_destroyer_of_tibetans
+						ideology = conservatism
+					}
+					add_country_leader_trait = {
+						trait = anti_communist
+						ideology = conservatism
+					}
+					
+					add_country_leader_trait = {
+						trait = XSM_king_of_qinghai
+						ideology = fascism_ideology
+					}
+					add_country_leader_trait = {
+						trait = XSM_good_humored_and_jovial
+						ideology = fascism_ideology
+					}
+					add_country_leader_trait = {
+						trait = XSM_industrializer
+						ideology = fascism_ideology
+					}
+					add_country_leader_trait = {
+						trait = XSM_environment_protecter
+						ideology = fascism_ideology
+					}
+					add_country_leader_trait = {
+						trait = XSM_education_promoter
+						ideology = fascism_ideology
+					}
+					add_country_leader_trait = {
+						trait = XSM_destroyer_of_tibetans
+						ideology = fascism_ideology
+					}
+					add_country_leader_trait = {
+						trait = anti_communist
+						ideology = fascism_ideology
+					}
+					
+					add_country_leader_trait = {
+						trait = XSM_king_of_qinghai
+						ideology = marxism
+					}
+					add_country_leader_trait = {
+						trait = XSM_good_humored_and_jovial
+						ideology = marxism
+					}
+					add_country_leader_trait = {
+						trait = XSM_industrializer
+						ideology = marxism
+					}
+					add_country_leader_trait = {
+						trait = XSM_environment_protecter
+						ideology = marxism
+					}
+					add_country_leader_trait = {
+						trait = XSM_education_promoter
+						ideology = marxism
+					}
+					add_country_leader_trait = {
+						trait = XSM_destroyer_of_tibetans
+						ideology = marxism
+					}
+					add_country_leader_trait = {
+						trait = anti_communist
+						ideology = marxism
+					}
+				}
+				XSM_ma_lin = {
+					add_country_leader_trait = {
+						trait = XSM_likeable_governor
+						ideology = despotism
+					}
+					add_country_leader_trait = {
+						trait = XSM_bufang_lin_conflict
+						ideology = despotism
+					}
+				}
+			}
+}
+
+make_beiyue_country = {
+				if = {
+				limit = {
+					VIN = {
+						OR = {
+							exists = no
+							and = { exists = yes NOT = { has_government = communism } }
+						}
+					}
+					NOT = { has_global_flag = make_beiyue_country_happen }
+				}
+				
+				set_global_flag = make_beiyue_country_happen
+				
+				988 = {
+					owner = {
+						if = {
+						limit = { not = { tag = VIN } }
+						set_country_flag = overlord_of_VIN
+						}
+					}
+				}
+				986 = { set_state_flag = beiyue_state }
+				988 = { set_state_flag = beiyue_state }
+				987 = { set_state_flag = beiyue_state }
+				986 = {
+			    add_building_construction = {
+				    type = naval_base
+                    level = 2
+                    instant_build = yes
+                    province = 1157
+                }
+				add_building_construction = {
+				    type = bunker
+                    level = 4
+                    instant_build = yes
+                    province = 12048
+                }
+				add_building_construction = {
+				    type = bunker
+                    level = 4
+                    instant_build = yes
+                    province = 1073
+                }
+				add_building_construction = {
+				    type = bunker
+                    level = 4
+                    instant_build = yes
+                    province = 7518
+                }
+		    }
+			988 = {
+			    add_building_construction = {
+				    type = bunker
+                    level = 8
+                    instant_build = yes
+                    province = 4075
+                }
+			}
+				
+					VIN = {
+						if = {
+						limit = {
+							is_subject = yes
+						}
+							overlord = { set_country_flag = overlord_of_VIN }
+							set_autonomy = {
+								target = VIN
+								autonomy_state = autonomy_free
+							}
+						}
+						transfer_state = 986
+						transfer_state = 988
+						transfer_state = 987
+						set_capital = { state = 988 }
+						set_politics = { ruling_party = communism elections_allowed = no }
+						set_popularities = {
+							democratic = 4
+							fascism = 22
+							communism = 74
+							neutrality = 0
+						}
+						set_party_name = {
+							ideology = communism
+							name = "越南独立同盟会"
+							long_name = "越南独立同盟会"
+						}
+						delete_unit_template_and_units = {
+							division_template = "Infantry Division"
+							disband = yes
+						}
+						set_cosmetic_tag = VIN_beiyue
+						news_event = { id = zizhinews.49 days = 1 }
+						#add_ai_strategy = { type = befriend id = PRC value = 1000 }
+						#add_ai_strategy = { type = alliance id = PRC value = 1000 }
+						add_ai_strategy = { type = befriend id = SOV value = 500 }
+						PRC = {
+							add_ai_strategy = { type = befriend id = VIN value = 500 }
+							add_ai_strategy = { type = alliance id = VIN value = 500 }
+							add_ai_strategy = { type = support id = VIN value = 1000 }
+							add_ai_strategy = { type = send_lend_lease_desire id = VIN value = 1000 }
+							add_ai_strategy = { type = send_volunteers_desire id = VIN value = 1000 }
+						}
+						
+create_country_leader = {
+	name = "Vu Hong Khanh"
+	desc = ""
+	picture = "gfx/leaders/VIN/Vo_Hong_Khanh.dds"
+	expire = "1965.1.1"
+	ideology = sanmin_military_rule
+	traits = {
+	}
+}
+
+create_country_leader = {
+	name = "None"
+	desc = ""
+	picture = "gfx/leaders/leader_unknown.dds"
+	expire = "1965.1.1"
+	ideology = conservatism
+	traits = {
+	}
+}
+
+create_country_leader = {
+	name = "None"
+	desc = ""
+	picture = "gfx/leaders/leader_unknown.dds"
+	expire = "1965.1.1"
+	ideology = despotism
+	traits = {
+	}
+}
+
+create_country_leader = {
+	name = "None"
+	desc = ""
+	picture = "gfx/leaders/leader_unknown.dds"
+	expire = "1965.1.1"
+	ideology = n_socialism_ideology
+	traits = {
+	}
+}
+						
+						add_ideas = CHI_hyper_inflation_none
+						add_ideas = extensive_conscription
+						add_ideas = closed_economy
+						add_ideas = war_economy
+						add_ideas = NVA_youjidui
+						
+						inherit_technology = FIC
+						add_political_power = 2000
+						add_manpower = 500000
+						add_fuel = 999999
+						
+						army_experience = 1000
+						
+						division_template = {
+		name = "步兵师zz"
+		regiments = {
+		            infantry = { x = 0 y = 0 }
+					infantry = { x = 0 y = 1 }
+					infantry = { x = 0 y = 2 }
+					infantry = { x = 0 y = 3 }
+                    infantry = { x = 0 y = 4 }
+					
+					infantry = { x = 1 y = 0 }
+					infantry = { x = 1 y = 1 }
+					infantry = { x = 1 y = 2 }
+					infantry = { x = 1 y = 3 }
+                    infantry = { x = 1 y = 4 }
+					
+		}
+		support = {
+		engineer = { x = 0 y = 0 } 
+		recon = { x = 0 y = 1 }
+		}
+	    }
+		
+		load_oob = "NVA_Indochina_War"
+		
+		#988 = {
+		#		create_unit = {
+		#		division = "name = \"步兵师zz\" division_template = \"步兵师zz\" start_experience_factor = 0.9 "
+		#		owner = VIN
+		#		count = 15
+		#	    }
+		#	}
+			
+				#create_field_marshal = {
+				#	name = "胡志明"
+				#	portrait_path = "gfx/leaders/VIN/Portrait_Vietnam_Ho_Chi_Minh.dds"
+				#	traits={ brilliant_strategist aggressive_assaulter inspirational_leader logistics_wizard offensive_doctrine ranger infantry_leader infantry_expert jungle_rat guerilla_fighter scavenger trait_mountaineer adaptable media_personality war_hero trickster }
+				#	skill = 5
+				#	attack_skill = 6
+				#	defense_skill = 5
+				#	planning_skill = 5
+				#	logistics_skill = 5
+				#}
+		
+				add_equipment_to_stockpile = {
+						type = infantry_equipment
+						amount = 50000
+						producer = SOV
+					}
+                    add_equipment_to_stockpile = {
+				        type = train_equipment
+				        amount = 50
+				        producer = SOV
+			        }				
+					
+					add_equipment_to_stockpile = {
+						type = anti_air_equipment
+						amount = 200
+						producer = SOV
+					}
+					add_equipment_to_stockpile = {
+						type = anti_tank_equipment
+						amount = 200
+						producer = SOV
+					}
+					add_equipment_to_stockpile = {
+						type = artillery_equipment
+						amount = 1000
+						producer = SOV
+					}
+					add_equipment_to_stockpile = {#always biggest gap
+						type = support_equipment
+						amount = 2500 #not a typo
+						producer = SOV
+					}
+					add_equipment_to_stockpile = {
+						type = motorized_equipment
+						amount = 200
+						producer = SOV
+					}
+					add_equipment_to_stockpile = {
+						type = convoy
+						amount = 50
+						producer = SOV
+					}
+					
+				add_war_support = 0.25
+			add_stability = 0.25
+			add_offsite_building = {
+			type = arms_factory level = 5
+		    }
+			add_offsite_building = {
+			type = industrial_complex level = 3
+		    }
+			add_to_variable = {
+		    var = This.supply_condition
+			value = 500 #MODDED
+		}
+		add_to_variable = {
+			var = This.supply_condition_base
+			value = 500 #MODDED
+		}
+		add_to_variable = {
+			Root.supply_condition_base = 500
+			}
+					}
+					
+					IF = {
+						limit = {
+							CAM = {
+								exists = no
+								any_core_state = { is_owned_and_controlled_by = FRA }
+							}
+						}
+						FRA = {
+							release = CAM
+							set_autonomy = {
+								target = CAM
+								autonomous_state = autonomy_colony
+							}
+						}
+						every_state = {
+							limit = {
+								is_core_of = CAM
+								is_owned_and_controlled_by = FRA
+							}
+							transfer_state_to = CAM
+						}
+						CAM = {
+							set_politics = {
+								ruling_party = neutrality
+								elections_allowed = no
+							}
+							add_popularity = {
+								ideology = neutrality
+								popularity = 0.7
+							}
+						}
+					}
+					IF = {
+						limit = {
+							LAO = {
+								exists = no
+								any_core_state = { is_owned_and_controlled_by = FRA }
+							}
+						}
+						FRA = {
+							release = LAO
+							set_autonomy = {
+								target = LAO
+								autonomous_state = autonomy_colony
+							}
+						}
+						every_state = {
+							limit = {
+								is_core_of = LAO
+								is_owned_and_controlled_by = FRA
+							}
+							transfer_state_to = LAO
+						}
+						LAO = {
+							set_politics = {
+								ruling_party = neutrality
+								elections_allowed = no
+							}
+							add_popularity = {
+								ideology = neutrality
+								popularity = 0.7
+							}
+						}
+					}
+					
+				}
+}
+
+diqu_leixing_level_up = {
+				if = {
+					limit = {
+						has_state_category = wasteland
+					}
+					set_state_category = pastoral
+				}
+				else_if = {
+					limit = {
+						has_state_category = pastoral
+					}
+					set_state_category = rural
+				}
+				else_if = {
+					limit = {
+						has_state_category = rural
+					}
+					set_state_category = town
+				}
+				else_if = {
+					limit = {
+						has_state_category = town
+					}
+					set_state_category = large_town
+				}
+				else_if = {
+					limit = {
+						has_state_category = large_town
+					}
+					set_state_category = city
+				}
+				else_if = {
+					limit = {
+						has_state_category = city
+					}
+					set_state_category = large_city
+				}
+				else_if = {
+					limit = {
+						has_state_category = large_city
+					}
+					set_state_category = metropolis
+				}
+				else_if = {
+					limit = {
+						has_state_category = metropolis
+					}
+					set_state_category = megalopolis
+				}
+}

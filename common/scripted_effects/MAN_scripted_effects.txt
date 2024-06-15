@@ -1,0 +1,2265 @@
+#民用工厂
+jie_yong_ming_yong_gogn_chang = {
+
+    JAP = {
+		random_owned_controlled_state = {
+			limit = {
+				is_core_of = JAP 	
+				is_fully_controlled_by = JAP
+				#空闲建筑槽位
+				free_building_slots = {
+					building = industrial_complex
+					size > 1
+					include_locked = yes
+				}
+			}
+			#增加建筑槽
+			#add_extra_state_shared_building_slots = 1
+			#增加工厂
+			remove_building = {
+				type = industrial_complex
+				level = 1
+			}
+		}
+	}
+
+	ROOT = {
+		random_owned_controlled_state = {
+			limit = {
+				is_core_of = ROOT 	
+				is_fully_controlled_by = ROOT
+				#空闲建筑槽位
+				free_building_slots = {
+					building = industrial_complex
+					size > 1
+					include_locked = yes
+				}
+			}
+			#增加建筑槽
+			add_extra_state_shared_building_slots = 1
+			#增加工厂
+			add_building_construction = {
+				type = industrial_complex
+				level = 1
+				instant_build = yes
+			}
+		}
+	}
+}
+
+
+#军用工厂
+jie_yong_jun_yong_gogn_chang = {
+
+    JAP = {
+		random_owned_controlled_state = {
+			limit = {
+				is_core_of = JAP 	
+				is_fully_controlled_by = JAP
+				#空闲建筑槽位
+				free_building_slots = {
+					building = arms_factory
+					size > 1
+					include_locked = yes
+				}
+			}
+			#增加建筑槽
+			#add_extra_state_shared_building_slots = 1
+			#增加工厂
+			remove_building = {
+				type = arms_factory
+				level = 1
+			}
+		}
+	}
+
+	ROOT = {
+		random_owned_controlled_state = {
+			limit = {
+				is_core_of = ROOT 	
+				is_fully_controlled_by = ROOT
+				#空闲建筑槽位
+				free_building_slots = {
+					building = arms_factory
+					size > 1
+					include_locked = yes
+				}
+			}
+			#增加建筑槽
+			add_extra_state_shared_building_slots = 1
+			#增加工厂
+			add_building_construction = {
+				type = arms_factory
+				level = 1
+				instant_build = yes
+			}
+		}
+	}
+}
+
+
+#船坞
+jie_yong_chuan_wu = {
+
+    JAP = {
+        random_owned_controlled_state = {
+	    	limit = {
+	    		dockyard > 0
+	    		free_building_slots = {
+	    			building = dockyard
+	    			size > 1
+	    			include_locked = yes
+	    		}
+	    	}
+	    	remove_building = {
+				type = dockyard
+				level = 1
+			}
+	    }
+    }
+
+    ROOT = {
+		random_owned_controlled_state = {
+			limit = {
+				free_building_slots = {
+					building = dockyard
+					size > 1
+					include_locked = yes
+				}
+			}
+			#增加建筑槽
+			add_extra_state_shared_building_slots = 1
+			#增加工厂
+			add_building_construction = {
+				type = dockyard
+				level = 1
+				instant_build = yes
+			}
+		}
+	}
+}
+
+#人口
+jie_yong_ren_kou = {
+
+    JAP = {
+        random_owned_controlled_state = {
+			limit = {
+				is_core_of = JAP 	
+				is_fully_controlled_by = JAP
+			}
+	    	add_manpower = -1114514
+	    }
+    }
+
+    ROOT = {
+		random_owned_controlled_state = {
+			add_manpower = 1114514
+		}
+	}
+
+}
+
+#前线部队
+jie_yong_bu_dui = {
+	hidden_effect = {
+		if = {
+			limit = {
+				NOT = {
+					has_template = "JAP arm"
+				}
+			}
+			division_template = {
+			    name = "JAP arm"
+			    regiments = {
+			        infantry = { x = 0 y = 0 }
+			        infantry = { x = 0 y = 1 }
+			        infantry = { x = 0 y = 2 }
+			        infantry = { x = 0 y = 3 }
+					infantry = { x = 0 y = 4 }
+
+					infantry = { x = 1 y = 0 }
+			        infantry = { x = 1 y = 1 }
+			        infantry = { x = 1 y = 2 }
+			        infantry = { x = 1 y = 3 }
+					infantry = { x = 1 y = 4 }
+
+
+					infantry = { x = 2 y = 0 }
+			        infantry = { x = 2 y = 1 }
+			        infantry = { x = 2 y = 2 }
+			        infantry = { x = 2 y = 3 }
+					infantry = { x = 2 y = 4 }
+
+					infantry = { x = 3 y = 0 }
+			        infantry = { x = 3 y = 1 }
+			        infantry = { x = 3 y = 2 }
+			        infantry = { x = 3 y = 3 }
+					infantry = { x = 3 y = 4 }
+			    }
+			    support = { 
+			        military_police = { x = 0 y = 0 }
+			    }
+			}	
+		}
+		else_if = {
+
+		}
+
+		random_owned_controlled_state = {
+			create_unit = {
+    			division = "name = \"\" division_template = \"JAP arm\" start_experience_factor = 0.9 start_equipment_factor = 1.0"
+    			owner = ROOT
+    		}
+			create_unit = {
+    			division = "name = \"\" division_template = \"JAP arm\" start_experience_factor = 0.9 start_equipment_factor = 1.0"
+    			owner = ROOT
+    		}
+			create_unit = {
+    			division = "name = \"\" division_template = \"JAP arm\" start_experience_factor = 0.9 start_equipment_factor = 1.0"
+    			owner = ROOT
+    		}	
+		}
+
+		JAP = {
+			delete_unit = { 
+    		    state = 282             
+    		    disband = no #会退还设备和人力吗
+    		}
+		}
+	}
+	
+}
+
+#舰船
+#航母
+jie_yong_jian_chuan_hang_mu = {
+	hidden_effect = {
+		create_ship = {
+			type = ship_hull_carrier_1
+			equipment_variant = "Ryujo Class"
+			creator = JAP
+			name = ""
+		}
+
+		create_ship = {
+			type = ship_hull_carrier_1
+			equipment_variant = "Ryujo Class"
+			creator = JAP
+			name = ""
+		}
+
+
+		JAP = {
+			destroy_ships = {
+			    type = ship_hull_carrier
+			    count = 2
+			}
+		}
+	}
+}
+#战列舰
+jie_yong_jian_chuan_zhan_lie_jian = {
+	hidden_effect = {
+		create_ship = {
+			type = ship_hull_heavy_1
+			equipment_variant = "Nagato Class"
+			creator = JAP
+			name = ""
+		}
+		create_ship = {
+			type = ship_hull_heavy_1
+			equipment_variant = "Nagato Class"
+			creator = JAP
+			name = ""
+		}
+		JAP = {
+			destroy_ships = {
+			    type = ship_hull_heavy
+			    count = 2
+			}
+		}
+	}
+}
+#主力舰
+sui_ji_jie_yong = {
+	hidden_effect = {
+		random_list = {
+			50 = {
+				create_ship = {
+					type = ship_hull_carrier_1
+					equipment_variant = "Ryujo Class"
+					creator = JAP
+					name = ""
+				}
+				create_ship = {
+					type = ship_hull_carrier_1
+					equipment_variant = "Ryujo Class"
+					creator = JAP
+					name = ""
+				}
+				JAP = {
+					destroy_ships = {
+					    type = ship_hull_carrier
+					    count = 2
+					}
+				}
+			}
+			50 = {
+				create_ship = {
+					type = ship_hull_heavy_1
+					equipment_variant = "Nagato Class"
+					creator = JAP
+					name = ""
+				}
+				create_ship = {
+					type = ship_hull_heavy_1
+					equipment_variant = "Nagato Class"
+					creator = JAP
+					name = ""
+				}
+				JAP = {
+					destroy_ships = {
+					    type = ship_hull_heavy
+					    count = 2
+					}
+				}
+			}
+		}	
+	}
+	
+}
+
+#轻巡
+jie_yong_jian_chuan_qin_xin = {
+	hidden_effect = {
+		create_ship = {
+			type = ship_hull_cruiser_2
+			equipment_variant = "Mogami Class"
+			creator = JAP
+			name = ""
+		}
+		create_ship = {
+			type = ship_hull_cruiser_2
+			equipment_variant = "Mogami Class"
+			creator = JAP
+			name = ""
+		}
+		create_ship = {
+			type = ship_hull_cruiser_2
+			equipment_variant = "Mogami Class"
+			creator = JAP
+			name = ""
+		}
+		create_ship = {
+			type = ship_hull_cruiser_2
+			equipment_variant = "Mogami Class"
+			creator = JAP
+			name = ""
+		}
+		create_ship = {
+			type = ship_hull_cruiser_2
+			equipment_variant = "Mogami Class"
+			creator = JAP
+			name = ""
+		}
+		JAP = {
+			destroy_ships = {
+			    type = ship_hull_cruiser
+			    count = 5
+			}
+		}
+	}
+}
+#驱逐
+jie_yong_jian_chuan_qu_zhu = {
+	hidden_effect = {
+		create_ship = {
+			type = ship_hull_light_1
+			equipment_variant = "Mutsuki Class"
+			creator = JAP
+			name = ""
+		}
+		create_ship = {
+			type = ship_hull_light_1
+			equipment_variant = "Mutsuki Class"
+			creator = JAP
+			name = ""
+		}
+		create_ship = {
+			type = ship_hull_light_1
+			equipment_variant = "Mutsuki Class"
+			creator = JAP
+			name = ""
+		}
+		create_ship = {
+			type = ship_hull_light_1
+			equipment_variant = "Mutsuki Class"
+			creator = JAP
+			name = ""
+		}
+		create_ship = {
+			type = ship_hull_light_1
+			equipment_variant = "Mutsuki Class"
+			creator = JAP
+			name = ""
+		}
+		create_ship = {
+			type = ship_hull_light_1
+			equipment_variant = "Mutsuki Class"
+			creator = JAP
+			name = ""
+		}
+		create_ship = {
+			type = ship_hull_light_1
+			equipment_variant = "Mutsuki Class"
+			creator = JAP
+			name = ""
+		}
+		create_ship = {
+			type = ship_hull_light_1
+			equipment_variant = "Mutsuki Class"
+			creator = JAP
+			name = ""
+		}
+		create_ship = {
+			type = ship_hull_light_1
+			equipment_variant = "Mutsuki Class"
+			creator = JAP
+			name = ""
+		}
+		create_ship = {
+			type = ship_hull_light_1
+			equipment_variant = "Mutsuki Class"
+			creator = JAP
+			name = ""
+		}
+		JAP = {
+			destroy_ships = {
+			    type = ship_hull_light
+			    count = 10
+			}
+		}
+	}
+}
+#潜艇
+jie_yong_jian_chuan_qian_ting = {
+	hidden_effect = {
+		create_ship = {
+			type = ship_hull_submarine_1
+			equipment_variant = "Kaidai III Class"
+			creator = JAP
+			name = "1 Sensui Sentai"
+		}
+		create_ship = {
+			type = ship_hull_submarine_1
+			equipment_variant = "Kaidai III Class"
+			creator = JAP
+			name = "1 Sensui Sentai"
+		}
+		create_ship = {
+			type = ship_hull_submarine_1
+			equipment_variant = "Kaidai III Class"
+			creator = JAP
+			name = "1 Sensui Sentai"
+		}
+		create_ship = {
+			type = ship_hull_submarine_1
+			equipment_variant = "Kaidai III Class"
+			creator = JAP
+			name = "1 Sensui Sentai"
+		}
+		create_ship = {
+			type = ship_hull_submarine_1
+			equipment_variant = "Kaidai III Class"
+			creator = JAP
+			name = "1 Sensui Sentai"
+		}
+		create_ship = {
+			type = ship_hull_submarine_1
+			equipment_variant = "Kaidai III Class"
+			creator = JAP
+			name = "1 Sensui Sentai"
+		}
+		create_ship = {
+			type = ship_hull_submarine_1
+			equipment_variant = "Kaidai III Class"
+			creator = JAP
+			name = "1 Sensui Sentai"
+		}
+		create_ship = {
+			type = ship_hull_submarine_1
+			equipment_variant = "Kaidai III Class"
+			creator = JAP
+			name = "1 Sensui Sentai"
+		}
+		create_ship = {
+			type = ship_hull_submarine_1
+			equipment_variant = "Kaidai III Class"
+			creator = JAP
+			name = "1 Sensui Sentai"
+		}
+		create_ship = {
+			type = ship_hull_submarine_1
+			equipment_variant = "Kaidai III Class"
+			creator = JAP
+			name = "1 Sensui Sentai"
+		}
+		JAP = {
+			destroy_ships = {
+			    type = ship_hull_submarine
+			    count = 10
+			}
+		}
+	}
+}
+
+#战斗机
+jie_yong_fei_ji_zhan_dou_ji = {
+	add_equipment_to_stockpile = { type = small_plane_airframe_0 amount = 200 producer = JAP variant_name = "Ki-10" }
+	JAP = {
+		add_equipment_to_stockpile = { type = small_plane_airframe_0 amount = -200 producer = JAP variant_name = "Ki-10" }
+	}
+}
+#支援机
+jie_yong_fei_ji_CAS = {
+	add_equipment_to_stockpile = { type = small_plane_cas_airframe_0 amount = 200 producer = JAP variant_name = "Ki-3"}
+	JAP = {
+		add_equipment_to_stockpile = { type = small_plane_cas_airframe_0 amount = -200 producer = JAP variant_name = "Ki-3"}
+	}
+}
+
+#JAP = {		
+#	add_opinion_modifier = {
+#	    target = MAN
+#	    modifier = wo_zhuang_bei_ne
+#	}
+#}
+
+#日本的信任
+jie_yong_xing_ren = {
+	JAP = {
+		add_opinion_modifier = {
+		    target = ROOT
+		    modifier = xing_ren
+		}	
+	}
+	
+}
+
+#裕仁天皇
+jie_yong_yu_ren = {
+	hidden_effect = {
+		JAP = {
+		remove_ideas = emperor_showa
+		}
+	}
+	if = {
+		limit = {
+			NOT = {
+				has_idea = emperor_showa
+			}
+		}
+		add_ideas = emperor_showa
+	}
+}
+
+#transfer_state = 524
+#transfer_state = 526
+#transfer_state = 645
+#transfer_state = 648
+#transfer_state = 646
+#transfer_state = 684
+#transfer_state = 647
+#transfer_state = 633
+
+#小岛
+jie_yong_xiao_dao = {
+	hidden_effect = {
+		if = {
+			limit = {
+				NOT = {controls_state = 745}
+			}
+			transfer_state = 745
+		}
+
+		else_if = {
+			limit = {
+				NOT = {controls_state = 524}
+			}
+			transfer_state = 524
+		}
+
+		else_if = {
+			limit = {
+				NOT = {controls_state = 526}
+			}
+			transfer_state = 526
+		}
+
+		else_if = {
+			limit = {
+				NOT = {controls_state = 537}
+			}
+			transfer_state = 537
+		}
+
+		else_if = {
+			limit = {
+				NOT = {controls_state = 555}
+			}
+			transfer_state = 555
+		}
+
+		else_if = {
+			limit = {
+				NOT = {controls_state = 645}
+			}
+			transfer_state = 645
+		}
+
+		else_if = {
+			limit = {
+				NOT = {controls_state = 648}
+			}
+			transfer_state = 648
+		}
+
+		else_if = {
+			limit = {
+				NOT = {controls_state = 647}
+			}
+			transfer_state = 647
+		}
+
+		else_if = {
+			limit = {
+				NOT = {controls_state = 684}
+			}
+			transfer_state = 684
+		}
+
+		else_if = {
+			limit = {
+				NOT = {controls_state = 646}
+			}
+			transfer_state = 646
+		}
+	}
+}
+#国家精神
+jie_yong_jing_sheng = {
+	hidden_effect = {
+		if = {
+			limit = {
+				NOT = {
+					has_idea = student_mobilization_idea
+				}
+			}
+			add_ideas = student_mobilization_idea
+		}
+		else_if = {
+			limit = {
+				NOT = {
+					has_idea = spiritual_mobilization_idea
+				}
+			}
+			add_ideas = spiritual_mobilization_idea
+		}
+		else_if = {
+			limit = {
+				NOT = {
+					has_idea = JAP_first_air_fleet
+				}
+			}
+			add_ideas = JAP_first_air_fleet
+		}
+		else_if = {
+			limit = {
+				NOT = {
+					has_idea = JAP_expand_the_snlf
+				}
+			}
+			add_ideas = JAP_expand_the_snlf
+		}
+		else_if = {
+			limit = {
+				NOT = {
+					has_idea = JAP_superior_will
+				}
+			}
+			add_ideas = JAP_superior_will
+		}
+		else_if = {
+			limit = {
+				NOT = {
+					has_idea = JAP_japanese_army_academy
+				}
+			}
+			add_ideas = JAP_japanese_army_academy
+		}
+		else_if = {
+			limit = {
+				NOT = {
+					has_idea = JAP_supremacy_of_technology
+				}
+			}
+			add_ideas = JAP_supremacy_of_technology
+		}
+		else_if = {
+			limit = {
+				NOT = {
+					has_idea = the_long_lance_2
+				}
+			}
+			add_ideas = the_long_lance_2
+		}
+	}
+}
+
+#将领
+jie_yong_jiang_ling = {
+	JAP = {
+		random_army_leader = {
+			set_nationality = ROOT
+		}
+		random_navy_leader = {
+			set_nationality = ROOT
+		}	
+	}
+	
+}
+
+#偷取资源
+jie_yong_zi_yuan = {
+	JAP = {
+		527 = {
+			add_resource = {
+        	    type = tungsten 
+        	    amount = -24
+        	}
+		     add_resource = {
+        	    type = steel  
+        	    amount = -15
+        	}
+		}
+		1004 = {
+			add_resource = {
+        	    type = tungsten 
+        	    amount = -24
+        	}
+		     add_resource = {
+        	    type = steel  
+        	    amount = -15
+        	}
+		}
+		528 = {
+			add_resource = {
+        	    type = chromium 
+        	    amount = -82
+        	}
+		}
+		994 = {
+			add_resource = {
+        	    type = chromium 
+        	    amount = -27
+        	}
+		}
+		531 = {
+			add_resource = {
+        	    type = aluminium 
+        	    amount = -6
+        	}
+
+		}
+		535 = {
+			add_resource = {
+     	            type = tungsten 
+        	    amount = -10
+        	}
+		     add_resource = {
+        	    type = steel  
+        	    amount = -67
+        	}
+		282 = {
+			add_resource = {
+     	            type = aluminium
+        	    amount = -97
+        	}
+		     add_resource = {
+        	    type = steel  
+        	    amount = -43
+        	}
+		}
+		533 = {
+		     add_resource = {
+        	    type = steel  
+        	    amount = -48
+        	}
+		}
+		995 = {
+		     add_resource = {
+        	    type = steel  
+        	    amount = -19
+        	}
+		}
+	}
+	ROOT = {
+		328 = {
+			add_resource = {
+        	    type = tungsten
+        	    amount = 58
+        	}
+			add_resource = {
+        	    type = steel 
+        	    amount = 208
+        	}
+			add_resource = {
+        	    type = aluminium 
+        	    amount = 103
+        	}
+			add_resource = {
+        	    type = chromium 
+        	    amount = 109
+        	}
+		}
+	}
+}
+
+#偷取科技-工业-电子-海军
+jie_yong_ke_ji_gong_ye = {
+
+	if = {
+		limit = {
+			ROOT = {
+				NOT = {
+					has_tech = basic_machine_tools
+				}
+			}
+			JAP = {
+				has_tech = basic_machine_tools
+			}
+		}
+		ROOT = {
+			set_technology = {
+			    basic_machine_tools = 1
+			}
+		}
+		JAP = {
+			set_technology = {
+			    basic_machine_tools = 0
+			}
+		}
+	}
+
+	else_if = {
+		limit = {
+			ROOT = {
+				NOT = {
+					has_tech = improved_machine_tools
+				}
+			}
+			JAP = {
+				has_tech = improved_machine_tools
+			}
+		}
+		ROOT = {
+			set_technology = {
+			    improved_machine_tools = 1
+			}
+		}
+		JAP = {
+			set_technology = {
+			    improved_machine_tools = 0
+			}
+		}
+	}
+
+	else_if = {
+		limit = {
+			ROOT = {
+				NOT = {
+					has_tech = advanced_machine_tools
+				}
+			}
+			JAP = {
+				has_tech = advanced_machine_tools
+			}
+		}
+		ROOT = {
+			set_technology = {
+			    advanced_machine_tools = 1
+			}
+		}
+		JAP = {
+			set_technology = {
+			    advanced_machine_tools = 0
+			}
+		}
+	}
+
+	else_if = {
+		limit = {
+			ROOT = {
+				NOT = {
+					has_tech = assembly_line_production
+				}
+			}
+			JAP = {
+				has_tech = assembly_line_production
+			}
+		}
+		ROOT = {
+			set_technology = {
+			    assembly_line_production = 1
+			}
+		}
+		JAP = {
+			set_technology = {
+			    assembly_line_production = 0
+			}
+		}
+	}
+
+	else_if = {
+		limit = {
+			ROOT = {
+				NOT = {
+					has_tech = flexible_line
+				}
+			}
+			JAP = {
+				has_tech = flexible_line
+			}
+		}
+		ROOT = {
+			set_technology = {
+			    flexible_line = 1
+			}
+		}
+		JAP = {
+			set_technology = {
+			    flexible_line = 0
+			}
+		}
+	}
+
+	else_if = {
+		limit = {
+			ROOT = {
+				NOT = {
+					has_tech = streamlined_line
+				}
+			}
+			JAP = {
+				has_tech = streamlined_line
+			}
+		}
+		ROOT = {
+			set_technology = {
+			    streamlined_line = 1
+			}
+		}
+		JAP = {
+			set_technology = {
+			    streamlined_line = 0
+			}
+		}
+	}
+
+	else_if = {
+		limit = {
+			ROOT = {
+				NOT = {
+					has_tech = improved_equipment_conversion
+				}
+			}
+			JAP = {
+				has_tech = improved_equipment_conversion
+			}
+		}
+		ROOT = {
+			set_technology = {
+			    improved_equipment_conversion = 1
+			}
+		}
+		JAP = {
+			set_technology = {
+			    improved_equipment_conversion = 0
+			}
+		}
+	}
+
+	else_if = {
+		limit = {
+			ROOT = {
+				NOT = {
+					has_tech = advanced_equipment_conversion
+				}
+			}
+			JAP = {
+				has_tech = advanced_equipment_conversion
+			}
+		}
+		ROOT = {
+			set_technology = {
+			    advanced_equipment_conversion = 1
+			}
+		}
+		JAP = {
+			set_technology = {
+			    advanced_equipment_conversion = 0
+			}
+		}
+	}
+
+
+	else_if = {
+		limit = {
+			ROOT = {
+				NOT = {
+					has_tech = concentrated_industry
+				}
+			}
+			JAP = {
+				has_tech = concentrated_industry
+			}
+		}
+		ROOT = {
+			set_technology = {
+			    concentrated_industry = 1
+			}
+		}
+		JAP = {
+			set_technology = {
+			    concentrated_industry = 0
+			}
+		}
+	}
+
+	else_if = {
+		limit = {
+			ROOT = {
+				NOT = {
+					has_tech = concentrated_industry2
+				}
+			}
+			JAP = {
+				has_tech = concentrated_industry2
+			}
+		}
+		ROOT = {
+			set_technology = {
+			    concentrated_industry2 = 1
+			}
+		}
+		JAP = {
+			set_technology = {
+			    concentrated_industry2 = 0
+			}
+		}
+	}
+
+	else_if = {
+		limit = {
+			ROOT = {
+				NOT = {
+					has_tech = concentrated_industry3
+				}
+			}
+			JAP = {
+				has_tech = concentrated_industry3
+			}
+		}
+		ROOT = {
+			set_technology = {
+			    concentrated_industry3 = 1
+			}
+		}
+		JAP = {
+			set_technology = {
+			    concentrated_industry3 = 0
+			}
+		}
+	}
+
+	else_if = {
+		limit = {
+			ROOT = {
+				NOT = {
+					has_tech = concentrated_industry4
+				}
+			}
+			JAP = {
+				has_tech = concentrated_industry4
+			}
+		}
+		ROOT = {
+			set_technology = {
+			    concentrated_industry4 = 1
+			}
+		}
+		JAP = {
+			set_technology = {
+			    concentrated_industry4 = 0
+			}
+		}
+	}
+
+	else_if = {
+		limit = {
+			ROOT = {
+				NOT = {
+					has_tech = concentrated_industry5
+				}
+			}
+			JAP = {
+				has_tech = concentrated_industry5
+			}
+		}
+		ROOT = {
+			set_technology = {
+			    concentrated_industry5 = 1
+			}
+		}
+		JAP = {
+			set_technology = {
+			    concentrated_industry5 = 0
+			}
+		}
+	}
+
+
+	else_if = {
+		limit = {
+			ROOT = {
+				NOT = {
+					has_tech = dispersed_industry
+				}
+			}
+			JAP = {
+				has_tech = dispersed_industry
+			}
+		}
+		ROOT = {
+			set_technology = {
+			    dispersed_industry = 1
+			}
+		}
+		JAP = {
+			set_technology = {
+			    dispersed_industry = 0
+			}
+		}
+	}
+
+	else_if = {
+		limit = {
+			ROOT = {
+				NOT = {
+					has_tech = dispersed_industry2
+				}
+			}
+			JAP = {
+				has_tech = dispersed_industry2
+			}
+		}
+		ROOT = {
+			set_technology = {
+			    dispersed_industry2 = 1
+			}
+		}
+		JAP = {
+			set_technology = {
+			    dispersed_industry2 = 0
+			}
+		}
+	}
+
+	else_if = {
+		limit = {
+			ROOT = {
+				NOT = {
+					has_tech = dispersed_industry3
+				}
+			}
+			JAP = {
+				has_tech = dispersed_industry3
+			}
+		}
+		ROOT = {
+			set_technology = {
+			    dispersed_industry3 = 1
+			}
+		}
+		JAP = {
+			set_technology = {
+			    dispersed_industry3 = 0
+			}
+		}
+	}
+
+	else_if = {
+		limit = {
+			ROOT = {
+				NOT = {
+					has_tech = dispersed_industry4
+				}
+			}
+			JAP = {
+				has_tech = dispersed_industry4
+			}
+		}
+		ROOT = {
+			set_technology = {
+			    dispersed_industry4 = 1
+			}
+		}
+		JAP = {
+			set_technology = {
+			    dispersed_industry4 = 0
+			}
+		}
+	}
+
+	else_if = {
+		limit = {
+			ROOT = {
+				NOT = {
+					has_tech = dispersed_industry5
+				}
+			}
+			JAP = {
+				has_tech = dispersed_industry5
+			}
+		}
+		ROOT = {
+			set_technology = {
+			    dispersed_industry5 = 1
+			}
+		}
+		JAP = {
+			set_technology = {
+			    dispersed_industry5 = 0
+			}
+		}
+	}
+}
+
+
+jie_yong_ke_ji_dian_zi = {
+	if = {
+		limit = {
+			ROOT = {
+				NOT = {
+					has_tech = electronic_mechanical_engineering
+				}
+			}
+			JAP = {
+				has_tech = electronic_mechanical_engineering
+			}
+		}
+		ROOT = {
+			set_technology = {
+			    electronic_mechanical_engineering = 1
+			}
+		}
+		JAP = {
+			set_technology = {
+			    electronic_mechanical_engineering = 0
+			}
+		}
+	}
+
+	else_if = {
+		limit = {
+			ROOT = {
+				NOT = {
+					has_tech = radio
+				}
+			}
+			JAP = {
+				has_tech = radio
+			}
+		}
+		ROOT = {
+			set_technology = {
+			    radio = 1
+			}
+		}
+		JAP = {
+			set_technology = {
+			    radio = 0
+			}
+		}
+	}
+
+	else_if = {
+		limit = {
+			ROOT = {
+				NOT = {
+					has_tech = radio_detection
+				}
+			}
+			JAP = {
+				has_tech = radio_detection
+			}
+		}
+		ROOT = {
+			set_technology = {
+			    radio_detection = 1
+			}
+		}
+		JAP = {
+			set_technology = {
+			    radio_detection = 0
+			}
+		}
+	}
+
+	else_if = {
+		limit = {
+			ROOT = {
+				NOT = {
+					has_tech = decimetric_radar
+				}
+			}
+			JAP = {
+				has_tech = decimetric_radar
+			}
+		}
+		ROOT = {
+			set_technology = {
+			    decimetric_radar = 1
+			}
+		}
+		JAP = {
+			set_technology = {
+			    decimetric_radar = 0
+			}
+		}
+	}
+
+	else_if = {
+		limit = {
+			ROOT = {
+				NOT = {
+					has_tech = improved_decimetric_radar
+				}
+			}
+			JAP = {
+				has_tech = improved_decimetric_radar
+			}
+		}
+		ROOT = {
+			set_technology = {
+			    improved_decimetric_radar = 1
+			}
+		}
+		JAP = {
+			set_technology = {
+			    improved_decimetric_radar = 0
+			}
+		}
+	}
+
+	else_if = {
+		limit = {
+			ROOT = {
+				NOT = {
+					has_tech = centimetric_radar
+				}
+			}
+			JAP = {
+				has_tech = centimetric_radar
+			}
+		}
+		ROOT = {
+			set_technology = {
+			    centimetric_radar = 1
+			}
+		}
+		JAP = {
+			set_technology = {
+			    centimetric_radar = 0
+			}
+		}
+	}
+
+	else_if = {
+		limit = {
+			ROOT = {
+				NOT = {
+					has_tech = improved_centimetric_radar
+				}
+			}
+			JAP = {
+				has_tech = improved_centimetric_radar
+			}
+		}
+		ROOT = {
+			set_technology = {
+			    improved_centimetric_radar = 1
+			}
+		}
+		JAP = {
+			set_technology = {
+			    improved_centimetric_radar = 0
+			}
+		}
+	}
+
+	else_if = {
+		limit = {
+			ROOT = {
+				NOT = {
+					has_tech = advanced_centimetric_radar
+				}
+			}
+			JAP = {
+				has_tech = advanced_centimetric_radar
+			}
+		}
+		ROOT = {
+			set_technology = {
+			    advanced_centimetric_radar = 1
+			}
+		}
+		JAP = {
+			set_technology = {
+			    advanced_centimetric_radar = 0
+			}
+		}
+	}
+
+	else_if = {
+		limit = {
+			ROOT = {
+				NOT = {
+					has_tech = mechanical_computing
+				}
+			}
+			JAP = {
+				has_tech = mechanical_computing
+			}
+		}
+		ROOT = {
+			set_technology = {
+			    mechanical_computing = 1
+			}
+		}
+		JAP = {
+			set_technology = {
+			    mechanical_computing = 0
+			}
+		}
+	}
+
+	else_if = {
+		limit = {
+			ROOT = {
+				NOT = {
+					has_tech = computing_machine
+				}
+			}
+			JAP = {
+				has_tech = computing_machine
+			}
+		}
+		ROOT = {
+			set_technology = {
+			    computing_machine = 1
+			}
+		}
+		JAP = {
+			set_technology = {
+			    computing_machine = 0
+			}
+		}
+	}
+
+	else_if = {
+		limit = {
+			ROOT = {
+				NOT = {
+					has_tech = improved_computing_machine
+				}
+			}
+			JAP = {
+				has_tech = improved_computing_machine
+			}
+		}
+		ROOT = {
+			set_technology = {
+			    improved_computing_machine = 1
+			}
+		}
+		JAP = {
+			set_technology = {
+			    improved_computing_machine = 0
+			}
+		}
+	}
+
+	else_if = {
+		limit = {
+			ROOT = {
+				NOT = {
+					has_tech = advanced_computing_machine
+				}
+			}
+			JAP = {
+				has_tech = advanced_computing_machine
+			}
+		}
+		ROOT = {
+			set_technology = {
+			    advanced_computing_machine = 1
+			}
+		}
+		JAP = {
+			set_technology = {
+			    advanced_computing_machine = 0
+			}
+		}
+	}
+
+	else_if = {
+		limit = {
+			ROOT = {
+				NOT = {
+					has_tech = basic_fire_control_system
+				}
+			}
+			JAP = {
+				has_tech = basic_fire_control_system
+			}
+		}
+		ROOT = {
+			set_technology = {
+			    basic_fire_control_system = 1
+			}
+		}
+		JAP = {
+			set_technology = {
+			    basic_fire_control_system = 0
+			}
+		}
+	}
+
+	else_if = {
+		limit = {
+			ROOT = {
+				NOT = {
+					has_tech = improved_fire_control_system
+				}
+			}
+			JAP = {
+				has_tech = improved_fire_control_system
+			}
+		}
+		ROOT = {
+			set_technology = {
+			    improved_fire_control_system = 1
+			}
+		}
+		JAP = {
+			set_technology = {
+			    improved_fire_control_system = 0
+			}
+		}
+	}
+
+	else_if = {
+		limit = {
+			ROOT = {
+				NOT = {
+					has_tech = advanced_fire_control_system
+				}
+			}
+			JAP = {
+				has_tech = advanced_fire_control_system
+			}
+		}
+		ROOT = {
+			set_technology = {
+			    advanced_fire_control_system = 1
+			}
+		}
+		JAP = {
+			set_technology = {
+			    advanced_fire_control_system = 0
+			}
+		}
+	}
+
+	else_if = {
+		limit = {
+			ROOT = {
+				NOT = {
+					has_tech = experimental_rockets
+				}
+			}
+			JAP = {
+				has_tech = experimental_rockets
+			}
+		}
+		ROOT = {
+			set_technology = {
+			    experimental_rockets = 1
+			}
+		}
+		JAP = {
+			set_technology = {
+			    experimental_rockets = 0
+			}
+		}
+	}
+
+	else_if = {
+		limit = {
+			ROOT = {
+				NOT = {
+					has_tech = rocket_engines
+				}
+			}
+			JAP = {
+				has_tech = rocket_engines
+			}
+		}
+		ROOT = {
+			set_technology = {
+			    rocket_engines = 1
+			}
+		}
+		JAP = {
+			set_technology = {
+			    rocket_engines = 0
+			}
+		}
+	}
+
+	else_if = {
+		limit = {
+			ROOT = {
+				NOT = {
+					has_tech = improved_rocket_engines
+				}
+			}
+			JAP = {
+				has_tech = improved_rocket_engines
+			}
+		}
+		ROOT = {
+			set_technology = {
+			    improved_rocket_engines = 1
+			}
+		}
+		JAP = {
+			set_technology = {
+			    improved_rocket_engines = 0
+			}
+		}
+	}
+
+	else_if = {
+		limit = {
+			ROOT = {
+				NOT = {
+					has_tech = advanced_rocket_engines
+				}
+			}
+			JAP = {
+				has_tech = advanced_rocket_engines
+			}
+		}
+		ROOT = {
+			set_technology = {
+			    advanced_rocket_engines = 1
+			}
+		}
+		JAP = {
+			set_technology = {
+			    advanced_rocket_engines = 0
+			}
+		}
+	}
+
+	else_if = {
+		limit = {
+			ROOT = {
+				NOT = {
+					has_tech = jet_engines
+				}
+			}
+			JAP = {
+				has_tech = jet_engines
+			}
+		}
+		ROOT = {
+			set_technology = {
+			    jet_engines = 1
+			}
+		}
+		JAP = {
+			set_technology = {
+			    jet_engines = 0
+			}
+		}
+	}
+
+	else_if = {
+		limit = {
+			ROOT = {
+				NOT = {
+					has_tech = atomic_research
+				}
+			}
+			JAP = {
+				has_tech = atomic_research
+			}
+		}
+		ROOT = {
+			set_technology = {
+			    atomic_research = 1
+			}
+		}
+		JAP = {
+			set_technology = {
+			    atomic_research = 0
+			}
+		}
+	}
+
+	else_if = {
+		limit = {
+			ROOT = {
+				NOT = {
+					has_tech = nuclear_reactor
+				}
+			}
+			JAP = {
+				has_tech = nuclear_reactor
+			}
+		}
+		ROOT = {
+			set_technology = {
+			    nuclear_reactor = 1
+			}
+		}
+		JAP = {
+			set_technology = {
+			    nuclear_reactor = 0
+			}
+		}
+	}
+
+	else_if = {
+		limit = {
+			ROOT = {
+				NOT = {
+					has_tech = nukes
+				}
+			}
+			JAP = {
+				has_tech = nukes
+			}
+		}
+		ROOT = {
+			set_technology = {
+			    nukes = 1
+			}
+		}
+		JAP = {
+			set_technology = {
+			    nukes = 0
+			}
+		}
+	}
+	
+}
+
+jie_yong_ke_ji_hai_jun = {
+	if = {
+		limit = {
+			ROOT = {
+				NOT = {
+					has_tech = early_ship_hull_light
+				}
+			}
+			JAP = {
+				has_tech = early_ship_hull_light
+			}
+		}
+		ROOT = {
+			set_technology = {
+			    early_ship_hull_light = 1
+			}
+		}
+		JAP = {
+			set_technology = {
+			    early_ship_hull_light = 0
+			}
+		}
+	}
+
+	else_if = {
+		limit = {
+			ROOT = {
+				NOT = {
+					has_tech = basic_ship_hull_light
+				}
+			}
+			JAP = {
+				has_tech = basic_ship_hull_light
+			}
+		}
+		ROOT = {
+			set_technology = {
+			    basic_ship_hull_light = 1
+			}
+		}
+		JAP = {
+			set_technology = {
+			    basic_ship_hull_light = 0
+			}
+		}
+	}
+
+	else_if = {
+		limit = {
+			ROOT = {
+				NOT = {
+					has_tech = improved_ship_hull_light
+				}
+			}
+			JAP = {
+				has_tech = improved_ship_hull_light
+			}
+		}
+		ROOT = {
+			set_technology = {
+			    improved_ship_hull_light = 1
+			}
+		}
+		JAP = {
+			set_technology = {
+			    improved_ship_hull_light = 0
+			}
+		}
+	}
+
+	else_if = {
+		limit = {
+			ROOT = {
+				NOT = {
+					has_tech = advanced_ship_hull_light
+				}
+			}
+			JAP = {
+				has_tech = advanced_ship_hull_light
+			}
+		}
+		ROOT = {
+			set_technology = {
+			    advanced_ship_hull_light = 1
+			}
+		}
+		JAP = {
+			set_technology = {
+			    advanced_ship_hull_light = 0
+			}
+		}
+	}
+
+	else_if = {
+		limit = {
+			ROOT = {
+				NOT = {
+					has_tech = early_ship_hull_cruiser
+				}
+			}
+			JAP = {
+				has_tech = early_ship_hull_cruiser
+			}
+		}
+		ROOT = {
+			set_technology = {
+			    early_ship_hull_cruiser = 1
+			}
+		}
+		JAP = {
+			set_technology = {
+			    early_ship_hull_cruiser = 0
+			}
+		}
+	}
+
+	else_if = {
+		limit = {
+			ROOT = {
+				NOT = {
+					has_tech = basic_ship_hull_cruiser
+				}
+			}
+			JAP = {
+				has_tech = basic_ship_hull_cruiser
+			}
+		}
+		ROOT = {
+			set_technology = {
+			    basic_ship_hull_cruiser = 1
+			}
+		}
+		JAP = {
+			set_technology = {
+			    basic_ship_hull_cruiser = 0
+			}
+		}
+	}
+
+	else_if = {
+		limit = {
+			ROOT = {
+				NOT = {
+					has_tech = improved_ship_hull_cruiser
+				}
+			}
+			JAP = {
+				has_tech = improved_ship_hull_cruiser
+			}
+		}
+		ROOT = {
+			set_technology = {
+			    improved_ship_hull_cruiser = 1
+			}
+		}
+		JAP = {
+			set_technology = {
+			    improved_ship_hull_cruiser = 0
+			}
+		}
+	}
+
+	else_if = {
+		limit = {
+			ROOT = {
+				NOT = {
+					has_tech = advanced_ship_hull_cruiser
+				}
+			}
+			JAP = {
+				has_tech = advanced_ship_hull_cruiser
+			}
+		}
+		ROOT = {
+			set_technology = {
+			    advanced_ship_hull_cruiser = 1
+			}
+		}
+		JAP = {
+			set_technology = {
+			    advanced_ship_hull_cruiser = 0
+			}
+		}
+	}
+
+	else_if = {
+		limit = {
+			ROOT = {
+				NOT = {
+					has_tech = early_ship_hull_heavy
+				}
+			}
+			JAP = {
+				has_tech = early_ship_hull_heavy
+			}
+		}
+		ROOT = {
+			set_technology = {
+			    early_ship_hull_heavy = 1
+			}
+		}
+		JAP = {
+			set_technology = {
+			    early_ship_hull_heavy = 0
+			}
+		}
+	}
+
+	else_if = {
+		limit = {
+			ROOT = {
+				NOT = {
+					has_tech = basic_ship_hull_heavy
+				}
+			}
+			JAP = {
+				has_tech = basic_ship_hull_heavy
+			}
+		}
+		ROOT = {
+			set_technology = {
+			    basic_ship_hull_heavy = 1
+			}
+		}
+		JAP = {
+			set_technology = {
+			    basic_ship_hull_heavy = 0
+			}
+		}
+	}
+
+	else_if = {
+		limit = {
+			ROOT = {
+				NOT = {
+					has_tech = ship_hull_super_heavy
+				}
+			}
+			JAP = {
+				has_tech = ship_hull_super_heavy
+			}
+		}
+		ROOT = {
+			set_technology = {
+			    ship_hull_super_heavy = 1
+			}
+		}
+		JAP = {
+			set_technology = {
+			    ship_hull_super_heavy = 0
+			}
+		}
+	}
+
+	else_if = {
+		limit = {
+			ROOT = {
+				NOT = {
+					has_tech = improved_ship_hull_heavy
+				}
+			}
+			JAP = {
+				has_tech = improved_ship_hull_heavy
+			}
+		}
+		ROOT = {
+			set_technology = {
+			    improved_ship_hull_heavy = 1
+			}
+		}
+		JAP = {
+			set_technology = {
+			    improved_ship_hull_heavy = 0
+			}
+		}
+	}
+
+	else_if = {
+		limit = {
+			ROOT = {
+				NOT = {
+					has_tech = advanced_ship_hull_heavy
+				}
+			}
+			JAP = {
+				has_tech = advanced_ship_hull_heavy
+			}
+		}
+		ROOT = {
+			set_technology = {
+			    advanced_ship_hull_heavy = 1
+			}
+		}
+		JAP = {
+			set_technology = {
+			    advanced_ship_hull_heavy = 0
+			}
+		}
+	}
+
+	else_if = {
+		limit = {
+			ROOT = {
+				NOT = {
+					has_tech = early_ship_hull_carrier
+				}
+			}
+			JAP = {
+				has_tech = early_ship_hull_carrier
+			}
+		}
+		ROOT = {
+			set_technology = {
+			    early_ship_hull_carrier = 1
+			}
+		}
+		JAP = {
+			set_technology = {
+			    early_ship_hull_carrier = 0
+			}
+		}
+	}
+
+	else_if = {
+		limit = {
+			ROOT = {
+				NOT = {
+					has_tech = basic_ship_hull_carrier
+				}
+			}
+			JAP = {
+				has_tech = basic_ship_hull_carrier
+			}
+		}
+		ROOT = {
+			set_technology = {
+			    basic_ship_hull_carrier = 1
+			}
+		}
+		JAP = {
+			set_technology = {
+			    basic_ship_hull_carrier = 0
+			}
+		}
+	}
+
+	else_if = {
+		limit = {
+			ROOT = {
+				NOT = {
+					has_tech = improved_ship_hull_carrier
+				}
+			}
+			JAP = {
+				has_tech = improved_ship_hull_carrier
+			}
+		}
+		ROOT = {
+			set_technology = {
+			    improved_ship_hull_carrier = 1
+			}
+		}
+		JAP = {
+			set_technology = {
+			    improved_ship_hull_carrier = 0
+			}
+		}
+	}
+
+	else_if = {
+		limit = {
+			ROOT = {
+				NOT = {
+					has_tech = advanced_ship_hull_carrier
+				}
+			}
+			JAP = {
+				has_tech = advanced_ship_hull_carrier
+			}
+		}
+		ROOT = {
+			set_technology = {
+			    advanced_ship_hull_carrier = 1
+			}
+		}
+		JAP = {
+			set_technology = {
+			    advanced_ship_hull_carrier = 0
+			}
+		}
+	}
+
+	else_if = {
+		limit = {
+			ROOT = {
+				NOT = {
+					has_tech = early_ship_hull_submarine
+				}
+			}
+			JAP = {
+				has_tech = early_ship_hull_submarine
+			}
+		}
+		ROOT = {
+			set_technology = {
+			    early_ship_hull_submarine = 1
+			}
+		}
+		JAP = {
+			set_technology = {
+			    early_ship_hull_submarine = 0
+			}
+		}
+	}
+
+	else_if = {
+		limit = {
+			ROOT = {
+				NOT = {
+					has_tech = basic_ship_hull_submarine
+				}
+			}
+			JAP = {
+				has_tech = basic_ship_hull_submarine
+			}
+		}
+		ROOT = {
+			set_technology = {
+			    basic_ship_hull_submarine = 1
+			}
+		}
+		JAP = {
+			set_technology = {
+			    basic_ship_hull_submarine = 0
+			}
+		}
+	}
+
+	else_if = {
+		limit = {
+			ROOT = {
+				NOT = {
+					has_tech = improved_ship_hull_submarine
+				}
+			}
+			JAP = {
+				has_tech = improved_ship_hull_submarine
+			}
+		}
+		ROOT = {
+			set_technology = {
+			    improved_ship_hull_submarine = 1
+			}
+		}
+		JAP = {
+			set_technology = {
+			    improved_ship_hull_submarine = 0
+			}
+		}
+	}
+
+	else_if = {
+		limit = {
+			ROOT = {
+				NOT = {
+					has_tech = advanced_ship_hull_submarine
+				}
+			}
+			JAP = {
+				has_tech = advanced_ship_hull_submarine
+			}
+		}
+		ROOT = {
+			set_technology = {
+			    advanced_ship_hull_submarine = 1
+			}
+		}
+		JAP = {
+			set_technology = {
+			    advanced_ship_hull_submarine = 0
+			}
+		}
+	}
+}
