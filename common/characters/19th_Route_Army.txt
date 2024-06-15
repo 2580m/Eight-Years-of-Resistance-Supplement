@@ -1,0 +1,133 @@
+characters={#guo
+
+	### ARMY CHIEFS ###
+
+	GXC_Li_Jishen={
+		name=GXC_Li_Jishen #李濟深
+		portraits={
+			army={
+				large="gfx/leaders/GXC/Portrait_GXC_Li_Jishen.dds"
+			}
+		}
+		corps_commander={
+			traits={ war_hero NRA_Major_General }
+			skill=2
+			attack_skill=2 
+			defense_skill=2
+			planning_skill=2
+			logistics_skill=2
+			legacy_id=-1
+			visible = {
+			if = {
+				limit = {
+				original_tag = GXC
+				}
+				has_completed_focus = GXC_Li_jishen_return
+				}
+			}
+		}
+	}
+	
+	GXC_jiang_guangnai={
+		name=GXC_jiang_guangnai #蔣光鼐，1888年12月17日生於廣東省東莞縣，1967年6月8日於北京病逝
+		portraits={
+			army={
+				large="gfx/leaders/GXC/Portrait_GXC_Jiang_Guangnai.dds"
+			}
+		}
+		corps_commander={
+			traits={ war_hero NRA_Major_General }
+			skill=3
+			attack_skill=2 
+			defense_skill=3
+			planning_skill=3 
+			logistics_skill=2
+			legacy_id=-1
+			visible = {
+			if = {
+				limit = {
+				original_tag = GXC
+				}
+				has_completed_focus = GXC_Rebuild_fujian_peoples_government
+				}
+			}
+		}
+	}
+
+	GXC_cai_tingkai={
+		name=GXC_cai_tingkai #蔡廷鍇，1892年4月15日生於廣東省羅定，1968年4月25日於北京病逝
+		portraits={
+			army={
+				large="gfx/leaders/GXC/Portrait_GXC_Cai_Tingkai.dds"
+			}
+		}
+		corps_commander={
+			traits={ war_hero NRA_Major_General }
+			skill=3
+			attack_skill=3 
+			defense_skill=3
+			planning_skill=2 
+			logistics_skill=2
+			legacy_id=-1
+			visible = {
+			if = {
+				limit = {
+				original_tag = GXC
+				}
+				has_country_flag = t19r_army_recruited
+				}
+			}
+		}
+	}	
+	
+	GXC_qu_shounian={
+		name=GXC_qu_shounian #區壽年
+		portraits={
+			army={
+				large="gfx/leaders/GXC/Portrait_GXC_Qu_Shounian.dds"
+			}
+		}
+		corps_commander={
+			traits={ }
+			skill=2
+			attack_skill=2
+			defense_skill=2
+			planning_skill=1
+			logistics_skill=2
+			legacy_id=-1
+			visible = { has_country_flag = t176d_recruited_flag } 			
+		}
+	}	
+
+	### POLITICAL ADVISORS ###
+
+	GXC_chen_mingshu={
+		name=GXC_chen_mingshu #陳銘樞，廣東省合浦縣（1889年12月4日－1965年5月15日）中國北京
+		portraits={
+			army={
+				small="GFX_GXC_idea_chen_mingshu"
+			}
+		}
+		advisor={
+			slot = political_advisor 
+			idea_token = GXC_chen_mingshu
+			allowed  = {
+				or = { original_tag = GXC tag = event_target:WTT_communist_china }#guo
+			}
+			available = {
+				if = {
+				limit = {
+				original_tag = GXC
+				}
+				has_completed_focus = GXC_Rebuild_fujian_peoples_government
+				}
+			}			
+			traits  = {
+				social_philosopher
+			}
+			ai_will_do = {
+				factor = 2.000
+			}
+		}
+	}	
+}
