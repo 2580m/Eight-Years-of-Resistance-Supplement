@@ -1,0 +1,934 @@
+RCM_amass_local_popular_support_cat = {
+	icon = eng_organize_the_blackshirts
+	allowed = {
+		is_literally_china = yes
+	}
+	visible = {
+		
+	}
+	priority = 150
+}
+RCM_SOV_industrial_evac = {
+	icon = eng_organize_the_blackshirts
+	allowed = {
+		tag = SOV
+	}
+	visible = {
+		
+	}
+	priority = 150
+}
+RCM_JAP_Tokyo_big6_Baseball_league = {
+	icon = baseball
+
+	picture = GFX_decision_cat_decision_baseball
+	allowed = {
+		#always = no
+	}
+	visible = {
+		owns_state = 282
+		controls_state = 282
+		has_completed_focus = JAP_promote_student_baseball_focus
+		has_country_leader_with_trait = christian_socialist
+		#NOT = {
+		#	OR = {
+		#		has_completed_focus = JAP_consolidate_yonai_cabinet_focus
+		#		has_completed_focus = JAP_second_konoe_cabinet_focus
+		#	}
+		#}
+		#has_country_leader = { name = "Mitsumasa Yonai" ruling_only = yes }
+	}
+	priority = 400
+}
+RCM_JAP_promote_religious_freedom = {
+	icon = generic_democracy
+	picture = GFX_decision_cat_decision_church
+	on_map_area = { 		#MODDED
+		state = 282
+		name = JAP_christian_on_map
+		zoom = 250
+	}
+	on_map_area = { 		#MODDED
+		state = 282
+		name = JAP_police_backlash_on_map
+		zoom = 250
+	} 
+	allowed = {
+		tag = JAP
+	}
+	visible = {
+		has_completed_focus = JAP_fund_the_unitarian_church_focus
+		has_country_leader_with_trait = christian_socialist
+	}
+	priority = 400
+}
+RCM_JAP_boost_socialism = {
+	icon = eng_organize_the_blackshirts
+	allowed = {
+		tag = JAP
+	}
+	visible = {
+		#NOT = {
+		#	OR = {
+		#		has_completed_focus = JAP_consolidate_yonai_cabinet_focus
+		#		has_completed_focus = JAP_second_konoe_cabinet_focus
+		#	}
+		#}
+		#has_country_leader = { name = "Mitsumasa Yonai" ruling_only = yes }
+	}
+	priority = 150
+}
+RCM_JAP_boost_democratic = {
+	icon = eng_organize_the_blackshirts
+	allowed = {
+		tag = JAP
+	}
+	visible = {
+		#NOT = {
+		#	OR = {
+		#		has_completed_focus = JAP_consolidate_yonai_cabinet_focus
+		#		has_completed_focus = JAP_second_konoe_cabinet_focus
+		#	}
+		#}
+		#has_country_leader = { name = "Mitsumasa Yonai" ruling_only = yes }
+	}
+	priority = 150
+}
+JAP_Sakhalin_issue = {
+	icon = generic_political_actions
+	allowed = {
+		original_tag = JAP
+	}
+	visible = {
+		has_completed_focus = JAP_Sakhalin_issue
+	}
+}
+RCM_JAP_boost_communism = {
+	icon = eng_organize_the_blackshirts
+	allowed = {
+		tag = JAP
+	}
+	visible = {
+		#NOT = {
+		#	OR = {
+		#		has_completed_focus = JAP_consolidate_yonai_cabinet_focus
+		#		has_completed_focus = JAP_second_konoe_cabinet_focus
+		#	}
+		#}
+		#has_country_leader = { name = "Mitsumasa Yonai" ruling_only = yes }
+	}
+	priority = 150
+}
+RCM_establish_white_russia = {
+	icon = eng_organize_the_blackshirts
+	allowed = {
+		OR = {
+			tag = MAN
+			tag = JAP
+		}
+	}
+	visible = {
+		#NOT = {
+		#	OR = {
+		#		has_completed_focus = JAP_consolidate_yonai_cabinet_focus
+		#		has_completed_focus = JAP_second_konoe_cabinet_focus
+		#	}
+		#}
+		#has_country_leader = { name = "Mitsumasa Yonai" ruling_only = yes }
+	}
+	priority = 150
+}
+RCM_officer_unrest_build_up = { #for yonai in power
+	icon = eng_organize_the_blackshirts
+	allowed = {
+		tag = JAP
+	}
+	visible = {
+		OR = {
+			has_government = neutrality
+			has_government = fascism
+		}
+		NOT = {
+			has_completed_focus = JAP_strengthen_civilian_government
+			has_completed_focus = JAP_Sonno_Tokkan_focus
+		}
+		#NOT = {
+		#	OR = {
+		#		has_completed_focus = JAP_consolidate_yonai_cabinet_focus
+		#		has_completed_focus = JAP_second_konoe_cabinet_focus
+		#	}
+		#}
+		#has_country_leader = { name = "Mitsumasa Yonai" ruling_only = yes }
+	}
+	priority = 150
+}
+
+RCM_JAP_secure_resources_in_south_east_asia = {
+	icon = jap_southern_expansion
+	allowed = {
+		tag = JAP
+	}
+	visible = {
+		has_USA_sanction_idea = yes
+	}
+	priority = 150
+}
+
+RCM_invite_liangguang_leaders_back = {
+	allowed = {
+		is_literally_china = yes
+	}
+	visible = {
+		tag = event_target:WTT_current_china_leader
+	}
+	icon = china_secure_domestic_stability
+	priority = 50
+}
+
+RCM_formation_of_eastern_bloc = {
+	allowed = {
+		always = no #disable for now
+	}
+	icon = sov_great_patriotic_war
+	priority = 50
+}
+RCM_drain_the_water_lines_cat = {
+
+	icon = hol_prepare_the_inundation_lines
+	priority = 170
+	#allowed = {
+	#	original_tag = CHI
+	#	has_dlc = "Man the Guns"
+	#	has_dlc = "Waking the Tiger"
+	#}
+	highlight_states = {
+		#highlight_states_trigger = {
+		#	is_fully_controlled_by = ROOT
+		#	OR = {
+		#		state = 598
+		#		state = 606
+		#		state = 1043
+		#		state = 607
+		#	}
+		#}
+		highlight_provinces = {
+			9958
+			7656
+			10098
+			9995
+			11973
+			1121
+			1076
+			13144
+			4123
+			4005
+			10040
+			1161
+			1001
+		}
+		highlight_color_while_active = 3
+	}
+
+	#visible = {
+	#	has_completed_focus = CHI_united_front
+	#}
+}
+####MODDED
+RCM_chi_Fundamentals_of_National_Reconstruction_cat = {
+	priority = 500
+	allowed = { #for performance
+	   	tag = CHI
+	}
+	icon = generic_independence
+	picture = GFX_decision_cat_picture_sun_yat_sen
+	#picture = GFX_decision_cat_picture_generic_border_conflicts
+}
+socialism_on_the_rise = {
+	icon = generic_communism
+	priority = 50
+	allowed = {
+		always = yes
+	}
+
+	visible = {
+		is_subject = no
+	}
+}
+RCM_remove_CC_and_BS = {
+	priority = 500
+	allowed = { #for performance
+	   	tag = CHI
+	}
+	icon = generic_independence
+	#picture = GFX_decision_cat_picture_generic_border_conflicts
+}
+RCM_promise_of_election_cat = {
+	priority = 400
+	allowed = { #for performance
+	   	is_literally_china = yes
+	}
+	icon = generic_independence
+	#picture = GFX_decision_cat_picture_generic_border_conflicts
+}
+RCM_depose_sheng_shicai = {
+	priority = 400
+	allowed = { #for performance
+	    tag = SIK
+	}
+	icon = generic_independence
+	#picture = GFX_decision_cat_picture_generic_border_conflicts
+}
+RCM_ECA_suiyuan_campaign_cat = {
+	priority = 400
+	allowed = { #for performance
+	    is_literally_china = yes
+	}
+	icon = infiltration
+	#picture = GFX_decision_cat_picture_generic_border_conflicts
+}
+RCM_warlord_support_central_governmet_cat = {
+	priority = 400
+	allowed = { #for performance
+	    #is_literally_china = yes
+	}
+	icon = hol_secret_staff_talks
+	#picture = GFX_decision_cat_picture_generic_border_conflicts
+}
+RCM_SOV_support_sinkiang_opposition_cat = {
+	priority = 400
+	allowed = { #for performance
+	    #is_literally_china = yes
+	}
+	icon = hol_secret_staff_talks
+	#picture = GFX_decision_cat_picture_generic_border_conflicts
+}
+##Ultimatum from USA
+RCM_american_ultimatum_cat = {
+	icon = jap_southern_expansion
+	allowed = {
+		original_tag = JAP
+	}
+	visible = {
+		JAP = {
+			NOT = {
+				has_war_with = ROOT
+			}
+			exists = yes
+			has_war_with = event_target:WTT_current_china_leader
+		}
+	}
+	priority = 101
+}
+RCM_ultimatum_to_JAP_decision_cat = {
+	icon = jap_southern_expansion
+	allowed = {
+		original_tag = USA
+	}
+	visible = {
+		tag = USA
+		JAP = {
+			#NOT = {
+			#	has_war_with = ROOT
+			#}
+			exists = yes
+			
+		}
+	}
+	priority = 105
+}
+####
+JAP_revise_hirota_sangesoku_focus_decision_cat = {
+	icon = generic_political_actions
+	allowed = {
+		original_tag = JAP
+	}
+	visible = {
+		is_subject = no
+		has_completed_focus = JAP_revise_hirota_sangesoku_focus
+		NOT = {
+			has_global_flag = CHI_accept_san_hiro
+		}
+	}
+	priority = 101
+}
+#MODDED^
+CHINA_breached_alliance_cat = {
+	icon = jap_intervene_in_china
+	allowed = {
+		original_tag = JAP
+	}
+	priority = 150
+}
+CHI_Japan_justifying_on_us_cat = {
+	icon = generic_crisis
+	priority = 500
+	allowed = {
+		is_literally_china = yes
+	}
+}
+CHI_tension_with_communists_cat = {
+	icon = generic_crisis
+	allowed = { #for performance
+	    is_literally_china = yes
+	}
+	priority = 1500
+}
+RCM_join_allies_decision_cat = {
+	icon = generic_political_actions
+	allowed = {
+		tag = SOV
+	}
+	priority = 50
+}
+RCM_admin_reforms_decision_cat = {
+	icon = generic_political_actions
+	allowed = { #for performance
+	    OR = {
+			is_literally_china = yes
+			tag = EHB
+			tag = RFM
+		}
+	}
+	priority = 50
+}
+RCM_war_of_resistance_decision_cat = {
+	picture = GFX_decision_cat_war_of_resistance
+	icon = border_conflicts
+	allowed = { #for performance
+	    is_literally_china = yes
+	}
+	visible = {
+		JAP = { is_subject = no }
+		NOT = {
+			OR = {
+				is_in_faction_with = JAP #in alliance with JAP
+				NOT = {
+					has_war_with = JAP # WOR finished
+					any_of_scopes = {
+						array = global.small_china
+						is_controlled_by_jap_or_its_puppet = yes
+					}
+				}
+			}
+		}
+	}
+	priority = {
+		base = 50
+		modifier = {
+			add = 900
+			has_war_with = JAP
+		}
+	}
+}
+RCM_border_clashes = {
+	picture = generic_border_conflicts
+	priority = {
+		base = 50
+		modifier = {
+			add = 900
+			tag = PRC
+		}
+	}
+	icon = border_conflicts
+}
+JPG_declare_our_authority = {
+	icon = generic_propaganda
+	priority = 100
+	allowed = { #for performance
+	    OR = {
+		   original_tag = HPC
+	        original_tag = RFM
+	        original_tag = EHB
+	    }
+	}
+}
+JAP_bribe_the_tokko = {
+    icon = generic_propaganda
+    picture = GFX_decision_cat_generic_tokko
+    allowed = {
+        tag = JAP
+    }
+	visible = {
+		NOT = {
+			OR = {
+				has_completed_focus = JAP_Sonno_Tokkan_focus
+				has_completed_focus = JAP_placate_military_focus
+			}
+		}
+	}
+	priority = 101
+    visible = {
+    }
+}
+unit_731_cat = {
+    icon = ger_mefo_bills
+    picture = GFX_decision_cat_generic_tokko
+    allowed = {
+        tag = MAN
+    }
+    visible = {
+
+    }
+}
+PLM_political_effort_decision_cat = {
+	picture = GFX_decision_cat_picture_suiyuan
+	allowed = {
+		#has_dlc = "Waking the Tiger"
+		tag = PLM
+	}
+	priority = 500
+}
+MAN_CHI_peace = {
+	allowed = {
+		tag = MAN
+	}
+	priority = 1000
+}
+invade_indochina_cat = {
+	icon = jap_southern_expansion
+	priority = 100
+}
+###MODDED
+japan_form_CHI_puppets = {
+	icon = jap_intervene_in_china
+	priority = 100
+	allowed = {
+		tag = JAP
+	}
+	visible = {
+		NOT = {
+			OR = {
+				has_government = communism
+				has_government = n_socialism
+				has_government = democratic
+			}
+		}
+		has_completed_focus = JAP_intervene_in_china
+	}
+}
+japan_form_IN_MON_puppets = {
+	icon = generic_formable_nations
+	priority = 100
+	allowed = {
+		tag = JAP
+	}
+
+	visible = {
+		NOT = {
+			OR = {
+				has_government = communism
+				has_government = n_socialism
+				has_government = democratic
+			}
+		}
+	}
+}
+economic_crisis_decisions = {
+	icon = generic_crisis
+	priority = 100
+	#visible = {
+	#	NOT = { has_government = democratic }
+	#	has_idea_with_trait = democratic_reformer
+	#}
+}
+liangguang_incident = {
+	picture = GFX_decision_cat_picture_suiyuan
+	priority = 100
+	icon = generic_crisis
+	picture = GFX_decision_cat_liangguang
+	visible = {
+		#NOT = {
+		#	has_war_with = event_target:WTT_current_china_leader
+		#}
+	}
+	allowed = {
+		is_literally_china = yes
+		#has_dlc = "Waking the Tiger" #MODDED
+	}
+}
+kashgar_rebellion = {
+	priority = 100
+	icon = generic_crisis
+	#visible = {
+	#	country_exists = KHR
+	#}
+	allowed = {
+		OR = {
+		    tag = SIK
+		    tag = KHR
+		    tag = TNG
+		}
+	}
+}
+sik_warlord_decisions = {
+	priority = 100
+	icon = generic_political_actions
+	allowed = {
+		OR = {
+		    tag = HMI
+		    tag = KHR
+		    tag = TNG
+			tag = KRS
+			tag = ATM
+		}
+	    is_subject = no
+	}
+}
+SIK_northern_sik_issue = {
+	priority = 100
+	icon = GFX_decision_category_generic_monarchism
+	allowed = {
+		original_tag = SIK
+	}
+	visible = {
+        has_completed_focus = SIK_Destroy_the_Hotan_warlord
+	}
+}
+recovery_effort = {
+	icon = generic_communism
+	priority = 15000 #guo
+	allowed = { #for performance
+	    tag = PRC
+	}
+	#picture = GFX_decision_cat_picture_chi_infiltration
+}
+RCM_communist_infiltration = {
+	allowed = {
+		is_literally_china = yes
+	}
+	icon = infiltration
+	priority = 15000 #guo
+	picture = GFX_decision_cat_picture_chi_infiltration
+}
+RCM_communist_crackdown = {
+	icon = infiltration
+	priority = 15000 #guo
+	picture = GFX_decision_cat_picture_chi_infiltration
+}
+national_infra_decision = {
+	priority = 100
+	allowed = { #for performance
+	    is_literally_china = yes
+	}
+	icon = generic_prospect_for_resources
+	picture = GFX_decision_cat_generic_mefo_bills
+}
+chi_railway_decision = {
+	priority = 100
+	allowed = { #for performance
+	    is_literally_china = yes
+	}
+	icon = generic_prospect_for_resources
+}
+###
+CHI_suppress_anti_japanese_activity = {
+	priority = 100
+	icon = jap_southern_expansion
+	allowed = { #for performance
+	    is_literally_china = yes
+	}
+}
+MEN_demand_alxa_cat = {
+	priority = 100
+	icon = border_war
+	allowed = { #for performance
+	    tag = ECA
+	}
+}
+###
+Korean_intervention_decision_cat = {
+	priority = 150
+	icon = generic_formable_nations
+	#allowed = { #for performance
+	#    has_government = democratic
+	#}
+}
+
+PRC_western_campaigns_cat = {
+	priority = 180
+	icon = generic_communism
+	#allowed = { #for performance
+	#    has_government = democratic
+	#}
+}
+
+PRC_request_SOV_aid_decision_cat = {
+	priority = 150
+	icon = generic_communism
+	#allowed = { #for performance
+	#    has_government = democratic
+	#}
+}
+
+PRC_contact_wrl_cat = {
+	priority = 1200#guo
+	icon = GFX_decision_category_generic_crisis
+	
+	visible = { not = { has_global_flag = roc_in_taiwan_flag } }#guo
+}
+
+RCM_strive_for_fu_zuoyi_CHI_category = {
+	priority = 150
+	icon = power_struggle
+	picture = GFX_decision_cat_picture_suiyuan
+	allowed = { #for performance
+	    tag = CHI
+	    #has_global_flag = SFFZ_flag
+		#NOT = { has_global_flag = fu_stay_shx_flag }
+	    #NOT = { has_global_flag = fu_join_chi_flag }
+	}
+	
+	custom_icon = {
+		tag = CHI
+		value = chi_influence_to_fu_zuoyi_icon_value
+		desc = chi_influence_to_fu_zuoyi_breakdown
+
+		visible = {
+			country_exists = CHI
+		}
+	}
+	
+	custom_icon = {
+		tag = SHX
+		value = shx_influence_to_fu_zuoyi_icon_value
+		desc = shx_influence_to_fu_zuoyi_breakdown
+	}
+}
+
+RCM_strive_for_fu_zuoyi_SHX_category = {
+	priority = 150
+	icon = power_struggle
+	picture = GFX_decision_cat_picture_suiyuan
+	
+	allowed = { #for performance
+	    tag = SHX 
+	    #has_global_flag = SFFZ_flag
+		#NOT = { has_global_flag = fu_stay_shx_flag }
+	    #NOT = { has_global_flag = fu_join_chi_flag }
+	}
+	
+	custom_icon = {
+		tag = CHI
+		value = chi_influence_to_fu_zuoyi_icon_value
+		desc = chi_influence_to_fu_zuoyi_breakdown
+
+	}
+	
+	custom_icon = {
+		tag = SHX
+		value = shx_influence_to_fu_zuoyi_icon_value
+		desc = shx_influence_to_fu_zuoyi_breakdown
+
+	}
+	#visible_when_empty = yes
+}
+
+TNG_trading_decision_cat = {
+    priority = 100
+	icon = GFX_decision_category_generic_arms_trade
+	#picture = GFX_decision_cat_picture_suiyuan
+	
+	allowed = { #for performance
+	    tag = TNG
+	}
+	
+	visible = {
+		TNG = {
+			has_completed_focus = TNG_camel_trading
+		}
+	}
+
+	visible_when_empty = yes
+} 
+
+SIK_coring_cat = {
+    priority = 120
+	icon = eng_organize_the_blackshirts
+	picture = GFX_decision_cat_picture_suiyuan
+	
+	allowed = { #for performance
+	    is_literally_china = yes
+	}
+	
+	#visible_when_empty = yes
+} 
+#NEW
+dismiss_cabinet_members = {
+	icon = SWI_federal_council
+	priority = 200
+	allowed = { #for performance
+	    tag = JAP
+	}
+	#picture = GFX_decision_cat_picture_chi_infiltration
+}
+
+CHI_civil_war_offensives = {
+	icon = GFX_decision_category_border_conflicts
+	allowed = {
+		is_literally_china = yes
+	}
+	#visible = {
+	#	
+	#}
+	scripted_gui = CHI_civil_war_map
+	priority = 150
+}
+PRC_contest_in_northeast_cat = {
+	icon = GFX_decision_category_generic_crisis
+	allowed = {
+		is_literally_china = yes
+	}
+	on_map_area = { 		#MODDED
+		state = 328
+		name = CHI_power_struggle_on_map
+		zoom = 850
+	}
+	#visible = {
+	#	
+	#}
+	priority = 150
+}
+CHI_contest_in_northeast_cat = {
+	icon = GFX_decision_category_generic_crisis
+	allowed = {
+		is_literally_china = yes
+	}
+	#visible = {
+	#	
+	#}
+	priority = 150
+}
+china_burma_india_theater = {
+	icon = military_operation
+	allowed = {
+       always = no
+	}
+	visible = {
+        has_defensive_war_with = JAP
+		JAP = {
+			any_enemy_country = {
+				original_tag = USA
+			}
+		}
+	}
+}
+ammo_market_cat = {
+	icon = GFX_decision_category_generic_arms_trade
+	allowed = {
+
+	}
+	visible = {#guo
+		not = { has_global_flag = ban_ammo_market_zz }
+	}
+}
+
+war_in_suiyuan_cat = {
+	icon = GFX_decision_category_infiltration
+	allowed = {
+        tag = SUY
+	}
+	visible = {
+		#has_completed_focus = SUY_west_suiyuan_campaigns
+	}
+	priority = 150
+}
+
+suiyuan_tunken_cat = {
+	icon = GFX_decision_category_generic_democracy
+	allowed = {
+        tag = SUY
+	}
+	visible = {
+		#has_completed_focus = SUY_west_suiyuan_campaigns
+	}
+	priority = 85
+}
+
+suiyuan_mongolian_autonomy_cat = {
+	icon = GFX_decision_category_eng_move_to_secure_the_dominions
+	allowed = {
+        tag = SUY
+	}
+	visible = {
+		
+	}
+	priority = 100
+}
+
+rcm_southwest_wrls_cat = {
+	icon = GFX_decision_category_military_operation
+	allowed = {
+        is_literally_china = yes
+	}
+	visible = {
+		OR = {
+			SIC = {
+				exists = yes
+			}
+			XIK = {
+				exists = yes
+			}
+			YUN = {
+				exists = yes
+			}
+		}
+		#has_completed_focus = CHI_deal_with_sichuan
+	}
+	priority = 120
+}
+
+rcm_northern_expedition_cat = {
+	icon = GFX_decision_category_jap_intervene_in_china
+	allowed = {
+        is_literally_china = yes
+	}
+	visible = {
+	}
+	priority = 130
+}
+
+rcm_chi_german_coop_cat = {
+	icon = GFX_decision_category_ger_reichskommissariats
+	allowed = {
+        is_literally_china = yes
+	}
+	visible = {
+		has_completed_focus = CHI_axis_help_diplo_focus
+		has_idea = CHI_german_coop
+	}
+	priority = 110
+}
+
+rcm_chi_usa_aid_cat = {
+	icon = GFX_decision_category_generic_democracy
+	allowed = {
+        is_literally_china = yes
+	}
+	visible = {
+		has_completed_focus = CHI_receive_usa_equipment
+		RCM_USA_will_support = yes
+	}
+	priority = 110
+}
+
+rcm_tibet_and_mon_affairs_cat = {
+	icon = GFX_decision_category_generic_political_actions
+	allowed = {
+        is_literally_china = yes
+	}
+	visible = {
+		has_completed_focus = CHI_mongolian_and_tibetan_affairs_commission
+	}
+	priority = 95
+}
+
+PRC_move_capital_cat = {
+	icon = GFX_decision_category_generic_communism
+	allowed = {
+        is_literally_china = yes
+	}
+	visible = {
+		has_completed_focus = PRC_Guerrilla_warfare_orientation
+	}
+	priority = 100
+}
