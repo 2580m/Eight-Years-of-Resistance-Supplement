@@ -1,0 +1,17 @@
+opinion_modifiers = {
+    bang_mang_bao_cun = {
+        value = 10
+    }
+    bang_mang_chao_gu = {
+        value = 10
+    }
+    bang_mang_ting_chuan= {
+        value = 10
+    }
+    tian_huang_chu_xing = {
+        value = 10
+    }
+    xin_ren = {
+        value = 100
+    }
+}

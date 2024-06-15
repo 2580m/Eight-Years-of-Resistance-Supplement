@@ -1,0 +1,31 @@
+opinion_modifiers = {
+
+SOV_CHI_join_comintern_reject = { value = -100 } #中苏决裂
+ 
+sino_sov_cooperation = { value = 100 } #中苏合作
+
+GER_CHI_military_cooperation = { value = 50 } #中德军事合作
+
+SOV_BAD_GUYS = { value = -100 } #苏联帝国主义野心
+
+GER_FIN_military_cooperation = { value = 50 } #德芬军事合作
+
+anti_facism_league = { value = 100 } #世界反法西斯联盟
+
+PRC_revolution_threat = { value = -50 } #中国革命威胁
+
+tripartite_pact = { value = 100 } #《三国同盟条约》
+
+SOV_anti_nazi_zz = { value = -100 } #反法西斯外交
+
+ger_eng_navy_agreement_broken = { value = -25 } #撕毁海军条约
+
+suqingtuopai = { value = 30 } #肃清托派
+
+chengrenhefaxing = { value = 50 } #承认合法性
+
+guanxiehua = { value = -50 } #关系恶化
+
+weibeisulian = { value = -30 } #违背共产国际指示
+
+}
