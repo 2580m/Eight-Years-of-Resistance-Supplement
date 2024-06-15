@@ -1,0 +1,6 @@
+FRV = {
+	NOT = { country_exists = FRA }
+	original_tag = FRA
+
+	fallback = FRA
+}
