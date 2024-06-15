@@ -1,0 +1,139 @@
+SPR_support_axis = {
+	enable = {
+		original_tag = SPR
+		OR = {
+		has_government = fascism
+		has_government = neutrality
+		}
+		
+		has_global_flag = scw_over
+		GER = {
+		OR = {
+		has_government = fascism
+		has_government = neutrality
+		}
+		surrender_progress < 0.05
+		has_war_with = SOV
+		}
+	}
+	
+	abort_when_not_enabled = yes #guo
+	
+	ai_strategy = {
+		type = send_volunteers_desire
+		id = "GER"
+		value = 9999
+	}
+	ai_strategy = {
+		type = send_lend_lease_desire
+		id = "GER"
+		value = 9999
+	}
+	ai_strategy = {
+		type = support
+		id = "GER"
+		value = 9999
+	}
+	ai_strategy = {
+		type = send_volunteers_desire
+		id = "ITA"
+		value = 6000
+	}
+	ai_strategy = {
+		type = send_lend_lease_desire
+		id = "ITA"
+		value = 6000
+	}
+	ai_strategy = {
+		type = support
+		id = "ITA"
+		value = 6000
+	}
+	ai_strategy = {
+		type = send_volunteers_desire
+		id = "JAP"
+		value = -999
+	}
+	ai_strategy = {
+		type = support
+		id = "JAP"
+		value = -999
+	}
+	ai_strategy = {
+		type = send_lend_lease_desire
+		id = "JAP"
+		value = -999
+	}
+}
+
+spr_no_ally = {
+	enable = {
+		is_historical_focus_on = yes
+		original_tag = SPR
+		OR = {
+		has_government = fascism
+		has_government = neutrality
+		}
+		has_global_flag = scw_over
+		is_in_faction = no
+		has_war = no
+	}
+	abort = {
+		GER = {
+		has_completed_focus = GER_nationalist_spain_ally
+		}
+	}
+	abort_when_not_enabled = yes #guo
+	
+	ai_strategy = {
+		type = alliance
+		id = "GER"
+		value = -9999
+	}
+	ai_strategy = {
+		type = befriend
+		id = "GER"
+		value = 100
+	}
+	ai_strategy = {
+		type = alliance
+		id = "ITA"
+		value = -9999
+	}
+	ai_strategy = {
+		type = befriend
+		id = "ITA"
+		value = 100
+	}
+	ai_strategy = {
+		type = alliance
+		id = "HUN"
+		value = -9999
+	}
+	ai_strategy = {
+		type = befriend
+		id = "HUN"
+		value = 50
+	}
+	ai_strategy = {
+		type = alliance
+		id = "JAP"
+		value = -9999
+	}
+	ai_strategy = {
+		type = befriend
+		id = "JAP"
+		value = 50
+	}
+	
+	ai_strategy = {
+		type = alliance
+		id = "SOV"
+		value = -9999
+	}
+	ai_strategy = {
+		type = befriend
+		id = "SOV"
+		value = -100
+	}
+}

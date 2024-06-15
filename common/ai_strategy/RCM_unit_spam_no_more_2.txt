@@ -1,0 +1,2503 @@
+###HoI4 AI Unit Production Limiter###
+###------------------------------
+###Originally made by GunnarVonPontius
+###Adapted to variables by Yard1
+###------------------------------
+###Usage: add a "is_exempt_from_division_limit = yes" variable for each tag that you have a specific unit makeup for. All tags that does not have "is_exempt_from_division_limit = yes"
+###will use the default script below.
+
+###tags that have specific AI strategies for unit production:
+
+#GER = { is_exempt_from_division_limit = yes }
+
+#credit: time lapses's Downsize AirForce https://steamcommunity.com/sharedfiles/filedetails/?id=2318957791 
+fighter_limiter = {
+	enable = {
+		has_deployed_air_force_size = {
+			type = fighter
+			size > 25000
+		}
+	    #has_global_flag = ai_unit_no_spam_air_flag
+	}
+    
+	abort = {
+		has_deployed_air_force_size = {
+			type = fighter
+			size < 23000
+		}	
+	}	
+	#abort_when_not_enabled = yes
+	ai_strategy = {
+		type = equipment_production_factor
+		id = fighter
+		value = -9999
+	}
+	
+	ai_strategy = {
+		type = equipment_production_min_factories
+		id = fighter
+		value = -9999
+	}
+	
+	ai_strategy = {
+		type = equipment_production_factor
+		id = heavy_fighter
+		value = -9999
+	}
+	ai_strategy = {
+		type = equipment_production_min_factories
+		id = heavy_fighter
+		value = -9999
+	}
+	
+	ai_strategy = {
+		type = equipment_production_factor
+		id = suicide
+		value = -9999
+	}
+	ai_strategy = {
+		type = equipment_production_min_factories
+		id = suicide
+		value = -9999
+	}
+}
+
+cas_limiter = {
+	enable = {
+		has_deployed_air_force_size = {
+			type = cas
+			size > 18000
+		}
+	    #has_global_flag = ai_unit_no_spam_air_flag
+	}
+	abort = {
+		has_deployed_air_force_size = {
+			type = cas
+			size < 15000
+		}	
+	}
+    #abort_when_not_enabled = yes
+	ai_strategy = {
+		type = equipment_production_factor
+		id = cas
+		value = -9999
+	}
+	ai_strategy = {
+		type = equipment_production_min_factories
+		id = cas
+		value = -9999
+	}
+}
+
+tactical_bomber_limiter = {
+	enable = {
+		has_deployed_air_force_size = {
+			type = tactical_bomber
+			size > 12000
+		}
+	    #has_global_flag = ai_unit_no_spam_air_flag
+	}
+	abort = {
+		has_deployed_air_force_size = {
+			type = tactical_bomber
+			size < 10000
+		}	
+	}
+    #abort_when_not_enabled = yes
+	ai_strategy = {
+		type = equipment_production_factor
+		id = tactical_bomber
+		value = -9999
+	}
+	ai_strategy = {
+		type = equipment_production_min_factories
+		id = tactical_bomber
+		value = -9999
+	}
+}
+
+strategic_bomber_limiter = {
+	enable = {
+		has_deployed_air_force_size = {
+			type = strategic_bomber
+			size > 15000
+		}
+	    #has_global_flag = ai_unit_no_spam_air_flag
+	}
+	abort = {
+		has_deployed_air_force_size = {
+			type = strategic_bomber
+			size < 13000
+		}	
+	}
+    #abort_when_not_enabled = yes
+	ai_strategy = {
+		type = equipment_production_factor
+		id = strategic_bomber
+		value = -9999
+	}
+	ai_strategy = {
+		type = equipment_production_min_factories
+		id = strategic_bomber
+		value = -9999
+	}
+}
+naval_bomber_limiter = {
+	enable = {
+		has_deployed_air_force_size = {
+			type = naval_bomber
+			size > 7500
+		}
+	    #has_global_flag = ai_unit_no_spam_air_flag
+	}
+	abort = {
+		has_deployed_air_force_size = {
+			type = naval_bomber
+			size < 6000
+		}	
+	}
+    #abort_when_not_enabled = yes
+	ai_strategy = {
+		type = equipment_production_factor
+		id = naval_bomber
+		value = -9999
+	}
+	ai_strategy = {
+		type = equipment_production_min_factories
+		id = naval_bomber
+		value = -9999
+	}
+	
+	ai_strategy = {
+		type = equipment_production_factor
+		id = maritime_patrol_plane
+		value = -9999
+	}
+	ai_strategy = {
+		type = equipment_production_min_factories
+		id = maritime_patrol_plane
+		value = -9999
+	}
+}
+
+scout_plane_limiter = {
+	enable = {
+		has_deployed_air_force_size = {
+			type = scout_plane
+			size > 300
+		}
+	    #has_global_flag = ai_unit_no_spam_air_flag
+	}
+	abort = {
+		has_deployed_air_force_size = {
+			type = scout_plane
+			size < 100
+		}
+	}
+    #abort_when_not_enabled = yes
+	ai_strategy = {
+		type = equipment_production_factor
+		id = scout_plane
+		value = -9999
+	}
+	ai_strategy = {
+		type = equipment_production_min_factories
+		id = scout_plane
+		value = -9999
+	}
+	
+	ai_strategy = {
+		type = equipment_production_factor
+		id = interceptor
+		value = -9999
+	}
+	ai_strategy = {
+		type = equipment_production_min_factories
+		id = interceptor
+		value = -9999
+	}
+	
+}
+
+air_transport_limiter = {
+	enable = {
+		has_deployed_air_force_size = {
+			type = air_transport
+			size > 5000
+		}
+	    #has_global_flag = ai_unit_no_spam_air_flag
+	}
+	abort = {
+		has_deployed_air_force_size = {
+			type = air_transport
+			size < 4500
+		}
+	}
+    #abort_when_not_enabled = yes
+	ai_strategy = {
+		type = equipment_production_factor
+		id = air_transport
+		value = -9999
+	}
+	ai_strategy = {
+		type = equipment_production_min_factories
+		id = air_transport
+		value = -9999
+	}
+	
+}
+
+
+
+ai_unit_production_limiter_minor_countries = {
+	enable = {
+		unit_limiter_trigger_irrelevant_countries = yes	
+	    OR = {
+		    has_global_flag = ai_unit_no_spam_flag
+	        has_global_flag = ai_unit_no_spam_flag_irrelevant_only
+	    }
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+        type = force_build_armies
+        value = -50000
+    }
+	
+	ai_strategy = {
+		type = ai_wanted_divisions_factor
+		value = -9999
+	}
+	
+	ai_strategy = {
+		type = role_ratio
+		id = garrison
+		value = -9999
+	}
+	
+	ai_strategy = {
+		type = role_ratio
+		id = mechanized
+		value = -9999
+	}
+	
+	ai_strategy = {
+		type = role_ratio
+		id = motorized
+		value = -9999
+	}
+
+	ai_strategy = {
+		type = role_ratio
+		id = paratroopers
+		value = -9999
+	}
+
+	ai_strategy = {
+		type = role_ratio
+		id = mountaineers
+		value = -9999
+	}
+
+	ai_strategy = {
+		type = role_ratio
+		id = marines
+		value = -9999
+	}
+
+	ai_strategy = {
+		type = role_ratio
+		id = armor
+		value = -9999 
+	}
+	ai_strategy = {
+		type = role_ratio
+		id = infantry
+		value = -9999
+	}
+    
+	ai_strategy = {
+		type = role_ratio
+		id = cavalry
+		value = -9999
+	}
+# 各种军队招募意愿-99999
+	ai_strategy = {
+		type = build_army
+		id = cavalry
+		value = -99999
+	}
+
+	ai_strategy = {
+		type = build_army
+		id = camelry
+		value = -99999
+	}
+
+	ai_strategy = {
+		type = build_army
+		id = motorized
+		value = -99999
+	}
+
+	ai_strategy = {
+		type = build_army
+		id = armored_car
+		value = -99999
+	}
+
+	ai_strategy = {
+		type = build_army
+		id = mechanized
+		value = -99999
+	}
+
+	ai_strategy = {
+		type = build_army
+		id = garrison
+		value = -99999
+	}
+
+	ai_strategy = {
+		type = build_army
+		id = suppression
+		value = -99999
+	}
+
+	ai_strategy = {
+		type = build_army
+		id = paratroopers
+		value = -99999
+	}
+
+	ai_strategy = {
+		type = build_army
+		id = mountaineers
+		value = -99999
+	}
+
+	ai_strategy = {
+		type = build_army
+		id = marines
+		value = -99999
+	}
+
+	ai_strategy = {
+		type = build_army
+		id = armor
+		value = -99999
+	}
+
+	ai_strategy = {
+		type = build_army
+		id = light_armor
+		value = -99999
+	}
+
+	ai_strategy = {
+		type = build_army
+		id = heavy_armor
+		value = -99999
+	}
+
+	ai_strategy = {
+		type = build_army
+		id = medium_armor
+		value = -99999
+	}
+
+	ai_strategy = {
+		type = build_army
+		id = modern_armor
+		value = -99999
+	}
+
+	ai_strategy = {
+		type = build_army
+		id = infantry
+		value = -99999
+	}
+}
+ai_unit_production_limiter_major_countries = {
+	enable = {
+	    num_divisions > 301
+	    has_global_flag = ai_unit_no_spam_flag
+	}
+    abort = {
+	    num_divisions < 301
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+        type = force_build_armies
+        value = -50000
+    }
+	
+	ai_strategy = {
+		type = ai_wanted_divisions_factor
+		value = -9999
+	}
+	
+	
+	ai_strategy = {
+		type = role_ratio
+		id = garrison
+		value = -9999
+	}
+	
+	ai_strategy = {
+		type = role_ratio
+		id = mechanized
+		value = -9999
+	}
+	
+	ai_strategy = {
+		type = role_ratio
+		id = motorized
+		value = -9999
+	}
+
+	ai_strategy = {
+		type = role_ratio
+		id = paratroopers
+		value = -9999
+	}
+
+	ai_strategy = {
+		type = role_ratio
+		id = mountaineers
+		value = -9999
+	}
+
+	ai_strategy = {
+		type = role_ratio
+		id = marines
+		value = -9999
+	}
+
+	ai_strategy = {
+		type = role_ratio
+		id = armor
+		value = -9999 
+	}
+	ai_strategy = {
+		type = role_ratio
+		id = infantry
+		value = -9999
+	}
+    
+	ai_strategy = {
+		type = role_ratio
+		id = cavalry
+		value = -9999
+	}
+# 各种军队招募意愿-99999
+	ai_strategy = {
+		type = build_army
+		id = cavalry
+		value = -99999
+	}
+
+	ai_strategy = {
+		type = build_army
+		id = camelry
+		value = -99999
+	}
+
+	ai_strategy = {
+		type = build_army
+		id = motorized
+		value = -99999
+	}
+
+	ai_strategy = {
+		type = build_army
+		id = armored_car
+		value = -99999
+	}
+
+	ai_strategy = {
+		type = build_army
+		id = mechanized
+		value = -99999
+	}
+
+	ai_strategy = {
+		type = build_army
+		id = garrison
+		value = -99999
+	}
+
+	ai_strategy = {
+		type = build_army
+		id = suppression
+		value = -99999
+	}
+
+	ai_strategy = {
+		type = build_army
+		id = paratroopers
+		value = -99999
+	}
+
+	ai_strategy = {
+		type = build_army
+		id = mountaineers
+		value = -99999
+	}
+
+	ai_strategy = {
+		type = build_army
+		id = marines
+		value = -99999
+	}
+
+	ai_strategy = {
+		type = build_army
+		id = armor
+		value = -99999
+	}
+
+	ai_strategy = {
+		type = build_army
+		id = light_armor
+		value = -99999
+	}
+
+	ai_strategy = {
+		type = build_army
+		id = heavy_armor
+		value = -99999
+	}
+
+	ai_strategy = {
+		type = build_army
+		id = medium_armor
+		value = -99999
+	}
+
+	ai_strategy = {
+		type = build_army
+		id = modern_armor
+		value = -99999
+	}
+
+	ai_strategy = {
+		type = build_army
+		id = infantry
+		value = -99999
+	}
+}
+
+
+ai_unit_production_limiter_zz_1 = {
+	enable = {
+	    num_divisions > 151
+	    has_global_flag = ai_unit_production_limiter_zz_1
+	}
+    abort = {
+	    num_divisions < 151
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+        type = force_build_armies
+        value = -50000
+    }
+	
+	ai_strategy = {
+		type = ai_wanted_divisions_factor
+		value = -9999
+	}
+	
+	
+	ai_strategy = {
+		type = role_ratio
+		id = garrison
+		value = -9999
+	}
+	
+	ai_strategy = {
+		type = role_ratio
+		id = mechanized
+		value = -9999
+	}
+	
+	ai_strategy = {
+		type = role_ratio
+		id = motorized
+		value = -9999
+	}
+
+	ai_strategy = {
+		type = role_ratio
+		id = paratroopers
+		value = -9999
+	}
+
+	ai_strategy = {
+		type = role_ratio
+		id = mountaineers
+		value = -9999
+	}
+
+	ai_strategy = {
+		type = role_ratio
+		id = marines
+		value = -9999
+	}
+
+	ai_strategy = {
+		type = role_ratio
+		id = armor
+		value = -9999 
+	}
+	ai_strategy = {
+		type = role_ratio
+		id = infantry
+		value = -9999
+	}
+    
+	ai_strategy = {
+		type = role_ratio
+		id = cavalry
+		value = -9999
+	}
+# 各种军队招募意愿-99999
+	ai_strategy = {
+		type = build_army
+		id = cavalry
+		value = -99999
+	}
+
+	ai_strategy = {
+		type = build_army
+		id = camelry
+		value = -99999
+	}
+
+	ai_strategy = {
+		type = build_army
+		id = motorized
+		value = -99999
+	}
+
+	ai_strategy = {
+		type = build_army
+		id = armored_car
+		value = -99999
+	}
+
+	ai_strategy = {
+		type = build_army
+		id = mechanized
+		value = -99999
+	}
+
+	ai_strategy = {
+		type = build_army
+		id = garrison
+		value = -99999
+	}
+
+	ai_strategy = {
+		type = build_army
+		id = suppression
+		value = -99999
+	}
+
+	ai_strategy = {
+		type = build_army
+		id = paratroopers
+		value = -99999
+	}
+
+	ai_strategy = {
+		type = build_army
+		id = mountaineers
+		value = -99999
+	}
+
+	ai_strategy = {
+		type = build_army
+		id = marines
+		value = -99999
+	}
+
+	ai_strategy = {
+		type = build_army
+		id = armor
+		value = -99999
+	}
+
+	ai_strategy = {
+		type = build_army
+		id = light_armor
+		value = -99999
+	}
+
+	ai_strategy = {
+		type = build_army
+		id = heavy_armor
+		value = -99999
+	}
+
+	ai_strategy = {
+		type = build_army
+		id = medium_armor
+		value = -99999
+	}
+
+	ai_strategy = {
+		type = build_army
+		id = modern_armor
+		value = -99999
+	}
+
+	ai_strategy = {
+		type = build_army
+		id = infantry
+		value = -99999
+	}
+}
+ai_unit_production_limiter_zz_2 = {
+	enable = {
+	    num_divisions > 301
+	    has_global_flag = ai_unit_production_limiter_zz_2
+	}
+    abort = {
+	    num_divisions < 301
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+        type = force_build_armies
+        value = -50000
+    }
+	
+	ai_strategy = {
+		type = ai_wanted_divisions_factor
+		value = -9999
+	}
+	
+	
+	ai_strategy = {
+		type = role_ratio
+		id = garrison
+		value = -9999
+	}
+	
+	ai_strategy = {
+		type = role_ratio
+		id = mechanized
+		value = -9999
+	}
+	
+	ai_strategy = {
+		type = role_ratio
+		id = motorized
+		value = -9999
+	}
+
+	ai_strategy = {
+		type = role_ratio
+		id = paratroopers
+		value = -9999
+	}
+
+	ai_strategy = {
+		type = role_ratio
+		id = mountaineers
+		value = -9999
+	}
+
+	ai_strategy = {
+		type = role_ratio
+		id = marines
+		value = -9999
+	}
+
+	ai_strategy = {
+		type = role_ratio
+		id = armor
+		value = -9999 
+	}
+	ai_strategy = {
+		type = role_ratio
+		id = infantry
+		value = -9999
+	}
+    
+	ai_strategy = {
+		type = role_ratio
+		id = cavalry
+		value = -9999
+	}
+# 各种军队招募意愿-99999
+	ai_strategy = {
+		type = build_army
+		id = cavalry
+		value = -99999
+	}
+
+	ai_strategy = {
+		type = build_army
+		id = camelry
+		value = -99999
+	}
+
+	ai_strategy = {
+		type = build_army
+		id = motorized
+		value = -99999
+	}
+
+	ai_strategy = {
+		type = build_army
+		id = armored_car
+		value = -99999
+	}
+
+	ai_strategy = {
+		type = build_army
+		id = mechanized
+		value = -99999
+	}
+
+	ai_strategy = {
+		type = build_army
+		id = garrison
+		value = -99999
+	}
+
+	ai_strategy = {
+		type = build_army
+		id = suppression
+		value = -99999
+	}
+
+	ai_strategy = {
+		type = build_army
+		id = paratroopers
+		value = -99999
+	}
+
+	ai_strategy = {
+		type = build_army
+		id = mountaineers
+		value = -99999
+	}
+
+	ai_strategy = {
+		type = build_army
+		id = marines
+		value = -99999
+	}
+
+	ai_strategy = {
+		type = build_army
+		id = armor
+		value = -99999
+	}
+
+	ai_strategy = {
+		type = build_army
+		id = light_armor
+		value = -99999
+	}
+
+	ai_strategy = {
+		type = build_army
+		id = heavy_armor
+		value = -99999
+	}
+
+	ai_strategy = {
+		type = build_army
+		id = medium_armor
+		value = -99999
+	}
+
+	ai_strategy = {
+		type = build_army
+		id = modern_armor
+		value = -99999
+	}
+
+	ai_strategy = {
+		type = build_army
+		id = infantry
+		value = -99999
+	}
+}
+ai_unit_production_limiter_zz_3 = {
+	enable = {
+	    num_divisions > 451
+	    has_global_flag = ai_unit_production_limiter_zz_3
+	}
+    abort = {
+	    num_divisions < 451
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+        type = force_build_armies
+        value = -50000
+    }
+	
+	ai_strategy = {
+		type = ai_wanted_divisions_factor
+		value = -9999
+	}
+	
+	
+	ai_strategy = {
+		type = role_ratio
+		id = garrison
+		value = -9999
+	}
+	
+	ai_strategy = {
+		type = role_ratio
+		id = mechanized
+		value = -9999
+	}
+	
+	ai_strategy = {
+		type = role_ratio
+		id = motorized
+		value = -9999
+	}
+
+	ai_strategy = {
+		type = role_ratio
+		id = paratroopers
+		value = -9999
+	}
+
+	ai_strategy = {
+		type = role_ratio
+		id = mountaineers
+		value = -9999
+	}
+
+	ai_strategy = {
+		type = role_ratio
+		id = marines
+		value = -9999
+	}
+
+	ai_strategy = {
+		type = role_ratio
+		id = armor
+		value = -9999 
+	}
+	ai_strategy = {
+		type = role_ratio
+		id = infantry
+		value = -9999
+	}
+    
+	ai_strategy = {
+		type = role_ratio
+		id = cavalry
+		value = -9999
+	}
+# 各种军队招募意愿-99999
+	ai_strategy = {
+		type = build_army
+		id = cavalry
+		value = -99999
+	}
+
+	ai_strategy = {
+		type = build_army
+		id = camelry
+		value = -99999
+	}
+
+	ai_strategy = {
+		type = build_army
+		id = motorized
+		value = -99999
+	}
+
+	ai_strategy = {
+		type = build_army
+		id = armored_car
+		value = -99999
+	}
+
+	ai_strategy = {
+		type = build_army
+		id = mechanized
+		value = -99999
+	}
+
+	ai_strategy = {
+		type = build_army
+		id = garrison
+		value = -99999
+	}
+
+	ai_strategy = {
+		type = build_army
+		id = suppression
+		value = -99999
+	}
+
+	ai_strategy = {
+		type = build_army
+		id = paratroopers
+		value = -99999
+	}
+
+	ai_strategy = {
+		type = build_army
+		id = mountaineers
+		value = -99999
+	}
+
+	ai_strategy = {
+		type = build_army
+		id = marines
+		value = -99999
+	}
+
+	ai_strategy = {
+		type = build_army
+		id = armor
+		value = -99999
+	}
+
+	ai_strategy = {
+		type = build_army
+		id = light_armor
+		value = -99999
+	}
+
+	ai_strategy = {
+		type = build_army
+		id = heavy_armor
+		value = -99999
+	}
+
+	ai_strategy = {
+		type = build_army
+		id = medium_armor
+		value = -99999
+	}
+
+	ai_strategy = {
+		type = build_army
+		id = modern_armor
+		value = -99999
+	}
+
+	ai_strategy = {
+		type = build_army
+		id = infantry
+		value = -99999
+	}
+}
+ai_unit_production_limiter_zz_4 = {
+	enable = {
+	    num_divisions > 601
+	    has_global_flag = ai_unit_production_limiter_zz_4
+	}
+    abort = {
+	    num_divisions < 601
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+        type = force_build_armies
+        value = -50000
+    }
+	
+	ai_strategy = {
+		type = ai_wanted_divisions_factor
+		value = -9999
+	}
+	
+	
+	ai_strategy = {
+		type = role_ratio
+		id = garrison
+		value = -9999
+	}
+	
+	ai_strategy = {
+		type = role_ratio
+		id = mechanized
+		value = -9999
+	}
+	
+	ai_strategy = {
+		type = role_ratio
+		id = motorized
+		value = -9999
+	}
+
+	ai_strategy = {
+		type = role_ratio
+		id = paratroopers
+		value = -9999
+	}
+
+	ai_strategy = {
+		type = role_ratio
+		id = mountaineers
+		value = -9999
+	}
+
+	ai_strategy = {
+		type = role_ratio
+		id = marines
+		value = -9999
+	}
+
+	ai_strategy = {
+		type = role_ratio
+		id = armor
+		value = -9999 
+	}
+	ai_strategy = {
+		type = role_ratio
+		id = infantry
+		value = -9999
+	}
+    
+	ai_strategy = {
+		type = role_ratio
+		id = cavalry
+		value = -9999
+	}
+# 各种军队招募意愿-99999
+	ai_strategy = {
+		type = build_army
+		id = cavalry
+		value = -99999
+	}
+
+	ai_strategy = {
+		type = build_army
+		id = camelry
+		value = -99999
+	}
+
+	ai_strategy = {
+		type = build_army
+		id = motorized
+		value = -99999
+	}
+
+	ai_strategy = {
+		type = build_army
+		id = armored_car
+		value = -99999
+	}
+
+	ai_strategy = {
+		type = build_army
+		id = mechanized
+		value = -99999
+	}
+
+	ai_strategy = {
+		type = build_army
+		id = garrison
+		value = -99999
+	}
+
+	ai_strategy = {
+		type = build_army
+		id = suppression
+		value = -99999
+	}
+
+	ai_strategy = {
+		type = build_army
+		id = paratroopers
+		value = -99999
+	}
+
+	ai_strategy = {
+		type = build_army
+		id = mountaineers
+		value = -99999
+	}
+
+	ai_strategy = {
+		type = build_army
+		id = marines
+		value = -99999
+	}
+
+	ai_strategy = {
+		type = build_army
+		id = armor
+		value = -99999
+	}
+
+	ai_strategy = {
+		type = build_army
+		id = light_armor
+		value = -99999
+	}
+
+	ai_strategy = {
+		type = build_army
+		id = heavy_armor
+		value = -99999
+	}
+
+	ai_strategy = {
+		type = build_army
+		id = medium_armor
+		value = -99999
+	}
+
+	ai_strategy = {
+		type = build_army
+		id = modern_armor
+		value = -99999
+	}
+
+	ai_strategy = {
+		type = build_army
+		id = infantry
+		value = -99999
+	}
+}
+
+ai_unit_production_limiter_zz_200 = {
+	enable = {
+	    num_divisions > 200
+	    has_global_flag = ai_unit_production_limiter_zz_200
+	}
+    abort = {
+	    num_divisions < 200
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+        type = force_build_armies
+        value = -50000
+    }
+	
+	ai_strategy = {
+		type = ai_wanted_divisions_factor
+		value = -9999
+	}
+	
+	
+	ai_strategy = {
+		type = role_ratio
+		id = garrison
+		value = -9999
+	}
+	
+	ai_strategy = {
+		type = role_ratio
+		id = mechanized
+		value = -9999
+	}
+	
+	ai_strategy = {
+		type = role_ratio
+		id = motorized
+		value = -9999
+	}
+
+	ai_strategy = {
+		type = role_ratio
+		id = paratroopers
+		value = -9999
+	}
+
+	ai_strategy = {
+		type = role_ratio
+		id = mountaineers
+		value = -9999
+	}
+
+	ai_strategy = {
+		type = role_ratio
+		id = marines
+		value = -9999
+	}
+
+	ai_strategy = {
+		type = role_ratio
+		id = armor
+		value = -9999 
+	}
+	ai_strategy = {
+		type = role_ratio
+		id = infantry
+		value = -9999
+	}
+    
+	ai_strategy = {
+		type = role_ratio
+		id = cavalry
+		value = -9999
+	}
+# 各种军队招募意愿-99999
+	ai_strategy = {
+		type = build_army
+		id = cavalry
+		value = -99999
+	}
+
+	ai_strategy = {
+		type = build_army
+		id = camelry
+		value = -99999
+	}
+
+	ai_strategy = {
+		type = build_army
+		id = motorized
+		value = -99999
+	}
+
+	ai_strategy = {
+		type = build_army
+		id = armored_car
+		value = -99999
+	}
+
+	ai_strategy = {
+		type = build_army
+		id = mechanized
+		value = -99999
+	}
+
+	ai_strategy = {
+		type = build_army
+		id = garrison
+		value = -99999
+	}
+
+	ai_strategy = {
+		type = build_army
+		id = suppression
+		value = -99999
+	}
+
+	ai_strategy = {
+		type = build_army
+		id = paratroopers
+		value = -99999
+	}
+
+	ai_strategy = {
+		type = build_army
+		id = mountaineers
+		value = -99999
+	}
+
+	ai_strategy = {
+		type = build_army
+		id = marines
+		value = -99999
+	}
+
+	ai_strategy = {
+		type = build_army
+		id = armor
+		value = -99999
+	}
+
+	ai_strategy = {
+		type = build_army
+		id = light_armor
+		value = -99999
+	}
+
+	ai_strategy = {
+		type = build_army
+		id = heavy_armor
+		value = -99999
+	}
+
+	ai_strategy = {
+		type = build_army
+		id = medium_armor
+		value = -99999
+	}
+
+	ai_strategy = {
+		type = build_army
+		id = modern_armor
+		value = -99999
+	}
+
+	ai_strategy = {
+		type = build_army
+		id = infantry
+		value = -99999
+	}
+}
+
+ai_unit_production_limiter_zz_250 = {
+	enable = {
+	    num_divisions > 250
+	    has_global_flag = ai_unit_production_limiter_zz_250
+	}
+    abort = {
+	    num_divisions < 250
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+        type = force_build_armies
+        value = -50000
+    }
+	
+	ai_strategy = {
+		type = ai_wanted_divisions_factor
+		value = -9999
+	}
+	
+	
+	ai_strategy = {
+		type = role_ratio
+		id = garrison
+		value = -9999
+	}
+	
+	ai_strategy = {
+		type = role_ratio
+		id = mechanized
+		value = -9999
+	}
+	
+	ai_strategy = {
+		type = role_ratio
+		id = motorized
+		value = -9999
+	}
+
+	ai_strategy = {
+		type = role_ratio
+		id = paratroopers
+		value = -9999
+	}
+
+	ai_strategy = {
+		type = role_ratio
+		id = mountaineers
+		value = -9999
+	}
+
+	ai_strategy = {
+		type = role_ratio
+		id = marines
+		value = -9999
+	}
+
+	ai_strategy = {
+		type = role_ratio
+		id = armor
+		value = -9999 
+	}
+	ai_strategy = {
+		type = role_ratio
+		id = infantry
+		value = -9999
+	}
+    
+	ai_strategy = {
+		type = role_ratio
+		id = cavalry
+		value = -9999
+	}
+# 各种军队招募意愿-99999
+	ai_strategy = {
+		type = build_army
+		id = cavalry
+		value = -99999
+	}
+
+	ai_strategy = {
+		type = build_army
+		id = camelry
+		value = -99999
+	}
+
+	ai_strategy = {
+		type = build_army
+		id = motorized
+		value = -99999
+	}
+
+	ai_strategy = {
+		type = build_army
+		id = armored_car
+		value = -99999
+	}
+
+	ai_strategy = {
+		type = build_army
+		id = mechanized
+		value = -99999
+	}
+
+	ai_strategy = {
+		type = build_army
+		id = garrison
+		value = -99999
+	}
+
+	ai_strategy = {
+		type = build_army
+		id = suppression
+		value = -99999
+	}
+
+	ai_strategy = {
+		type = build_army
+		id = paratroopers
+		value = -99999
+	}
+
+	ai_strategy = {
+		type = build_army
+		id = mountaineers
+		value = -99999
+	}
+
+	ai_strategy = {
+		type = build_army
+		id = marines
+		value = -99999
+	}
+
+	ai_strategy = {
+		type = build_army
+		id = armor
+		value = -99999
+	}
+
+	ai_strategy = {
+		type = build_army
+		id = light_armor
+		value = -99999
+	}
+
+	ai_strategy = {
+		type = build_army
+		id = heavy_armor
+		value = -99999
+	}
+
+	ai_strategy = {
+		type = build_army
+		id = medium_armor
+		value = -99999
+	}
+
+	ai_strategy = {
+		type = build_army
+		id = modern_armor
+		value = -99999
+	}
+
+	ai_strategy = {
+		type = build_army
+		id = infantry
+		value = -99999
+	}
+}
+
+fighter_limiter_more_1 = {
+	enable = {
+		has_deployed_air_force_size = {
+			size > 5000
+		}
+	    has_global_flag = fighter_limiter_more_1
+	}
+    
+	abort = {
+		has_deployed_air_force_size = {
+			size < 4500
+		}
+	}	
+	#abort_when_not_enabled = yes
+	
+	ai_strategy = {
+		type = equipment_production_factor
+		id = fighter
+		value = -9999
+	}
+	
+	ai_strategy = {
+		type = equipment_production_min_factories
+		id = fighter
+		value = -9999
+	}
+	
+	ai_strategy = {
+		type = equipment_production_factor
+		id = heavy_fighter
+		value = -9999
+	}
+	ai_strategy = {
+		type = equipment_production_min_factories
+		id = heavy_fighter
+		value = -9999
+	}
+	
+	ai_strategy = {
+		type = equipment_production_factor
+		id = suicide
+		value = -9999
+	}
+	ai_strategy = {
+		type = equipment_production_min_factories
+		id = suicide
+		value = -9999
+	}
+	
+	ai_strategy = {
+		type = equipment_production_factor
+		id = cas
+		value = -9999
+	}
+	ai_strategy = {
+		type = equipment_production_min_factories
+		id = cas
+		value = -9999
+	}
+	
+	ai_strategy = {
+		type = equipment_production_factor
+		id = tactical_bomber
+		value = -9999
+	}
+	ai_strategy = {
+		type = equipment_production_min_factories
+		id = tactical_bomber
+		value = -9999
+	}
+	
+	ai_strategy = {
+		type = equipment_production_factor
+		id = strategic_bomber
+		value = -9999
+	}
+	ai_strategy = {
+		type = equipment_production_min_factories
+		id = strategic_bomber
+		value = -9999
+	}
+	
+	ai_strategy = {
+		type = equipment_production_factor
+		id = naval_bomber
+		value = -9999
+	}
+	ai_strategy = {
+		type = equipment_production_min_factories
+		id = naval_bomber
+		value = -9999
+	}
+	
+	ai_strategy = {
+		type = equipment_production_factor
+		id = maritime_patrol_plane
+		value = -9999
+	}
+	ai_strategy = {
+		type = equipment_production_min_factories
+		id = maritime_patrol_plane
+		value = -9999
+	}
+	
+	ai_strategy = {
+		type = equipment_production_factor
+		id = scout_plane
+		value = -9999
+	}
+	ai_strategy = {
+		type = equipment_production_min_factories
+		id = scout_plane
+		value = -9999
+	}
+	
+	ai_strategy = {
+		type = equipment_production_factor
+		id = interceptor
+		value = -9999
+	}
+	ai_strategy = {
+		type = equipment_production_min_factories
+		id = interceptor
+		value = -9999
+	}
+	
+	ai_strategy = {
+		type = equipment_production_factor
+		id = air_transport
+		value = -9999
+	}
+	ai_strategy = {
+		type = equipment_production_min_factories
+		id = air_transport
+		value = -9999
+	}
+	
+	ai_strategy = {
+		type = equipment_production_factor
+		id = missile
+		value = -9999
+	}
+	ai_strategy = {
+		type = equipment_production_min_factories
+		id = missile
+		value = -9999
+	}
+}
+fighter_limiter_more_2 = {
+	enable = {
+		has_deployed_air_force_size = {
+			size > 10000
+		}
+	    has_global_flag = fighter_limiter_more_2
+	}
+    
+	abort = {
+		has_deployed_air_force_size = {
+			size < 9000
+		}
+	}	
+	#abort_when_not_enabled = yes
+	
+	ai_strategy = {
+		type = equipment_production_factor
+		id = fighter
+		value = -9999
+	}
+	
+	ai_strategy = {
+		type = equipment_production_min_factories
+		id = fighter
+		value = -9999
+	}
+	
+	ai_strategy = {
+		type = equipment_production_factor
+		id = heavy_fighter
+		value = -9999
+	}
+	ai_strategy = {
+		type = equipment_production_min_factories
+		id = heavy_fighter
+		value = -9999
+	}
+	
+	ai_strategy = {
+		type = equipment_production_factor
+		id = suicide
+		value = -9999
+	}
+	ai_strategy = {
+		type = equipment_production_min_factories
+		id = suicide
+		value = -9999
+	}
+	
+	ai_strategy = {
+		type = equipment_production_factor
+		id = cas
+		value = -9999
+	}
+	ai_strategy = {
+		type = equipment_production_min_factories
+		id = cas
+		value = -9999
+	}
+	
+	ai_strategy = {
+		type = equipment_production_factor
+		id = tactical_bomber
+		value = -9999
+	}
+	ai_strategy = {
+		type = equipment_production_min_factories
+		id = tactical_bomber
+		value = -9999
+	}
+	
+	ai_strategy = {
+		type = equipment_production_factor
+		id = strategic_bomber
+		value = -9999
+	}
+	ai_strategy = {
+		type = equipment_production_min_factories
+		id = strategic_bomber
+		value = -9999
+	}
+	
+	ai_strategy = {
+		type = equipment_production_factor
+		id = naval_bomber
+		value = -9999
+	}
+	ai_strategy = {
+		type = equipment_production_min_factories
+		id = naval_bomber
+		value = -9999
+	}
+	
+	ai_strategy = {
+		type = equipment_production_factor
+		id = maritime_patrol_plane
+		value = -9999
+	}
+	ai_strategy = {
+		type = equipment_production_min_factories
+		id = maritime_patrol_plane
+		value = -9999
+	}
+	
+	ai_strategy = {
+		type = equipment_production_factor
+		id = scout_plane
+		value = -9999
+	}
+	ai_strategy = {
+		type = equipment_production_min_factories
+		id = scout_plane
+		value = -9999
+	}
+	
+	ai_strategy = {
+		type = equipment_production_factor
+		id = interceptor
+		value = -9999
+	}
+	ai_strategy = {
+		type = equipment_production_min_factories
+		id = interceptor
+		value = -9999
+	}
+	
+	ai_strategy = {
+		type = equipment_production_factor
+		id = air_transport
+		value = -9999
+	}
+	ai_strategy = {
+		type = equipment_production_min_factories
+		id = air_transport
+		value = -9999
+	}
+	
+	ai_strategy = {
+		type = equipment_production_factor
+		id = missile
+		value = -9999
+	}
+	ai_strategy = {
+		type = equipment_production_min_factories
+		id = missile
+		value = -9999
+	}
+}
+fighter_limiter_more_3 = {
+	enable = {
+		has_deployed_air_force_size = {
+			size > 20000
+		}
+	    has_global_flag = fighter_limiter_more_3
+	}
+    
+	abort = {
+		has_deployed_air_force_size = {
+			size < 19000
+		}
+	}	
+	#abort_when_not_enabled = yes
+	
+	ai_strategy = {
+		type = equipment_production_factor
+		id = fighter
+		value = -9999
+	}
+	
+	ai_strategy = {
+		type = equipment_production_min_factories
+		id = fighter
+		value = -9999
+	}
+	
+	ai_strategy = {
+		type = equipment_production_factor
+		id = heavy_fighter
+		value = -9999
+	}
+	ai_strategy = {
+		type = equipment_production_min_factories
+		id = heavy_fighter
+		value = -9999
+	}
+	
+	ai_strategy = {
+		type = equipment_production_factor
+		id = suicide
+		value = -9999
+	}
+	ai_strategy = {
+		type = equipment_production_min_factories
+		id = suicide
+		value = -9999
+	}
+	
+	ai_strategy = {
+		type = equipment_production_factor
+		id = cas
+		value = -9999
+	}
+	ai_strategy = {
+		type = equipment_production_min_factories
+		id = cas
+		value = -9999
+	}
+	
+	ai_strategy = {
+		type = equipment_production_factor
+		id = tactical_bomber
+		value = -9999
+	}
+	ai_strategy = {
+		type = equipment_production_min_factories
+		id = tactical_bomber
+		value = -9999
+	}
+	
+	ai_strategy = {
+		type = equipment_production_factor
+		id = strategic_bomber
+		value = -9999
+	}
+	ai_strategy = {
+		type = equipment_production_min_factories
+		id = strategic_bomber
+		value = -9999
+	}
+	
+	ai_strategy = {
+		type = equipment_production_factor
+		id = naval_bomber
+		value = -9999
+	}
+	ai_strategy = {
+		type = equipment_production_min_factories
+		id = naval_bomber
+		value = -9999
+	}
+	
+	ai_strategy = {
+		type = equipment_production_factor
+		id = maritime_patrol_plane
+		value = -9999
+	}
+	ai_strategy = {
+		type = equipment_production_min_factories
+		id = maritime_patrol_plane
+		value = -9999
+	}
+	
+	ai_strategy = {
+		type = equipment_production_factor
+		id = scout_plane
+		value = -9999
+	}
+	ai_strategy = {
+		type = equipment_production_min_factories
+		id = scout_plane
+		value = -9999
+	}
+	
+	ai_strategy = {
+		type = equipment_production_factor
+		id = interceptor
+		value = -9999
+	}
+	ai_strategy = {
+		type = equipment_production_min_factories
+		id = interceptor
+		value = -9999
+	}
+	
+	ai_strategy = {
+		type = equipment_production_factor
+		id = air_transport
+		value = -9999
+	}
+	ai_strategy = {
+		type = equipment_production_min_factories
+		id = air_transport
+		value = -9999
+	}
+	
+	ai_strategy = {
+		type = equipment_production_factor
+		id = missile
+		value = -9999
+	}
+	ai_strategy = {
+		type = equipment_production_min_factories
+		id = missile
+		value = -9999
+	}
+}
+fighter_limiter_more_4 = {
+	enable = {
+		has_deployed_air_force_size = {
+			size > 30000
+		}
+	    has_global_flag = fighter_limiter_more_4
+	}
+    
+	abort = {
+		has_deployed_air_force_size = {
+			size < 29000
+		}
+	}	
+	#abort_when_not_enabled = yes
+	
+	ai_strategy = {
+		type = equipment_production_factor
+		id = fighter
+		value = -9999
+	}
+	
+	ai_strategy = {
+		type = equipment_production_min_factories
+		id = fighter
+		value = -9999
+	}
+	
+	ai_strategy = {
+		type = equipment_production_factor
+		id = heavy_fighter
+		value = -9999
+	}
+	ai_strategy = {
+		type = equipment_production_min_factories
+		id = heavy_fighter
+		value = -9999
+	}
+	
+	ai_strategy = {
+		type = equipment_production_factor
+		id = suicide
+		value = -9999
+	}
+	ai_strategy = {
+		type = equipment_production_min_factories
+		id = suicide
+		value = -9999
+	}
+	
+	ai_strategy = {
+		type = equipment_production_factor
+		id = cas
+		value = -9999
+	}
+	ai_strategy = {
+		type = equipment_production_min_factories
+		id = cas
+		value = -9999
+	}
+	
+	ai_strategy = {
+		type = equipment_production_factor
+		id = tactical_bomber
+		value = -9999
+	}
+	ai_strategy = {
+		type = equipment_production_min_factories
+		id = tactical_bomber
+		value = -9999
+	}
+	
+	ai_strategy = {
+		type = equipment_production_factor
+		id = strategic_bomber
+		value = -9999
+	}
+	ai_strategy = {
+		type = equipment_production_min_factories
+		id = strategic_bomber
+		value = -9999
+	}
+	
+	ai_strategy = {
+		type = equipment_production_factor
+		id = naval_bomber
+		value = -9999
+	}
+	ai_strategy = {
+		type = equipment_production_min_factories
+		id = naval_bomber
+		value = -9999
+	}
+	
+	ai_strategy = {
+		type = equipment_production_factor
+		id = maritime_patrol_plane
+		value = -9999
+	}
+	ai_strategy = {
+		type = equipment_production_min_factories
+		id = maritime_patrol_plane
+		value = -9999
+	}
+	
+	ai_strategy = {
+		type = equipment_production_factor
+		id = scout_plane
+		value = -9999
+	}
+	ai_strategy = {
+		type = equipment_production_min_factories
+		id = scout_plane
+		value = -9999
+	}
+	
+	ai_strategy = {
+		type = equipment_production_factor
+		id = interceptor
+		value = -9999
+	}
+	ai_strategy = {
+		type = equipment_production_min_factories
+		id = interceptor
+		value = -9999
+	}
+	
+	ai_strategy = {
+		type = equipment_production_factor
+		id = air_transport
+		value = -9999
+	}
+	ai_strategy = {
+		type = equipment_production_min_factories
+		id = air_transport
+		value = -9999
+	}
+	
+	ai_strategy = {
+		type = equipment_production_factor
+		id = missile
+		value = -9999
+	}
+	ai_strategy = {
+		type = equipment_production_min_factories
+		id = missile
+		value = -9999
+	}
+}
+fighter_limiter_more_5 = {
+	enable = {
+		has_deployed_air_force_size = {
+			size > 40000
+		}
+	    has_global_flag = fighter_limiter_more_5
+	}
+    
+	abort = {
+		has_deployed_air_force_size = {
+			size < 39000
+		}
+	}	
+	#abort_when_not_enabled = yes
+	
+	ai_strategy = {
+		type = equipment_production_factor
+		id = fighter
+		value = -9999
+	}
+	
+	ai_strategy = {
+		type = equipment_production_min_factories
+		id = fighter
+		value = -9999
+	}
+	
+	ai_strategy = {
+		type = equipment_production_factor
+		id = heavy_fighter
+		value = -9999
+	}
+	ai_strategy = {
+		type = equipment_production_min_factories
+		id = heavy_fighter
+		value = -9999
+	}
+	
+	ai_strategy = {
+		type = equipment_production_factor
+		id = suicide
+		value = -9999
+	}
+	ai_strategy = {
+		type = equipment_production_min_factories
+		id = suicide
+		value = -9999
+	}
+	
+	ai_strategy = {
+		type = equipment_production_factor
+		id = cas
+		value = -9999
+	}
+	ai_strategy = {
+		type = equipment_production_min_factories
+		id = cas
+		value = -9999
+	}
+	
+	ai_strategy = {
+		type = equipment_production_factor
+		id = tactical_bomber
+		value = -9999
+	}
+	ai_strategy = {
+		type = equipment_production_min_factories
+		id = tactical_bomber
+		value = -9999
+	}
+	
+	ai_strategy = {
+		type = equipment_production_factor
+		id = strategic_bomber
+		value = -9999
+	}
+	ai_strategy = {
+		type = equipment_production_min_factories
+		id = strategic_bomber
+		value = -9999
+	}
+	
+	ai_strategy = {
+		type = equipment_production_factor
+		id = naval_bomber
+		value = -9999
+	}
+	ai_strategy = {
+		type = equipment_production_min_factories
+		id = naval_bomber
+		value = -9999
+	}
+	
+	ai_strategy = {
+		type = equipment_production_factor
+		id = maritime_patrol_plane
+		value = -9999
+	}
+	ai_strategy = {
+		type = equipment_production_min_factories
+		id = maritime_patrol_plane
+		value = -9999
+	}
+	
+	ai_strategy = {
+		type = equipment_production_factor
+		id = scout_plane
+		value = -9999
+	}
+	ai_strategy = {
+		type = equipment_production_min_factories
+		id = scout_plane
+		value = -9999
+	}
+	
+	ai_strategy = {
+		type = equipment_production_factor
+		id = interceptor
+		value = -9999
+	}
+	ai_strategy = {
+		type = equipment_production_min_factories
+		id = interceptor
+		value = -9999
+	}
+	
+	ai_strategy = {
+		type = equipment_production_factor
+		id = air_transport
+		value = -9999
+	}
+	ai_strategy = {
+		type = equipment_production_min_factories
+		id = air_transport
+		value = -9999
+	}
+	
+	ai_strategy = {
+		type = equipment_production_factor
+		id = missile
+		value = -9999
+	}
+	ai_strategy = {
+		type = equipment_production_min_factories
+		id = missile
+		value = -9999
+	}
+}
+fighter_limiter_more_6 = {
+	enable = {
+		has_deployed_air_force_size = {
+			size > 50000
+		}
+	    has_global_flag = fighter_limiter_more_6
+	}
+    
+	abort = {
+		has_deployed_air_force_size = {
+			size < 49000
+		}
+	}	
+	#abort_when_not_enabled = yes
+	
+	ai_strategy = {
+		type = equipment_production_factor
+		id = fighter
+		value = -9999
+	}
+	
+	ai_strategy = {
+		type = equipment_production_min_factories
+		id = fighter
+		value = -9999
+	}
+	
+	ai_strategy = {
+		type = equipment_production_factor
+		id = heavy_fighter
+		value = -9999
+	}
+	ai_strategy = {
+		type = equipment_production_min_factories
+		id = heavy_fighter
+		value = -9999
+	}
+	
+	ai_strategy = {
+		type = equipment_production_factor
+		id = suicide
+		value = -9999
+	}
+	ai_strategy = {
+		type = equipment_production_min_factories
+		id = suicide
+		value = -9999
+	}
+	
+	ai_strategy = {
+		type = equipment_production_factor
+		id = cas
+		value = -9999
+	}
+	ai_strategy = {
+		type = equipment_production_min_factories
+		id = cas
+		value = -9999
+	}
+	
+	ai_strategy = {
+		type = equipment_production_factor
+		id = tactical_bomber
+		value = -9999
+	}
+	ai_strategy = {
+		type = equipment_production_min_factories
+		id = tactical_bomber
+		value = -9999
+	}
+	
+	ai_strategy = {
+		type = equipment_production_factor
+		id = strategic_bomber
+		value = -9999
+	}
+	ai_strategy = {
+		type = equipment_production_min_factories
+		id = strategic_bomber
+		value = -9999
+	}
+	
+	ai_strategy = {
+		type = equipment_production_factor
+		id = naval_bomber
+		value = -9999
+	}
+	ai_strategy = {
+		type = equipment_production_min_factories
+		id = naval_bomber
+		value = -9999
+	}
+	
+	ai_strategy = {
+		type = equipment_production_factor
+		id = maritime_patrol_plane
+		value = -9999
+	}
+	ai_strategy = {
+		type = equipment_production_min_factories
+		id = maritime_patrol_plane
+		value = -9999
+	}
+	
+	ai_strategy = {
+		type = equipment_production_factor
+		id = scout_plane
+		value = -9999
+	}
+	ai_strategy = {
+		type = equipment_production_min_factories
+		id = scout_plane
+		value = -9999
+	}
+	
+	ai_strategy = {
+		type = equipment_production_factor
+		id = interceptor
+		value = -9999
+	}
+	ai_strategy = {
+		type = equipment_production_min_factories
+		id = interceptor
+		value = -9999
+	}
+	
+	ai_strategy = {
+		type = equipment_production_factor
+		id = air_transport
+		value = -9999
+	}
+	ai_strategy = {
+		type = equipment_production_min_factories
+		id = air_transport
+		value = -9999
+	}
+	
+	ai_strategy = {
+		type = equipment_production_factor
+		id = missile
+		value = -9999
+	}
+	ai_strategy = {
+		type = equipment_production_min_factories
+		id = missile
+		value = -9999
+	}
+}

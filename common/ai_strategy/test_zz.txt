@@ -1,0 +1,16 @@
+test_ffddd = {
+	
+	enable = {
+		always = no
+	}
+	abort = {
+        always = yes
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = role_ratio
+		id = cat_medium_armor
+		value = 50
+	}
+}

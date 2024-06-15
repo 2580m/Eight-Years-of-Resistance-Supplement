@@ -1,0 +1,83 @@
+FRA_Capture_Vichy_control_area = {
+	allowed = {
+		original_tag = FRA
+	}
+	
+	enable = {
+		has_focus_tree = free_french_focus
+		any_other_country = {
+			original_tag = FRA
+			has_focus_tree = vichy_french_focus
+		}
+	}
+	abort_when_not_enabled = yes
+	
+	ai_strategy = {
+		type = operative_mission
+		mission = build_intel_network
+		value = 1000
+		mission_target = VIC
+		num_operatives = 1
+		state = 461#卡萨布兰卡
+	}
+	ai_strategy = {
+		type = operative_mission
+		mission = build_intel_network
+		value = 1000
+		mission_target = VIC
+		num_operatives = 1
+		state = 459#阿尔及尔
+	}
+	ai_strategy = {
+		type = operative_mission
+		mission = build_intel_network
+		value = 1000
+		mission_target = VIC
+		num_operatives = 1
+		state = 458#突尼斯
+	}
+	ai_strategy = {
+		type = operative_mission
+		mission = build_intel_network
+		value = 1000
+		mission_target = VIC
+		num_operatives = 1
+		state = 557#突尼斯
+	}
+	ai_strategy = {
+		type = operative_operation
+		operation = operation_rescue_operative
+		value = 9999
+		operation_target = VIC
+	}
+	ai_strategy = {
+		type = operative_operation
+		operation = FRA_coup_in_syria
+		value = 9999
+		operation_target = VIC
+	}
+	ai_strategy = {
+		type = operative_operation
+		operation = FRA_coup_in_north_africa
+		value = 9999
+		operation_target = VIC
+	}
+	ai_strategy = {
+		type = operative_operation
+		operation = FRA_coup_in_west_africa
+		value = 9999
+		operation_target = VIC
+	}
+	ai_strategy = {
+		type = operative_operation
+		operation = FRA_coup_in_central_africa
+		value = 9999
+		operation_target = VIC
+	}
+	ai_strategy = {
+		type = operative_operation
+		operation = FRA_coup_in_madagascar
+		value = 9999
+		operation_target = VIC
+	}
+}

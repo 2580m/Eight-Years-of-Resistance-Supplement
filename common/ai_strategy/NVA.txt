@@ -1,0 +1,261 @@
+Soviets_Support_Ho_Chi_Minh = {
+	enable = {
+	    has_government = communism
+		NOT = { has_war_with = VIN }
+		NOT = { tag = PRC }
+	    NOT = { has_war_with = GER }
+	}
+	abort_when_not_enabled = yes
+    
+	ai_strategy = {
+		type = send_lend_lease_desire
+		id = VIN
+		value = 8000
+	}
+    ai_strategy = {
+		type = support
+		id = VIN
+		value = 8000
+	}
+	ai_strategy = {
+		type = send_volunteers_desire
+		id = VIN
+		value = -1000000
+	}
+}
+
+ENG_do_not_send_volunteers = {
+	enable = {
+	    is_ally_faction_country = yes
+		FRA = { has_war_with = VIN }
+	}
+	abort_when_not_enabled = yes
+    
+	ai_strategy = {
+		type = send_volunteers_desire
+		id = FRA
+		value = -1000000
+	}
+}
+
+NVA_ignore_laos = {
+	enable = {
+	    tag = VIN
+		has_war_with = FRA
+		LAO = {
+		    has_idea = nva_regional_war
+			is_ai = yes
+		}
+	}
+	
+	abort = {
+	    OR = {
+		    has_full_control_of_state = 988
+		    has_full_control_of_state = 986
+			has_war_with = LAO
+		}
+	}
+    
+	ai_strategy = {
+		type = front_unit_request
+		tag = LAO
+		value = -8000
+	}
+}
+
+NVA_france_not_weak = {
+	enable = {
+	    tag = VIN
+		has_war_with = FRA
+	}
+	abort_when_not_enabled = yes
+    
+	ai_strategy = {
+		type = consider_weak
+		id = FRA
+		value = -500
+	}
+}
+
+NVA_dont_create_that_much_inf = {
+	enable = {
+	    tag = VIN
+		num_divisions > 50
+	}
+	abort_when_not_enabled = yes
+    
+	ai_strategy = {
+		type = force_build_armies
+		value = -8000
+	}
+}
+
+NVA_dont_create_that_much_inf_2 = {
+	enable = {
+	    tag = VIN
+		num_divisions > 50
+	}
+	abort_when_not_enabled = yes
+    
+	ai_strategy = {
+		type = build_army
+		id = suppression
+		value = -8000
+	}
+}
+
+Mao_supports_viet_minh = {
+	enable = {
+	    tag = PRC
+		PRC = {
+		    controls_state = 1015
+			controls_state = 608
+			controls_state = 600
+		}
+	}
+	abort_when_not_enabled = yes
+    
+	ai_strategy = {
+		type = befriend
+		id = VIN
+		value = 500
+	}
+	ai_strategy = {
+		type = send_lend_lease_desire
+		id = VIN
+		value = 2000
+	}
+	ai_strategy = {
+		type = support
+		id = VIN
+		value = 2000
+	}
+	ai_strategy = {
+		type = send_volunteers_desire
+		id = VIN
+		value = 2000
+	}
+}
+
+NVA_how_to_win_war_with_france = {
+	enable = {
+	    tag = VIN
+        has_war_with = FRA
+		date < 1947.5.1
+	}
+	abort_when_not_enabled = yes
+
+    ai_strategy = {
+		type = front_control
+
+		tag = FRA
+
+		ratio = 0.1
+
+		priority = 500
+		ordertype = front
+		execution_type = careful
+		execute_order = no
+	}
+}
+
+NVA_how_to_win_war_with_france_2 = {
+	enable = {
+	    tag = VIN
+        has_war_with = FRA
+		date > 1947.5.1
+	}
+	abort_when_not_enabled = yes
+
+    ai_strategy = {
+		type = front_control
+
+		tag = FRA
+
+		ratio = 0.1
+
+		priority = 500
+		ordertype = front
+		execution_type = careful
+	}
+}
+
+FRA_this_war_is_unpopular_dont_commit_much = {
+	enable = {
+	    tag = FRA
+        has_war_with = VIN
+	}
+	abort_when_not_enabled = yes
+
+    ai_strategy = {
+		type = front_unit_request
+		id = VIN
+		value = -500
+	}
+}
+
+FRA_viet_minh_are_weak = {
+	enable = {
+	    tag = FRA
+        has_war_with = VIN
+	}
+	abort_when_not_enabled = yes
+
+    ai_strategy = {
+		type = consider_weak
+		id = VIN
+		value = 500
+	}
+}
+
+FRA_dont_naval_invade_nva = {
+	enable = {
+	    tag = FRA
+        has_war_with = VIN
+	}
+	abort_when_not_enabled = yes
+
+    ai_strategy = {
+		type = invade
+		id = VIN
+		value = -8000
+	}
+}
+
+Indochina_fuck_the_world_this_is_a_us_problem = {
+	enable = {
+	    OR = {
+		   tag = LAO
+		   
+		   tag = VIN
+		   tag = CAM
+		}
+	}
+	abort_when_not_enabled = yes
+
+    ai_strategy = {
+		type = alliance
+		id = USA
+		value = -8000
+	}
+	ai_strategy = {
+		type = alliance
+		id = ENG
+		value = -8000
+	}
+	ai_strategy = {
+		type = alliance
+		id = FRA
+		value = -8000
+	}
+	ai_strategy = {
+		type = alliance
+		id = SOV
+		value = -8000
+	}
+	ai_strategy = {
+		type = alliance
+		id = CHI
+		value = -8000
+	}
+}

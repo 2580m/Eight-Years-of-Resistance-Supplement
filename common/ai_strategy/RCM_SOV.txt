@@ -1,0 +1,864 @@
+# befriend
+# conquer
+# antagonize
+# build_ship
+# build_army
+# unit_ratio
+# build_building
+# research_tech
+# garrison
+# protect
+## influence
+#SOV_GER_is_NOT_weak = {
+#
+#	enable = {
+#		tag = SOV
+#		check_variable = {
+#			This.infantry_equipment_deficit > 9000
+#		}
+#	}
+#
+#	abort = {
+#		#always = no  #MODDED
+#		check_variable = {
+#			This.infantry_equipment_deficit < 4000
+#		}
+#	}
+#
+#	ai_strategy = {
+#		type = consider_weak
+#		id = "GER"
+#		value = -120 #<MODDED
+#	}
+#	ai_strategy = {
+#		type = consider_weak
+#		id = "ROM"
+#		value = -120 #<MODDED
+#	}
+#}
+#SOV_GER_is_weak = {
+#
+#	enable = {
+#		SOV = {
+#			is_ai = yes
+#		}
+#		tag = GER
+#	}
+#
+#	abort = {
+#		always = no  #MODDED
+#	}
+#
+#	ai_strategy = {
+#		type = consider_weak
+#		id = "SOV"
+#		value = 250 #<MODDED
+#	}
+#}
+#SOV_GER_is_weak = {
+#
+#	enable = {
+#		SOV = {
+#			is_ai = no
+#		}
+#		tag = GER
+#		casualties_inflicted_by = {
+#			opponent = SOV
+#			thousands < 500
+#		}
+#	}
+#
+#	abort = {
+#		#always = no  #MODDED
+#		tag = GER
+#		casualties_inflicted_by = {
+#			opponent = SOV
+#			thousands > 500
+#		}
+#	}
+#
+#	ai_strategy = {
+#		type = consider_weak
+#		id = "SOV"
+#		value = 200 #<MODDED
+#	}
+#}
+#SOV_GER_is_weak_2 = {
+#
+#	enable = {
+#		tag = GER
+#		SOV = {
+#			is_ai = no
+#		}
+#		casualties_inflicted_by = {
+#			opponent = SOV
+#			thousands < 1000
+#		}
+#		casualties_inflicted_by = {
+#			opponent = SOV
+#			thousands > 500
+#		}
+#	}
+#
+#	abort = {
+#		#always = no  #MODDED
+#		tag = GER
+#		casualties_inflicted_by = {
+#			opponent = SOV
+#			thousands > 1000
+#		}
+#	}
+#
+#	ai_strategy = {
+#		type = consider_weak
+#		id = "SOV"
+#		value = 150 #<MODDED
+#	}
+#}
+#SOV_GER_is_weak_3 = {
+#
+#	enable = {
+#		tag = GER
+#		SOV = {
+#			is_ai = no
+#		}
+#		casualties_inflicted_by = {
+#			opponent = SOV
+#			thousands < 3000
+#		}
+#		casualties_inflicted_by = {
+#			opponent = SOV
+#			thousands > 1000
+#		}
+#	}
+#
+#	abort = {
+#		#always = no  #MODDED
+#		tag = GER
+#		casualties_inflicted_by = {
+#			opponent = SOV
+#			thousands > 3000
+#		}
+#	}
+#
+#	ai_strategy = {
+#		type = consider_weak
+#		id = "SOV"
+#		value = 120 #<MODDED
+#	}
+#}
+SOV_JAP_is_weak_2 = {
+
+	enable = {
+		tag = SOV
+		has_war_with = JAP
+		has_war_together_with = ENG
+		NOT = {
+			country_exists = GER
+		}
+	}
+
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = consider_weak
+		id = "JAP"
+		value = 120 #<MODDED
+	}
+}
+SOV_SIK_VOL = {
+
+	enable = {
+		tag = SOV
+		SIK = {
+			has_war = yes
+			any_enemy_country = {
+				NOT = {
+					original_tag = HMI
+				}
+			}
+			has_government = communism
+			NOT = {
+				has_war_with = SOV
+			}
+			OR = {
+				has_idea = SIK_Support_idea
+				has_idea = SIK_Weakened_ussr_influence
+			}
+		    NOT = {
+			    OR = {
+			        has_idea = SIK_kashi_debuff
+				    has_idea = SIK_kashi_debuff_2
+				    has_idea = SIK_kashi_debuff_3
+			    }
+			}	    
+		}
+	}
+
+    abort = {
+	    OR = {
+		    SIK = {
+	            NOT = {
+		            has_government = communism
+		        }
+		    }
+		    OR = {
+			    has_idea = SIK_kashi_debuff
+		        has_idea = SIK_kashi_debuff_2
+		        has_idea = SIK_kashi_debuff_3
+	        }
+		}    
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = send_volunteers_desire
+		id = "SIK"
+		value = 5000
+	}
+}
+
+SOV_dont_help_NEA = {
+
+	enable = {
+		tag = SOV
+        NEA = { 
+            NOT = { has_government = communism }
+        }
+	}
+
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = send_volunteers_desire
+		id = "NEA"
+		value = -5000
+	}
+}
+
+SOV_baltic_doesnt_like_you = {
+
+	enable = {
+        OR = { 
+            tag = LIT 
+            tag = EST  
+	        tag = LAT
+        }
+        NOT = { has_government = communism }
+    }
+
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = befriend
+		id = "SOV"			
+		value = -500
+	}
+	ai_strategy = {
+		type = alliance
+		id = "SOV"			
+		value = -500
+	}	
+}
+
+SOV_no_guarantee_baltic = {
+
+	enable = {
+        is_historical_focus_on = yes
+        is_major = yes
+	}
+
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = diplo_action_desire
+		id = "LIT"
+		target = guarantee
+		value = -5000
+	}
+	ai_strategy = {
+		type = diplo_action_desire
+		id = "EST"
+		target = guarantee
+		value = -5000
+	}	
+    ai_strategy = {
+		type = diplo_action_desire
+		id = "LAT"
+		target = guarantee
+		value = -5000
+	}
+}
+
+SOV_dont_invade_in_europe = {
+
+	enable = {
+        tag = SOV
+        has_war_with = GER
+	}
+
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = invade
+		id = "GER"		
+		value = -5000
+	}
+	ai_strategy = {
+		type = invade
+		id = "BUL"		
+		value = -5000
+	}
+    ai_strategy = {
+		type = invade
+		id = "ROM"		
+		value = -5000
+	}
+    ai_strategy = {
+		type = invade
+		id = "GRE"		
+		value = -5000
+	}
+    ai_strategy = {
+		type = invade
+		id = "ITA"		
+		value = -5000
+	}
+	ai_strategy = {
+		type = invasion_unit_request
+		tag = GER
+		value = -5000
+	}
+    ai_strategy = {
+		type = invasion_unit_request
+		tag = BUL
+		value = -5000
+	}
+    ai_strategy = {
+		type = invasion_unit_request
+		tag = ROM
+		value = -5000
+	}
+    ai_strategy = {
+		type = invasion_unit_request
+		tag = GRE
+		value = -5000
+	}
+    ai_strategy = {
+		type = invasion_unit_request
+		tag = ITA
+		value = -5000
+	}
+}
+
+#guo#SOV_spam_troops
+
+#guo#SOV_spam_troops
+
+SOV_PER_should_be_weak = {
+	allowed = {
+	    tag = PER 
+	}
+	enable = {
+		tag = PER
+        is_historical_focus_on = yes
+	    has_army_manpower = { size > 29999 }
+	}
+    abort = {
+	    has_army_manpower = { size < 29999 }
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = role_ratio
+		id = garrison
+		value = -9999
+	}
+
+	ai_strategy = {
+		type = role_ratio
+		id = paratroopers
+		value = -9999
+	}
+
+	ai_strategy = {
+		type = role_ratio
+		id = mountaineers
+		value = -9999
+	}
+
+	ai_strategy = {
+		type = role_ratio
+		id = marines
+		value = -9999
+	}
+
+	ai_strategy = {
+		type = role_ratio
+		id = armor
+		value = -9999 
+	}
+	ai_strategy = {
+		type = role_ratio
+		id = infantry
+		value = -9999
+	}
+    
+	ai_strategy = {
+		type = role_ratio
+		id = cavalry
+		value = -9999
+	}
+
+	ai_strategy = {
+        type = force_build_armies
+        value = -9999
+	}
+}  
+
+SOV_iran_is_weak = {
+	enable = {
+		tag = SOV
+	    has_completed_focus = SOV_preemptive_invasion_of_iran
+	}
+    abort = {
+	    OR = {
+		    PER = { is_subject = yes }
+	        date > 1943.1.1
+	    }
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = consider_weak
+		id = "PER"
+		value = 3000
+	}
+    
+	ai_strategy = {
+		type = conquer
+		id = "PER"
+		value = 3000
+	}
+    
+	ai_strategy = {
+		type = ignore_army_incompetence   
+		value = -1000
+	} 
+	ai_strategy = {
+		type = front_control
+
+		tag = PER
+
+		ratio = 0
+
+		priority = 200
+		ordertype = front
+		execution_type = rush_weak
+		execute_order = yes
+	}
+	ai_strategy = {
+		type = prepare_for_war
+		id = "PER"
+		value = 1000
+	}
+}  
+
+SOV_PER_r_friends_now = {
+	enable = {
+	    OR = {
+		    tag = PER
+	        tag = USA
+		    tag = ENG
+	        tag = AST
+		    tag = NZL
+		}
+		PER = { is_subject_of = ENG }
+	    NOT = { has_war_with = SOV }
+	    GER = {
+			has_war_with = SOV
+			has_war_with = ENG
+			has_government = fascism
+		}
+	}
+    abort = {
+		NOT = { 
+		    GER = {
+			    has_war_with = SOV
+		    }
+	    } 
+	}
+	abort_when_not_enabled = yes
+
+	#ai_strategy = {
+	#	type = befriend
+	#	id = "SOV"			
+	#	value = 200
+	#}
+	ai_strategy = {
+		type = alliance
+		id = "SOV"			
+		value = 150
+	}	
+	ai_strategy = {      
+		type = support
+		id = "SOV"
+		value = 1000
+	}
+    ai_strategy = {
+		type = send_lend_lease_desire
+		id = "SOV"			
+		value = 2000
+	}	
+}  
+
+#guo#SOV_halt_light_armor_production_in_transitioning
+
+SOV_GER_is_weak_after_1943 = {
+	enable = {
+		tag = SOV
+	    date > 1943.1.1
+		#OR = {
+		#    16 = { is_controlled_by = FRA }
+	    #    15 = { is_controlled_by = FRA }
+	    #}
+		has_army_manpower = { size > 2499999 }
+		check_variable = {
+			This.infantry_equipment_deficit < 70000
+		}
+	}
+    abort = {
+	   OR = {
+	        NOT = { has_war_with = GER }
+	        has_army_manpower = { size < 2499999 }
+			check_variable = {
+				This.infantry_equipment_deficit > 70000
+			}
+	   }
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = consider_weak
+		id = "GER"
+		value = 1 #
+	} 
+	ai_strategy = {
+		type = conquer
+		id = "GER"
+		value = 30
+	} 
+	ai_strategy = {
+		type = consider_weak
+		id = "ROM"
+		value = 1
+	}
+}
+
+#guo#SOV_GER_is_weak_after_dday
+
+SOV_prepare_for_the_august_storm = {
+	allowed = {
+	    tag = SOV
+	}
+	enable = {
+		OR = {
+		focus_progress = {
+			focus = SOV_prepare_a_war_with_japan
+			progress > 0.1
+		}
+	        has_completed_focus = SOV_prepare_a_war_with_japan
+	    }
+	    NOT = { has_war_with = GER }
+	    MAN = { is_subject_of = JAP }
+	    has_army_manpower = { size > 1999999 }
+	}
+    abort = {
+	   OR = {
+	        JAP = { is_subject = yes }
+	        has_army_manpower = { size < 1999999 }
+	   }
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = antagonize
+		id = "MAN"
+		value = 500
+	}
+	ai_strategy = {
+		type = antagonize
+		id = "JAP"
+		value = 500
+	}	
+	ai_strategy = {
+		type = consider_weak
+		id = "MAN"
+		value = 5
+	}
+    
+	ai_strategy = {
+		type = consider_weak
+		id = "JAP"
+		value = 5
+	}
+	
+	ai_strategy = {
+		type = conquer
+		id = "MAN"
+		value = 500
+	} 
+	
+	ai_strategy = {
+		type = prepare_for_war
+		id = "MAN"
+		value = 2000
+	}
+	ai_strategy = {
+		type = prepare_for_war
+		id = "JAP"
+		value = 1000
+	}
+	
+	ai_strategy = {
+		type = ignore
+		id = "FRA"
+		value = 3000
+	} 
+	
+	ai_strategy = {
+		type = front_control
+
+		tag = MAN
+
+		ratio = 0
+
+		priority = 400
+		ordertype = front
+		execution_type = rush_weak
+		execute_order = yes
+	}
+	ai_strategy = {
+		type = front_control
+
+		tag = JAP
+
+		ratio = 0
+
+		priority = 200
+		ordertype = front
+		execution_type = rush_weak
+		execute_order = yes
+	}
+
+    ai_strategy = {
+		type = spare_unit_factor
+		value = -3000
+	}
+}
+
+SOV_dont_send_help_to_japan_i_guess = {
+	enable = {
+	    #original_tag = SOV
+	    has_government = communism
+	    NOT = { 
+	        JAP = { has_government = communism } 
+	    }
+	    NOT = { is_in_faction_with = JAP }	
+	}
+	abort_when_not_enabled = yes
+    
+    ai_strategy = {
+		type = send_volunteers_desire
+		id = "JAP"
+		value = -5000
+	}
+    
+    ai_strategy = {
+		type = send_lend_lease_desire
+		id = "JAP"
+		value = -5000
+	}
+	
+	ai_strategy = {
+		type = send_volunteers_desire
+		id = "SIA"
+		value = -5000
+	}
+    
+    ai_strategy = {
+		type = send_lend_lease_desire
+		id = "SIA"
+		value = -5000
+	}
+
+}
+
+SOV_dont_fight_jap_before_defeat_germany = {
+	enable = {
+		#is_historical_focus_on = yes
+		tag = SOV
+		date > 1941.1.1
+		has_war_with = GER
+		OR = {
+		    YUG = { is_in_faction_with = SOV }
+		    POL = { is_in_faction_with = SOV }
+		}
+	    OR = {
+		    YUG = { has_war_with = JAP }
+		    POL = { has_war_with = JAP }
+		}
+	}
+
+	abort = {
+		NOT = { has_war_with = GER }
+	}
+
+	ai_strategy = {
+		type = dont_join_wars_with 
+		id = YUG
+		target_country = YUG
+		value = 5000
+	}
+  
+    ai_strategy = {
+		type = dont_join_wars_with
+		id = POL
+		target_country = POL
+		value = 5000
+	}
+}
+
+better_not_invade_ehb_by_sea_imo = {
+
+	enable = {
+        is_historical_focus_on = yes
+		has_war_with = JAP
+		has_war_with = EHB
+		#has_war_with = MAN
+		EHB = { is_subject_of = JAP }
+	}
+
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = invade
+		id = "EHB"		
+		value = -5000
+	}
+	ai_strategy = {
+		type = invade
+		id = "MAN"		
+		value = -5000
+	}
+}
+
+SOV_give_ett_access = {
+	enable = {
+        original_tag = SIK
+		has_government = communism
+		has_idea = SIK_For_the_TAR_revolution
+		any_neighbor_country = {
+			tag = SOV
+            has_government = communism
+			NOT = {
+				has_war_with = ROOT
+			}
+		}
+	}
+
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = diplo_action_desire
+		id = SOV
+		target = military_access
+		value = 5000
+	}
+}
+
+SOV_watch_out_equipment = {
+	enable = {
+		tag = SOV
+	    has_war_with = GER
+		check_variable = {
+			This.infantry_equipment_deficit > 60000
+		}
+	}
+    abort = {
+	    OR = {
+	        NOT = {
+				has_war_with = GER 
+			} 
+			check_variable = {
+				This.infantry_equipment_deficit < 60000
+			}
+	    }
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = consider_weak
+		id = "GER"
+		value = -10000
+	} 
+
+	ai_strategy = {
+		type = consider_weak
+		id = "ROM"
+		value = -10000
+	} 
+
+	ai_strategy = {
+		type = front_control
+		tag = GER
+		ratio = 1
+		priority = 3000
+		ordertype = front
+		execution_type = careful
+		execute_order = no
+	}
+
+	ai_strategy = {
+		type = front_control
+		tag = ROM
+		ratio = 1
+		priority = 3000
+		ordertype = front
+		execution_type = careful
+		execute_order = no
+	}
+}
+
+SOV_dont_invade_finland= {
+	allowed = {
+		original_tag = SOV
+	}
+	enable = {
+		is_historical_focus_on = yes
+		has_war_with = FIN
+	}
+    abort_when_not_enabled = yes
+	ai_strategy = {
+		type = invade
+		id = "FIN"
+		value = -5000
+	}
+    ai_strategy = {
+		type = invasion_unit_request
+		tag = FIN
+		value = -100
+	}
+	ai_strategy = {
+		type = invade
+		id = "NOR"
+		value = -5000
+	}
+	ai_strategy = {
+		type = invasion_unit_request
+		tag = NOR
+		value = -100
+	}
+}
+
+#guo#SOV_focus_less_on_fin
