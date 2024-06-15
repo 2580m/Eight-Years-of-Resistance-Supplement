@@ -1,0 +1,599 @@
+capital = 1015 # Nanjing	## NO LABEL, HEAVILY MODDED 
+
+if = {
+	limit = {
+		NOT = {
+			has_dlc = "No Step Back"
+		}
+	}
+	set_oob = "CHI_1936"
+	else = {
+		set_oob = "CHI_1936_nsb"
+	}
+}
+#load_oob = "XIA_1936"
+save_global_event_target_as = WTT_current_china_leader 
+
+recruit_character = CHI_chiang_kai_shek
+recruit_character = CHI_huang_qixiang
+recruit_character = CHI_xu_fulin
+recruit_character = CHI_lin_sen
+recruit_character = sun_fo
+recruit_character = ju_zheng
+recruit_character = dai_jitao
+recruit_character = yu_youren
+recruit_character = zhang_qun
+recruit_character = kung_hsiang_hsi
+recruit_character = CHI_t_v_soong
+recruit_character = CHI_soong_mei_ling
+recruit_character = chen_guofu
+recruit_character = chen_lifu
+recruit_character = weng_wenhao
+recruit_character = CHI_wellington_koo
+recruit_character = dai_li
+recruit_character = he_zhonghan
+recruit_character = yu_dawei
+recruit_character = chen_yibai
+recruit_character = carsun_chang
+recruit_character = zhang_bojun
+recruit_character = zhang_dongsun
+recruit_character = CHI_shen_junru
+recruit_character = CHI_zhang_naiqi
+recruit_character = CHI_zou_taofen
+recruit_character = CHI_shi_liang
+recruit_character = CHI_li_gongpu
+recruit_character = CHI_wang_zaoshi
+recruit_character = CHI_qian_shali
+recruit_character = CHI_claire_chennault
+recruit_character = joseph_stilwell_chi
+recruit_character = albert_coady_wedemeyer
+recruit_character = CHI_pavel_zhigarev
+recruit_character = CHI_gregory_thor
+recruit_character = CHI_petr_anisimov
+recruit_character = CHI_pavel_rychagov
+recruit_character = CHI_alexander_von_falkenhausen
+recruit_character = german_advisors
+
+recruit_character = CHI_he_yingqin
+recruit_character = CHI_feng_yuxiang
+recruit_character = CHI_zhu_peide
+recruit_character = CHI_tang_shengzhi
+recruit_character = CHI_zhu_shaoliang
+recruit_character = CHI_liu_zhi
+recruit_character = CHI_gu_zhutong
+recruit_character = CHI_shang_zhen
+recruit_character = CHI_xu_yongchang
+recruit_character = CHI_jiang_dingwen
+recruit_character = CHI_cheng_qian
+recruit_character = CHI_chen_cheng
+recruit_character = CHI_wei_lihuang
+recruit_character = CHI_zhang_zhizhong
+recruit_character = CHI_zhang_fakui
+recruit_character = CHI_hsueh_yueh
+recruit_character = CHI_liu_jianxu
+recruit_character = CHI_sun_lianzhong
+recruit_character = CHI_pang_bingxun
+recruit_character = CHI_luo_zhuoying
+recruit_character = CHI_shangguan_yunxiang
+recruit_character = CHI_liu_maoen
+recruit_character = CHI_wu_qiwei
+recruit_character = CHI_tao_zhiyue
+recruit_character = CHI_li_jue
+recruit_character = CHI_zeng_wanzhong
+recruit_character = CHI_tang_enbo
+recruit_character = CHI_huang_zhenqiu
+recruit_character = CHI_hu_zongnan
+recruit_character = CHI_li_moan
+recruit_character = CHI_li_yannian
+recruit_character = CHI_yu_jishi
+recruit_character = CHI_li_yutang
+recruit_character = CHI_guan_linzheng
+recruit_character = CHI_song_xilian
+recruit_character = CHI_huang_jie
+recruit_character = CHI_wang_jingjiu
+recruit_character = CHI_liu_kan
+recruit_character = CHI_huo_kuizhang
+recruit_character = CHI_huang_wei
+recruit_character = CHI_xia_chuzhong
+recruit_character = CHI_wang_zhonglian
+recruit_character = CHI_li_xianzhou
+recruit_character = CHI_du_yuming
+recruit_character = CHI_zheng_dongguo
+recruit_character = CHI_fan_hanjie
+recruit_character = CHI_wang_yaowu
+recruit_character = CHI_qiu_qingquan
+recruit_character = CHI_dai_anlan
+recruit_character = CHI_sun_liren
+recruit_character = CHI_liao_yaoxiang
+recruit_character = CHI_huang_baitao
+recruit_character = CHI_zhang_lingfu
+recruit_character = CHI_hu_lian
+recruit_character = CHI_liu_yuzhang
+recruit_character = CHI_chen_mingren
+recruit_character = CHI_ma_fawu
+recruit_character = CHI_han_deqin
+recruit_character = CHI_li_mi
+
+recruit_character = CHI_chen_shaokuan
+recruit_character = CHI_gui_yongqing
+recruit_character = CHI_chen_jiliang
+recruit_character = CHI_chen_xunyong
+recruit_character = CHI_chan_chak
+recruit_character = CHI_shen_honglie
+recruit_character = CHI_liang_xuzhao
+
+recruit_character = CHI_zhou_zhirou
+recruit_character = CHI_wang_shuming
+recruit_character = CHI_huang_bingheng
+recruit_character = CHI_chen_qingyun
+recruit_character = CHI_mao_bangchu
+recruit_character = CHI_gao_zihang
+
+recruit_character = CHI_chiang_paili
+recruit_character = CHI_yang_jie
+recruit_character = CHI_xiong_shihui
+recruit_character = CHI_wu_dayou
+
+if = {
+	limit = { has_dlc = "Man the Guns" }
+		set_naval_oob = "CHI_1936_naval_mtg"
+	else = {
+		set_naval_oob = "CHI_1936_naval_legacy"
+	}
+}
+# Starting tech
+if = {
+	limit = { not = { has_dlc = "Man the Guns" } }
+	set_technology = {
+		early_destroyer = 1
+		early_light_cruiser = 1
+	}
+}
+if = {
+	limit = { has_dlc = "Man the Guns" }
+	set_technology = {
+		basic_naval_mines = 1
+		early_ship_hull_light = 1
+		early_ship_hull_cruiser = 1
+		basic_battery = 1
+		basic_torpedo = 1
+		coastal_defense_ships = 1
+	}
+}
+if = {
+    limit = {
+        has_dlc = "La Resistance"
+    }
+    set_technology = {
+        armored_car1 = 1
+    }
+}
+set_technology = {
+	infantry_weapons = 1
+	tech_trucks = 1
+	motorised_infantry = 1
+	tech_support = 1
+	tech_recon = 1
+	tech_engineers = 1
+	mass_assault = 1
+	fleet_in_being = 1
+	gw_artillery = 1
+	basic_train = 1
+}
+
+set_variable = { var = duration_of_infra value = 120 } #teir 1
+set_variable = { var = duration_of_infra_reenable value = 70 }
+set_variable = { var = cost_of_infra_cf_minus_1 value = 11 } #teir 1
+set_variable = { var = cost_of_infra_cf value = 12 }
+
+#add_stability = 0.1
+add_war_support = 0.2
+
+create_import = {
+	resource = steel
+	factories = 3 #MODDED
+	exporter = SOV
+}
+
+add_ideas = {
+	CHI_army_corruption_000
+	CHI_superior_to_the_wrl_000
+	CHI_superior_to_the_wrl_000_for_tt
+	i_will_defend #hidden ideas for defensive AI
+	free_trade
+	CHI_alexander_von_falkenhausen
+	CHI_lin_sen
+	#CHI_communist_uprisings
+	prince_de_defect
+	CHI_fractured_administration_idea_1
+	appeasement_policy
+	chiang
+	#CHI_nanking_decade_idea
+	unstable_economy
+	#internationalism
+	#fascist_influence
+	#communist_influence
+	#democratic_influence
+	#soviet_german_friendship
+	#communist_pressure
+	#collectivist_ethos_focus
+}
+
+607 = { # Western Honan
+	add_dynamic_modifier = { modifier = dense_rural_infrastructure }
+}
+942 = { # Eastern Hupeh
+	add_dynamic_modifier = { modifier = dense_rural_infrastructure }
+}
+943 = { # Northern Hunan
+	add_dynamic_modifier = { modifier = dense_rural_infrastructure }
+}
+
+if = {
+	limit = {
+		has_dlc = "Waking the Tiger"
+	}
+	add_ideas = {
+		#incompetent_heavy_industry
+		CHI_nine_power_treaty
+	}
+}
+
+if = {
+	limit = { has_dlc = "By Blood Alone" }
+		set_air_oob = "CHI_1936_air_bba"
+	else = {
+		set_air_oob = "CHI_1936_air_legacy"
+	    set_technology = {
+			early_fighter = 1
+			early_bomber = 1
+		}
+	}
+}
+
+set_convoys = 40
+
+1939.1.1 = {
+	add_ideas = CHI_sov_pact
+	if = {
+		limit = {
+			has_dlc = "La Resistance"
+		}
+		create_intelligence_agency = { 
+	 		name = "Bureau of Investigation and Statistics" 
+	  	icon = "GFX_intelligence_agency_logo_chi" 
+		}
+	}
+	set_global_flag = no_shanghai_DMZ
+	swap_ideas = {
+		add_idea = CHI_army_corruption_2
+		remove_idea = CHI_army_corruption_00
+	}
+	
+	set_country_flag = china101_fired
+	set_global_flag = lushan_declaration_flag
+	add_country_leader_trait = generallissimo
+	set_country_flag = mbf_ed
+	set_country_flag = nineteen_thirtynine_start
+	set_global_flag = nineteen_thirtynine_start
+	set_global_flag = flying_tiger
+	remove_ideas = CHI_nanking_decade_idea
+	remove_ideas = prince_de_defect
+	remove_ideas = CHI_army_corruption_1
+	remove_ideas = CHI_alexander_von_falkenhausen
+	add_political_power = 1198
+	set_global_flag = joined_chi_HPC
+	set_global_flag = falkenhausen_recalled
+	complete_national_focus = CHI_National_Defense_Council_focus
+	complete_national_focus = CHI_Second_United_Front_focus
+	#complete_national_focus = CHI_pressure_xinjiang
+	complete_national_focus = strengthen_bs
+	complete_national_focus = strengthen_cc
+	complete_national_focus = found_cbis
+	complete_national_focus = found_mbis
+	complete_national_focus = centralizing_power
+	complete_national_focus = CHI_industry_focus
+	complete_national_focus = CHI_purchase_tanks
+	complete_national_focus = CHI_sov_pact_focus
+	unlock_national_focus = CHI_pressure_Ma_lin
+	unlock_national_focus = CHI_Establish_Hsikang_province
+	complete_national_focus = CHI_nationalize_industry_focus
+	complete_national_focus = CHI_nationalize_industry_ii_focus
+	complete_national_focus = CHI_government_bailout_focus
+	unlock_national_focus  = CHI_Encirclement_Campaign_focus
+	complete_national_focus	= CHI_reinforce_new_life_movement
+	#complete_national_focus = big_rear_plan
+	set_global_flag = space_for_time_done_flag
+	613 = {
+		remove_building = {
+			type = arms_factory
+			level = 3
+		}
+		remove_building = {
+			type = industrial_complex
+			level = 2
+		}
+	}
+	851 = {
+		remove_building = {
+			type = arms_factory
+			level = 2
+		}
+		remove_building = {
+			type = industrial_complex
+			level = 1
+		}
+	}
+	596 = {
+		remove_building = {
+			type = industrial_complex
+			level = 2
+		}
+	}
+	605 = {
+		add_extra_state_shared_building_slots = 10
+		add_building_construction = {
+			type = arms_factory
+			level = 5
+			instant_build = yes
+		}
+		add_building_construction = {
+			type = industrial_complex
+			level = 5
+			instant_build = yes
+		}
+	}
+	#complete_national_focus = CHI_lushan_focus
+	complete_national_focus = CHI_inst_reform_focus
+	unlock_national_focus = CHI_foreign_help_focus
+	complete_national_focus = one_party_tutelage
+	complete_national_focus = CHI_axis_help_focus
+	complete_national_focus = CHI_mission_to_the_soviet_union
+	complete_national_focus = CHI_allies_help_focus
+	complete_national_focus = CHI_reorganize_nra
+	complete_national_focus = CHI_monetary_reform
+	complete_national_focus = CHI_streamlined_industry
+	complete_national_focus = constit_draft_focus
+	complete_national_focus = CHI_national_political_council_focus
+	add_ideas = {
+		#laws
+		tot_economic_mobilisation
+		service_by_requirement
+		closed_economy
+		dai_li
+		chen_lifu
+
+		#ministers
+		CHI_chen_shaokuan
+		CHI_claire_chennault
+		kiangnan_shipyard_group
+
+	}
+	set_global_flag = fall_of_nanjing
+	create_faction = chinese_united_front
+	every_other_country = {
+		limit = {
+			is_warlord = yes
+		}
+		CHI = {
+			add_to_faction = PREV
+		}
+	}
+	add_to_faction = PRC
+	remove_ideas = appeasement_policy
+	remove_ideas = appeasement_policy_0
+	remove_ideas = appeasement_policy_2
+	remove_ideas = CHI_nanking_decade_idea
+	remove_opinion_modifier = { target = PRC modifier = hostile_status }
+	#load_oob = "CHI_united_front"
+	set_global_flag = JAP_attacks_CHI_unites
+	set_capital = { state = 605 }
+	oob = "CHI_1939"
+	if = {
+		limit = { has_dlc = "Man the Guns" }
+			set_naval_oob = "CHI_1939_naval_mtg"
+		else = {
+			set_naval_oob = "CHI_1939_naval_legacy"
+		}
+	}
+	set_technology = {
+
+		#PLACEHOLDER techs for vehicles
+		tech_trucks = 1
+		motorised_infantry = 1
+		tech_support = 1
+		tech_recon = 1
+		tech_engineers = 1
+		
+		#doctrines
+		air_superiority = 1
+		pocket_defence = 1
+		defence_in_depth = 1
+		battlefleet_concentration = 1
+		convoy_sailing = 1
+
+		#electronics
+		electronic_mechanical_engineering = 1
+		radio = 1
+		radio_detection = 1
+		mechanical_computing = 1
+		computing_machine = 1
+		basic_encryption = 1
+		basic_decryption = 1
+		#industry
+		basic_machine_tools = 1
+		improved_machine_tools = 1
+		advanced_machine_tools = 1
+		synth_oil_experiments = 1
+		fuel_silos = 1
+		oil_processing = 1
+		improved_oil_processing = 1
+		construction1 = 1
+		construction2 = 1
+		construction3 = 1
+		concentrated_industry = 1
+		concentrated_industry2 = 1
+		concentrated_industry3 = 1
+	}
+}
+
+set_popularities = {
+	democratic = 15
+	n_socialism = 10
+	fascism = 25
+	communism = 0
+	neutrality = 50
+}
+
+set_politics = {
+
+	ruling_party = neutrality
+	last_election = "1936.1.1"
+	election_frequency = 48
+	elections_allowed = no
+}
+
+create_country_leader = {
+	name = "None"
+	desc = ""
+	picture = "gfx/leaders/leader_unknown.dds"
+	expire = "1965.1.1"
+	ideology = marxism
+	traits = {
+		#
+	}
+}
+
+add_opinion_modifier = { target = PRC modifier = hostile_status }
+add_opinion_modifier = { target = JAP modifier = hostile_status }
+
+1939.1.1 = {
+	set_popularities = {
+	democratic = 15
+	fascism = 20
+	communism = 10
+	neutrality = 55
+
+}
+set_politics = {
+	ruling_party = neutrality
+	last_election = "1936.1.1"
+	election_frequency = 48
+	elections_allowed = no
+	}
+}
+
+if = {
+	limit = {
+		has_dlc = "La Resistance"
+		always = no #guo
+	}
+	create_operative_leader = {
+		#沈之岳
+		name="沈之岳"
+		GFX = GFX_Portrait_CHI_Shen_Jhihyue
+		traits = { operative_infiltrator operative_double_agent }
+		bypass_recruitment = yes
+		available_to_spy_master = no
+		nationalities = { CHI PRC }
+	}
+	create_operative_leader = {
+		#actually was a CCP member before 1937 #谷正文
+		name="谷正文"
+		GFX = GFX_Portrait_CHI_Gu_Jhengwun
+		traits = { operative_commando }
+		bypass_recruitment = no
+		available_to_spy_master = yes
+		nationalities = { CHI }
+	}
+	#create_operative_leader = {
+	#	name = "Dai Li"
+	#	portrait_path = "gfx/leaders/CHI/Portrait_China_Dai_Li.dds"
+	#	traits = { operative_commando }
+	#	bypass_recruitment = yes
+	#	available_to_spy_master = yes
+	#	nationalities = { CHI }
+	#}
+}
+
+### VARIANTS ###
+# 1936 Start #
+if = {
+	limit = { not = { has_dlc = "Man the Guns" } }
+}
+if = {
+	limit = { has_dlc = "Man the Guns" }
+	# Destroyers #
+	create_equipment_variant = {
+		name = "Changfeng Class"
+		type = ship_hull_light_1
+		name_group = CHI_DD_HISTORICAL
+		parent_version = 0
+		modules = {
+			fixed_ship_battery_slot = ship_light_battery_1
+			fixed_ship_anti_air_slot = empty
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+			fixed_ship_radar_slot = empty
+			fixed_ship_engine_slot = light_ship_engine_1
+			fixed_ship_torpedo_slot = ship_torpedo_1
+			mid_1_custom_slot = empty
+			rear_1_custom_slot = empty
+		}
+	}
+	# Light Cruisers #
+	create_equipment_variant = {
+		name = "Hairong Class"					# Hairong protected cruisers and Zhaohe, Yingrui training cruisers
+		type = ship_hull_cruiser_coastal_defense_ship
+		name_group = CHI_CL_HISTORICAL
+		parent_version = 0
+		modules = {
+			fixed_ship_battery_slot = ship_light_medium_battery_1
+			fixed_ship_anti_air_slot = empty
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+			fixed_ship_radar_slot = empty
+			fixed_ship_engine_slot = cruiser_ship_engine_1
+			fixed_ship_armor_slot = ship_armor_cruiser_1
+			mid_1_custom_slot = empty
+			mid_2_custom_slot = empty
+			rear_1_custom_slot = empty
+		}
+		obsolete = yes
+	}
+	create_equipment_variant = {
+		name = "Haiqi Class"
+		type = ship_hull_cruiser_coastal_defense_ship
+		name_group = CHI_CL_HISTORICAL
+		parent_version = 0
+		modules = {
+			fixed_ship_battery_slot = ship_medium_battery_1
+			fixed_ship_anti_air_slot = empty
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+			fixed_ship_radar_slot = empty
+			fixed_ship_engine_slot = cruiser_ship_engine_1
+			fixed_ship_secondaries_slot = ship_secondaries_1
+			fixed_ship_armor_slot = ship_armor_cruiser_1
+			mid_1_custom_slot = empty
+			mid_2_custom_slot = empty
+			rear_1_custom_slot = empty
+		}
+		obsolete = yes
+	}
+	create_equipment_variant = {
+		name = "Ninghai Class"
+		type = ship_hull_cruiser_1
+		name_group = CHI_CL_HISTORICAL
+		parent_version = 0
+		modules = {
+			fixed_ship_battery_slot = ship_light_medium_battery_1
+			fixed_ship_anti_air_slot = ship_anti_air_1
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+			fixed_ship_radar_slot = empty
+			fixed_ship_engine_slot = cruiser_ship_engine_1
+			fixed_ship_secondaries_slot = ship_secondaries_1
+			fixed_ship_armor_slot = ship_armor_cruiser_1
+			mid_1_custom_slot = ship_torpedo_1
+			mid_2_custom_slot = empty
+			rear_1_custom_slot = empty
+		}
+	}
+}

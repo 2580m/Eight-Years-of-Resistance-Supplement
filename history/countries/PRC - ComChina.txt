@@ -1,0 +1,288 @@
+﻿capital = 622
+
+#oob = "PRC_1936"
+
+recruit_character = prc_zhang_wentian
+recruit_character = prc_mao_zedong
+recruit_character = PRC_zhang_guotao
+recruit_character = prc_xu_teli
+recruit_character = PRC_lin_bojiu
+recruit_character = prc_xie_juezai
+recruit_character = PRC_zhou_enlai
+recruit_character = PRC_zhou_enlai_2
+recruit_character = PRC_liu_shaoqi
+recruit_character = prc_ren_bishi
+recruit_character = PRC_chen_yun
+recruit_character = PRC_deng_xiaoping
+recruit_character = prc_wang_guanlan
+recruit_character = PRC_dong_biwu
+recruit_character = prc_tsai_shufan
+recruit_character = PRC_kang_sheng
+recruit_character = prc_deng_fa
+recruit_character = prc_wang_jiaxiang
+recruit_character = prc_bo_gu
+recruit_character = prc_wang_ming
+recruit_character = prc_meng_qingshu
+recruit_character = prc_chen_changhao
+recruit_character = prc_wang_shengrong
+recruit_character = prc_chen_duxiu
+recruit_character = prc_peng_shuzhi
+recruit_character = prc_zheng_chaolin
+recruit_character = prc_wang_fanxi
+recruit_character = prc_wang_shiwei
+recruit_character = prc_shen_junru
+
+recruit_character = PRC_zhu_de
+recruit_character = PRC_peng_dehuai
+recruit_character = PRC_lin_biao
+recruit_character = PRC_liu_bocheng
+recruit_character = PRC_he_long
+recruit_character = PRC_chen_yi
+recruit_character = PRC_luo_ronghuan
+recruit_character = PRC_xu_xiangqian
+recruit_character = PRC_nie_rongzhen
+recruit_character = PRC_ye_jianying
+recruit_character = PRC_ye_ting
+recruit_character = PRC_xiang_ying
+recruit_character = PRC_xiao_ke
+recruit_character = PRC_chen_guang
+recruit_character = PRC_su_yu
+recruit_character = PRC_xu_haidong
+recruit_character = PRC_chen_geng
+recruit_character = PRC_xiao_jinguang
+recruit_character = PRC_wang_shusheng
+recruit_character = PRC_xu_guangda
+recruit_character = prc_zuo_quan
+recruit_character = PRC_peng_xuefeng
+recruit_character = PRC_zhu_rui
+recruit_character = PRC_liu_yalou
+recruit_character = PRC_otto_braun
+recruit_character = PRC_otto_braun_2
+recruit_character = PRC_mu_chong
+recruit_character = PRC_qian_xuesen
+
+# Starting tech
+set_technology = {
+	infantry_weapons = 1
+	gw_artillery = 1
+	mass_assault = 1
+	tech_irregulars = 1
+}
+set_stability = 0.45
+set_war_support = 0.45
+add_timed_idea = { idea = Chinese_Red_Army days = 295 }
+add_ideas = line_struggle0 #guo
+#guo country_event = { days = 295 id = RCM_comchina_west_expedition.1 }
+add_ideas = PRC_Shadow_of_the_defeat_of_FifthAE_War #第五次反围剿失败的阴影
+drop_cosmetic_tag = yes
+set_cosmetic_tag = PRC_CSR
+save_global_event_target_as = WTT_communist_china
+
+add_ideas = {
+	prc_mao_zedong
+	prc_bo_gu
+	#prc_zhang_wentian
+}
+#hidden_effect = {
+#	set_variable = { prc_mao_zedong_counter = 15 } #first increase after 15 days
+#	add_to_variable = { mao_total = 0.5 } #monthly for locs
+#}
+#hidden_effect = {   
+	#set_variable = { prc_bo_gu_counter = 15 } #first increase after 15 days   #
+	#add_to_variable = { teb_total = 0.5 } #monthly for locs
+#}
+1939.1.1 = {
+	set_country_flag = j_focus_completed
+	set_country_flag = nineteen_thirtynine_start
+	set_cosmetic_tag = PRC_SGN
+	add_political_power = 1198
+	oob = "PRC_1939"
+	remove_ideas = Chinese_Red_Army
+	remove_ideas = PRC_Isolated_status
+	remove_ideas = Long_March_1
+	remove_ideas = line_struggle1
+	#add_ideas = changjiang_bureau
+	add_ideas = line_struggle3
+	add_ideas = Long_March_3
+	add_ideas = prc_ren_bishi
+	add_ideas = PRC_kang_sheng
+	# Chinese Popular Front effects
+	add_to_war = {
+		targeted_alliance = CHI
+		enemy = JAP
+	}
+	set_global_flag = otto_braun_left_yanan
+	set_global_flag = PRC_trotskyist_released
+	set_global_flag = PRC_zhang_guotao_defect
+	set_global_flag = zhou_enlai_in_moscow
+	set_global_flag = ren_bishi_in_moscow
+	set_global_flag = wang_jiaxiang_return_from_soviet
+	set_global_flag = PRC_wang_ming_returned_flag
+	set_global_flag = PRC_chen_yun_returned_flag
+	set_global_flag = PRC_kang_sheng_returned_flag
+	clr_global_flag = prc_wang_jiaxiang_go_to_soviet_union
+	set_global_flag = prc_chen_changhao_go_to_soviet_union
+	remove_opinion_modifier = { target = CHI modifier = hostile_status }
+	unlock_national_focus = PRC_East_conquest
+	unlock_national_focus = PRC_Western_expedition
+	unlock_national_focus = PRC_End_of_Long_March
+	unlock_national_focus = PRC_6th_plenary_session_of_the_6th_CPC_central_committee_focus
+	unlock_national_focus = PRC_demand_another_politburo_meeting_focus
+	unlock_national_focus = PRC_send_trotskyists_to_sinkiang_focus
+	unlock_national_focus = PRC_question_of_chen_duxiu_focus
+	unlock_national_focus = PRC_dispatch_ren_bishi_to_moscow_focus
+	complete_national_focus = PRC_Red_Army_Recovery
+	complete_national_focus = PRC_Peasant_class
+	complete_national_focus = PRC_Land_reform
+	unlock_national_focus = PRC_contact_Zhang_Xueliang_focus
+	complete_national_focus = PRC_kangda_focus
+	complete_national_focus = PRC_Join_the_war
+	complete_national_focus = PRC_found_the_military_commission_general_political_department_focus
+	complete_national_focus = PRC_Type_81_ma
+	complete_national_focus = PRC_makeshift_research_facility
+	
+	#complete_national_focus =
+	#complete_national_focus =
+	#complete_national_focus =
+	#complete_national_focus =
+	#complete_national_focus =
+	#complete_national_focus = PRC_End_of_Long_March
+	#complete_national_focus = PRC_Farmer_political_course
+	complete_national_focus = PRC_Red_Army
+
+
+			#generic focuses
+
+	# Chinese Popular Front effects
+
+	remove_ideas = Long_March_2
+	add_ideas = {
+		#laws
+		civilian_economy
+		extensive_conscription	
+	}
+
+
+
+	set_technology = {
+		tech_mountaineers = 1
+		#doctrines
+		air_superiority = 1
+		pocket_defence = 1
+		defence_in_depth = 1
+
+		#electronics
+		electronic_mechanical_engineering = 1
+		radio = 1
+		radio_detection = 1
+		mechanical_computing = 1
+		computing_machine = 1
+		basic_encryption = 1
+		basic_decryption = 1
+
+		#industry
+		basic_machine_tools = 1
+		improved_machine_tools = 1
+		advanced_machine_tools = 1
+		fuel_silos = 1
+		fuel_refining = 1
+		construction1 = 1
+		construction2 = 1
+		construction3 = 1
+		concentrated_industry = 1
+		concentrated_industry2 = 1
+		concentrated_industry3 = 1
+	}
+}
+
+set_popularities = {
+	democratic = 0
+	n_socialism = 0
+	fascism = 0
+	communism = 100
+	neutrality = 0
+}
+set_politics = {
+	ruling_party = communism
+	last_election = "1936.1.1"
+	election_frequency = 48
+	elections_allowed = no
+}
+
+1939.1.1 = {
+	set_popularities = {
+		democratic = 0
+		fascism = 0
+		communism = 100
+	}
+	set_politics = {
+		ruling_party = communism
+		last_election = "1936.1.1"
+		election_frequency = 48
+		elections_allowed = no
+	}
+}
+
+add_ideas = {
+	free_trade
+	extensive_conscription
+	#partial_economic_mobilisation
+	civilian_economy
+	PRC_communal_economy
+	#PRC_Mobile_Warfare
+	PRC_Isolated_status
+	Long_March_1
+	PRC_no_skilled_personnel_1
+	no_proper_equipment_design
+	#incompetent_heavy_industry
+	unbalanced_industry
+	iliterate_population
+	PRC_Poor_Air
+	PRC_Poor_navy
+}
+
+add_opinion_modifier = { target = CHI modifier = hostile_status }
+
+create_country_leader = {
+	name = "None"
+	desc = ""
+	picture = "gfx/leaders/leader_unknown.dds"
+	expire = "1965.1.1"
+	ideology = fascism_ideology
+	traits = {
+	}
+}
+
+create_country_leader = {
+	name = "None"
+	desc = ""
+	picture = "gfx/leaders/leader_unknown.dds"
+	expire = "1965.1.1"
+	ideology = conservatism
+	traits = {
+	}
+}
+
+create_country_leader = {
+	name = "None"
+	desc = ""
+	picture = "gfx/leaders/leader_unknown.dds"
+	expire = "1965.1.1"
+	ideology = despotism
+	traits = {
+	}
+}
+
+if = {
+	limit = {
+		has_dlc = "La Resistance"
+	}
+	#create_operative_leader = {
+	#	name = "Pan Hannian"
+	#	GFX = GFX_Portrait_PRC_Pan_Hannian
+	#	traits = { operative_infiltrator }
+	#	bypass_recruitment = yes
+	#	available_to_spy_master = no
+	#	nationalities = { PRC }
+	#}
+}

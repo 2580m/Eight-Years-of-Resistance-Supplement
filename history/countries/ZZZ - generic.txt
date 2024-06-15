@@ -1,0 +1,2564 @@
+capital = 1
+
+##########vvvvvvvvvvvvvvvvvvvvv###################
+
+SIK = { set_cosmetic_tag = SIK_SHENG }
+JAP = { set_cosmetic_tag = JAP_DIGUO }
+
+PRC = {
+set_capital = { state = 622 }
+every_owned_state = { add_dynamic_modifier = { modifier = snl_PRC_dyn_land_reform_1 scope = event_target:WTT_communist_china } }
+add_ideas = PRC_guerilla_warfare_zz
+add_ideas = propaganda_recruits
+add_ideas = nea_idea_PRC_untrained_soldiers_1
+add_ideas = military_commission_zhonggejunwei
+add_ideas = PRC_zhengzhibaoweiju
+add_ideas = PRC_reorganized_departments_CHI
+create_intelligence_agency = {
+	name="国家政治保卫局" #军委总参谋部二局
+	icon = GFX_intelligence_agency_logo_generic_9
+}
+upgrade_intelligence_agency = upgrade_form_department
+upgrade_intelligence_agency = upgrade_passive_defense
+#upgrade_intelligence_agency = upgrade_training_centers
+upgrade_intelligence_agency = upgrade_psycho_warfare
+upgrade_intelligence_agency = upgrade_passive_defense
+#upgrade_intelligence_agency = upgrade_training_centers
+upgrade_intelligence_agency = upgrade_psycho_warfare
+			
+#land
+recruit_character = PRC_pengdehuai111
+recruit_character = PRC_liu_bocheng111 
+recruit_character = PRC_yejianying111 
+recruit_character = PRC_huangkecheng
+recruit_character = PRC_tanzheng
+recruit_character = PRC_zhangyunyi
+recruit_character = PRC_gaogang
+recruit_character = PRC_songshilun
+recruit_character = PRC_xushiyou
+recruit_character = PRC_tanzhenlin
+recruit_character = PRC_linbiao111
+recruit_character = PRC_suyu111
+recruit_character = PRC_zhurui111
+recruit_character = PRC_hanxianchu
+recruit_character = PRC_wangzhen
+recruit_character = PRC_yangdezhi
+recruit_character = PRC_weiguoqing
+recruit_character = PRC_yefei #改到解放战争出场
+recruit_character = PRC_chenxilian
+recruit_character = PRC_yangyong
+recruit_character = PRC_wangjianan
+recruit_character = PRC_chenshiqu
+recruit_character = PRC_chengzihua
+recruit_character = PRC_denghua
+recruit_character = PRC_zhoushidi
+recruit_character = PRC_yangchengwu
+recruit_character = PRC_chenguang
+recruit_character = PRC_guanxiangying
+recruit_character = PRC_luoruiqing
+recruit_character = PRC_liuzhidan
+recruit_character = PRC_raoshushi
+recruit_character = PRC_wangruofei
+recruit_character = PRC_chenzaidao
+recruit_character = PRC_boyibo #改为李富春
+recruit_character = PRC_likenong
+recruit_character = PRC_lixiannian
+recruit_character = PRC_dongzhentang
+recruit_character = PRC_zhangaiping #解放战争
+recruit_character = PRC_liangxingchu #解放战争
+recruit_character = PRC_lida #会师
+recruit_character = PRC_pengshaohui #会师
+recruit_character = PRC_zhangzongxun #会师
+recruit_character = PRC_tengdaiyuan 
+recruit_character = PRC_luobinghui #会师
+recruit_character = PRC_maoanying 
+recruit_character = PRC_maoanying_general 
+recruit_character = PRC_lvzhengcao
+recruit_character = PRC_zhoukun
+recruit_character = PRC_xiaohua #解放战争
+recruit_character = PRC_gaojingting #新四军 #1939年6月24日被枪决
+recruit_character = PRC_yangshangkun
+recruit_character = PRC_songrenqiong
+recruit_character = PRC_lilisan #1946年1月26日回国
+recruit_character = PRC_litianyou
+recruit_character = PRC_huangyongsheng
+recruit_character = PRC_zhouzikun #会师
+recruit_character = PRC_fuqiutao #新四军第一支队副司令员 #新四军出场
+recruit_character = PRC_chenbojun #359旅旅长 #会师出场
+recruit_character = PRC_nizhiliang #129师参谋长 #会师出场
+recruit_character = PRC_wanghongkun_land #385旅旅长 #会师出场
+recruit_character = PRC_laichuanzhu #皖南事变后任新四军参谋长 #开局出场
+recruit_character = PRC_zhangdingcheng #新四军第二支队司令员 #新四军出场
+recruit_character = PRC_yangjingyu #东北抗联总司令 #1940年2月23日牺牲
+recruit_character = PRC_xuanxiafu #八路军高级参议 #1938年7月31日于西安被国民党特务暗杀
+recruit_character = PRC_lijingquan #358旅副旅长 #会师出场
+recruit_character = PRC_wangweizhou #385旅副旅长 #会师出场
+recruit_character = PRC_zhoujianping #343旅副旅长 #1936年底到达陕北 #1938年6月30日因脊髓炎逝世
+recruit_character = PRC_hebingyan #38年任358旅副旅长 #会师出场
+recruit_character = PRC_ludongsheng #苏联对日宣战后回东北 #1945年12月13日于哈尔滨被违纪苏军枪杀
+recruit_character = PRC_wangjinshan
+recruit_character = PRC_qinjiwei 
+recruit_character = PRC_xiefuzhi 
+recruit_character = PRC_hongxuezhi
+recruit_character = PRC_pidingjun
+recruit_character = PRC_lizuopeng
+recruit_character = PRC_lizhuoran
+recruit_character = PRC_fuzhong
+recruit_character = PRC_lite
+recruit_character = PRC_wulanfu
+recruit_character = PRC_qiuhuizuo
+recruit_character = PRC_wufaxian
+recruit_character = PRC_wanghongwen
+recruit_character = PRC_dengyingchao
+recruit_character = PRC_Apei_awangjinmei
+recruit_character = PRC_zhangzongxun
+recruit_character = PRC_quanguorenda
+
+recruit_character = PRC_Bethune
+recruit_character = PRC_Smedley
+recruit_character = PRC_sanzo_nosaka
+recruit_character = PRC_jiangqing
+recruit_character = PRC_guomoruo #revolutionary_culture_minister #GFX_idea_generic_political_advisor_asia_1
+recruit_character = PRC_songqingling
+recruit_character = prc_kaifeng
+recruit_character = PRC_yanglisan
+recruit_character = PRC_xizhongxun
+recruit_character = PRC_pengzhen
+recruit_character = PRC_tuosiji
+recruit_character = PRC_linyuying
+recruit_character = PRC_chenboda
+recruit_character = PRC_zengxisheng
+recruit_character = PRC_chentanqiu
+recruit_character = PRC_maozemin
+recruit_character = PRC_zhangchunqiao
+recruit_character = PRC_huzhiming
+
+recruit_character = PRC_zhanglan
+recruit_character = PRC_huangyanpei
+recruit_character = prc_shen_junru
+recruit_character = PRC_hexiangning
+
+#air
+recruit_character = PRC_liuzhen
+recruit_character = PRC_wangbingzhang
+recruit_character = PRC_xushenji #改为方子翼
+recruit_character = PRC_niefengzhi
+recruit_character = PRC_changqiankun
+recruit_character = PRC_Linmi_Yilang
+
+#navy
+recruit_character = PRC_xiaojinguang111
+recruit_character = PRC_liudaosheng
+recruit_character = PRC_luoshunchu
+recruit_character = PRC_wanghongkun
+recruit_character = PRC_suzhenhua
+recruit_character = PRC_zhouxihan
+recruit_character = PRC_fangqiang
+recruit_character = PRC_liuhuaqing
+
+#science
+recruit_character = PRC_qianxuesen
+recruit_character = PRC_dengjiaxian
+recruit_character = PRC_maxulun
+#recruit_character = PRC_lisiguang #开局放到民国
+	
+	#各动态修正的初始属性
+	
+	#三大改造
+	add_to_variable = { PRC_sandagaizao_global_building_slots_factor = 0.10 }#
+	add_to_variable = { PRC_sandagaizao_global_building_slots = 5 }#
+	add_to_variable = { PRC_sandagaizao_consumer_goods_factor = -0.15 }#
+	
+	#社会主义工业化
+	add_to_variable = { PRC_gongyehua_production_speed_buildings_factor = 0.05 }#
+	add_to_variable = { PRC_gongyehua_production_factory_max_efficiency_factor = 0.05 }#
+	add_to_variable = { PRC_gongyehua_industrial_capacity_factory = 0.05 }#
+	
+	#陆军
+	add_to_variable = { PRC_jiefangjunlujun_army_org_factor = 0.05 }#
+	add_to_variable = { PRC_jiefangjunlujun_army_morale_factor = 0.05 }#
+	add_to_variable = { PRC_jiefangjunlujun_army_attack_against_major_factor = 0.05 }#
+	add_to_variable = { PRC_jiefangjunlujun_army_defence_against_major_factor = 0.05 }#
+	add_to_variable = { PRC_jiefangjunlujun_army_breakthrough_against_major_factor = 0.05 }#
+
+if = {
+	limit = {
+		has_dlc = "La Resistance"
+	}
+	create_operative_leader = { #潘汉年（第二号原型）
+		name="潘汉年"
+		GFX = GFX_Portrait_PRC_Pan_Hannian
+		traits = { operative_brilliant_spy operative_infiltrator operative_well_groomed operative_natural_orator operative_safe_cracker  }
+		bypass_recruitment = no
+		available_to_spy_master = no
+		nationalities = { PRC CHI }
+	}
+	create_operative_leader = { #李克农
+		name="李克农"
+		GFX = GFX_Portrait_PRC_likenong
+		traits = { operative_brilliant_spy operative_infiltrator operative_escape_artist operative_natural_orator operative_safe_cracker  }
+		bypass_recruitment = no
+		available_to_spy_master = no
+		nationalities = { PRC }
+	}
+	create_operative_leader = { #袁殊（方别原型）
+		name="袁殊"
+		GFX = GFX_Portrait_PRC_yuanshu
+		traits = { operative_brilliant_spy operative_infiltrator operative_linguist operative_safe_cracker operative_well_groomed  }
+		bypass_recruitment = no
+		available_to_spy_master = no
+		nationalities = { PRC CHI JAP }
+	}
+	#create_operative_leader = { #关露（陆望舒原型）
+	#	name="关露"
+	#	GFX = GFX_Portrait_PRC_guanlu
+	#	female = yes
+	#	traits = { operative_infiltrator operative_linguist operative_safe_cracker operative_well_groomed  }
+	#	bypass_recruitment = no
+	#	available_to_spy_master = no
+	#	nationalities = { PRC CHI }
+	#}
+	create_operative_leader = { #沈安娜
+		name="沈安娜"
+		GFX = GFX_Portrait_PRC_guanlu
+		female = yes
+		traits = { operative_infiltrator operative_linguist operative_safe_cracker operative_well_groomed  }
+		bypass_recruitment = no
+		available_to_spy_master = no
+		nationalities = { PRC CHI }
+	}
+	create_operative_leader = { #李白（永不消逝的电波主角原型）
+		name="李白"
+		GFX = GFX_Portrait_PRC_libai
+		traits = { operative_infiltrator operative_tough operative_safe_cracker  }
+		bypass_recruitment = no
+		available_to_spy_master = no
+		nationalities = { PRC }
+	}
+	create_operative_leader = { #董健吾
+		name="董健吾"
+		GFX = GFX_Portrait_PRC_dongjianwu
+		traits = { operative_infiltrator operative_safe_cracker operative_linguist  }
+		bypass_recruitment = no
+		available_to_spy_master = no
+		nationalities = { PRC }
+	}
+	create_operative_leader = { #卢志英
+		name="卢志英"
+		GFX = GFX_Portrait_PRC_luzhiying
+		traits = { operative_infiltrator operative_commando operative_tough  }
+		bypass_recruitment = no
+		available_to_spy_master = no
+		nationalities = { PRC }
+	}
+	create_operative_leader = { #范纪曼
+		name="范纪曼"
+		GFX = GFX_Portrait_PRC_fanjiman
+		traits = { operative_infiltrator operative_linguist operative_escape_artist  }
+		bypass_recruitment = no
+		available_to_spy_master = no
+		nationalities = { PRC }
+	}
+	create_operative_leader = { #李茂堂
+		name="李茂堂"
+		GFX = GFX_Portrait_PRC_limaotang
+		traits = { operative_infiltrator operative_natural_orator operative_safe_cracker  }
+		bypass_recruitment = no
+		available_to_spy_master = no
+		nationalities = { PRC CHI }
+	}
+	create_operative_leader = { #阎宝航
+		name="阎宝航"
+		GFX = GFX_Portrait_PRC_minbaohang
+		traits = { operative_infiltrator operative_well_groomed operative_natural_orator  }
+		bypass_recruitment = no
+		available_to_spy_master = no
+		nationalities = { PRC CHI }
+	}
+	create_operative_leader = { #李时雨
+		name="李时雨"
+		GFX = GFX_Portrait_PRC_lishiyu
+		traits = { operative_infiltrator operative_commando operative_tough  }
+		bypass_recruitment = no
+		available_to_spy_master = no
+		nationalities = { PRC CHI }
+	}
+	create_operative_leader = { #张露萍
+		name="张露萍"
+		GFX = GFX_Portrait_PRC_zhangluping
+		female = yes
+		traits = { operative_infiltrator operative_tough operative_well_groomed  }
+		bypass_recruitment = no
+		available_to_spy_master = no
+		nationalities = { PRC CHI }
+	}
+  }
+}
+
+TIB = {
+	add_ideas = tib_nongnuzhi
+}
+
+VIN = {
+recruit_character = NVA_ho_chi_minh
+recruit_character = NVA_vo_nguyen_giap
+recruit_character = NVA_nguyen_binh
+recruit_character = NVA_le_trong_tan
+recruit_character = NVA_hoang_van_thai
+recruit_character = NVA_chi_thanh
+recruit_character = NVA_chu_van_tan
+recruit_character = NVA_van_tien_dung
+recruit_character = NVA_truong_chinh
+recruit_character = NVA_le_duan
+recruit_character = NVA_pham_van_dong
+recruit_character = NVA_nguyen_huu_ann
+
+recruit_character = ARVN_duong_van_minh
+recruit_character = ARVN_nguyen_huu_co
+recruit_character = ARVN_do_cao_tri
+recruit_character = ARVN_quang_truong
+recruit_character = ARVN_nguyen_khanh
+}
+
+DDR = {
+set_war_support = 0
+}
+
+AFG = {
+add_ideas = AFG_Imperial_Cemetery
+}
+
+ENG = {
+recruit_character = ENG_neville_chamberlain
+promote_character = ENG_stanley_baldwin
+}
+
+GER = {
+set_war_support = 0.6
+64 = {
+	add_dynamic_modifier = { modifier = CHI_yuanzhuhuibao scope = GER }
+}
+recruit_character = GER_Blomberg
+recruit_character = GER_Walter_von_Reichenau
+recruit_character = GER_Erich_Hoepner
+recruit_character = GER_Skorzney
+recruit_character = GER_Dietrich_von_Choltitz
+recruit_character = GER_Reinhard_Heydrich
+
+add_country_leader_trait = dangweiduizuigaolingxiu
+add_country_leader_trait = warmonger
+add_country_leader_trait = anti_communist
+give_guarantee = AUS
+#add_ideas = ger_swe_maoyixieding
+add_ideas = GER_enigma_machine0
+add_ideas = ger_eng_navy_agreement
+add_ideas = ger_zhuhuajunshiguwentuan 
+add_ai_strategy = {
+	type = befriend
+	id = SWE
+	value = 25
+  }
+}
+
+SOV = {
+#give_guarantee = SIK
+recruit_character = SOV_bafuluofu
+recruit_character = SOV_bagramyan
+recruit_character = SOV_yeliaomianke
+recruit_character = SOV_malinuofusiji
+recruit_character = SOV_meiliecikefu
+recruit_character = SOV_tuoerbuxin
+recruit_character = SOV_Vasily_Sokolovsky
+recruit_character = SOV_katukov
+recruit_character = SOV_biliuzuofu
+recruit_character = SOV_feiduolianke
+recruit_character = SOV_apanaxianke
+recruit_character = SOV_qiulieniefu
+recruit_character = SOV_luotemisi
+
+recruit_character = SOV_kalashnikov
+recruit_character = SOV_Andrei_Andreyev
+recruit_character = SOV_Zhdanov
+recruit_character = SOV_Malenkov
+recruit_character = SOV_Ordzhonikidze
+recruit_character = SOV_Viktor_Abakumov
+recruit_character = SOV_Dmitri_Ustinov
+
+add_ideas = SOV_socialism_in_one_country_idea
+add_ideas = SOV_nkvd_nsb
+add_opinion_modifier = { target = GER modifier = SOV_anti_nazi_zz }
+add_opinion_modifier = { target = GER modifier = embargo }
+create_intelligence_agency = yes
+upgrade_intelligence_agency = upgrade_form_department
+upgrade_intelligence_agency = upgrade_passive_defense
+#upgrade_intelligence_agency = upgrade_training_centers
+upgrade_intelligence_agency = upgrade_psycho_warfare
+}
+
+CHI = {
+create_intelligence_agency = {
+	name="中华民族复兴社"
+}
+recruit_character = CHI_yasuji_okamura_zz
+recruit_character = CHI_lizongren_no_general
+recruit_character = CHI_baichongxi_no_general
+
+recruit_character = PRC_lisiguang
+add_ideas = nea_idea_CHI_shanghai_ceasefire_agreement
+add_ideas = nea_idea_CHI_he_umezu_agreement
+diplomatic_relation = {
+	    country = SHD
+		relation = docking_rights
+		active = yes
+    }
+}
+
+warlord_traits_added = yes
+
+USA = {
+add_country_leader_trait = lunyijuren
+}
+	
+AST = {
+add_country_leader_trait = fulizhichizhe
+}	
+NZL = {
+add_country_leader_trait = fulizhichizhe
+}
+NOR = {
+add_country_leader_trait = fulizhichizhe
+}	
+SWE = {
+add_country_leader_trait = fulizhichizhe
+}
+DEN = {
+add_country_leader_trait = fulizhichizhe
+}
+
+SIA = {
+add_country_leader_trait = popular_figurehead
+}
+
+HPC = {
+add_country_leader_trait = difangshilipai
+
+add_country_leader_trait = {
+	ideology = despotism
+	trait = difangshilipai
+}
+add_country_leader_trait = {
+	ideology = n_socialism_ideology
+	trait = difangshilipai
+}
+add_country_leader_trait = {
+	ideology = conservatism
+	trait = difangshilipai
+}
+add_country_leader_trait = {
+	ideology = fascism_ideology
+	trait = difangshilipai
+}
+add_country_leader_trait = {
+	ideology = marxism
+	trait = difangshilipai
+}
+}	
+ATM = {
+add_country_leader_trait = difangshilipai
+
+add_country_leader_trait = {
+	ideology = despotism
+	trait = difangshilipai
+}
+add_country_leader_trait = {
+	ideology = n_socialism_ideology
+	trait = difangshilipai
+}
+add_country_leader_trait = {
+	ideology = conservatism
+	trait = difangshilipai
+}
+add_country_leader_trait = {
+	ideology = fascism_ideology
+	trait = difangshilipai
+}
+add_country_leader_trait = {
+	ideology = marxism
+	trait = difangshilipai
+}
+}	
+KRS = {
+add_country_leader_trait = difangshilipai
+
+add_country_leader_trait = {
+	ideology = despotism
+	trait = difangshilipai
+}
+add_country_leader_trait = {
+	ideology = n_socialism_ideology
+	trait = difangshilipai
+}
+add_country_leader_trait = {
+	ideology = conservatism
+	trait = difangshilipai
+}
+add_country_leader_trait = {
+	ideology = fascism_ideology
+	trait = difangshilipai
+}
+add_country_leader_trait = {
+	ideology = marxism
+	trait = difangshilipai
+}
+}	
+SHD = {
+add_country_leader_trait = difangshilipai
+
+add_country_leader_trait = {
+	ideology = despotism
+	trait = difangshilipai
+}
+add_country_leader_trait = {
+	ideology = n_socialism_ideology
+	trait = difangshilipai
+}
+add_country_leader_trait = {
+	ideology = conservatism
+	trait = difangshilipai
+}
+add_country_leader_trait = {
+	ideology = fascism_ideology
+	trait = difangshilipai
+}
+add_country_leader_trait = {
+	ideology = marxism
+	trait = difangshilipai
+}
+}
+PLM = {
+add_country_leader_trait = difangshilipai
+
+add_country_leader_trait = {
+	ideology = despotism
+	trait = difangshilipai
+}
+add_country_leader_trait = {
+	ideology = n_socialism_ideology
+	trait = difangshilipai
+}
+add_country_leader_trait = {
+	ideology = conservatism
+	trait = difangshilipai
+}
+add_country_leader_trait = {
+	ideology = fascism_ideology
+	trait = difangshilipai
+}
+add_country_leader_trait = {
+	ideology = marxism
+	trait = difangshilipai
+}
+}
+SHC = {
+add_country_leader_trait = difangshilipai
+
+add_country_leader_trait = {
+	ideology = despotism
+	trait = difangshilipai
+}
+add_country_leader_trait = {
+	ideology = n_socialism_ideology
+	trait = difangshilipai
+}
+add_country_leader_trait = {
+	ideology = conservatism
+	trait = difangshilipai
+}
+add_country_leader_trait = {
+	ideology = fascism_ideology
+	trait = difangshilipai
+}
+add_country_leader_trait = {
+	ideology = marxism
+	trait = difangshilipai
+}
+}
+SIC = {
+add_timed_idea = {
+				idea = sic_zhangguotao
+				days = 183
+			}
+add_ideas = sic_yapianshui		
+recruit_character = SIC_guoxunqi
+add_country_leader_trait = difangshilipai
+
+add_country_leader_trait = {
+	ideology = despotism
+	trait = difangshilipai
+}
+add_country_leader_trait = {
+	ideology = n_socialism_ideology
+	trait = difangshilipai
+}
+add_country_leader_trait = {
+	ideology = conservatism
+	trait = difangshilipai
+}
+add_country_leader_trait = {
+	ideology = fascism_ideology
+	trait = difangshilipai
+}
+add_country_leader_trait = {
+	ideology = marxism
+	trait = difangshilipai
+}
+}
+
+GSM = {
+add_country_leader_trait = difangshilipai
+
+add_equipment_to_stockpile = {
+		type = infantry_equipment
+		amount = 3500
+		producer = GSM
+	}
+add_equipment_to_stockpile = {
+		type = support_equipment
+		amount = 500
+		producer = GSM
+	}		
+
+add_country_leader_trait = {
+	ideology = despotism
+	trait = difangshilipai
+}
+add_country_leader_trait = {
+	ideology = n_socialism_ideology
+	trait = difangshilipai
+}
+add_country_leader_trait = {
+	ideology = conservatism
+	trait = difangshilipai
+}
+add_country_leader_trait = {
+	ideology = fascism_ideology
+	trait = difangshilipai
+}
+add_country_leader_trait = {
+	ideology = marxism
+	trait = difangshilipai
+}
+}
+NXM = {
+
+add_equipment_to_stockpile = {
+		type = infantry_equipment
+		amount = 3500
+		producer = NXM
+	}
+add_equipment_to_stockpile = {
+		type = support_equipment
+		amount = 500
+		producer = NXM
+	}
+}
+HMI = {
+add_country_leader_trait = difangshilipai
+
+add_country_leader_trait = {
+	ideology = despotism
+	trait = difangshilipai
+}
+add_country_leader_trait = {
+	ideology = n_socialism_ideology
+	trait = difangshilipai
+}
+add_country_leader_trait = {
+	ideology = conservatism
+	trait = difangshilipai
+}
+add_country_leader_trait = {
+	ideology = fascism_ideology
+	trait = difangshilipai
+}
+add_country_leader_trait = {
+	ideology = marxism
+	trait = difangshilipai
+}
+}	
+TNG = {
+add_ideas = xsm_majiajun
+
+add_country_leader_trait = difangshilipai
+
+add_country_leader_trait = {
+	ideology = despotism
+	trait = difangshilipai
+}
+add_country_leader_trait = {
+	ideology = n_socialism_ideology
+	trait = difangshilipai
+}
+add_country_leader_trait = {
+	ideology = conservatism
+	trait = difangshilipai
+}
+add_country_leader_trait = {
+	ideology = fascism_ideology
+	trait = difangshilipai
+}
+add_country_leader_trait = {
+	ideology = marxism
+	trait = difangshilipai
+}
+}
+
+
+
+MON = {
+add_ideas = mon_weibeichengren
+}
+
+PLM = {
+add_ideas = balance_idea_plm
+}
+
+POL = {
+add_ideas = balance_idea_pol_motherland
+}
+
+SWE = {
+add_ideas = swe_ger_maoyixieding
+add_ai_strategy = {
+		type = befriend
+		id = GER
+		value = 100
+	}
+}
+
+
+###初始工业重置vvv
+447 = {
+add_building_construction = {
+						type = bunker
+						level = 5
+						province = 1071
+						instant_build = yes
+					}
+add_building_construction = {
+						type = coastal_bunker
+						level = 5
+						province = 1071
+						instant_build = yes
+					}						
+add_building_construction = {
+						type = bunker
+						level = 5
+						province = 4076
+						instant_build = yes
+					}		
+add_building_construction = {
+						type = coastal_bunker
+						level = 5
+						province = 4076
+						instant_build = yes
+					}						
+}
+615 = {
+add_building_construction = {
+					type = air_base
+					level = 1
+					instant_build = yes
+				}
+}
+750 = {
+add_building_construction = {
+					type = air_base
+					level = 3
+					instant_build = yes
+				}
+}
+1036 = {
+add_building_construction = {
+					type = air_base
+					level = 3
+					instant_build = yes
+				}
+}
+605 = {
+add_building_construction = {
+					type = air_base
+					level = 5
+					instant_build = yes
+				}
+}
+
+
+#苏联补给站
+build_railway = {
+	path = { 4677 4792 13323 }				
+}
+819 = {
+add_building_construction = {
+		type = supply_node
+		level = 1
+		province = 13323
+		instant_build = yes
+	}
+}
+
+561 = {
+add_building_construction = {
+		type = supply_node
+		level = 1
+		province = 12543
+		instant_build = yes
+	}
+}
+
+SOV = {
+    every_owned_state = {
+	    add_extra_state_shared_building_slots = 3
+	}
+}
+
+JAP = {
+    every_owned_state = {
+	    add_extra_state_shared_building_slots = 5
+	}
+}
+
+GER = {
+    every_owned_state = {
+	    add_extra_state_shared_building_slots = 3
+	}
+}
+
+#美国 #350厂 在AAA文件
+393 = {
+add_extra_state_shared_building_slots = 20
+add_building_construction = {
+						type = arms_factory
+						level = 5
+						instant_build = yes
+					}
+add_building_construction = {
+						type = industrial_complex
+						level = 9
+						instant_build = yes
+					}
+}
+395 = {
+add_extra_state_shared_building_slots = 4
+add_building_construction = {
+						type = industrial_complex
+						level = 4
+						instant_build = yes
+					}
+}
+261 = {
+add_extra_state_shared_building_slots = 20
+add_building_construction = {
+						type = arms_factory
+						level = 5
+						instant_build = yes
+					}
+add_building_construction = {
+						type = industrial_complex
+						level = 5
+						instant_build = yes
+					}
+}
+
+#德国 +19
+51 = {
+add_extra_state_shared_building_slots = 18
+add_building_construction = {
+						type = industrial_complex
+						level = 12
+						instant_build = yes
+					}
+}
+42 = {
+add_extra_state_shared_building_slots = 15
+add_building_construction = {
+						type = industrial_complex
+						level = 9
+						instant_build = yes
+					}
+}
+
+#日本 +2
+282 = {
+add_extra_state_shared_building_slots = 5
+add_building_construction = {
+						type = industrial_complex
+						level = 2
+						instant_build = yes
+					}
+}
+528 = {
+add_extra_state_shared_building_slots = 10
+add_building_construction = {
+						type = fuel_silo
+						level = 5
+						instant_build = yes
+					}
+}
+
+#满洲 +14
+716 = {
+add_extra_state_shared_building_slots = 6
+add_building_construction = {
+						type = industrial_complex
+						level = 6
+						instant_build = yes
+					}
+}
+328 = {
+add_extra_state_shared_building_slots = 5
+add_building_construction = {
+						type = industrial_complex
+						level = 5
+						instant_build = yes
+					}
+}
+
+#英国 +23
+126 = { 
+add_extra_state_shared_building_slots = 10
+add_building_construction = {
+						type = industrial_complex
+						level = 10
+						instant_build = yes
+					}
+}	
+132 = { 
+add_extra_state_shared_building_slots = 8
+add_building_construction = {
+						type = industrial_complex
+						level = 8
+						instant_build = yes
+					}
+}												
+
+#法国 +18
+build_railway = { 
+		path = { 6784 3768 }				
+}
+32 = {
+add_building_construction = {
+					type = supply_node
+					level = 1
+					province = 3768
+					instant_build = yes
+				}
+}				
+16 = { 
+add_extra_state_shared_building_slots = 9
+add_building_construction = {
+						type = arms_factory
+						level = 6
+						instant_build = yes
+					}
+add_building_construction = {
+						type = industrial_complex
+						level = 3
+						instant_build = yes
+					}
+}
+20 = { 
+add_extra_state_shared_building_slots = 9
+add_building_construction = {
+						type = arms_factory
+						level = 1
+						instant_build = yes
+					}
+add_building_construction = {
+						type = industrial_complex
+						level = 8
+						instant_build = yes
+					}
+}
+
+#捷克 #35厂 +10
+9 = {
+add_extra_state_shared_building_slots = 10
+add_building_construction = {
+						type = arms_factory
+						level = 5
+						instant_build = yes
+					}
+add_building_construction = {
+						type = industrial_complex
+						level = 5
+						instant_build = yes
+					}
+}
+###初始工业重置^^^
+
+XSM = {
+add_ai_strategy = {
+		type = befriend
+		id = GSM
+		value = 100
+	}
+add_ai_strategy = {
+		type = befriend
+		id = NXM
+		value = 100
+	}
+	add_ai_strategy = {
+		type = befriend
+		id = EGM
+		value = 100
+	}
+add_ideas = xsm_majiajun
+give_military_access = GSM
+give_military_access = EGM
+diplomatic_relation = {
+	country = GSM
+	relation = non_aggression_pact
+	active = yes
+}
+diplomatic_relation = {
+	country = EGM
+	relation = non_aggression_pact
+	active = yes
+}
+}
+NXM = {
+add_ai_strategy = {
+		type = befriend
+		id = GSM
+		value = 100
+	}
+add_ai_strategy = {
+		type = befriend
+		id = XSM
+		value = 100
+	}
+	add_ai_strategy = {
+		type = befriend
+		id = EGM
+		value = 100
+	}
+add_ideas = xsm_majiajun
+give_military_access = GSM
+give_military_access = EGM
+diplomatic_relation = {
+	country = GSM
+	relation = non_aggression_pact
+	active = yes
+}
+diplomatic_relation = {
+	country = EGM
+	relation = non_aggression_pact
+	active = yes
+}
+}
+GSM = {
+add_ai_strategy = {
+		type = befriend
+		id = XSM
+		value = 100
+	}
+add_ai_strategy = {
+		type = befriend
+		id = NXM
+		value = 100
+	}
+	add_ai_strategy = {
+		type = befriend
+		id = EGM
+		value = 100
+	}
+add_ideas = xsm_majiajun
+give_military_access = XSM
+give_military_access = NXM
+give_military_access = EGM
+diplomatic_relation = {
+	country = XSM
+	relation = non_aggression_pact
+	active = yes
+}
+diplomatic_relation = {
+	country = NXM
+	relation = non_aggression_pact
+	active = yes
+}
+diplomatic_relation = {
+	country = EGM
+	relation = non_aggression_pact
+	active = yes
+}
+NXM = {
+give_military_access = GSM
+}
+XSM = {
+give_military_access = GSM
+}
+EGM = {
+give_military_access = GSM
+}
+}
+EGM = {
+add_ideas = xsm_majiajun
+add_ai_strategy = {
+		type = befriend
+		id = XSM
+		value = 100
+	}
+add_ai_strategy = {
+		type = befriend
+		id = NXM
+		value = 100
+	}
+	add_ai_strategy = {
+		type = befriend
+		id = GSM
+		value = 100
+	}
+give_military_access = XSM
+give_military_access = NXM
+give_military_access = GSM
+diplomatic_relation = {
+	country = XSM
+	relation = non_aggression_pact
+	active = yes
+}
+diplomatic_relation = {
+	country = NXM
+	relation = non_aggression_pact
+	active = yes
+}
+diplomatic_relation = {
+	country = GSM
+	relation = non_aggression_pact
+	active = yes
+}
+NXM = {
+give_military_access = EGM
+}
+XSM = {
+give_military_access = EGM
+}
+GSM = {
+give_military_access = EGM
+}
+}
+
+every_country = {
+limit = {
+OR = {
+TAG = GER
+TAG = ITA
+TAG = ENG
+TAG = FRA
+}
+}
+give_guarantee = SWI
+}
+
+SOV = {
+add_ideas = SOV_wood_replace_aluminium
+}
+
+ENG = {
+
+add_ideas = eng_junqing6chu
+create_intelligence_agency = yes
+upgrade_intelligence_agency = upgrade_form_department
+upgrade_intelligence_agency = upgrade_passive_defense
+#upgrade_intelligence_agency = upgrade_training_centers
+upgrade_intelligence_agency = upgrade_psycho_warfare
+
+set_faction_name = yinglianbang
+
+add_to_faction = BHU
+add_to_faction = OMA
+
+give_guarantee = IRE
+give_guarantee = IRQ
+give_guarantee = YEM
+
+give_guarantee = HOL
+give_guarantee = BEL
+give_guarantee = LUX
+give_guarantee = SWI
+
+if = {
+		limit = {
+			has_dlc = "Together for Victory"
+		}
+		set_autonomy = {
+			target = EGY
+			autonomous_state = autonomy_dominion
+		}
+		else = {
+			puppet = EGY
+		}
+	}
+	
+add_to_faction = EGY
+
+}
+
+EGY = {
+
+every_state = {
+limit = {
+is_core_of = EGY
+NOT = { state = 447 state = 446 }
+}
+transfer_state_to = EGY
+}
+
+set_technology = {
+	infantry_weapons = 1
+	tech_support = 1
+	transport = 1
+	gw_artillery = 1
+}
+set_politics = {
+	ruling_party = neutrality
+	last_election = "1936.1.1"
+	election_frequency = 48
+	elections_allowed = no
+}
+set_popularities = {
+				n_socialism = 5
+		        fascism = 0
+		        communism = 0
+                democratic = 15
+		        neutrality = 80
+}
+create_country_leader = {
+                name="福阿德一世"
+                #desc = ""
+                picture = "gfx/leaders/EGY/fuadeyishi.jfif"
+                expire = "1965.1.1"
+                ideology = despotism
+                traits = { the_sacred_king }
+}
+
+set_war_support = 0.5
+set_stability = 0.5
+if = {
+	limit = { has_dlc = "Together for Victory" }
+
+	add_to_tech_sharing_group = commonwealth_research
+}
+add_equipment_to_stockpile = { type = infantry_equipment amount = 1500 producer = ENG }
+add_equipment_to_stockpile = { type = artillery_equipment amount = 50 producer = ENG }
+add_equipment_to_stockpile = { type = support_equipment amount = 150 producer = ENG }
+add_ideas = {
+    EGY_non_independence
+}
+add_ai_strategy = {
+		type = befriend
+		id = "ENG"
+		value = 100
+	}
+add_ai_strategy = {
+		type = alliance
+		id = "ENG"
+		value = 100
+	}
+add_ai_strategy = {
+		type = support
+		id = "ENG"
+		value = 100
+	}
+}
+
+SWI = {
+	add_ideas = swi_ruishiyinhang
+}
+
+RAJ = {
+create_country_leader = {
+			name="威灵东伯爵"
+			#desc = "POLITICS_MOHAMMED_JAWAHARLAL_NEHRU_DESC"
+			picture = "gfx/leaders/RAJ/r56_portrait_RAJ_Freeman_Freeman_Thomas.jpg"
+			expire = "1965.1.1"
+			ideology = despotism
+			traits = { ethnarch }
+}
+create_country_leader = {
+			name="贾瓦哈拉尔·尼赫鲁"
+			#desc = "POLITICS_MOHAMMED_JAWAHARLAL_NEHRU_DESC"
+			picture = "gfx/leaders/RAJ/Nehru.dds"
+			expire = "1965.1.1"
+			ideology = socialism
+			traits = { economic_reformer fulizhichizhe guojizhengzhihuodongjia democratic_reformer }
+}
+create_country_leader = {
+			name="贾瓦哈拉尔·尼赫鲁"
+			#desc = "POLITICS_MOHAMMED_JAWAHARLAL_NEHRU_DESC"
+			picture = "gfx/leaders/RAJ/Nehru.dds"
+			expire = "1965.1.1"
+			ideology = n_socialism_ideology
+			traits = { economic_reformer fulizhichizhe guojizhengzhihuodongjia socialist_idealist }
+}
+}
+
+SIK = {
+add_country_leader_trait = {
+	ideology = despotism
+	trait = prince_of_terror
+}
+add_country_leader_trait = {
+	ideology = n_socialism_ideology
+	trait = prince_of_terror
+}
+add_country_leader_trait = {
+	ideology = conservatism
+	trait = prince_of_terror
+}
+add_country_leader_trait = {
+	ideology = fascism_ideology
+	trait = prince_of_terror
+}
+add_country_leader_trait = {
+	ideology = marxism
+	trait = prince_of_terror
+}
+add_country_leader_trait = prince_of_terror
+set_truce = { target = TNG days = 365 }
+add_opinion_modifier = { target = TNG modifier = hostile_status }	## MODDED
+}
+
+JAP = {
+add_country_leader_trait = moderate_reformist
+}
+
+FIC = {
+add_country_leader_trait = ethnarch
+}
+
+USA = {
+set_stability = 0.6
+add_ideas = usa_FBI
+
+create_intelligence_agency = yes
+upgrade_intelligence_agency = upgrade_form_department
+upgrade_intelligence_agency = upgrade_passive_defense
+#upgrade_intelligence_agency = upgrade_training_centers
+upgrade_intelligence_agency = upgrade_psycho_warfare
+		
+recruit_character = USA_James_Alward_Van_Fleet
+recruit_character = USA_Joseph_Taggett_McNani
+recruit_character = USA_Adna_Chaffee
+recruit_character = USA_malin_craig
+recruit_character = USA_John_Edgar_Hoovercivilianpng
+recruit_character = USA_jacob_devers
+recruit_character = USA_holland_smith
+recruit_character = USA_Benjamin_O_Davis
+recruit_character = USA_james_gavin
+recruit_character = USA_john_pershing
+recruit_character = USA_Maxwell_Taylor
+recruit_character = USA_Matthew_Bunker_Ridgway
+recruit_character = USA_george_s_patton111
+recruit_character = USA_omar_bradley111
+recruit_character = USA_aike111
+recruit_character = USA_panxin111
+recruit_character = USA_nimizi111
+recruit_character = USA_chennade111
+recruit_character = USA_albert_coady_wedemeyer
+}
+
+FIN = {
+add_country_leader_trait = prominent_lawyer
+add_country_leader_trait = anti_communist
+}
+
+AST = {
+set_cosmetic_tag = AST_federal
+}
+
+NZL = {
+set_cosmetic_tag = NZL_zizhiling
+}
+
+every_state = {
+		limit = {
+		OR = {
+		    state = 1008
+		    state = 714
+		    state = 1005
+		    state = 717
+		    state = 328
+		    state = 1007
+		    state = 1006
+		    state = 716	 
+		}
+		}
+		set_state_flag = PRC_dongbeikanglian_genjudi
+		#add_dynamic_modifier = { modifier = PRC_dongbeikanglian_genjudi scope = MAN }
+		add_dynamic_modifier = { modifier = PRC_dongbeikanglian_genjudi scope = JAP }
+}
+
+every_country = {
+                                                          limit = {
+OR = {
+tag = CHI
+tag = PRC
+tag = HPC
+tag = SHX
+tag = SHD
+tag = NEA
+tag = SIC
+tag = GXC
+tag = GUD
+tag = YUN
+tag = XIK
+tag = XSM
+tag = NXM
+tag = TIB
+tag = TNG
+tag = HMI
+tag = SIK
+tag = SHC
+tag = XIA
+tag = PLM
+}
+}
+set_country_flag = zhongguo  
+                                                }
+
+
+
+every_country = {
+                                                          limit = {
+OR = {
+tag = JAP
+tag = MAN
+tag = MEN
+tag = RRC
+tag = RFM
+tag = JNC
+tag = MEJ
+tag = MAF
+tag = ECA
+}
+}
+set_country_flag = riben
+                                                }
+
+WGR = {
+set_war_support = 0
+set_capital = { state = 42 }
+set_popularities = {
+	democratic = 80
+	n_socialism = 20
+	fascism = 0
+	communism = 0
+	neutrality = 0
+}
+
+}
+
+CHI = {
+recruit_character = CHI_dengbaoshan
+recruit_character = CHI_chenmingren
+recruit_character = CHI_hulian
+recruit_character = CHI_guorugui
+recruit_character = CHI_huangbaitao
+recruit_character = CHI_wangjingwei_zz
+
+give_guarantee = TIB
+
+add_country_leader_trait = anti_communist
+add_country_leader_trait = junduiguanlian
+add_country_leader_trait = qinliqinwei
+
+add_ideas = german_advisorszz
+
+if = { #guo
+	limit = {
+		has_dlc = "La Resistance"
+	}
+	create_operative_leader = {
+		name="戴笠"
+		GFX = GFX_Portrait_CHI_daili
+		traits = { operative_brilliant_spy operative_infiltrator operative_commando operative_master_interrogator operative_safe_cracker }
+		bypass_recruitment = no
+		available_to_spy_master = no
+		nationalities = { CHI }
+	}
+	create_operative_leader = {
+		name="毛人凤"
+		GFX = GFX_Portrait_CHI_maorenfeng
+		traits = { operative_brilliant_spy operative_infiltrator operative_commando operative_master_interrogator operative_safe_cracker }
+		bypass_recruitment = no
+		available_to_spy_master = no
+		nationalities = { CHI }
+	}
+	create_operative_leader = {
+		#沈之岳
+		name="沈之岳"
+		GFX = GFX_Portrait_CHI_Shen_Jhihyue
+		traits = {  operative_brilliant_spy operative_linguist operative_safe_cracker operative_infiltrator operative_double_agent }
+		bypass_recruitment = no
+		available_to_spy_master = no
+		nationalities = { CHI PRC }
+	}
+	create_operative_leader = {
+		name="沈醉"
+		GFX = GFX_Portrait_CHI_shenzui
+		traits = { operative_infiltrator operative_master_interrogator operative_demolition_expert operative_commando }
+		bypass_recruitment = no
+		available_to_spy_master = no
+		nationalities = { CHI }
+	}
+	create_operative_leader = {
+		name="郑介民"
+		GFX = GFX_Portrait_CHI_zhengjiemin
+		traits = { operative_infiltrator operative_commando operative_safe_cracker operative_well_groomed }
+		bypass_recruitment = no
+		available_to_spy_master = no
+		nationalities = { CHI }
+	}
+	create_operative_leader = {
+		#actually was a CCP member before 1937 #谷正文
+		name="谷正文"
+		GFX = GFX_Portrait_CHI_Gu_Jhengwun
+		traits = {  operative_infiltrator operative_commando operative_double_agent operative_safe_cracker }
+		bypass_recruitment = no
+		available_to_spy_master = no
+		nationalities = { CHI }
+	}
+	create_operative_leader = {
+		name="毛森"
+		GFX = GFX_Portrait_CHI_maosen
+		traits = { operative_infiltrator operative_escape_artist operative_commando }
+		bypass_recruitment = no
+		available_to_spy_master = no
+		nationalities = { CHI }
+	}
+	create_operative_leader = {
+		name="唐纵"
+		GFX = GFX_Portrait_CHI_tangzong
+		traits = { operative_infiltrator operative_safe_cracker operative_commando }
+		bypass_recruitment = no
+		available_to_spy_master = no
+		nationalities = { CHI }
+	}
+	create_operative_leader = {
+		name="康泽"
+		GFX = GFX_Portrait_CHI_kangze
+		traits = { operative_infiltrator operative_master_interrogator operative_commando }
+		bypass_recruitment = no
+		available_to_spy_master = no
+		nationalities = { CHI }
+	}
+	create_operative_leader = {
+		name="徐远举"
+		GFX = GFX_Portrait_CHI_xuyuanju
+		traits = { operative_infiltrator operative_master_interrogator operative_commando }
+		bypass_recruitment = no
+		available_to_spy_master = no
+		nationalities = { CHI }
+	}
+}
+
+}
+
+GER = {
+add_country_leader_trait = rearmer
+}
+
+FRA = {
+add_country_leader_trait = stout_defender
+add_country_leader_trait = reluctant_interventionist
+give_guarantee = SWI
+give_guarantee = LUX
+give_guarantee = HOL
+give_guarantee = BEL
+}
+
+YUN = {
+add_ideas = yun_jiangwutang
+add_country_leader_trait = yunnanwang
+
+add_country_leader_trait = {
+	ideology = despotism
+	trait = yunnanwang
+}
+add_country_leader_trait = {
+	ideology = n_socialism_ideology
+	trait = yunnanwang
+}
+add_country_leader_trait = {
+	ideology = conservatism
+	trait = yunnanwang
+}
+add_country_leader_trait = {
+	ideology = fascism_ideology
+	trait = yunnanwang
+}
+add_country_leader_trait = {
+	ideology = marxism
+	trait = yunnanwang
+}
+}
+
+NEA = {
+
+add_ideas = NEA_918_918
+recruit_character = NEA_lvzhengcao
+}
+
+TIB = {
+add_country_leader_trait = rezhenhuofo
+}
+
+GXC = {
+add_ai_strategy = {
+		type = befriend
+		id = GUD
+		value = 100
+	}
+}
+
+GUD = {
+add_ideas = CHI_whampoa_military_academy
+add_ai_strategy = {
+		type = befriend
+		id = GXC
+		value = 100
+	}
+}
+
+VEN = {
+	set_popularities = {
+		democratic = 0
+		n_socialism = 5
+		fascism = 10
+		communism = 5
+		neutrality = 80
+	}
+	set_politics = {
+
+		ruling_party = neutrality #要写主意识形态
+		last_election = "1935.10.22"
+		election_frequency = 48
+		elections_allowed = no
+	}
+
+    add_ai_strategy = {
+		type = befriend
+		id = GER
+		value = 35
+	}
+	
+	add_ai_strategy = {
+		type = alliance
+		id = GER
+		value = -35
+	}
+
+
+	create_country_leader = {
+		name = "Eleazar López Contreras"
+		#desc = "POLITICS_THORVALD_STAUNING_DESC"
+		picture = "GFX_portrait_Eleazar_Lopez_Contreras"
+		expire = "1965.1.1"
+		ideology = despotism #要写子意识形态
+		traits = {
+			dictator
+		}
+	}
+	
+}
+
+JAP = {
+recruit_character = JAP_Abe_Jixiu
+recruit_character = JAP_Masao_Nakamura
+}
+
+SOV = {
+			recruit_character = SOV_georgy_safarov
+			recruit_character = SOV_oscar_tarkhanov
+			recruit_character = SOV_nikolai_krestinsky
+			recruit_character = SOV_khristian_rakovsky
+			recruit_character = SOV_grigory_yevdokimov
+			recruit_character = SOV_lazar_shatskin
+			
+
+			recruit_character = SOV_timofey_sapronov
+			recruit_character = SOV_nikolay_osinsky
+			recruit_character = SOV_andrei_bubnov
+			recruit_character = SOV_vladimir_smirnov
+
+
+			recruit_character = SOV_vladimir_nevsky
+			recruit_character = SOV_sergei_medvedev
+
+
+
+
+			recruit_character = SOV_vasily_mikhailov
+			recruit_character = SOV_vasily_mikhailov_after
+}
+
+every_country = {
+limit = { or = { is_literally_china = yes original_tag = SIK } }
+set_variable = { X_xchinese_propaganda_3_cost = 15 }
+set_variable = { X_xchinese_propaganda_4_cost = 15 }
+set_variable = { X_xchinese_propaganda_5_cost = 15 }
+set_variable = { X_xchinese_propaganda_6_cost = 15 }
+set_variable = { X_xchinese_propaganda_7_cost = 15 }
+set_variable = { X_xchinese_propaganda_8_cost = 15 }
+set_variable = { X_xchinese_propaganda_9_cost = 15 }
+set_variable = { X_xchinese_propaganda_10_cost = 15 }
+set_variable = { X_xchinese_propaganda_11_cost = 15 }
+set_variable = { X_xchinese_propaganda_12_cost = 15 }
+set_variable = { X_xchinese_propaganda_13_cost = 15 }
+set_variable = { X_xchinese_propaganda_14_cost = 15 }
+set_variable = { X_xchinese_propaganda_15_cost = 15 }
+set_variable = { X_xchinese_propaganda_16_cost = 15 }
+set_variable = { X_xchinese_propaganda_17_cost = 15 }
+set_variable = { X_xchinese_propaganda_18_cost = 15 }
+set_variable = { X_xchinese_propaganda_19_cost = 15 }
+set_variable = { X_xchinese_propaganda_20_cost = 15 }
+set_variable = { X_xchinese_propaganda_21_cost = 15 }
+set_variable = { X_xchinese_propaganda_22_cost = 15 }
+set_variable = { X_xchinese_propaganda_23_cost = 15 }
+set_variable = { X_xchinese_propaganda_24_cost = 15 }
+set_variable = { X_xchinese_propaganda_25_cost = 15 }
+set_variable = { X_xchinese_propaganda_26_cost = 15 }
+
+set_variable = { RCM_communist_amass_support_mission_time_zz = 50 }
+set_variable = { RCM_communist_amass_support_mission_cost_zz = 50 }
+}
+
+
+
+
+
+
+
+
+#####################vvvvvvvvvvvvvvvvvvvvvv########################
+CHI = {
+
+}
+TAN = {
+	set_cosmetic_tag = TAN_RED
+	recruit_character = TAN_tulush_kechil_ool
+}
+MON = {
+	set_cosmetic_tag = MON_RED
+}
+FRA = {
+	set_global_flag = flag_french_communist_civil_war
+	#add_ideas = CHI_hyper_inflation_1 #MODDED
+	set_global_flag = flag_french_fascist_civil_war #block france civil unrest
+	#add_stability = -0.1
+}
+
+USA = {
+	add_ideas = CHI_hyper_inflation_3
+}
+SOV = {
+	set_variable = { SOV_the_red_army_mobilization_speed = 0.2 } #soviet be faster
+}
+1939.1.1 = {
+	every_country = {
+		limit = {
+			OR = {
+				capital_scope = {
+					OR = {
+						is_on_continent = europe
+						is_on_continent = north_america
+						is_on_continent = oceania
+					}
+				}
+				is_subject_of = ENG
+				is_subject_of = HOL
+				is_subject_of = FRA
+				tag = FIC
+			}
+		}
+
+		add_ideas = {
+			generic_wartime_propagantist_europe
+			generic_staunch_patriot_europe
+			generic_progressive_activist_europe
+			generic_revolutionary_syndicalist_europe
+			generic_robber_baron_europe
+		}
+		set_country_flag = european_country_flag
+		remove_ideas = {
+			generic_wartime_propagantist_europe
+			generic_staunch_patriot_europe
+			generic_progressive_activist_europe
+			generic_revolutionary_syndicalist_europe
+			generic_robber_baron_europe
+		}
+
+	}
+	every_country = {
+		limit = {
+			OR = {
+				AND = {
+					capital_scope = { is_on_continent = asia }
+					is_puppet = no
+				}
+				is_subject_of = JAP
+				is_warlord = yes
+				tag = HPC
+				tag = GUD
+				tag = XIK
+				tag = SIC
+				tag = EHB
+				tag = ECA
+				tag = RFM
+				tag = PLM
+				tag = NEA
+				tag = SCG
+				tag = NSG
+			}
+		}
+		add_ideas = {
+			generic_wartime_propagantist_asia
+			generic_staunch_patriot_asia
+			generic_progressive_activist_asia
+			generic_revolutionary_syndicalist_asia
+			generic_robber_baron_asia
+		}
+		set_country_flag = asian_country_flag
+		remove_ideas = {
+			generic_wartime_propagantist_asia
+			generic_staunch_patriot_asia
+			generic_progressive_activist_asia
+			generic_revolutionary_syndicalist_asia
+			generic_robber_baron_asia
+		}
+
+	}
+	every_country = {
+		limit = {
+			capital_scope = { is_on_continent = middle_east }
+			is_puppet = no
+		}
+		add_ideas = {
+			generic_wartime_propagantist_arab
+			generic_staunch_patriot_arab
+			generic_progressive_activist_arab
+			generic_revolutionary_syndicalist_arab
+			generic_robber_baron_arab
+		}
+		set_country_flag = arab_country_flag
+		remove_ideas = {
+			generic_wartime_propagantist_arab
+			generic_staunch_patriot_arab
+			generic_progressive_activist_arab
+			generic_revolutionary_syndicalist_arab
+			generic_robber_baron_arab
+		}
+	}
+	every_country = {
+		limit = {
+			AND = {
+				capital_scope = { is_on_continent = africa }
+				is_puppet = no
+			}
+		}
+		add_ideas = {
+			generic_wartime_propagantist_africa
+			generic_staunch_patriot_africa
+			generic_progressive_activist_africa
+			generic_revolutionary_syndicalist_africa
+			generic_robber_baron_africa
+		}
+		set_country_flag = africa_country_flag
+		remove_ideas = {
+			generic_wartime_propagantist_africa
+			generic_staunch_patriot_africa
+			generic_progressive_activist_africa
+			generic_revolutionary_syndicalist_africa
+			generic_robber_baron_africa
+		}
+	}
+	every_country = {
+		limit = {
+			OR = {
+				AND = {
+					capital_scope = { is_on_continent = south_america }
+					is_puppet = no
+				}
+				tag = PHI
+			}
+		}
+		add_ideas = {
+			generic_wartime_propagantist_south_america
+			generic_staunch_patriot_south_america
+			generic_progressive_activist_south_america
+			generic_revolutionary_syndicalist_south_america
+			generic_robber_baron_south_america
+		}
+		set_country_flag = south_america_country_flag
+		remove_ideas = {
+			generic_wartime_propagantist_south_america
+			generic_staunch_patriot_south_america
+			generic_progressive_activist_south_america
+			generic_revolutionary_syndicalist_south_america
+			generic_robber_baron_south_america
+		}
+	}
+}
+
+########THIS SECTION IS FOR NON ASIAN COUNTRIE'S HISTORY
+NOR = {
+#	set_popularities = {
+#		democratic = 44
+#		n_socialism = 52
+#		fascism = 2
+#		communism = 2
+#		neutrality = 0
+#	}
+#	set_politics = {
+#
+#		ruling_party = n_socialism
+#		last_election = "1933.10.16"
+#		election_frequency = 36
+#		elections_allowed = yes
+#	}
+
+
+
+	create_country_leader = {
+		name = "Johan Nygaardsvold"
+		desc = "POLITICS_JOHAN_NYGAARDSVOLD_DESC"
+		picture = "Portrait_Norway_Johan_Nygaardsvold.dds"
+		expire = "1965.1.1"
+		ideology = n_democratic_socialism
+		traits = {
+			fulizhichizhe
+		}
+	}
+	#create_country_leader = {
+	#	name = "Johan Ludwig Mowinckel"
+	#	desc = "POLITICS_JOHAN_LUDWIG_MOWINCKEL_DESC"
+	#	picture = "gfx/leaders/Europe/Portrait_Europe_Generic_3.dds"
+	#	expire = "1965.1.1"
+	#	ideology = liberalism
+	#	traits = {
+	#		#
+	#	}
+	#}
+}
+#RAJ = {
+#	remove_ideas = RAJ_agrarian_society
+#}
+
+DEN = {
+	#set_popularities = {
+	#	democratic = 42
+	#	n_socialism = 55
+	#	fascism = 1
+	#	communism = 2
+	#	neutrality = 0
+	#}
+	#set_politics = {
+    #
+	#	ruling_party = n_socialism
+	#	last_election = "1935.10.22"
+	#	election_frequency = 48
+	#	elections_allowed = yes
+	#}
+
+
+
+
+
+	create_country_leader = {
+		name = "Thorvald Stauning"
+		desc = "POLITICS_THORVALD_STAUNING_DESC"
+		picture = "Portrait_Denmark_Thorvald_Stauning.dds"
+		expire = "1965.1.1"
+		ideology = n_democratic_socialism
+		traits = {
+			fulizhichizhe
+		}
+	}
+	#create_country_leader = {
+	#	name = "Thomas Madsen-Mygdal"
+	#	desc = ""
+	#	picture = "Portrait_Denmark_Thomas_Madsen-Mygdal.dds"
+	#	expire = "1965.1.1"
+	#	ideology = conservatism
+	#	traits = {
+	#		#
+	#	}
+	#}
+}
+
+FIN = {
+	set_popularities = {
+		democratic = 4
+		fascism = 5
+		communism = 1
+		neutrality = 90
+	}
+}
+
+BEL = {
+	create_country_leader = {
+		name = "Henri de Man"
+		desc = "POLITICS_HENRI_DE_MAN_DESC"
+		picture = "Portrait_Belgium_Henri_De_Man.dds"
+		expire = "1965.1.1"
+		ideology = n_democratic_socialism
+		traits = {
+			#
+		}
+	}
+}
+
+NZL = {
+	set_popularities = {
+		democratic = 45
+		fascism = 0
+		n_socialism = 55
+		communism = 0
+		neutrality = 0
+	}
+	set_politics = {
+
+		ruling_party = n_socialism
+		last_election = "1935.11.27"
+		election_frequency = 36
+		elections_allowed = yes
+	}
+
+	create_country_leader = {
+		name = "Michael Joseph Savage"
+		desc = "POLITICS_MICHAEL_JOSEPH_SAVAGE_DESC"
+		picture = "GFX_NZL_michael_joseph_savage"
+		expire = "1965.1.1"
+		ideology = n_democratic_socialism
+		traits = {
+			fulizhichizhe
+		}
+	}
+
+	create_country_leader = {
+		name = "Sidney Holland"
+		desc = "POLITICS_SIDNEY_HOLLAND_DESC"
+		picture = "GFX_NZL_sidney_holland"
+		expire = "1965.1.1"
+		ideology = conservatism
+		traits = {
+			#
+		}
+	}
+
+
+
+
+}
+AST = {
+	set_popularities = {
+		democratic = 40
+		n_socialism = 58
+		fascism = 0
+		communism = 2
+		neutrality = 0
+	}
+	set_politics = {
+
+		ruling_party = n_socialism
+		last_election = "1934.9.15"
+		election_frequency = 36
+		elections_allowed = yes
+	}
+
+	create_country_leader = {
+		name = "John Curtin"
+		desc = "POLITICS_JOHN_CURTIN_DESC"
+		picture = "Portrait_Australia_John_Curtin.dds"
+		expire = "1965.1.1"
+		ideology = n_democratic_socialism
+		traits = {
+			fulizhichizhe
+		}
+	}
+
+	create_country_leader = {
+		name = "Joseph Lyons"
+		desc = ""
+		picture = "GFX_AST_earle_page"
+		expire = "1965.1.1"
+		ideology = conservatism
+		traits = {
+			#
+		}
+	}
+	create_country_leader = {
+		name = "Joseph Lyons"
+		desc = "POLITICS_EARLE_PAGE_DESC"
+		picture = "Portrait_Australia_Joseph_Lyons.dds"
+		expire = "1965.1.1"
+		ideology = centrism
+		traits = {
+			#
+		}
+	}
+}
+FRA = {
+	set_popularities = {
+		democratic = 39
+		fascism = 1
+		n_socialism = 40
+		communism = 20
+		neutrality = 0
+	}
+	set_politics = {
+		ruling_party = democratic
+		last_election = "1932.5.1"
+		election_frequency = 48
+		elections_allowed = yes
+	}
+	create_country_leader = {
+		name = "Léon Blum"
+		desc = ""
+		picture = "Portrait_Leon_Blum.dds"
+		expire = "1965.1.1"
+		ideology = n_socialism_ideology
+		traits = {
+            stout_defender
+            fulizhichizhe
+		}
+	}
+
+	create_country_leader = {
+		name = "Pierre Laval"
+		desc = ""
+		picture = "Portrait_Pierre_Laval.dds"
+		expire = "1965.1.1"
+		ideology = liberalism
+		traits = {
+		stout_defender
+        reluctant_interventionist
+		}
+	}
+
+	create_country_leader = {
+		name = "Philippe Pétain"
+		desc = "POLITICS_PHILIPPE_PÉTAIN_DESC"
+		picture = "Portrait_France_Philippe_Petain.dds"
+		expire = "1965.1.1"
+		ideology = collaborationism
+		traits = {
+            stout_defender
+
+		}
+	}
+}
+ENG = {
+	set_autonomy = {
+		target = RAJ
+		autonomous_state = autonomy_colony
+	}
+}
+RAJ = {
+	set_popularities = {
+		democratic = 17
+		fascism = 2
+		communism = 1
+		neutrality = 80
+		n_socialism = 0
+	}
+	set_politics = {
+		ruling_party = neutrality
+		last_election = "1935.11.14"
+		election_frequency = 48
+		elections_allowed = no
+	}
+	give_guarantee = BHU
+}
+
+ENG = {
+	if = {
+		limit = {
+			has_dlc = "Together for Victory"
+		}
+		set_autonomy = {
+			target = SST
+			autonomous_state = autonomy_integrated_puppet
+			freedom_level = 0.6
+		}
+		else = {
+			puppet = SST
+		}
+	}
+	#give_guarantee = BHU
+}
+
+USA = {
+	########## EYWOR USA NEW CHARACTERS ##########
+    recruit_character = norman_thomas
+    recruit_character = norman_thomas_fig
+    recruit_character = james_burnham
+    recruit_character = max_shachtman
+    recruit_character = jim_cannon
+    recruit_character = jim_cannon_revo
+    recruit_character = jim_oneal
+    recruit_character = louis_waldman
+    recruit_character = USA_leon_trotsky
+    recruit_character = USA_keller_e_rockey
+    recruit_character = USA_herbert_yardley
+    if = {
+	    limit = {
+		    OR = {
+			    has_dlc = "Together for Victory"
+			    #has_dlc = "Man the Guns"
+		    }
+	    }
+	    set_autonomy = {
+		    target = PHI
+		    autonomous_state = autonomy_dominion
+		    freedom_level = 0.1
+	    }
+	    else = {
+		    puppet = PHI
+	   }
+    }
+}
+
+SST = {
+	set_popularities = {
+		democratic = 30
+		fascism = 0
+		n_socialism = 0
+		communism = 0
+		neutrality = 70
+	}
+	set_politics = {
+
+		ruling_party = neutrality
+		last_election = "1936.1.1"
+		election_frequency = 48
+		elections_allowed = no
+	}
+}
+
+ENG = {
+	if = {
+		limit = {
+			has_dlc = "Together for Victory"
+		}
+		set_autonomy = {
+			target = MAL
+			autonomous_state = autonomy_integrated_puppet
+		}
+		else = {
+			puppet = MAL
+		}
+	}
+}
+
+MAL = {
+	set_popularities = {
+		democratic = 20
+		fascism = 0
+		n_socialism = 17
+		communism = 13
+		neutrality = 50
+	}
+	set_politics = {
+
+		ruling_party = neutrality
+		last_election = "1936.1.1"
+		election_frequency = 48
+		elections_allowed = no
+	}
+}
+
+HOL = {
+	if = {
+		limit = {
+			has_dlc = "Together for Victory"
+		}
+		set_autonomy = {
+			target = INS
+			autonomous_state = autonomy_colony
+			freedom_level = 0.2
+		}
+		else = {
+			puppet = INS
+		}
+	}
+
+	set_popularities = {
+		democratic = 66
+		fascism = 1
+		communism = 5
+		n_socialism = 28
+		neutrality = 0
+	}
+	set_politics = {
+
+		ruling_party = democratic
+		last_election = "1933.4.26"
+		election_frequency = 48
+		elections_allowed = yes
+	}
+
+	create_country_leader = {
+		name = "Johann Willem Albarda"
+		desc = "POLITICS_JOHANN_ALBARDA_DESC"
+		picture = "Portrait_Netherlands_Dirk_Jan_de_Geer.dds"
+		expire = "1965.1.1"
+		ideology = n_democratic_socialism
+		traits = {
+			#
+		}
+	}
+}
+INS = {
+	set_popularities = {
+		democratic = 27
+		n_socialism = 7
+		fascism = 1
+		communism = 3
+		neutrality = 62
+	}
+	set_politics = {
+		ruling_party = neutrality
+		last_election = "1935.11.14"
+		election_frequency = 48
+		elections_allowed = yes
+	}
+
+}
+
+EGY = {
+	set_cosmetic_tag = EGY_ENG
+	set_popularities = {
+		democratic = 0
+		fascism = 0
+		n_socialism = 0
+		communism = 0
+		neutrality = 100
+	}
+	set_politics = {
+		ruling_party = neutrality
+		last_election = "1936.1.1"
+		election_frequency = 48
+		elections_allowed = no
+	}
+}
+
+SUD = {
+	every_core_state = {
+		add_core_of = EGY
+	}
+}
+
+OMA = {
+	#set_cosmetic_tag = EGY_ENG
+	set_popularities = {
+		democratic = 0
+		fascism = 0
+		n_socialism = 0
+		communism = 0
+		neutrality = 100
+	}
+	set_politics = {
+		ruling_party = neutrality
+		last_election = "1936.1.1"
+		election_frequency = 48
+		elections_allowed = no
+	}
+}
+
+########1939.1.1
+1939.1.1 = {
+	set_global_flag = CHI_unite_PRC
+	#GER = {
+	#	complete_national_focus = GER_danzig_or_war
+	#}
+	#INS = {
+	#	set_technology = {
+	#		#doctrines
+	#		improved_light_cruiser = 1
+	#
+	#		#air
+	#		fighter1 = 1
+	#	}
+	#	create_country_leader = {
+	#		name = "Mohammad Husni Thamrin"
+	#		desc = ""
+	#		picture = "gfx/leaders/INS/Portrait_Indonesia_Mohammad_Husni_Thamrin.dds"
+	#		expire = "1953.3.1"
+	#		ideology = conservatism
+	#		traits = {
+	#
+	#		}
+	#	}
+	#	create_country_leader = {
+	#		name = "A. T. van Starkenborgh Stachouwer"
+	#		desc = ""
+	#		picture = "gfx/leaders/INS/Portrait_Alidius_van_Starkenborgh_Stachouwer.dds"
+	#		expire = "1953.3.1"
+	#		ideology = despotism
+	#		traits = {
+	#
+	#		}
+	#	}
+	#}
+	NOR = {
+		set_popularities = {
+			democratic = 36
+			fascism = 2
+			n_socialism = 52
+			communism = 2
+			neutrality = 8
+		}
+		set_politics = {
+
+			ruling_party = n_socialism
+			last_election = "1936.10.19"
+			election_frequency = 36
+			elections_allowed = yes
+		}
+	}
+	NZL = {
+		set_popularities = {
+			democratic = 45
+			fascism = 0
+			n_socialism = 55
+			communism = 0
+			neutrality = 0
+		}
+		set_politics = {
+
+			ruling_party = democratic
+			last_election = "1938.10.15"
+			election_frequency = 60
+			elections_allowed = yes
+		}
+
+		# Didn't take office until '40, added for flavor
+		create_country_leader = {
+			name = "Peter Fraser"
+			desc = "POLITICS_PETER_FRASER_DESC"
+			picture = "Portrait_NewZealand_Peter_Fraser.dds"
+			expire = "1965.1.1"
+			ideology = n_democratic_socialism
+			traits = {
+				#
+			}
+		}
+
+	}
+	DEN = {
+		set_popularities = {
+			democratic = 42
+			n_socialism = 55
+			fascism = 1
+			communism = 2
+			neutrality = 0
+		}
+		set_politics = {
+
+			ruling_party = n_socialism
+			last_election = "1939.4.3"
+			election_frequency = 48
+			elections_allowed = yes
+		}
+	}
+	ENG = {
+		if = {
+			limit = {
+				has_dlc = "Together for Victory"
+			}
+			set_autonomy = {
+				target = BUR
+				autonomous_state = autonomy_colony
+				freedom_level = 0.35
+			}
+			else = {
+				puppet = BUR
+			}
+		}
+	}
+	FRA = {
+		remove_ideas = FRA_front_populaire
+		set_politics = { ruling_party = democratic elections_allowed = yes }
+		create_country_leader = {
+			name = "Édouard Daladier"
+			desc = ""
+			picture = "Portrait_France_Edouard_Daladier.dds"
+			expire = "1965.1.1"
+			ideology = socialism
+			traits = {
+
+			}
+		}
+	}
+	HOL = {
+		set_popularities = {
+			democratic = 63
+			fascism = 4
+			communism = 3
+			n_socialism = 30
+			neutrality = 0
+		}
+		set_politics = {
+
+			ruling_party = democratic
+			last_election = "1937.5.26"
+			election_frequency = 48
+			elections_allowed = yes
+		}
+	}
+	every_country = {
+		limit = {
+			is_warlord = yes
+		}
+		if = {
+			limit = {
+				has_dlc = "Waking the Tiger"
+			}
+			CHI = { add_to_faction = PREV }
+			add_to_war = {
+				targeted_alliance = CHI
+				enemy = JAP
+				hostility_reason = asked_to_join
+			}
+
+			complete_national_focus = CHI_secure_internal_politics
+			if = {
+				limit = {
+					tag = GXC
+				}
+				unlock_national_focus = CHI_opposition
+				else = {
+					complete_national_focus = CHI_cooperation_with_the_nationalists
+				}
+			}
+			complete_national_focus = CHI_technological_cooperation
+			complete_national_focus = CHI_root_out_corruption
+			complete_national_focus = CHI_reform_the_administration
+			else = {
+				#generic focuses
+				complete_national_focus = army_effort
+				complete_national_focus = equipment_effort
+				complete_national_focus = motorization_effort
+				complete_national_focus = aviation_effort
+				complete_national_focus = naval_effort
+				complete_national_focus = flexible_navy
+				complete_national_focus = industrial_effort
+				complete_national_focus = construction_effort
+				complete_national_focus = production_effort
+			}
+		}
+
+	}
+}
