@@ -1,0 +1,392 @@
+ability = {
+	#强行军
+	PRC_Forced_March = {
+		name = ABILITY_FORCED_MARCH
+		desc = ABILITY_FORCED_MARCH_DESC
+		icon = GFX_ability_PRC_Forced_March
+		
+		sound_effect = command_power_ability_offensive
+		
+		type = army_leader
+		
+		allowed = {
+			is_leading_army_group = no
+			is_border_war = no
+			OWNER = {
+				has_completed_focus = PRC_Red_Army
+			}
+		}
+		
+		#陆地行军+25%、携带补给+72小时、跨河速度惩罚-20%
+		unit_modifiers = {
+			no_supply_grace = 168
+			recon_factor = 1.00
+			river_crossing_factor = -0.25
+			org_loss_when_moving = -0.25
+			river = {
+				attack = 0.25
+			}
+			desert = { movement = 0.25
+			}
+			hills = { movement = 0.25
+			}
+			forest = { movement = 0.25
+			}
+			mountain = { movement = 0.25
+			}
+			plains = { movement = 0.25
+			}
+			urban = { movement = 0.25
+			}
+			jungle = { movement = 0.25
+			}
+			marsh = { movement = 0.25
+			}
+		}		
+		cost = 0.15
+		duration = 168
+		cooldown = 480
+		
+		one_time_effect = {
+			supply_units = 168
+		}
+		
+		
+		ai_will_do = {
+			factor = -1
+			modifier = {
+				FROM = {
+					has_war_support > 0.1
+					command_power > 1.0
+				}
+				check_variable = { num_units_offensive_combats > 5 }
+				
+				set_temp_variable = { temp = avg_offensive_combat_status }
+				check_variable = { temp > 0.45 }
+				check_variable = { ai_random > temp }
+				
+				add = 4
+			}
+			modifier = {
+				factor = 0
+				FROM = {
+				has_war_with = JAP
+				has_war_together_with = event_target:WTT_current_china_leader
+				surrender_progress < 0.5
+				}
+			}
+		}
+	}
+	
+		#冲锋与反冲锋
+		PRC_Charge = {
+		name = ABILITY_CHARGE
+		desc = ABILITY_CHARGE_DESC
+		icon = GFX_ability_PRC_Charge
+		
+		sound_effect = command_power_ability_defensive
+		
+		type = army_leader
+		
+		allowed = {
+			is_leading_army_group = no
+			is_border_war = no
+			OWNER = {
+				has_completed_focus = PRC_Strategic_offensive
+			}
+		}
+		
+		cost = 0.08
+		duration = 168
+		cooldown = 336
+		
+		unit_modifiers = {
+			land_night_attack = 0.25
+			equipment_capture = 0.15
+		}
+		
+		one_time_effect = {
+			add_temporary_buff_to_units = {
+				combat_offense = 0.15
+				combat_defense = 0.15
+				combat_breakthrough = 0.15
+				org_damage_multiplier = -0.35
+				war_support_reduction_on_damage = 0.15
+				days = 7
+				tooltip = ABILITY_LAST_STAND_TOOLTIP
+			}
+		}
+		
+		
+		ai_will_do = {
+			factor = -1
+			modifier = {
+				FROM = {
+					has_war_support > 0.4
+				}
+				
+				check_variable = { num_units_defensive_combats > 6 }
+				
+				set_temp_variable = { temp = avg_defensive_combat_status }
+				check_variable = { temp < 0.40 }
+				check_variable = { ai_random > temp }
+				
+				add = 3
+			}
+			modifier = {
+				factor = 0
+				FROM = {
+				has_war_with = JAP
+				has_war_together_with = event_target:WTT_current_china_leader
+				surrender_progress < 0.5
+				}
+			}
+		}
+	}
+	
+	
+		#坑道战术
+		PRC_Dig = {
+		name = ABILITY_DIG
+		desc = ABILITY_DIG_DESC
+		icon = GFX_ability_PRC_Dig
+		
+		sound_effect = command_power_ability_defensive
+		
+		type = army_leader
+		
+		allowed = {
+			is_leading_army_group = no
+			is_border_war = no
+			OWNER = {
+				or = { has_completed_focus = PRC_New_Red_Army has_completed_focus = PRC_PLA }
+			}
+		}
+		
+		cost = 0.10
+		duration = 168
+		cooldown = 240
+		unit_modifiers = {
+			dig_in_speed_factor = 0.75
+			max_dig_in_factor = 0.25
+			enemy_army_bonus_air_superiority_factor = -0.75
+			org_loss_at_low_org_factor = -0.5
+			cas_damage_reduction = 0.75
+			army_attack_speed_factor = -0.25
+		}
+	
+		one_time_effect = {
+			add_temporary_buff_to_units = {
+				combat_entrenchment = 0.25
+				combat_offense = -0.15
+				combat_defense = 0.25
+				combat_breakthrough = -0.25
+				org_damage_multiplier = -0.50
+				str_damage_multiplier = -0.35
+				days = 7
+				tooltip = ABILITY_LAST_STAND_TOOLTIP
+			}
+		}
+		
+		
+		ai_will_do = {
+			factor = -1
+			modifier = {
+				FROM = {
+					has_war_support > 0.4
+				}
+				
+				check_variable = { num_units_defensive_combats > 6 }
+				
+				set_temp_variable = { temp = avg_defensive_combat_status }
+				check_variable = { temp < 0.40 }
+				check_variable = { ai_random > temp }
+				
+				add = 3
+			}
+			modifier = {
+				factor = 0
+				FROM = {
+				has_war_with = JAP
+				has_war_together_with = event_target:WTT_current_china_leader
+				surrender_progress < 0.5
+				}
+			}
+		}
+	}
+	
+	
+	#城市攻坚
+	PRC_Shelling = {
+		name = ABILITY_SHELLING
+		desc = ABILITY_SHELLING_DESC
+		icon = GFX_ability_PRC_Shelling
+			
+		sound_effect = command_power_ability_offensive
+			
+		type = army_leader
+		
+		allowed = {
+			is_leading_army_group = no
+			is_border_war = no
+			OWNER = {
+				has_completed_focus = PRC_Field_army
+			}
+		}
+		
+		unit_modifiers = {
+			army_artillery_attack_factor = 0.25
+			breakthrough_factor = 0.15
+			max_planning = 0.15
+			
+			fort = {
+				attack = 0.25
+				movement = 0.15
+			}
+			urban = {
+				attack = 0.25
+				movement = 0.15
+			}			
+			fortification_damage = 2.0
+			fortification_collateral_chance = 2.0
+		}
+		cost = 0.15
+		duration = 168
+		cooldown = 480
+		
+		
+		ai_will_do = {
+			factor = -1
+			modifier = {
+				FROM = {
+					command_power > 10
+				}
+				
+				set_temp_variable = { temp = num_units_offensive_combats }
+				check_variable = { temp > 6 }
+				set_temp_variable = { temp2 = num_units_offensive_combats_against@fort }
+				divide_temp_variable = { temp2 = temp }
+				check_variable = { temp2 > 0.5 }
+				
+				add = 3
+			}
+			modifier = {
+				factor = 0
+				FROM = {
+				has_war_with = JAP
+				has_war_together_with = event_target:WTT_current_china_leader
+				surrender_progress < 0.5
+				}
+			}
+		}
+	}
+	
+	#精神动员
+	PRC_communism_plan = {
+		name = ABILITY_COMMUNISM_PLAN
+		desc = ABILITY_COMMUNISM_PLAN_DESC
+		icon = GFX_ability_PRC_Sickle_hammer
+		
+		sound_effect = command_power_ability_offensive
+		
+		type = army_leader
+		
+		allowed = {
+			is_leading_army_group = no
+			is_border_war = no
+			OWNER = {
+				has_completed_focus = PRC_for_china
+			}
+		}
+		
+		cost = 0.08
+		duration = 168
+		
+		unit_modifiers = {
+			planning_speed = 0.5
+			army_morale_factor = 0.20
+			army_org_factor = 0.10
+			land_reinforce_rate = 0.10
+			army_attack_speed_factor = 0.20
+			initiative_factor = 0.20
+			pocket_penalty = -0.50
+			out_of_supply_factor = -0.50
+		}
+		
+		
+		ai_will_do = {
+			factor = -1
+			modifier = {
+				FROM = {
+					command_power > 2.0
+				}
+				check_variable = { num_units > 6 }
+				check_variable = { unit_ratio_ready_for_plan > 0.55 }
+				check_variable = { avg_unit_planning_ratio < 0.4 }
+				
+				add = 3
+			}
+			modifier = {
+				factor = 0
+				FROM = {
+				has_war_with = JAP
+				has_war_together_with = event_target:WTT_current_china_leader
+				surrender_progress < 0.5
+				}
+			}
+		}
+	}
+	
+	#协同作战
+	PRC_Synergy = {
+		name = ABILITY_SYNERGY
+		desc = ABILITY_SYNERGY_DESC
+		icon = GFX_ability_PRC_Synergy
+		
+		sound_effect = command_power_ability_offensive
+		
+		type = army_leader
+		
+		allowed = {
+			#is_leading_army_group = no
+			is_border_war = no
+			OWNER = {
+				has_completed_focus = PRC_kangda_focus
+			}
+		}
+		
+		cost = 0.08
+		duration = 168
+		
+		unit_modifiers = {
+			planning_speed = 0.75
+			land_reinforce_rate = 0.15
+			coordination_bonus = 0.20
+			breakthrough_factor = 0.20
+			org_loss_when_moving = -0.20
+			initiative_factor = 0.20
+		}
+		
+		ai_will_do = {
+			factor = -1
+			modifier = {
+				FROM = {
+					command_power > 2.0
+				}
+				check_variable = { num_units > 6 }
+				check_variable = { unit_ratio_ready_for_plan > 0.55 }
+				check_variable = { avg_unit_planning_ratio < 0.4 }
+				
+				add = 2
+			}
+			modifier = {
+				factor = 0
+				FROM = {
+				has_war_with = JAP
+				has_war_together_with = event_target:WTT_current_china_leader
+				surrender_progress < 0.5
+				}
+			}
+		}
+	}
+}
