@@ -1,0 +1,110 @@
+﻿#This is for the warlords who dont have their own division names
+WRL_INF_01 = 
+{
+	name = "Infantry Divisions"
+
+	for_countries = { TNG KHR HMI GSM SHC EHB JNC ECA }
+
+	can_use = { always = yes }
+
+	division_types = { "infantry" }
+
+	# Number reservation system will tie to another group.
+	#link_numbering_with = { PLM_INF_01 }
+
+	fallback_name = "Luchün Ti %d Shih"
+
+	# Names with numbers (only one number per entry). 
+	# It's okay to have gaps in numbering.
+	ordered = {
+	}
+}
+
+WRL_INF_02 = 
+{
+	name = "Infantry Brigades"
+
+	for_countries = { KHR HMI SHC GSM SHC EHB JNC ECA }
+
+	can_use = { always = yes }
+
+	division_types = { "infantry" }
+
+	# Number reservation system will tie to another group.
+	#link_numbering_with = { PLM_INF_01 }
+
+	fallback_name = "Tuli Ti %d Lü"
+
+	# Names with numbers (only one number per entry). 
+	# It's okay to have gaps in numbering.
+	ordered = {
+	}
+}
+
+WRL_INF_03 = 
+{
+	name = "Security Forces"
+
+	for_countries = { CHI PRC GUD GXC HMI HPC KHR NEA NXM GSM PLM SHX SHC SIC SIK TNG XIK YUN ECA MAN EHB RFM }
+
+	can_use = { always = yes }
+
+	division_types = { "infantry" }
+
+	# Number reservation system will tie to another group.
+	#link_numbering_with = { PLM_INF_01 }
+
+	fallback_name = "Paoan Ti %d T'uan"
+
+	# Names with numbers (only one number per entry). 
+	# It's okay to have gaps in numbering.
+	ordered = {
+	    1 = { "Paoan Ti 1 T'uan" }
+		2 = { "Paoan Ti 2 T'uan" }
+		3 = { "Paoan Ti 3 T'uan" }
+		4 = { "Paoan Ti 4 T'uan" }
+		5 = { "Paoan Ti 5 T'uan" }
+	}
+}
+
+WRL_CAV_01 = 
+{
+	name = "Cavalry Divisions"
+
+	for_countries = { TNG KHR HMI SHC GSM SHC EHB JNC ECA }
+
+	can_use = { always = yes }
+
+	division_types = { "cavalry" }
+
+	# Number reservation system will tie to another group.
+	#link_numbering_with = { CHI_INF_01 }
+
+	fallback_name = "Ch'iping Ti %d Shih"
+
+	# Names with numbers (only one number per entry). 
+	# It's okay to have gaps in numbering.
+	ordered = {
+	}
+}
+
+WRL_CAV_02 = 
+{
+	name = "Cavalry Brigades"
+
+	for_countries = { KHR HMI SHC GSM SHC EHB JNC ECA }
+
+	can_use = { always = yes }
+
+	division_types = { "cavalry" }
+
+	# Number reservation system will tie to another group.
+	#link_numbering_with = { CHI_INF_01 }
+
+	fallback_name = "Ch'iping Ti %d Lü"
+
+	# Names with numbers (only one number per entry). 
+	# It's okay to have gaps in numbering.
+	ordered = {
+	}
+}

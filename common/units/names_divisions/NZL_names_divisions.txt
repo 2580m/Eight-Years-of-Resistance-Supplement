@@ -1,0 +1,653 @@
+﻿# Division template historical names system. Is a new method of naming the divisions based on the names-group assigned to it's template.
+# If we run out of all historical names, the names will be assigned in the old way.
+#
+# Each group has a made up tag. Use it if you want to append more, or replace existing names with the extra txt files (modding).
+#
+# for_countries - lists all countries that can use it. If empty, or entire tag is missing, all countries in the world can use it.
+#
+# can_use - is a trigger that locks/unlocks the group under specific circumstances. The trigger is in a country scope.
+#
+# division_types - is a list of tokens to corresponding unit types. A player can in fact use any group of names for a div.template
+#                  however this tag is a helper for an automated choice (for AI, or if the group must switch on it's own, because
+#                  for example the current one is no longer available due to the can_use trigger saying so).
+#                  In automated choice, the division template must have at least 1 of the following types for it to be chosen.
+#
+# fallback_name - Is going to be used if we run out of the scripted historical names. If you want to use the old division naming
+#                 mechanics to be used for fallbacks, then just skip this option.
+#
+# unordered - It's a list of historical division names that did not have a number. Regardless if such names happened in history or not
+#             this option is available here mainly for a mods.
+#
+# ordered - Is a list of all historical names. 
+#           Numbers must start from 1 and up. 
+#           Numbers can't repeat in one scope.
+#           If you script the name for this group, at the same number (for example in a mod in another file), the name will be override.
+#           All arguments between the brackets must be separated by spaces. Each argument is wrapped in "quotas".
+#           1st argument = The name. It must contain either: 
+#                          %d (for decimal number placement)
+#                          %s (for string number placement - ROMAN numbers like XIV).
+#           2nd argument is optional = A localizable text describing this historical division. The text will be visible in the tooltip
+#                                      where you choose the historical division name.
+#           3rd argument is optional = An URL preferably pointing to the WIKI. It's a future feature that is not currently working in
+#                                      the current game version.
+
+NZL_INF_01 = 
+{
+	name = "步兵部队"
+
+	for_countries = { NZL }
+
+	can_use = { always = yes }
+
+	division_types = { "infantry" }
+
+	# Number reservation system will tie to another group.
+	#link_numbering_with = { GER_Gar_01 }
+
+	fallback_name = "新西兰第%d 步兵师"
+
+	# Names with numbers (only one number per entry). 
+	# It's okay to have gaps in numbering.
+	ordered =
+	{
+		2 = { "新西兰第%d 步兵师" }
+		3 = { "新西兰第%d 步兵师" }
+		6 = { "新西兰第%d 步兵师" }
+		7 = { "新西兰第%d 步兵师" }
+		8 = { "新西兰第%d 步兵师" }
+		9 = { "新西兰第%d 步兵师" }
+		10 = { "新西兰第%d 步兵师" }
+		11 = { "新西兰第%d 步兵师" }
+		12 = { "新西兰第%d 步兵师" }
+		13 = { "新西兰第%d 步兵师" }
+		14 = { "新西兰第%d 步兵师" }
+		15 = { "新西兰第%d 步兵师" }
+		16 = { "新西兰第%d 步兵师" }
+		17 = { "新西兰第%d 步兵师" }
+		18 = { "新西兰第%d 步兵师" }
+		19 = { "新西兰第%d 步兵师" }
+		20 = { "新西兰第%d 步兵师" }
+		21 = { "新西兰第%d 步兵师" }
+		22 = { "新西兰第%d 步兵师" }
+		23 = { "新西兰第%d 步兵师" }
+		24 = { "新西兰第%d 步兵师" }
+		25 = { "新西兰第%d 步兵师" }
+		26 = { "新西兰第%d 步兵师" }
+		27 = { "新西兰第%d 步兵师" }
+		28 = { "新西兰第%d 步兵师" }
+		29 = { "新西兰第%d 步兵师" }
+		30 = { "新西兰第%d 步兵师" }
+		31 = { "新西兰第%d 步兵师" }
+		32 = { "新西兰第%d 步兵师" }
+		33 = { "新西兰第%d 步兵师" }
+		34 = { "新西兰第%d 步兵师" }
+		35 = { "新西兰第%d 步兵师" }
+		36 = { "新西兰第%d 步兵师" }
+		37 = { "新西兰第%d 步兵师" }
+		38 = { "新西兰第%d 步兵师" }
+		39 = { "新西兰第%d 步兵师" }
+		40 = { "新西兰第%d 步兵师" }
+		41 = { "新西兰第%d 步兵师" }
+		42 = { "新西兰第%d 步兵师" }
+		43 = { "新西兰第%d 步兵师" }
+		44 = { "新西兰第%d 步兵师" }
+		45 = { "新西兰第%d 步兵师" }
+		46 = { "新西兰第%d 步兵师" }
+		47 = { "新西兰第%d 步兵师" }
+		48 = { "新西兰第%d 步兵师" }
+		49 = { "新西兰第%d 步兵师" }
+		51 = { "新西兰第%d 步兵师" }
+		52 = { "新西兰第%d 步兵师" }
+		53 = { "新西兰第%d 步兵师" }
+
+		# The NZ 1st, 4th and 5th divisions were used in a garrison capacity.
+	}
+}
+
+NZL_CAV_01 = 
+{
+	name = "骑兵部队"
+
+	for_countries = { NZL }
+
+	can_use = { always = yes }
+
+	division_types = { "cavalry" }
+
+	# Number reservation system will tie to another group.
+	#link_numbering_with = { GER_Gar_01 }
+
+	fallback_name = "新西兰第%d 骑兵师"
+
+	# Names with numbers (only one number per entry). 
+	# It's okay to have gaps in numbering.
+	ordered =
+	{
+		1 = { "新西兰第%d 骑兵师" }
+		2 = { "新西兰第%d 骑兵师" }
+		3 = { "新西兰第%d 骑兵师" }
+		4 = { "新西兰第%d 骑兵师" }
+		5 = { "新西兰第%d 骑兵师" }
+		6 = { "新西兰第%d 骑兵师" }
+		7 = { "新西兰第%d 骑兵师" }
+		8 = { "新西兰第%d 骑兵师" }
+		9 = { "新西兰第%d 骑兵师" }
+		10 = { "新西兰第%d 骑兵师" }
+		11 = { "新西兰第%d 骑兵师" }
+		12 = { "新西兰第%d 骑兵师" }
+		13 = { "新西兰第%d 骑兵师" }
+		14 = { "新西兰第%d 骑兵师" }
+		15 = { "新西兰第%d 骑兵师" }
+		16 = { "新西兰第%d 骑兵师" }
+		17 = { "新西兰第%d 骑兵师" }
+		18 = { "新西兰第%d 骑兵师" }
+		19 = { "新西兰第%d 骑兵师" }
+		20 = { "新西兰第%d 骑兵师" }
+		21 = { "新西兰第%d 骑兵师" }
+		22 = { "新西兰第%d 骑兵师" }
+		23 = { "新西兰第%d 骑兵师" }
+		24 = { "新西兰第%d 骑兵师" }
+		25 = { "新西兰第%d 骑兵师" }
+		26 = { "新西兰第%d 骑兵师" }
+		27 = { "新西兰第%d 骑兵师" }
+		28 = { "新西兰第%d 骑兵师" }
+		29 = { "新西兰第%d 骑兵师" }
+		30 = { "新西兰第%d 骑兵师" }
+		31 = { "新西兰第%d 骑兵师" }
+		32 = { "新西兰第%d 骑兵师" }
+		33 = { "新西兰第%d 骑兵师" }
+		34 = { "新西兰第%d 骑兵师" }
+		35 = { "新西兰第%d 骑兵师" }
+		36 = { "新西兰第%d 骑兵师" }
+		37 = { "新西兰第%d 骑兵师" }
+		38 = { "新西兰第%d 骑兵师" }
+		39 = { "新西兰第%d 骑兵师" }
+		40 = { "新西兰第%d 骑兵师" }
+		41 = { "新西兰第%d 骑兵师" }
+		42 = { "新西兰第%d 骑兵师" }
+		43 = { "新西兰第%d 骑兵师" }
+		44 = { "新西兰第%d 骑兵师" }
+		45 = { "新西兰第%d 骑兵师" }
+		46 = { "新西兰第%d 骑兵师" }
+		47 = { "新西兰第%d 骑兵师" }
+		48 = { "新西兰第%d 骑兵师" }
+		49 = { "新西兰第%d 骑兵师" }
+		51 = { "新西兰第%d 骑兵师" }
+		52 = { "新西兰第%d 骑兵师" }
+		53 = { "新西兰第%d 骑兵师" }
+
+		# NZL didn't have any cavalry divisions historically.  Large list is because of cav's suppression role in-game.
+	}
+}
+
+NZL_MOT_01 = 
+{
+	name = "摩托化部队"
+
+	for_countries = { NZL }
+
+	can_use = { always = yes }
+
+	division_types = { "motorized" }
+
+	# Number reservation system will tie to another group.
+	link_numbering_with = { NZL_CAV_01  }
+
+	fallback_name = "新西兰第%d 摩托化步兵师"
+
+	# Names with numbers (only one number per entry). 
+	# It's okay to have gaps in numbering.
+	ordered =
+	{
+		1 = { "新西兰第%d 摩托化步兵师" }
+		2 = { "新西兰第%d 摩托化步兵师" }
+		3 = { "新西兰第%d 摩托化步兵师" }
+		4 = { "新西兰第%d 摩托化步兵师" }
+		5 = { "新西兰第%d 摩托化步兵师" }
+		6 = { "新西兰第%d 摩托化步兵师" }
+		7 = { "新西兰第%d 摩托化步兵师" }
+		8 = { "新西兰第%d 摩托化步兵师" }
+		9 = { "新西兰第%d 摩托化步兵师" }
+		10 = { "新西兰第%d 摩托化步兵师" }
+		11 = { "新西兰第%d 摩托化步兵师" }
+		12 = { "新西兰第%d 摩托化步兵师" }
+		13 = { "新西兰第%d 摩托化步兵师" }
+		14 = { "新西兰第%d 摩托化步兵师" }
+		15 = { "新西兰第%d 摩托化步兵师" }
+		16 = { "新西兰第%d 摩托化步兵师" }
+		17 = { "新西兰第%d 摩托化步兵师" }
+		18 = { "新西兰第%d 摩托化步兵师" }
+		19 = { "新西兰第%d 摩托化步兵师" }
+		20 = { "新西兰第%d 摩托化步兵师" }
+		21 = { "新西兰第%d 摩托化步兵师" }
+		22 = { "新西兰第%d 摩托化步兵师" }
+		23 = { "新西兰第%d 摩托化步兵师" }
+
+		# NZL didn't have any motorized divisions historically.  Based on AST Cav/Mot/Arm structure.
+	}
+}
+
+NZL_ARM_01 = 
+{
+	name = "装甲部队"
+
+	for_countries = { NZL }
+
+	can_use = { always = yes }
+
+	division_types = { "light_armor" "medium_armor" "heavy_armor" "modern_armor" }
+
+	# Number reservation system will tie to another group.
+	link_numbering_with = { NZL_CAV_01  }
+
+	fallback_name = "新西兰第%d 装甲师"
+
+	# Names with numbers (only one number per entry). 
+	# It's okay to have gaps in numbering.
+	ordered =
+	{
+		1 = { "新西兰第%d 装甲师" }
+		2 = { "新西兰第%d 装甲师" }
+		3 = { "新西兰第%d 装甲师" }
+		4 = { "新西兰第%d 装甲师" }
+		5 = { "新西兰第%d 装甲师" }
+		6 = { "新西兰第%d 装甲师" }
+		7 = { "新西兰第%d 装甲师" }
+		8 = { "新西兰第%d 装甲师" }
+		9 = { "新西兰第%d 装甲师" }
+		10 = { "新西兰第%d 装甲师" }
+		11 = { "新西兰第%d 装甲师" }
+		12 = { "新西兰第%d 装甲师" }
+		13 = { "新西兰第%d 装甲师" }
+		14 = { "新西兰第%d 装甲师" }
+		15 = { "新西兰第%d 装甲师" }
+		16 = { "新西兰第%d 装甲师" }
+		17 = { "新西兰第%d 装甲师" }
+		18 = { "新西兰第%d 装甲师" }
+		19 = { "新西兰第%d 装甲师" }
+		20 = { "新西兰第%d 装甲师" }
+		21 = { "新西兰第%d 装甲师" }
+		22 = { "新西兰第%d 装甲师" }
+		23 = { "新西兰第%d 装甲师" }
+
+		# NZL didn't have any armored divisions historically.  Based on AST Cav/Mot/Arm structure.
+	}
+}
+
+NZL_MEC_01 = 
+{
+	name = "机械化部队"
+
+	for_countries = { NZL }
+
+	can_use = { always = yes }
+
+	division_types = { "mechanized"  }
+
+	# Number reservation system will tie to another group.
+	link_numbering_with = { NZL_CAV_01 }
+
+	fallback_name = "新西兰第%d 机械化步兵师"
+
+	# Names with numbers (only one number per entry). 
+	# It's okay to have gaps in numbering.
+	ordered =
+	{
+		1 = { "新西兰第%d 机械化步兵师" }
+		2 = { "新西兰第%d 机械化步兵师" }
+		3 = { "新西兰第%d 机械化步兵师" }
+		4 = { "新西兰第%d 机械化步兵师" }
+		5 = { "新西兰第%d 机械化步兵师" }
+		6 = { "新西兰第%d 机械化步兵师" }
+		7 = { "新西兰第%d 机械化步兵师" }
+		8 = { "新西兰第%d 机械化步兵师" }
+		9 = { "新西兰第%d 机械化步兵师" }
+		10 = { "新西兰第%d 机械化步兵师" }
+		11 = { "新西兰第%d 机械化步兵师" }
+		12 = { "新西兰第%d 机械化步兵师" }
+		13 = { "新西兰第%d 机械化步兵师" }
+		14 = { "新西兰第%d 机械化步兵师" }
+		15 = { "新西兰第%d 机械化步兵师" }
+		16 = { "新西兰第%d 机械化步兵师" }
+		17 = { "新西兰第%d 机械化步兵师" }
+		18 = { "新西兰第%d 机械化步兵师" }
+		19 = { "新西兰第%d 机械化步兵师" }
+		20 = { "新西兰第%d 机械化步兵师" }
+		21 = { "新西兰第%d 机械化步兵师" }
+		22 = { "新西兰第%d 机械化步兵师" }
+		23 = { "新西兰第%d 机械化步兵师" }
+
+		# NZL didn't have any armored divisions historically.  Based on AST Cav/Mot/Arm structure.
+	}
+}
+
+NZL_GAR_01 = 
+{
+	name = "守备部队"
+
+	for_countries = { NZL }
+
+	can_use = { always = yes }
+
+	division_types = { "infantry" }
+
+	# Number reservation system will tie to another group.
+	link_numbering_with = { NZL_INF_01 }
+
+	fallback_name = "新西兰第%d 守备师"
+
+	# Names with numbers (only one number per entry). 
+	# It's okay to have gaps in numbering.
+	ordered =
+	{
+		1 = { "新西兰第%d '北方' 守备师" }
+		4 = { "新西兰第%d '中央' 守备师" }
+		5 = { "新西兰第%d '南方' 守备师" }
+		6 = { "新西兰第%d 守备师" } # Historically a 'fake' division
+		7 = { "新西兰第%d 守备师" }
+		8 = { "新西兰第%d 守备师" }
+		9 = { "新西兰第%d 守备师" }
+		10 = { "新西兰第%d 守备师" }
+		11 = { "新西兰第%d 守备师" }
+		12 = { "新西兰第%d 守备师" }
+		13 = { "新西兰第%d 守备师" }
+		14 = { "新西兰第%d 守备师" }
+		15 = { "新西兰第%d 守备师" }
+		16 = { "新西兰第%d 守备师" }
+		17 = { "新西兰第%d 守备师" }
+		18 = { "新西兰第%d 守备师" }
+		19 = { "新西兰第%d 守备师" }
+		20 = { "新西兰第%d 守备师" }
+		21 = { "新西兰第%d 守备师" }
+		22 = { "新西兰第%d 守备师" }
+		23 = { "新西兰第%d 守备师" }
+		24 = { "新西兰第%d 守备师" }
+		25 = { "新西兰第%d 守备师" }
+		26 = { "新西兰第%d 守备师" }
+		27 = { "新西兰第%d 守备师" }
+		28 = { "新西兰第%d 守备师" }
+		29 = { "新西兰第%d 守备师" }
+		30 = { "新西兰第%d 守备师" }
+		31 = { "新西兰第%d 守备师" }
+		32 = { "新西兰第%d 守备师" }
+		33 = { "新西兰第%d 守备师" }
+		34 = { "新西兰第%d 守备师" }
+		35 = { "新西兰第%d 守备师" }
+		36 = { "新西兰第%d 守备师" }
+		37 = { "新西兰第%d 守备师" }
+		38 = { "新西兰第%d 守备师" }
+		39 = { "新西兰第%d 守备师" }
+		40 = { "新西兰第%d 守备师" }
+		41 = { "新西兰第%d 守备师" }
+		42 = { "新西兰第%d 守备师" }
+		43 = { "新西兰第%d 守备师" }
+		44 = { "新西兰第%d 守备师" }
+		45 = { "新西兰第%d 守备师" }
+		46 = { "新西兰第%d 守备师" }
+		47 = { "新西兰第%d 守备师" }
+		48 = { "新西兰第%d 守备师" }
+		49 = { "新西兰第%d 守备师" }
+		51 = { "新西兰第%d 守备师" }
+		52 = { "新西兰第%d 守备师" }
+		53 = { "新西兰第%d 守备师" }
+
+		# These division names represent the formation of the divisions in Nov-1941 from the Military District Forces in those areas previously, which are covered by NZL_MIL_01.  The idea is that switching the template from NZL_MIL_01 to NZL_GAR_01 will give these divisions their historic names.
+	}
+}
+
+NZL_MIL_01 = 
+{
+	name = "民兵部队"
+
+	for_countries = { NZL }
+
+	can_use = { always = yes }
+
+	division_types = { "infantry" }
+
+	# Number reservation system will tie to another group.
+	link_numbering_with = { NZL_INF_01 }
+
+	fallback_name = "新西兰第%d 民兵师"
+
+	# Names with numbers (only one number per entry). 
+	# It's okay to have gaps in numbering.
+	ordered =
+	{
+		1 = { "新西兰北方民兵师" }
+		4 = { "新西兰中央民兵师t" }
+		5 = { "新西兰南方民兵师" }
+		6 = { "新西兰第%d 民兵师" } # Historically a 'fake' division
+		7 = { "新西兰第%d 民兵师" }
+		8 = { "新西兰第%d 民兵师" }
+		9 = { "新西兰第%d 民兵师" }
+		10 = { "新西兰第%d 民兵师" }
+		11 = { "新西兰第%d 民兵师" }
+		12 = { "新西兰第%d 民兵师" }
+		13 = { "新西兰第%d 民兵师" }
+		14 = { "新西兰第%d 民兵师" }
+		15 = { "新西兰第%d 民兵师" }
+		16 = { "新西兰第%d 民兵师" }
+		17 = { "新西兰第%d 民兵师" }
+		18 = { "新西兰第%d 民兵师" }
+		19 = { "新西兰第%d 民兵师" }
+		20 = { "新西兰第%d 民兵师" }
+		21 = { "新西兰第%d 民兵师" }
+		22 = { "新西兰第%d 民兵师" }
+		23 = { "新西兰第%d 民兵师" }
+		24 = { "新西兰第%d 民兵师" }
+		25 = { "新西兰第%d 民兵师" }
+		26 = { "新西兰第%d 民兵师" }
+		27 = { "新西兰第%d 民兵师" }
+		28 = { "新西兰第%d 民兵师" }
+		29 = { "新西兰第%d 民兵师" }
+		30 = { "新西兰第%d 民兵师" }
+		31 = { "新西兰第%d 民兵师" }
+		32 = { "新西兰第%d 民兵师" }
+		33 = { "新西兰第%d 民兵师" }
+		34 = { "新西兰第%d 民兵师" }
+		35 = { "新西兰第%d 民兵师" }
+		36 = { "新西兰第%d 民兵师" }
+		37 = { "新西兰第%d 民兵师" }
+		38 = { "新西兰第%d 民兵师" }
+		39 = { "新西兰第%d 民兵师" }
+		40 = { "新西兰第%d 民兵师" }
+		41 = { "新西兰第%d 民兵师" }
+		42 = { "新西兰第%d 民兵师" }
+		43 = { "新西兰第%d 民兵师" }
+		44 = { "新西兰第%d 民兵师" }
+		45 = { "新西兰第%d 民兵师" }
+		46 = { "新西兰第%d 民兵师" }
+		47 = { "新西兰第%d 民兵师" }
+		48 = { "新西兰第%d 民兵师" }
+		49 = { "新西兰第%d 民兵师" }
+		50 = { "新西兰第%d 民兵师" }
+		51 = { "新西兰第%d 民兵师" }
+		52 = { "新西兰第%d 民兵师" }
+		53 = { "新西兰第%d 民兵师" }
+
+		# The OOB file for NZL has three 'Military District' formations, which later (November 1941) became the Northern, Central and Southern Infanstry Divisions, which were then renamed the 1st, 4th and 5th 步兵部队s.  The way it's set up here is that the starting units are MIL with this set-up, but if the namelist is changed to Garrison, those units should switch to their historic names (or appropriate ahistoric names).
+	}
+}
+
+NZL_MAR_01 = 
+{
+	name = "海军陆战部队"
+
+	for_countries = { NZL }
+
+	can_use = { always = yes }
+
+	division_types = { "marine" }
+
+	# Number reservation system will tie to another group.
+	#link_numbering_with = { NZL_GAR_01 }
+
+	fallback_name = "新西兰海军第%d 陆战师"
+
+	# Names with numbers (only one number per entry). 
+	# It's okay to have gaps in numbering.
+	ordered =
+	{
+		1 = { "新西兰皇家海军第%d 陆战师" }
+		2 = { "新西兰皇家海军第%d 陆战师" }
+		3 = { "新西兰皇家海军第%d 陆战师" }
+		4 = { "新西兰皇家海军第%d 陆战师" }
+		5 = { "新西兰皇家海军第%d 陆战师" }
+		6 = { "新西兰皇家海军第%d 陆战师" }
+		7 = { "新西兰皇家海军第%d 陆战师" }
+		8 = { "新西兰皇家海军第%d 陆战师" }
+		9 = { "新西兰皇家海军第%d 陆战师" }
+		10 = { "新西兰皇家海军第%d 陆战师" }
+		11 = { "新西兰皇家海军第%d 陆战师" }
+		12 = { "新西兰皇家海军第%d 陆战师" }
+		13 = { "新西兰皇家海军第%d 陆战师" }
+		14 = { "新西兰皇家海军第%d 陆战师" }
+		15 = { "新西兰皇家海军第%d 陆战师" }
+		16 = { "新西兰皇家海军第%d 陆战师" }
+		17 = { "新西兰皇家海军第%d 陆战师" }
+		18 = { "新西兰皇家海军第%d 陆战师" }
+		19 = { "新西兰皇家海军第%d 陆战师" }
+		20 = { "新西兰皇家海军第%d 陆战师" }
+		21 = { "新西兰皇家海军第%d 陆战师" }
+		22 = { "新西兰皇家海军第%d 陆战师" }
+		23 = { "新西兰皇家海军第%d 陆战师" }
+		24 = { "新西兰皇家海军第%d 陆战师" }
+		25 = { "新西兰皇家海军第%d 陆战师" }
+		26 = { "新西兰皇家海军第%d 陆战师" }
+		27 = { "新西兰皇家海军第%d 陆战师" }
+		28 = { "新西兰皇家海军第%d 陆战师" }
+		29 = { "新西兰皇家海军第%d 陆战师" }
+		30 = { "新西兰皇家海军第%d 陆战师" }
+
+		# NZL didn't have any Marine divisions, these are all fictional.
+	}
+}
+
+NZL_MTN_01 = 
+{
+	name = "山地部队"
+
+	for_countries = { NZL }
+
+	can_use = { always = yes }
+
+	division_types = { "mountaineers" }
+
+	# Number reservation system will tie to another group.
+	link_numbering_with = { NZL_INF_01 }
+
+	fallback_name = "新西兰第%d 山地步兵师"
+
+	# Names with numbers (only one number per entry). 
+	# It's okay to have gaps in numbering.
+	ordered =
+	{
+		2 = { "新西兰第%d 山地步兵师" }
+		3 = { "新西兰第%d 山地步兵师" }
+		6 = { "新西兰第%d 山地步兵师" }
+		7 = { "新西兰第%d 山地步兵师" }
+		8 = { "新西兰第%d 山地步兵师" }
+		9 = { "新西兰第%d 山地步兵师" }
+		10 = { "新西兰第%d 山地步兵师" }
+		11 = { "新西兰第%d 山地步兵师" }
+		12 = { "新西兰第%d 山地步兵师" }
+		13 = { "新西兰第%d 山地步兵师" }
+		14 = { "新西兰第%d 山地步兵师" }
+		15 = { "新西兰第%d 山地步兵师" }
+		16 = { "新西兰第%d 山地步兵师" }
+		17 = { "新西兰第%d 山地步兵师" }
+		18 = { "新西兰第%d 山地步兵师" }
+		19 = { "新西兰第%d 山地步兵师" }
+		20 = { "新西兰第%d 山地步兵师" }
+		21 = { "新西兰第%d 山地步兵师" }
+		22 = { "新西兰第%d 山地步兵师" }
+		23 = { "新西兰第%d 山地步兵师" }
+		24 = { "新西兰第%d 山地步兵师" }
+		25 = { "新西兰第%d 山地步兵师" }
+		26 = { "新西兰第%d 山地步兵师" }
+		27 = { "新西兰第%d 山地步兵师" }
+		28 = { "新西兰第%d 山地步兵师" }
+		29 = { "新西兰第%d 山地步兵师" }
+		30 = { "新西兰第%d 山地步兵师" }
+		31 = { "新西兰第%d 山地步兵师" }
+		32 = { "新西兰第%d 山地步兵师" }
+		33 = { "新西兰第%d 山地步兵师" }
+		34 = { "新西兰第%d 山地步兵师" }
+		35 = { "新西兰第%d 山地步兵师" }
+		36 = { "新西兰第%d 山地步兵师" }
+		37 = { "新西兰第%d 山地步兵师" }
+		38 = { "新西兰第%d 山地步兵师" }
+		39 = { "新西兰第%d 山地步兵师" }
+		40 = { "新西兰第%d 山地步兵师" }
+		41 = { "新西兰第%d 山地步兵师" }
+		42 = { "新西兰第%d 山地步兵师" }
+		43 = { "新西兰第%d 山地步兵师" }
+		44 = { "新西兰第%d 山地步兵师" }
+		45 = { "新西兰第%d 山地步兵师" }
+		46 = { "新西兰第%d 山地步兵师" }
+		47 = { "新西兰第%d 山地步兵师" }
+		48 = { "新西兰第%d 山地步兵师" }
+		49 = { "新西兰第%d 山地步兵师" }
+		50 = { "新西兰第%d 山地步兵师" }
+		51 = { "新西兰第%d 山地步兵师" }
+		52 = { "新西兰第%d 山地步兵师" }
+		53 = { "新西兰第%d 山地步兵师" }
+
+		# NZL didn't have any Mountain divisions, have created an overlapping identical namelist with infantry - not sure if necessary or something else desired?
+	}
+}
+
+NZL_PAR_01 = 
+{
+	name = "空降部队"
+
+	for_countries = { NZL }
+
+	can_use = { always = yes }
+
+	division_types = { "paratrooper" }
+
+	# Number reservation system will tie to another group.
+	#link_numbering_with = { NZL_GAR_01 }
+
+	fallback_name = "新西兰第%d 空降师"
+
+	# Names with numbers (only one number per entry). 
+	# It's okay to have gaps in numbering.
+	ordered =
+	{
+		1 = { "新西兰第%d 空降师" }
+		2 = { "新西兰第%d 空降师" }
+		3 = { "新西兰第%d 空降师" }
+		4 = { "新西兰第%d 空降师" }
+		5 = { "新西兰第%d 空降师" }
+		6 = { "新西兰第%d 空降师" }
+		7 = { "新西兰第%d 空降师" }
+		8 = { "新西兰第%d 空降师" }
+		9 = { "新西兰第%d 空降师" }
+		10 = { "新西兰第%d 空降师" }
+		11 = { "新西兰第%d 空降师" }
+		12 = { "新西兰第%d 空降师" }
+		13 = { "新西兰第%d 空降师" }
+		14 = { "新西兰第%d 空降师" }
+		15 = { "新西兰第%d 空降师" }
+		16 = { "新西兰第%d 空降师" }
+		17 = { "新西兰第%d 空降师" }
+		18 = { "新西兰第%d 空降师" }
+		19 = { "新西兰第%d 空降师" }
+		20 = { "新西兰第%d 空降师" }
+		21 = { "新西兰第%d 空降师" }
+		22 = { "新西兰第%d 空降师" }
+		23 = { "新西兰第%d 空降师" }
+		24 = { "新西兰第%d 空降师" }
+		25 = { "新西兰第%d 空降师" }
+		26 = { "新西兰第%d 空降师" }
+		27 = { "新西兰第%d 空降师" }
+		28 = { "新西兰第%d 空降师" }
+		29 = { "新西兰第%d 空降师" }
+		30 = { "新西兰第%d 空降师" }
+
+		# NZL didn't have any Marine divisions, these are all fictional.
+	}
+}

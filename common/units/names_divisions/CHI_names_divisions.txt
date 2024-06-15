@@ -1,0 +1,699 @@
+﻿# Division template historical names system. Is a new method of naming the divisions based on the names-group assigned to it's template.
+# If we run out of all historical names, the names will be assigned in the old way.
+#
+# Each group has a made up tag. Use it if you want to append more, or replace existing names with the extra txt files (modding).
+#
+# for_countries - lists all countries that can use it. If empty, or entire tag is missing, all countries in the world can use it.
+#
+# can_use - is a trigger that locks/unlocks the group under specific circumstances. The trigger is in a country scope.
+#
+# division_types - is a list of tokens to corresponding unit types. A player can in fact use any group of names for a div.template
+#                  however this tag is a helper for an automated choice (for AI, or if the group must switch on it's own, because
+#                  for example the current one is no longer available due to the can_use trigger saying so).
+#                  In automated choice, the division template must have at least 1 of the following types for it to be chosen.
+#
+# fallback_name - Is going to be used if we run out of the scripted historical names. If you want to use the old division naming
+#                 mechanics to be used for fallbacks, then just skip this option.
+#
+# unordered - It's a list of historical division names that did not have a number. Regardless if such names happened in history or not
+#             this option is available here mainly for a mods.
+#
+# ordered - Is a list of all historical names. 
+#           Numbers must start from 1 and up. 
+#           Numbers can't repeat in one scope.
+#           If you script the name for this group, at the same number (for example in a mod in another file), the name will be override.
+#           All arguments between the brackets must be separated by spaces. Each argument is wrapped in "quotas".
+#           1st argument = The name. It must contain either: 
+#                          %d (for decimal number placement)
+#                          %s (for string number placement - ROMAN numbers like XIV).
+#           2nd argument is optional = A localizable text describing this historical division. The text will be visible in the tooltip
+#                                      where you choose the historical division name.
+#           3rd argument is optional = An URL preferably pointing to the WIKI. It's a future feature that is not currently working in
+#                                      the current game version.
+CHI_INF_01 = 
+{
+	name = "步兵部队"
+
+	for_countries = { CHI }
+
+	can_use = { always = yes }
+
+	division_types = { "infantry" }
+
+	# Number reservation system will tie to another group.
+	#link_numbering_with = { CHI_INF_01 }
+
+	fallback_name = "第%d 步兵师"
+
+	# Names with numbers (only one number per entry). 
+	# It's okay to have gaps in numbering.
+	ordered =
+	{
+		1 = { "第%d 步兵师" }			# Chinese "corps" were division-strength units (2-3 Chinese "divisions" = 2-3 HOI4 regiments)
+		2 = { "第%d 步兵师" }
+		3 = { "第%d 步兵师" }
+		4 = { "第%d 步兵师" }
+		9 = { "第%d 步兵师" }
+		12 = { "第%d 步兵师" }
+		13 = { "第%d 步兵师" }
+		14 = { "第%d 步兵师" }
+		17 = { "第%d 步兵师" }
+		18 = { "第%d 步兵师" }
+		25 = { "第%d 步兵师" }
+		39 = { "第%d 步兵师" }
+		40 = { "第%d 步兵师" }
+		43 = { "第%d 步兵师" }
+		52 = { "第%d 步兵师" }
+		54 = { "第%d 步兵师" }
+		73 = { "第%d 步兵师" }
+		74 = { "第%d 步兵师" }
+		403 = { "第3 德械步兵师" }		# German-trained divisions (traditional division strength)
+		406 = { "第6 德械步兵师" }		
+		409 = { "第9 德械步兵师" }		
+		414 = { "第14 德械步兵师" }		
+		436 = { "第36 德械步兵师" }		
+		487 = { "第87 德械步兵师" }		
+		488 = { "第88 德械步兵师" }		
+		498 = { "中央军校教导总队" }		
+		402 = { "第2 德械步兵师" }		
+		404 = { "第4 德械步兵师" }		
+		410 = { "第10 德械步兵师" }		
+		411 = { "第11 德械步兵师" }		
+		425 = { "第25 德械步兵师" }		
+		427 = { "第27 德械步兵师" }		
+		457 = { "第57 德械步兵师" }		
+		467 = { "第67 德械步兵师" }		
+		480 = { "第80 德械步兵师" }		
+		483 = { "第83 德械步兵师" }		
+		489 = { "第89 德械步兵师" }		
+		499 = { "税警总团" }		
+		6 = { "第%d 步兵师" }
+		7 = { "第%d 步兵师" }
+		8 = { "第%d 步兵师" }
+		10 = { "第%d 步兵师" }
+		15 = { "第%d 步兵师" }
+		16 = { "第%d 步兵师" }
+		19 = { "第%d 步兵师" }
+		20 = { "第%d 步兵师" }
+		21 = { "第%d 步兵师" }
+		22 = { "第%d 步兵师" }
+		23 = { "第%d 步兵师" }
+		26 = { "第%d 步兵师" }
+		28 = { "第%d 步兵师" }
+		29 = { "第%d 步兵师" }
+		30 = { "第%d 步兵师" }
+		31 = { "第%d 步兵师" }
+		32 = { "第%d 步兵师" }
+		33 = { "第%d 步兵师" }
+		34 = { "第%d 步兵师" }
+		35 = { "第%d 步兵师" }
+		37 = { "第%d 步兵师" }
+		38 = { "第%d 步兵师" }
+		41 = { "第%d 步兵师" }
+		42 = { "第%d 步兵师" }
+		44 = { "第%d 步兵师" }
+		45 = { "第%d 步兵师" }
+		46 = { "第%d 步兵师" }
+		47 = { "第%d 步兵师" }
+		48 = { "第%d 步兵师" }
+		49 = { "第%d 步兵师" }
+		51 = { "第%d 步兵师" }
+		53 = { "第%d 步兵师" }
+		55 = { "第%d 步兵师" }
+		56 = { "第%d 步兵师" }
+		57 = { "第%d 步兵师" }
+		59 = { "第%d 步兵师" }
+		60 = { "第%d 步兵师" }
+		61 = { "第%d 步兵师" }
+		62 = { "第%d 步兵师" }
+		63 = { "第%d 步兵师" }
+		64 = { "第%d 步兵师" }
+		65 = { "第%d 步兵师" }
+		66 = { "第%d 步兵师" }
+		67 = { "第%d 步兵师" }
+		68 = { "第%d 步兵师" }
+		70 = { "第%d 步兵师" }
+		71 = { "第%d 步兵师" }
+		72 = { "第%d 步兵师" }
+		75 = { "第%d 步兵师" }
+		76 = { "第%d 步兵师" }
+		77 = { "第%d 步兵师" }
+		78 = { "第%d 步兵师" }
+		79 = { "第%d 步兵师" }
+		80 = { "第%d 步兵师" }
+		81 = { "第%d 步兵师" }
+		82 = { "第%d 步兵师" }
+		83 = { "第%d 步兵师" }
+		84 = { "第%d 步兵师" }
+		85 = { "第%d 步兵师" }
+		86 = { "第%d 步兵师" }
+		87 = { "第%d 步兵师" }
+		89 = { "第%d 步兵师" }
+		92 = { "第%d 步兵师" }
+		93 = { "第%d 步兵师" }
+		94 = { "第%d 步兵师" }
+		98 = { "第%d 步兵师" }
+		201 = { "新编第1 步兵师" }
+		5 = { "第%d 步兵师" }
+		27 = { "第%d 步兵师" }
+		50 = { "第%d 步兵师" }
+		58 = { "第%d 步兵师" }
+		69 = { "第%d 步兵师" }
+		90 = { "第%d 步兵师" }
+		91 = { "第%d 步兵师" }
+		96 = { "第%d 步兵师" }
+		99 = { "第%d 步兵师" }
+		100 = { "第%d 步兵师" }
+		202 = { "新编第2 步兵师" }
+		203 = { "新编第3 步兵师" }
+		205 = { "新编第5 步兵师" }
+		206 = { "新编第6 步兵师" }
+		36 = { "第%d 步兵师" }
+		301 = { "暂编第1 步兵师" }
+		302 = { "暂编第2 步兵师" }
+		430 = { "新编第30师" }		# American-trained (full) divisions of historical 'X Force'
+		438 = { "新编第38师" }		
+		422 = { "新编第22师" }		
+		450 = { "第50师" }		
+		88 = { "第%d师" }
+		207 = { "新编第7师" }
+		304 = { "暂编第4师" }
+		305 = { "暂编第5师" }
+		309 = { "暂编第9师" }
+		11 = { "第%d师" }
+		95 = { "第%d师" }
+		208 = { "新编第8师" }
+		303 = { "暂编第3师" }
+		315 = { "暂编第15师" }
+		209 = { "新编第9 步兵师" }			# fictional additional corps here
+		210 = { "新编第10 步兵师" }
+		211 = { "新编第11 步兵师" }
+		212 = { "新编第12 步兵师" }
+		213 = { "新编第13 步兵师" }
+		214 = { "新编第14 步兵师" }
+		215 = { "新编第15 步兵师" }
+		306 = { "暂编第6 步兵师" }
+		307 = { "暂编第7 步兵师" }
+		308 = { "暂编第8 步兵师" }
+		310 = { "暂编第9 步兵师" }
+		311 = { "暂编第10 步兵师" }
+		312 = { "暂编第11 步兵师" }
+		313 = { "暂编第12 步兵师" }
+		314 = { "暂编第13 步兵师" }
+	}
+}
+
+CHI_CAV_01 = 
+{
+	name = "骑兵部队"
+
+	for_countries = { CHI }
+
+	can_use = { always = yes }
+
+	division_types = { "cavalry" }
+
+	# Number reservation system will tie to another group.
+	#link_numbering_with = { CHI_INF_01 }
+
+	fallback_name = "第%d 骑兵师"
+
+	# Names with numbers (only one number per entry). 
+	# It's okay to have gaps in numbering.
+	ordered =
+	{
+		1 = { "第%d 骑兵师" }
+		2 = { "第%d 骑兵师" }
+		3 = { "第%d 骑兵师" }
+		4 = { "第%d 骑兵师" }
+		6 = { "第%d 骑兵师" }
+		5 = { "第%d 骑兵师" }
+		101 = { "新编第1 骑兵师" }
+		102 = { "新编第2 骑兵师" }
+		103 = { "新编第3 骑兵师" }
+		104 = { "新编第4 骑兵师" }
+		7 = { "第%d 骑兵师" }
+		8 = { "第%d 骑兵师" }
+		9 = { "第%d 骑兵师" }
+		10 = { "第%d 骑兵师" }
+	}
+}
+
+CHI_MOT_01 = 
+{
+	name = "摩托化部队"
+
+	for_countries = { CHI }
+
+	can_use = { always = yes }
+
+	division_types = { "motorized" }
+
+	# Number reservation system will tie to another group.
+	link_numbering_with = { CHI_INF_01 }
+
+	fallback_name = "第%d 摩托化步兵师"
+
+	# Names with numbers (only one number per entry). 
+	# It's okay to have gaps in numbering.
+	ordered =
+	{
+		500 = { "第200 摩托化步兵师" }		# only historical motorized division for NRA
+		430 = { "新编第30 美械摩托化步兵师" }		# American-trained (full) divisions of historical 'X Force'
+		438 = { "新编第38 美械摩托化步兵师" }		
+		422 = { "新编第22 美械摩托化步兵师" }		
+		414 = { "第14 美械摩托化步兵师" }		
+		450 = { "第50 美械摩托化步兵师" }		
+		403 = { "第3 德械摩托化步兵师" }			# German-trained divisions (traditional division strength)
+		406 = { "第6 德械摩托化步兵师" }		
+		409 = { "第9 德械摩托化步兵师" }		
+		436 = { "第36 德械摩托化步兵师" }		
+		487 = { "第87 德械摩托化步兵师" }		
+		488 = { "第88 德械摩托化步兵师" }		
+		402 = { "第2 德械摩托化步兵师" }		
+		404 = { "第4 德械摩托化步兵师" }		
+		410 = { "第10 德械摩托化步兵师" }		
+		411 = { "第11 德械摩托化步兵师" }		
+		425 = { "第25 德械摩托化步兵师" }		
+		427 = { "第27 德械摩托化步兵师" }		
+		457 = { "第57 德械摩托化步兵师" }		
+		467 = { "第67 德械摩托化步兵师" }		
+		480 = { "第80 德械摩托化步兵师" }		
+		483 = { "第83 德械摩托化步兵师" }		
+		489 = { "第89 德械摩托化步兵师" }		
+		5 = { "第%d 摩托化步兵师" }						# fictional names for motorized corps
+		1 = { "第%d 摩托化步兵师" }						
+		2 = { "第%d 摩托化步兵师" }
+		3 = { "第%d 摩托化步兵师" }
+		4 = { "第%d 摩托化步兵师" }
+		9 = { "第%d 摩托化步兵师" }
+		12 = { "第%d 摩托化步兵师" }
+		13 = { "第%d 摩托化步兵师" }
+		14 = { "第%d 摩托化步兵师" }
+		17 = { "第%d 摩托化步兵师" }
+		18 = { "第%d 摩托化步兵师" }
+		6 = { "第%d 摩托化步兵师" }
+		7 = { "第%d 摩托化步兵师" }
+		8 = { "第%d 摩托化步兵师" }
+		10 = { "第%d 摩托化步兵师" }
+		15 = { "第%d 摩托化步兵师" }
+		16 = { "第%d 摩托化步兵师" }
+		19 = { "第%d 摩托化步兵师" }
+		20 = { "第%d 摩托化步兵师" }
+		11 = { "第%d 摩托化步兵师" }
+	}
+}
+
+CHI_MEC_01 = 
+{
+	name = "机械化部队"
+
+	for_countries = { CHI }
+
+	can_use = { always = yes }
+
+	division_types = { "mechanized" }
+
+	# Number reservation system will tie to another group.
+	link_numbering_with = { CHI_INF_01 }
+
+	fallback_name = "第%d 机械化步兵师"
+
+	# Names with numbers (only one number per entry). 
+	# It's okay to have gaps in numbering.
+	ordered =
+	{
+		500 = { "第200 机械化步兵师" }
+		430 = { "新编第30 美械机械化步兵师" }		# American-trained (full) divisions of historical 'X Force'
+		438 = { "新编第38 美械机械化步兵师" }		
+		422 = { "新编第22 美械机械化步兵师" }		
+		414 = { "第14 美械机械化步兵师" }		
+		450 = { "第50 美械机械化步兵师" }		
+		403 = { "第3 德械机械化步兵师" }			# German-trained divisions (traditional division strength)
+		406 = { "第6 德械机械化步兵师" }		
+		409 = { "第9 德械机械化步兵师" }		
+		436 = { "第36 德械机械化步兵师" }		
+		487 = { "第87 德械机械化步兵师" }		
+		488 = { "第88 德械机械化步兵师" }		
+		402 = { "第2 德械机械化步兵师" }		
+		404 = { "第4 德械机械化步兵师" }		
+		410 = { "第10 德械机械化步兵师" }		
+		411 = { "第11 德械机械化步兵师" }		
+		425 = { "第25 德械机械化步兵师" }		
+		427 = { "第27 德械机械化步兵师" }		
+		457 = { "第57 德械机械化步兵师" }		
+		467 = { "第67 德械机械化步兵师" }		
+		480 = { "第80 德械机械化步兵师" }		
+		483 = { "第83 德械机械化步兵师" }		
+		489 = { "第89 德械机械化步兵师" }		
+		5 = { "第%d 机械化步兵师" }				# fictional names for mechanized corps
+		1 = { "第%d 机械化步兵师" }						
+		2 = { "第%d 机械化步兵师" }
+		3 = { "第%d 机械化步兵师" }
+		4 = { "第%d 机械化步兵师" }
+		9 = { "第%d 机械化步兵师" }
+		12 = { "第%d 机械化步兵师" }
+		13 = { "第%d 机械化步兵师" }
+		14 = { "第%d 机械化步兵师" }
+		17 = { "第%d 机械化步兵师" }
+		18 = { "第%d 机械化步兵师" }
+		6 = { "第%d 机械化步兵师" }
+		7 = { "第%d 机械化步兵师" }
+		8 = { "第%d 机械化步兵师" }
+		10 = { "第%d 机械化步兵师" }
+		15 = { "第%d 机械化步兵师" }
+		16 = { "第%d 机械化步兵师" }
+		19 = { "第%d 机械化步兵师" }
+		20 = { "第%d 机械化步兵师" }
+		11 = { "第%d 机械化步兵师" }
+	}
+}
+
+CHI_ARM_01 = 
+{
+	name = "装甲部队"
+
+	for_countries = { CHI PRC SHX GXC YUN XSM SIK }
+
+	can_use = { always = yes }
+
+	division_types = { "light_armor" "medium_armor" "heavy_armor" "modern_armor" }
+
+	# Number reservation system will tie to another group.
+	#link_numbering_with = { CHI_INF_01 }
+
+	fallback_name = "第%d 装甲师"
+
+	# Names with numbers (only one number per entry). 
+	# It's okay to have gaps in numbering.
+	ordered =
+	{
+		1 = { "第%d 装甲师" }
+		2 = { "第%d 装甲师" }
+		3 = { "第%d 装甲师" }
+		4 = { "第%d 装甲师" }
+		5 = { "第%d 装甲师" }
+		6 = { "第%d 装甲师" }
+		7 = { "第%d 装甲师" }
+		8 = { "第%d 装甲师" }
+		9 = { "第%d 装甲师" }
+		10 = { "第%d 装甲师" }
+		11 = { "第%d 装甲师" }
+		12 = { "第%d 装甲师" }
+		13 = { "第%d 装甲师" }
+		14 = { "第%d 装甲师" }
+		15 = { "第%d 装甲师" }
+	}
+}
+
+CHI_PAR_01 = 
+{
+	name = "空军伞降部队"
+
+	for_countries = { CHI PRC SHX GXC YUN XSM SIK }
+
+	can_use = { always = yes }
+
+	division_types = { "paratrooper" }
+
+	# Number reservation system will tie to another group.
+	#link_numbering_with = { CHI_INF_01 }
+
+	fallback_name = "空军第%d 伞降师"
+
+	# Names with numbers (only one number per entry). 
+	# It's okay to have gaps in numbering.
+	ordered =
+	{
+		1 = { "空军第%d 伞降师" }
+		2 = { "空军第%d 伞降师" }
+		3 = { "空军第%d 伞降师" }
+		4 = { "空军第%d 伞降师" }
+		5 = { "空军第%d 伞降师" }
+		6 = { "空军第%d 伞降师" }
+		7 = { "空军第%d 伞降师" }
+		8 = { "空军第%d 伞降师" }
+		9 = { "空军第%d 伞降师" }
+		10 = { "空军第%d 伞降师" }
+	}
+}
+
+CHI_MAR_01 = 
+{
+	name = "海军陆战部队"
+
+	for_countries = { CHI PRC SHX GXC YUN XSM SIK }
+
+	can_use = { always = yes }
+
+	division_types = { "marine" }
+
+	# Number reservation system will tie to another group.
+	#link_numbering_with = { CHI_INF_01 }
+
+	fallback_name = "海军第%d 陆战师"
+
+	# Names with numbers (only one number per entry). 
+	# It's okay to have gaps in numbering.
+	ordered =
+	{
+		1 = { "海军第%d 陆战师" }
+		2 = { "海军第%d 陆战师" }
+		3 = { "海军第%d 陆战师" }
+		4 = { "海军第%d 陆战师" }
+		5 = { "海军第%d 陆战师" }
+		6 = { "海军第%d 陆战师" }
+		7 = { "海军第%d 陆战师" }
+		8 = { "海军第%d 陆战师" }
+		9 = { "海军第%d 陆战师" }
+		10 = { "海军第%d 陆战师" }
+	}
+}
+
+CHI_MNT_01 = 
+{
+	name = "山地部队"
+
+	for_countries = { CHI }
+
+	can_use = { always = yes }
+
+	division_types = { "mountaineers" }
+
+	# Number reservation system will tie to another group.
+	link_numbering_with = { CHI_INF_01 }
+
+	fallback_name = "第%d 山地步兵师"
+
+	# Names with numbers (only one number per entry). 
+	# It's okay to have gaps in numbering.
+	ordered =
+	{
+		430 = { "新编第30 美械山地步兵师" }		# American-trained (full) divisions of historical 'X Force'
+		438 = { "新编第38 美械山地步兵师" }		
+		422 = { "新编第22 美械山地步兵师" }		
+		414 = { "第14 美械山地步兵师" }		
+		450 = { "第50 美械山地步兵师" }		
+		403 = { "第3 德械山地步兵师" }		# German-trained divisions (traditional division strength)
+		406 = { "第6 德械山地步兵师" }		
+		409 = { "第9 德械山地步兵师" }		
+		436 = { "第36 德械山地步兵师" }		
+		487 = { "第87 德械山地步兵师" }		
+		488 = { "第88 德械山地步兵师" }		
+		498 = { "中央军校教导总队" }		
+		402 = { "第2 德械山地步兵师" }		
+		404 = { "第4 德械山地步兵师" }		
+		410 = { "第10 德械山地步兵师" }		
+		411 = { "第11 德械山地步兵师" }		
+		425 = { "第25 德械山地步兵师" }		
+		427 = { "第27 德械山地步兵师" }		
+		457 = { "第57 德械山地步兵师" }		
+		467 = { "第67 德械山地步兵师" }		
+		480 = { "第80 德械山地步兵师" }		
+		483 = { "第83 德械山地步兵师" }		
+		489 = { "第89 德械山地步兵师" }		
+		499 = { "税警总团" }		
+		1 = { "第%d 山地步兵师" }			# Chinese "corps" were division-strength units (2-3 Chinese "divisions" = 2-3 HOI4 regiments)
+		2 = { "第%d 山地步兵师" }
+		3 = { "第%d 山地步兵师" }
+		4 = { "第%d 山地步兵师" }
+		9 = { "第%d 山地步兵师" }
+		12 = { "第%d 山地步兵师" }
+		13 = { "第%d 山地步兵师" }
+		14 = { "第%d 山地步兵师" }
+		17 = { "第%d 山地步兵师" }
+		18 = { "第%d 山地步兵师" }
+		25 = { "第%d 山地步兵师" }
+		39 = { "第%d 山地步兵师" }
+		40 = { "第%d 山地步兵师" }
+		43 = { "第%d 山地步兵师" }
+		52 = { "第%d 山地步兵师" }
+		54 = { "第%d 山地步兵师" }
+		73 = { "第%d 山地步兵师" }
+		74 = { "第%d 山地步兵师" }
+		6 = { "第%d 山地步兵师" }
+		7 = { "第%d 山地步兵师" }
+		8 = { "第%d 山地步兵师" }
+		10 = { "第%d 山地步兵师" }
+		15 = { "第%d 山地步兵师" }
+		16 = { "第%d 山地步兵师" }
+		19 = { "第%d 山地步兵师" }
+		20 = { "第%d 山地步兵师" }
+		21 = { "第%d 山地步兵师" }
+		22 = { "第%d 山地步兵师" }
+		23 = { "第%d 山地步兵师" }
+		26 = { "第%d 山地步兵师" }
+		28 = { "第%d 山地步兵师" }
+		29 = { "第%d 山地步兵师" }
+		30 = { "第%d 山地步兵师" }
+		31 = { "第%d 山地步兵师" }
+		32 = { "第%d 山地步兵师" }
+		33 = { "第%d 山地步兵师" }
+		34 = { "第%d 山地步兵师" }
+		35 = { "第%d 山地步兵师" }
+		37 = { "第%d 山地步兵师" }
+		38 = { "第%d 山地步兵师" }
+		41 = { "第%d 山地步兵师" }
+		42 = { "第%d 山地步兵师" }
+		44 = { "第%d 山地步兵师" }
+		45 = { "第%d 山地步兵师" }
+		46 = { "第%d 山地步兵师" }
+		47 = { "第%d 山地步兵师" }
+		48 = { "第%d 山地步兵师" }
+		49 = { "第%d 山地步兵师" }
+		51 = { "第%d 山地步兵师" }
+		53 = { "第%d 山地步兵师" }
+		55 = { "第%d 山地步兵师" }
+		56 = { "第%d 山地步兵师" }
+		57 = { "第%d 山地步兵师" }
+		59 = { "第%d 山地步兵师" }
+		60 = { "第%d 山地步兵师" }
+		61 = { "第%d 山地步兵师" }
+		62 = { "第%d 山地步兵师" }
+		63 = { "第%d 山地步兵师" }
+		64 = { "第%d 山地步兵师" }
+		65 = { "第%d 山地步兵师" }
+		66 = { "第%d 山地步兵师" }
+		67 = { "第%d 山地步兵师" }
+		68 = { "第%d 山地步兵师" }
+		70 = { "第%d 山地步兵师" }
+		71 = { "第%d 山地步兵师" }
+		72 = { "第%d 山地步兵师" }
+		75 = { "第%d 山地步兵师" }
+		76 = { "第%d 山地步兵师" }
+		77 = { "第%d 山地步兵师" }
+		78 = { "第%d 山地步兵师" }
+		79 = { "第%d 山地步兵师" }
+		80 = { "第%d 山地步兵师" }
+		81 = { "第%d 山地步兵师" }
+		82 = { "第%d 山地步兵师" }
+		83 = { "第%d 山地步兵师" }
+		84 = { "第%d 山地步兵师" }
+		85 = { "第%d 山地步兵师" }
+		86 = { "第%d 山地步兵师" }
+		87 = { "第%d 山地步兵师" }
+		89 = { "第%d 山地步兵师" }
+		92 = { "第%d 山地步兵师" }
+		93 = { "第%d 山地步兵师" }
+		94 = { "第%d 山地步兵师" }
+		98 = { "第%d 山地步兵师" }
+		201 = { "新编第1 山地步兵师" }
+		5 = { "%d 山地步兵师" }
+		27 = { "第%d 山地步兵师" }
+		50 = { "第%d 山地步兵师" }
+		58 = { "第%d 山地步兵师" }
+		69 = { "第%d 山地步兵师" }
+		90 = { "第%d 山地步兵师" }
+		91 = { "第%d 山地步兵师" }
+		96 = { "第%d 山地步兵师" }
+		99 = { "第%d 山地步兵师" }
+		100 = { "第%d 山地步兵师" }
+		202 = { "新编第2 山地步兵师" }
+		203 = { "新编第3 山地步兵师" }
+		205 = { "新编第5 山地步兵师" }
+		206 = { "新编第6 山地步兵师" }
+		36 = { "第%d 山地步兵师" }
+		88 = { "第%d 山地步兵师" }
+		207 = { "新编第7 山地步兵师" }
+		11 = { "第%d 山地步兵师" }
+		95 = { "第%d 山地步兵师" }
+		208 = { "新编第8 山地步兵师" }
+		209 = { "新编第9 山地步兵师" }			# fictional additional corps here
+		210 = { "新编第10 山地步兵师" }
+		211 = { "新编第11 山地步兵师" }
+		212 = { "新编第12 山地步兵师" }
+		213 = { "新编第13 山地步兵师" }
+		214 = { "新编第14 山地步兵师" }
+		215 = { "新编第15 山地步兵师" }
+	}
+}
+
+CHI_GAR_01 = 
+{
+	name = "警备部队"
+
+	for_countries = { CHI }
+
+	can_use = { always = yes }
+
+	division_types = { "infantry" }
+
+	# Number reservation system will tie to another group.
+	#link_numbering_with = { CHI_INF_01 }
+
+	fallback_name = "第%d 警备师"
+
+	# Names with numbers (only one number per entry). 
+	# It's okay to have gaps in numbering.
+	ordered =
+	{
+		101 = { "上海警备师" }		# All fictional names for local militias
+		102 = { "福建第1 警备师" }
+		103 = { "南京第1 警备师" }
+		104 = { "武汉警备师" }
+		105 = { "青岛警备师" }
+		106 = { "河南省驻军" }
+		107 = { "安徽省驻军" }
+		108 = { "甘肃省驻军" }
+		109 = { "山东省驻军" }
+		110 = { "江苏省驻军" }
+		111 = { "湖北省驻军" }
+		112 = { "南京第2 警备师" }
+		113 = { "福建第2 警备师" }
+		114 = { "福建第3 警备师" }
+		115 = { "江西省驻军" }
+		116 = { "浙江省驻军" }
+		117 = { "湖南省驻军" }
+		118 = { "福建省驻军" }
+		119 = { "南京第3 警备师" }
+		126 = { "南京第4 警备师" }
+		127 = { "南京第5 警备师" }
+		120 = { "天南警备师" }
+		121 = { "合肥警备师" }
+		122 = { "察哈尔警备师" }
+		123 = { "淳安警备师" }
+		124 = { "湖南警备师" }
+		125 = { "湖北警备师" }
+		1 = { "第%d 警备师" }
+		2 = { "第%d 警备师" }
+		3 = { "第%d 警备师" }
+		4 = { "第%d 警备师" }
+		5 = { "第%d 警备师" }
+		6 = { "第%d 警备师" }
+		7 = { "第%d 警备师" }
+		8 = { "第%d 警备师" }
+		9 = { "第%d 警备师" }
+		10 = { "第%d 警备师" }
+		11 = { "第%d 警备师" }
+		12 = { "第%d 警备师" }
+		13 = { "第%d 警备师" }
+		14 = { "第%d 警备师" }
+		15 = { "第%d 警备师" }
+		16 = { "第%d 警备师" }
+		17 = { "第%d 警备师" }
+		18 = { "第%d 警备师" }
+		19 = { "第%d 警备师" }
+		20 = { "第%d 警备师" }
+	}
+}
+

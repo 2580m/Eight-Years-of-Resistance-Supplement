@@ -1,0 +1,45 @@
+﻿# Infantry
+AFA_INF_01 = {
+	name = "阿法尔部队"
+
+	for_countries = { AFA }
+
+	can_use = { always = yes }
+
+	division_types = { "infantry" }
+
+	fallback_name = "阿法尔第%d 师"
+
+	# Names with numbers (only one number per entry). 
+	# It's okay to have gaps in numbering.
+	ordered = {
+		1 = { "奥萨第1 师" }
+		2 = { "德西第1 师" }
+		3 = { "卡法尔第1 师" }
+		4 = { "达纳基勒第1 师" }
+		5 = { "阿达尔第1 师" }
+		6 = { "欧德尔第1 师" }
+		7 = { "阿法尔第1 师" }
+		8 = { "阿萨第1 师" }
+		9 = { "阿萨伊塔第1 师" }
+		10 = { "埃萨伊塔第1 师" }
+	}
+}
+
+AFA_INF_02 = {
+	name = "奥萨部队"
+
+	for_countries = { AFA }
+
+	can_use = { always = yes }
+
+	division_types = { "infantry" }
+
+	fallback_name = "奥萨第%d 师"
+
+	# Names with numbers (only one number per entry). 
+	# It's okay to have gaps in numbering.
+	ordered = {
+	}
+}
+

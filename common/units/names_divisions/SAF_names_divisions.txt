@@ -1,0 +1,652 @@
+﻿# Division template historical names system. Is a new method of naming the divisions based on the names-group assigned to it's template.
+# If we run out of all historical names, the names will be assigned in the old way.
+#
+# Each group has a made up tag. Use it if you want to append more, or replace existing names with the extra txt files (modding).
+#
+# for_countries - lists all countries that SAF use it. If empty, or entire tag is missing, all countries in the world SAF use it.
+#
+# can_use - is a trigger that locks/unlocks the group under specific circumstances. The trigger is in a country scope.
+#
+# division_types - is a list of tokens to corresponding unit types. A player SAF in fact use any group of names for a div.template
+#                  however this tag is a helper for an automated choice (for AI, or if the group must switch on it's own, because
+#                  for example the current one is no longer available due to the can_use trigger saying so).
+#                  In automated choice, the division template must have at leSAF 1 of the following types for it to be chosen.
+#
+# fallback_name - Is going to be used if we run out of the scripted historical names. If you want to use the old division naming
+#                 mechanics to be used for fallbacks, then just skip this option.
+#
+# unordered - It's a list of historical division names that did not have a number. Regardless if such names happened in history or not
+#             this option is available here mainly for a mods.
+#
+# ordered - Is a list of all historical names. 
+#           Numbers must start from 1 and up. 
+#           Numbers can't repeat in one scope.
+#           If you script the name for this group, at the same number (for example in a mod in another file), the name will be override.
+#           All arguments between the brackets must be separated by spaces. Each argument is wrapped in "quotas".
+#           1st argument = The name. It must contain either: 
+#                          %d (for decimal number placement)
+#                          %s (for string number placement - ROMAN numbers like XIV).
+#           2nd argument is optional = A localizable text describing this historical division. The text will be visible in the tooltip
+#                                      where you choose the historical division name.
+#           3rd argument is optional = An URL preferably pointing to the WIKI. It's a future feature that is not currently working in
+#                                      the current game version.
+
+SAF_INF_01 = 
+{
+	name = "步兵部队"
+
+	for_countries = { SAF }
+
+	can_use = { always = yes }
+
+	division_types = { "infantry" }
+
+	# Number reservation system will tie to another group.
+	#link_numbering_with = { GER_Gar_01 }
+
+	fallback_name = "南非第%d 步兵师"
+
+	# Names with numbers (only one number per entry). 
+	# It's okay to have gaps in numbering.
+	ordered =
+	{
+		1 = { "南非第%d 步兵师" }
+		2 = { "南非第%d 步兵师" }
+		3 = { "南非第%d 步兵师" }
+		4 = { "南非第%d 步兵师" }
+		5 = { "南非第%d 步兵师" }
+		6 = { "南非第%d 步兵师" }
+		7 = { "南非第%d 步兵师" }
+		8 = { "南非第%d 步兵师" }
+		9 = { "南非第%d 步兵师" }
+		10 = { "南非第%d 步兵师" }
+		11 = { "南非第%d 步兵师" }
+		12 = { "南非第%d 步兵师" }
+		13 = { "南非第%d 步兵师" }
+		14 = { "南非第%d 步兵师" }
+		15 = { "南非第%d 步兵师" }
+		16 = { "南非第%d 步兵师" }
+		17 = { "南非第%d 步兵师" }
+		18 = { "南非第%d 步兵师" }
+		19 = { "南非第%d 步兵师" }
+		20 = { "南非第%d 步兵师" }
+		21 = { "南非第%d 步兵师" }
+		22 = { "南非第%d 步兵师" }
+		23 = { "南非第%d 步兵师" }
+		24 = { "南非第%d 步兵师" }
+		25 = { "南非第%d 步兵师" }
+		26 = { "南非第%d 步兵师" }
+		27 = { "南非第%d 步兵师" }
+		28 = { "南非第%d 步兵师" }
+		29 = { "南非第%d 步兵师" }
+		30 = { "南非第%d 步兵师" }
+		31 = { "南非第%d 步兵师" }
+		32 = { "南非第%d 步兵师" }
+		33 = { "南非第%d 步兵师" }
+		34 = { "南非第%d 步兵师" }
+		35 = { "南非第%d 步兵师" }
+		36 = { "南非第%d 步兵师" }
+		37 = { "南非第%d 步兵师" }
+		38 = { "南非第%d 步兵师" }
+		39 = { "南非第%d 步兵师" }
+		40 = { "南非第%d 步兵师" }
+		41 = { "南非第%d 步兵师" }
+		42 = { "南非第%d 步兵师" }
+		43 = { "南非第%d 步兵师" }
+		44 = { "南非第%d 步兵师" }
+		45 = { "南非第%d 步兵师" }
+		46 = { "南非第%d 步兵师" }
+		47 = { "南非第%d 步兵师" }
+		48 = { "南非第%d 步兵师" }
+		49 = { "南非第%d 步兵师" }
+		50 = { "南非第%d 步兵师" }
+		51 = { "南非第%d 步兵师" }
+		52 = { "南非第%d 步兵师" }
+		53 = { "南非第%d 步兵师" }
+		54 = { "南非第%d 步兵师" }
+		55 = { "南非第%d 步兵师" }
+		56 = { "南非第%d 步兵师" }
+		57 = { "南非第%d 步兵师" }
+		58 = { "南非第%d 步兵师" }
+		59 = { "南非第%d 步兵师" }
+		60 = { "南非第%d 步兵师" }
+		61 = { "南非第%d 步兵师" }
+		62 = { "南非第%d 步兵师" }
+		63 = { "南非第%d 步兵师" }
+		64 = { "南非第%d 步兵师" }
+		65 = { "南非第%d 步兵师" }
+		66 = { "南非第%d 步兵师" }
+		67 = { "南非第%d 步兵师" }
+		68 = { "南非第%d 步兵师" }
+		69 = { "南非第%d 步兵师" }
+		70 = { "南非第%d 步兵师" }
+		71 = { "南非第%d 步兵师" }
+		72 = { "南非第%d 步兵师" }
+		73 = { "南非第%d 步兵师" }
+		74 = { "南非第%d 步兵师" }
+		75 = { "南非第%d 步兵师" }
+		76 = { "南非第%d 步兵师" }
+		77 = { "南非第%d 步兵师" }
+		78 = { "南非第%d 步兵师" }
+		79 = { "南非第%d 步兵师" }
+		80 = { "南非第%d 步兵师" }
+		81 = { "南非第%d 步兵师" }
+		82 = { "南非第%d 步兵师" }
+		83 = { "南非第%d 步兵师" }
+		84 = { "南非第%d 步兵师" }
+		85 = { "南非第%d 步兵师" }
+		86 = { "南非第%d 步兵师" }
+		87 = { "南非第%d 步兵师" }
+		88 = { "南非第%d 步兵师" }
+		89 = { "南非第%d 步兵师" }
+		90 = { "南非第%d 步兵师" }
+		91 = { "南非第%d 步兵师" }
+		92 = { "南非第%d 步兵师" }
+		93 = { "南非第%d 步兵师" }
+		94 = { "南非第%d 步兵师" }
+		95 = { "南非第%d 步兵师" }
+		96 = { "南非第%d 步兵师" }
+		97 = { "南非第%d 步兵师" }
+		98 = { "南非第%d 步兵师" }
+		99 = { "南非第%d 步兵师" }
+
+		# SAF only had three historically, but just in case!
+	}
+}
+
+SAF_CAV_01 = 
+{
+	name = "骑兵部队"
+
+	for_countries = { SAF }
+
+	can_use = { always = yes }
+
+	division_types = { "cavalry" }
+
+	# Number reservation system will tie to another group.
+	#link_numbering_with = { GER_Gar_01 }
+
+	fallback_name = "南非第%d 骑兵师"
+
+	# Names with numbers (only one number per entry). 
+	# It's okay to have gaps in numbering.
+	ordered =
+	{
+		1 = { "南非第%d 骑兵师" }
+		2 = { "南非第%d 骑兵师" }
+		3 = { "南非第%d 骑兵师" }
+		4 = { "南非第%d 骑兵师" }
+		5 = { "南非第%d 骑兵师" }
+		6 = { "南非第%d 骑兵师" }
+		7 = { "南非第%d 骑兵师" }
+		8 = { "南非第%d 骑兵师" }
+		9 = { "南非第%d 骑兵师" }
+		10 = { "南非第%d 骑兵师" }
+		11 = { "南非第%d 骑兵师" }
+		12 = { "南非第%d 骑兵师" }
+		13 = { "南非第%d 骑兵师" }
+		14 = { "南非第%d 骑兵师" }
+		15 = { "南非第%d 骑兵师" }
+		16 = { "南非第%d 骑兵师" }
+		17 = { "南非第%d 骑兵师" }
+		18 = { "南非第%d 骑兵师" }
+		19 = { "南非第%d 骑兵师" }
+		20 = { "南非第%d 骑兵师" }
+		21 = { "南非第%d 骑兵师" }
+		22 = { "南非第%d 骑兵师" }
+		23 = { "南非第%d 骑兵师" }
+		24 = { "南非第%d 骑兵师" }
+		25 = { "南非第%d 骑兵师" }
+		26 = { "南非第%d 骑兵师" }
+		27 = { "南非第%d 骑兵师" }
+		28 = { "南非第%d 骑兵师" }
+		29 = { "南非第%d 骑兵师" }
+		30 = { "南非第%d 骑兵师" }
+		31 = { "南非第%d 骑兵师" }
+		32 = { "南非第%d 骑兵师" }
+		33 = { "南非第%d 骑兵师" }
+		34 = { "南非第%d 骑兵师" }
+		35 = { "南非第%d 骑兵师" }
+		36 = { "南非第%d 骑兵师" }
+		37 = { "南非第%d 骑兵师" }
+		38 = { "南非第%d 骑兵师" }
+		39 = { "南非第%d 骑兵师" }
+		40 = { "南非第%d 骑兵师" }
+		41 = { "南非第%d 骑兵师" }
+		42 = { "南非第%d 骑兵师" }
+		43 = { "南非第%d 骑兵师" }
+		44 = { "南非第%d 骑兵师" }
+		45 = { "南非第%d 骑兵师" }
+		46 = { "南非第%d 骑兵师" }
+		47 = { "南非第%d 骑兵师" }
+		48 = { "南非第%d 骑兵师" }
+		49 = { "南非第%d 骑兵师" }
+		50 = { "南非第%d 骑兵师" }
+		51 = { "南非第%d 骑兵师" }
+		52 = { "南非第%d 骑兵师" }
+		53 = { "南非第%d 骑兵师" }
+
+		# Historically, there's no way SAF would have had 53 Cav divisions the list taken this far because of cav's suppression role in-game.
+	}
+}
+
+SAF_MOT_01 = 
+{
+	name = "摩托化部队"
+
+	for_countries = { SAF }
+
+	can_use = { always = yes }
+
+	division_types = { "motorized" }
+
+	# Number reservation system will tie to another group.
+	link_numbering_with = { SAF_INF_01 }
+
+	fallback_name = "南非第%d 摩托化步兵师"
+
+	# Names with numbers (only one number per entry). 
+	# It's okay to have gaps in numbering.
+	ordered =
+	{
+		1 = { "南非第%d 摩托化步兵师" }
+		2 = { "南非第%d 摩托化步兵师" }
+		3 = { "南非第%d 摩托化步兵师" }
+		4 = { "南非第%d 摩托化步兵师" }
+		5 = { "南非第%d 摩托化步兵师" }
+		6 = { "南非第%d 摩托化步兵师" }
+		7 = { "南非第%d 摩托化步兵师" }
+		8 = { "南非第%d 摩托化步兵师" }
+		9 = { "南非第%d 摩托化步兵师" }
+		10 = { "南非第%d 摩托化步兵师" }
+		11 = { "南非第%d 摩托化步兵师" }
+		12 = { "南非第%d 摩托化步兵师" }
+		13 = { "南非第%d 摩托化步兵师" }
+		14 = { "南非第%d 摩托化步兵师" }
+		15 = { "南非第%d 摩托化步兵师" }
+		16 = { "南非第%d 摩托化步兵师" }
+		17 = { "南非第%d 摩托化步兵师" }
+		18 = { "南非第%d 摩托化步兵师" }
+		19 = { "南非第%d 摩托化步兵师" }
+		20 = { "南非第%d 摩托化步兵师" }
+		21 = { "南非第%d 摩托化步兵师" }
+		22 = { "南非第%d 摩托化步兵师" }
+		23 = { "南非第%d 摩托化步兵师" }
+		24 = { "南非第%d 摩托化步兵师" }
+		25 = { "南非第%d 摩托化步兵师" }
+		26 = { "南非第%d 摩托化步兵师" }
+		27 = { "南非第%d 摩托化步兵师" }
+		28 = { "南非第%d 摩托化步兵师" }
+		29 = { "南非第%d 摩托化步兵师" }
+		30 = { "南非第%d 摩托化步兵师" }
+		31 = { "南非第%d 摩托化步兵师" }
+		32 = { "南非第%d 摩托化步兵师" }
+		33 = { "南非第%d 摩托化步兵师" }
+
+	}
+}
+
+SAF_ARM_01 = 
+{
+	name = "装甲部队"
+
+	for_countries = { SAF }
+
+	can_use = { always = yes }
+
+	division_types = { "light_armor" "medium_armor" "heavy_armor" "modern_armor" }
+
+	# Number reservation system will tie to another group.
+	link_numbering_with = { SAF_INF_01  }
+
+	fallback_name = "南非第%d 装甲师"
+
+	# Names with numbers (only one number per entry). 
+	# It's okay to have gaps in numbering.
+	ordered =
+	{
+		6 = { "南非第%d 装甲师" }
+		7 = { "南非第%d 装甲师" }
+		8 = { "南非第%d 装甲师" }
+		9 = { "南非第%d 装甲师" }
+		10 = { "南非第%d 装甲师" }
+		11 = { "南非第%d 装甲师" }
+		12 = { "南非第%d 装甲师" }
+		13 = { "南非第%d 装甲师" }
+		14 = { "南非第%d 装甲师" }
+		15 = { "南非第%d 装甲师" }
+		16 = { "南非第%d 装甲师" }
+		17 = { "南非第%d 装甲师" }
+		18 = { "南非第%d 装甲师" }
+		19 = { "南非第%d 装甲师" }
+		20 = { "南非第%d 装甲师" }
+		21 = { "南非第%d 装甲师" }
+		22 = { "南非第%d 装甲师" }
+		23 = { "南非第%d 装甲师" }
+		24 = { "南非第%d 装甲师" }
+		25 = { "南非第%d 装甲师" }
+		26 = { "南非第%d 装甲师" }
+		27 = { "南非第%d 装甲师" }
+		28 = { "南非第%d 装甲师" }
+		29 = { "南非第%d 装甲师" }
+		30 = { "南非第%d 装甲师" }
+		31 = { "南非第%d 装甲师" }
+		32 = { "南非第%d 装甲师" }
+		33 = { "南非第%d 装甲师" }
+
+		# Historically, only the 6th was armoured, but suspect they intended to have a linked number system (as per the Canadians) but started their armoured units a bit later in the sequence - this is a guess though.
+	}
+}
+
+SAF_MEC_01 = 
+{
+	name = "机械化部队"
+
+	for_countries = { SAF }
+
+	can_use = { always = yes }
+
+	division_types = { "mechanized"  }
+
+	# Number reservation system will tie to another group.
+	link_numbering_with = { SAF_INF_01  }
+
+	fallback_name = "南非第%d 机械化步兵师"
+
+	# Names with numbers (only one number per entry). 
+	# It's okay to have gaps in numbering.
+	ordered =
+	{
+		6 = { "南非第%d 机械化步兵师" }
+		7 = { "南非第%d 机械化步兵师" }
+		8 = { "南非第%d 机械化步兵师" }
+		9 = { "南非第%d 机械化步兵师" }
+		10 = { "南非第%d 机械化步兵师" }
+		11 = { "南非第%d 机械化步兵师" }
+		12 = { "南非第%d 机械化步兵师" }
+		13 = { "南非第%d 机械化步兵师" }
+		14 = { "南非第%d 机械化步兵师" }
+		15 = { "南非第%d 机械化步兵师" }
+		16 = { "南非第%d 机械化步兵师" }
+		17 = { "南非第%d 机械化步兵师" }
+		18 = { "南非第%d 机械化步兵师" }
+		19 = { "南非第%d 机械化步兵师" }
+		20 = { "南非第%d 机械化步兵师" }
+		21 = { "南非第%d 机械化步兵师" }
+		22 = { "南非第%d 机械化步兵师" }
+		23 = { "南非第%d 机械化步兵师" }
+		24 = { "南非第%d 机械化步兵师" }
+		25 = { "南非第%d 机械化步兵师" }
+		26 = { "南非第%d 机械化步兵师" }
+		27 = { "南非第%d 机械化步兵师" }
+		28 = { "南非第%d 机械化步兵师" }
+		29 = { "南非第%d 机械化步兵师" }
+		30 = { "南非第%d 机械化步兵师" }
+		31 = { "南非第%d 机械化步兵师" }
+		32 = { "南非第%d 机械化步兵师" }
+		33 = { "南非第%d 机械化步兵师" }
+
+		# None historically. List starts from 6 to be consistent with armoured list starting at the same spot.
+	}
+}
+
+SAF_GAR_01 = 
+{
+	name = "守备部队"
+
+	for_countries = { SAF }
+
+	can_use = { always = yes }
+
+	division_types = { "infantry" }
+
+	# Number reservation system will tie to another group.
+	#link_numbering_with = { SAF_INF_01 }
+
+	fallback_name = "南非第%d 守备师"
+
+	# Names with numbers (only one number per entry). 
+	# It's okay to have gaps in numbering.
+	ordered =
+	{
+		1 = { "海角司令部" }
+		2 = { "纳塔尔司令部" }
+		3 = { "橙色自由州司令部" }
+		4 = { "东部省司令部" }
+		5 = { "RH-德兰士瓦司令部" }
+		6 = { "威特沃特斯兰德司令部" }
+		7 = { "南非第%d 守备师" }
+		8 = { "南非第%d 守备师" }
+		9 = { "南非第%d 守备师" }
+		10 = { "南非第%d 守备师" }
+		11 = { "南非第%d 守备师" }
+		12 = { "南非第%d 守备师" }
+		13 = { "南非第%d 守备师" }
+		14 = { "南非第%d 守备师" }
+		15 = { "南非第%d 守备师" }
+		16 = { "南非第%d 守备师" }
+		17 = { "南非第%d 守备师" }
+		18 = { "南非第%d 守备师" }
+		19 = { "南非第%d 守备师" }
+		20 = { "南非第%d 守备师" }
+		21 = { "南非第%d 守备师" }
+		22 = { "南非第%d 守备师" }
+		23 = { "南非第%d 守备师" }
+		24 = { "南非第%d 守备师" }
+		25 = { "南非第%d 守备师" }
+		26 = { "南非第%d 守备师" }
+		27 = { "南非第%d 守备师" }
+		28 = { "南非第%d 守备师" }
+		29 = { "南非第%d 守备师" }
+		30 = { "南非第%d 守备师" }
+		31 = { "南非第%d 守备师" }
+		32 = { "南非第%d 守备师" }
+		33 = { "南非第%d 守备师" }
+		34 = { "南非第%d 守备师" }
+		35 = { "南非第%d 守备师" }
+		36 = { "南非第%d 守备师" }
+		37 = { "南非第%d 守备师" }
+		38 = { "南非第%d 守备师" }
+		39 = { "南非第%d 守备师" }
+		40 = { "南非第%d 守备师" }
+		41 = { "南非第%d 守备师" }
+		42 = { "南非第%d 守备师" }
+		43 = { "南非第%d 守备师" }
+		44 = { "南非第%d 守备师" }
+		45 = { "南非第%d 守备师" }
+		46 = { "南非第%d 守备师" }
+		47 = { "南非第%d 守备师" }
+		48 = { "南非第%d 守备师" }
+		49 = { "南非第%d 守备师" }
+		51 = { "南非第%d 守备师" }
+		52 = { "南非第%d 守备师" }
+		53 = { "南非第%d 守备师" }
+
+		# SAF has six named 'commands' that were more-or-less garrison forces. After that, have used a generic 'xth District Force' structure.
+	}
+}
+
+SAF_MAR_01 = 
+{
+	name = "海军陆战部队"
+
+	for_countries = { SAF }
+
+	can_use = { always = yes }
+
+	division_types = { "marine" }
+
+	# Number reservation system will tie to another group.
+	#link_numbering_with = { SAF_GAR_01 }
+
+	fallback_name = "南非皇家海军第%d 陆战师"
+
+	# Names with numbers (only one number per entry). 
+	# It's okay to have gaps in numbering.
+	ordered =
+	{
+		1 = { "南非皇家海军第%d 陆战师" }
+		2 = { "南非皇家海军第%d 陆战师" }
+		3 = { "南非皇家海军第%d 陆战师" }
+		4 = { "南非皇家海军第%d 陆战师" }
+		5 = { "南非皇家海军第%d 陆战师" }
+		6 = { "南非皇家海军第%d 陆战师" }
+		7 = { "南非皇家海军第%d 陆战师" }
+		8 = { "南非皇家海军第%d 陆战师" }
+		9 = { "南非皇家海军第%d 陆战师" }
+		10 = { "南非皇家海军第%d 陆战师" }
+		11 = { "南非皇家海军第%d 陆战师" }
+		12 = { "南非皇家海军第%d 陆战师" }
+		13 = { "南非皇家海军第%d 陆战师" }
+		14 = { "南非皇家海军第%d 陆战师" }
+		15 = { "南非皇家海军第%d 陆战师" }
+		16 = { "南非皇家海军第%d 陆战师" }
+		17 = { "南非皇家海军第%d 陆战师" }
+		18 = { "南非皇家海军第%d 陆战师" }
+		19 = { "南非皇家海军第%d 陆战师" }
+		20 = { "南非皇家海军第%d 陆战师" }
+		21 = { "南非皇家海军第%d 陆战师" }
+		22 = { "南非皇家海军第%d 陆战师" }
+		23 = { "南非皇家海军第%d 陆战师" }
+		24 = { "南非皇家海军第%d 陆战师" }
+		25 = { "南非皇家海军第%d 陆战师" }
+		26 = { "南非皇家海军第%d 陆战师" }
+		27 = { "南非皇家海军第%d 陆战师" }
+		28 = { "南非皇家海军第%d 陆战师" }
+		29 = { "南非皇家海军第%d 陆战师" }
+		30 = { "南非皇家海军第%d 陆战师" }
+
+		# SAF didn't have any Marine divisions, these are all fictional.  Based on HoI3 lists, numbering independent of main sequence.
+	}
+}
+
+SAF_MTN_01 = 
+{
+	name = "山地部队"
+
+	for_countries = { SAF }
+
+	can_use = { always = yes }
+
+	division_types = { "mountaineers" }
+
+	# Number reservation system will tie to another group.
+	link_numbering_with = { SAF_INF_01  }
+
+	fallback_name = "南非第%d 山地步兵师"
+
+	# Names with numbers (only one number per entry). 
+	# It's okay to have gaps in numbering.
+	ordered =
+	{
+		1 = { "南非第%d 山地步兵师" }
+		2 = { "南非第%d 山地步兵师" }
+		3 = { "南非第%d 山地步兵师" }
+		4 = { "南非第%d 山地步兵师" }
+		5 = { "南非第%d 山地步兵师" }
+		6 = { "南非第%d 山地步兵师" }
+		7 = { "南非第%d 山地步兵师" }
+		8 = { "南非第%d 山地步兵师" }
+		9 = { "南非第%d 山地步兵师" }
+		10 = { "南非第%d 山地步兵师" }
+		11 = { "南非第%d 山地步兵师" }
+		12 = { "南非第%d 山地步兵师" }
+		13 = { "南非第%d 山地步兵师" }
+		14 = { "南非第%d 山地步兵师" }
+		15 = { "南非第%d 山地步兵师" }
+		16 = { "南非第%d 山地步兵师" }
+		17 = { "南非第%d 山地步兵师" }
+		18 = { "南非第%d 山地步兵师" }
+		19 = { "南非第%d 山地步兵师" }
+		20 = { "南非第%d 山地步兵师" }
+		21 = { "南非第%d 山地步兵师" }
+		22 = { "南非第%d 山地步兵师" }
+		23 = { "南非第%d 山地步兵师" }
+		24 = { "南非第%d 山地步兵师" }
+		25 = { "南非第%d 山地步兵师" }
+		26 = { "南非第%d 山地步兵师" }
+		27 = { "南非第%d 山地步兵师" }
+		28 = { "南非第%d 山地步兵师" }
+		29 = { "南非第%d 山地步兵师" }
+		30 = { "南非第%d 山地步兵师" }
+		31 = { "南非第%d 山地步兵师" }
+		32 = { "南非第%d 山地步兵师" }
+		33 = { "南非第%d 山地步兵师" }
+		34 = { "南非第%d 山地步兵师" }
+		35 = { "南非第%d 山地步兵师" }
+		36 = { "南非第%d 山地步兵师" }
+		37 = { "南非第%d 山地步兵师" }
+		38 = { "南非第%d 山地步兵师" }
+		39 = { "南非第%d 山地步兵师" }
+		40 = { "南非第%d 山地步兵师" }
+		41 = { "南非第%d 山地步兵师" }
+		42 = { "南非第%d 山地步兵师" }
+		43 = { "南非第%d 山地步兵师" }
+		44 = { "南非第%d 山地步兵师" }
+		45 = { "南非第%d 山地步兵师" }
+		46 = { "南非第%d 山地步兵师" }
+		47 = { "南非第%d 山地步兵师" }
+		48 = { "南非第%d 山地步兵师" }
+		49 = { "南非第%d 山地步兵师" }
+		50 = { "南非第%d 山地步兵师" }
+		51 = { "南非第%d 山地步兵师" }
+		52 = { "南非第%d 山地步兵师" }
+		53 = { "南非第%d 山地步兵师" }
+
+		# None in service historically.  Uses main division sequencing.  Approach consistent with ENG and CAN.
+	}
+}
+
+SAF_PAR_01 = 
+{
+	name = "空降部队"
+
+	for_countries = { SAF }
+
+	can_use = { always = yes }
+
+	division_types = { "paratrooper" }
+
+	# Number reservation system will tie to another group.
+
+	fallback_name = "南非第%d 空降师"
+
+	# Names with numbers (only one number per entry). 
+	# It's okay to have gaps in numbering.
+	ordered =
+	{
+		1 = { "南非第%d 空降师" }
+		2 = { "南非第%d 空降师" }
+		3 = { "南非第%d 空降师" }
+		4 = { "南非第%d 空降师" }
+		5 = { "南非第%d 空降师" }
+		6 = { "南非第%d 空降师" }
+		7 = { "南非第%d 空降师" }
+		8 = { "南非第%d 空降师" }
+		9 = { "南非第%d 空降师" }
+		10 = { "南非第%d 空降师" }
+		11 = { "南非第%d 空降师" }
+		12 = { "南非第%d 空降师" }
+		13 = { "南非第%d 空降师" }
+		14 = { "南非第%d 空降师" }
+		15 = { "南非第%d 空降师" }
+		16 = { "南非第%d 空降师" }
+		17 = { "南非第%d 空降师" }
+		18 = { "南非第%d 空降师" }
+		19 = { "南非第%d 空降师" }
+		20 = { "南非第%d 空降师" }
+		21 = { "南非第%d 空降师" }
+		22 = { "南非第%d 空降师" }
+		23 = { "南非第%d 空降师" }
+		24 = { "南非第%d 空降师" }
+		25 = { "南非第%d 空降师" }
+		26 = { "南非第%d 空降师" }
+		27 = { "南非第%d 空降师" }
+		28 = { "南非第%d 空降师" }
+		29 = { "南非第%d 空降师" }
+		30 = { "南非第%d 空降师" }
+
+		# SAF didn't have any 空降部队.  Have independent sequence.
+	}
+}

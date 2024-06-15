@@ -1,0 +1,1376 @@
+﻿# Division template historical names system. Is a new method of naming the divisions based on the names-group assigned to it's template.
+# If we run out of all historical names, the names will be assigned in the old way.
+#
+# Each group has a made up tag. Use it if you want to append more, or replace existing names with the extra txt files (modding).
+#
+# for_countries - lists all countries that can use it. If empty, or entire tag is missing, all countries in the world can use it.
+#
+# can_use - is a trigger that locks/unlocks the group under specific circumstances. The trigger is in a country scope.
+#
+# division_types - is a list of tokens to corresponding unit types. A player can in fact use any group of names for a div.template
+#                  however this tag is a helper for an automated choice (for AI, or if the group must switch on it's own, because
+#                  for example the current one is no longer available due to the can_use trigger saying so).
+#                  In automated choice, the division template must have at least 1 of the following types for it to be chosen.
+#
+# fallback_name - Is going to be used if we run out of the scripted historical names. If you want to use the old division naming
+#                 mechanics to be used for fallbacks, then just skip this option.
+#
+# unordered - It's a list of historical division names that did not have a number. Regardless if such names happened in history or not
+#             this option is available here mainly for a mods.
+#
+# ordered - Is a list of all historical names. 
+#           Numbers must start from 1 and up. 
+#           Numbers can't repeat in one scope.
+#           If you script the name for this group, at the same number (for example in a mod in another file), the name will be override.
+#           All arguments between the brackets must be separated by spaces. Each argument is wrapped in "quotas".
+#           1st argument = The name. It must contain either: 
+#                          %d (for decimal number placement)
+#                          %s (for string number placement - ROMAN numbers like XIV).
+#           2nd argument is optional = A localizable text describing this historical division. The text will be visible in the tooltip
+#                                      where you choose the historical division name.
+#           3rd argument is optional = An URL preferably pointing to the WIKI. It's a future feature that is not currently working in
+#                                      the current game version.
+
+GER_Inf_01 = 
+{
+	name = "步兵部队"
+
+	for_countries = { GER }
+
+	can_use = { always = yes }
+
+	division_types = { "infantry" }
+
+	# Number reservation system will tie to another group.
+	#link_numbering_with = { GER_Gar_01 }
+
+	fallback_name = "第%d 步兵师"
+
+	# Names with numbers (only one number per entry). 
+	# It's okay to have gaps in numbering.
+	ordered =
+	{
+		1 = { "第%d 步兵师" }
+		2 = { "第%d 步兵师" }
+		3 = { "第%d 步兵师" }
+		4 = { "第%d 步兵师" }
+		5 = { "第%d 步兵师" }
+		6 = { "第%d 步兵师" }
+		7 = { "第%d 步兵师" }
+		8 = { "第%d 步兵师" }
+		9 = { "第%d 步兵师" }
+		10 = { "第%d 步兵师" }
+		11 = { "第%d 步兵师" }
+		12 = { "第%d 步兵师" }
+		13 = { "第%d 步兵师" }
+		14 = { "第%d 步兵师" }
+		15 = { "第%d 步兵师" }
+		16 = { "第%d 步兵师" }
+		17 = { "第%d 步兵师" }
+		18 = { "第%d 步兵师" }
+		19 = { "第%d 步兵师" }
+		20 = { "第%d 步兵师" }
+		21 = { "第%d 步兵师" }
+		22 = { "第%d 步兵师" }
+		23 = { "第%d 步兵师" }
+		24 = { "第%d 步兵师" }
+		25 = { "第%d 步兵师" }
+		26 = { "第%d 步兵师" }
+		33 = { "第%d 步兵师" }
+		34 = { "第%d 步兵师" }
+		27 = { "第%d 步兵师" }
+		28 = { "第%d 步兵师" }
+		29 = { "第%d 步兵师" }
+		30 = { "第%d 步兵师" }
+		31 = { "第%d 步兵师" }
+		32 = { "第%d 步兵师" }
+		35 = { "第%d 步兵师" }
+		36 = { "第%d 步兵师" }
+		44 = { "第%d 步兵师" }
+		45 = { "第%d 步兵师" }
+		46 = { "第%d 步兵师" }
+		61 = { "第%d 步兵师" }
+		50 = { "第%d 步兵师" }
+		52 = { "第%d 步兵师" }
+		56 = { "第%d 步兵师" }
+		57 = { "第%d 步兵师" }
+		58 = { "第%d 步兵师" }
+		62 = { "第%d 步兵师" }
+		68 = { "第%d 步兵师" }
+		69 = { "第%d 步兵师" }
+		71 = { "第%d 步兵师" }
+		73 = { "第%d 步兵师" }
+		75 = { "第%d 步兵师" }
+		76 = { "第%d 步兵师" }
+		78 = { "第%d 步兵师" }
+		79 = { "第%d 步兵师" }
+		86 = { "第%d 步兵师" }
+		87 = { "第%d 步兵师" }
+		206 = { "第%d 步兵师" }
+		207 = { "第%d 步兵师" }
+		208 = { "第%d 步兵师" }
+		209 = { "第%d 步兵师" }
+		211 = { "第%d 步兵师" }
+		212 = { "第%d 步兵师" }
+		213 = { "第%d 步兵师" }
+		214 = { "第%d 步兵师" }
+		215 = { "第%d 步兵师" }
+		216 = { "第%d 步兵师" }
+		217 = { "第%d 步兵师" }
+		218 = { "第%d 步兵师" }
+		221 = { "第%d 步兵师" }
+		223 = { "第%d 步兵师" }
+		225 = { "第%d 步兵师" }
+		227 = { "第%d 步兵师" }
+		228 = { "第%d 步兵师" }
+		231 = { "第%d 步兵师" }
+		239 = { "第%d 步兵师" }
+		246 = { "第%d 步兵师" }
+		251 = { "第%d 步兵师" }
+		252 = { "第%d 步兵师" }
+		253 = { "第%d 步兵师" }
+		254 = { "第%d 步兵师" }
+		255 = { "第%d 步兵师" }
+		256 = { "第%d 步兵师" }
+		257 = { "第%d 步兵师" }
+		258 = { "第%d 步兵师" }
+		260 = { "第%d 步兵师" }
+		262 = { "第%d 步兵师" }
+		263 = { "第%d 步兵师" }
+		267 = { "第%d 步兵师" }
+		268 = { "第%d 步兵师" }
+		269 = { "第%d 步兵师" }
+		93 = { "第%d 步兵师" }
+		94 = { "第%d 步兵师" }
+		98 = { "第%d 步兵师" }
+		72 = { "第%d 步兵师" }
+		95 = { "第%d 步兵师" }
+		96 = { "第%d 步兵师" }
+		60 = { "第%d 步兵师" }
+		163 = { "第%d 步兵师" }
+		167 = { "第%d 步兵师" }
+		164 = { "第%d 步兵师" }
+		196 = { "第%d 步兵师" }
+		183 = { "第%d 步兵师" }
+		81 = { "第%d 步兵师" }
+		82 = { "第%d 步兵师" }
+		83 = { "第%d 步兵师" }
+		88 = { "第%d 步兵师" }
+		162 = { "第%d 步兵师" }
+		168 = { "第%d 步兵师" }
+		170 = { "第%d 步兵师" }
+		181 = { "第%d 步兵师" }
+		197 = { "第%d 步兵师" }
+		198 = { "第%d 步兵师" }
+		169 = { "第%d 步兵师" }
+		161 = { "第%d 步兵师" }
+		205 = { "第%d 步兵师" }
+		297 = { "第%d 步兵师" }
+		290 = { "第%d 步兵师" }
+		291 = { "第%d 步兵师" }
+		292 = { "第%d 步兵师" }
+		294 = { "第%d 步兵师" }
+		296 = { "第%d 步兵师" }
+		298 = { "第%d 步兵师" }
+		293 = { "第%d 步兵师" }
+		299 = { "第%d 步兵师" }
+		295 = { "第%d 步兵师" }
+		121 = { "第%d 步兵师" }
+		131 = { "第%d 步兵师" }
+		132 = { "第%d 步兵师" }
+		134 = { "第%d 步兵师" }
+		123 = { "第%d 步兵师" }
+		122 = { "第%d 步兵师" }
+		137 = { "第%d 步兵师" }
+		100 = { "第%d 轻步兵师" }
+		126 = { "第%d 步兵师" }
+		125 = { "第%d 步兵师" }
+		129 = { "第%d 步兵师" }
+		199 = { "第%d 步兵师" }
+		111 = { "第%d 步兵师" }
+		302 = { "第%d 步兵师" }
+		304 = { "第%d 步兵师" }
+		306 = { "第%d 步兵师" }
+		319 = { "第%d 步兵师" }
+		332 = { "第%d 步兵师" }
+		333 = { "第%d 步兵师" }
+		340 = { "第%d 步兵师" }
+		337 = { "第%d 步兵师" }
+		99 = { "第%d 轻步兵师" }
+		342 = { "第%d 步兵师" }
+		335 = { "第%d 步兵师" }
+		106 = { "第%d 步兵师" }
+		320 = { "第%d 步兵师" }
+		97 = { "第%d 轻步兵师" }
+		101 = { "第%d 轻步兵师" }
+		110 = { "第%d 步兵师" }
+		112 = { "第%d 步兵师" }
+		113 = { "第%d 步兵师" }
+		102 = { "第%d 步兵师" }
+		305 = { "第%d 步兵师" }
+		323 = { "第%d 步兵师" }
+		336 = { "第%d 步兵师" }
+		339 = { "第%d 步兵师" }
+		321 = { "第%d 步兵师" }
+		718 = { "第%d 步兵师" }
+		704 = { "第%d 步兵师" }
+		702 = { "第%d 步兵师" }
+		711 = { "第%d 步兵师" }
+		714 = { "第%d 步兵师" }
+		707 = { "第%d 步兵师" }
+		708 = { "第%d 步兵师" }
+		709 = { "第%d 步兵师" }
+		710 = { "第%d 步兵师" }
+		713 = { "第%d 步兵师" }
+		716 = { "第%d 步兵师" }
+		719 = { "第%d 步兵师" }
+		715 = { "第%d 步兵师" }
+		717 = { "第%d 步兵师" }
+		328 = { "第%d 步兵师" }
+		329 = { "第%d 步兵师" }
+		330 = { "第%d 步兵师" }
+		331 = { "第%d 步兵师" }
+		416 = { "第%d 步兵师" }
+		384 = { "第%d 步兵师" }
+		385 = { "第%d 步兵师" }
+		383 = { "第%d 步兵师" }
+		389 = { "第%d 步兵师" }
+		387 = { "第%d 步兵师" }
+		370 = { "第%d 步兵师" }
+		371 = { "第%d 步兵师" }
+		376 = { "第%d 步兵师" }
+		377 = { "第%d 步兵师" }
+		38 = { "第%d 步兵师" }
+		39 = { "第%d 步兵师" }
+		65 = { "第%d 步兵师" }
+		348 = { "第%d 步兵师" }
+		346 = { "第%d 步兵师" }
+		344 = { "第%d 步兵师" }
+		343 = { "第%d 步兵师" }
+		909 = { "第1 空军野战师" }
+		910 = { "第2 空军野战师" }
+		911 = { "第3 空军野战师" }
+		912 = { "第4 空军野战师" }
+		914 = { "第6 空军野战师" }
+		913 = { "第5 空军野战师" }
+		915 = { "第7 空军野战师" }
+		917 = { "第9 空军野战师" }
+		919 = { "第11 空军野战师" }
+		920 = { "第12 空军野战师" }
+		923 = { "第15 空军野战师" }
+		347 = { "第%d 步兵师" }
+		916 = { "第8 空军野战师" }
+		326 = { "第%d 步兵师" }
+		338 = { "第%d 步兵师" }
+		921 = { "第13 空军野战师" }
+		922 = { "第14 空军野战师" }
+		334 = { "第%d 步兵师" }
+		918 = { "第10 空军野战师" }
+		924 = { "第16 空军野战师" }
+		925 = { "第17 空军野战师" }
+		926 = { "第18 空军野战师" }
+		929 = { "第21 空军野战师" }
+		282 = { "第%d 步兵师" }
+		355 = { "第%d 步兵师" }
+		927 = { "第19 空军野战师" }
+		928 = { "第20 空军野战师" }
+		356 = { "第%d 步兵师" }
+		264 = { "第%d 步兵师" }
+		265 = { "第%d 步兵师" }
+		266 = { "第%d 步兵师" }
+		274 = { "第%d 步兵师" }
+		242 = { "第%d 步兵师" }
+		243 = { "第%d 步兵师" }
+		244 = { "第%d 步兵师" }
+		245 = { "第%d 步兵师" }
+		352 = { "第%d 步兵师" }
+		353 = { "第%d 步兵师" }
+		357 = { "第%d 步兵师" }
+		359 = { "第%d 步兵师" }
+		362 = { "第%d 步兵师" }
+		367 = { "第%d 步兵师" }
+		271 = { "第%d 步兵师" }
+		272 = { "第%d 步兵师" }
+		275 = { "第%d 步兵师" }
+		276 = { "第%d 步兵师" }
+		277 = { "第%d 步兵师" }
+		278 = { "第%d 步兵师" }
+		349 = { "第%d 步兵师" }
+		361 = { "第%d 步兵师" }
+		363 = { "第%d 步兵师" }
+		77 = { "第%d 步兵师" }
+		89 = { "第%d 步兵师" }
+		91 = { "第%d 步兵师" }
+		92 = { "第%d 步兵师" }
+		47 = { "第%d 步兵师" }
+		48 = { "第%d 步兵师" }
+		49 = { "第%d 步兵师" }
+		84 = { "第%d 步兵师" }
+		85 = { "第%d 步兵师" }
+		237 = { "第%d 步兵师" }
+		59 = { "第%d 步兵师" }
+		64 = { "第%d 步兵师" }
+		226 = { "第%d 步兵师" }
+		232 = { "第%d 步兵师" }
+		541 = { "第%d 掷弹兵师" }
+		544 = { "第%d 掷弹兵师" }
+		545 = { "第%d 掷弹兵师" }
+		547 = { "第%d 掷弹兵师" }
+		548 = { "第%d 掷弹兵师" }
+		549 = { "第%d 掷弹兵师" }
+		551 = { "第%d 掷弹兵师" }
+		553 = { "第%d 掷弹兵师" }
+		558 = { "第%d 掷弹兵师" }
+		559 = { "第%d 掷弹兵师" }
+		561 = { "第%d 掷弹兵师" }
+		562 = { "第%d 掷弹兵师" }
+		70 = { "第%d 步兵师" }
+		542 = { "第%d 步兵师" }
+		563 = { "第%d 掷弹兵师" }
+		148 = { "第%d 步兵师" }
+		189 = { "第%d 步兵师" }
+		159 = { "第%d 步兵师" }
+		176 = { "第%d 步兵师" }
+		180 = { "第%d 步兵师" }
+		190 = { "第%d 步兵师" }
+		286 = { "第%d 步兵师" }
+		203 = { "第%d 步兵师" }
+		41 = { "第%d 步兵师" }
+		281 = { "第%d 步兵师" }
+		303 = { "第303 '德贝里茨' 步兵师" }
+		309 = { "第309 '柏林' 步兵师" }
+		947 = { "第1 海军步兵师" }
+		153 = { "第%d 掷弹兵师" }
+		154 = { "第%d 步兵师" }
+		155 = { "第%d 步兵师" }
+		948 = { "第2 海军步兵师" }
+		324 = { "第324 '汉堡' 步兵师" }
+		160	= { "第%d 步兵师" }
+		166 = { "第%d 步兵师" }
+		949 = { "第3 海军步兵师" }
+		156 = { "第%d 步兵师" }
+		903 = { "'波茨坦' 步兵师" }
+		904 = { "'沙恩霍斯特' 步兵师" }
+		905 = { "'乌尔里希·冯·赫滕' 步兵师" }
+		901 = { "'弗里德里希·路德维希·雅恩' 步兵师" }
+		907 = { "'西奥多·科纳' 步兵师" }
+		906 = { "'施拉格特' 步兵师" }
+		930 = { "第1 空军训练师" }
+		900 = { "'斐迪南·冯·席尔' 步兵师" }
+		902 = { "'居斯特罗' 步兵师" }
+		
+		# divisions are put in the order they were raised, which was NOT consecutive historically due to the vagaries of the German mobilization system
+		# leaving out 250. Infanterie-Division (Azul) as the existence of this division depends upon a not guaranteed Francoist victory in Spain, plus can be simulated by expeditionary forces
+		# deleted 369., 373., 392. Infanterie-Division (kroatische) for the same reasons as Division Azul.
+		# deleted 162. (Turk.) ID because its existence depends on German occupation of certain areas they may not go in game.
+		# omitted noncombat "shadow divisions" and holding units raised to fill up combat units
+		# ad hoc divisional sized Kampfgruppe such as "Division von Broich" deleted as their temporary existence was highly dependent on unique historical circumstances that are not guaranteed to be replicated in game
+		# deleted Landesschützen, training/holding divisions with a super short life and no combat record, "infantry divisions" that were ad hoc collections of fortress/coast defense units in Norway, etc
+		# deleted some 500-series Grenadier Divisions as they were almost immediately converted to Volksgrenadier
+		# deleted Sturm-Division Rhodos as it was made from a collection of Aegean island garrison troops not guaranteed to exist in game
+		# deleted 999. leichte Afrika-Division as Germany is not guaranteed to go to Africa
+		# deleted 99. leichte as it was soon converted in to 7. Gebirgs-Division
+		# added 1-3. Marine-Infanterie-Division to the infantry list, as they were ground combat units formed from surplus naval personnel at the end of the war, not "Marines" in the proper sense. 11. and 16. Divisions were deleted as they were most likely camouflage/deception units that never saw combat.
+	}
+}
+
+GER_ALTINF_01 = 
+{
+	name = "后期步兵部队"
+
+	for_countries = { GER }
+
+	can_use = { always = yes }
+
+	division_types = { "infantry"  }
+
+	fallback_name = "第%d 国民掷弹兵师"
+
+	link_numbering_with = { GER_Inf_01 }
+
+	# Names with numbers (only one number per entry)
+	ordered =
+	{
+		22 = { "第%d 空军步兵师" }
+		78 = { "第%d 突击师" }
+		44 = { "第44 '德意志最高条顿骑士团长' 帝国掷弹兵师" }
+		91 = { "第%d 空军步兵师" }
+		944 = { "第19 空军突击师" }
+		945 = { "第%d 空军突击师" }
+		560 = { "第%d 国民掷弹兵师" }
+		12 = { "第%d 国民掷弹兵师" }
+		361 = { "第%d 国民掷弹兵师" }
+		18 = { "第%d 国民掷弹兵师" }
+		276 = { "第%d 国民掷弹兵师" }
+		277 = { "第%d 国民掷弹兵师" }
+		326 = { "第%d 国民掷弹兵师" }
+		708 = { "第%d 国民掷弹兵师" }
+		349 = { "第%d 国民掷弹兵师" }
+		183 = { "第%d 国民掷弹兵师" }
+		246 = { "第%d 国民掷弹兵师" }
+		337 = { "第%d 国民掷弹兵师" }
+		340 = { "第%d 国民掷弹兵师" }
+		26 = { "第%d 国民掷弹兵师" }
+		47 = { "第%d 国民掷弹兵师" }
+		212 = { "第%d 国民掷弹兵师" }
+		256 = { "第%d 国民掷弹兵师" }
+		271 = { "第%d 国民掷弹兵师" }
+		272 = { "第%d 国民掷弹兵师" }
+		363 = { "第%d 国民掷弹兵师" }
+		352 = { "第%d 国民掷弹兵师" }
+		62 = { "第%d 国民掷弹兵师" }
+		6 = { "第%d 国民掷弹兵师" }
+		16 = { "第%d 国民掷弹兵师" }
+		19 = { "第%d 国民掷弹兵师" }
+		31 = { "第%d 国民掷弹兵师" }
+		36 = { "第%d 国民掷弹兵师" }
+		61 = { "第%d 国民掷弹兵师" }
+		541 = { "第%d 国民掷弹兵师" }
+		542 = { "第%d 国民掷弹兵师" }
+		544 = { "第%d 国民掷弹兵师" }
+		545 = { "第%d 国民掷弹兵师" }
+		547 = { "第%d 国民掷弹兵师" }
+		548 = { "第%d 国民掷弹兵师" }
+		549 = { "第%d 国民掷弹兵师" }
+		551 = { "第%d 国民掷弹兵师" }
+		553 = { "第%d 国民掷弹兵师" }
+		558 = { "第%d 国民掷弹兵师" }
+		559 = { "第%d 国民掷弹兵师" }
+		561 = { "第%d 国民掷弹兵师" }
+		562 = { "第%d 国民掷弹兵师" }
+		563 = { "第%d 国民掷弹兵师" }
+		9 = { "第%d 国民掷弹兵师" }
+		257 = { "第%d 国民掷弹兵师" }
+		45 = { "第%d 国民掷弹兵师" }
+		79 = { "第%d 国民掷弹兵师" }
+		320 = { "第%d 国民掷弹兵师" }
+		167 = { "第%d 国民掷弹兵师" }
+		462 = { "第%d 国民掷弹兵师" }
+		211 = { "第%d 国民掷弹兵师" }
+		98 = { "第%d 国民掷弹兵师" }
+		46 = { "第%d 国民掷弹兵师" }
+		278 = { "第%d 国民掷弹兵师" }
+		334 = { "第%d 国民掷弹兵师" }
+		347 = { "第%d 国民掷弹兵师" }
+
+		# deleted some 500-series Volks-Grenadier-Divisions because they were renumbered within a month of being formed to match the old numbers of decimated/destroyed infantry divisions they were earmarked to replace.
+		
+	}
+}
+
+
+GER_LTINF_01 = 
+{
+	name = "猎兵部队"
+
+	for_countries = { GER }
+
+	can_use = { always = yes }
+
+	division_types = { "infantry"  }
+
+	fallback_name = "第%d 猎兵师"
+
+	link_numbering_with = { GER_Inf_01 }
+
+	# Names with numbers (only one number per entry)
+	ordered =
+	{
+	    8 = { "第%d 猎兵师" }
+		5 = { "第%d 猎兵师" }
+		28 = { "第%d 猎兵师" }
+		97 = { "第%d 猎兵师" }
+		100 = { "第%d 猎兵师" }
+		101 = { "第%d 猎兵师" }
+		104 = { "第%d 猎兵师" }
+		114 = { "第%d 猎兵师" }
+		117 = { "第%d 猎兵师" }
+		118 = { "第%d 猎兵师" }
+		42 = { "第%d 猎兵师" }
+		
+		# this was a small series of divisions raised/converted with only two regiments, reduced and decentralized heavy weapons and services for operating in rough terrain with bad roads. Not full mountain troops.
+		# some of these were renamed from leichte-Infanterie, some raised from scratch
+		
+	}
+}
+
+GER_MOT_01 = 
+{
+	name = "摩托化步兵部队"
+
+	for_countries = { GER }
+
+	can_use = {
+		OR = {
+			has_government = neutrality 
+			has_government = democratic 
+		}
+		has_completed_focus = GER_oppose_hitler
+	}
+
+	division_types = { "motorized"  }
+
+	fallback_name = "第%d 摩托化步兵师"
+
+	link_numbering_with = { GER_Inf_01 }
+
+	# Names with numbers (only one number per entry)
+	ordered =
+	{
+		2 = { "第%d 摩托化步兵师" }
+		13 = { "第%d 摩托化步兵师" }
+		20 = { "第%d 摩托化步兵师" }
+		29 = { "第%d 摩托化步兵师" }
+		16 = { "第%d 摩托化步兵师" }
+		60 = { "第%d 摩托化步兵师" }
+		14 = { "第%d 摩托化步兵师" }
+		3 = { "第%d 摩托化步兵师" }
+		18 = { "第%d 摩托化步兵师" }
+		36 = { "第%d 摩托化步兵师" }
+		10 = { "第%d 摩托化步兵师" }
+		25 = { "第%d 摩托化步兵师" }
+		90 = { "第%d 摩托化步兵师" }
+		932 = { "'大德意志' 步兵师" }
+		164 = { "第%d 摩托化步兵师" }
+		
+		# GD existed before 16.5.42 as a strong regiment, but this list is divisional sized units only so it was put in the raising order after it was upgraded to a full division.
+		# removed 'leichte Afrika' from the names of 90., 164. Divisions as their existence depends on historical events that may not occur in game
+		# surviving units of this type renamed to Panzergrenadier-Divisions in 1943
+	}
+}
+
+#Nazi Motorized
+GER_MOT_02 = 
+{
+	name = "摩托化步兵部队"
+
+	for_countries = { GER }
+
+	can_use = { has_government = fascism }
+
+	division_types = { "motorized"  }
+
+	fallback_name = "第%d 摩托化步兵师"
+
+	link_numbering_with = { GER_Inf_01 }
+
+	# Names with numbers (only one number per entry)
+	ordered =
+	{
+		1 = { "党卫队特别机动部队" }
+		2 = { "第%d 摩托化步兵师" }
+		13 = { "第%d 摩托化步兵师" }
+		20 = { "第%d 摩托化步兵师" }
+		29 = { "第%d 摩托化步兵师" }
+		16 = { "第%d 摩托化步兵师" }
+		60 = { "第%d 摩托化步兵师" }
+		14 = { "第%d 摩托化步兵师" }
+		3 = { "第%d 摩托化步兵师" }
+		18 = { "第%d 摩托化步兵师" }
+		36 = { "第%d 摩托化步兵师" }
+		10 = { "第%d 摩托化步兵师" }
+		25 = { "第%d 摩托化步兵师" }
+		90 = { "第%d 摩托化步兵师" }
+		932 = { "'大德意志' 步兵师" }
+		164 = { "第%d 摩托化步兵师" }
+		
+		# GD existed before 16.5.42 as a strong regiment, but this list is divisional sized units only so it was put in the raising order after it was upgraded to a full division.
+		# removed 'leichte Afrika' from the names of 90., 164. Divisions as their existence depends on historical events that may not occur in game
+		# surviving units of this type renamed to Panzergrenadier-Divisions in 1943
+	}
+}
+
+GER_MEC_01 = 
+{
+	name = "装甲掷弹兵部队"
+
+	for_countries = { GER }
+
+	can_use = { always = yes }
+
+	division_types = { "mechanized"  }
+
+	fallback_name = "第%d 装甲掷弹兵师"
+
+	link_numbering_with = { GER_Inf_01 }
+
+	# Names with numbers (only one number per entry)
+	ordered =
+	{
+		932 = { "'大德意志' 装甲掷弹兵师" }
+		10 = { "第%d 装甲掷弹兵师" }
+		60 = { "'统帅堂' 装甲掷弹兵师" }
+		3 = { "第%d 装甲掷弹兵师" }
+		16 = { "第%d 装甲掷弹兵师" }
+		18 = { "第%d 装甲掷弹兵师" }
+		25 = { "第%d 装甲掷弹兵师" }
+		29 = { "第%d 装甲掷弹兵师" }
+		90 = { "第%d 装甲掷弹兵师" }
+		15 = { "第%d 装甲掷弹兵师" }
+		20 = { "第%d 装甲掷弹兵师" }
+		931 = { "'勃兰登堡' 装甲掷弹兵师" }
+		933 = { "第2 '赫尔曼·戈林' 伞降装甲掷弹兵师" }
+		936 = { "元首护卫师" }
+		935 = { "元首掷弹兵师" }
+		934 = { "'选帝侯国' 装甲掷弹兵师" }
+		
+		# put all divisions titled 'Panzergrenadier" in this list to avoid confusion, even though some (GD, Brandenburg, etc) were full Panzer Divisions in organization.
+		
+	}
+}
+
+GER_Mnt_01 = 
+{
+	name = "山地部队"
+
+	for_countries = { GER }
+
+	can_use = { always = yes }
+
+	division_types = { "mountaineers"  }
+
+	fallback_name = "第%d 山地师"
+
+	# Names with numbers (only one number per entry)
+	ordered =
+	{
+		2 = { "第%d 山地师" }
+		3 = { "第%d 山地师" }
+		1 = { "第%d 山地师" }
+		6 = { "第%d 山地师" }
+		4 = { "第%d 山地师" }
+		5 = { "第%d 山地师" }
+		7 = { "第%d 山地师" }
+		188 = { "第%d 山地师" }
+		937 = { "第1 滑雪步兵师" }
+		8 = { "第%d 山地师" }
+		
+		# deleted 9. Gebirgs-Division because it was an ad-hoc grouping built in Lapland around the reinforced GJR 139, and only officially a "division" from one day before the end of the war. There was, interestingly, another ad-hoc 9. GJD formed in the final stage of the war with similarly mixed components. 
+		# deleted 157. GJD which was quickly renamed 8. GJD
+		
+	}
+}
+
+GER_MAR_01 = 
+{
+	name = "海军陆战部队"
+
+	for_countries = { GER }
+
+	can_use = { always = yes }
+
+	division_types = { "marine"  }
+
+	fallback_name = "海军第%d 陆战师"
+
+	# Names with numbers (only one number per entry)
+	ordered =
+	{
+		1 = { "海军第%d 陆战师" }
+		2 = { "海军第%d 陆战师" }
+		3 = { "海军第%d 陆战师" }
+		4 = { "海军第%d 陆战师" }
+		5 = { "海军第%d 陆战师" }
+		6 = { "海军第%d '胶州湾' 突击师" }
+		
+		# chose to remove the old name list entirely as it refers to late war improvised infantry units built from idle naval personnel, with little in the way of ground combat training. These in no way constitute a naval assault landing unit which is what Marines are, so in the ahistorical event that the player chooses to invest in a proper German Marine Corps, we gave them the name of "Sea Landing Division" to more correctly reflect the role. This frees up the KM infantry divisions for the normal infantry name list.
+	}
+}
+
+GER_PAR_01 = 
+{
+	name = "空军伞降部队"
+
+	for_countries = { GER }
+
+	can_use = { always = yes }
+
+	division_types = { "paratrooper"  }
+
+	fallback_name = "空军第%d 空降猎兵师"
+
+	# Names with numbers (only one number per entry)
+	ordered =
+	{
+		1 = { "空军第%d 空降猎兵师" }
+		2 = { "空军第%d 空降猎兵师" }
+		3 = { "空军第%d 空降猎兵师" }
+		4 = { "空军第%d 空降猎兵师" }
+		5 = { "空军第%d 空降猎兵师" }
+		6 = { "空军第%d 空降猎兵师" }
+		7 = { "空军第%d 空降猎兵师" }
+		8 = { "空军第%d 空降猎兵师" }
+		9 = { "空军第%d 空降猎兵师" }
+		10 = { "空军第%d 空降猎兵师" }
+		11 = { "空军第%d 空降猎兵师" }
+		20 = { "空军第%d 空降猎兵师" }
+		
+		# sadly had to leave out 7. Flieger-Division, the original name of 1. FJD, as it wouldn't be worth the interface clutter to have an alternate name list with one division in it. Put it first in the name list despite formally receiving the 1. FJD designation after 2. Fallschirm-Division was formed, so at least it gets built first. 
+		# considered making 5th Division and above actually part of the infantry list since historically they had almost no jump trained personnel, but since this would conflict with players who might invest in a larger than historical airborne arm, decided against this.
+		# deleted Fallschirm-Division Erdmann as it was an unusually large Kampfgruppe raised in response to an operational crisis (Market-Garden), and not a properly planned and raised division. It was soon renamed 7. FJD.
+	}
+}
+
+GER_GAR_01 = 
+{
+	name = "守备部队"
+
+	for_countries = { GER }
+
+	can_use = { always = yes }
+
+	division_types = { "infantry"  }
+
+	fallback_name = "第%d 安全守备师"
+
+	link_numbering_with = { GER_Inf_01 }
+
+	# Names with numbers (only one number per entry)
+	ordered =
+	{
+		539 = { "党卫军第539 守备师" }
+		540 = { "党卫军第540 守备师" }
+		442 = { "党卫军第442 守备师" }
+		431 = { "党卫军第431 守备师" }
+		429 = { "党卫军第429 守备师" }
+		428 = { "党卫军第428 守备师" }
+		430 = { "党卫军第430 守备师" }
+		432 = { "党卫军第432 守备师" }
+		207 = { "第%d 安全守备师" }
+		213 = { "第%d 安全守备师" }
+		221 = { "第%d 安全守备师" }
+		281 = { "第%d 安全守备师" }
+		285 = { "第%d 安全守备师" }
+		286 = { "第%d 安全守备师" }
+		403 = { "第%d 安全守备师" }
+		444 = { "第%d 安全守备师" }
+		454 = { "第%d 安全守备师" }
+		230 = { "第%d 要塞步兵师" } 
+		201 = { "第%d 安全守备师" }
+		203 = { "第%d 安全守备师" }
+		210 = { "第%d 要塞步兵师" } 
+		325 = { "第%d 安全守备师" }
+		391 = { "第%d 野战训练师" }
+		390 = { "第%d 野战训练师" }
+		381 = { "第%d 野战训练师" }
+		382 = { "第%d 野战训练师" }
+		388 = { "第%d 野战训练师" }
+		154 = { "第%d 预备师" }
+		26 = { "第174 预备师" }
+		143 = { "第%d 预备师" }
+		68 = { "第141 预备师" }
+		151 = { "第%d 预备师" }
+		189 = { "第%d 预备师" }
+		363 = { "第147 预备师" }
+		148 = { "第%d 预备师" }
+		8 = { "第157 预备师" }
+		16 = { "第158 预备师" }
+		159 = { "第%d 预备师" }
+		48 = { "第171 预备师" }
+		42 = { "第187 预备师" }
+		49 = { "第191 预备师" }
+		70 = { "第165 预备师" }
+		47 = { "第156 预备师" }
+		182 = { "第%d 预备师" }
+		153 = { "第%d 野战训练师" }
+		173 = { "第%d 预备师" }
+		188 = { "第%d 预备山地师" }
+		166 = { "第%d 预备师" }
+		160 = { "第%d 预备师" }
+		41 = { "第%d 要塞师" }
+		133 = { "第%d 要塞师" }
+		956 = { "苏联志愿师" }
+		52 = { "第%d 安全守备师" }
+		300 = { "党卫军第300 守备师" }
+		331 = { "党卫军第331 守备师" }
+		140 = { "党卫军第140 守备师" }
+		604 = { "第604 守备师" }
+		601 = { "第601 守备师" }
+		602 = { "第602 守备师" }
+		603 = { "第603 守备师" }
+		155 = { "第%d 野战训练师" }
+		605 = { "第605 守备师" }
+		606 = { "第606 守备师" }
+		607 = { "第607 守备师" }
+		608 = { "第608 守备师" }
+		950 = { "'但泽' 要塞师" }
+		951 = { "'法兰克福/奥得' 要塞师" }
+		952 = { "'哥腾港' 要塞师" }
+		954 = { "'斯维内明德' 要塞师" }
+		609 = { "第609 守备师" }
+		610 = { "第610 守备师" }
+		612 = { "第612 守备师" }
+		613 = { "第613 守备师" }
+		615 = { "第615 守备师" }
+		955 = { "第(L) 守备师" }
+		616 = { "第616 守备师" }
+		617 = { "第617 守备师" }
+		618 = { "第618 守备师" }
+		402 = { "第402 教导师" }
+		404 = { "第%d 补充兵师" }
+		464 = { "第464 教导师" }
+		158 = { "第%d 野战训练师" }
+		953 = { "'什切青' 要塞师" }
+		619 = { "第619 守备师" }
+		
+		# put in a large amount of assorted reserve, replacement, and training units if a meaningful history of antipartisan/frontline service could be attributed to them
+		# included some of the Division z.b.V. ("for special use") that have a recorded service history in occupied territory. Most of these were ad hoc grouping of training/Landesschützen units inside Germany.
+		# gave some reserve units a static name and linked them with a number in the infantry list as they were later upgraded to full infantry/Jäger divisions
+		# deleted some reserve and training units only used as holding depots for recruits, etc.
+		# 153. Reserve Division only went by this name for a few months while forming, so went with 153. Feldausbildungs-Division as this was the name it saw out the majority of its life as.
+		# removed Volksgrenadiers from this list as they were not static defense units, rather late war normal infantry divisions organized on a 'many weapons - few men' basis. Put them in the Alt Infantry list.
+	}
+}
+
+
+
+GER_Arm_01 = 
+{
+	name = "装甲部队"
+
+	for_countries = { GER }
+
+	can_use = { always = yes }
+
+	division_types = { "light_armor" "medium_armor" "heavy_armor" "modern_armor" }
+
+	fallback_name = "第%d 装甲师"
+
+	# Names with numbers (only one number per entry)
+	ordered =
+	{
+		1 = { "第%d 装甲师" }
+		2 = { "第%d 装甲师" }
+		3 = { "第%d 装甲师" }
+		4 = { "第%d 装甲师" }
+		5 = { "第%d 装甲师" }
+		10 = { "第%d 装甲师" }
+		8 = { "第%d 装甲师" }
+		6 = { "第%d 装甲师" }
+		7 = { "第%d 装甲师" }
+		9 = { "第%d 装甲师" }
+		11 = { "第%d 装甲师" }
+		14 = { "第%d 装甲师" }
+		12 = { "第%d 装甲师" }
+		13 = { "第%d 装甲师" }
+		20 = { "第%d 装甲师" }
+		18 = { "第%d 装甲师" }
+		15 = { "第%d 装甲师" }
+		16 = { "第%d 装甲师" }
+		17 = { "第%d 装甲师" }
+		19 = { "第%d 装甲师" }
+		21 = { "第%d 装甲师" }
+		23 = { "第%d 装甲师" }
+		22 = { "第%d 装甲师" }
+		24 = { "第%d 装甲师" }
+		25 = { "第%d 装甲师" }
+		26 = { "第%d 装甲师" }
+		27 = { "第%d 装甲师" }
+		693 = { "'赫尔曼·戈林' 伞兵装甲师" }
+		130 = { "装甲教导师" }
+		116 = { "第%d 装甲师" }
+		60 = { "第1 '统帅堂' 装甲师" }
+		232 = { "第%d 装甲师" }
+		85 = { "'荷斯坦' 装甲师" }
+		88 = { "'明切贝格' 装甲师" }
+		61 = { "第2 '统帅堂' 装甲师" }
+		233 = { "'克劳塞维茨' 装甲师" }
+	
+		# deleted Panzer-Division 'Kurmark' because it is actually just an erroneous name for PzG Div Kurmark in some postwar literature
+		# deleted Panzer-Division 'Kempf' as it was a temporary adhoc grouping of army tanks and SS infantry for the Polish campaign, which was quickly broken up after and absorbed by 10. Panzer-Division
+		# deleted Panzer-Division Tatra as it was only used as a security/holding unit, and then renamed to 232. Panzer-Division which did in fact see active combat
+		# deleted Panzer-Divisions Jüterbog and Schlesien as they was used as a holding unit and disbanded a month after formation
+		# deleted Norwegen Panzer Division as Norway is not guaranteed to be occupied by Germany in every game, plus it was in reality no more than a brigade in size despite the title.
+		# had to settle on a single name for the HG Panzer Division despite several historical name changes over time
+		# no way to register things like 1. Kavallerie-Division becoming 24. Panzer, 13. Panzer becoming Feldherrnhalle 2, etc, without bloating the name list selection and causing obnoxious clutter. The ability to rename is there though, for those who are really devoted.
+		# deleted most of the Reserve-Panzer-Divisions because they were holding units for recruits, and quickly disbanded after being used to replenish field units
+
+	}
+}
+
+GER_LTARM_01 = 
+{
+	name = "轻型装甲部队"
+
+	for_countries = { GER }
+
+	can_use = { always = yes }
+
+	division_types = { "light_armor" }
+
+	fallback_name = "第%d 轻型装甲师"
+	
+	link_numbering_with = { GER_Arm_01 }
+
+	# Names with numbers (only one number per entry)
+	ordered =
+	{
+	9 = { "第4 轻型装甲师" }
+	6 = { "第1 轻型装甲师" }
+	7 = { "第2 轻型装甲师" }
+	8 = { "第3 轻型装甲师" }
+	21 = { "第5 轻型装甲师" }
+	
+	# a small series of early war 'light' armoured divisions raised as an attempt by the cavalry branch to remain relevant in modern war. They were found to be too light to fight after Poland and converted in to full Panzer Divisions. X = number of the Panzer Division they were converted in to.
+	
+	}
+}
+
+GER_Cav_01 = 
+{
+	name = "骑兵部队"
+
+	for_countries = { GER }
+
+	can_use = { always = yes }
+
+	division_types = { "cavalry"  }
+
+	fallback_name = "第%d 骑兵师"
+
+	# Names with numbers (only one number per entry)
+	ordered =
+	{
+		1 = { "第%d 骑兵师" }
+		900 = { "'北方' 骑兵师" }
+		3 = { "第%d 骑兵师" }
+		4 = { "第%d 骑兵师" }
+		
+		# deleted Kosaken-Kavallerie-Divisions as they depend on a German occupation of Ukraine that may not occur
+
+	}
+	
+}
+
+GER_SS_01 = 
+{
+	name = "党卫军部队"
+
+	for_countries = { GER }
+
+	can_use = { 
+		has_government = fascism
+	}
+
+	division_types = { "infantry" "motorized" "medium_armor" "mechanized" }
+
+	fallback_name = "党卫军第%d 师"
+
+	# Names with numbers (only one number per entry)
+	ordered =
+	{
+		1 = { "党卫军第%d '阿道夫·希特勒警卫旗队' 师" }
+		2 = { "党卫军第%d '帝国' 师" }
+		3 = { "党卫军第%d '骷髅' 师" }
+		4 = { "党卫军第%d '警察' 师" }
+		6 = { "党卫军第%d '北方' 师" }
+		7 = { "党卫军第%d '欧根亲王' 师" }
+		8 = { "党卫军第%d '弗洛里安·盖伊' 师" }
+		9 = { "党卫军第%d '霍亨斯陶芬' 师" }
+		10 = { "党卫军第%d '弗伦斯堡' 师" }
+		11 = { "党卫军第%d '北欧' 师" }
+		12 = { "党卫军第%d '希特勒青年师' 师" }
+		13 = { "党卫军第%d '圣刀' 师" }
+		14 = { "党卫军第%d '乌克兰第一' 师" }
+		16 = { "党卫军第%d '党卫队全国领袖' 师" }
+		17 = { "党卫军第%d '古兹·冯·伯利辛根' 师" }
+		18 = { "党卫军第%d '霍斯特·维瑟尔' 师" }
+		21 = { "党卫军第%d '斯坎德培' 师" }
+		22 = { "党卫军第%d '玛利亚·特雷西亚' 师" }
+		24 = { "党卫军第%d '卡斯特猎手' 师" }
+		25 = { "党卫军第%d '匈牙利第一' 师" }
+		26 = { "党卫军第%d '匈牙利第二' 师" }
+		29 = { "党卫军第%d '俄罗斯第一' 师" }
+		30 = { "党卫军第%d '俄罗斯第二' 师" }
+		31 = { "党卫军第%d '志愿者' 师" }
+		32 = { "党卫军第%d '一月三十日' 师" }
+		34 = { "党卫军第%d '尼德兰国土风暴' 师" }
+		35 = { "党卫军第%d '警察' 师" }
+		36 = { "党卫军第%d '德吕万格' 师" }
+		37 = { "党卫军第%d '吕佐' 师" }
+		38 = { "党卫军第%d '尼伯龙格' 师" }
+		
+		# to avoid massively bloating the names list with alternate lists, the final/most representative divisional name was used. Das Reich held no less than 6 different names during the war and providing variant name lists for all of them was not feasible. The tools to rename/reconfigure divisions are in the hands of the player, however.
+		# left out divisional type names (Panzer, Gebirgs, etc) to allow the player to use the SS name list for any type of division they choose
+		# diverged from the ordering based on historical formation date as this to a large degree would depend on the divisional type, which is not fixed
+		# put in non-German formations contrary to the regular Heer lists
+
+	}
+}
+
+GER_MONINF_01 = 
+{
+	name = "帝国步兵部队"
+
+	for_countries = { GER }
+
+	can_use = { 
+		OR = {
+			has_government = neutrality 
+			has_government = democratic 
+		}
+		has_completed_focus = GER_oppose_hitler
+	}
+
+	division_types = { "infantry" "mechanized" "mountaineers" "paratrooper" "marine" }
+
+	fallback_name = "帝国第%d 掷弹兵师"
+
+	# Names with numbers (only one number per entry)
+	ordered =
+	{
+		901 = { "帝国第1 警卫师" }
+		902 = { "帝国第2 警卫师" }
+		903 = { "帝国第3 警卫师" }
+		1 = { "帝国第%d '皇太子' 掷弹兵师" }
+		2 = { "帝国第%d '弗里德里希·威廉四世国王' 掷弹兵师" }
+		3 = { "帝国第%d '弗里德里希·威廉一世国王' 掷弹兵师" }
+		4 = { "帝国第%d '腓特烈大帝' 掷弹兵师" }
+		5 = { "帝国第%d '弗里德里希一世' 掷弹兵师" }
+		6 = { "帝国第%d '克莱斯特·冯·诺伦多夫伯爵' 掷弹兵师" }
+		7 = { "帝国第%d '威廉一世' 掷弹兵师" }
+		8 = { "帝国第%d '弗里德里希·威廉三世国王' 掷弹兵师" }
+		9 = { "帝国第%d '格奈森瑙伯爵' 掷弹兵师" }
+		10 = { "帝国第%d '弗里德里希·威廉二世国王' 掷弹兵师" }
+		11 = { "帝国第%d '弗里德里希三世国王' 掷弹兵师" }
+		12 = { "帝国第%d '普鲁士-卡尔王子' 掷弹兵师" }
+		13 = { "帝国第%d '赫沃思·冯·比特菲尔德' 掷弹兵师" }
+		14 = { "帝国第%d '什未林伯爵' 掷弹兵师" }
+		15 = { "帝国第%d '荷兰弗里德里希亲王' 掷弹兵师" }
+		16 = { "帝国第%d '冯·斯帕尔男爵' 掷弹兵师" }
+		17 = { "帝国第%d '赤脚伯爵' 掷弹兵师" }
+		18 = { "帝国第%d '冯·格罗曼' 掷弹兵师" }
+		19 = { "帝国第%d '冯·库尔比埃' 掷弹兵师" }
+		20 = { "帝国第%d '陶恩齐恩·冯·维滕贝格伯爵' 掷弹兵师" }
+		21 = { "帝国第%d '冯·博尔克' 掷弹兵师" }
+		22 = { "帝国第%d '基思' 掷弹兵师" }
+		23 = { "帝国第%d '冯·温特费尔特' 掷弹兵师" }
+		24 = { "帝国第%d '梅克伦堡-什未林大公弗里德里希·弗朗茨二世' 掷弹兵师" }
+		25 = { "帝国第%d '冯·吕措' 掷弹兵师" }
+		26 = { "帝国第%d '安哈尔特德绍-利奥波德王子' 掷弹兵师" }
+		27 = { "帝国第%d '普鲁士-路易·斐迪南王子' 掷弹兵师" }
+		28 = { "帝国第%d '冯·戈本' 掷弹兵师" }
+		29 = { "帝国第%d '冯·洪恩' 掷弹兵师" }
+		30 = { "帝国第%d '云达伯爵' 掷弹兵师" }
+		31 = { "帝国第%d '玻色伯爵' 掷弹兵师" }
+		32 = { "帝国第%d '图林根' 掷弹兵师" }
+		33 = { "帝国第%d '罗恩伯爵' 掷弹兵师" }
+		34 = { "帝国第%d '瑞典维多利亚女王' 掷弹兵师" }
+		35 = { "帝国第%d '普鲁士-海因里希王子' 掷弹兵师" }
+		36 = { "帝国第%d '陆军元帅格拉夫·布卢门撒尔' 掷弹兵师" }
+		37 = { "帝国第%d '冯·施特恩梅茨' 掷弹兵师" }
+		38 = { "帝国第%d '陆军元帅格拉夫莫尔奇将军' 掷弹兵师" }
+		39 = { "帝国第%d '鲁登道夫将军团'  掷弹兵师" }
+		40 = { "帝国第%d '卡尔-安东·冯·霍亨索伦王子' 掷弹兵师" }
+		41 = { "帝国第%d '冯·博延' 掷弹兵师" }
+		42 = { "帝国第%d '安哈尔特德绍-莫里茨王子' 掷弹兵师" }
+		43 = { "帝国第%d '梅克伦堡-施特雷利茨公爵卡尔' 掷弹兵师" }
+		44 = { "帝国第%d '唐霍夫伯爵' 掷弹兵师" }
+		45 = { "帝国第%d '东普鲁士' 掷弹兵师" }
+		46 = { "帝国第%d '基尔巴赫伯爵' 掷弹兵师" }
+		47 = { "帝国第%d '巴伐利亚-路德维希三世国王' 掷弹兵师" }
+		48 = { "帝国第%d '冯·施蒂尔普纳格尔' 掷弹兵师" }
+		49 = { "帝国第%d '博美犬' 掷弹兵师" }
+		50 = { "帝国第%d '下西里西亚' 掷弹兵师" }
+		51 = { "帝国第%d '上西里西亚' 掷弹兵师" }
+		52 = { "帝国第%d '冯·阿尔文斯莱本' 掷弹兵师" }
+		53 = { "帝国第%d '威斯特伐利亚' 掷弹兵师" }
+		54 = { "帝国第%d '冯·戈尔茨' 掷弹兵师" }
+		55 = { "帝国第%d '比洛·冯·丹尼维茨伯爵' 掷弹兵师" }
+		56 = { "帝国第%d '沃格尔·冯·法尔肯斯坦' 掷弹兵师" }
+		57 = { "帝国第%d '不伦瑞克-斐迪南公爵' 掷弹兵师" }
+		58 = { "帝国第%d '波森舍' 掷弹兵师" }
+		59 = { "帝国第%d '希勒·冯·盖特林根男爵' 掷弹兵师" }
+		60 = { "帝国第%d '卡尔侯爵' 掷弹兵师" }
+		61 = { "帝国第%d '冯·马尔维茨' 掷弹兵师" }
+		62 = { "帝国第%d '上西里西亚' 掷弹兵师" }
+		63 = { "帝国第%d '奥地利皇帝和匈牙利国王卡尔' 掷弹兵师" }
+		64 = { "帝国第%d '普鲁士陆军元帅弗里德里希·卡尔王子将军' 掷弹兵师" }
+		65 = { "帝国第%d '莱茵' 掷弹兵师" }
+		66 = { "帝国第%d '马格德堡' 掷弹兵师" }
+		67 = { "帝国第%d '马格德堡' 掷弹兵师" }
+		68 = { "帝国第%d '莱茵' 掷弹兵师" }
+		69 = { "帝国第%d '莱茵' 掷弹兵师" }
+		70 = { "帝国第%d '莱茵' 掷弹兵师" }
+		71 = { "帝国第%d '图林根' 掷弹兵师" }
+		72 = { "帝国第%d '图林根' 掷弹兵师" }
+		73 = { "帝国第%d '普鲁士陆军元帅阿尔布雷希特亲王' 掷弹兵师" }
+		74 = { "帝国第%d '汉诺威' 掷弹兵师" }
+		75 = { "帝国第%d '汉萨同盟' 掷弹兵师" }
+		76 = { "帝国第%d '汉萨同盟' 掷弹兵师" }
+		77 = { "帝国第%d '汉诺威' 掷弹兵师" }
+		78 = { "帝国第%d '不伦瑞克-弗里德里希·威廉公爵' 掷弹兵师" }
+		79 = { "帝国第%d '冯·福伊茨·瑞兹' 掷弹兵师" }
+		80 = { "帝国第%d '冯·格斯多夫' 掷弹兵师" }
+		81 = { "帝国第%d '黑森-卡塞尔伯爵弗里德里希一世' 掷弹兵师" }
+		82 = { "帝国第%d '库尔黑森' 掷弹兵师" }
+		83 = { "帝国第%d '冯·维蒂奇' 掷弹兵师" }
+		84 = { "帝国第%d '冯·曼施坦因' 掷弹兵师" }
+		85 = { "帝国第%d '荷尔斯泰因公爵' 掷弹兵师" }
+		86 = { "帝国第%d '女王' 掷弹兵师" }
+		87 = { "帝国第%d '拿骚' 掷弹兵师" }
+		88 = { "帝国第%d '拿骚' 掷弹兵师" }
+		89 = { "帝国第%d '梅克伦堡' 掷弹兵师" }
+		90 = { "帝国第%d '威廉皇帝' 掷弹兵师" }
+		91 = { "帝国第%d '奥尔登堡' 掷弹兵师" }
+		92 = { "帝国第%d '不伦瑞克' 掷弹兵师" }
+		93 = { "帝国第%d '安哈尔蒂什' 掷弹兵师" }
+		94 = { "帝国第%d '萨克森大公' 掷弹兵师" }
+		95 = { "帝国第%d '图林根' 掷弹兵师" }
+		96 = { "帝国第%d '图林根' 掷弹兵师" }
+		97 = { "帝国第%d '上莱茵' 掷弹兵师" }
+		98 = { "帝国第%d '梅策尔' 掷弹兵师" }
+		99 = { "帝国第%d '上莱茵' 掷弹兵师" }
+		904 = { "帝国皇家卫队" }
+		905 = { "帝国皇家第1 '国王' 掷弹兵师" }
+		906 = { "帝国皇家第2 '皇太子' 掷弹兵师" }
+		907 = { "帝国皇家第3 '巴伐利亚-卡尔王子' 掷弹兵师" }
+		908 = { "帝国皇家第4 '符腾堡国王威廉' 掷弹兵师" }
+		909 = { "帝国皇家第5 '黑森大公恩斯特·路德维希' 掷弹兵师" }
+		910 = { "帝国皇家第6 '德皇威廉，普鲁士国王' 掷弹兵师" }
+		911 = { "帝国皇家第7 '利奥波德王子' 掷弹兵师" }
+		912 = { "帝国皇家第8 '巴登大公弗里德里希二世' 掷弹兵师" }
+		913 = { "帝国皇家第9 '残忍' 掷弹兵师" }
+		914 = { "帝国皇家第10 '国王' 掷弹兵师" }
+		915 = { "帝国皇家第11 '冯·坦因' 掷弹兵师" }
+		916 = { "帝国皇家第12 '阿努尔夫王子' 掷弹兵师" }
+		917 = { "帝国皇家第13 '弗朗茨约瑟夫一世，奥地利皇帝和匈牙利使徒国王' 掷弹兵师" }
+		918 = { "帝国皇家第14 '哈特曼' 掷弹兵师" }
+		919 = { "帝国皇家第15 '萨克森国王弗里德里希·奥古斯特' 掷弹兵师" }
+		920 = { "帝国皇家第16 '托斯卡纳大公斐迪南大公' 掷弹兵师" }
+		921 = { "帝国皇家第17 '奥尔夫' 掷弹兵师" }
+		922 = { "帝国皇家第18 '路德维希·斐迪南王子' 掷弹兵师" }
+		923 = { "帝国皇家第19 '意大利维克多·伊曼纽尔三世国王' 掷弹兵师" }
+		924 = { "帝国皇家第20 '弗朗茨王子' 掷弹兵师" }
+		925 = { "帝国皇家第21 '梅克伦堡-什未林大公弗里德里希·弗朗茨四世' 掷弹兵师" }
+		926 = { "帝国皇家第22 '霍亨索伦-威廉王子' 掷弹兵师" }
+		927 = { "帝国皇家第23 '保加利亚国王斐迪南' 掷弹兵师" }
+		100 = { "帝国皇家第%d 掷弹兵师" }
+		101 = { "帝国皇家第%d '德皇威廉，普鲁士国王' 掷弹兵师" }
+		102 = { "帝国皇家第%d '巴伐利亚国王路德维希三世' 掷弹兵师" }
+		103 = { "帝国皇家第%d 掷弹兵师" }
+		104 = { "帝国皇家第%d '皇太子' 掷弹兵师" }
+		105 = { "帝国皇家第%d '符腾堡国王威廉二世' 掷弹兵师" }
+		106 = { "帝国皇家第%d '乔治国王' 掷弹兵师" }
+		107 = { "帝国皇家第%d '约翰·乔治王子' 掷弹兵师" }
+		108 = { "帝国皇家第%d '乔治王子' 掷弹兵师" }
+		109 = { "帝国第%d '巴迪什' 掷弹兵师" }
+		110 = { "帝国第%d '德皇威廉一世' 掷弹兵师" }
+		111 = { "帝国第%d '马格雷夫·路德维希·威廉' 掷弹兵师" }
+		112 = { "帝国第%d '威廉王子' 掷弹兵师" }
+		113 = { "帝国第%d '巴迪什' 掷弹兵师" }
+		114 = { "帝国第%d '皇帝弗里德里希三世' 掷弹兵师" }
+		115 = { "帝国第%d '帝国卫队' 掷弹兵师" }
+		116 = { "帝国第%d '威廉皇帝' 掷弹兵师" }
+		117 = { "帝国第%d '女大公' 掷弹兵师" }
+		118 = { "帝国第%d '卡尔王子' 掷弹兵师" }
+		119 = { "帝国第%d '奥尔加王后' 掷弹兵师" }
+		120 = { "帝国第%d '德皇威廉，普鲁士国王' 掷弹兵师" }
+		121 = { "帝国第%d '老符腾堡' 掷弹兵师" }
+		122 = { "帝国第%d '奥地利皇帝弗朗茨约瑟夫一世，匈牙利国王' 掷弹兵师" }
+		123 = { "帝国第%d '卡尔国王' 掷弹兵师" }
+		124 = { "帝国第%d '威廉一世' 掷弹兵师" }
+		125 = { "帝国第%d '普鲁士国王弗里德里希' 掷弹兵师" }
+		126 = { "帝国第%d '巴登大公弗里德里希' 掷弹兵师" }
+		127 = { "帝国第%d '符腾堡' 掷弹兵师" }
+		128 = { "帝国第%d '但泽' 掷弹兵师" }
+		129 = { "帝国第%d '陆军元帅冯·马肯森将军' 掷弹兵师" }
+		130 = { "帝国第%d '洛林' 掷弹兵师" }
+		131 = { "帝国第%d '洛林' 掷弹兵师" }
+		132 = { "帝国第%d '下阿尔萨斯' 掷弹兵师" }
+		133 = { "帝国第%d '萨克斯' 掷弹兵师" }
+		134 = { "帝国第%d '萨克斯' 掷弹兵师" }
+		135 = { "帝国第%d '洛林' 掷弹兵师" }
+		136 = { "帝国第%d '洛林' 掷弹兵师" }
+		137 = { "帝国第%d '下阿尔萨斯' 掷弹兵师" }
+		138 = { "帝国第%d '下阿尔萨斯' 掷弹兵师" }
+		139 = { "帝国第%d '萨克斯' 掷弹兵师" }
+		140 = { "帝国第%d '西普鲁士' 掷弹兵师" }
+		141 = { "帝国第%d '库尔默' 掷弹兵师" }
+		142 = { "帝国第%d '巴迪什' 掷弹兵师" }
+		143 = { "帝国第%d '下阿尔萨斯' 掷弹兵师" }
+		144 = { "帝国第%d '洛林' 掷弹兵师" }
+		145 = { "帝国第%d '国王' 掷弹兵师" }
+		146 = { "帝国第%d '马苏里什' 掷弹兵师" }
+		147 = { "帝国第%d '马苏里什' 掷弹兵师" }
+		148 = { "帝国第%d '西普鲁士' 掷弹兵师" }
+		149 = { "帝国第%d '西普鲁士' 掷弹兵师" }
+		150 = { "帝国第%d '瓦面' 掷弹兵师" }
+		151 = { "帝国第%d '瓦面' 掷弹兵师" }
+		152 = { "帝国第%d '德国命令' 掷弹兵师" }
+		153 = { "帝国第%d '图林根' 掷弹兵师" }
+		154 = { "帝国第%d '下西里西亚' 掷弹兵师" }
+		155 = { "帝国第%d '西普鲁士' 掷弹兵师" }
+		156 = { "帝国第%d '西里西亚' 掷弹兵师" }
+		157 = { "帝国第%d '西里西亚' 掷弹兵师" }
+		158 = { "帝国第%d '洛林' 掷弹兵师" }
+		159 = { "帝国第%d '洛林' 掷弹兵师" }
+		160 = { "帝国第%d '莱茵' 掷弹兵师" }
+		161 = { "帝国第%d '莱茵' 掷弹兵师" }
+		162 = { "帝国第%d '汉萨同盟' 掷弹兵师" }
+		163 = { "帝国第%d '石勒苏益格-荷尔斯泰因' 掷弹兵师" }
+		164 = { "帝国第%d '汉诺威' 掷弹兵师" }
+		165 = { "帝国第%d '汉诺威' 掷弹兵师" }
+		166 = { "帝国第%d '黑森-洪堡' 掷弹兵师" }
+		167 = { "帝国第%d '上阿尔萨斯' 掷弹兵师" }
+		168 = { "帝国第%d '黑森大公' 掷弹兵师" }
+		169 = { "帝国第%d '巴迪什' 掷弹兵师" }
+		170 = { "帝国第%d '巴迪什' 掷弹兵师" }
+		171 = { "帝国第%d '上阿尔萨斯' 掷弹兵师" }
+		172 = { "帝国第%d '上阿尔萨斯' 掷弹兵师" }
+		173 = { "帝国第%d '洛林' 掷弹兵师" }
+		174 = { "帝国第%d '洛林' 掷弹兵师" }
+		175 = { "帝国第%d '西普鲁士' 掷弹兵师" }
+		176 = { "帝国第%d '西普鲁士' 掷弹兵师" }
+		177 = { "帝国第%d '保加利亚国王斐迪南' 掷弹兵师" }
+		178 = { "帝国第%d '撒克逊.' 掷弹兵师" }
+		179 = { "帝国第%d '撒克逊.' 掷弹兵师" }
+		180 = { "帝国第%d '符腾堡' 掷弹兵师" }
+		181 = { "帝国第%d '撒克逊.' 掷弹兵师" }
+		182 = { "帝国第%d '撒克逊.' 掷弹兵师" }
+		
+		# converted WWI era imperial infantry regiments to division sized units, preserving their numerical order
+		# put Bavarian divisions in earlier so they show up sooner, as it was the largest non-Prussian part of the empire, but they had their own numbering scheme not linked to the others.
+
+	}
+}
+
+GER_MONMOB_01 = 
+{
+	name = "帝国装甲部队"
+
+	for_countries = { GER }
+
+	can_use = { 
+		OR = {
+			has_government = neutrality 
+			has_government = democratic 
+		}
+		has_completed_focus = GER_oppose_hitler
+	}
+
+	division_types = {  "cavalry" "light_armor" "medium_armor" "heavy_armor" "modern_armor"  }
+
+	fallback_name = "帝国第%d 龙骑兵师"
+
+	# Names with numbers (only one number per entry)
+	ordered =
+	{
+		901 = { "帝国皇家龙骑兵卫队" }
+		902 = { "帝国 '胸甲' 龙骑兵师" }
+		903 = { "帝国 '英国和爱尔兰女王维多利亚' 龙骑兵师" }
+		904 = { "帝国 '俄罗斯皇后亚历山德拉' 龙骑兵师" }
+		905 = { "帝国皇家轻骑兵师" }
+		906 = { "帝国第1 '乌兰' 龙骑兵师" }
+		907 = { "帝国第2 '乌兰' 龙骑兵师" }
+		908 = { "帝国第3 '乌兰' 龙骑兵师" }
+		909 = { "帝国皇家第1 '巴伐利亚卡尔王子' 重骑兵师" }
+		910 = { "帝国皇家第2 '奥地利埃斯特大公弗朗茨·斐迪南' 重骑兵师" }
+		1 = { "帝国第%d '大选帝侯' 龙骑兵师" }
+		2 = { "帝国第%d '女王' 龙骑兵师" }
+		3 = { "帝国第%d '弗兰格尔伯爵' 龙骑兵师" }
+		4 = { "帝国第%d '冯·德里森' 龙骑兵师" }
+		5 = { "帝国第%d '符腾堡公爵弗里德里希·欧根' 龙骑兵师" }
+		6 = { "帝国第%d '俄罗斯皇帝尼古拉一世' 龙骑兵师" }
+		7 = { "帝国第%d '冯·赛德利茨' 龙骑兵师" }
+		8 = { "帝国第%d '盖斯勒伯爵' 龙骑兵师" }
+		9 = { "帝国皇家第%d '撒克逊' 龙骑兵师" }
+		10 = { "帝国皇家第%d '马枪' 龙骑兵师" }
+		911 = { "帝国皇家第1 '俄罗斯皇帝尼古拉斯' 龙骑兵师" }
+		912 = { "帝国皇家第2 '泰克萨斯' 龙骑兵师" }
+		913 = { "帝国皇家第3 '卡尔·西奥多公爵' 龙骑兵师" }
+		914 = { "帝国皇家第4 '王' 龙骑兵师" }
+		915 = { "帝国皇家第5 '奥地利大公弗里德里希' 龙骑兵师" }
+		916 = { "帝国皇家第6 '普鲁士阿尔布雷希特王子' 龙骑兵师" }
+		917 = { "帝国皇家第7 '阿方斯王子' 龙骑兵师" }
+		918 = { "帝国皇家第8 龙骑兵师" }
+		919 = { "帝国皇家第1 '德皇威廉二世，普鲁士国王' 龙骑兵师" }
+		920 = { "帝国皇家第2 '王' 龙骑兵师" }
+		11 = { "帝国第%d '普鲁士阿尔布雷希特王子' 龙骑兵师" }
+		12 = { "帝国第%d '勃兰登堡' 龙骑兵师" }
+		13 = { "帝国第%d '冯德夫林格男爵' 龙骑兵师" }
+		14 = { "帝国第%d '冯·布雷多' 龙骑兵师" }
+		15 = { "帝国第%d '冯·曼托菲尔男爵' 龙骑兵师" }
+		16 = { "帝国第%d '马格德堡' 龙骑兵师" }
+		17 = { "帝国第%d '巴伐利亚陆军元帅利奥波德亲王' 龙骑兵师" }
+		18 = { "帝国第%d '国王弗里德里希三世' 龙骑兵师" }
+		19 = { "帝国第%d '冯·罗马尼亚' 龙骑兵师" }
+		20 = { "帝国第%d '阿尔伯特国王' 龙骑兵师" }
+		21 = { "帝国第%d '冯·怀德尔' 龙骑兵师" }
+		22 = { "帝国第%d '冯·阿尼姆' 龙骑兵师" }
+		23 = { "帝国第%d '石勒苏益格' 龙骑兵师" }
+		24 = { "帝国第%d '库尔马基什' 龙骑兵师" }
+		25 = { "帝国第%d '西里西亚' 龙骑兵师" }
+		26 = { "帝国第%d '汉诺威' 龙骑兵师" }
+		27 = { "帝国第%d '梅克伦堡' 龙骑兵师" }
+		28 = { "帝国第%d '大公' 龙骑兵师" }
+		29 = { "帝国第%d '奥尔登堡' 龙骑兵师" }
+		30 = { "帝国第%d '巴迪什' 龙骑兵师" }
+		31 = { "帝国第%d '巴迪什' 龙骑兵师" }
+		32 = { "帝国第%d '卡尔王子 ' 龙骑兵师" }
+		33 = { "帝国第%d '黑森' 龙骑兵师" }
+		34 = { "帝国第%d '大公' 龙骑兵师" }
+		35 = { "帝国第%d '奥尔加王后' 龙骑兵师" }
+		36 = { "帝国第%d '王' 龙骑兵师" }
+		37 = { "帝国第%d '天赐' 龙骑兵师" }
+		38 = { "帝国第%d '普鲁士女王维多利亚' 龙骑兵师" }
+		39 = { "帝国第%d '冯·齐腾' 龙骑兵师" }
+		40 = { "帝国第%d '冯·席尔' 龙骑兵师" }
+		41 = { "帝国第%d '瓦尔施塔特王子布吕歇尔' 龙骑兵师" }
+		42 = { "帝国第%d '格岑伯爵' 龙骑兵师" }
+		43 = { "帝国第%d '威廉一世' 龙骑兵师" }
+		44 = { "帝国第%d '俄罗斯皇帝尼古拉二世' 龙骑兵师" }
+		45 = { "帝国第%d '莱茵骠骑兵' 龙骑兵师" }
+		46 = { "帝国第%d '马格德堡骠骑兵' 龙骑兵师" }
+		47 = { "帝国第%d '威斯特伐利亚骠骑兵' 龙骑兵师" }
+		48 = { "帝国第%d '图林根骠骑兵' 龙骑兵师" }
+		49 = { "帝国第%d '意大利国王亨伯特' 龙骑兵师" }
+		50 = { "帝国第%d '黑森-洪堡的弗里德里希二世伯爵领地' 龙骑兵师" }
+		51 = { "帝国第%d '荷兰王后威廉敏娜' 龙骑兵师" }
+		52 = { "帝国第%d '奥地利皇帝和匈牙利国王弗朗茨约瑟夫' 龙骑兵师" }
+		53 = { "帝国第%d '不伦瑞克轻骑兵' 龙骑兵师" }
+		54 = { "帝国第%d '阿尔伯特国王' 龙骑兵师" }
+		55 = { "帝国第%d '普鲁士王储威廉' 龙骑兵师" }
+		56 = { "帝国第%d '撒克逊骠骑兵' 龙骑兵师" }
+		57 = { "帝国第%d '俄罗斯皇帝亚历山大三世' 龙骑兵师" }
+		58 = { "帝国第%d '冯·卡茨勒' 龙骑兵师" }
+		59 = { "帝国第%d '俄罗斯皇帝亚历山大二世' 龙骑兵师" }
+		60 = { "帝国第%d '冯·施密特' 龙骑兵师" }
+		61 = { "帝国第%d '威斯特伐利亚乌兰' 龙骑兵师" }
+		62 = { "帝国第%d '图林根乌兰' 龙骑兵师" }
+		63 = { "帝国第%d '巴登弗里德里希' 龙骑兵师" }
+		64 = { "帝国第%d '多纳伯爵' 龙骑兵师" }
+		65 = { "帝国第%d '博美乌兰' 龙骑兵师" }
+		66 = { "帝国第%d '符腾堡亲王奥古斯特' 龙骑兵师" }
+		67 = { "帝国第%d '海瑟勒伯爵' 龙骑兵师" }
+		68 = { "帝国第%d '立陶宛语乌兰' 龙骑兵师" }
+		69 = { "帝国第%d '国王乌兰' 龙骑兵师" }
+		70 = { "帝国第%d '汉诺威乌兰' 龙骑兵师" }
+		71 = { "帝国第%d '石勒苏益格-荷尔斯泰因乌兰' 龙骑兵师" }
+		72 = { "帝国第%d '亨尼格斯·冯·特雷芬菲尔德' 龙骑兵师" }
+		73 = { "帝国第%d '奥地利皇帝和匈牙利国王弗朗茨约瑟夫' 龙骑兵师" }
+		74 = { "帝国第%d '乌兰' 龙骑兵师" }
+		75 = { "帝国第%d '卡尔国王' 龙骑兵师" }
+		76 = { "帝国第%d '威廉一世' 龙骑兵师" }
+		77 = { "帝国第%d '德皇威廉二世，普鲁士国王' 龙骑兵师" }
+		78 = { "帝国第%d 轻骑兵师" }
+		79 = { "帝国第%d 轻骑兵师" }
+		80 = { "帝国第%d 轻骑兵师" }
+		81 = { "帝国第%d 轻骑兵师" }
+		82 = { "帝国第%d 轻骑兵师" }
+		83 = { "帝国第%d 轻骑兵师" }
+		84 = { "帝国第%d 轻骑兵师" }
+		85 = { "帝国第%d 轻骑兵师" }
+		86 = { "帝国第%d 轻骑兵师" }
+		87 = { "帝国第%d 轻骑兵师" }
+		88 = { "帝国第%d 轻骑兵师" }
+		89 = { "帝国第%d 轻骑兵师" }
+		90 = { "帝国第%d 轻骑兵师" }
+	
+		#took namelist for mobile divisions for imperial cavalry regiments, but did not preserve numbering to avoid a confusing mess of Curassier, Dragoon, Hussar, etc, Divisions all with the same number. Except for Bavaria, because they're weird.
+
+
+	}
+}
+
+

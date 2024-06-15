@@ -1,0 +1,509 @@
+﻿# Division template historical names system. Is a new method of naming the divisions based on the names-group assigned to it's template.
+# If we run out of all historical names, the names will be assigned in the old way.
+#
+# Each group has a made up tag. Use it if you want to append more, or replace existing names with the extra txt files (modding).
+#
+# for_countries - lists all countries that can use it. If empty, or entire tag is missing, all countries in the world can use it.
+#
+# can_use - is a trigger that locks/unlocks the group under specific circumstances. The trigger is in a country scope.
+#
+# division_types - is a list of tokens to corresponding unit types. A player can in fact use any group of names for a div.template
+#                  however this tag is a helper for an automated choice (for AI, or if the group must switch on it's own, because
+#                  for example the current one is no longer available due to the can_use trigger saying so).
+#                  In automated choice, the division template must have at least 1 of the following types for it to be chosen.
+#
+# fallback_name - Is going to be used if we run out of the scripted historical names. If you want to use the old division naming
+#                 mechanics to be used for fallbacks, then just skip this option.
+#
+# unordered - It's a list of historical division names that did not have a number. Regardless if such names happened in history or not
+#             this option is available here mainly for a mods.
+#
+# ordered - Is a list of all historical names. 
+#           Numbers must start from 1 and up. 
+#           Numbers can't repeat in one scope.
+#           If you script the name for this group, at the same number (for example in a mod in another file), the name will be override.
+#           All arguments between the brackets must be separated by spaces. Each argument is wrapped in "quotas".
+#           1st argument = The name. It must contain either: 
+#                          %d (for decimal number placement)
+#                          %s (for string number placement - ROMAN numbers like XIV).
+#           2nd argument is optional = A localizable text describing this historical division. The text will be visible in the tooltip
+#                                      where you choose the historical division name.
+#           3rd argument is optional = An URL preferably pointing to the WIKI. It's a future feature that is not currently working in
+#                                      the current game version.
+
+AFG_INF_01 = 
+{
+	name = "步兵部队"
+
+	for_countries = { AFG }
+
+	can_use = { always = yes }
+
+	division_types = { "infantry" }
+
+	# Number reservation system will tie to another group.
+	#link_numbering_with = { AFG_GAR_01 }
+
+	fallback_name = "第%d 步兵师"
+
+	# Names with numbers (only one number per entry). 
+	# It's okay to have gaps in numbering.
+	ordered =
+	{
+		1 = { "'法扎巴德' 步兵师" }
+		2 = { "'加兹尼' 步兵师" }
+		3 = { "'赫拉特' 步兵师" }
+		4 = { "'贾拉拉巴德' 步兵师" }
+		5 = { "'坎大哈' 步兵师" }
+		6 = { "'迈梅内' 步兵师" }
+		7 = { "'马扎尔·沙阿' 步兵师" }
+		8 = { "'查希尔·沙阿' 步兵师" }
+		9 = { "'阿布杜尔·拉赫曼汗' 步兵师" }
+		10 = { "'纳第尔·沙阿' 步兵师" }
+		11 = { "'多斯特·穆罕默德汗' 步兵师" }
+		12 = { "'沙舒贾' 步兵师" }
+		13 = { "'塔卢坎' 步兵师" }
+		14 = { "'昆都士' 步兵师" }
+		15 = { "'霍尔姆' 步兵师" }
+		16 = { "'艾巴克' 步兵师" }
+		17 = { "'希比尔甘' 步兵师" }
+		18 = { "'巴尔赫' 步兵师" }
+		19 = { "'梅马内' 步兵师" }
+		20 = { "'道拉特阿巴德' 步兵师" }
+		21 = { "'塔林科特' 步兵师" }
+		22 = { "'大叻' 步兵师" }
+		23 = { "'哈什' 步兵师" }
+		24 = { "'拉什卡尔加' 步兵师" }
+		25 = { "'米拉巴德' 步兵师" }
+		26 = { "第%d 步兵师" }
+		27 = { "第%d 步兵师" }
+		28 = { "第%d 步兵师" }
+		29 = { "第%d 步兵师" }
+		30 = { "第%d 步兵师" }
+
+	}
+}
+
+AFG_CAV_01 = 
+{
+	name = "骑兵部队"
+
+	for_countries = { AFG }
+
+	can_use = { always = yes }
+
+	division_types = { "cavalry" }
+
+	# Number reservation system will tie to another group.
+	link_numbering_with = { AFG_INF_01 }
+
+	fallback_name = "第%d 骑兵师"
+
+	# Names with numbers (only one number per entry). 
+	# It's okay to have gaps in numbering.
+	ordered =
+	{
+		1 = { "'法扎巴德' 骑兵师" }
+		2 = { "'加兹尼' 骑兵师" }
+		3 = { "'赫拉特' 骑兵师" }
+		4 = { "'贾拉拉巴德' 骑兵师" }
+		5 = { "'坎大哈' 骑兵师" }
+		6 = { "'迈梅内' 骑兵师" }
+		7 = { "'马扎尔·沙阿' 骑兵师" }
+		8 = { "'查希尔·沙阿' 骑兵师" }
+		9 = { "'阿布杜尔·拉赫曼汗' 骑兵师" }
+		10 = { "'纳第尔·沙阿' 骑兵师" }
+		11 = { "'多斯特·穆罕默德汗' 骑兵师" }
+		12 = { "'沙舒贾' 骑兵师" }
+		13 = { "'塔卢坎' 骑兵师" }
+		14 = { "'昆都士' 骑兵师" }
+		15 = { "'霍尔姆' 骑兵师" }
+		16 = { "'艾巴克' 骑兵师" }
+		17 = { "'希比尔甘' 骑兵师" }
+		18 = { "'巴尔赫' 骑兵师" }
+		19 = { "'梅马内' 骑兵师" }
+		20 = { "'道拉特阿巴德' 骑兵师" }
+		21 = { "'塔林科特' 骑兵师" }
+		22 = { "'大叻' 骑兵师" }
+		23 = { "'哈什' 骑兵师" }
+		24 = { "'拉什卡尔加' 骑兵师" }
+		25 = { "'米拉巴德' 骑兵师" }
+		26 = { "第%d 骑兵师" }
+		27 = { "第%d 骑兵师" }
+		28 = { "第%d 骑兵师" }
+		29 = { "第%d 骑兵师" }
+		30 = { "第%d 骑兵师" }
+
+	}
+}
+
+AFG_MOT_01 = 
+{
+	name = "摩托化部队"
+
+	for_countries = { AFG }
+
+	can_use = { always = yes }
+
+	division_types = { "motorized" }
+
+	# Number reservation system will tie to another group.
+	link_numbering_with = { AFG_INF_01 }
+
+	fallback_name = "第%d 摩托化步兵师"
+
+	# Names with numbers (only one number per entry). 
+	# It's okay to have gaps in numbering.
+	ordered =
+	{
+		1 = { "'法扎巴德' 摩托化步兵师" }
+		2 = { "'加兹尼' 摩托化步兵师" }
+		3 = { "'赫拉特' 摩托化步兵师" }
+		4 = { "'贾拉拉巴德' 摩托化步兵师" }
+		5 = { "'坎大哈' 摩托化步兵师" }
+		6 = { "'迈梅内' 摩托化步兵师" }
+		7 = { "'马扎尔·沙阿' 摩托化步兵师" }
+		8 = { "'查希尔·沙阿' 摩托化步兵师" }
+		9 = { "'阿布杜尔·拉赫曼汗' 摩托化步兵师" }
+		10 = { "'纳第尔·沙阿' 摩托化步兵师" }
+		11 = { "'多斯特·穆罕默德汗' 摩托化步兵师" }
+		12 = { "'沙舒贾' 摩托化步兵师" }
+		13 = { "'塔卢坎' 摩托化步兵师" }
+		14 = { "'昆都士' 摩托化步兵师" }
+		15 = { "'霍尔姆' 摩托化步兵师" }
+		16 = { "'艾巴克' 摩托化步兵师" }
+		17 = { "'希比尔甘' 摩托化步兵师" }
+		18 = { "'巴尔赫' 摩托化步兵师" }
+		19 = { "'梅马内' 摩托化步兵师" }
+		20 = { "'道拉特阿巴德' 摩托化步兵师" }
+		21 = { "'塔林科特' 摩托化步兵师" }
+		22 = { "'大叻' 摩托化步兵师" }
+		23 = { "'哈什' 摩托化步兵师" }
+		24 = { "'拉什卡尔加' 摩托化步兵师" }
+		25 = { "'米拉巴德' 摩托化步兵师" }
+		26 = { "第%d 摩托化步兵师" }
+		27 = { "第%d 摩托化步兵师" }
+		28 = { "第%d 摩托化步兵师" }
+		29 = { "第%d 摩托化步兵师" }
+		30 = { "第%d 摩托化步兵师" }
+
+	}
+}
+
+AFG_ARM_01 = 
+{
+	name = "装甲部队"
+
+	for_countries = { AFG }
+
+	can_use = { always = yes }
+
+	division_types = { "light_armor" "medium_armor" "heavy_armor" "modern_armor" }
+
+	# Number reservation system will tie to another group.
+	link_numbering_with = { AFG_INF_01 }
+
+	fallback_name = "第%d 装甲师"
+
+	# Names with numbers (only one number per entry). 
+	# It's okay to have gaps in numbering.
+	ordered =
+	{
+		1 = { "'法扎巴德' 装甲师" }
+		2 = { "'加兹尼' 装甲师" }
+		3 = { "'赫拉特' 装甲师" }
+		4 = { "'贾拉拉巴德' 装甲师" }
+		5 = { "'坎大哈' 装甲师" }
+		6 = { "'迈梅内' 装甲师" }
+		7 = { "'马扎尔·沙阿' 装甲师" }
+		8 = { "'查希尔·沙阿' 装甲师" }
+		9 = { "'阿布杜尔·拉赫曼汗' 装甲师" }
+		10 = { "'纳第尔·沙阿' 装甲师" }
+		11 = { "'多斯特·穆罕默德汗' 装甲师" }
+		12 = { "'沙舒贾' 装甲师" }
+		13 = { "'塔卢坎' 装甲师" }
+		14 = { "'昆都士' 装甲师" }
+		15 = { "'霍尔姆' 装甲师" }
+		16 = { "'艾巴克' 装甲师" }
+		17 = { "'希比尔甘' 装甲师" }
+		18 = { "'巴尔赫' 装甲师" }
+		19 = { "'梅马内' 装甲师" }
+		20 = { "'道拉特阿巴德' 装甲师" }
+		21 = { "'塔林科特' 装甲师" }
+		22 = { "'大叻' 装甲师" }
+		23 = { "'哈什' 装甲师" }
+		24 = { "'拉什卡尔加' 装甲师" }
+		25 = { "'米拉巴德' 装甲师" }
+		26 = { "第%d 装甲师" }
+		27 = { "第%d 装甲师" }
+		28 = { "第%d 装甲师" }
+		29 = { "第%d 装甲师" }
+		30 = { "第%d 装甲师" }
+
+	}
+}
+
+AFG_MEC_01 = 
+{
+	name = "机械化部队"
+
+	for_countries = { AFG }
+
+	can_use = { always = yes }
+
+	division_types = { "mechanized"  }
+
+	# Number reservation system will tie to another group.
+	link_numbering_with = { AFG_INF_01 }
+
+	fallback_name = "第%d 半履带步兵师"
+
+	# Names with numbers (only one number per entry). 
+	# It's okay to have gaps in numbering.
+	ordered =
+	{
+		1 = { "'法扎巴德' 半履带步兵师" }
+		2 = { "'加兹尼' 半履带步兵师" }
+		3 = { "'赫拉特' 半履带步兵师" }
+		4 = { "'贾拉拉巴德' 半履带步兵师" }
+		5 = { "'坎大哈' 半履带步兵师" }
+		6 = { "'迈梅内' 半履带步兵师" }
+		7 = { "'马扎尔·沙阿' 半履带步兵师" }
+		8 = { "'查希尔·沙阿' 半履带步兵师" }
+		9 = { "'阿布杜尔·拉赫曼汗' 半履带步兵师" }
+		10 = { "'纳第尔·沙阿' 半履带步兵师" }
+		11 = { "'多斯特·穆罕默德汗' 半履带步兵师" }
+		12 = { "'沙舒贾' 半履带步兵师" }
+		13 = { "'塔卢坎' 半履带步兵师" }
+		14 = { "'昆都士' 半履带步兵师" }
+		15 = { "'霍尔姆' 半履带步兵师" }
+		16 = { "'艾巴克' 半履带步兵师" }
+		17 = { "'希比尔甘' 半履带步兵师" }
+		18 = { "'巴尔赫' 半履带步兵师" }
+		19 = { "'梅马内' 半履带步兵师" }
+		20 = { "'道拉特阿巴德' 半履带步兵师" }
+		21 = { "'塔林科特' 半履带步兵师" }
+		22 = { "'大叻' 半履带步兵师" }
+		23 = { "'哈什' 半履带步兵师" }
+		24 = { "'拉什卡尔加' 半履带步兵师" }
+		25 = { "'米拉巴德' 半履带步兵师" }
+		26 = { "第%d 半履带步兵师" }
+		27 = { "第%d 半履带步兵师" }
+		28 = { "第%d 半履带步兵师" }
+		29 = { "第%d 半履带步兵师" }
+		30 = { "第%d 半履带步兵师" }
+
+	}
+}
+
+AFG_GAR_01 = 
+{
+	name = "守备部队"
+
+	for_countries = { AFG }
+
+	can_use = { always = yes }
+
+	division_types = { "infantry" }
+
+	# Number reservation system will tie to another group.
+	link_numbering_with = { AFG_INF_01 }
+
+	fallback_name = "第%d 守备师"
+
+	# Names with numbers (only one number per entry). 
+	# It's okay to have gaps in numbering.
+	ordered =
+	{
+		1 = { "'法扎巴德' 守备师" }
+		2 = { "'加兹尼' 守备师" }
+		3 = { "'赫拉特' 守备师" }
+		4 = { "'贾拉拉巴德' 守备师" }
+		5 = { "'坎大哈' 守备师" }
+		6 = { "'迈梅内' 守备师" }
+		7 = { "'马扎尔·沙阿' 守备师" }
+		8 = { "'查希尔·沙阿' 守备师" }
+		9 = { "'阿布杜尔·拉赫曼汗' 守备师" }
+		10 = { "'纳第尔·沙阿' 守备师" }
+		11 = { "'多斯特·穆罕默德汗' 守备师" }
+		12 = { "'沙舒贾' 守备师" }
+		13 = { "'塔卢坎' 守备师" }
+		14 = { "'昆都士' 守备师" }
+		15 = { "'霍尔姆' 守备师" }
+		16 = { "'艾巴克' 守备师" }
+		17 = { "'希比尔甘' 守备师" }
+		18 = { "'巴尔赫' 守备师" }
+		19 = { "'梅马内' 守备师" }
+		20 = { "'道拉特阿巴德' 守备师" }
+		21 = { "'塔林科特' 守备师" }
+		22 = { "'大叻' 守备师" }
+		23 = { "'哈什' 守备师" }
+		24 = { "'拉什卡尔加' 守备师" }
+		25 = { "'米拉巴德' 守备师" }
+		26 = { "第%d 守备师" }
+		27 = { "第%d 守备师" }
+		28 = { "第%d 守备师" }
+		29 = { "第%d 守备师" }
+		30 = { "第%d 守备师" }
+
+	}
+}
+
+AFG_MAR_01 = 
+{
+	name = "海军陆战部队"
+
+	for_countries = { AFG }
+
+	can_use = { always = yes }
+
+	division_types = { "marine" }
+
+	# Number reservation system will tie to another group.
+	link_numbering_with = { AFG_INF_01 }
+
+	fallback_name = "第%d 海军陆战师"
+
+	# Names with numbers (only one number per entry). 
+	# It's okay to have gaps in numbering.
+	ordered =
+	{
+		1 = { "'法扎巴德' 海军陆战师" }
+		2 = { "'加兹尼' 海军陆战师" }
+		3 = { "'赫拉特' 海军陆战师" }
+		4 = { "'贾拉拉巴德' 海军陆战师" }
+		5 = { "'坎大哈' 海军陆战师" }
+		6 = { "'迈梅内' 海军陆战师" }
+		7 = { "'马扎尔·沙阿' 海军陆战师" }
+		8 = { "'查希尔·沙阿' 海军陆战师" }
+		9 = { "'阿布杜尔·拉赫曼汗' 海军陆战师" }
+		10 = { "'纳第尔·沙阿' 海军陆战师" }
+		11 = { "'多斯特·穆罕默德汗' 海军陆战师" }
+		12 = { "'沙舒贾' 海军陆战师" }
+		13 = { "'塔卢坎' 海军陆战师" }
+		14 = { "'昆都士' 海军陆战师" }
+		15 = { "'霍尔姆' 海军陆战师" }
+		16 = { "'艾巴克' 海军陆战师" }
+		17 = { "'希比尔甘' 海军陆战师" }
+		18 = { "'巴尔赫' 海军陆战师" }
+		19 = { "'梅马内' 海军陆战师" }
+		20 = { "'道拉特阿巴德' 海军陆战师" }
+		21 = { "'塔林科特' 海军陆战师" }
+		22 = { "'大叻' 海军陆战师" }
+		23 = { "'哈什' 海军陆战师" }
+		24 = { "'拉什卡尔加' 海军陆战师" }
+		25 = { "'米拉巴德' 海军陆战师" }
+		26 = { "第%d 海军陆战师" }
+		27 = { "第%d 海军陆战师" }
+		28 = { "第%d 海军陆战师" }
+		29 = { "第%d 海军陆战师" }
+		30 = { "第%d 海军陆战师" }
+
+	}
+}
+
+AFG_MTN_01 = 
+{
+	name = "山地部队"
+
+	for_countries = { AFG }
+
+	can_use = { always = yes }
+
+	division_types = { "mountaineers" }
+
+	# Number reservation system will tie to another group.
+	link_numbering_with = { AFG_INF_01 }
+
+	fallback_name = "第%d 山地步兵师"
+
+	# Names with numbers (only one number per entry). 
+	# It's okay to have gaps in numbering.
+	ordered =
+	{
+		1 = { "'法扎巴德' 山地步兵师" }
+		2 = { "'加兹尼' 山地步兵师" }
+		3 = { "'赫拉特' 山地步兵师" }
+		4 = { "'贾拉拉巴德' 山地步兵师" }
+		5 = { "'坎大哈' 山地步兵师" }
+		6 = { "'迈梅内' 山地步兵师" }
+		7 = { "'马扎尔·沙阿' 山地步兵师" }
+		8 = { "'查希尔·沙阿' 山地步兵师" }
+		9 = { "'阿布杜尔·拉赫曼汗' 山地步兵师" }
+		10 = { "'纳第尔·沙阿' 山地步兵师" }
+		11 = { "'多斯特·穆罕默德汗' 山地步兵师" }
+		12 = { "'沙舒贾' 山地步兵师" }
+		13 = { "'塔卢坎' 山地步兵师" }
+		14 = { "'昆都士' 山地步兵师" }
+		15 = { "'霍尔姆' 山地步兵师" }
+		16 = { "'艾巴克' 山地步兵师" }
+		17 = { "'希比尔甘' 山地步兵师" }
+		18 = { "'巴尔赫' 山地步兵师" }
+		19 = { "'梅马内' 山地步兵师" }
+		20 = { "'道拉特阿巴德' 山地步兵师" }
+		21 = { "'塔林科特' 山地步兵师" }
+		22 = { "'大叻' 山地步兵师" }
+		23 = { "'哈什' 山地步兵师" }
+		24 = { "'拉什卡尔加' 山地步兵师" }
+		25 = { "'米拉巴德' 山地步兵师" }
+		26 = { "第%d 山地步兵师" }
+		27 = { "第%d 山地步兵师" }
+		28 = { "第%d 山地步兵师" }
+		29 = { "第%d 山地步兵师" }
+		30 = { "第%d 山地步兵师" }
+
+	}
+}
+
+AFG_PAR_01 = 
+{
+	name = "空降部队"
+
+	for_countries = { AFG }
+
+	can_use = { always = yes }
+
+	division_types = { "paratrooper" }
+
+	# Number reservation system will tie to another group.
+	link_numbering_with = { AFG_INF_01 }
+
+	fallback_name = "第%d 空降师"
+
+	# Names with numbers (only one number per entry). 
+	# It's okay to have gaps in numbering.
+	ordered =
+	{
+		1 = { "'法扎巴德' 空降师" }
+		2 = { "'加兹尼' 空降师" }
+		3 = { "'赫拉特' 空降师" }
+		4 = { "'贾拉拉巴德' 空降师" }
+		5 = { "'坎大哈' 空降师" }
+		6 = { "'迈梅内' 空降师" }
+		7 = { "'马扎尔·沙阿' 空降师" }
+		8 = { "'查希尔·沙阿' 空降师" }
+		9 = { "'阿布杜尔·拉赫曼汗' 空降师" }
+		10 = { "'纳第尔·沙阿' 空降师" }
+		11 = { "'多斯特·穆罕默德汗' 空降师" }
+		12 = { "'沙舒贾' 空降师" }
+		13 = { "'塔卢坎' 空降师" }
+		14 = { "'昆都士' 空降师" }
+		15 = { "'霍尔姆' 空降师" }
+		16 = { "'艾巴克' 空降师" }
+		17 = { "'希比尔甘' 空降师" }
+		18 = { "'巴尔赫' 空降师" }
+		19 = { "'梅马内' 空降师" }
+		20 = { "'道拉特阿巴德' 空降师" }
+		21 = { "'塔林科特' 空降师" }
+		22 = { "'大叻' 空降师" }
+		23 = { "'哈什' 空降师" }
+		24 = { "'拉什卡尔加' 空降师" }
+		25 = { "'米拉巴德' 空降师" }
+		26 = { "第%d 空降师" }
+		27 = { "第%d 空降师" }
+		28 = { "第%d 空降师" }
+		29 = { "第%d 空降师" }
+		30 = { "第%d 空降师" }
+
+	}
+}

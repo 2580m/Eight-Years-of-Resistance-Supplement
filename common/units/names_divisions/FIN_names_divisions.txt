@@ -1,0 +1,767 @@
+﻿# Division template historical names system. Is a new method of naming the divisions based on the names-group assigned to it's template.
+# If we run out of all historical names, the names will be assigned in the old way.
+#
+# Each group has a made up tag. Use it if you want to append more, or replace existing names with the extra txt files (modding).
+#
+# for_countries - lists all countries that can use it. If empty, or entire tag is missing, all countries in the world can use it.
+#
+# can_use - is a trigger that locks/unlocks the group under specific circumstances. The trigger is in a country scope.
+#
+# division_types - is a list of tokens to corresponding unit types. A player can in fact use any group of names for a div.template
+#                  however this tag is a helper for an automated choice (for AI, or if the group must switch on it's own, because
+#                  for example the current one is no longer available due to the can_use trigger saying so).
+#                  In automated choice, the division template must have at least 1 of the following types for it to be chosen.
+#
+# fallback_name - Is going to be used if we run out of the scripted historical names. If you want to use the old division naming
+#                 mechanics to be used for fallbacks, then just skip this option.
+#
+# unordered - It's a list of historical division names that did not have a number. Regardless if such names happened in history or not
+#             this option is available here mainly for a mods.
+#
+# ordered - Is a list of all historical names. 
+#           Numbers must start from 1 and up. 
+#           Numbers can't repeat in one scope.
+#           If you script the name for this group, at the same number (for example in a mod in another file), the name will be override.
+#           All arguments between the brackets must be separated by spaces. Each argument is wrapped in "quotas".
+#           1st argument = The name. It must contain either: 
+#                          %d (for decimal number placement)
+#                          %s (for string number placement - ROMAN numbers like XIV).
+#           2nd argument is optional = A localizable text describing this historical division. The text will be visible in the tooltip
+#                                      where you choose the historical division name.
+#           3rd argument is optional = An URL preferably pointing to the WIKI. It's a future feature that is not currently working in
+#                                      the current game version.
+
+FIN_INF_01 = 
+{
+	name = "步兵部队"
+
+	for_countries = { FIN }
+
+	can_use = { always = yes }
+
+	division_types = { "infantry" }
+
+	# Number reservation system will tie to another group.
+	#link_numbering_with = { GER_Gar_01 }
+
+	fallback_name = "第%d 步兵师"
+
+	# Names with numbers (only one number per entry). 
+	# It's okay to have gaps in numbering.
+	ordered =
+	{
+		1 = { "第%d 步兵师" }
+		4 = { "第%d 步兵师" }
+		5 = { "第%d 步兵师" }
+		8 = { "第%d 步兵师" }
+		10 = { "第%d 步兵师" }
+		11 = { "第%d 步兵师" }
+		6 = { "第%d 步兵师" }
+		9 = { "第%d 步兵师" }
+		12 = { "第%d 步兵师" }
+		13 = { "第%d 步兵师" }
+		2 = { "第%d 步兵师" }
+		3 = { "第%d 步兵师" }
+		7 = { "第%d 步兵师" }
+		14 = { "第%d 步兵师" }
+		15 = { "第%d 步兵师" }
+		17 = { "第%d 步兵师" }
+		18 = { "第%d 步兵师" }
+		19 = { "第%d 步兵师" }
+		20 = { "第%d 步兵师" }
+		21 = { "第%d 步兵师" }
+		22 = { "第%d 步兵师" }
+		23 = { "第%d 步兵师" }
+		24 = { "第%d 步兵师" }
+		25 = { "第%d 步兵师" }
+		26 = { "第%d 步兵师" }
+		27 = { "第%d 步兵师" }
+		28 = { "第%d 步兵师" }
+		29 = { "第%d 步兵师" }
+		30 = { "第%d 步兵师" }
+		31 = { "第%d 步兵师" }
+		32 = { "第%d 步兵师" }
+		33 = { "第%d 步兵师" }
+		34 = { "第%d 步兵师" }
+		35 = { "第%d 步兵师" }
+		36 = { "第%d 步兵师" }
+		37 = { "第%d 步兵师" }
+		38 = { "第%d 步兵师" }
+		39 = { "第%d 步兵师" }
+		40 = { "第%d 步兵师" }
+		41 = { "第%d 步兵师" }
+		42 = { "第%d 步兵师" }
+		43 = { "第%d 步兵师" }
+		44 = { "第%d 步兵师" }
+		45 = { "第%d 步兵师" }
+		46 = { "第%d 步兵师" }
+		47 = { "第%d 步兵师" }
+		48 = { "第%d 步兵师" }
+		49 = { "第%d 步兵师" }
+		50 = { "第%d 步兵师" }
+		51 = { "第%d 步兵师" }
+
+		# FIN's unusual order for infantry divisions was because garrison units were converted into full divisions down the track so they didn't become available in numeric order (hence link between the two lists).
+	}
+}
+
+FIN_INF_02 = { 
+	name = "荣誉军团" 
+
+	for_countries = { FIN } 
+
+	#can_use = { has_completed_focus = FIN_finnish_legion_of_honor } #TODO_Manu: Game checks this after daily tick, making new templates attempting to use this namelist to default to something else (Garrison Divs)
+
+	can_use = { has_dlc = "Arms Against Tyranny" }
+
+	division_types = { "infantry" } 
+
+	fallback_name = "第%d 荣誉军团"
+}
+
+FIN_INF_03 = { 
+	name = "游击队" 
+
+	for_countries = { FIN } 
+
+	can_use = { always = yes }
+
+	division_types = { "infantry" } 
+
+	fallback_name = "第%d 游击队"
+}
+
+FIN_INF_04 = { 
+	name = "苏联突击队" 
+
+	for_countries = { FIN } 
+
+	can_use = { has_dlc = "Arms Against Tyranny" } #TODO_Manu: Broken. Can't lock it behind focus for now
+
+	division_types = { "infantry" } 
+
+	fallback_name = "第%d 苏联突击队"
+}
+
+FIN_GAR_01 = 
+{
+	name = "守备部队"
+
+	for_countries = { FIN }
+
+	can_use = { always = yes }
+
+	division_types = { "infantry" }
+
+	# Number reservation system will tie to another group.
+	link_numbering_with = { FIN_INF_01 }
+
+	fallback_name = "第%d 守备师"
+
+	# Names with numbers (only one number per entry). 
+	# It's okay to have gaps in numbering.
+	ordered =
+	{
+		1 = { "第%d '泰帕萨里' 守备师" }
+		4 = { "第%d '泰瓦拉尔' 守备师" }
+		5 = { "第%d '阿尼' 守备师" }
+		8 = { "第%d '佩特萨蒙' 守备师" }
+		10 = { "第%d 守备师" }
+		11 = { "第%d 守备师" }
+		6 = { "第%d '拉赫蒂' 守备师" }
+		9 = { "第%d '汉希克' 守备师" }
+		12 = { "第%d '莱敏' 守备师" }
+		13 = { "第%d '萨维塔普' 守备师" }
+		2 = { "第%d '劳顿' 守备师" }
+		3 = { "第%d '拉宾' 守备师" }
+		7 = { "第%d '北卡累利阿' 守备师" }
+		14 = { "第%d '拉萨宁' 守备师" }
+		15 = { "第%d '利波兰' 守备师" }
+		17 = { "第%d '莫兰' 守备师" }
+		18 = { "第%d '新教堂' 守备师" }
+		19 = { "第%d 守备师" }
+		20 = { "第%d 守备师" }
+		21 = { "第%d 守备师" }
+		22 = { "第%d 守备师" }
+		23 = { "第%d 守备师" }
+		24 = { "第%d 守备师" }
+		25 = { "第%d 守备师" }
+		26 = { "第%d 守备师" }
+		27 = { "第%d 守备师" }
+		28 = { "第%d 守备师" }
+		29 = { "第%d 守备师" }
+		30 = { "第%d 守备师" }
+		31 = { "第%d 守备师" }
+		32 = { "第%d 守备师" }
+		33 = { "第%d 守备师" }
+		34 = { "第%d 守备师" }
+		35 = { "第%d 守备师" }
+		36 = { "第%d 守备师" }
+		37 = { "第%d 守备师" }
+		38 = { "第%d 守备师" }
+		39 = { "第%d 守备师" }
+		40 = { "第%d 守备师" }
+		41 = { "第%d 守备师" }
+		42 = { "第%d 守备师" }
+		43 = { "第%d 守备师" }
+		44 = { "第%d 守备师" }
+		45 = { "第%d 守备师" }
+		46 = { "第%d 守备师" }
+		47 = { "第%d 守备师" }
+		48 = { "第%d 守备师" }
+		49 = { "第%d 守备师" }
+		51 = { "第%d 守备师" }
+		52 = { "第%d 守备师" }
+		53 = { "第%d 守备师" }
+
+		# FIN converted some of its groups or similar into divisions for the continuation war, but they fought as garrison units or therabouts for the winter war.  Thus, the INF and GAR lists are linked, with the idea that converting one of the starting "Ryhmä's" into a div will give it a sensible div number (although these groups have not been matched to their division numbers, and this approach may or may not be appropriate).
+	}
+}
+
+FIN_GAR_02 = 
+{
+	name = "白卫队"
+
+	for_countries = { FIN }
+
+	#can_use = { has_completed_focus = FIN_take_over_the_suojeluskunta }  #TODO_Manu: Game checks this after daily tick, making new templates attempting to use this namelist to default to something else (Garrison Divs)
+
+	can_use = { has_dlc = "Arms Against Tyranny" }
+
+	division_types = { "infantry" }
+
+	fallback_name = "第%d 白卫队"
+
+	# Names with numbers (only one number per entry). 
+	# It's okay to have gaps in numbering.
+	ordered =
+	{
+		#These 6 are spawned via focus
+		1 = { "赫尔辛基白卫队" } #Helsinki
+		2 = { "图伦马白卫队" } #Turku
+		3 = { "瓦萨白卫队" } #Vaasa
+		4 = { "米克林白卫队" } #Mikkeli
+		5 = { "库奥皮奥白卫队" } #Kuopio
+		6 = { "奥卢白卫队" } #Oulu
+
+		#Extra historical names
+		7 = { "索德拉白卫队" } #Helsinki
+		8 = { "南吉门拉克索白卫队" } #Kotka
+		9 = { "北吉门拉克索白卫队" } #Kouvola
+		10 = { "北新马白卫队" } #Kerava"
+		11 = { "南赛马白卫队" } #Lappeenranta"
+		12 = { "北拉赫蒂白卫队" } #Lahti "
+		13 = { "南拉赫蒂白卫队" } #Lahti"
+		14 = { "海梅林纳白卫队" } #Hämeenlinna"
+		15 = { "西南海梅白卫队" } #Forssa"
+		16 = { "坦佩雷白卫队" } #Tampere
+		17 = { "于韦斯屈莱白卫队" } #Jyväskylä
+		18 = { "萨翁林纳白卫队" } #Savonlinna
+		19 = { "赛马白卫队" } #Pieksämäki
+		20 = { "北卡累利阿白卫队" } #Joensuu
+		21 = { "北萨沃白卫队" } #Kuopio
+		22 = { "卡亚尼白卫队" } #Kajaani
+		23 = { "伊萨尔米白卫队" } #Iisalmi
+		24 = { "内芬兰白卫队" } #Suolahti
+		25 = { "科科拉白卫队" } #Kokkola
+		26 = { "拉赫白卫队" } #Raahe
+		27 = { "北欧白卫队" } #Kemi
+		28 = { "西北白卫队" } #Tornio
+		29 = { "西博滕白卫队" } #Seinäjoki
+		30 = { "南博滕白卫队" } #Seinäjoki
+		31 = { "波林白卫队" } #Pori
+		32 = { "南萨塔昆塔白卫队" } #Vammala
+		33 = { "北萨塔昆塔白卫队" } #Kankaanpää
+		34 = { "图尔库白卫队" } #Turku
+		35 = { "劳马白卫队" } #Rauma
+		36 = { "萨洛白卫队" } #Salo
+		37 = { "拉塞博格保护团区白卫队" } #Tammisaari
+		38 = { "奥兰保护团区白卫队" } #Maarianhamina
+		#Suojeluskunta districts
+	}
+}
+
+FIN_MIL_01 = { 
+	name = "黑衫队" 
+
+	for_countries = { FIN } 
+
+	#can_use = { #TODO_Manu: Broken
+	#	NOT = {
+	#		has_government = communism
+	#		has_government = democratic
+	#	}
+	#}
+
+	can_use = { has_dlc = "Arms Against Tyranny" }
+
+	division_types = { "militia" } 
+
+	fallback_name = "黑衫队第%d 军团"
+}
+
+FIN_MIL_02 = { 
+	name = "赤卫队" 
+
+	for_countries = { FIN } 
+
+	#can_use = { has_government = communism } #TODO_Manu: Broken
+
+	can_use = { has_dlc = "Arms Against Tyranny" }
+
+	division_types = { "militia" } 
+
+	fallback_name = "赤卫队第%d 师"
+}
+
+FIN_PEN_01 = { 
+	name = "惩戒部队" 
+
+	for_countries = { FIN } 
+
+	can_use = { has_dlc = "Arms Against Tyranny" } #TODO_Manu: Broken
+
+	division_types = { "penal_battalion" "infantry" } 
+
+	fallback_name = "惩戒部队第%d 师"
+}
+
+FIN_CAV_01 = 
+{
+	name = "骑兵部队"
+
+	for_countries = { FIN }
+
+	can_use = { always = yes }
+
+	division_types = { "cavalry" }
+
+	# Number reservation system will tie to another group.
+	#link_numbering_with = { FIN_INF_01 }
+
+	fallback_name = "第%d 骑兵师"
+
+	# Names with numbers (only one number per entry). 
+	# It's okay to have gaps in numbering.
+	ordered =
+	{
+		1 = { "第1 骑兵师" }
+		2 = { "第%d 骑兵师" }
+		3 = { "第%d 骑兵师" }
+		4 = { "第%d 骑兵师" }
+		5 = { "第%d 骑兵师" }
+		6 = { "第%d 骑兵师" }
+		7 = { "第%d 骑兵师" }
+		8 = { "第%d 骑兵师" }
+		9 = { "第%d 骑兵师" }
+		10 = { "第%d 骑兵师" }
+		11 = { "第%d 骑兵师" }
+		12 = { "第%d 骑兵师" }
+		13 = { "第%d 骑兵师" }
+		14 = { "第%d 骑兵师" }
+		15 = { "第%d 骑兵师" }
+		16 = { "第%d 骑兵师" }
+		17 = { "第%d 骑兵师" }
+		18 = { "第%d 骑兵师" }
+		19 = { "第%d 骑兵师" }
+		20 = { "第%d 骑兵师" }
+		21 = { "第%d 骑兵师" }
+		22 = { "第%d 骑兵师" }
+		23 = { "第%d 骑兵师" }
+		24 = { "第%d 骑兵师" }
+		25 = { "第%d 骑兵师" }
+		26 = { "第%d 骑兵师" }
+		27 = { "第%d 骑兵师" }
+		28 = { "第%d 骑兵师" }
+		29 = { "第%d 骑兵师" }
+		30 = { "第%d 骑兵师" }
+		31 = { "第%d 骑兵师" }
+		32 = { "第%d 骑兵师" }
+		33 = { "第%d 骑兵师" }
+		34 = { "第%d 骑兵师" }
+		35 = { "第%d 骑兵师" }
+		36 = { "第%d 骑兵师" }
+		37 = { "第%d 骑兵师" }
+		38 = { "第%d 骑兵师" }
+		39 = { "第%d 骑兵师" }
+		40 = { "第%d 骑兵师" }
+		41 = { "第%d 骑兵师" }
+		42 = { "第%d 骑兵师" }
+		43 = { "第%d 骑兵师" }
+		44 = { "第%d 骑兵师" }
+		45 = { "第%d 骑兵师" }
+		46 = { "第%d 骑兵师" }
+		47 = { "第%d 骑兵师" }
+		48 = { "第%d 骑兵师" }
+		49 = { "第%d 骑兵师" }
+		50 = { "第%d 骑兵师" }
+		51 = { "第%d 骑兵师" }
+		52 = { "第%d 骑兵师" }
+		53 = { "第%d 骑兵师" }
+	}
+}
+
+FIN_MOT_01 = 
+{
+	name = "摩托化部队"
+
+	for_countries = { FIN }
+
+	can_use = { always = yes }
+
+	division_types = { "motorized" }
+
+	# Number reservation system will tie to another group.
+	link_numbering_with = { FIN_INF_01 }
+
+	fallback_name = "第%d 摩托化步兵师"
+
+	# Names with numbers (only one number per entry). 
+	# It's okay to have gaps in numbering.
+	ordered =
+	{
+		1 = { "第1 摩托化步兵师" }
+		2 = { "第%d 摩托化步兵师" }
+		3 = { "第%d 摩托化步兵师" }
+		4 = { "第%d 摩托化步兵师" }
+		5 = { "第%d 摩托化步兵师" }
+		6 = { "第%d 摩托化步兵师" }
+		7 = { "第%d 摩托化步兵师" }
+		8 = { "第%d 摩托化步兵师" }
+		9 = { "第%d 摩托化步兵师" }
+		10 = { "第%d 摩托化步兵师" }
+		11 = { "第%d 摩托化步兵师" }
+		12 = { "第%d 摩托化步兵师" }
+		13 = { "第%d 摩托化步兵师" }
+		14 = { "第%d 摩托化步兵师" }
+		15 = { "第%d 摩托化步兵师" }
+		16 = { "第%d 摩托化步兵师" }
+		17 = { "第%d 摩托化步兵师" }
+		18 = { "第%d 摩托化步兵师" }
+		19 = { "第%d 摩托化步兵师" }
+		20 = { "第%d 摩托化步兵师" }
+		21 = { "第%d 摩托化步兵师" }
+		22 = { "第%d 摩托化步兵师" }
+		23 = { "第%d 摩托化步兵师" }
+		24 = { "第%d 摩托化步兵师" }
+		25 = { "第%d 摩托化步兵师" }
+		26 = { "第%d 摩托化步兵师" }
+		27 = { "第%d 摩托化步兵师" }
+		28 = { "第%d 摩托化步兵师" }
+		29 = { "第%d 摩托化步兵师" }
+		30 = { "第%d 摩托化步兵师" }
+		31 = { "第%d 摩托化步兵师" }
+		32 = { "第%d 摩托化步兵师" }
+		33 = { "第%d 摩托化步兵师" }
+
+	}
+}
+
+FIN_ARM_01 = 
+{
+	name = "装甲部队"
+
+	for_countries = { FIN }
+
+	can_use = { always = yes }
+
+	division_types = { "light_armor" "medium_armor" "heavy_armor" "modern_armor" }
+
+	# Number reservation system will tie to another group.
+	#link_numbering_with = { FIN_INF_01 }
+
+	fallback_name = "第%d 装甲师"
+
+	# Names with numbers (only one number per entry). 
+	# It's okay to have gaps in numbering.
+	ordered =
+	{
+		1 = { "'LAGUS' 装甲师" }
+		2 = { "第%d 装甲师" }
+		3 = { "第%d 装甲师" }
+		4 = { "第%d 装甲师" }
+		5 = { "第%d 装甲师" }
+		6 = { "第%d 装甲师" }
+		7 = { "第%d 装甲师" }
+		8 = { "第%d 装甲师" }
+		9 = { "第%d 装甲师" }
+		10 = { "第%d 装甲师" }
+		11 = { "第%d 装甲师" }
+		12 = { "第%d 装甲师" }
+		13 = { "第%d 装甲师" }
+		14 = { "第%d 装甲师" }
+		15 = { "第%d 装甲师" }
+		16 = { "第%d 装甲师" }
+		17 = { "第%d 装甲师" }
+		18 = { "第%d 装甲师" }
+		19 = { "第%d 装甲师" }
+		20 = { "第%d 装甲师" }
+		21 = { "第%d 装甲师" }
+		22 = { "第%d 装甲师" }
+		23 = { "第%d 装甲师" }
+		24 = { "第%d 装甲师" }
+		25 = { "第%d 装甲师" }
+		26 = { "第%d 装甲师" }
+		27 = { "第%d 装甲师" }
+		28 = { "第%d 装甲师" }
+		29 = { "第%d 装甲师" }
+		30 = { "第%d 装甲师" }
+		31 = { "第%d 装甲师" }
+		32 = { "第%d 装甲师" }
+		33 = { "第%d 装甲师" }
+
+		# Only 1 historically.
+	}
+}
+
+FIN_MEC_01 = 
+{
+	name = "机械化步兵师"
+
+	for_countries = { FIN }
+
+	can_use = { always = yes }
+
+	division_types = { "mechanized"  }
+
+	# Number reservation system will tie to another group.
+	link_numbering_with = { FIN_INF_01 }
+
+	fallback_name = "第%d 机械化步兵师"
+
+	# Names with numbers (only one number per entry). 
+	# It's okay to have gaps in numbering.
+	ordered =
+	{
+		1 = { "第1 机械化步兵师" }
+		2 = { "第%d 机械化步兵师" }
+		3 = { "第%d 机械化步兵师" }
+		4 = { "第%d 机械化步兵师" }
+		5 = { "第%d 机械化步兵师" }
+		6 = { "第%d 机械化步兵师" }
+		7 = { "第%d 机械化步兵师" }
+		8 = { "第%d 机械化步兵师" }
+		9 = { "第%d 机械化步兵师" }
+		10 = { "第%d 机械化步兵师" }
+		11 = { "第%d 机械化步兵师" }
+		12 = { "第%d 机械化步兵师" }
+		13 = { "第%d 机械化步兵师" }
+		14 = { "第%d 机械化步兵师" }
+		15 = { "第%d 机械化步兵师" }
+		16 = { "第%d 机械化步兵师" }
+		17 = { "第%d 机械化步兵师" }
+		18 = { "第%d 机械化步兵师" }
+		19 = { "第%d 机械化步兵师" }
+		20 = { "第%d 机械化步兵师" }
+		21 = { "第%d 机械化步兵师" }
+		22 = { "第%d 机械化步兵师" }
+		23 = { "第%d 机械化步兵师" }
+		24 = { "第%d 机械化步兵师" }
+		25 = { "第%d 机械化步兵师" }
+		26 = { "第%d 机械化步兵师" }
+		27 = { "第%d 机械化步兵师" }
+		28 = { "第%d 机械化步兵师" }
+		29 = { "第%d 机械化步兵师" }
+		30 = { "第%d 机械化步兵师" }
+		31 = { "第%d 机械化步兵师" }
+		32 = { "第%d 机械化步兵师" }
+		33 = { "第%d 机械化步兵师" }
+
+		# None historically.
+	}
+}
+
+FIN_MAR_01 = 
+{
+	name = "海军陆战部队"
+
+	for_countries = { FIN }
+
+	can_use = { always = yes }
+
+	division_types = { "marine" }
+
+	fallback_name = "海军第%d 陆战师"
+
+	# Names with numbers (only one number per entry). 
+	# It's okay to have gaps in numbering.
+	ordered =
+	{
+		1 = { "海军第%d 陆战师" }
+		2 = { "海军第%d 陆战师" }
+		3 = { "海军第%d 陆战师" }
+		4 = { "海军第%d 陆战师" }
+		5 = { "海军第%d 陆战师" }
+		6 = { "海军第%d 陆战师" }
+		7 = { "海军第%d 陆战师" }
+		8 = { "海军第%d 陆战师" }
+		9 = { "海军第%d 陆战师" }
+		10 = { "海军第%d 陆战师" }
+		11 = { "海军第%d 陆战师" }
+		12 = { "海军第%d 陆战师" }
+		13 = { "海军第%d 陆战师" }
+		14 = { "海军第%d 陆战师" }
+		15 = { "海军第%d 陆战师" }
+		16 = { "海军第%d 陆战师" }
+		17 = { "海军第%d 陆战师" }
+		18 = { "海军第%d 陆战师" }
+		19 = { "海军第%d 陆战师" }
+		20 = { "海军第%d 陆战师" }
+		21 = { "海军第%d 陆战师" }
+		22 = { "海军第%d 陆战师" }
+		23 = { "海军第%d 陆战师" }
+		24 = { "海军第%d 陆战师" }
+		25 = { "海军第%d 陆战师" }
+		26 = { "海军第%d 陆战师" }
+		27 = { "海军第%d 陆战师" }
+		28 = { "海军第%d 陆战师" }
+		29 = { "海军第%d 陆战师" }
+		30 = { "海军第%d 陆战师" }
+
+		# FIN didn't have any Marine divisions, these are all fictional.  Based on HoI3 lists, numbering independent of main sequence.
+	}
+}
+
+FIN_MTN_01 = 
+{
+	name = "山地游击队"
+
+	for_countries = { FIN }
+
+	can_use = { NOT = { has_dlc = "Arms Against Tyranny" } }
+
+	division_types = { "mountaineers" }
+
+	# Number reservation system will tie to another group.
+	#link_numbering_with = { FIN_INF_01 }
+
+	fallback_name = "第%d 山地游击队"
+
+	# Names with numbers (only one number per entry). 
+	# It's okay to have gaps in numbering.
+	ordered =
+	{
+		1 = { "第%d 山地游击队" }
+		2 = { "第%d 山地游击队" }
+		3 = { "第%d 山地游击队" }
+		4 = { "第%d 山地游击队" }
+		5 = { "第%d 山地游击队" }
+		6 = { "第%d 山地游击队" }
+		7 = { "第%d 山地游击队" }
+		8 = { "第%d 山地游击队" }
+		9 = { "第%d 山地游击队" }
+		10 = { "第%d 山地游击队" }
+		11 = { "第%d 山地游击队" }
+		12 = { "第%d 山地游击队" }
+		13 = { "第%d 山地游击队" }
+		14 = { "第%d 山地游击队" }
+		15 = { "第%d 山地游击队" }
+		16 = { "第%d 山地游击队" }
+		17 = { "第%d 山地游击队" }
+		18 = { "第%d 山地游击队" }
+		19 = { "第%d 山地游击队" }
+		20 = { "第%d 山地游击队" }
+		21 = { "第%d 山地游击队" }
+		22 = { "第%d 山地游击队" }
+		23 = { "第%d 山地游击队" }
+		24 = { "第%d 山地游击队" }
+		25 = { "第%d 山地游击队" }
+		26 = { "第%d 山地游击队" }
+		27 = { "第%d 山地游击队" }
+		28 = { "第%d 山地游击队" }
+		29 = { "第%d 山地游击队" }
+		30 = { "第%d 山地游击队" }
+		31 = { "第%d 山地游击队" }
+		32 = { "第%d 山地游击队" }
+		33 = { "第%d 山地游击队" }
+		34 = { "第%d 山地游击队" }
+		35 = { "第%d 山地游击队" }
+		36 = { "第%d 山地游击队" }
+		37 = { "第%d 山地游击队" }
+		38 = { "第%d 山地游击队" }
+		39 = { "第%d 山地游击队" }
+		40 = { "第%d 山地游击队" }
+		41 = { "第%d 山地游击队" }
+		42 = { "第%d 山地游击队" }
+		43 = { "第%d 山地游击队" }
+		44 = { "第%d 山地游击队" }
+		45 = { "第%d 山地游击队" }
+		46 = { "第%d 山地游击队" }
+		47 = { "第%d 山地游击队" }
+		48 = { "第%d 山地游击队" }
+		49 = { "第%d 山地游击队" }
+		50 = { "第%d 山地游击队" }
+		51 = { "第%d 山地游击队" }
+		52 = { "第%d 山地游击队" }
+		53 = { "第%d 山地游击队" }
+
+		# None in service historically.
+	}
+}
+
+FIN_MTN_02 = 
+{
+	name = "山地部队"
+
+	for_countries = { FIN }
+
+	can_use = { has_dlc = "Arms Against Tyranny" }
+
+	division_types = { "mountaineers" }
+
+	fallback_name = "第%d 山地步兵师" #Not historical
+}
+
+FIN_PAR_01 = 
+{
+	name = "空降部队"
+
+	for_countries = { FIN }
+
+	can_use = { always = yes }
+
+	division_types = { "paratrooper" }
+
+	# Number reservation system will tie to another group.
+
+	fallback_name = "第%d 伞兵师"
+
+	# Names with numbers (only one number per entry). 
+	# It's okay to have gaps in numbering.
+	ordered =
+	{
+		1 = { "第%d 伞兵师" }
+		2 = { "第%d 伞兵师" }
+		3 = { "第%d 伞兵师" }
+		4 = { "第%d 伞兵师" }
+		5 = { "第%d 伞兵师" }
+		6 = { "第%d 伞兵师" }
+		7 = { "第%d 伞兵师" }
+		8 = { "第%d 伞兵师" }
+		9 = { "第%d 伞兵师" }
+		10 = { "第%d 伞兵师" }
+		11 = { "第%d 伞兵师" }
+		12 = { "第%d 伞兵师" }
+		13 = { "第%d 伞兵师" }
+		14 = { "第%d 伞兵师" }
+		15 = { "第%d 伞兵师" }
+		16 = { "第%d 伞兵师" }
+		17 = { "第%d 伞兵师" }
+		18 = { "第%d 伞兵师" }
+		19 = { "第%d 伞兵师" }
+		20 = { "第%d 伞兵师" }
+		21 = { "第%d 伞兵师" }
+		22 = { "第%d 伞兵师" }
+		23 = { "第%d 伞兵师" }
+		24 = { "第%d 伞兵师" }
+		25 = { "第%d 伞兵师" }
+		26 = { "第%d 伞兵师" }
+		27 = { "第%d 伞兵师" }
+		28 = { "第%d 伞兵师" }
+		29 = { "第%d 伞兵师" }
+		30 = { "第%d 伞兵师" }
+
+		# FIN didn't have any Airborne divisions.  Have independent sequence.
+	}
+}
+

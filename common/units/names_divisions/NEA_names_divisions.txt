@@ -1,0 +1,135 @@
+﻿# Original by HK HOI4 Modder Ken80 10-10-2020 辛亥革命109周年
+# Division template historical names system. Is a new method of naming the divisions based on the names-group assigned to it's template.
+# If we run out of all historical names, the names will be assigned in the old way.
+#
+# Each group has a made up tag. Use it if you want to append more, or replace existing names with the extra txt files (modding).
+#
+# for_countries - lists all countries that can use it. If empty, or entire tag is missing, all countries in the world can use it.
+#
+# can_use - is a trigger that locks/unlocks the group under specific circumstances. The trigger is in a country scope.
+#
+# division_types - is a list of tokens to corresponding unit types. A player can in fact use any group of names for a div.template
+#                  however this tag is a helper for an automated choice (for AI, or if the group must switch on it's own, because
+#                  for example the current one is no longer available due to the can_use trigger saying so).
+#                  In automated choice, the division template must have at least 1 of the following types for it to be chosen.
+#
+# fallback_name - Is going to be used if we run out of the scripted historical names. If you want to use the old division naming
+#                 mechanics to be used for fallbacks, then just skip this option.
+#
+# unordered - It's a list of historical division names that did not have a number. Regardless if such names happened in history or not
+#             this option is available here mainly for a mods.
+#
+# ordered - Is a list of all historical names. 
+#           Numbers must start from 1 and up. 
+#           Numbers can't repeat in one scope.
+#           If you script the name for this group, at the same number (for example in a mod in another file), the name will be override.
+#           All arguments between the brackets must be separated by spaces. Each argument is wrapped in "quotas".
+#           1st argument = The name. It must contain either: 
+#                          %d (for decimal number placement)
+#                          %s (for string number placement - ROMAN numbers like XIV).
+#           2nd argument is optional = A localizable text describing this historical division. The text will be visible in the tooltip
+#                                      where you choose the historical division name.
+#           3rd argument is optional = An URL preferably pointing to the WIKI. It's a future feature that is not currently working in
+#                                      the current game version.
+NEA_INF_01 = 
+{
+	name = "步兵部队"
+
+	for_countries = { NEA }
+
+	can_use = { always = yes }
+
+	division_types = { "infantry" }
+
+	# Number reservation system will tie to another group.
+	#link_numbering_with = { NEA_INF_01 }
+
+	fallback_name = "第%d 步兵师"
+
+	# Names with numbers (only one number per entry). 
+	# It's okay to have gaps in numbering.
+	ordered =
+	{
+	         91 = { "第91步兵师" }      #東北軍，（張學良部）原張作相部
+             105 = { "第105步兵师" }      #東北軍，（張學良部）
+             106 = { "第106步兵师" }      #東北軍，（張學良部）
+	        107 = { "第107步兵师" }      #東北軍，（張學良部）
+	        108 = { "第108步兵师" }      #東北軍，（張學良部）
+	        109 = { "第109步兵师" }      #東北軍，（張學良部）
+	        110 = { "第110步兵师" }      #東北軍，（張學良部）
+	        111 = { "第111步兵师" }      #東北軍，（張學良部）
+	        112 = { "第112步兵师" }      #東北軍，（張學良部）
+	        113 = { "第113步兵师" }      #東北軍，（張學良部）
+	        114 = { "第114步兵师" }      #東北軍，（張學良部）
+	        116 = { "第116步兵师" }      #東北軍，（張學良部）
+	        117 = { "第117步兵师" }      #東北軍，（張學良部）
+	        130 = { "第130步兵师" }      #東北軍，（張學良部）
+	}
+}
+
+NEA_CAV_01 = 
+{
+	name = "骑兵部队"
+
+	for_countries = { NEA }
+
+	can_use = { always = yes }
+
+	division_types = { "cavalry" }
+
+	# Number reservation system will tie to another group.
+	#link_numbering_with = { NEA_INF_01 }
+
+	fallback_name = "第%d 骑兵师"
+
+	# Names with numbers (only one number per entry). 
+	# It's okay to have gaps in numbering.
+	ordered =
+	{
+		  3 = { "第3骑兵师" }      #東北軍，（張學良部）
+		  6 = { "第6骑兵师" }      #東北軍，（張學良部）
+		 10 = { "第10骑兵师" }      #東北軍，（張學良部）/嫡系，（胡宗南系）				
+	}
+}
+
+NEA_INF_02 = 
+{
+	name = "独立旅"
+
+	for_countries = { NEA }
+
+	can_use = { always = yes }
+
+	division_types = { "infantry" }
+
+	# Number reservation system will tie to another group.
+	#link_numbering_with = { PLM_INF_01 }
+
+	fallback_name = "第%d 独立旅"
+
+	# Names with numbers (only one number per entry). 
+	# It's okay to have gaps in numbering.
+	ordered = {
+	}
+}
+
+NEA_CAV_02 = 
+{
+	name = "独立骑兵旅"
+
+	for_countries = { NEA }
+
+	can_use = { always = yes }
+
+	division_types = { "cavalry" }
+
+	# Number reservation system will tie to another group.
+	#link_numbering_with = { CHI_INF_01 }
+
+	fallback_name = "第%d 独立骑兵旅"
+
+	# Names with numbers (only one number per entry). 
+	# It's okay to have gaps in numbering.
+	ordered = {
+	}
+}

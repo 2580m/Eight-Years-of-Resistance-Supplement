@@ -1,0 +1,32 @@
+﻿HMI_INF_01 = 
+{
+	name = "Garrison Brigades"
+
+	for_countries = { HMI }
+
+	can_use = { always = yes }
+
+	division_types = { "infantry" }
+
+	# Number reservation system will tie to another group.
+	#link_numbering_with = { HMI_CAV_01 }
+
+	fallback_name = "Hami Chingpei Ti %d Lü"
+
+	# Names with numbers (only one number per entry). 
+	# It's okay to have gaps in numbering.
+	ordered =
+	{
+		1 = { "Hami Chingpei Ti 1 Lü" }      
+		2 = { "Hami Chingpei Ti 2 Lü" }   
+		3 = { "Hami Chingpei Ti 3 Lü" }  
+		4 = { "Hami Chingpei Ti 4 Lü" } 
+		5 = { "Hami Chingpei Ti 5 Lü" } 
+		6 = { "Hami Chingpei Ti 6 Lü" }     
+		7 = { "Hami Chingpei Ti 7 Lü" }  
+		8 = { "Hami Chingpei Ti 8 Lü" }  
+		9 = { "Hami Chingpei Ti 9 Lü" } 
+		10 = { "Hami Chingpei Ti 10 Lü" }               
+	}
+}
+

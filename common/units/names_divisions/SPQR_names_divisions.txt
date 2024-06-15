@@ -1,0 +1,481 @@
+﻿# Division template historical names system. Is a new method of naming the Legions based on the names-group assigned to it's template.
+# If we run out of all historical names, the names will be assigned in the old way.
+#
+# Each group has a made up tag. Use it if you want to append more, or replace existing names with the extra txt files (modding).
+#
+# for_countries - lists all countries that can use it. If empty, or entire tag is missing, all countries in the world can use it.
+#
+# can_use - is a trigger that locks/unlocks the group under specific circumstances. The trigger is in a country scope.
+#
+# division_types - is a list of tokens to corresponding unit types. A player can in fact use any group of names for a div.template
+#                  however this tag is a helper for an automated choice (for AI, or if the group must switch on it's own, because
+#                  for example the current one is no longer available due to the can_use trigger saying so).
+#                  In automated choice, the division template must have at least 1 of the following types for it to be chosen.
+#
+# fallback_name - Is going to be used if we run out of the scripted historical names. If you want to use the old division naming
+#                 mechanics to be used for fallbacks, then just skip this option.
+#
+# unordered - It's a list of historical division names that did not have a number. Regardless if such names happened in history or not
+#             this option is available here mainly for a mods.
+#
+# ordered - Is a list of all historical names. 
+#           Numbers must start from 1 and up. 
+#           Numbers can't repeat in one scope.
+#           If you script the name for this group, at the same number (for example in a mod in another file), the name will be override.
+#           All arguments between the brackets must be separated by spaces. Each argument is wrapped in "quotas".
+#           1st argument = The name. It must contain either: 
+#                          %d (for decimal number placement)
+#                          %s (for string number placement - ROMAN numbers like XIV).
+#           2nd argument is optional = A localizable text describing this historical division. The text will be visible in the tooltip
+#                                      where you choose the historical division name.
+#           3rd argument is optional = An URL preferably pointing to the WIKI. It's a future feature that is not currently working in
+#                                      the current game version.
+
+SPQR_INF_01 = 
+{
+	name = "罗马步兵军团"
+
+	for_countries = { ITA }
+
+	can_use = { has_cosmetic_tag = SPQR_UNIFIED }
+
+	division_types = { "infantry" }
+
+	# Number reservation system will tie to another group.
+	#link_numbering_with = { SPQR_GAR_01 }
+
+	fallback_name = "第%s 军团"
+
+	# Names with numbers (only one number per entry). 
+	# It's okay to have gaps in numbering.
+	ordered =
+	{
+		1 = { "第%s '日耳曼尼亚' 军团" }
+		2 = { "第%s '萨宾娜' 军团" }
+		3 = { "第%s '昔兰尼加' 军团" }
+		4 = { "第%s '马其顿' 军团" }
+		5 = { "第%s '云雀' 军团" }
+		6 = { "第%s '装甲' 军团" }
+		7 = { "第%s '合组' 军团" }
+		8 = { "第%s '奥古斯塔' 军团" }
+		9 = { "第%s '西班牙' 军团" }
+		10 = { "第%s '埃克斯利斯' 军团" }
+		11 = { "第%s '克劳狄' 军团" }
+		12 = { "第%s '雷电' 军团" }
+		13 = { "第%s '意大利' 军团" }
+		14 = { "第%s '马里亚纳' 军团" }
+		15 = { "第%s '阿波利纳瑞斯' 军团" }
+		16 = { "第%s '弗拉维亚·菲尔玛' 军团" }
+		17 = { "第%s '加利卡' 军团" }
+		18 = { "第%s '利比卡' 军团" }
+		19 = { "第%s '斯基泰' 军团" }
+		20 = { "第%s '胜利' 军团" }
+		21 = { "第%s '捕食者' 军团" }
+		22 = { "第%s '神灵' 军团" }
+		23 = { "第%s '弗拉维亚·菲利克斯' 军团" }
+		24 = { "第%s '密涅瓦' 军团" }
+		25 = { "第%s '原始' 军团" }
+		26 = { "第%s '帕提卡' 军团" }
+		27 = { "第%s '瓦莱里娅·维克特' 军团" }
+		28 = { "第%s '弗雷特西斯' 军团" }
+		29 = { "第%s '特拉亚娜' 军团" }
+		30 = { "第%s '古典' 军团" }
+		31 = { "第%s '乌尔皮亚胜利' 军团" }
+		32 = { "第%s '亚美尼亚' 军团" }
+		33 = { "第%s '木星' 军团" }
+		34 = { "第%s '火星' 军团" }
+		35 = { "第%s '阿尔巴尼亚' 军团" }
+		36 = { "第%s '弗拉维亚·和平' 军团" }
+		37 = { "第%s '弗拉维娅·康斯坦蒂亚' 军团" }
+		38 = { "第%s '诺瑞斯' 军团" }
+		39 = { "第%s '庞蒂卡' 军团" }
+		40 = { "第%s '大不列颠' 军团" }
+		41 = { "第%s '弗拉维亚·美德' 军团" }
+		42 = { "第%s '赫库利亚' 军团" }
+		43 = { "第%s '伊佐拉' 军团" }
+		44 = { "第%s '戴克里先' 军团" }
+		45 = { "第%s '弗拉维亚·萨卢斯' 军团" }
+		46 = { "第%s '双胞胎' 军团" }
+		47 = { "第%s 军团" }
+		48 = { "第%s 军团" }
+
+	}
+}
+
+SPQR_CAV_01 = 
+{
+	name = "罗马骑兵编队"
+
+	for_countries = { ITA }
+
+	can_use = { has_cosmetic_tag = SPQR_UNIFIED }
+
+	division_types = { "cavalry" }
+
+	# Number reservation system will tie to another group.
+	#link_numbering_with = { SPQR_INF_01 }
+
+	fallback_name = "第%s 骑兵中队"
+
+	# Names with numbers (only one number per entry). 
+	# It's okay to have gaps in numbering.
+	ordered =
+	{
+		1 = { "第%s 骑兵中队" }
+		2 = { "第%s 骑兵中队" }
+		3 = { "第%s 骑兵中队" }
+		4 = { "第%s 骑兵中队" }
+		5 = { "第%s 骑兵中队" }
+		6 = { "第%s 骑兵中队" }
+		7 = { "第%s 骑兵中队" }
+		9 = { "第%s 骑兵中队" }
+		8 = { "第%s 骑兵中队" }
+		10 = { "第%s 骑兵中队" }
+
+	}
+}
+
+SPQR_MOT_01 = 
+{
+	name = "罗马摩托化军团"
+
+	for_countries = { ITA }
+
+	can_use = { has_cosmetic_tag = SPQR_UNIFIED }
+
+	division_types = { "motorized" }
+
+	# Number reservation system will tie to another group.
+	link_numbering_with = { SPQR_INF_01 }
+
+	fallback_name = "第%s 军团"
+
+	# Names with numbers (only one number per entry). 
+	# It's okay to have gaps in numbering.
+	ordered =
+	{
+		1 = { "第%s '日耳曼尼亚' 军团" }
+		2 = { "第%s '萨宾娜' 军团" }
+		3 = { "第%s '昔兰尼加' 军团" }
+		4 = { "第%s '马其顿' 军团" }
+		5 = { "第%s '云雀' 军团" }
+		6 = { "第%s '装甲' 军团" }
+		7 = { "第%s '合组' 军团" }
+		8 = { "第%s '奥古斯塔' 军团" }
+		9 = { "第%s '西班牙' 军团" }
+		10 = { "第%s '埃克斯利斯' 军团" }
+		11 = { "第%s '克劳狄' 军团" }
+		12 = { "第%s '雷电' 军团" }
+		13 = { "第%s '意大利' 军团" }
+		14 = { "第%s '马里亚纳' 军团" }
+		15 = { "第%s '阿波利纳瑞斯' 军团" }
+		16 = { "第%s '弗拉维亚·菲尔玛' 军团" }
+		17 = { "第%s '加利卡' 军团" }
+		18 = { "第%s '利比卡' 军团" }
+		19 = { "第%s '斯基泰' 军团" }
+		20 = { "第%s '胜利' 军团" }
+		21 = { "第%s '捕食者' 军团" }
+		22 = { "第%s '神灵' 军团" }
+		23 = { "第%s '弗拉维亚·菲利克斯' 军团" }
+		24 = { "第%s '密涅瓦' 军团" }
+		25 = { "第%s '原始' 军团" }
+		26 = { "第%s '帕提卡' 军团" }
+		27 = { "第%s '瓦莱里娅·维克特' 军团" }
+		28 = { "第%s '弗雷特西斯' 军团" }
+		29 = { "第%s '特拉亚娜' 军团" }
+		30 = { "第%s '古典' 军团" }
+		31 = { "第%s '乌尔皮亚胜利' 军团" }
+		32 = { "第%s '亚美尼亚' 军团" }
+		33 = { "第%s '木星' 军团" }
+		34 = { "第%s '火星' 军团" }
+		35 = { "第%s '阿尔巴尼亚' 军团" }
+		36 = { "第%s '弗拉维亚·和平' 军团" }
+		37 = { "第%s '弗拉维娅·康斯坦蒂亚' 军团" }
+		38 = { "第%s '诺瑞斯' 军团" }
+		39 = { "第%s '庞蒂卡' 军团" }
+		40 = { "第%s '大不列颠' 军团" }
+		41 = { "第%s '弗拉维亚·美德' 军团" }
+		42 = { "第%s '赫库利亚' 军团" }
+		43 = { "第%s '伊佐拉' 军团" }
+		44 = { "第%s '戴克里先' 军团" }
+		45 = { "第%s '弗拉维亚·萨卢斯' 军团" }
+		46 = { "第%s '双胞胎' 军团" }
+		47 = { "第%s 军团" }
+		48 = { "第%s 军团" }
+
+	}
+}
+
+SPQR_ARM_01 = 
+{
+	name = "罗马装甲军团"
+
+	for_countries = { ITA }
+
+	can_use = { has_cosmetic_tag = SPQR_UNIFIED }
+
+	division_types = { "light_armor" "medium_armor" "heavy_armor" "modern_armor" }
+
+	# Number reservation system will tie to another group.
+	link_numbering_with = { SPQR_INF_01 }
+
+	fallback_name = "第%s 装甲军团"
+
+	# Names with numbers (only one number per entry). 
+	# It's okay to have gaps in numbering.
+	ordered =
+	{
+		1 = { "第%s '日耳曼尼亚' 装甲军团" }
+		2 = { "第%s '萨宾娜' 装甲军团" }
+		3 = { "第%s '昔兰尼加' 装甲军团" }
+		4 = { "第%s '马其顿' 装甲军团" }
+		5 = { "第%s '云雀' 装甲军团" }
+		6 = { "第%s '装甲' 装甲军团" }
+		7 = { "第%s '合组' 装甲军团" }
+		8 = { "第%s '奥古斯塔' 装甲军团" }
+		9 = { "第%s '西班牙' 装甲军团" }
+		10 = { "第%s '埃克斯利斯' 装甲军团" }
+		11 = { "第%s '克劳狄' 装甲军团" }
+		12 = { "第%s '雷电' 装甲军团" }
+		13 = { "第%s '意大利' 装甲军团" }
+		14 = { "第%s '马里亚纳' 装甲军团" }
+		15 = { "第%s '阿波利纳瑞斯' 装甲军团" }
+		16 = { "第%s '弗拉维亚·菲尔玛' 装甲军团" }
+		17 = { "第%s '加利卡' 装甲军团" }
+		18 = { "第%s '利比卡' 装甲军团" }
+		19 = { "第%s '斯基泰' 装甲军团" }
+		20 = { "第%s '胜利' 装甲军团" }
+		21 = { "第%s '捕食者' 装甲军团" }
+		22 = { "第%s '神灵' 装甲军团" }
+		23 = { "第%s '弗拉维亚·菲利克斯' 装甲军团" }
+		24 = { "第%s '密涅瓦' 装甲军团" }
+		25 = { "第%s '原始' 装甲军团" }
+		26 = { "第%s '帕提卡' 装甲军团" }
+		27 = { "第%s '瓦莱里娅·维克特' 装甲军团" }
+		28 = { "第%s '弗雷特西斯' 装甲军团" }
+		29 = { "第%s '特拉亚娜' 装甲军团" }
+		30 = { "第%s '古典' 装甲军团" }
+		31 = { "第%s '乌尔皮亚胜利' 装甲军团" }
+		32 = { "第%s '亚美尼亚' 装甲军团" }
+		33 = { "第%s '木星' 装甲军团" }
+		34 = { "第%s '火星' 装甲军团" }
+		35 = { "第%s '阿尔巴尼亚' 装甲军团" }
+		36 = { "第%s '弗拉维亚·和平' 装甲军团" }
+		37 = { "第%s '弗拉维娅·康斯坦蒂亚' 装甲军团" }
+		38 = { "第%s '诺瑞斯' 装甲军团" }
+		39 = { "第%s '庞蒂卡' 装甲军团" }
+		40 = { "第%s '大不列颠' 装甲军团" }
+		41 = { "第%s '弗拉维亚·美德' 装甲军团" }
+		42 = { "第%s '赫库利亚' 装甲军团" }
+		43 = { "第%s '伊佐拉' 装甲军团" }
+		44 = { "第%s '戴克里先' 装甲军团" }
+		45 = { "第%s '弗拉维亚·萨卢斯' 装甲军团" }
+		46 = { "第%s '双胞胎' 装甲军团" }
+		47 = { "第%s 装甲军团" }
+		48 = { "第%s 装甲军团" }
+
+	}
+}
+
+SPQR_MEC_01 = 
+{
+	name = "罗马机械化军团"
+
+	for_countries = { ITA }
+
+	can_use = { has_cosmetic_tag = SPQR_UNIFIED }
+
+	division_types = { "mechanized"  }
+
+	# Number reservation system will tie to another group.
+	link_numbering_with = { SPQR_INF_01 }
+
+	fallback_name = "第%s 机械化军团"
+
+	# Names with numbers (only one number per entry). 
+	# It's okay to have gaps in numbering.
+	ordered =
+	{
+		1 = { "第%s '日耳曼尼亚' 机械化军团" }
+		2 = { "第%s '萨宾娜' 机械化军团" }
+		3 = { "第%s '昔兰尼加' 机械化军团" }
+		4 = { "第%s '马其顿' 机械化军团" }
+		5 = { "第%s '云雀' 机械化军团" }
+		6 = { "第%s '装甲' 机械化军团" }
+		7 = { "第%s '合组' 机械化军团" }
+		8 = { "第%s '奥古斯塔' 机械化军团" }
+		9 = { "第%s '西班牙' 机械化军团" }
+		10 = { "第%s '埃克斯利斯' 机械化军团" }
+		11 = { "第%s '克劳狄' 机械化军团" }
+		12 = { "第%s '雷电' 机械化军团" }
+		13 = { "第%s '意大利' 机械化军团" }
+		14 = { "第%s '马里亚纳' 机械化军团" }
+		15 = { "第%s '阿波利纳瑞斯' 机械化军团" }
+		16 = { "第%s '弗拉维亚·菲尔玛' 机械化军团" }
+		17 = { "第%s '加利卡' 机械化军团" }
+		18 = { "第%s '利比卡' 机械化军团" }
+		19 = { "第%s '斯基泰' 机械化军团" }
+		20 = { "第%s '胜利' 机械化军团" }
+		21 = { "第%s '捕食者' 机械化军团" }
+		22 = { "第%s '神灵' 机械化军团" }
+		23 = { "第%s '弗拉维亚·菲利克斯' 机械化军团" }
+		24 = { "第%s '密涅瓦' 机械化军团" }
+		25 = { "第%s '原始' 机械化军团" }
+		26 = { "第%s '帕提卡' 机械化军团" }
+		27 = { "第%s '瓦莱里娅·维克特' 机械化军团" }
+		28 = { "第%s '弗雷特西斯' 机械化军团" }
+		29 = { "第%s '特拉亚娜' 机械化军团" }
+		30 = { "第%s '古典' 机械化军团" }
+		31 = { "第%s '乌尔皮亚胜利' 机械化军团" }
+		32 = { "第%s '亚美尼亚' 机械化军团" }
+		33 = { "第%s '木星' 机械化军团" }
+		34 = { "第%s '火星' 机械化军团" }
+		35 = { "第%s '阿尔巴尼亚' 机械化军团" }
+		36 = { "第%s '弗拉维亚·和平' 机械化军团" }
+		37 = { "第%s '弗拉维娅·康斯坦蒂亚' 机械化军团" }
+		38 = { "第%s '诺瑞斯' 机械化军团" }
+		39 = { "第%s '庞蒂卡' 机械化军团" }
+		40 = { "第%s '大不列颠' 机械化军团" }
+		41 = { "第%s '弗拉维亚·美德' 机械化军团" }
+		42 = { "第%s '赫库利亚' 机械化军团" }
+		43 = { "第%s '伊佐拉' 机械化军团" }
+		44 = { "第%s '戴克里先' 机械化军团" }
+		45 = { "第%s '弗拉维亚·萨卢斯' 机械化军团" }
+		46 = { "第%s '双胞胎' 机械化军团" }
+		47 = { "第%s 机械化军团" }
+		48 = { "第%s 机械化军团" }
+
+	}
+}
+
+SPQR_GAR_01 = 
+{
+	name = "罗马辅兵军团"
+
+	for_countries = { ITA }
+
+	can_use = { has_cosmetic_tag = SPQR_UNIFIED }
+
+	division_types = { "infantry" }
+
+	# Number reservation system will tie to another group.
+	#link_numbering_with = { SPQR_INF_01 }
+
+	fallback_name = "第%s 辅兵军团"
+
+	# Names with numbers (only one number per entry). 
+	# It's okay to have gaps in numbering.
+	ordered =
+	{
+		1 = { "第%s 辅兵军团" }
+		2 = { "第%s 辅兵军团" }
+		3 = { "第%s 辅兵军团" }
+		4 = { "第%s 辅兵军团" }
+		5 = { "第%s 辅兵军团" }
+		6 = { "第%s 辅兵军团" }
+		7 = { "第%s 辅兵军团" }
+		9 = { "第%s 辅兵军团" }
+		8 = { "第%s 辅兵军团" }
+		10 = { "第%s 辅兵军团" }
+
+	}
+}
+
+SPQR_MAR_01 = 
+{
+	name = "罗马武装泅渡部队"
+
+	for_countries = { ITA }
+
+	can_use = { has_cosmetic_tag = SPQR_UNIFIED }
+
+	division_types = { "marine" }
+
+	# Number reservation system will tie to another group.
+	#link_numbering_with = { SPQR_INF_01 }
+
+	fallback_name = "第%s 武装泅渡中队"
+
+	# Names with numbers (only one number per entry). 
+	# It's okay to have gaps in numbering.
+	ordered =
+	{
+		1 = { "第%s 武装泅渡中队" }
+		2 = { "第%s 武装泅渡中队" }
+		3 = { "第%s 武装泅渡中队" }
+		4 = { "第%s 武装泅渡中队" }
+		5 = { "第%s 武装泅渡中队" }
+		6 = { "第%s 武装泅渡中队" }
+		7 = { "第%s 武装泅渡中队" }
+		9 = { "第%s 武装泅渡中队" }
+		8 = { "第%s 武装泅渡中队" }
+		10 = { "第%s 武装泅渡中队" }
+
+	}
+}
+
+SPQR_MTN_01 = 
+{
+	name = "罗马山地军团"
+
+	for_countries = { ITA }
+
+	can_use = { has_cosmetic_tag = SPQR_UNIFIED }
+
+	division_types = { "mountaineers" }
+
+	# Number reservation system will tie to another group.
+	#link_numbering_with = { SPQR_INF_01 }
+
+	fallback_name = "第%s 山地军团"
+
+	# Names with numbers (only one number per entry). 
+	# It's okay to have gaps in numbering.
+	ordered =
+	{
+		1 = { "第%s 山地军团" }
+		2 = { "第%s 山地军团" }
+		3 = { "第%s 山地军团" }
+		4 = { "第%s 山地军团" }
+		5 = { "第%s 山地军团" }
+		6 = { "第%s 山地军团" }
+		7 = { "第%s 山地军团" }
+		9 = { "第%s 山地军团" }
+		8 = { "第%s 山地军团" }
+		10 = { "第%s 山地军团" }
+
+	}
+}
+
+SPQR_PAR_01 = 
+{
+	name = "罗马空降军团"
+
+	for_countries = { ITA }
+
+	can_use = { has_cosmetic_tag = SPQR_UNIFIED }
+
+	division_types = { "paratrooper" }
+
+	# Number reservation system will tie to another group.
+	#link_numbering_with = { SPQR_INF_01 }
+
+	fallback_name = "第%s 空降军团"
+
+	# Names with numbers (only one number per entry). 
+	# It's okay to have gaps in numbering.
+	ordered =
+	{
+		1 = { "第%s 空降军团" }
+		2 = { "第%s 空降军团" }
+		3 = { "第%s 空降军团" }
+		4 = { "第%s 空降军团" }
+		5 = { "第%s 空降军团" }
+		6 = { "第%s 空降军团" }
+		7 = { "第%s 空降军团" }
+		9 = { "第%s 空降军团" }
+		8 = { "第%s 空降军团" }
+		10 = { "第%s 空降军团" }
+
+	}
+}

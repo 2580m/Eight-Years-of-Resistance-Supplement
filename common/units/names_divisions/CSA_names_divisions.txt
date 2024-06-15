@@ -1,0 +1,685 @@
+﻿# Division template historical names system. Is a new method of naming the divisions based on the names-group assigned to it's template.
+# If we run out of all historical names, the names will be assigned in the old way.
+#
+# Each group has a made up tag. Use it if you want to append more, or replace existing names with the extra txt files (modding).
+#
+# for_countries - lists all countries that can use it. If empty, or entire tag is missing, all countries in the world can use it.
+#
+# can_use - is a trigger that locks/unlocks the group under specific circumstances. The trigger is in a country scope.
+#
+# division_types - is a list of tokens to corresponding unit types. A player can in fact use any group of names for a 装甲师template
+#                  however this tag is a helper for an automated choice (for AI, or if the group must switch on it's own, because
+#                  for example the current one is no longer available due to the can_use trigger saying so).
+#                  In automated choice, the division template must have at least 1 of the following types for it to be chosen.
+#
+# fallback_name - Is going to be used if we run out of the scripted historical names. If you want to use the old division naming
+#                 mechanics to be used for fallbacks, then just skip this option.
+#
+# unordered - It's a list of historical division names that did not have a number. Regardless if such names happened in history or not
+#             this option is available here mainly for a mods.
+#
+# ordered - Is a list of all historical names. 
+#           Numbers must start from 1 and up. 
+#           Numbers can't repeat in one scope.
+#           If you script the name for this group, at the same number (for example in a mod in another file), the name will be override.
+#           All arguments between the brackets must be separated by spaces. Each argument is wrapped in "quotas".
+#           1st argument = The name. It must contain either: 
+#                          %d (for decimal number placement)
+#                          %s (for string number placement - ROMAN numbers like XIV).
+#           2nd argument is optional = A localizable text describing this historical division. The text will be visible in the tooltip
+#                                      where you choose the historical division name.
+#           3rd argument is optional = An URL preferably pointing to the WIKI. It's a future feature that is not currently working in
+#                                      the current game version.
+CSA_INF_01 = 
+{
+	name = "步兵部队"
+
+	for_countries = { CSA }
+
+	can_use = { 
+		always = yes
+	}
+
+	division_types = { "infantry" }
+
+	# Number reservation system will tie to another group.
+	#link_numbering_with = { CSA_INF_01 }
+
+	fallback_name = "第%d 步兵师"
+
+	# Names with numbers (only one number per entry). 
+	# It's okay to have gaps in numbering.
+	ordered =
+	{
+		1 = { "第%d '印第安人头' 步兵师" }
+		2 = { "第%d '常春藤' 步兵师" }
+		3 = { "第%d '探路者' 步兵师" }
+		4 = { "第%d '老可靠' 步兵师" }
+		5 = { "第%d '老山核桃' 步兵师" }
+		6 = { "第%d '红色箭头' 步兵师" }
+		7 = { "第%d '迪克西' 步兵师" }
+		8 = { "第%d '德克萨斯' 步兵师" }
+		9 = { "第%d '气旋' 步兵师" }
+		10 = { "第%d '艰难阴影' 步兵师" }
+		11 = { "第%d '野猫' 步兵师" }
+		12 = { "第%d '蓝岭' 步兵师" }
+		13 = { "第%d '胜利' 步兵师" }
+		14 = { "第%d '欧扎克' 步兵师" }
+		15 = { "第%d '世纪' 步兵师" }
+		16 = { "第%d '仙人掌' 步兵师" }
+		17 = { "第%d '金橡子' 步兵师" }
+		18 = { "第%d '金狮' 步兵师" }
+		19 = { "第%d '黑豹' 步兵师" }
+		20 = { "第%d '血火' 步兵师" }
+		21 = { "第%d '石墙杰克逊' 步兵师" }
+		22 = { "第%d '马默杜克' 步兵师" }
+		23 = { "第%d '阿拉巴马志愿者' 步兵师" }
+		24 = { "第%d '塔克同盟' 步兵师" }
+		25 = { "第%d '格鲁吉亚第一' 步兵师" }
+		26 = { "第%d '田纳西步枪队' 步兵师" }
+		27 = { "第%d '密西西比步枪队' 步兵师" }
+		28 = { "第%d '阿肯色复仇者联盟' 步兵师" }
+		29 = { "第%d '路易斯安那州志愿者' 步兵师" }
+		30 = { "第%d '北卡罗来纳步枪队' 步兵师" }
+		31 = { "第%d '战斧' 步兵师" }
+		32 = { "第%d '白骑士' 步兵师" }
+		33 = { "第%d '罗伯特·李' 步兵师" }
+		34 = { "第%d '肮脏混蛋' 步兵师" }
+		35 = { "第%d '三角洲' 步兵师" }
+		36 = { "第%d '飓风' 步兵师" }
+		37 = { "第%d '响尾蛇' 步兵师" }
+		38 = { "第%d '猎头' 步兵师" }
+		39 = { "第%d '狮子' 步兵师" }
+		40 = { "第%d '格格不入' 步兵师" }
+		41 = { "第%d '黑钻石' 步兵师" }
+		42 = { "第%d '山姆·休斯顿' 步兵师" }
+		43 = { "第%d '土匪' 步兵师" }
+		44 = { "第%d '尘魔' 步兵师" }
+		45 = { "第%d '志愿者' 步兵师" }
+		46 = { "第%d '戴维·克罗克特' 步兵师" }
+		47 = { "第%d '黑虎' 步兵师" }
+		48 = { "第%d '铁人' 步兵师" }
+		49 = { "第%d '犰狳' 步兵师" }
+		50 = { "第%d '山狮' 步兵师" }
+		51 = { "第%d '长角牛' 步兵师" }
+		52 = { "第%d '自由!' 步兵师" }
+		53 = { "第%d '沙漠天蝎' 步兵师" }
+		54 = { "第%d '塞米诺尔' 步兵师" }
+		55 = { "第%d '阿帕奇' 步兵师" }
+		56 = { "第%d '黑寡妇' 步兵师" }
+		57 = { "第%d '嚎叫土狼' 步兵师" }
+		58 = { "第%d '狂暴卡津人' 步兵师" }
+		59 = { "第%d '小牛队' 步兵师" }
+		60 = { "第%d '猎鹰' 步兵师" }
+		61 = { "第%d '猎鹰' 步兵师" }
+		62 = { "第%d '牛仔' 步兵师" }
+		63 = { "第%d '复仇!' 步兵师" }
+		64 = { "第%d '叛逆呐喊' 步兵师" }
+		65 = { "第%d '松鸦鹰' 步兵师" }
+		66 = { "第%d '沼泽狐狸' 步兵师" }
+		67 = { "第%d '熊猫' 步兵师" }
+		68 = { "第%d '野马' 步兵师" }
+		69 = { "第%d '凤凰' 步兵师" }
+		70 = { "第%d '黄夹克' 步兵师" }
+		71 = { "第%d '野马' 步兵师" }
+		72 = { "第%d '骑士' 步兵师" }
+		73 = { "第%d '彗星' 步兵师" }
+		74 = { "第%d '乳齿象' 步兵师" }
+		75 = { "第%d '金地鼠' 步兵师" }
+		76 = { "第%d '黄蜂' 步兵师" }
+		77 = { "第%d '野兔' 步兵师" }
+		78 = { "第%d '哥伦布' 步兵师" }
+		79 = { "第%d '圣徒' 步兵师" }
+		80 = { "第%d '走鹃' 步兵师" }
+		81 = { "第%d '绿鳄鱼' 步兵师" }
+		82 = { "第%d '战鹰' 步兵师" }
+		83 = { "第%d '赤红' 步兵师" }
+		84 = { "第%d '木马' 步兵师" }
+		85 = { "第%d '血腥军刀' 步兵师" }
+		86 = { "第%d '比利·强尼' 步兵师'" }
+		87 = { "第%d '乔克托' 步兵师" }
+		88 = { "第%d '风暴' 步兵师" }
+		89 = { "第%d '印第安人' 步兵师" }
+		90 = { "第%d '美洲虎' 步兵师" }
+		91 = { "第%d '海盗船' 步兵师" }
+		92 = { "第%d '南卡罗来纳州志愿者' 步兵师" }
+		93 = { "第%d '佛罗里达第一' 步兵师" }
+	}
+}
+
+CSA_CAV_01 = 
+{
+	name = "骑兵部队"
+
+	for_countries = { CSA }
+
+	can_use = { always = yes }
+
+	division_types = { "cavalry" }
+
+	# Number reservation system will tie to another group.
+	#link_numbering_with = { CSA_INF_01 }
+
+	fallback_name = "第%d 骑兵师"
+
+	# Names with numbers (only one number per entry). 
+	# It's okay to have gaps in numbering.
+	ordered =
+	{
+		1 = { "第%d '第一队' 骑兵师" }
+		2 = { "第%d '南卡罗来纳州' 骑兵师" }
+		3 = { "第%d '游骑兵' 骑兵师" }
+		4 = { "第%d '亲爱的' 骑兵师" }
+		5 = { "第%d '跋涉' 骑兵师" }
+		6 = { "第%d '阿米斯特德' 骑兵师" }
+		7 = { "第%d '斯宾塞' 骑兵师" }
+		8 = { "第%d '独立游骑兵' 骑兵师" }
+		9 = { "第%d '默奇森' 骑兵师" }
+		10 = { "第%d '沃伦' 骑兵师" }
+		11 = { "第%d '莫斯比' 骑兵师" }
+		12 = { "第%d '摩根' 骑兵师" }
+	}
+}
+
+CSA_MOT_01 = 
+{
+	name = "摩托化部队"
+
+	for_countries = { CSA }
+
+	can_use = { always = yes }
+
+	division_types = { "motorized" }
+
+	# Number reservation system will tie to another group.
+	link_numbering_with = { CSA_INF_01 }
+
+	fallback_name = "第%d 摩托化步兵师"
+
+	# Names with numbers (only one number per entry). 
+	# It's okay to have gaps in numbering.
+	ordered =
+	{
+		1 = { "第%d '印第安人头' 摩托化步兵师" }
+		2 = { "第%d '常春藤' 摩托化步兵师" }
+		3 = { "第%d '探路者' 摩托化步兵师" }
+		4 = { "第%d '老可靠' 摩托化步兵师" }
+		5 = { "第%d '老山核桃' 摩托化步兵师" }
+		6 = { "第%d '红色箭头' 摩托化步兵师" }
+		7 = { "第%d '迪克西' 摩托化步兵师" }
+		8 = { "第%d '德克萨斯' 摩托化步兵师" }
+		9 = { "第%d '气旋' 摩托化步兵师" }
+		10 = { "第%d '艰难阴影' 摩托化步兵师" }
+		11 = { "第%d '野猫' 摩托化步兵师" }
+		12 = { "第%d '蓝岭' 摩托化步兵师" }
+		13 = { "第%d '胜利' 摩托化步兵师" }
+		14 = { "第%d '欧扎克' 摩托化步兵师" }
+		15 = { "第%d '世纪' 摩托化步兵师" }
+		16 = { "第%d '仙人掌' 摩托化步兵师" }
+		17 = { "第%d '金橡子' 摩托化步兵师" }
+		18 = { "第%d '金狮' 摩托化步兵师" }
+		19 = { "第%d '黑豹' 摩托化步兵师" }
+		20 = { "第%d '血火' 摩托化步兵师" }
+		21 = { "第%d '石墙杰克逊' 摩托化步兵师" }
+		22 = { "第%d '马默杜克' 摩托化步兵师" }
+		23 = { "第%d '阿拉巴马志愿者' 摩托化步兵师" }
+		24 = { "第%d '塔克同盟' 摩托化步兵师" }
+		25 = { "第%d '格鲁吉亚第一' 摩托化步兵师" }
+		26 = { "第%d '田纳西步枪队' 摩托化步兵师" }
+		27 = { "第%d '密西西比步枪队' 摩托化步兵师" }
+		28 = { "第%d '阿肯色复仇者联盟' 摩托化步兵师" }
+		29 = { "第%d '路易斯安那州志愿者' 摩托化步兵师" }
+		30 = { "第%d '北卡罗来纳步枪队' 摩托化步兵师" }
+		31 = { "第%d '战斧' 摩托化步兵师" }
+		32 = { "第%d '白骑士' 摩托化步兵师" }
+		33 = { "第%d '罗伯特·李' 摩托化步兵师" }
+		34 = { "第%d '肮脏混蛋' 摩托化步兵师" }
+		35 = { "第%d '三角洲' 摩托化步兵师" }
+		36 = { "第%d '飓风' 摩托化步兵师" }
+		37 = { "第%d '响尾蛇' 摩托化步兵师" }
+		38 = { "第%d '猎头' 摩托化步兵师" }
+		39 = { "第%d '狮子' 摩托化步兵师" }
+		40 = { "第%d '格格不入' 摩托化步兵师" }
+		41 = { "第%d '黑钻石' 摩托化步兵师" }
+		42 = { "第%d '山姆·休斯顿' 摩托化步兵师" }
+		43 = { "第%d '土匪' 摩托化步兵师" }
+		44 = { "第%d '尘魔' 摩托化步兵师" }
+		45 = { "第%d '志愿者' 摩托化步兵师" }
+		46 = { "第%d '戴维·克罗克特' 摩托化步兵师" }
+		47 = { "第%d '黑虎' 摩托化步兵师" }
+		48 = { "第%d '铁人' 摩托化步兵师" }
+		49 = { "第%d '犰狳' 摩托化步兵师" }
+		50 = { "第%d '山狮' 摩托化步兵师" }
+		51 = { "第%d '长角牛' 摩托化步兵师" }
+		52 = { "第%d '自由!' 摩托化步兵师" }
+		53 = { "第%d '沙漠天蝎' 摩托化步兵师" }
+		54 = { "第%d '塞米诺尔' 摩托化步兵师" }
+		55 = { "第%d '阿帕奇' 摩托化步兵师" }
+		56 = { "第%d '黑寡妇' 摩托化步兵师" }
+		57 = { "第%d '嚎叫土狼' 摩托化步兵师" }
+		58 = { "第%d '狂暴卡津人' 摩托化步兵师" }
+		59 = { "第%d '小牛队' 摩托化步兵师" }
+		60 = { "第%d '猎鹰' 摩托化步兵师" }
+		61 = { "第%d '猎鹰' 摩托化步兵师" }
+		62 = { "第%d '牛仔' 摩托化步兵师" }
+		63 = { "第%d '复仇!' 摩托化步兵师" }
+		64 = { "第%d '叛逆呐喊' 摩托化步兵师" }
+		65 = { "第%d '松鸦鹰' 摩托化步兵师" }
+		66 = { "第%d '沼泽狐狸' 摩托化步兵师" }
+		67 = { "第%d '熊猫' 摩托化步兵师" }
+		68 = { "第%d '野马' 摩托化步兵师" }
+		69 = { "第%d '凤凰' 摩托化步兵师" }
+		70 = { "第%d '黄夹克' 摩托化步兵师" }
+		71 = { "第%d '野马' 摩托化步兵师" }
+		72 = { "第%d '骑士' 摩托化步兵师" }
+		73 = { "第%d '彗星' 摩托化步兵师" }
+		74 = { "第%d '乳齿象' 摩托化步兵师" }
+		75 = { "第%d '金地鼠' 摩托化步兵师" }
+		76 = { "第%d '黄蜂' 摩托化步兵师" }
+		77 = { "第%d '野兔' 摩托化步兵师" }
+		78 = { "第%d '哥伦布' 摩托化步兵师" }
+		79 = { "第%d '圣徒' 摩托化步兵师" }
+		80 = { "第%d '走鹃' 摩托化步兵师" }
+		81 = { "第%d '绿鳄鱼' 摩托化步兵师" }
+		82 = { "第%d '战鹰' 摩托化步兵师" }
+		83 = { "第%d '赤红' 摩托化步兵师" }
+		84 = { "第%d '木马' 摩托化步兵师" }
+		85 = { "第%d '血腥军刀' 摩托化步兵师" }
+		86 = { "第%d '比利·强尼' 摩托化步兵师'" }
+		87 = { "第%d '乔克托' 摩托化步兵师" }
+		88 = { "第%d '风暴' 摩托化步兵师" }
+		89 = { "第%d '印第安人' 摩托化步兵师" }
+		90 = { "第%d '美洲虎' 摩托化步兵师" }
+		91 = { "第%d '海盗船' 摩托化步兵师" }
+		92 = { "第%d '南卡罗来纳州志愿者' 摩托化步兵师" }
+		93 = { "第%d '佛罗里达第一' 摩托化步兵师" }
+	}
+}
+
+CSA_MEC_01 = 
+{
+	name = "机械化部队"
+
+	for_countries = { CSA }
+
+	can_use = { always = yes }
+
+	division_types = { "mechanized" }
+
+	# Number reservation system will tie to another group.
+	link_numbering_with = { CSA_INF_01 }
+
+	fallback_name = "第%d 机械化机械化步兵师"
+
+	# Names with numbers (only one number per entry). 
+	# It's okay to have gaps in numbering.
+	ordered =
+	{
+		1 = { "第%d '印第安人头' 机械化步兵师" }
+		2 = { "第%d '常春藤' 机械化步兵师" }
+		3 = { "第%d '探路者' 机械化步兵师" }
+		4 = { "第%d '老可靠' 机械化步兵师" }
+		5 = { "第%d '老山核桃' 机械化步兵师" }
+		6 = { "第%d '红色箭头' 机械化步兵师" }
+		7 = { "第%d '迪克西' 机械化步兵师" }
+		8 = { "第%d '德克萨斯' 机械化步兵师" }
+		9 = { "第%d '气旋' 机械化步兵师" }
+		10 = { "第%d '艰难阴影' 机械化步兵师" }
+		11 = { "第%d '野猫' 机械化步兵师" }
+		12 = { "第%d '蓝岭' 机械化步兵师" }
+		13 = { "第%d '胜利' 机械化步兵师" }
+		14 = { "第%d '欧扎克' 机械化步兵师" }
+		15 = { "第%d '世纪' 机械化步兵师" }
+		16 = { "第%d '仙人掌' 机械化步兵师" }
+		17 = { "第%d '金橡子' 机械化步兵师" }
+		18 = { "第%d '金狮' 机械化步兵师" }
+		19 = { "第%d '黑豹' 机械化步兵师" }
+		20 = { "第%d '血火' 机械化步兵师" }
+		21 = { "第%d '石墙杰克逊' 机械化步兵师" }
+		22 = { "第%d '马默杜克' 机械化步兵师" }
+		23 = { "第%d '阿拉巴马志愿者' 机械化步兵师" }
+		24 = { "第%d '塔克同盟' 机械化步兵师" }
+		25 = { "第%d '格鲁吉亚第一' 机械化步兵师" }
+		26 = { "第%d '田纳西步枪队' 机械化步兵师" }
+		27 = { "第%d '密西西比步枪队' 机械化步兵师" }
+		28 = { "第%d '阿肯色复仇者联盟' 机械化步兵师" }
+		29 = { "第%d '路易斯安那州志愿者' 机械化步兵师" }
+		30 = { "第%d '北卡罗来纳步枪队' 机械化步兵师" }
+		31 = { "第%d '战斧' 机械化步兵师" }
+		32 = { "第%d '白骑士' 机械化步兵师" }
+		33 = { "第%d '罗伯特·李' 机械化步兵师" }
+		34 = { "第%d '肮脏混蛋' 机械化步兵师" }
+		35 = { "第%d '三角洲' 机械化步兵师" }
+		36 = { "第%d '飓风' 机械化步兵师" }
+		37 = { "第%d '响尾蛇' 机械化步兵师" }
+		38 = { "第%d '猎头' 机械化步兵师" }
+		39 = { "第%d '狮子' 机械化步兵师" }
+		40 = { "第%d '格格不入' 机械化步兵师" }
+		41 = { "第%d '黑钻石' 机械化步兵师" }
+		42 = { "第%d '山姆·休斯顿' 机械化步兵师" }
+		43 = { "第%d '土匪' 机械化步兵师" }
+		44 = { "第%d '尘魔' 机械化步兵师" }
+		45 = { "第%d '志愿者' 机械化步兵师" }
+		46 = { "第%d '戴维·克罗克特' 机械化步兵师" }
+		47 = { "第%d '黑虎' 机械化步兵师" }
+		48 = { "第%d '铁人' 机械化步兵师" }
+		49 = { "第%d '犰狳' 机械化步兵师" }
+		50 = { "第%d '山狮' 机械化步兵师" }
+		51 = { "第%d '长角牛' 机械化步兵师" }
+		52 = { "第%d '自由!' 机械化步兵师" }
+		53 = { "第%d '沙漠天蝎' 机械化步兵师" }
+		54 = { "第%d '塞米诺尔' 机械化步兵师" }
+		55 = { "第%d '阿帕奇' 机械化步兵师" }
+		56 = { "第%d '黑寡妇' 机械化步兵师" }
+		57 = { "第%d '嚎叫土狼' 机械化步兵师" }
+		58 = { "第%d '狂暴卡津人' 机械化步兵师" }
+		59 = { "第%d '小牛队' 机械化步兵师" }
+		60 = { "第%d '猎鹰' 机械化步兵师" }
+		61 = { "第%d '猎鹰' 机械化步兵师" }
+		62 = { "第%d '牛仔' 机械化步兵师" }
+		63 = { "第%d '复仇!' 机械化步兵师" }
+		64 = { "第%d '叛逆呐喊' 机械化步兵师" }
+		65 = { "第%d '松鸦鹰' 机械化步兵师" }
+		66 = { "第%d '沼泽狐狸' 机械化步兵师" }
+		67 = { "第%d '熊猫' 机械化步兵师" }
+		68 = { "第%d '野马' 机械化步兵师" }
+		69 = { "第%d '凤凰' 机械化步兵师" }
+		70 = { "第%d '黄夹克' 机械化步兵师" }
+		71 = { "第%d '野马' 机械化步兵师" }
+		72 = { "第%d '骑士' 机械化步兵师" }
+		73 = { "第%d '彗星' 机械化步兵师" }
+		74 = { "第%d '乳齿象' 机械化步兵师" }
+		75 = { "第%d '金地鼠' 机械化步兵师" }
+		76 = { "第%d '黄蜂' 机械化步兵师" }
+		77 = { "第%d '野兔' 机械化步兵师" }
+		78 = { "第%d '哥伦布' 机械化步兵师" }
+		79 = { "第%d '圣徒' 机械化步兵师" }
+		80 = { "第%d '走鹃' 机械化步兵师" }
+		81 = { "第%d '绿鳄鱼' 机械化步兵师" }
+		82 = { "第%d '战鹰' 机械化步兵师" }
+		83 = { "第%d '赤红' 机械化步兵师" }
+		84 = { "第%d '木马' 机械化步兵师" }
+		85 = { "第%d '血腥军刀' 机械化步兵师" }
+		86 = { "第%d '比利·强尼' 机械化步兵师'" }
+		87 = { "第%d '乔克托' 机械化步兵师" }
+		88 = { "第%d '风暴' 机械化步兵师" }
+		89 = { "第%d '印第安人' 机械化步兵师" }
+		90 = { "第%d '美洲虎' 机械化步兵师" }
+		91 = { "第%d '海盗船' 机械化步兵师" }
+		92 = { "第%d '南卡罗来纳州志愿者' 机械化步兵师" }
+		93 = { "第%d '佛罗里达第一' 机械化步兵师" }
+	}
+}
+
+CSA_ARM_01 = 
+{
+	name = "装甲部队"
+
+	for_countries = { CSA }
+
+	can_use = { always = yes }
+
+	division_types = { "light_armor" "medium_armor" "heavy_armor" "modern_armor" }
+
+	# Number reservation system will tie to another group.
+	#link_numbering_with = { CSA_INF_01 }
+
+	fallback_name = "第%d 装甲师"
+
+	# Names with numbers (only one number per entry). 
+	# It's okay to have gaps in numbering.
+	ordered =
+	{
+		1 = { "第%d '车轮上的地狱' 装甲师" }
+		2 = { "第%d '矛头' 装甲师" }
+		3 = { "第%d '虎' 装甲师" }
+		4 = { "第%d '霹雳' 装甲师" }
+		5 = { "第%d '地狱猫' 装甲师" }
+		6 = { "第%d '救星' 装甲师" }
+		7 = { "第%d '迪克西' 装甲师" }
+		8 = { "第%d '飓风' 装甲师" }
+		9 = { "第%d '孤星' 装甲师" }
+		10 = { "第%d '骑士' 装甲师" }
+		11 = { "第%d '捷豹' 装甲师" }
+		12 = { "第%d '跑路者' 装甲师" }
+		13 = { "第%d '老弗吉尼亚' 装甲师" }
+		14 = { "第%d '粗暴骑手' 装甲师" }
+		15 = { "第%d '野马' 装甲师" }
+		16 = { "第%d '猞猁' 装甲师" }
+		17 = { "第%d '白兰地站' 装甲师" }
+		18 = { "第%d '血腥比尔' 装甲师" }
+		19 = { "第%d '杰布·斯图尔特' 装甲师" }
+		20 = { "第%d '福雷斯特' 装甲师" }
+		21 = { "第%d '布拉克斯顿·布拉格' 装甲师" }
+		22 = { "第%d '约翰·莫斯比' 装甲师" }
+		23 = { "第%d '阿尔伯特·约翰斯顿' 装甲师" }
+	}
+}
+
+CSA_PAR_01 = 
+{
+	name = "空降部队"
+
+	for_countries = { CSA }
+
+	can_use = { always = yes }
+
+	division_types = { "paratrooper" }
+
+	# Number reservation system will tie to another group.
+	#link_numbering_with = { CSA_INF_01 }
+
+	fallback_name = "第%d 空降师"
+
+	# Names with numbers (only one number per entry). 
+	# It's okay to have gaps in numbering.
+	ordered =
+	{
+		1 = { "第%d '尖叫老鹰' 空降师" }
+		2 = { "第%d '天使' 空降师" }
+		3 = { "第%d '金色高跟鞋' 空降师" }
+		4 = { "第%d '蓝岭' 空降师" }
+		5 = { "第%d '世纪' 空降师" }
+		6 = { "第%d 空降师" }
+		7 = { "第%d 空降师" }
+		8 = { "第%d 空降师" }
+		9 = { "第%d 空降师" }
+		10 = { "第%d 空降师" }
+	}
+}
+
+CSA_MAR_01 = 
+{
+	name = "海军陆战部队"
+
+	for_countries = { CSA }
+
+	can_use = { always = yes }
+
+	division_types = { "marine" }
+
+	# Number reservation system will tie to another group.
+	#link_numbering_with = { CSA_INF_01 }
+
+	fallback_name = "海军第%d 陆战师"
+
+	# Names with numbers (only one number per entry). 
+	# It's okay to have gaps in numbering.
+	ordered =
+	{
+		1 = { "海军第%d 陆战师" }
+		2 = { "海军第%d 陆战师" }
+		3 = { "海军第%d 陆战师" }
+		4 = { "海军第%d 陆战师" }
+		5 = { "海军第%d 陆战师" }
+		6 = { "海军第%d 陆战师" }
+		7 = { "海军第%d 陆战师" }
+		8 = { "海军第%d 陆战师" }
+		9 = { "海军第%d 陆战师" }
+		10 = { "海军第%d 陆战师" }
+		11 = { "海军第%d 陆战师" }
+		12 = { "海军第%d 陆战师" }
+		13 = { "海军第%d 陆战师" }
+		14 = { "海军第%d 陆战师" }
+		15 = { "海军第%d 陆战师" }
+		16 = { "海军第%d 陆战师" }
+		17 = { "海军第%d 陆战师" }
+		18 = { "海军第%d 陆战师" }
+		19 = { "海军第%d 陆战师" }
+		20 = { "海军第%d 陆战师" }
+		21 = { "海军第%d 陆战师" }
+		22 = { "海军第%d 陆战师" }
+		23 = { "海军第%d 陆战师" }
+		24 = { "海军第%d 陆战师" }
+		25 = { "海军第%d 陆战师" }
+		26 = { "海军第%d 陆战师" }
+		27 = { "海军第%d 陆战师" }
+		28 = { "海军第%d 陆战师" }
+		29 = { "海军第%d 陆战师" }
+		30 = { "海军第%d 陆战师" }
+		31 = { "海军第%d 陆战师" }
+		32 = { "海军第%d 陆战师" }
+		33 = { "海军第%d 陆战师" }
+		34 = { "海军第%d 陆战师" }
+		35 = { "海军第%d 陆战师" }
+		36 = { "海军第%d 陆战师" }
+		37 = { "海军第%d 陆战师" }
+		38 = { "海军第%d 陆战师" }
+		39 = { "海军第%d 陆战师" }
+		40 = { "海军第%d 陆战师" }
+		41 = { "海军第%d 陆战师" }
+		42 = { "海军第%d 陆战师" }
+		43 = { "海军第%d 陆战师" }
+		44 = { "海军第%d 陆战师" }
+		45 = { "海军第%d 陆战师" }
+		46 = { "海军第%d 陆战师" }
+		47 = { "海军第%d 陆战师" }
+		48 = { "海军第%d 陆战师" }
+		49 = { "海军第%d 陆战师" }
+	}
+}
+
+CSA_MNT_01 = 
+{
+	name = "山地部队"
+
+	for_countries = { CSA }
+
+	can_use = { always = yes }
+
+	division_types = { "mountaineers" }
+
+	# Number reservation system will tie to another group.
+	#link_numbering_with = { CSA_INF_01 }
+
+	fallback_name = "第%d 山地师"
+
+	# Names with numbers (only one number per entry). 
+	# It's okay to have gaps in numbering.
+	ordered =
+	{
+		1 = { "第%d '雾山' 山地师" }
+		2 = { "第%d '冰山' 山地师" }
+		3 = { "第%d '石山' 山地师" }
+		4 = { "第%d '山狮' 山地师" }
+		5 = { "第%d 山地师" }
+		6 = { "第%d 山地师" }
+		7 = { "第%d 山地师" }
+		8 = { "第%d 山地师" }
+		9 = { "第%d 山地师" }
+		10 = { "第%d 山地师" }
+	}
+}
+
+CSA_GAR_01 = 
+{
+	name = "守备部队"
+
+	for_countries = { CSA }
+
+	can_use = { always = yes }
+
+	division_types = { "infantry" }
+
+	# Number reservation system will tie to another group.
+	link_numbering_with = { CSA_INF_01 }
+
+	fallback_name = "第%d 志愿师"
+
+	# Names with numbers (only one number per entry). 
+	# It's okay to have gaps in numbering.
+	ordered =
+	{
+		23 = { "第%d '阿拉巴马志愿者' 志愿师" }
+		24 = { "第%d '塔克同盟' 志愿师" }
+		25 = { "第%d '格鲁吉亚第一' 志愿师" }
+		26 = { "第%d '田纳西步枪队' 志愿师" }
+		27 = { "第%d '密西西比步枪队' 志愿师" }
+		28 = { "第%d '阿肯色复仇者联盟' 志愿师" }
+		29 = { "第%d '路易斯安那州志愿者' 志愿师" }
+		30 = { "第%d '北卡罗来纳步枪队' 志愿师" }
+		31 = { "第%d '战斧' 志愿师" }
+		32 = { "第%d '白骑士' 志愿师" }
+		33 = { "第%d '罗伯特·李' 志愿师" }
+		34 = { "第%d '肮脏混蛋' 志愿师" }
+		35 = { "第%d '三角洲' 志愿师" }
+		36 = { "第%d '飓风' 志愿师" }
+		37 = { "第%d '响尾蛇' 志愿师" }
+		38 = { "第%d '猎头' 志愿师" }
+		39 = { "第%d '狮子' 志愿师" }
+		40 = { "第%d '格格不入' 志愿师" }
+		41 = { "第%d '黑钻石' 志愿师" }
+		42 = { "第%d '山姆·休斯顿' 志愿师" }
+		43 = { "第%d '土匪' 志愿师" }
+		44 = { "第%d '尘魔' 志愿师" }
+		45 = { "第%d '志愿者' 志愿师" }
+		46 = { "第%d '戴维·克罗克特' 志愿师" }
+		47 = { "第%d '黑虎' 志愿师" }
+		48 = { "第%d '铁人' 志愿师" }
+		49 = { "第%d '犰狳' 志愿师" }
+		50 = { "第%d '山狮' 志愿师" }
+		51 = { "第%d '长角牛' 志愿师" }
+		52 = { "第%d '自由!' 志愿师" }
+		53 = { "第%d '沙漠天蝎' 志愿师" }
+		54 = { "第%d '塞米诺尔' 志愿师" }
+		55 = { "第%d '阿帕奇' 志愿师" }
+		56 = { "第%d '黑寡妇' 志愿师" }
+		57 = { "第%d '嚎叫土狼' 志愿师" }
+		58 = { "第%d '狂暴卡津人' 志愿师" }
+		59 = { "第%d '小牛队' 志愿师" }
+		60 = { "第%d '猎鹰' 志愿师" }
+		61 = { "第%d '猎鹰' 志愿师" }
+		62 = { "第%d '牛仔' 志愿师" }
+		63 = { "第%d '复仇!' 志愿师" }
+		64 = { "第%d '叛逆呐喊' 志愿师" }
+		65 = { "第%d '松鸦鹰' 志愿师" }
+		66 = { "第%d '沼泽狐狸' 志愿师" }
+		67 = { "第%d '熊猫' 志愿师" }
+		68 = { "第%d '野马' 志愿师" }
+		69 = { "第%d '凤凰' 志愿师" }
+		70 = { "第%d '黄夹克' 志愿师" }
+		71 = { "第%d '野马' 志愿师" }
+		72 = { "第%d '骑士' 志愿师" }
+		73 = { "第%d '彗星' 志愿师" }
+		74 = { "第%d '乳齿象' 志愿师" }
+		75 = { "第%d '金地鼠' 志愿师" }
+		76 = { "第%d '黄蜂' 志愿师" }
+		77 = { "第%d '野兔' 志愿师" }
+		78 = { "第%d '哥伦布' 志愿师" }
+		79 = { "第%d '圣徒' 志愿师" }
+		80 = { "第%d '走鹃' 志愿师" }
+		81 = { "第%d '绿鳄鱼' 志愿师" }
+		82 = { "第%d '战鹰' 志愿师" }
+		83 = { "第%d '赤红' 志愿师" }
+		84 = { "第%d '木马' 志愿师" }
+		85 = { "第%d '血腥军刀' 志愿师" }
+		86 = { "第%d '比利·强尼' 志愿师'" }
+		87 = { "第%d '乔克托' 志愿师" }
+		88 = { "第%d '风暴' 志愿师" }
+		89 = { "第%d '印第安人' 志愿师" }
+		90 = { "第%d '美洲虎' 志愿师" }
+		91 = { "第%d '海盗船' 志愿师" }
+		92 = { "第%d '南卡罗来纳州志愿者' 志愿师" }
+		93 = { "第%d '佛罗里达第一' 志愿师" }
+	}
+}

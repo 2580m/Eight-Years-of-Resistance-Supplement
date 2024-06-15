@@ -1,0 +1,696 @@
+﻿# Division template historical names system. Is a new method of naming the divisions based on the names-group assigned to it's template.
+# If we run out of all historical names, the names will be assigned in the old way.
+#
+# Each group has a made up tag. Use it if you want to append more, or replace existing names with the extra txt files (modding).
+#
+# for_countries - lists all countries that can use it. If empty, or entire tag is missing, all countries in the world can use it.
+#
+# can_use - is a trigger that locks/unlocks the group under specific circumstances. The trigger is in a country scope.
+#
+# division_types - is a list of tokens to corresponding unit types. A player can in fact use any group of names for a div.template
+#                  however this tag is a helper for an automated choice (for AI, or if the group must switch on it's own, because
+#                  for example the current one is no longer available due to the can_use trigger saying so).
+#                  In automated choice, the division template must have at least 1 of the following types for it to be chosen.
+#
+# fallback_name - Is going to be used if we run out of the scripted historical names. If you want to use the old division naming
+#                 mechanics to be used for fallbacks, then just skip this option.
+#
+# unordered - It's a list of historical division names that did not have a number. Regardless if such names happened in history or not
+#             this option is available here mainly for a mods.
+#
+# ordered - Is a list of all historical names. 
+#           Numbers must start from 1 and up. 
+#           Numbers can't repeat in one scope.
+#           If you script the name for this group, at the same number (for example in a mod in another file), the name will be override.
+#           All arguments between the brackets must be separated by spaces. Each argument is wrapped in "quotas".
+#           1st argument = The name. It must contain either: 
+#                          %d (for decimal number placement)
+#                          %s (for string number placement - ROMAN numbers like XIV).
+#           2nd argument is optional = A localizable text describing this historical division. The text will be visible in the tooltip
+#                                      where you choose the historical division name.
+#           3rd argument is optional = An URL preferably pointing to the WIKI. It's a future feature that is not currently working in
+#                                      the current game version.
+SPR_INF_01 = 
+{
+	name = "共和军步兵部队"
+
+	for_countries = { SPR }
+
+	can_use = { 
+		NOT = { has_government = fascism } 
+	}
+
+	division_types = { "infantry" }
+
+	# Number reservation system will tie to another group.
+	#link_numbering_with = { SPR_INF_01 }
+
+	fallback_name = "共和军第%d 步兵师"
+
+	# Names with numbers (only one number per entry). 
+	# It's okay to have gaps in numbering.
+	ordered =
+	{
+		1 = { "共和军第%d 步兵师" }
+		2 = { "共和军第%d 步兵师" }
+		3 = { "共和军第%d 步兵师" }
+		4 = { "共和军第%d 步兵师" }
+		5 = { "共和军第%d 步兵师" }
+		6 = { "共和军第%d 步兵师" }
+		7 = { "共和军第%d 步兵师" }
+		8 = { "共和军第%d 步兵师" }
+		9 = { "共和军第%d 步兵师" }
+		10 = { "共和军第%d 步兵师" }
+		11 = { "共和军第%d 步兵师" }
+		12 = { "共和军第%d 步兵师" }
+		13 = { "共和军第%d 步兵师" }
+		14 = { "共和军第%d 步兵师" }
+		15 = { "共和军第%d 步兵师" }
+		16 = { "共和军第%d 步兵师" }
+		17 = { "共和军第%d 步兵师" }
+		18 = { "共和军第%d 步兵师" }
+		19 = { "共和军第%d 步兵师" }
+		20 = { "共和军第%d 步兵师" }		
+	}
+}
+
+SPR_CAV_01 = 
+{
+	name = "骑兵部队"
+
+	for_countries = { SPR }
+
+	can_use = { always = yes }
+
+	division_types = { "cavalry" }
+
+	# Number reservation system will tie to another group.
+	#link_numbering_with = { SPR_INF_01 }
+
+	fallback_name = "第%d 骑兵师"
+
+	# Names with numbers (only one number per entry). 
+	# It's okay to have gaps in numbering.
+	ordered =
+	{
+		1 = { "第%d 骑兵师" }
+		2 = { "第%d 骑兵师" }
+		3 = { "第%d 骑兵师" }
+		4 = { "第%d 骑兵师" }
+		5 = { "第%d 骑兵师" }
+		6 = { "第%d 骑兵师" }
+		7 = { "第%d 骑兵师" }
+		8 = { "第%d 骑兵师" }
+		9 = { "第%d 骑兵师" }
+		10 = { "第%d 骑兵师" }
+	}
+}
+
+SPR_MOT_01 = 
+{
+	name = "摩托化部队"
+
+	for_countries = { SPR }
+
+	can_use = { always = yes }
+
+	division_types = { "motorized" }
+
+	# Number reservation system will tie to another group.
+	#link_numbering_with = { SPR_INF_01 }
+
+	fallback_name = "第%d 摩托化步兵师"
+
+	# Names with numbers (only one number per entry). 
+	# It's okay to have gaps in numbering.
+	ordered =
+	{
+		1 = { "第%d 摩托化步兵师" }
+		2 = { "第%d 摩托化步兵师" }
+		3 = { "第%d 摩托化步兵师" }
+		4 = { "第%d 摩托化步兵师" }
+		5 = { "第%d 摩托化步兵师" }
+		6 = { "第%d 摩托化步兵师" }
+		7 = { "第%d 摩托化步兵师" }
+		8 = { "第%d 摩托化步兵师" }
+		9 = { "第%d 摩托化步兵师" }
+		10 = { "第%d 摩托化步兵师" }
+	}
+}
+
+SPR_MEC_01 = 
+{
+	name = "机械化部队"
+
+	for_countries = { SPR }
+
+	can_use = { always = yes }
+
+	division_types = { "mechanized" }
+
+	# Number reservation system will tie to another group.
+	#link_numbering_with = { SPR_INF_01 }
+
+	fallback_name = "第%d 机械化步兵师"
+
+	# Names with numbers (only one number per entry). 
+	# It's okay to have gaps in numbering.
+	ordered =
+	{
+		1 = { "第%d 机械化步兵师" }
+		2 = { "第%d 机械化步兵师" }
+		3 = { "第%d 机械化步兵师" }
+		4 = { "第%d 机械化步兵师" }
+		5 = { "第%d 机械化步兵师" }
+		6 = { "第%d 机械化步兵师" }
+		7 = { "第%d 机械化步兵师" }
+		8 = { "第%d 机械化步兵师" }
+		9 = { "第%d 机械化步兵师" }
+		10 = { "第%d 机械化步兵师" }
+	}
+}
+
+SPR_ARM_01 = 
+{
+	name = "装甲部队"
+
+	for_countries = { SPR }
+
+	can_use = { always = yes }
+
+	division_types = { "light_armor" "medium_armor" "heavy_armor" "modern_armor" }
+
+	# Number reservation system will tie to another group.
+	#link_numbering_with = { SPR_INF_01 }
+
+	fallback_name = "第%d 装甲师"
+
+	# Names with numbers (only one number per entry). 
+	# It's okay to have gaps in numbering.
+	ordered =
+	{
+		1 = { "第%d '布鲁内特' 装甲师" }
+		2 = { "第%d 装甲师" }
+		3 = { "第%d 装甲师" }
+		4 = { "第%d 装甲师" }
+		5 = { "第%d 装甲师" }
+		6 = { "第%d 装甲师" }
+		7 = { "第%d 装甲师" }
+		8 = { "第%d 装甲师" }
+		9 = { "第%d 装甲师" }
+		10 = { "第%d 装甲师" }
+	}
+}
+
+SPR_PAR_01 = 
+{
+	name = "空降部队"
+
+	for_countries = { SPR }
+
+	can_use = { always = yes }
+
+	division_types = { "paratrooper" }
+
+	# Number reservation system will tie to another group.
+	#link_numbering_with = { SPR_INF_01 }
+
+	fallback_name = "第%d 空降师"
+
+	# Names with numbers (only one number per entry). 
+	# It's okay to have gaps in numbering.
+	ordered =
+	{
+		1 = { "第%d 空降师" }
+		2 = { "第%d 空降师" }
+		3 = { "第%d 空降师" }
+		4 = { "第%d 空降师" }
+		5 = { "第%d 空降师" }
+		6 = { "第%d 空降师" }
+		7 = { "第%d 空降师" }
+		8 = { "第%d 空降师" }
+		9 = { "第%d 空降师" }
+		10 = { "第%d 空降师" }
+	}
+}
+
+SPR_MAR_01 = 
+{
+	name = "海军陆战部队"
+
+	for_countries = { SPR }
+
+	can_use = { always = yes }
+
+	division_types = { "marine" }
+
+	# Number reservation system will tie to another group.
+	#link_numbering_with = { SPR_INF_01 }
+
+	fallback_name = "海军第%d 陆战师"
+
+	# Names with numbers (only one number per entry). 
+	# It's okay to have gaps in numbering.
+	ordered =
+	{
+		1 = { "海军第%d 陆战师" }
+		2 = { "海军第%d 陆战师" }
+		3 = { "海军第%d 陆战师" }
+		4 = { "海军第%d 陆战师" }
+		5 = { "海军第%d 陆战师" }
+		6 = { "海军第%d 陆战师" }
+		7 = { "海军第%d 陆战师" }
+		8 = { "海军第%d 陆战师" }
+		9 = { "海军第%d 陆战师" }
+		10 = { "海军第%d 陆战师" }
+	}
+}
+
+SPR_MNT_01 = 
+{
+	name = "山地部队"
+
+	for_countries = { SPR }
+
+	can_use = { always = yes }
+
+	division_types = { "mountaineers" }
+
+	# Number reservation system will tie to another group.
+	#link_numbering_with = { SPR_INF_01 }
+
+	fallback_name = "第%d 山地步兵师"
+
+	# Names with numbers (only one number per entry). 
+	# It's okay to have gaps in numbering.
+	ordered =
+	{
+		1 = { "第%d 山地步兵师" }
+		2 = { "第%d 山地步兵师" }
+		3 = { "第%d 山地步兵师" }
+		4 = { "第%d 山地步兵师" }
+		5 = { "第%d 山地步兵师" }
+		6 = { "第%d 山地步兵师" }
+		7 = { "第%d 山地步兵师" }
+		8 = { "第%d 山地步兵师" }
+		9 = { "第%d 山地步兵师" }
+		10 = { "第%d 山地步兵师" }
+	}
+}
+
+SPR_GAR_01 = 
+{
+	name = "守备部队"
+
+	for_countries = { SPR }
+
+	can_use = { always = yes }
+
+	division_types = { "infantry" }
+
+	# Number reservation system will tie to another group.
+	#link_numbering_with = { SPR_INF_01 }
+
+	fallback_name = "第%d 守备师"
+
+	# Names with numbers (only one number per entry). 
+	# It's okay to have gaps in numbering.
+	ordered =
+	{
+		1 = { "巴利阿里司令部" }
+		2 = { "加那利司令部" }
+		3 = { "摩洛哥边防师" }
+		4 = { "马埃斯特拉斯戈边防师" }
+		5 = { "马德里司令部" }
+		6 = { "塞维利亚司令部" }
+		7 = { "加拉基亚司令部" }
+		8 = { "巴塞罗那司令部" }
+		9 = { "巴伦西亚司令部" }
+		10 = { "加的斯司令部" }
+		11 = { "拉科鲁尼亚司令部" }
+		12 = { "卡塔赫纳司令部" }
+		13 = { "布尔戈斯司令部" }
+		14 = { "扎拉戈萨司令部" }
+		15 = { "梅利利亚司令部" }
+		16 = { "休达司令部" }
+		17 = { "毕尔巴鄂司令部" }
+		18 = { "巴利亚多利德司令部" }
+	}
+}
+
+SPA_INF_01 = 
+{
+	name = "国民军步兵部队"
+
+	for_countries = { SPR }
+
+	can_use = { 
+		OR = {
+			has_government = fascism 
+			has_completed_focus = SPA_unify_the_nationalist_front
+		}
+	}
+
+	division_types = { "infantry" }
+
+	# Number reservation system will tie to another group.
+	#link_numbering_with = { SPR_INF_01 }
+
+	fallback_name = "国民军第%d 步兵师"
+
+	# Names with numbers (only one number per entry). 
+	# It's okay to have gaps in numbering.
+	ordered =
+	{
+		11 = { "国民军第%d 步兵师" }			# Re-ordered to be consistent with Nationalist Spain division naming 
+		12 = { "国民军第%d 步兵师" }
+		21 = { "国民军第%d 步兵师" }
+		22 = { "国民军第%d 步兵师" }
+		31 = { "国民军第%d 步兵师" }
+		32 = { "国民军第%d 步兵师" }
+		41 = { "国民军第%d 步兵师" }
+		42 = { "国民军第%d 步兵师" }
+		51 = { "国民军第%d 步兵师" }
+		52 = { "国民军第%d 步兵师" }
+		61 = { "国民军第%d 步兵师" }
+		62 = { "国民军第%d 步兵师" }
+		71 = { "国民军第%d 步兵师" }
+		72 = { "国民军第%d 步兵师" }
+		81 = { "国民军第%d 步兵师" }
+		82 = { "国民军第%d 步兵师" }
+		91 = { "国民军第%d 步兵师" }
+		92 = { "国民军第%d 步兵师" }
+		101 = { "国民军第%d 步兵师" }
+		102 = { "国民军第%d 步兵师" }		
+		13 = { "国民军第%d 步兵师" }
+		23 = { "国民军第%d 步兵师" }
+		43 = { "国民军第%d 步兵师" }
+		33 = { "国民军第%d 步兵师" }
+		53 = { "国民军第%d 步兵师" }
+		63 = { "国民军第%d 步兵师" }
+		73 = { "国民军第%d 步兵师" }
+		83 = { "国民军第%d 步兵师" }
+		93 = { "国民军第%d 步兵师" }
+		103 = { "国民军第%d 步兵师" }
+		14 = { "国民军第%d 步兵师" }
+		24 = { "国民军第%d 步兵师" }
+		44 = { "国民军第%d 步兵师" }
+		34 = { "国民军第%d 步兵师" }
+		54 = { "国民军第%d 步兵师" }
+		64 = { "国民军第%d 步兵师" }
+		74 = { "国民军第%d 步兵师" }
+		84 = { "国民军第%d 步兵师" }
+		15 = { "国民军第%d 步兵师" }
+		25 = { "国民军第%d 步兵师" }
+		45 = { "国民军第%d 步兵师" }
+		35 = { "国民军第%d 步兵师" }
+		55 = { "国民军第%d 步兵师" }
+		65 = { "国民军第%d 步兵师" }
+		75 = { "国民军第%d 步兵师" }
+		85 = { "国民军第%d 步兵师" }
+		94 = { "国民军第%d 步兵师" }
+		104 = { "国民军第%d 步兵师" }
+		16 = { "国民军第%d 步兵师" }
+		26 = { "国民军第%d 步兵师" }
+		46 = { "国民军第%d 步兵师" }
+		36 = { "国民军第%d 步兵师" }
+		56 = { "国民军第%d 步兵师" }
+		66 = { "国民军第%d 步兵师" }
+		76 = { "国民军第%d 步兵师" }
+	}
+}
+
+SPR_INF_02 = 
+{
+	name = "国民军警备部队"
+
+	for_countries = { SPR }
+
+	can_use = { 
+		always = yes
+	}
+
+	division_types = { "infantry" }
+
+	# Number reservation system will tie to another group.
+	#link_numbering_with = { SPR_INF_01 }
+
+	fallback_name = "国民军第%d 警备师"
+
+	# Names with numbers (only one number per entry). 
+	# It's okay to have gaps in numbering.
+	ordered =
+	{
+
+	}
+}
+
+SPR_INF_03 = 
+{
+	name = "卡洛斯派部队"
+
+	for_countries = { SPR }
+
+	can_use = { 
+		always = yes
+	}
+
+	division_types = { "infantry" }
+
+	# Number reservation system will tie to another group.
+	#link_numbering_with = { SPR_INF_01 }
+
+	fallback_name = "卡洛斯派第%d 师"
+
+	# Names with numbers (only one number per entry). 
+	# It's okay to have gaps in numbering.
+	ordered =
+	{
+
+	}
+}
+
+SPR_INF_04 = 
+{
+	name = "国民警卫队（旅）"
+
+	for_countries = { SPR }
+
+	can_use = { 
+		always = yes
+	}
+
+	division_types = { "infantry" }
+
+	# Number reservation system will tie to another group.
+	#link_numbering_with = { SPR_INF_01 }
+
+	fallback_name = "国民警卫队第%d 旅"
+
+	# Names with numbers (only one number per entry). 
+	# It's okay to have gaps in numbering.
+	ordered =
+	{
+
+	}
+}
+
+SPR_INF_05 = 
+{
+	name = "突击警卫队"
+
+	for_countries = { SPR }
+
+	can_use = { 
+		always = yes
+	}
+
+	division_types = { "infantry" }
+
+	# Number reservation system will tie to another group.
+	#link_numbering_with = { SPR_INF_01 }
+
+	fallback_name = "突击警卫队第%d 师"
+
+	# Names with numbers (only one number per entry). 
+	# It's okay to have gaps in numbering.
+	ordered =
+	{
+
+	}
+}
+
+SPR_INF_06 = 
+{
+	name = "非洲军团"
+
+	for_countries = { SPR }
+
+	can_use = { 
+		always = yes
+	}
+
+	division_types = { "infantry" }
+
+	# Number reservation system will tie to another group.
+	#link_numbering_with = { SPR_INF_01 }
+
+	fallback_name = "非洲军团第%d 师"
+
+	# Names with numbers (only one number per entry). 
+	# It's okay to have gaps in numbering.
+	ordered =
+	{
+
+	}
+}
+
+SPD_INF_01 = 
+{
+	name = "共和军警备部队"
+
+	for_countries = { SPR }
+
+	can_use = { 
+		always = yes
+	}
+
+	division_types = { "infantry" }
+
+	# Number reservation system will tie to another group.
+	#link_numbering_with = { SPR_INF_01 }
+
+	fallback_name = "共和军第%d 警备师"
+
+	# Names with numbers (only one number per entry). 
+	# It's okay to have gaps in numbering.
+	ordered =
+	{
+
+	}
+}
+
+SPD_INF_02 = 
+{
+	name = "青年联盟"
+
+	for_countries = { SPR }
+
+	can_use = { 
+		always = yes
+	}
+
+	division_types = { "infantry" }
+
+	# Number reservation system will tie to another group.
+	#link_numbering_with = { SPR_INF_01 }
+
+	fallback_name = "青年联盟第%d 旅"
+
+	# Names with numbers (only one number per entry). 
+	# It's okay to have gaps in numbering.
+	ordered =
+	{
+
+	}
+}
+
+SPD_INF_03 = 
+{
+	name = "国际纵队"
+
+	for_countries = { SPR }
+
+	can_use = { 
+		always = yes
+	}
+
+	division_types = { "infantry" }
+
+	# Number reservation system will tie to another group.
+	#link_numbering_with = { SPR_INF_01 }
+
+	fallback_name = "国际纵队第%d 旅"
+
+	# Names with numbers (only one number per entry). 
+	# It's okay to have gaps in numbering.
+	ordered =
+	{
+
+	}
+}
+
+SPD_INF_04 = 
+{
+	name = "巴斯克军团"
+
+	for_countries = { SPR }
+
+	can_use = { 
+		always = yes
+	}
+
+	division_types = { "infantry" }
+
+	# Number reservation system will tie to another group.
+	#link_numbering_with = { SPR_INF_01 }
+
+	fallback_name = "巴斯克军团第%d 中队"
+
+	# Names with numbers (only one number per entry). 
+	# It's okay to have gaps in numbering.
+	ordered =
+	{
+
+	}
+}
+
+SPD_INF_05 = 
+{
+	name = "防御委员会（安那其）"
+
+	for_countries = { SPR }
+
+	can_use = { 
+		always = yes
+	}
+
+	division_types = { "infantry" }
+
+	# Number reservation system will tie to another group.
+	#link_numbering_with = { SPR_INF_01 }
+
+	fallback_name = " 防御委员会第%d 旅"
+
+	# Names with numbers (only one number per entry). 
+	# It's okay to have gaps in numbering.
+	ordered =
+	{
+
+	}
+}
+
+SPD_INF_06 = 
+{
+	name = "防御委员会民兵部队（安那其）"
+
+	for_countries = { SPR }
+
+	can_use = { 
+		always = yes
+	}
+
+	division_types = { "infantry" }
+
+	# Number reservation system will tie to another group.
+	#link_numbering_with = { SPR_INF_01 }
+
+	fallback_name = " 防御委员会第%d 民兵师"
+
+	# Names with numbers (only one number per entry). 
+	# It's okay to have gaps in numbering.
+	ordered =
+	{
+
+	}
+}

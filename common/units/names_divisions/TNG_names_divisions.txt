@@ -1,0 +1,72 @@
+﻿TNG_CAV_01 = 
+{
+	name = "Cavalry Brigades"
+
+	for_countries = { TNG }
+
+	can_use = { always = yes }
+
+	division_types = { "cavalry" }
+
+	# Number reservation system will tie to another group.
+	link_numbering_with = { TNG_INF_01 }
+
+	fallback_name = "Ch'iping Ti %d Lü"
+
+	# Names with numbers (only one number per entry). 
+	# It's okay to have gaps in numbering.
+	ordered =
+	{
+		1 = { "Luchün Hsinpien Ti 36 Shih Ti 1 Lü" }      
+		2 = { "Luchün Hsinpien Ti 36 Shih Ti 2 Lü" }   
+		3 = { "Luchün Hsinpien Ti 36 Shih Ti 3 Lü" }  
+		4 = { "Luchün Hsinpien Ti 36 Shih Ti 4 Lü" } 
+		5 = { "Luchün Hsinpien Ti 36 Shih Ti 5 Lü" } 
+		6 = { "Luchün Hsinpien Ti 36 Shih Ti 6 Lü" }     
+		7 = { "Luchün Hsinpien Ti 36 Shih Ti 7 Lü" }  
+		8 = { "Luchün Hsinpien Ti 36 Shih Ti 8 Lü" }  
+		9 = { "Luchün Hsinpien Ti 36 Shih Ti 9 Lü" } 
+		10 = { "Luchün Hsinpien Ti 36 Shih Ti 10 Lü" }  
+		11 = { "Luchün Hsinpien Ti 9 Shih Ti 1 Lü" } 
+		12 = { "Luchün Hsinpien Ti 9 Shih Ti 2 Lü" }    
+		13 = { "Luchün Hsinpien Ti 9 Shih Ti 3 Lü" }      
+		14 = { "Luchün Hsinpien Ti 9 Shih Ti 4 Lü" }
+	}
+}
+
+TNG_INF_01 = 
+{
+	name = "Infantry Brigades"
+
+	for_countries = { TNG }
+
+	can_use = { always = yes }
+
+	division_types = { "infantry" }
+
+	# Number reservation system will tie to another group.
+	link_numbering_with = { TNG_CAV_01 }
+
+	fallback_name = "Tuli Ti %d Lü"
+
+	# Names with numbers (only one number per entry). 
+	# It's okay to have gaps in numbering.
+	ordered =
+	{
+		1 = { "Luchün Hsinpien Ti 36 Shih Ti 1 Lü" }      
+		2 = { "Luchün Hsinpien Ti 36 Shih Ti 2 Lü" }   
+		3 = { "Luchün Hsinpien Ti 36 Shih Ti 3 Lü" }  
+		4 = { "Luchün Hsinpien Ti 36 Shih Ti 4 Lü" } 
+		5 = { "Luchün Hsinpien Ti 36 Shih Ti 5 Lü" } 
+		6 = { "Luchün Hsinpien Ti 36 Shih Ti 6 Lü" }     
+		7 = { "Luchün Hsinpien Ti 36 Shih Ti 7 Lü" }  
+		8 = { "Luchün Hsinpien Ti 36 Shih Ti 8 Lü" }  
+		9 = { "Luchün Hsinpien Ti 36 Shih Ti 9 Lü" } 
+		10 = { "Luchün Hsinpien Ti 36 Shih Ti 10 Lü" }   
+		11 = { "Luchün Hsinpien Ti 9 Shih Ti 1 Lü" } 
+		12 = { "Luchün Hsinpien Ti 9 Shih Ti 2 Lü" }    
+		13 = { "Luchün Hsinpien Ti 9 Shih Ti 3 Lü" }      
+		14 = { "Luchün Hsinpien Ti 9 Shih Ti 4 Lü" }            
+	}
+}
+
