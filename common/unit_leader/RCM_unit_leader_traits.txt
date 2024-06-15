@@ -1,0 +1,192 @@
+leader_traits = {
+
+	NRA_General_2ndRank = {
+		type = field_marshal
+		trait_type = status_trait
+		gain_xp = {
+			always = no # not gainable
+		}
+		prerequisites = {
+			has_trait = recently_promoted
+		}		
+		field_marshal_modifier = {
+			hidden_modifier = {
+				max_army_group_size = -2
+			}
+		}
+		custom_effect_tooltip = max_army_group_size_3		
+		allowed = {
+			FROM = {
+			    OR = {
+				    tag = CHI
+				    is_warlord = yes
+			    }	
+			    NOT = { has_government = communism }
+			    NOT = { original_tag = KHR }
+				NOT = { original_tag = ATM }
+			}	
+		}		
+		ai_will_do = {
+			factor = 1
+		}
+		gui_row = 9
+		gui_column = 2		
+	}
+
+	NRA_General_1stRank = {
+		type = field_marshal
+		trait_type = assignable_trait
+		gain_xp = {
+			always = no # not gainable
+		}
+		
+		prerequisites = {
+			has_trait = NRA_General_2ndRank
+			NOT = {
+			    has_trait = minimum_time_in_grade
+			}		
+		}
+		
+		custom_effect_tooltip = max_army_group_size_5			
+
+		on_add = {
+			if = {
+				limit = {
+					date > 1936.01.01
+				}
+				remove_unit_leader_trait = NRA_General_2ndRank
+			}
+		}											
+		allowed = {
+			FROM = {
+			    OR = {
+				    tag = CHI
+				    is_warlord = yes
+			    }	
+			    NOT = { has_government = communism }
+			    NOT = { original_tag = KHR }
+				NOT = { original_tag = ATM }
+			}	
+		}		
+		ai_will_do = {
+			factor = 1
+		}
+		gui_row = 10
+		gui_column = 2			
+	}
+
+	NRA_Generallissimo = {
+		type = field_marshal
+		trait_type = personality_trait
+
+		gain_xp = {
+			always = no # not gainable
+		}
+		allowed = {
+			FROM = { 
+			    OR = {
+				    tag = event_target:WTT_current_china_leader
+					original_tag = CHI
+				}
+				NOT = { has_government = communism } 
+			    NOT = { original_tag = KHR }
+				NOT = { original_tag = ATM }
+			}
+		}			
+		field_marshal_modifier = {
+			max_army_group_size = +3
+		}		
+		ai_will_do = {
+			factor = 1
+		}
+		gui_row = 11
+		gui_column = 2		
+	}
+	
+	minimum_time_in_grade = {
+		type = all
+		trait_type = status_trait		
+	}
+
+	artillery_officer = { 
+		type = land
+		trait_type = personality_trait 
+		
+		trait_xp_factor = {
+			artillery_leader = 1     #+100%
+		}
+		
+		new_commander_weight = {
+			factor = 1
+			
+			modifier = {
+				FROM = { 
+					has_idea = superior_firepower_academy_spirit
+				}
+				factor = 2
+			}			
+			modifier = {
+				FROM = { has_idea = best_of_the_best_spirit }
+				factor = 0
+			}
+			modifier = {
+				FROM = { has_idea = academy_scholarships_spirit }
+				factor = 0
+			}
+			modifier = { #Purged Junior Army Officers
+				FROM = { has_idea = SOV_purged_junior_army_officers_3 }
+				factor = 0
+			}			
+		}
+		modifier = {
+			army_artillery_attack_factor = 0.05
+		}
+		attack_skill_factor = 2 #guo
+	}
+
+	artillery_leader = { 
+		type = corps_commander
+		gain_xp = {
+			set_temp_variable = { temp = num_units }
+			multiply_temp_variable = { temp = 0.2 }
+			check_variable = { num_artillery > temp }
+		}
+		custom_gain_xp_trigger_tooltip = artillery_ratio_over_20		
+		cost = 700
+		modifier = {
+			army_artillery_attack_factor = 0.1
+		}
+		ai_will_do = {
+			factor = 1
+		}
+        attack_skill_factor = 1	
+		
+		gui_row = 16		
+		
+		slot = high_command
+		specialist_advisor_trait = army_artillery_1
+		expert_advisor_trait = army_artillery_2
+		genius_advisor_trait = army_artillery_3
+	}
+
+	artillery_expert = {
+		type = corps_commander
+		gain_xp = {
+			always = no # not gainable
+		}
+		cost = 1000
+		modifier = {
+			army_artillery_attack_factor = 0.15
+		}		
+		ai_will_do = {
+			factor = 1
+		}		
+		trait_type = assignable_trait
+		parent = artillery_leader
+		gui_row = 16
+	}
+	
+	#guo#
+
+}
+

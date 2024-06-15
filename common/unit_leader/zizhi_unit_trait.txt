@@ -1,0 +1,416 @@
+leader_traits = {
+
+	#artillery_officer = { 
+	#		type = land
+	#		trait_type = personality_trait 
+	#		
+	#		trait_xp_factor = {
+	#			infantry_leader = 0.5
+	#			trait_engineer = 0.5
+	#		}
+	#		
+	#		new_commander_weight = {
+	#			factor = 1
+	#		}
+	#		
+	#		attack_skill_factor = 2
+	#		
+	#}
+
+	PRC_lin_biao_sequela = {
+		type = land
+		trait_type = personality_trait
+		
+		#planning_skill = 1
+		
+		non_shared_modifier = {
+			experience_gain_factor = -0.05
+			wounded_chance_factor = 0.1
+		}
+		
+		new_commander_weight = {
+			factor = 0  
+		}
+	}
+	
+	#德高望重的军队领袖
+	Tzxx_Resprcted_military_leader = {
+		type = land
+		trait_type = personality_trait
+		
+		modifier = {
+			army_strength_factor = 0.1 #HP
+			army_org_factor = 0.1 #陆军组织度
+			army_morale_factor = 0.1 #陆军组织度恢复
+			supply_consumption_factor = -0.05
+			land_reinforce_rate = 0.05
+			out_of_supply_factor = -0.10
+			pocket_penalty = -0.25
+		}
+		
+		trait_xp_factor = {
+			organizer = 1     #+100%
+			skilled_staffer = 1     #+100%
+		}
+		
+		logistics_skill_factor = 1
+		planning_skill_factor = 1
+		attack_skill_factor = 1
+		new_commander_weight = { factor = 0 }
+	}
+	
+	Tzxx_imperturbable_strategist = {
+		type = land
+		trait_type = personality_trait
+		
+		logistics_skill_factor = 1
+		planning_skill_factor = 1
+		
+		modifier = {
+			dig_in_speed_factor = 0.25
+			max_dig_in_factor = 0.25
+			land_reinforce_rate = 0.05
+			max_planning = 0.10
+			equipment_capture = 0.05
+		}
+		trait_xp_factor = {
+			skilled_staffer = 1     #+100%
+			
+		}
+		new_commander_weight = { factor = 0 }
+	}
+	
+	youji_hero = {
+		type = land
+		trait_type = personality_trait
+		
+		allowed = {
+			FROM = {
+			    has_government = communism
+				original_tag = PRC
+			}
+		}
+		
+		modifier = {
+			terrain_penalty_reduction = 0.15
+			org_loss_when_moving = -0.05
+			modifier_army_sub_unit_infantry_speed_factor = 0.05
+			modifier_army_sub_unit_irregular_infantry_speed_factor = 0.05
+			modifier_army_sub_unit_cavalry_speed_factor = 0.05
+			equipment_capture = 0.05
+			no_supply_grace = 48
+			out_of_supply_factor = -0.15
+			pocket_penalty = -0.35
+			supply_consumption_factor = -0.10
+			intel_from_combat_factor = 0.15
+			recon_factor = 0.25
+			acclimatization_hot_climate_gain_factor = 0.15 #炎热适应度增长率
+			acclimatization_cold_climate_gain_factor = 0.15 #寒冷适应度增长率
+			land_night_attack = 0.10
+			enemy_army_bonus_air_superiority_factor = -0.10
+			reassignment_duration_factor = -0.80
+			sickness_chance = -0.25
+			command_abilities_cost_factor = -0.15
+		}
+		
+		logistics_skill_factor = 1
+		attack_skill_factor = 1
+		
+		trait_xp_factor = {
+			trickster = 1     #+100%
+			winter_specialist = 1     #+100%
+			commando = 1     #+100%
+			swamp_fox = 1     #+100%
+			ranger = 1     #+100%
+			hill_fighter = 1     #+100%
+			desert_fox = 1     #+100%
+			trait_mountaineer = 1     #+100%
+			jungle_rat = 1     #+100%
+		}
+
+		new_commander_weight = {
+			base = 0
+			
+			modifier = {
+				add = 9999
+				FROM = { #Looks like the allowed parameter is doing NOTHING :D 
+					OR = {
+						original_tag = PRC
+					}
+					has_government = communism
+				}
+			}
+		}
+	}
+	
+	xiandaijunguan = {
+		type = land
+		trait_type = personality_trait
+		
+		allowed = {
+			FROM = {
+			    has_government = communism
+				original_tag = PRC
+			}
+		}
+		
+		modifier = {
+			terrain_penalty_reduction = 0.20
+			org_loss_when_moving = -0.10
+			modifier_army_sub_unit_infantry_speed_factor = 0.05
+			modifier_army_sub_unit_irregular_infantry_speed_factor = 0.05
+			modifier_army_sub_unit_cavalry_speed_factor = 0.05
+			equipment_capture = 0.05
+			no_supply_grace = 72
+			out_of_supply_factor = -0.20
+			pocket_penalty = -0.50
+			supply_consumption_factor = -0.10
+			intel_from_combat_factor = 0.25
+			recon_factor = 0.25
+			acclimatization_hot_climate_gain_factor = 0.15 #炎热适应度增长率
+			acclimatization_cold_climate_gain_factor = 0.15 #寒冷适应度增长率
+			land_night_attack = 0.15
+			enemy_army_bonus_air_superiority_factor = -0.15
+			reassignment_duration_factor = -0.80
+			sickness_chance = -0.25
+			command_abilities_cost_factor = -0.25
+			
+			land_reinforce_rate = 0.05
+			experience_loss_factor = -0.10
+			max_planning = 0.10
+			planning_speed = 0.20
+			army_org_factor = 0.10
+			combat_width_factor = -0.10
+			coordination_bonus = 0.10
+			initiative_factor = 0.10
+		}
+		
+		logistics_skill_factor = 1
+		attack_skill_factor = 1
+		
+		trait_xp_factor = {
+			trickster = 1     #+100%
+			winter_specialist = 1     #+100%
+			commando = 1     #+100%
+			swamp_fox = 1     #+100%
+			ranger = 1     #+100%
+			hill_fighter = 1     #+100%
+			desert_fox = 1     #+100%
+			trait_mountaineer = 1     #+100%
+			jungle_rat = 1     #+100%
+			
+			organizer = 1     #+100%
+			skilled_staffer = 1     #+100%
+			trait_engineer = 1     #+100%
+			panzer_leader = 1     #+100%
+			urban_assault_specialist = 1     #+100%
+			naval_invader = 1     #+100%
+		}
+
+		new_commander_weight = {
+			base = 0
+			
+			modifier = {
+				add = 9999
+				FROM = { #Looks like the allowed parameter is doing NOTHING :D 
+					OR = {
+						original_tag = PRC
+					}
+					has_government = communism
+				}
+			}
+		}
+	}
+	
+	advantaged_operational_experts = {
+		type = land
+		trait_type = personality_trait
+		
+		modifier = {
+			planning_speed = -0.15
+			max_planning = 0.20
+			army_attack_factor = 0.05
+			experience_loss_factor = -0.15
+		}
+		
+		new_commander_weight = {
+			factor = 0
+		}
+		
+		trait_xp_factor = {
+			organizer = 1     #+100%
+			
+		}
+		
+		planning_skill_factor = 1
+	}
+	
+	suyu_operational_experts = {
+		type = land
+		trait_type = personality_trait
+		
+		modifier = {
+			planning_speed = 0.25
+			max_planning = 0.10
+			army_attack_factor = 0.05
+			army_attack_speed_factor = 0.05
+			army_morale_factor = -0.10
+			terrain_penalty_reduction = 0.15
+			breakthrough_factor = 0.05
+		}
+		
+		new_commander_weight = {
+			factor = 0
+		}
+		
+		trait_xp_factor = {
+			trickster = 1     #+100%
+			
+		}
+		
+		attack_skill_factor = 1
+	}
+	
+	air_force_ties = {
+		type = land
+		trait_type = personality_trait
+		
+		#planning_skill = 1
+		
+		modifier = {
+			army_bonus_air_superiority_factor = 0.05
+			cas_damage_reduction = 0.05
+			enemy_army_bonus_air_superiority_factor = -0.05
+			air_superiority_bonus_in_combat = 0.1
+			intel_from_combat_factor = 0.25
+		    recon_factor = 0.50
+		}
+		
+		logistics_skill_factor = 1
+		attack_skill_factor = 1
+
+		new_commander_weight = {
+			factor = 0
+		}
+	}
+
+    rising_young_officer = {
+		type = land
+		trait_type = personality_trait
+		
+		non_shared_modifier = {
+			experience_gain_factor = 0.25
+		}
+		new_commander_weight = {
+			factor = 0
+		}
+	}
+	rising_young_officer_2 = {
+		type = land
+		trait_type = personality_trait
+		
+		modifier = {
+			army_org_factor = 0.1 #陆军组织度
+			army_morale_factor = 0.1 #陆军组织度恢复
+			land_reinforce_rate = 0.05
+			experience_loss_factor = -0.05
+		}
+		
+		trait_xp_factor = {
+			organizer = 1     #+100%
+			trickster = 1     #+100%
+			infantry_leader = 1     #+100%
+			skilled_staffer = 1     #+100%
+		}
+		
+		logistics_skill_factor = 1
+		planning_skill_factor = 1
+		attack_skill_factor = 1
+		
+		non_shared_modifier = {
+			experience_gain_factor = 0.10
+		}
+		new_commander_weight = {
+			factor = 0
+		}
+	}
+	
+	extra_specialized_skill = {
+		type = land
+		trait_type = personality_trait
+		
+		new_commander_weight = {
+			factor = 0
+		}
+	}
+	
+	military_political_commissar = {
+		type = land
+		trait_type = personality_trait
+
+		allowed = {
+			FROM = {	
+			    has_government = communism
+			}
+		}
+		modifier = {
+			army_morale_factor = 0.08
+		}
+		non_shared_modifier = {
+			reassignment_duration_factor = -0.25 # -50% cost to replace leader
+			trait_skilled_staffer_xp_gain_factor = 0.25
+		}
+		new_commander_weight = {
+			factor = 1
+
+			modifier = { #Purged Junior Army Officers
+				FROM = { has_idea = SOV_purged_junior_army_officers_3 }
+				factor = 0
+			}			
+			modifier = {
+				FROM = { NOT = { has_government = communism } }
+				factor = 0
+			}			
+		}
+	}	
+
+	irregulars_leader = {
+		type = land
+		trait_type = personality_trait
+
+		modifier = {
+			recon_factor = 0.25
+			out_of_supply_factor = -0.10
+			modifier_army_sub_unit_irregular_infantry_max_org_factor = 0.10
+		}
+		new_commander_weight = {
+			base = 0
+		}
+		attack_skill_factor = 1
+		logistics_skill_factor = 1 #guo
+	}
+
+	operative_brilliant_spy = {
+		type = operative
+		trait_type = personality_trait
+
+		new_commander_weight = {
+			factor = 0
+		}
+
+		modifier = {
+			operation_infiltrate_outcome = 0.25
+			operation_infiltrate_risk = -1
+			operation_infiltrate_cost = -0.25
+			operation_rescue_operative_outcome = 0.25
+			operation_rescue_operative_risk = -1
+			operation_rescue_operative_cost = -0.25
+			operation_capture_cipher_outcome = 0.25
+			operation_capture_cipher_risk = -1
+			operation_capture_cipher_cost = -0.25
+			own_operative_detection_chance_factor = -1
+			own_operative_capture_chance_factor = -1
+		}
+	}
+
+}
