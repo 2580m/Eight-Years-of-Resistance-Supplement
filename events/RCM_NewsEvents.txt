@@ -1,0 +1,1328 @@
+﻿###########################
+# News Events
+###########################
+
+add_namespace = news
+
+# Marco Polo Bridge I
+news_event = {
+	id = news.1300
+	title = news.1300.t
+	desc = news.1300.d
+	picture = GFX_news_event_500
+
+	major = yes
+
+	is_triggered_only = yes
+
+	option = {
+		name = news.1300.a
+		trigger = {
+			NOT = {
+				TAG = JAP
+				TAG = CHI
+			}
+		}
+	}
+	option = {
+		name = news.1300.b
+		trigger = { TAG = JAP }
+	}
+	option = {
+		name = news.1300.c
+		trigger = { TAG = CHI }
+	}
+}
+########CDL########
+news_event = {
+	id = news.1301
+	title = news.1301.t
+	desc = news.1301.d
+	picture = GFX_news_event_cdl
+	fire_only_once = yes
+	major = no
+	mean_time_to_happen = {
+		days = 2
+	}
+	trigger = {
+		tag = CHI
+		OR = {
+			JAP = {
+				has_completed_focus = JAP_contact_zhang_lan_focus
+				event_target:WTT_current_china_leader = {
+					democratic > 0.35
+				}
+			}
+			AND = {
+				NOT = {
+					has_completed_focus = CHI_begin_constitionalization_focus
+				}
+				OR = {
+					CHI = { has_government = fascism }
+					CHI = { has_government = neutrality }
+				}
+				OR = {
+					date > 1941.3.18
+					has_global_flag = CHI_zhang_lan_doctrine
+					
+				}
+			}
+		}
+	}
+
+	immediate = {
+		hidden_effect = {
+			CHI = {
+				set_temp_variable = { CDL_pop = ROOT.party_popularity@n_socialism }
+				set_temp_variable = { dem_pop = ROOT.party_popularity@democratic }
+				add_to_variable = { CDL_pop = dem_pop }
+
+				set_political_party = { ideology = communism popularity = 0 }
+				set_political_party = { ideology = n_socialism popularity = 0 }
+				add_popularity = { ideology = democratic popularity = CDL_pop }
+				set_party_name = { ideology = democratic long_name = CHI_n_socialism_cdl_long name = CHI_n_socialism_cdl }
+				add_timed_idea = {
+					idea = pro_com_demo
+					days = 1850
+				}
+				set_global_flag = cdl_founded
+				#set_country_flag = zhang_bojun_available
+				#add_ideas = zhang_bojun
+				#remove_ideas = zhang_bojun
+
+				create_country_leader = {
+					name = Zhang_Lan
+					desc = "POLITICS_ZHANG_LAN_DESC"
+					picture = "Portrait_China_Zhang_Lan.dds"
+					expire = "1965.1.1"
+					ideology = socialism
+					traits = {
+						#
+					}
+				}
+			}
+		}
+	}
+
+	option = {
+		name = news.1301.a
+		trigger = {
+			NOT = {
+				TAG = event_target:WTT_communist_china
+				TAG = event_target:WTT_current_china_leader
+			}
+		}
+	}
+	option = {
+		name = news.1301.b
+		trigger = { TAG = event_target:WTT_communist_china }
+	}
+	option = {
+		name = news.1301.c
+		trigger = { TAG = event_target:WTT_current_china_leader }
+	}
+}
+###HPC join JAP
+news_event = {
+	id = news.1302
+	title = news.1302.t
+	desc = news.1302.d
+	picture = GFX_news_event_szy
+	major = yes
+	is_triggered_only = yes
+
+	immediate = {
+		hidden_effect = {
+			JAP = {
+				set_autonomy = { target = HPC autonomy_state = autonomy_wtt_imperial_associate }
+			}
+			HPC = {
+				set_politics = { ruling_party = neutrality elections_allowed = no }
+				set_political_party = { ideology = neutrality popularity = 100 }
+			}
+		}
+	}
+	trigger = {
+		country_exists = HPC
+	}
+	option = {
+		name = news.1302.a
+		trigger = {
+			NOT = {
+				TAG = JAP
+				TAG = CHI
+			}
+		}
+	}
+	option = {
+		name = news.1302.b
+		trigger = { TAG = JAP }
+	}
+	option = {
+		name = news.1302.c
+		trigger = { TAG = CHI }
+	}
+}
+
+news_event = {
+	id = news.1303
+	title = news.1303.t
+	desc = news.1303.d
+	picture = GFX_news_event_500
+	major = yes
+	is_triggered_only = yes
+
+	option = {
+		name = news.1303.a
+		trigger = {
+			NOT = {
+				TAG = JAP
+				TAG = CHI
+			}
+		}
+	}
+	option = {
+		name = news.1303.b
+		trigger = { TAG = JAP }
+	}
+	option = {
+		name = news.1303.c
+		trigger = { TAG = CHI }
+	}
+}
+#### MEN
+news_event = {
+	id = news.1304
+	title = news.1304.t
+	desc = news.1304.d
+	picture = GFX_news_event_500
+	major = yes
+	is_triggered_only = yes
+
+	option = {
+		name = news.1304.a
+		trigger = {
+			NOT = {
+				TAG = JAP
+				TAG = CHI
+			}
+		}
+	}
+	option = {
+		name = news.1304.b
+		trigger = { TAG = JAP }
+	}
+	option = {
+		name = news.1304.c
+		trigger = { TAG = CHI }
+	}
+}
+#### JNC
+news_event = {
+	id = news.1305
+	title = news.1305.t
+	desc = news.1305.d
+	picture = GFX_news_event_500
+	major = yes
+	is_triggered_only = yes
+
+	option = {
+		name = news.1305.a
+		trigger = {
+			NOT = {
+				TAG = JAP
+				TAG = CHI
+			}
+		}
+	}
+	option = {
+		name = news.1305.b
+		trigger = { TAG = JAP }
+	}
+	option = {
+		name = news.1305.c
+		trigger = { TAG = CHI }
+	}
+}
+#### CCP Great way gov
+news_event = {
+	id = news.1306
+	title = news.1306.t
+	desc = news.1306.d
+	picture = GFX_news_event_500
+	major = yes
+	is_triggered_only = yes
+
+	option = {
+		name = news.1306.a
+		trigger = {
+			NOT = {
+				TAG = JAP
+				TAG = CHI
+			}
+		}
+	}
+	option = {
+		name = news.1306.b
+		trigger = { TAG = JAP }
+	}
+	option = {
+		name = news.1306.c
+		trigger = { TAG = CHI }
+	}
+}
+#### RFM
+news_event = {
+	id = news.1307
+	title = news.1307.t
+	desc = news.1307.d
+	picture = GFX_news_event_500
+	major = yes
+	is_triggered_only = yes
+
+	option = {
+		name = news.1307.a
+		trigger = {
+			NOT = {
+				TAG = JAP
+				TAG = CHI
+			}
+		}
+	}
+	option = {
+		name = news.1307.b
+		trigger = { TAG = JAP }
+	}
+	option = {
+		name = news.1307.c
+		trigger = { TAG = CHI }
+	}
+}
+#### RRC
+news_event = {
+	id = news.1308
+	title = news.1308.t
+	desc = news.1308.d
+	picture = GFX_news_event_500
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = news.1308.a
+		trigger = {
+			NOT = {
+				TAG = JAP
+				TAG = CHI
+			}
+		}
+	}
+	option = {
+		name = news.1308.b
+		trigger = { TAG = JAP }
+	}
+	option = {
+		name = news.1308.c
+		trigger = { TAG = CHI }
+	}
+}
+#### JPS
+news_event = {
+	id = news.1309
+	title = news.1309.t
+	desc = news.1309.d
+	picture = GFX_news_event_500
+	major = yes
+	is_triggered_only = yes
+
+	option = {
+		name = news.1309.a
+		trigger = {
+			NOT = {
+				TAG = JAP
+				TAG = CHI
+			}
+		}
+	}
+	option = {
+		name = news.1309.b
+		trigger = { TAG = JAP }
+	}
+	option = {
+		name = news.1309.c
+		trigger = { TAG = CHI }
+	}
+}
+############JAP GOV#############
+################################
+################################
+###tohokai founded##
+news_event = {
+	id = news.400
+	title = news.400.t
+	desc = news.400.d
+	picture = GFX_news_event_thk
+	fire_only_once = yes
+	trigger = {
+		tag = JAP
+		date > 1936.5.25
+		date < 1938.12.1
+		NOT = { has_global_flag = kodoha_won }
+		NOT = { has_completed_focus = spiritual_mobilization_focus }
+	}
+	immediate = {
+		hidden_effect = {
+			set_party_name = {
+				ideology = fascism
+				name = JAP_fascism_party_toh
+				long_name = JAP_fascism_party_toh
+			}
+			set_global_flag = TOH_founded
+			set_cosmetic_tag = JAP_TOH
+			create_country_leader = { ##Tohokai, created in may 25 1936
+				name = seigo_nakano
+				desc = "LEADER_NAKANO_SAIGO_DESC"
+				picture = "Portrait_Japan_Seigo_Nakano.dds"
+				expire = "1989.1.1"
+				ideology = fascism_ideology
+				traits = {
+					#
+				}
+			}
+		}
+	}
+	option = {
+		name = news.400.a
+	}
+}
+####okada assassinated
+news_event = {
+	id = news.401
+	title = news.401.t
+	desc = news.401.d
+	picture = GFX_news_event_assassinated
+	#fire_only_once = yes
+	is_triggered_only = yes
+	immediate = {
+		hidden_effect = {
+			scoped_sound_effect = gun_shot_sound
+			kill_country_leader = yes
+		}
+	}
+	option = {
+		name = news.401.a
+	}
+}
+#226
+news_event = {
+	id = news.402
+	title = news.402.t
+	desc = news.402.d_vic
+	picture = GFX_news_event_226
+	major = yes
+	#fire_only_once = yes
+	is_triggered_only = yes
+	immediate = {
+		hidden_effect = {
+			set_country_flag = assed_in_226
+		}
+	}
+	option = {
+		name = news.401.a
+		JAP = {
+			if = { 
+			    limit = {
+					has_character = korekiyo_takahashi
+				}
+				retire_character = korekiyo_takahashi #高橋 是清
+			}
+			if = { 
+				limit = {
+					has_character = makoto_saito
+				}
+				retire_character = makoto_saito #斎藤 実
+			}                				
+			if = { 
+				limit = {
+					has_character = jotaro_watanabe
+				}
+				retire_character = jotaro_watanabe #渡辺 錠太郎
+			}														
+		}		
+	}
+}
+news_event = {
+	id = news.9402
+	title = news.402.t
+	desc = news.9402.d
+	picture = GFX_news_event_226
+	major = yes
+	#fire_only_once = yes
+	is_triggered_only = yes
+	immediate = {
+		hidden_effect = {
+			set_country_flag = assed_in_226
+		}
+	}
+	option = {
+	    name = news.401.a
+		JAP = {
+			if = { 
+			    limit = {
+					has_character = korekiyo_takahashi
+				}
+				retire_character = korekiyo_takahashi #高橋 是清
+			}
+			if = { 
+				limit = {
+					has_character = makoto_saito
+				}
+				retire_character = makoto_saito #斎藤 実
+			}                				
+			if = { 
+				limit = {
+					has_character = jotaro_watanabe
+				}
+				retire_character = jotaro_watanabe #渡辺 錠太郎
+			}														
+		}		
+	}
+}
+#new order
+news_event = {
+	id = news.403
+	title = news.403.t
+	desc = news.403.d
+	picture = GFX_news_event_226
+	major = yes
+	fire_only_once = yes
+	is_triggered_only = yes
+	immediate = {
+		hidden_effect = {
+			set_country_flag = new_order_flag
+		}
+	}
+	option = {
+		name = news.401.a
+	}
+}
+#gov_strengthen assassinatin event
+news_event = {
+	id = news.404
+	hidden = yes
+	major = yes
+	fire_only_once = yes
+	trigger = {
+		tag = JAP
+		NOT = { has_completed_focus = JAP_strengthen_civilian_government }
+		focus_progress = {
+			focus = JAP_strengthen_civilian_government
+			progress > 0.1
+		}
+		NOT = {
+			has_idea = JAP_bribe_the_tokko_3
+		}
+	}
+	immediate = {
+		random_list = {
+			10 = {
+				news_event = { id = news.410 }
+				set_country_flag = pm_killed
+				kill_country_leader = yes
+				#create_country_leader = {
+				#	name = "Senjuro Hayashi"
+				#	desc = "POLITICS_Senjuro_Hayashi_DESC"
+				#	picture = "Portrait_Japan_Senjuro_Hayashi.dds"
+				#	expire = "1989.1.1"
+				#	ideology = despotism
+				#	traits = {
+				#		dictator
+				#	}
+				#}
+				create_country_leader = {
+					name = Koki_Hirota
+					desc = ""
+					picture = "Portrait_Japan_Koki_Hirota.dds"
+					expire = "1989.1.1"
+					ideology = moderatism
+					traits = {
+					}
+				}
+				unlock_national_focus = JAP_placate_military_focus
+				unlock_national_focus = pressure_pm_focus
+			}
+			90 = {
+				news_event = { id = news.407 }
+				if = {
+					limit = {
+						NOT = {
+							has_country_leader_with_trait = assassination_survivor
+						}
+					}
+					add_country_leader_trait = assassination_survivor
+				}				
+				#create_country_leader = {
+				#	name = "Koki Hirota"
+				#	desc = ""
+				#	picture = "Portrait_Japan_Koki_Hirota.dds"
+				#	expire = "1989.1.1"
+				#	ideology = moderatism
+				#	traits = {
+				#		assassination_survivor
+				#	}
+				#}
+			}
+		}
+
+	}
+	option = {
+	}
+}
+
+news_event = {
+	id = news.405
+	hidden = yes
+	major = yes
+	fire_only_once = yes
+	trigger = {
+		tag = JAP
+		NOT = { has_completed_focus = JAP_strengthen_civilian_government }
+		focus_progress = {
+			focus = JAP_strengthen_civilian_government
+			progress > 0.5
+		}
+		NOT = {
+			has_idea = JAP_bribe_the_tokko_3
+		}
+	}
+	immediate = {
+		random_list = {
+			10 = {
+			}
+			20 = {
+				news_event = { id = news.410 }
+				set_country_flag = pm_killed
+				kill_country_leader = yes
+				create_country_leader = {
+					name = Koki_Hirota
+					desc = ""
+					picture = "Portrait_Japan_Koki_Hirota.dds"
+					expire = "1989.1.1"
+					ideology = moderatism
+					traits = {
+					}
+				}
+				unlock_national_focus = JAP_placate_military_focus
+				unlock_national_focus = pressure_pm_focus
+			}
+			70 = {
+				news_event = { id = news.408 }
+				if = {
+					limit = {
+						NOT = {
+							has_country_leader_with_trait = assassination_survivor
+						}
+					}
+					add_country_leader_trait = assassination_survivor
+				}
+			}
+		}
+	}
+	option = {
+	}
+}
+
+news_event = {
+	id = news.406
+	hidden = yes
+	major = yes
+	fire_only_once = yes
+	trigger = {
+		tag = JAP
+		NOT = { has_completed_focus = JAP_strengthen_civilian_government }
+		focus_progress = {
+			focus = JAP_strengthen_civilian_government
+			progress > 0.8
+		}
+		has_idea = JAP_bribe_the_tokko_1
+	}
+	immediate = {
+		random_list = {
+			50 = {
+				news_event = { id = news.410 }
+				set_country_flag = pm_killed
+				kill_country_leader = yes
+				create_country_leader = {
+					name = Koki_Hirota
+					desc = ""
+					picture = "Portrait_Japan_Koki_Hirota.dds"
+					expire = "1989.1.1"
+					ideology = moderatism
+					traits = {
+					}
+				}
+				unlock_national_focus = JAP_placate_military_focus
+				unlock_national_focus = pressure_pm_focus
+			}
+			50 = {
+				news_event = { id = news.4009 }
+				if = {
+					limit = {
+						NOT = {
+							has_country_leader_with_trait = assassination_survivor
+						}
+					}
+					add_country_leader_trait = assassination_survivor
+				}	
+			}
+		}
+	}
+	option = {
+	}
+}
+
+news_event = {
+	id = news.407
+	title = news.407.t
+	desc = news.407.d
+	picture = GFX_news_event_assassinate_attempt_01
+	major = no
+	fire_only_once = yes
+	is_triggered_only = yes
+	trigger = {
+		tag = JAP
+	}
+	option = {
+		name = news.407.a
+	}
+}
+
+news_event = {
+	id = news.408
+	title = news.408.t
+	desc = news.408.d
+	picture = GFX_news_event_assassinate_attempt_02
+	major = no
+	fire_only_once = yes
+	is_triggered_only = yes
+	trigger = {
+		tag = JAP
+	}
+	option = {
+		name = news.408.a
+	}
+}
+
+news_event = {
+	id = news.4009
+	title = news.4009.t
+	desc = news.4009.d
+	picture = GFX_news_event_assassinate_attempt_03
+	major = no
+	fire_only_once = yes
+	is_triggered_only = yes
+	trigger = {
+		tag = JAP
+	}
+	option = {
+		name = news.4009.a
+	}
+}
+news_event = {
+	id = news.410
+	title = news.410.t
+	desc = news.410.d
+	picture = GFX_news_event_assassinated
+	major = yes
+	fire_only_once = yes
+	is_triggered_only = yes
+	immediate = {
+		hidden_effect = {
+			scoped_sound_effect = gun_shot_sound
+		}
+	}
+	trigger = {
+		tag = JAP
+	}
+	option = {
+		name = news.410.a
+	}
+}
+#abcd line
+news_event = {
+	id = news.411
+	title = news.411.t
+	desc = news.411.d
+	picture = GFX_news_event_abcd
+	major = yes
+	fire_only_once = yes
+	trigger = {
+		tag = JAP
+		NOT = {
+			is_in_faction_with = event_target:WTT_current_china_leader
+		}
+		has_global_flag = abcd_a
+		has_global_flag = abcd_b
+		has_global_flag = abcd_d
+	}
+	option = {
+		name = news.411.a
+	}
+}
+#Juneau Conference
+news_event = {
+	id = news.412
+	title = news.412.t
+	desc = news.412.d
+	picture = GFX_news_event_generic_read_write
+	major = yes
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = news.412.a
+	}
+}
+#SINO-JAP ALLIANCE
+news_event = {
+	id = news.413
+	title = news.413.t
+	desc = news.413.d
+	picture = GFX_news_event_sino_jap_alliance
+	major = yes
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = news.413.a
+	}
+}
+#lushan
+news_event = {
+	id = news.2017
+	title = news.2017.t
+	desc = news.2017.d
+	picture = GFX_news_event_lushan
+
+	major = yes
+
+	is_triggered_only = yes
+	immediate = {
+		hidden_effect = {
+			#if = {
+			#	limit = {
+			#		tag = CHI
+			#		is_ai = no
+			#	}
+			sound_effect = RCM_lushan_declaration
+			#}
+		}
+	}
+	option = {
+		name = news.2017.a
+		trigger = {
+			NOT = {
+				OR = {
+					TAG = CHI
+					TAG = JAP
+				}
+			}
+		}
+	}
+	option = {
+		name = news.2017.b
+		trigger = { TAG = CHI }
+		
+	}
+	option = {
+		name = news.2017.c
+		trigger = { TAG = JAP }
+	}
+}
+news_event = {
+	id = news.1238
+	title = news.1238.t
+	desc = news.1238.d
+	picture = GFX_news_event_238
+
+	is_triggered_only = yes
+
+	option = {
+		name = news.1238.a
+		trigger = {
+			NOT = {
+				TAG = JAP
+				TAG = USA
+			}
+		}
+	}
+	option = {
+		name = news.1238.b
+		trigger = { TAG = JAP }
+	}
+	option = {
+		name = news.1238.c
+		trigger = { TAG = USA }
+	}
+}
+
+#SINO-JAP ALLIANCE BROKE
+news_event = {
+	id = news.414
+	title = news.414.t
+	desc = news.414.d
+	picture = GFX_news_event_operation_august_storm
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = news.414.a
+		trigger = {
+			has_war_with = JAP
+		}
+	}
+	option = {
+		name = news.414.b
+		trigger = {
+			OR = {
+				tag = JAP
+				has_war_together_with = JAP
+			}
+		}
+	}
+	option = {
+		name = news.414.c
+		trigger = {
+			NOT = {
+				OR = {
+					tag = JAP
+					has_war_with = JAP
+					has_war_together_with = JAP
+				}
+			}
+		}
+	}
+}
+
+#Soviet Union Joins Allies
+add_namespace = RCM_news
+news_event = {
+	id = RCM_news.1
+	title = RCM_news.1.t
+	desc = RCM_news.1.d
+	picture = GFX_news_event_generic_read_write
+	major = yes
+	#fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = RCM_news.1.a
+	}
+}
+#China Japan truce
+news_event = {
+	id = RCM_news.2
+	title = RCM_news.2.t
+	desc = RCM_news.2.d
+	picture = GFX_news_event_sino_jap_alliance
+	major = yes
+	#fire_only_once = yes
+	is_triggered_only = yes
+	immediate = {
+		add_named_threat = { 
+			threat = -35 
+			name = sino_japanese_truce_threat
+		}
+		set_global_flag = end_of_second_sino_japanese_war
+	}
+	option = {
+		name = RCM_news.2.a
+	}
+}
+
+#SINO-JAPANESE ALLIANCE
+news_event = {
+	id = RCM_news.3
+	title = RCM_news.3.t
+	desc = RCM_news.3.desc
+	picture = GFX_news_event_japanese_army_parade
+	immediate = {
+		hidden_effect = {
+			PRC = {
+				unlock_national_focus = PRC_contact_Zhang_Xueliang_focus
+			}
+		}
+	}
+	major = yes
+	#fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		name = RCM_news.3.a
+		trigger = {
+			NOT = {
+				tag = CHI
+			}
+			OR = {
+				tag = JAP
+				is_in_faction_with = JAP
+				is_puppet_of = JAP
+			}
+		}
+	}
+	option = {
+		name = RCM_news.3.b
+		trigger = {
+			tag = CHI
+		}
+	}
+	option = {
+		name = RCM_news.3.c
+		trigger = {
+			NOT = {
+				tag = CHI
+			}
+			is_literally_china = yes
+			is_puppet = no
+		}
+	}
+	option = {
+		name = RCM_news.3.d
+		trigger = {
+			NOT = {				
+				OR = {
+					AND = {
+						is_literally_china = yes
+						is_puppet = no
+					}
+					tag = CHI
+					tag = JAP
+					is_in_faction_with = JAP
+					is_puppet_of = JAP
+				}
+			}			
+		}
+	}
+}
+#NORTHWEST UNITED GOV
+news_event = {
+	id = RCM_news.4
+	title = RCM_news.4.t
+	desc = RCM_news.4.d
+	picture = GFX_news_event_Xian_Incident_2
+
+	immediate = {log = "[GetDateText]: [Root.GetName]: event RCM_news.4"}
+	major = yes
+	is_triggered_only = yes
+
+	option = {
+		name = RCM_news.4.a
+	
+	}
+}
+
+#Provisional/Reformed ROC
+news_event = {
+	id = RCM_news.5
+	title = RCM_news.5.t
+	desc = {
+		text = RCM_news.5.d_1
+		trigger = {
+			event_target:NewPuppet = {
+				has_country_flag = im_jnc_now
+				NOT = { has_country_flag = im_rrc_now }
+			}
+		}
+	}
+	desc = {
+		text = RCM_news.5.d_2
+		trigger = {
+			event_target:NewPuppet = {
+				has_cosmetic_tag = MEN
+			}
+		}
+	}
+	desc = {
+		text = RCM_news.5.d_21
+		trigger = {
+			event_target:NewPuppet = {
+				OR = {
+					has_cosmetic_tag = MUA
+					has_cosmetic_tag = MEJ
+				}
+			}
+		}
+	}
+	desc = {
+		text = RCM_news.5.d_3
+		trigger = {
+			event_target:NewPuppet = {
+				has_country_flag = im_rrc_now
+			}
+		}
+	}
+	desc = {
+		text = RCM_news.5.d_4
+		trigger = {
+			event_target:NewPuppet = {
+				tag = CCP
+			}
+		}
+	}
+	picture = GFX_news_event_japanese_army_parade
+	
+	major = yes
+	is_triggered_only = yes
+	trigger = {
+		NOT = {
+			event_target:NewPuppet = {
+				has_country_flag = im_rrc_now #double events
+			}
+		}
+	}
+	option = {
+		name = RCM_news.5.a
+		trigger = {
+			OR = {
+				tag = JAP
+				is_subject_of = JAP
+			}
+			NOT = { 
+				has_war_with = JAP
+				has_war_with = event_target:NewPuppet
+			}
+		}
+	}
+
+	option = {
+		name = RCM_news.5.b
+		trigger = {
+			OR = {
+				has_war_with = JAP
+				has_war_with = event_target:NewPuppet
+			}
+		}
+	}
+
+	option = {
+		name = RCM_news.5.c
+		trigger = {
+			is_in_faction_with = JAP
+			NOT = { 
+				is_subject_of = JAP
+				tag = JAP
+			}
+		}
+	}
+
+	option = {
+		name = RESPONSE_INTERESTING
+		trigger = {
+			NOT = {
+				is_in_faction_with = JAP
+				is_subject_of = JAP
+				has_war_with = JAP
+				has_war_with = event_target:NewPuppet
+			}
+		}
+	}
+}
+
+######################
+#JAPAN PM EVENT CHAIN#
+######################
+#NEWS#
+#Konoe Appointed 1st
+add_namespace = RCM_JAP_PM_news
+news_event = {
+	id = RCM_JAP_PM_news.1
+	title = RCM_JAP_PM_news.1.t
+	desc = RCM_JAP_PM_news.1.d
+	picture = GFX_news_event_hitler_handshake
+	major = yes
+	#fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = RCM_JAP_PM_news.1.a
+	}
+}
+#Konoe Appointed 2nd
+news_event = {
+	id = RCM_JAP_PM_news.2
+	title = RCM_JAP_PM_news.2.t
+	desc = RCM_JAP_PM_news.2.d
+	picture = GFX_news_event_hitler_handshake
+	major = yes
+	#fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = RCM_JAP_PM_news.2.a
+	}
+}
+#Tojo Appointed
+news_event = {
+	id = RCM_JAP_PM_news.3
+	title = RCM_JAP_PM_news.3.t
+	desc = RCM_JAP_PM_news.3.d
+	picture = GFX_news_event_hitler_handshake
+	major = yes
+	#fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = RCM_JAP_PM_news.3.a
+	}
+}
+#Yonai Appointed
+news_event = {
+	id = RCM_JAP_PM_news.4
+	title = RCM_JAP_PM_news.4.t
+	desc = RCM_JAP_PM_news.4.d
+	picture = GFX_news_event_hitler_handshake
+	major = yes
+	#fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = RCM_JAP_PM_news.4.a
+	}
+}
+
+#Franco-Thai War News Event
+news_event = {
+	id = RCM_news.6
+	title = RCM_news.6.t
+	desc = RCM_news.6.d
+	picture = GFX_news_event_frenchthaiwar
+	major = yes
+	is_triggered_only = yes
+	#fire_only_once = yes
+	option = {
+		name = RCM_news.6.a #kk
+	}
+}
+
+add_namespace = RCM_old_news
+
+# Indochina
+news_event = {
+	id = RCM_old_news.1009
+	title = RCM_old_news.1009.t
+	desc = RCM_old_news.1009.d
+	picture = GFX_news_event_1009
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = RCM_old_news.1009.a
+		trigger = {
+			NOT = {
+				OR = {
+					TAG = CHI
+					TAG = FRA
+				}
+			}
+		}
+	}
+	option = {
+		name = RCM_old_news.1009.b
+		trigger = { TAG = CHI }
+	}
+	option = {
+		name = RCM_old_news.1009.c
+		trigger = { TAG = FRA }
+	}
+}
+
+# Liberate Asia
+news_event = {
+	id = RCM_old_news.1015
+	title = RCM_old_news.1015.t
+	desc = RCM_old_news.1015.d
+	picture = GFX_news_event_1015
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = RCM_old_news.1015.a
+		trigger = {
+			NOT = {
+				OR = {
+					TAG = CHI
+				}
+			}
+		}
+	}
+	option = {
+		name = RCM_old_news.1015.b
+		trigger = { TAG = CHI }
+	}
+}
+add_namespace = RCM_lg_news
+#
+news_event = {
+	id = RCM_lg_news.1
+	title = RCM_lg_news.1.t
+	desc = RCM_lg_news.1.desc
+	picture = GFX_news_event_liangguang_incident_4
+	major = yes
+	#fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		name = RCM_lg_news.1.a
+		trigger = {
+			OR = {
+				is_ally_with = GXC
+				is_ally_with = GUD
+			}
+		}
+	}
+	option = {
+		name = RCM_lg_news.1.b
+		trigger = {
+			OR = {
+				tag = CHI
+				is_ally_with = CHI
+			}
+		}
+	}
+	option = {
+		name = RCM_lg_news.1.c
+		trigger = {
+			NOT = {
+				tag = CHI
+			    is_ally_with = GXC
+				is_ally_with = GUD
+			}
+		}
+	}
+}
+
+add_namespace = nhq_news
+news_event = {
+	id = nhq_news.1 
+	title = nhq_news.1.t
+	desc = nhq_news.1.d
+	picture = GFX_news_event_pingjin_campaign
+	major = yes
+    is_triggered_only = yes
+
+	option = {
+		name = nhq_news.1.a
+		trigger = {
+			tag = event_target:WTT_communist_china
+		}
+	}
+	option = {
+		name = nhq_news.1.b
+		trigger = { 
+			has_war_with = event_target:WTT_communist_china
+        }
+	}
+	option = {
+		name = nhq_news.1.c
+		trigger = {
+            NOT = {
+				tag = event_target:WTT_communist_china
+				has_war_with = event_target:WTT_communist_china
+			}
+		}
+	}	
+}

@@ -1,0 +1,172 @@
+﻿add_namespace = R_RAJ
+
+#second INA
+country_event = {
+	id = R_RAJ.1
+	title = R_RAJ.1.t
+	desc = R_RAJ.1.d
+	is_triggered_only = yes
+	picture = GFX_report_event_india_protests
+	#fire_only_once = yes
+	#mean_time_to_happen = { days = 0 }
+	#timeout_days = 10
+	
+	option = { 
+		#accpet
+		name = R_RAJ.1.a  
+		ai_chance = { 
+			base = 100
+		}
+		add_political_power = -50
+		custom_effect_tooltip = a_nation_to_be_established_tt
+		hidden_effect = { 
+			news_event = { hours = 6 id = R_RAJ.2 }
+			create_dynamic_country = {
+				original_tag = RAJ
+				save_event_target_as = Azad_Hind
+				733 = { 
+					if = {
+						limit = {
+							is_controlled_by = JAP
+						}
+						event_target:Azad_Hind = { transfer_state = PREV }
+					}
+					#limit = {
+					#	is_controlled_by = JAP       
+					#}
+					#event_target:Azad_Hind = { transfer_state = PREV }                                                     
+				}
+				733 = { add_core_of = PREV }
+				add_victory_points = {
+	                province = 12251
+	                value = 1
+                }
+				set_rule = { 
+					can_join_factions = no 
+					can_create_factions = no
+				}
+				set_politics = {
+					ruling_party = fascism
+					elections_allowed = no
+				}
+				set_popularities = {
+					fascism = 80
+					neutrality = 20
+				}
+				set_party_name = {
+					ideology = fascism
+					name = azad_hind_party
+					long_name = azad_hind_party_long
+				}
+				set_party_name = {
+					ideology = neutrality
+					name = azad_hind_party
+					long_name = azad_hind_party_long
+				}
+				set_cosmetic_tag = azad_hind
+				load_oob = INA 
+				
+				create_corps_commander = {
+					name = Prem_Kumar_Sahgal
+					portrait_path = "gfx/leaders/RAJ/GFX_portrait_Prem_Kumar_Sahgal.dds"
+					traits = {}
+					skill = 2
+					attack_skill = 2
+					defense_skill = 2
+					planning_skill = 1
+					logistics_skill = 1
+				}
+				create_corps_commander = {
+					name = Shah_Nawaz_Khan
+					portrait_path = "gfx/leaders/RAJ/GFX_portrait_Shah_Nawaz_Khan.dds"
+					traits = {}
+					skill = 2
+					attack_skill = 2
+					defense_skill = 2
+					planning_skill = 1
+					logistics_skill = 1
+				}
+
+				create_corps_commander = {
+					name = Gurbaksh_Singh_Dhillon
+					portrait_path = "gfx/leaders/RAJ/GFX_portrait_Gurbaksh_Singh_Dhillon.dds"
+					traits = {}
+					skill = 2
+					attack_skill = 2
+					defense_skill = 2
+					planning_skill = 1
+					logistics_skill = 1
+				}
+
+				create_field_marshal = {
+					name = Subhas_Chandra_Bose
+					portrait_path = "gfx/leaders/RAJ//Portrait_The_Raj_Subhas_Chandra_Bose.dds"
+					traits = {}
+					skill = 1
+					attack_skill = 1
+					defense_skill = 1
+					planning_skill = 2
+					logistics_skill = 1
+				}
+				create_country_leader = {
+					name = Subhas_Chandra_Bose
+					desc = "POLITICS__Subhas_Chandra_Bose_DESC"
+					picture = "gfx/leaders/RAJ/Portrait_The_Raj_Subhas_Chandra_Bose.dds"
+					expire = "1965.1.1"
+					ideology = despotism
+					traits = { indomitable_perseverance } #guo
+				}
+				create_country_leader = {
+					name = Subhas_Chandra_Bose
+					desc = "POLITICS__Subhas_Chandra_Bose_DESC"
+					picture = "gfx/leaders/RAJ/Portrait_The_Raj_Subhas_Chandra_Bose.dds"
+					expire = "1965.1.1"
+					ideology = fascism_ideology
+					traits = { indomitable_perseverance } #guo
+				}
+				random_country = {
+					limit = {
+						has_cosmetic_tag = azad_hind
+					}                     
+					JAP = {
+						set_autonomy = {
+							target = PREV
+							autonomy_state = autonomy_wtt_imperial_protectorate
+						} 
+					}
+				}
+			}
+		}  
+	}
+	option = { 
+		#nah
+		name = R_RAJ.1.b   
+		ai_chance = { 
+			base = 2
+		}
+		add_political_power = -20
+	}
+}
+
+news_event = {
+	id = R_RAJ.2
+	title = R_RAJ.2.t
+	desc = R_RAJ.2.d
+	is_triggered_only = yes
+	picture = GFX_news_event_azad_hind
+	#fire_only_once = yes
+	#mean_time_to_happen = { days = 0 }
+	#timeout_days = 5
+	major = yes
+	option = {
+		name = R_RAJ.2.a
+		trigger = { 
+			NOT = { OR = { TAG = ENG is_in_faction_with = ENG TAG = CHI  is_in_faction_with = CHI }  } 
+		}
+	}
+	option = {
+		name = R_RAJ.2.b
+		trigger = { OR = { TAG = ENG is_in_faction_with = ENG TAG = CHI  is_in_faction_with = CHI } }
+	}
+}
+

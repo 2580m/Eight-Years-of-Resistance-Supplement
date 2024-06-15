@@ -1,0 +1,1276 @@
+﻿###########################
+# Chinese Events BORDER WARS ADDED SOUTHERN SHAANXI #ID = 744#
+###########################
+####THIS IS FOR ELIMINATING THE CORES AFTER WARLORDS/CLIENT STATES ARE DEFEATED
+add_namespace = clique
+
+# core on annex
+
+country_event = {
+	id = clique.1
+	hidden = yes
+	is_triggered_only = yes
+	immediate = {
+		if = {
+			limit = { NOT = { has_global_flag = CHI_is_gone country_exists = CHI } }
+			for_each_scope_loop = {
+				array = global.big_china #DO clear core.cause now resistance is a thing
+				remove_claim_by = CHI
+				remove_core_of = CHI
+			}
+			set_global_flag = CHI_is_gone
+			CHI = {
+				WTT_political_struggle_remove_current_country = yes
+			}
+		}
+		else_if = {
+			limit = {
+				country_exists = CHI
+				has_global_flag = CHI_is_gone
+			}
+			clr_global_flag = CHI_is_gone
+		}
+		else_if = {
+			limit = {
+				NOT = {
+					country_exists = CHI
+				}
+				has_global_flag = CHI_is_gone
+				any_of_scopes = {
+					array = global.big_china
+					is_core_of = CHI
+				}
+			}
+			for_each_scope_loop = {
+				array = global.big_china #DO clear core.cause now resistance is a thing
+				remove_claim_by = CHI
+				remove_core_of = CHI
+			}
+		}
+		if = {
+			limit = { NOT = { has_global_flag = PRC_is_gone country_exists = PRC } }
+			for_each_scope_loop = {
+				array = global.big_china
+				THIS = {
+					if = {
+						limit = {
+							OWNER = {
+								NOT = {
+									tag = event_target:WTT_current_china_leader
+									has_global_flag = PRC_joined_our_government
+								}
+							}
+						}
+						clr_state_flag = commie_ridden_states
+						set_border_war = no
+					}
+					remove_claim_by = PRC
+					remove_core_of = PRC
+				}
+			}
+			set_global_flag = PRC_is_gone
+			PRC = {
+				WTT_political_struggle_remove_current_country = yes
+			}
+		}
+		else_if = {
+			limit = {
+				country_exists = PRC
+				has_global_flag = PRC_is_gone
+			}
+			clr_global_flag = PRC_is_gone
+		}
+		else_if = {
+			limit = {
+				NOT = {
+					country_exists = PRC
+				}
+				has_global_flag = PRC_is_gone
+				any_of_scopes = {
+					array = global.big_china
+					is_core_of = PRC
+				}
+			}
+			for_each_scope_loop = {
+				array = global.big_china #DO clear core.cause now resistance is a thing
+				remove_claim_by = PRC
+				remove_core_of = PRC
+			}
+		}
+		if = {
+			limit = { NOT = { has_global_flag = GXC_is_gone country_exists = GXC } }
+			for_each_scope_loop = {
+				array = global.big_china
+				THIS = {
+					remove_claim_by = GXC
+					remove_core_of = GXC
+				}
+			}
+			set_global_flag = GXC_is_gone
+			GXC = {
+				WTT_political_struggle_remove_current_country = yes
+			}
+		}
+		else_if = {
+			limit = {
+				country_exists = GXC
+				has_global_flag = GXC_is_gone
+			}
+			clr_global_flag = GXC_is_gone
+		}
+		else_if = {
+			limit = {
+				NOT = {
+					country_exists = GXC
+				}
+				has_global_flag = GXC_is_gone
+				any_of_scopes = {
+					array = global.big_china
+					is_core_of = GXC
+				}
+			}
+			for_each_scope_loop = {
+				array = global.big_china #DO clear core.cause now resistance is a thing
+				remove_claim_by = GXC
+				remove_core_of = GXC
+			}
+		}
+		if = {
+			limit = { NOT = { has_global_flag = YUN_is_gone country_exists = YUN } }
+			for_each_scope_loop = {
+				array = global.big_china
+				THIS = {
+					remove_claim_by = YUN
+					remove_core_of = YUN
+				}
+			}
+			set_global_flag = YUN_is_gone
+			YUN = {
+				WTT_political_struggle_remove_current_country = yes
+			}
+		}
+		else_if = {
+			limit = {
+				country_exists = YUN
+				has_global_flag = YUN_is_gone
+			}
+			clr_global_flag = YUN_is_gone
+		}
+		else_if = {
+			limit = {
+				NOT = {
+					country_exists = YUN
+				}
+				has_global_flag = YUN_is_gone
+				any_of_scopes = {
+					array = global.big_china
+					is_core_of = YUN
+				}
+			}
+			for_each_scope_loop = {
+				array = global.big_china #DO clear core.cause now resistance is a thing
+				remove_claim_by = YUN
+				remove_core_of = YUN
+			}
+		}
+		if = {
+			limit = { NOT = { has_global_flag = SHX_is_gone country_exists = SHX } }
+			for_each_scope_loop = {
+				array = global.big_china
+				THIS = {
+					remove_claim_by = SHX
+					remove_core_of = SHX
+				}
+			}
+			set_global_flag = SHX_is_gone
+			SHX = {
+				WTT_political_struggle_remove_current_country = yes
+			}
+		}
+		else_if = {
+			limit = {
+				country_exists = SHX
+				has_global_flag = SHX_is_gone
+			}
+			clr_global_flag = SHX_is_gone
+		}
+		else_if = {
+			limit = {
+				NOT = {
+					country_exists = SHX
+				}
+				has_global_flag = SHX_is_gone
+				any_of_scopes = {
+					array = global.big_china
+					is_core_of = SHX
+				}
+			}
+			for_each_scope_loop = {
+				array = global.big_china #DO clear core.cause now resistance is a thing
+				remove_claim_by = SHX
+				remove_core_of = SHX
+			}
+		}
+		if = {
+			limit = { NOT = { has_global_flag = XSM_is_gone country_exists = XSM } }
+			for_each_scope_loop = {
+				array = global.big_china
+				THIS = {
+					remove_claim_by = XSM
+					remove_core_of = XSM
+				}
+			}
+			set_global_flag = XSM_is_gone
+			XSM = {
+				WTT_political_struggle_remove_current_country = yes
+			}
+		}
+		else_if = {
+			limit = {
+				country_exists = XSM
+				has_global_flag = XSM_is_gone
+			}
+			clr_global_flag = XSM_is_gone
+		}
+		else_if = {
+			limit = {
+				NOT = {
+					country_exists = XSM
+				}
+				has_global_flag = XSM_is_gone
+				any_of_scopes = {
+					array = global.big_china
+					is_core_of = XSM
+				}
+			}
+			for_each_scope_loop = {
+				array = global.big_china #DO clear core.cause now resistance is a thing
+				remove_claim_by = XSM
+				remove_core_of = XSM
+			}
+		}
+		if = {
+			limit = { NOT = { has_global_flag = XIK_is_gone country_exists = XIK } }
+			for_each_scope_loop = {
+				array = global.big_china
+				THIS = {
+					remove_claim_by = XIK
+					remove_core_of = XIK
+				}
+			}
+			set_global_flag = XIK_is_gone
+			XIK = {
+				WTT_political_struggle_remove_current_country = yes
+			}
+		}
+		else_if = {
+			limit = {
+				country_exists = XIK
+				has_global_flag = XIK_is_gone
+			}
+			clr_global_flag = XIK_is_gone
+		}
+		else_if = {
+			limit = {
+				NOT = {
+					country_exists = XIK
+				}
+				has_global_flag = XIK_is_gone
+				any_of_scopes = {
+					array = global.big_china
+					is_core_of = XIK
+				}
+			}
+			for_each_scope_loop = {
+				array = global.big_china #DO clear core.cause now resistance is a thing
+				remove_claim_by = XIK
+				remove_core_of = XIK
+			}
+		}
+		if = {
+			limit = { NOT = { has_global_flag = GUD_is_gone country_exists = GUD } }
+			for_each_scope_loop = {
+				array = global.big_china
+				THIS = {
+					remove_claim_by = GUD
+					remove_core_of = GUD
+				}
+			}
+			set_global_flag = GUD_is_gone
+			GUD = {
+				WTT_political_struggle_remove_current_country = yes
+			}
+		}
+		else_if = {
+			limit = {
+				country_exists = GUD
+				has_global_flag = GUD_is_gone
+			}
+			clr_global_flag = GUD_is_gone
+		}
+		else_if = {
+			limit = {
+				NOT = {
+					country_exists = GUD
+				}
+				has_global_flag = GUD_is_gone
+				any_of_scopes = {
+					array = global.big_china
+					is_core_of = GUD
+				}
+			}
+			for_each_scope_loop = {
+				array = global.big_china #DO clear core.cause now resistance is a thing
+				remove_claim_by = GUD
+				remove_core_of = GUD
+			}
+		}
+		if = {
+			limit = { NOT = { has_global_flag = HPC_is_gone country_exists = HPC } }
+			for_each_scope_loop = {
+				array = global.big_china
+				THIS = {
+					remove_claim_by = HPC
+					remove_core_of = HPC
+				}
+			}
+			set_global_flag = HPC_is_gone
+			HPC = {
+				WTT_political_struggle_remove_current_country = yes
+			}
+		}
+		else_if = {
+			limit = {
+				country_exists = HPC
+				has_global_flag = HPC_is_gone
+			}
+			clr_global_flag = HPC_is_gone
+		}
+		else_if = {
+			limit = {
+				NOT = {
+					country_exists = HPC
+				}
+				has_global_flag = HPC_is_gone
+				any_of_scopes = {
+					array = global.big_china
+					is_core_of = HPC
+				}
+			}
+			for_each_scope_loop = {
+				array = global.big_china #DO clear core.cause now resistance is a thing
+				remove_claim_by = HPC
+				remove_core_of = HPC
+			}
+		}
+		if = {
+			limit = { NOT = { has_global_flag = SIC_is_gone country_exists = SIC } }
+			for_each_scope_loop = {
+				array = global.big_china
+				THIS = {
+					remove_claim_by = SIC
+					remove_core_of = SIC
+				}
+			}
+			set_global_flag = SIC_is_gone
+			SIC = {
+				WTT_political_struggle_remove_current_country = yes
+			}
+		}
+		else_if = {
+			limit = {
+				country_exists = SIC
+				has_global_flag = SIC_is_gone
+			}
+			clr_global_flag = SIC_is_gone
+		}
+		else_if = {
+			limit = {
+				NOT = {
+					country_exists = SIC
+				}
+				has_global_flag = SIC_is_gone
+				any_of_scopes = {
+					array = global.big_china
+					is_core_of = SIC
+				}
+			}
+			for_each_scope_loop = {
+				array = global.big_china #DO clear core.cause now resistance is a thing
+				remove_claim_by = SIC
+				remove_core_of = SIC
+			}
+		}
+		if = {
+			limit = { NOT = { has_global_flag = PLM_is_gone country_exists = PLM } }
+			for_each_scope_loop = {
+				array = global.big_china
+				THIS = {
+					remove_claim_by = PLM
+					remove_core_of = PLM
+				}
+			}
+			set_global_flag = PLM_is_gone
+			PLM = {
+				WTT_political_struggle_remove_current_country = yes
+			}
+		}
+		else_if = {
+			limit = {
+				country_exists = PLM
+				has_global_flag = PLM_is_gone
+			}
+			clr_global_flag = PLM_is_gone
+		}
+		else_if = {
+			limit = {
+				NOT = {
+					country_exists = PLM
+				}
+				has_global_flag = PLM_is_gone
+				any_of_scopes = {
+					array = global.big_china
+					is_core_of = PLM
+				}
+			}
+			for_each_scope_loop = {
+				array = global.big_china #DO clear core.cause now resistance is a thing
+				remove_claim_by = PLM
+				remove_core_of = PLM
+			}
+		}
+		if = {
+			limit = { NOT = { has_global_flag = MAN_is_gone country_exists = MAN } }
+			for_each_scope_loop = {
+				array = global.big_china
+				THIS = {
+					remove_claim_by = MAN
+					remove_core_of = MAN
+				}
+			}
+			set_global_flag = MAN_is_gone
+			#MAN = {
+			#	WTT_political_struggle_remove_current_country = yes
+			#}
+		}
+		else_if = {
+			limit = {
+				country_exists = MAN
+				has_global_flag = MAN_is_gone
+			}
+			clr_global_flag = MAN_is_gone
+		}
+		else_if = {
+			limit = {
+				NOT = {
+					country_exists = MAN
+				}
+				has_global_flag = MAN_is_gone
+				any_of_scopes = {
+					array = global.big_china
+					is_core_of = MAN
+				}
+			}
+			for_each_scope_loop = {
+				array = global.big_china #DO clear core.cause now resistance is a thing
+				remove_claim_by = MAN
+				remove_core_of = MAN
+			}
+		}
+		if = {
+			limit = { NOT = { has_global_flag = NXM_is_gone country_exists = NXM } }
+			for_each_scope_loop = {
+				array = global.big_china
+				THIS = {
+					remove_claim_by = NXM
+					remove_core_of = NXM
+				}
+			}
+			set_global_flag = NXM_is_gone
+			NXM = {
+				WTT_political_struggle_remove_current_country = yes
+			}
+		}
+		else_if = {
+			limit = {
+				country_exists = NXM
+				has_global_flag = NXM_is_gone
+			}
+			clr_global_flag = NXM_is_gone
+		}
+		else_if = {
+			limit = {
+				NOT = {
+					country_exists = NXM
+				}
+				has_global_flag = NXM_is_gone
+				any_of_scopes = {
+					array = global.big_china
+					is_core_of = NXM
+				}
+			}
+			for_each_scope_loop = {
+				array = global.big_china #DO clear core.cause now resistance is a thing
+				remove_claim_by = NXM
+				remove_core_of = NXM
+			}
+		}
+		
+
+		if = {
+			limit = { NOT = { has_global_flag = GSM_is_gone country_exists = GSM } }
+			for_each_scope_loop = {
+				array = global.big_china
+				THIS = {
+					remove_claim_by = GSM
+					remove_core_of = GSM
+				}
+			}
+			set_global_flag = GSM_is_gone
+			GSM = {
+				WTT_political_struggle_remove_current_country = yes
+			}
+		}
+		else_if = {
+			limit = {
+				country_exists = GSM
+				has_global_flag = GSM_is_gone
+			}
+			clr_global_flag = GSM_is_gone
+		}
+		else_if = {
+			limit = {
+				NOT = {
+					country_exists = GSM
+				}
+				has_global_flag = GSM_is_gone
+				any_of_scopes = {
+					array = global.big_china
+					is_core_of = GSM
+				}
+			}
+			for_each_scope_loop = {
+				array = global.big_china #DO clear core.cause now resistance is a thing
+				remove_claim_by = GSM
+				remove_core_of = GSM
+			}
+		}
+		if = {
+			limit = { NOT = { has_global_flag = SHC_is_gone country_exists = SHC } }
+			for_each_scope_loop = {
+				array = global.big_china
+				THIS = {
+					remove_claim_by = SHC
+					remove_core_of = SHC
+				}
+			}
+			set_global_flag = SHC_is_gone
+			SHC = {
+				WTT_political_struggle_remove_current_country = yes
+			}
+		}
+		else_if = {
+			limit = {
+				country_exists = SHC
+				has_global_flag = SHC_is_gone
+			}
+			clr_global_flag = SHC_is_gone
+		}
+		else_if = {
+			limit = {
+				NOT = {
+					country_exists = SHC
+				}
+				has_global_flag = SHC_is_gone
+				any_of_scopes = {
+					array = global.big_china
+					is_core_of = SHC
+				}
+			}
+			for_each_scope_loop = {
+				array = global.big_china #DO clear core.cause now resistance is a thing
+				remove_claim_by = SHC
+				remove_core_of = SHC
+			}
+		}
+		if = {
+			limit = { NOT = { has_global_flag = SHD_is_gone country_exists = SHD } }
+			for_each_scope_loop = {
+				array = global.big_china
+				THIS = {
+					remove_claim_by = SHD
+					remove_core_of = SHD
+				}
+			}
+			set_global_flag = SHD_is_gone
+			SHD = {
+				WTT_political_struggle_remove_current_country = yes
+			}
+		}
+		else_if = {
+			limit = {
+				country_exists = SHD
+				has_global_flag = SHD_is_gone
+			}
+			clr_global_flag = SHD_is_gone
+		}
+		else_if = {
+			limit = {
+				NOT = {
+					country_exists = SHD
+				}
+				has_global_flag = SHD_is_gone
+				any_of_scopes = {
+					array = global.big_china
+					is_core_of = SHD
+				}
+			}
+			for_each_scope_loop = {
+				array = global.big_china #DO clear core.cause now resistance is a thing
+				remove_claim_by = SHD
+				remove_core_of = SHD
+			}
+		}
+		if = {
+			limit = { NOT = { has_global_flag = ECA_is_gone country_exists = ECA } }
+			for_each_scope_loop = {
+				array = global.big_china
+				THIS = {
+					remove_claim_by = ECA
+					remove_core_of = ECA
+				}
+			}
+			set_global_flag = ECA_is_gone
+			#ECA = {
+			#	WTT_political_struggle_remove_current_country = yes
+			#}
+		}
+		else_if = {
+			limit = {
+				country_exists = ECA
+				has_global_flag = ECA_is_gone
+			}
+			clr_global_flag = ECA_is_gone
+		}
+		else_if = {
+			limit = {
+				NOT = {
+					country_exists = ECA
+				}
+				has_global_flag = ECA_is_gone
+				any_of_scopes = {
+					array = global.big_china
+					is_core_of = ECA
+				}
+			}
+			for_each_scope_loop = {
+				array = global.big_china #DO clear core.cause now resistance is a thing
+				remove_claim_by = ECA
+				remove_core_of = ECA
+			}
+		}
+		if = {
+			limit = { NOT = { has_global_flag = EHB_is_gone country_exists = EHB } }
+			for_each_scope_loop = {
+				array = global.big_china
+				THIS = {
+					remove_claim_by = EHB
+					remove_core_of = EHB
+				}
+			}
+			set_global_flag = EHB_is_gone
+			#EHB = {
+			#	WTT_political_struggle_remove_current_country = yes
+			#}
+		}
+		else_if = {
+			limit = {
+				country_exists = EHB
+				has_global_flag = EHB_is_gone
+			}
+			clr_global_flag = EHB_is_gone
+		}
+		else_if = {
+			limit = {
+				NOT = {
+					country_exists = EHB
+				}
+				has_global_flag = EHB_is_gone
+				any_of_scopes = {
+					array = global.big_china
+					is_core_of = EHB
+				}
+			}
+			for_each_scope_loop = {
+				array = global.big_china #DO clear core.cause now resistance is a thing
+				remove_claim_by = EHB
+				remove_core_of = EHB
+			}
+		}
+		if = {
+			limit = { NOT = { has_global_flag = CCP_is_gone country_exists = CCP } }
+			for_each_scope_loop = {
+				array = global.big_china
+				THIS = {
+					remove_claim_by = CCP
+					remove_core_of = CCP
+				}
+			}
+			set_global_flag = CCP_is_gone
+			#CCP = {
+			#	WTT_political_struggle_remove_current_country = yes
+			#}
+		}
+		else_if = {
+			limit = {
+				country_exists = CCP
+				has_global_flag = CCP_is_gone
+			}
+			clr_global_flag = CCP_is_gone
+		}
+		else_if = {
+			limit = {
+				NOT = {
+					country_exists = CCP
+				}
+				has_global_flag = CCP_is_gone
+				any_of_scopes = {
+					array = global.big_china
+					is_core_of = CCP
+				}
+			}
+			for_each_scope_loop = {
+				array = global.big_china #DO clear core.cause now resistance is a thing
+				remove_claim_by = CCP
+				remove_core_of = CCP
+			}
+		}
+		if = {
+			limit = { NOT = { has_global_flag = RFM_is_gone country_exists = RFM } }
+			for_each_scope_loop = {
+				array = global.big_china
+				THIS = {
+					remove_claim_by = RFM
+					remove_core_of = RFM
+				}
+			}
+			set_global_flag = RFM_is_gone
+			#RFM = {
+			#	WTT_political_struggle_remove_current_country = yes
+			#}
+		}
+		else_if = {
+			limit = {
+				country_exists = RFM
+				has_global_flag = RFM_is_gone
+			}
+			clr_global_flag = RFM_is_gone
+		}
+		else_if = {
+			limit = {
+				NOT = {
+					country_exists = RFM
+				}
+				has_global_flag = RFM_is_gone
+				any_of_scopes = {
+					array = global.big_china
+					is_core_of = RFM
+				}
+			}
+			for_each_scope_loop = {
+				array = global.big_china #DO clear core.cause now resistance is a thing
+				remove_claim_by = RFM
+				remove_core_of = RFM
+			}
+		}
+		if = {
+			limit = { NOT = { has_global_flag = HMI_is_gone country_exists = HMI } }
+			for_each_scope_loop = {
+				array = global.big_china
+				THIS = {
+					remove_claim_by = HMI
+					remove_core_of = HMI
+				}
+			}
+			set_global_flag = HMI_is_gone
+			HMI = {
+				WTT_political_struggle_remove_current_country = yes
+			}
+		}
+		else_if = {
+			limit = {
+				country_exists = HMI
+				has_global_flag = HMI_is_gone
+			}
+			clr_global_flag = HMI_is_gone
+		}
+		else_if = {
+			limit = {
+				NOT = {
+					country_exists = HMI
+				}
+				has_global_flag = HMI_is_gone
+				any_of_scopes = {
+					array = global.big_china
+					is_core_of = HMI
+				}
+			}
+			for_each_scope_loop = {
+				array = global.big_china #DO clear core.cause now resistance is a thing
+				remove_claim_by = HMI
+				remove_core_of = HMI
+			}
+		}
+		if = {
+			limit = { NOT = { has_global_flag = TNG_is_gone country_exists = TNG } }
+			for_each_scope_loop = {
+				array = global.big_china
+				THIS = {
+					remove_claim_by = TNG
+					remove_core_of = TNG
+				}
+			}
+			set_global_flag = TNG_is_gone
+			TNG = {
+				WTT_political_struggle_remove_current_country = yes
+			}
+		}
+		else_if = {
+			limit = {
+				country_exists = TNG
+				has_global_flag = TNG_is_gone
+			}
+			clr_global_flag = TNG_is_gone
+		}
+		else_if = {
+			limit = {
+				NOT = {
+					country_exists = TNG
+				}
+				has_global_flag = TNG_is_gone
+				any_of_scopes = {
+					array = global.big_china
+					is_core_of = TNG
+				}
+			}
+			for_each_scope_loop = {
+				array = global.big_china #DO clear core.cause now resistance is a thing
+				remove_claim_by = TNG
+				remove_core_of = TNG
+			}
+		}
+		if = {
+			limit = { NOT = { has_global_flag = NEA_is_gone country_exists = NEA } }
+			for_each_scope_loop = {
+				array = global.big_china
+				THIS = {
+					remove_claim_by = NEA
+					remove_core_of = NEA
+				}
+			}
+			set_global_flag = NEA_is_gone
+			###NEA exclusive
+			if = {
+				limit = {
+					1030 = {
+						has_state_flag = I_choose_this_state_to_DMZ
+					}
+				}
+				1030 = {
+					set_demilitarized_zone = no
+					clr_state_flag = I_choose_this_state_to_DMZ
+				}
+			}
+			######
+			NEA = {
+				WTT_political_struggle_remove_current_country = yes
+			}
+		}
+		else_if = {
+			limit = {
+				country_exists = NEA
+				has_global_flag = NEA_is_gone
+			}
+			clr_global_flag = NEA_is_gone
+		}
+		else_if = {
+			limit = {
+				NOT = {
+					country_exists = NEA
+				}
+				has_global_flag = NEA_is_gone
+				any_of_scopes = {
+					array = global.big_china
+					is_core_of = NEA
+				}
+			}
+			for_each_scope_loop = {
+				array = global.big_china #DO clear core.cause now resistance is a thing
+				remove_claim_by = NEA
+				remove_core_of = NEA
+			}
+		}
+		if = {
+			limit = { NOT = { has_global_flag = NSG_is_gone country_exists = NSG } }
+			for_each_scope_loop = {
+				array = global.big_china
+				THIS = {
+					remove_claim_by = NSG
+					remove_core_of = NSG
+				}
+			}
+			set_global_flag = NSG_is_gone
+			#NSG = {
+			#	WTT_political_struggle_remove_current_country = yes
+			#}
+		}
+		else_if = {
+			limit = {
+				country_exists = NSG
+				has_global_flag = NSG_is_gone
+			}
+			clr_global_flag = NSG_is_gone
+		}
+		else_if = {
+			limit = {
+				NOT = {
+					country_exists = NSG
+				}
+				has_global_flag = NSG_is_gone
+				any_of_scopes = {
+					array = global.big_china
+					is_core_of = NSG
+				}
+			}
+			for_each_scope_loop = {
+				array = global.big_china #DO clear core.cause now resistance is a thing
+				remove_claim_by = NSG
+				remove_core_of = NSG
+			}
+		}
+		if = {
+			limit = { NOT = { has_global_flag = SCG_is_gone country_exists = SCG } }
+			for_each_scope_loop = {
+				array = global.big_china
+				THIS = {
+					remove_claim_by = SCG
+					remove_core_of = SCG
+				}
+			}
+			set_global_flag = SCG_is_gone
+			#SCG = {
+			#	WTT_political_struggle_remove_current_country = yes
+			#}
+		}
+		else_if = {
+			limit = {
+				country_exists = SCG
+				has_global_flag = SCG_is_gone
+			}
+			clr_global_flag = SCG_is_gone
+		}
+		else_if = {
+			limit = {
+				NOT = {
+					country_exists = SCG
+				}
+				has_global_flag = SCG_is_gone
+				any_of_scopes = {
+					array = global.big_china
+					is_core_of = SCG
+				}
+			}
+			for_each_scope_loop = {
+				array = global.big_china #DO clear core.cause now resistance is a thing
+				remove_claim_by = SCG
+				remove_core_of = SCG
+			}
+		}
+		if = {
+			limit = { NOT = { has_global_flag = KHR_is_gone country_exists = KHR } }
+			for_each_scope_loop = {
+				array = global.big_china
+				THIS = {
+					remove_claim_by = KHR
+					remove_core_of = KHR
+				}
+			}
+			set_global_flag = KHR_is_gone
+			KHR = {
+				WTT_political_struggle_remove_current_country = yes
+			}
+		}
+		else_if = {
+			limit = {
+				country_exists = KHR
+				has_global_flag = KHR_is_gone
+			}
+			clr_global_flag = KHR_is_gone
+		}
+		else_if = {
+			limit = {
+				NOT = {
+					country_exists = KHR
+				}
+				has_global_flag = KHR_is_gone
+				any_of_scopes = {
+					array = global.big_china
+					is_core_of = KHR
+				}
+			}
+			for_each_scope_loop = {
+				array = global.big_china #DO clear core.cause now resistance is a thing
+				remove_claim_by = KHR
+				remove_core_of = KHR
+			}
+		}
+		if = {
+			limit = { NOT = { has_global_flag = XIA_is_gone country_exists = XIA } has_global_flag = XIA_is_truely_gone }
+			for_each_scope_loop = {
+				array = global.big_china
+				THIS = {
+					remove_claim_by = XIA
+					remove_core_of = XIA
+				}
+			}
+			set_global_flag = XIA_is_gone
+			XIA = {
+				WTT_political_struggle_remove_current_country = yes
+			}
+		}
+		else_if = {
+			limit = {
+				country_exists = XIA
+				has_global_flag = XIA_is_gone
+			}
+			clr_global_flag = XIA_is_gone
+		}
+		else_if = {
+			limit = {
+				NOT = {
+					country_exists = XIA
+				}
+				has_global_flag = XIA_is_gone
+				any_of_scopes = {
+					array = global.big_china
+					is_core_of = XIA
+				}
+			}
+			for_each_scope_loop = {
+				array = global.big_china #DO clear core.cause now resistance is a thing
+				remove_claim_by = XIA
+				remove_core_of = XIA
+			}
+		}
+		if = {
+			limit = { NOT = { has_global_flag = KRS_is_gone country_exists = KRS } }
+			for_each_scope_loop = {
+				array = global.big_china
+				THIS = {
+					remove_claim_by = KRS
+					remove_core_of = KRS
+				}
+			}
+			set_global_flag = KRS_is_gone
+			KRS = {
+				WTT_political_struggle_remove_current_country = yes
+			}
+		}
+		else_if = {
+			limit = {
+				country_exists = KRS
+				has_global_flag = KRS_is_gone
+			}
+			clr_global_flag = KRS_is_gone
+		}
+		else_if = {
+			limit = {
+				NOT = {
+					country_exists = KRS
+				}
+				has_global_flag = KRS_is_gone
+				any_of_scopes = {
+					array = global.big_china
+					is_core_of = KRS
+				}
+			}
+			for_each_scope_loop = {
+				array = global.big_china #DO clear core.cause now resistance is a thing
+				remove_claim_by = KRS
+				remove_core_of = KRS
+			}
+		}
+		if = {
+			limit = { NOT = { has_global_flag = ATM_is_gone country_exists = ATM } }
+			for_each_scope_loop = {
+				array = global.big_china
+				THIS = {
+					remove_claim_by = ATM
+					remove_core_of = ATM
+				}
+			}
+			set_global_flag = ATM_is_gone
+			ATM = {
+				WTT_political_struggle_remove_current_country = yes
+			}
+		}
+		else_if = {
+			limit = {
+				country_exists = ATM
+				has_global_flag = ATM_is_gone
+			}
+			clr_global_flag = ATM_is_gone
+		}
+		else_if = {
+			limit = {
+				NOT = {
+					country_exists = ATM
+				}
+				has_global_flag = ATM_is_gone
+				any_of_scopes = {
+					array = global.big_china
+					is_core_of = ATM
+				}
+			}
+			for_each_scope_loop = {
+				array = global.big_china #DO clear core.cause now resistance is a thing
+				remove_claim_by = ATM
+				remove_core_of = ATM
+			}
+		}
+		if = {
+			limit = { NOT = { has_global_flag = SUY_is_gone country_exists = SUY } }
+			for_each_scope_loop = {
+				array = global.big_china
+				THIS = {
+					remove_claim_by = SUY
+					remove_core_of = SUY
+				}
+			}
+			set_global_flag = SUY_is_gone
+			SUY = {
+				WTT_political_struggle_remove_current_country = yes
+			}
+		}
+		else_if = {
+			limit = {
+				country_exists = SUY
+				has_global_flag = SUY_is_gone
+			}
+			clr_global_flag = SUY_is_gone
+		}
+		else_if = {
+			limit = {
+				NOT = {
+					country_exists = SUY
+				}
+				has_global_flag = SUY_is_gone
+				any_of_scopes = {
+					array = global.big_china
+					is_core_of = SUY
+				}
+			}
+			for_each_scope_loop = {
+				array = global.big_china #DO clear core.cause now resistance is a thing
+				remove_claim_by = SUY
+				remove_core_of = SUY
+			}
+		}
+		if = {
+			limit = { NOT = { has_global_flag = EGM_is_gone country_exists = EGM } }
+			for_each_scope_loop = {
+				array = global.big_china
+				THIS = {
+					remove_claim_by = EGM
+					remove_core_of = EGM
+				}
+			}
+			set_global_flag = EGM_is_gone
+			EGM = {
+				WTT_political_struggle_remove_current_country = yes
+			}
+		}
+		else_if = {
+			limit = {
+				country_exists = EGM
+				has_global_flag = EGM_is_gone
+			}
+			clr_global_flag = EGM_is_gone
+		}
+		else_if = {
+			limit = {
+				NOT = {
+					country_exists = EGM
+				}
+				has_global_flag = EGM_is_gone
+				any_of_scopes = {
+					array = global.big_china
+					is_core_of = EGM
+				}
+			}
+			for_each_scope_loop = {
+				array = global.big_china #DO clear core.cause now resistance is a thing
+				remove_claim_by = EGM
+				remove_core_of = EGM
+			}
+		}
+		set_global_flag = clique_loop
+		random_country = {
+			country_event = { hours = 1 id = clique.2 }
+		}
+	}
+	option = {
+	}
+}
+
+country_event = {
+	id = clique.2
+	hidden = yes
+	is_triggered_only = yes
+	immediate = {
+		clr_global_flag = clique_loop
+	}
+	option = {
+	}
+}
+
+#AI give guns to AI CHI #Balance
+
+country_event = {
+	id = clique.3
+	hidden = yes
+	trigger = {
+		is_ai = yes
+		is_warlord = yes
+		has_equipment = {
+			infantry_equipment > 199
+		}
+		has_war_with = JAP
+		NOT = {
+			any_neighbor_country = {
+				has_war_with = ROOT
+			}
+		}
+		any_other_country = {
+			is_legit_china = yes
+			tag = CHI
+			is_ai = yes
+			has_war_together_with = ROOT
+			is_faction_leader = yes
+			is_in_faction_with = ROOT
+			has_war_with = JAP
+		}
+	}
+	mean_time_to_happen = {
+		days = 7
+	}
+	immediate = {
+		send_equipment = {
+			target = CHI
+			type = infantry_equipment
+			amount = 200
+		}
+	}
+	option = {
+	}
+}

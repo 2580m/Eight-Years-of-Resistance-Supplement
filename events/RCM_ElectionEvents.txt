@@ -1,0 +1,61 @@
+﻿###########################
+# Election Events
+###########################
+
+add_namespace = rcmelection
+
+country_event = {
+	id = rcmelection.18
+	title = rcmelection.18.t
+	desc = rcmelection.18.d
+	picture = GFX_report_event_gathering_protest
+	
+	is_triggered_only = yes
+
+	trigger = {
+		NOT = {
+			tag = USA
+		}
+		has_government = democratic
+		n_socialism > 0.5
+		is_puppet = no
+	}	
+	option = {
+		name = rcmelection.18.a
+		ai_chance = {
+			base = 75
+		}
+		set_politics = {
+			ruling_party = n_socialism
+			elections_allowed = yes
+		}
+	}
+}
+
+country_event = {
+	id = rcmelection.19
+	title = rcmelection.19.t
+	desc = rcmelection.19.d
+	picture = GFX_report_event_gathering_protest
+	
+	is_triggered_only = yes
+
+	trigger = {
+		NOT = {
+			tag = USA
+		}
+		has_government = n_socialism
+		democratic > 0.5
+		is_puppet = no
+	}	
+	option = {
+		name = rcmelection.19.a
+		ai_chance = {
+			base = 75
+		}
+		set_politics = {
+			ruling_party = democratic
+			elections_allowed = yes
+		}
+	}
+}

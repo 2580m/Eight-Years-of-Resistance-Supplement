@@ -1,0 +1,176 @@
+
+add_namespace = IB_tech
+add_namespace = ITA_operate
+
+
+country_event = {#template1
+	id = ITA_operate.2
+	#hidden = yes
+	mean_time_to_happen = { days = 2 }
+	fire_only_once = yes
+	title = ""
+	desc = ""
+
+	trigger = { 
+		tag = ITA
+		is_ai = yes
+		is_subject = no
+		has_capitulated = no
+		has_tech = interwar_antitank
+		ETH = {
+			or = {
+				has_capitulated = yes
+				exists = no
+			}
+		}
+	}
+	
+	option = {
+		division_template = {
+			division_names_group = ITA_INF_02
+			name = "Divisione CC.NN."
+			regiments = {
+				infantry = { x = 0 y = 0 }
+				infantry = { x = 0 y = 1 }
+				infantry = { x = 0 y = 2 }
+				infantry = { x = 0 y = 3 }
+
+				infantry = { x = 1 y = 0 }
+				infantry = { x = 1 y = 1 }
+				infantry = { x = 1 y = 2 }
+				infantry = { x = 1 y = 3 }
+
+				infantry = { x = 2 y = 0 }
+				infantry = { x = 2 y = 1 }
+				infantry = { x = 2 y = 2 }
+				infantry = { x = 2 y = 3 }
+				#8
+				artillery_brigade = { x = 3 y = 0 }
+				artillery_brigade = { x = 3 y = 1 }
+				artillery_brigade = { x = 3 y = 2 }
+				#8
+				anti_air_brigade = { x = 4 y = 0 }
+				anti_tank_brigade = { x = 4 y = 1 }
+				#8
+				#15
+			}
+			support = {
+				engineer = { x = 0 y = 0 }
+				recon = { x = 0 y = 1 }
+				artillery = { x = 0 y = 2 }
+			}
+		}
+		every_country_division = {
+			limit = {
+				not = { division_has_majority_template = mountaineers }
+			}
+			change_division_template = {
+				division_template = "Divisione CC.NN."
+			}
+		}
+	}
+}
+country_event = {#template2
+	id = ITA_operate.3
+	#hidden = yes
+	mean_time_to_happen = { days = 2 }
+	fire_only_once = yes
+	title = ""
+	desc = ""
+
+	trigger = { 
+		tag = ITA
+		is_ai = yes
+		is_subject = no
+		has_capitulated = no
+		has_tech = mountaineers_combat_1
+		has_country_flag = IB_flame_ready
+	}
+	
+	option = {
+		division_template = {
+			division_names_group = ITA_MNT_01
+			name = "Divisione Alpina"
+			priority = 2
+			regiments = {
+				mountaineers = { x = 0 y = 0 }
+				mountaineers = { x = 0 y = 1 }
+				mountaineers = { x = 0 y = 2 }
+				mountaineers = { x = 0 y = 3 }
+				mountaineers = { x = 0 y = 4 }
+
+				mountaineers = { x = 1 y = 0 }
+				mountaineers = { x = 1 y = 1 }
+				mountaineers = { x = 1 y = 2 }
+				mountaineers = { x = 1 y = 3 }
+				mountaineers = { x = 1 y = 4 }
+
+				mountaineers = { x = 2 y = 0 }
+				mountaineers = { x = 2 y = 1 }
+				mountaineers = { x = 2 y = 2 }
+				mountaineers = { x = 2 y = 3 }
+				mountaineers = { x = 2 y = 4 }
+				#8
+				artillery_brigade = { x = 3 y = 0 }
+				artillery_brigade = { x = 3 y = 1 }
+				anti_air_brigade = { x = 3 y = 2 }
+				anti_tank_brigade = { x = 3 y = 3 }
+			}
+			support = {
+				engineer = { x = 0 y = 0 }
+				artillery = { x = 0 y = 1 }
+				medium_flame_tank = { x = 0 y = 2 }
+				rangers_support = { x = 0 y = 3 }
+				field_hospital = { x = 0 y = 4 }
+			}
+		}
+		every_country_division = {
+			limit = {
+				division_has_majority_template = mountaineers
+			}
+			change_division_template = {
+				division_template = "Divisione Alpina"
+			}
+		}
+	}
+}
+country_event = {#tot
+	id = ITA_operate.4
+	#hidden = yes
+	mean_time_to_happen = { days = 2 }
+	fire_only_once = yes
+	title = ""
+	desc = ""
+
+	trigger = { 
+		tag = ITA
+		is_ai = yes
+		is_subject = no
+		has_capitulated = no
+		has_war_support > 0.8
+		any_enemy_country = {
+			ic_ratio = {
+				tag = ROOT
+				ratio > 0.5
+			}
+		}
+	}
+	
+	option = {
+		add_ideas = tot_economic_mobilisation
+		activate_decision = women_in_the_workforce
+	}
+}
+
+country_event = {#unlock temp
+	id = ITA_operate.999
+	#hidden = yes
+	title = ""
+	desc = ""
+
+	is_triggered_only = yes
+	
+	option = {
+		country_lock_all_division_template = no
+	}
+}

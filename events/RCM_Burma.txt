@@ -1,0 +1,845 @@
+﻿###########################modded a little bit
+# Burma Events
+###########################
+
+add_namespace = burma
+
+# Burma is split from British India
+country_event = {
+	id = burma.1
+	title = burma.1.t # Government of Burma Act 1935
+	desc = burma.1.d
+	picture = gfx/event_pictures/burma_government_house.dds
+	
+	trigger = {
+		TAG = ENG
+		date > 1937.4.1
+		date < 1939.1.1
+        country_exists = RAJ
+		NOT = { has_global_flag = burma_act }
+	}
+
+	mean_time_to_happen = {
+		days = 2
+	}
+	fire_only_once = yes
+	immediate = {
+		set_global_flag = burma_act
+	}
+	
+	option = { #Keep playing ENG
+		name = burma.1.a
+		custom_effect_tooltip = burma_spawn_tooltip
+		hidden_effect = {
+			if = {
+				limit = {
+					288 = {
+						OR = {
+							is_owned_by = RAJ
+							is_owned_by = ENG
+						}
+					}
+				}
+				BUR = { transfer_state = 288 }
+				RAJ = { remove_state_core = 288 }
+			}
+			if = {
+				limit = {
+					640 = {
+						OR = {
+							is_owned_by = RAJ
+							is_owned_by = ENG
+						}
+					}
+				}
+				BUR = { transfer_state = 640 }
+				RAJ = { remove_state_core = 640 }
+			}
+			if = {
+				limit = {
+					992 = {
+						OR = {
+							is_owned_by = RAJ
+							is_owned_by = ENG
+						}
+					}
+				}
+				BUR = { transfer_state = 992 }
+				RAJ = { remove_state_core = 992 }
+			}
+            if = {
+				limit = {
+					993 = {
+						OR = {
+							is_owned_by = RAJ
+							is_owned_by = ENG
+						}
+					}
+				}
+				BUR = { transfer_state = 993 }
+				RAJ = { remove_state_core = 993 }
+			}
+			if = {
+				limit = {
+					1021 = {
+						OR = {
+							is_owned_by = RAJ
+							is_owned_by = ENG
+						}
+					}
+				}
+				BUR = { transfer_state = 1021 }
+				RAJ = { remove_state_core = 1021 }
+			}
+            if = {
+				limit = {
+					has_dlc = "Together for Victory"
+				}
+				set_autonomy = {
+					target = BUR
+					autonomous_state = autonomy_colony
+					freedom_level = 0.35
+				}
+				else = {
+					puppet = BUR
+				}
+			}
+			RAJ = { country_event = burma.2 }
+			BUR = { set_cosmetic_tag = BUR_UK }
+			BUR = { add_state_core = 288 }
+			BUR = { add_state_core = 640 }
+			BUR = { add_state_core = 992 }
+    		BUR = { add_state_core = 993 }
+			BUR = { add_state_core = 1021 }
+    		BUR = { load_oob = BUR_1937 }
+			BUR = {	
+				add_equipment_to_stockpile = {
+					type = artillery_equipment_1
+					amount = 50
+					producer = "RAJ"
+				}
+			}
+			BUR = {
+				add_equipment_to_stockpile = {
+					type = infantry_equipment_1
+					amount = 300
+					producer = "RAJ"
+				}
+			}
+			BUR = { 
+				set_politics = { 
+					ruling_party = neutrality
+					last_election = "1936.11.26"
+					election_frequency = 48
+					elections_allowed = no
+				}
+				set_political_party = {
+					ideology = democratic popularity = 51
+					ideology = fascism popularity = 1
+					ideology = communism popularity = 1
+					ideology = neutrality popularity = 47
+				}
+			}
+		}
+	}
+
+	option = { #Swap to BUR
+		name = burma.1.b
+		custom_effect_tooltip = burma_swap_tooltip
+		hidden_effect = {
+			BUR = { change_tag_from = ENG }
+			if = {
+				limit = {
+					288 = {
+						OR = {
+							is_owned_by = RAJ
+							is_owned_by = ENG
+						}
+					}
+				}
+				BUR = { transfer_state = 288 }
+				RAJ = { remove_state_core = 288 }
+			}
+			if = {
+				limit = {
+					640 = {
+						OR = {
+							is_owned_by = RAJ
+							is_owned_by = ENG
+						}
+					}
+				}
+				BUR = { transfer_state = 640 }
+				RAJ = { remove_state_core = 640 }
+			}
+			if = {
+				limit = {
+					992 = {
+						OR = {
+							is_owned_by = RAJ
+							is_owned_by = ENG
+						}
+					}
+				}
+				BUR = { transfer_state = 992 }
+				RAJ = { remove_state_core = 992 }
+			}
+			if = {
+				limit = {
+					993 = {
+						OR = {
+							is_owned_by = RAJ
+							is_owned_by = ENG
+						}
+					}
+				}
+				BUR = { transfer_state = 993 }
+				RAJ = { remove_state_core = 993 }
+			}
+			if = {
+				limit = {
+					1021 = {
+						OR = {
+							is_owned_by = RAJ
+							is_owned_by = ENG
+						}
+					}
+				}
+				BUR = { transfer_state = 1021 }
+				RAJ = { remove_state_core = 1021 }
+			}
+			if = {
+				limit = {
+					has_dlc = "Together for Victory"
+				}
+				set_autonomy = {
+					target = BUR
+					autonomous_state = autonomy_colony
+					freedom_level = 0.35
+				}
+				else = {
+					puppet = BUR
+				}
+			}
+			RAJ = { country_event = burma.2 }
+			BUR = { set_cosmetic_tag = BUR_UK }
+			BUR = { add_state_core = 288 }
+			BUR = { add_state_core = 640 }
+			BUR = { add_state_core = 992 }
+    		BUR = { add_state_core = 993 }
+			BUR = { add_state_core = 1021 }
+			BUR = { load_oob = BUR_1937 }
+			BUR = { 
+				288 = { 
+					add_building_construction = { 
+						type = arms_factory level = 1 instant_build = yes
+					}
+				}
+			}
+			BUR = { 
+				640 = { 
+					add_building_construction = { 
+						type = arms_factory level = 1 instant_build = yes
+					}
+				}
+			}
+			BUR = {	
+				add_equipment_to_stockpile = {
+					type = artillery_equipment_1
+					amount = 50
+					producer = "RAJ"
+				}
+			}
+			BUR = {
+				add_equipment_to_stockpile = {
+					type = infantry_equipment_1
+					amount = 300
+					producer = "RAJ"
+				}
+			}
+			BUR = { 
+				set_politics = { 
+					ruling_party = neutrality
+					last_election = "1936.11.26"
+					election_frequency = 48
+					elections_allowed = no
+				}
+				set_political_party = {
+					ideology = democratic popularity = 51
+					ideology = fascism popularity = 1
+					ideology = communism popularity = 1
+					ideology = neutrality popularity = 47
+				}
+			}
+		}
+	}
+}
+
+#India is informed of split
+country_event = {
+	id = burma.2
+	title = burma.2.t # Government of Burma Act 1935
+	desc = burma.2.d
+	picture = gfx/event_pictures/burma_government_house.dds
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = burma.2.a #Ok
+	}
+}
+
+#Replacement of Burmese Governor
+country_event = {
+	id = burma.3 
+	title = burma.3.t # Replacement of Governor
+	desc = burma.3.d
+	picture = gfx/event_pictures/burma_government_house.dds
+	
+	trigger = {
+		TAG = ENG
+		has_global_flag = burma_act
+		AND = {
+			OR = {
+				has_country_flag = chamberlain_resigned
+				has_country_flag = chamberlain_died
+			}
+			BUR = { is_puppet_of = ENG 
+			}
+		}
+	}
+	fire_only_once = yes
+	mean_time_to_happen = {
+		days = 7
+	}
+	
+	option = { #Ok
+		name = burma.3.a
+		hidden_effect = {
+		BUR = { country_event = burma.4 }
+		}
+	}
+}
+
+#Governor is replaced
+country_event = {
+	id = burma.4 
+	title = burma.4.t # Replacement of Governor
+	desc = burma.4.d
+	picture = gfx/event_pictures/burma_government_house.dds
+	
+	is_triggered_only = yes
+	
+	option = { #Ok
+		name = burma.4.a
+		create_country_leader = {
+			name = Reginald_Dorman_Smith
+			desc = "POLITICS_REGINALD_DORMAN-SMITH_DESC"
+			picture = "gfx/leaders/BUR/Portrait_Burma_Reginald_Dorman-Smith.dds"
+			expire = "1965.1.1"
+			ideology = despotism
+			traits = {
+			}
+		}
+	}
+}
+
+##Japanese Pet
+#country_event = {
+#	id = burma.5
+#	hidden = yes
+#	
+#	fire_only_once = yes
+#	
+#	trigger = {
+#		TAG = BUR 
+#		is_puppet_of = JAP
+#	}
+#		
+#	option = {
+#		name = burma.5.a
+#		set_cosmetic_tag = BUR_JAP
+#	}
+#}
+
+#no longer british burma
+country_event = {
+	id = burma.6  # Burma Independence
+	title = burma.6.t 
+	desc = burma.6.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = { 
+		name = burma.6.a
+		FROM = {
+			set_autonomy = {
+				target = ROOT
+			    autonomy_state = autonomy_free 
+			}
+		}
+	    drop_cosmetic_tag = yes
+        set_politics = {
+	        ruling_party = neutrality
+	        elections_allowed = yes
+        }
+		set_party_name = {
+			ideology = neutrality
+			name = AFPFL_party
+			long_name = AFPFL_party_long
+		}
+		create_country_leader = {
+			name = U_Nu
+			desc = "POLITICS_U_DESC"
+			picture = "gfx/leaders/BUR/U_Nu_portrait.dds"
+			expire = "1965.1.1"
+			ideology = despotism
+			traits = {}
+        }
+        leave_faction = yes  
+	}
+}
+
+country_event = {
+	id = burma.7 # british: independence?
+	title = burma.7.t 
+	desc = burma.7.d
+	is_triggered_only = no
+	trigger = {
+		TAG = ENG
+		BUR = { is_subject_of = ENG }
+        NOT = { BUR = { has_war_with = JAP} }
+        date > 1948.1.4
+		NOT ={ has_war_with = JAP }
+        is_democratic_type = yes #guo 
+    }
+	fire_only_once = yes
+    
+	option = { #guo 
+		name = burma.7.a  #yes
+		BUR = { country_event = burma.6 }
+        news_event = { hours = 8 id = burma.8 }  
+        ai_chance = { 
+			base = 100
+            modifier = {
+				factor = 100
+				is_historical_focus_on = yes
+			}
+        }
+    }
+    option = { 
+		name = burma.7.b #no
+		add_stability = -0.15
+        ai_chance = { 
+			base = 0
+		}
+    }
+}
+
+news_event = {
+	id = burma.8
+	title = burma.8.t 
+	desc = burma.8.d
+	picture = GFX_news_event_burma_independence
+	is_triggered_only = yes
+	major = yes
+	fire_only_once = yes
+        option = { 
+		name = burma.8.a
+    }
+}
+
+add_namespace = rcm_burma_road
+
+country_event = { #sino british agreement
+	id = rcm_burma_road.1
+	title = rcm_burma_road.1.t
+	desc = rcm_burma_road.1.d
+	picture = GFX_report_event_chinese_soldiers_02
+    is_triggered_only = yes
+	
+	option = { 
+		name = rcm_burma_road.1.a
+		trigger = {
+			NOT = {
+				has_war_with = FROM
+			}
+		}
+		ai_chance = { 
+			base = 60
+            modifier = {
+				factor = 100
+				is_historical_focus_on = yes
+			}
+        }
+		custom_effect_tooltip = THIS_IS_HISTORICAL_TT
+		#set_global_flag = uk_chi_alliance_flag
+		add_war_support = 0.02
+		effect_tooltip = {
+			remove_decision = CHI_rcm_close_burma_road
+		}
+        FROM = {
+			country_event = {
+				id = rcm_burma_road.2 hours = 12
+			}
+		}
+		custom_effect_tooltip = chi_can_help_if_war_tt
+	}
+
+	option = { 
+		name = rcm_burma_road.1.b
+		add_political_power = -150
+		FROM = {
+			country_event = {
+				id = EFM_independent.51 hours = 12
+			}
+		}
+	}
+}
+
+country_event = { #sino british agreement
+	id = rcm_burma_road.2
+	title = rcm_burma_road.2.t
+	desc = rcm_burma_road.2.d
+	picture = GFX_report_event_burma_road
+    is_triggered_only = yes
+	
+	option = { 
+		name = rcm_burma_road.2.a
+		ai_chance = { 
+			base = 60
+            modifier = {
+				factor = 100
+				is_historical_focus_on = yes
+			}
+        }
+		set_global_flag = uk_chi_alliance_flag
+		custom_effect_tooltip = burma_road_will_be_always_available_tt
+		add_political_power = 100
+	}
+}
+
+country_event = { #stilwell to china?
+	id = rcm_burma_road.3
+	title = rcm_burma_road.3.t
+	desc = rcm_burma_road.3.d
+	picture = GFX_report_event_china_chiang_kai_shek
+    is_triggered_only = yes
+	
+	option = { 
+		name = rcm_burma_road.3.a
+		trigger = {
+			has_character = USA_joseph_stilwell
+		}
+		ai_chance = { 
+			base = 60
+            modifier = {
+				factor = 100
+				is_historical_focus_on = yes
+			}
+        }
+		custom_effect_tooltip = THIS_IS_HISTORICAL_TT
+		if = {
+			limit = {
+				has_character = USA_joseph_stilwell
+			}
+			effect_tooltip = {
+				USA_joseph_stilwell = {
+					set_nationality = FROM
+				}
+                custom_effect_tooltip = available_foreign_advisor 
+		        #show_ideas_tooltip = albert_coady_wedemeyer
+				show_ideas_tooltip = USA_joseph_stilwell
+			    FROM = {
+					add_ideas = CHI_stilwell_in_china
+				}
+			}
+			add_political_power = 25
+		}
+		#set_global_flag = uk_chi_alliance_flag
+        FROM = {
+			country_event = {
+				id = rcm_burma_road.4 days = 5
+			}
+		}
+	}
+
+	option = { 
+		name = rcm_burma_road.3.b
+		#nah
+		add_political_power = -50
+	}
+}
+
+country_event = { #stilwell to china
+	id = rcm_burma_road.4
+	title = rcm_burma_road.4.t
+	desc = rcm_burma_road.4.d
+	picture = GFX_report_event_china_chiang_kai_shek
+    is_triggered_only = yes
+	
+	option = { 
+		name = rcm_burma_road.4.a
+		trigger = {
+			NOT = {
+				has_war_with = FROM
+			}
+		}
+		ai_chance = { 
+			base = 60
+            modifier = {
+				factor = 100
+				is_historical_focus_on = yes
+			}
+        }
+		custom_effect_tooltip = THIS_IS_HISTORICAL_TT
+		add_stability = -0.01
+		army_experience = 30
+		set_global_flag = stilwell_to_china_flag
+		FROM = {
+			if = {
+				limit = {
+					has_character = USA_joseph_stilwell
+				}
+				USA_joseph_stilwell = {
+					set_nationality = ROOT
+				}
+		    }
+		}
+		custom_effect_tooltip = available_foreign_advisor 
+		show_ideas_tooltip = USA_joseph_stilwell
+		add_ideas = CHI_stilwell_in_china
+	}
+	option = { 
+		name = rcm_burma_road.4.b
+		ai_chance = { 
+			base = 1
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
+		}
+		add_political_power = -200
+		add_war_support = -0.05
+		set_global_flag = chi_refused_stilwell_flag
+		custom_effect_tooltip = us_aid_stuff_will_be_unavailable_tt
+		FROM = {
+			country_event = {
+				id = rcm_burma_road.5 hours = 12
+			}
+		}
+	}
+}
+
+country_event = { #stilwell to china no to usa
+	id = rcm_burma_road.5
+	title = rcm_burma_road.5.t
+	desc = rcm_burma_road.5.d
+	picture = GFX_report_event_china_chiang_kai_shek
+    is_triggered_only = yes
+	
+	option = { 
+		name = rcm_burma_road.5.a
+		trigger = {
+			always = no ###
+			NOT = {
+				has_war_with = FROM
+			}
+		}
+		ai_chance = { 
+			base = 60
+            modifier = {
+				factor = 100
+				is_historical_focus_on = yes
+			}
+        }
+		FROM = {
+			country_event = {
+				id = rcm_burma_road.6 hours = 12
+			}
+			custom_effect_tooltip = available_foreign_advisor 
+		    show_ideas_tooltip = albert_coady_wedemeyer
+		}
+	}
+	
+	option = { 
+		name = rcm_burma_road.5.b
+		#give up
+		ai_chance = { 
+			base = 1
+			modifier = {
+				factor = 1
+				is_historical_focus_on = yes
+			}
+		}
+	}
+}
+
+country_event = { #wedemeyer replace stilwell to usa
+	id = rcm_burma_road.6
+	title = rcm_burma_road.6.t
+	desc = rcm_burma_road.6.d
+	picture = GFX_report_event_china_chiang_kai_shek
+    is_triggered_only = yes
+	
+	option = { 
+		name = rcm_burma_road.6.a
+		ai_chance = { 
+			base = 60
+            modifier = {
+				factor = 100
+				is_historical_focus_on = yes
+			}
+        }
+		#set_global_flag = stilwell_resign
+		FROM = {
+			country_event = {
+				id = rcm_burma_road.7 hours = 12
+			}
+		}
+		effect_tooltip = {
+			FROM = {
+				if = {
+					limit = {
+						has_idea = CHI_stilwell_in_china
+					}
+					remove_ideas = CHI_stilwell_in_china
+				}
+				if = {
+					limit = {
+						has_idea = joseph_stilwell_chi
+					}
+					remove_ideas = joseph_stilwell_chi
+				}
+				custom_effect_tooltip = available_foreign_advisor 
+				show_ideas_tooltip = albert_coady_wedemeyer
+				if = {
+					limit = {
+						amount_taken_ideas = {
+							amount < 2 #one or more free slot
+							slots = {
+							   foreign_advisor
+							}
+						}
+					}
+					add_ideas = albert_coady_wedemeyer
+				}
+			}
+		}
+	}
+}
+
+country_event = { #wedemeyer replace stilwell to china
+	id = rcm_burma_road.7
+	title = rcm_burma_road.7.t
+	desc = rcm_burma_road.7.d
+	picture = GFX_report_event_china_chiang_kai_shek
+    is_triggered_only = yes
+	
+	option = { 
+		name = rcm_burma_road.7.a
+		ai_chance = { 
+			base = 60
+        }
+		set_global_flag = stilwell_resign
+		if = {
+			limit = {
+				has_idea = CHI_stilwell_in_china
+			}
+			remove_ideas = CHI_stilwell_in_china
+		}
+		if = {
+			limit = {
+				has_idea = joseph_stilwell_chi
+			}
+			remove_ideas = joseph_stilwell_chi
+		}
+		custom_effect_tooltip = available_foreign_advisor 
+		show_ideas_tooltip = albert_coady_wedemeyer
+		if = {
+			limit = {
+				amount_taken_ideas = {
+					amount < 2 #one or more free slot
+					slots = {
+					   foreign_advisor
+					}
+				}
+			}
+			add_ideas = albert_coady_wedemeyer
+		}
+	}
+}
+
+country_event = { #XYZ PLAN to usa
+	id = rcm_burma_road.8
+	title = rcm_burma_road.8.t
+	desc = rcm_burma_road.8.d
+	picture = GFX_report_event_chinese_army_training
+    is_triggered_only = yes
+	
+	option = { 
+		name = rcm_burma_road.8.a
+		ai_chance = { 
+			base = 60
+            modifier = {
+				factor = 100
+				is_historical_focus_on = yes
+			}
+        }
+		custom_effect_tooltip = THIS_IS_HISTORICAL_TT
+       
+	}
+
+	option = { 
+		name = rcm_burma_road.8.b
+		ai_chance = { 
+			base = 60
+            modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
+        }
+		add_political_power = -150
+		FROM = {
+			country_event = {
+				id = EFM_independent.51 hours = 12
+			}
+		}
+	}
+}
+
+news_event = {
+	id = rcm_burma_road.9
+	title = rcm_burma_road.9.t 
+	desc =rcm_burma_road.9.d
+	picture = GFX_news_chinese_expeditionary_force
+	is_triggered_only = yes
+	major = yes
+	fire_only_once = yes
+    option = { 
+		trigger = {
+			NOT = {
+				has_war_with = CHI
+				has_war_with = JAP
+			}
+		}
+	        play_song = "nea_zhishiqingniancongjunge"
+		name = rcm_burma_road.9.a
+    }
+	option = { 
+		trigger = {
+			has_war_with = JAP
+		}
+		name = rcm_burma_road.9.b
+	       play_song = "nea_zhishiqingniancongjunge"
+    }
+	option = { 
+		trigger = {
+			OR = {
+				has_war_with = CHI
+				has_war_with = JAP
+			}
+		}
+		name = rcm_burma_road.9.c
+	       play_song = "nea_zhishiqingniancongjunge"
+    }
+}

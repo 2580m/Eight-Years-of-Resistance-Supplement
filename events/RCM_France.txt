@@ -1,0 +1,716 @@
+﻿###########################
+# French Events
+###########################
+
+add_namespace = rcmfrance
+
+#1936 election
+country_event = {
+	id = rcmfrance.1
+	title = rcmfrance.1.t
+	desc = rcmfrance.1.d
+	picture = GFX_report_event_french_election
+ 
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	#trigger = {
+	#	tag = FRA
+	#	has_government = democratic
+	#	n_socialism > 0.3
+	#	democratic < 0.45
+	#	date > 1936.5.1
+	#	date < 1939.1.1
+	#}
+	option = {
+		name = rcmfrance.1.a
+		ai_chance = { factor = 100 }
+		add_ideas = FRA_front_populaire
+		set_politics = { ruling_party = n_socialism elections_allowed = yes }
+		hidden_effect = {
+			FIC = { country_event = { days = 130 id = rcmindochina.1 } } #new colonial governor appointed
+			FIC = { country_event = { days = 1 id = rcmindochina.7 } } #strikes
+		}
+		
+	}
+}
+
+#Laval Resigns
+
+country_event = {
+	id = rcmfrance.2
+	title = rcmfrance.2.t
+	desc = rcmfrance.2.d
+	picture = GFX_idk
+ 
+	fire_only_once = yes
+	mean_time_to_happen = {
+		days = 2
+	}
+	trigger = {
+		tag = FRA
+		has_government = democratic
+		date > 1936.1.22
+		date < 1939.1.1
+	}
+	option = {
+		name = rcmfrance.2.a
+		ai_chance = { factor = 100 }
+		hidden_effect = { kill_country_leader = yes }
+		create_country_leader = {
+			name = "Albert Sarraut"
+			desc = ""
+			picture = "Portrait_Albert_Sarraut.dds"
+			expire = "1965.1.1"
+			ideology = liberalism
+			traits = {
+			
+			}
+		}
+	}
+}
+
+#Blum resigns
+
+country_event = {
+	id = rcmfrance.3
+	title = rcmfrance.3.t
+	desc = rcmfrance.3.d
+	picture = GFX_idk
+ 
+	fire_only_once = yes
+	mean_time_to_happen = {
+		days = 2
+	}
+	trigger = {
+		tag = FRA
+		has_government = n_socialism
+		date > 1937.6.27
+		date < 1938.1.1
+	}
+	option = {
+		name = rcmfrance.3.a
+		ai_chance = { factor = 100 }
+		set_politics = { ruling_party = democratic elections_allowed = yes }
+		add_popularity = {
+			ideology = democratic
+			popularity = 0.10
+		}
+		hidden_effect = { kill_country_leader = yes }
+		create_country_leader = {
+			name = "Camille Chautemps"
+			desc = ""
+			picture = "Portrait_Camille_Chautemps.dds"
+			expire = "1965.1.1"
+			ideology = socialism
+			traits = {
+			
+			}
+		}
+	}
+}
+
+#Chautemps resigns
+
+country_event = {
+	id = rcmfrance.4
+	title = rcmfrance.4.t
+	desc = rcmfrance.4.d
+	picture = GFX_idk
+ 
+	fire_only_once = yes
+	mean_time_to_happen = {
+		days = 2
+	}
+	trigger = {
+		tag = FRA
+		has_government = democratic
+		date > 1938.1.1
+		date < 1939.1.1
+		GER = {
+			controls_state = 4
+		}
+	}
+	option = {
+		name = rcmfrance.4.a
+		ai_chance = { factor = 100 }
+		add_popularity = {
+			ideology = n_socialism
+			popularity = 0.10
+		}
+		hidden_effect = { kill_country_leader = yes }
+		create_country_leader = {
+			name = "Léon Blum"
+			desc = ""
+			picture = "Portrait_Leon_Blum.dds"
+			expire = "1965.1.1"
+			ideology = n_socialism_ideology
+			traits = {
+			
+			}
+		}
+	}
+}
+
+# Blum resigns 2
+
+country_event = {
+	id = rcmfrance.5
+	title = rcmfrance.5.t
+	desc = rcmfrance.5.d
+	picture = GFX_report_event_french_election
+ 
+	fire_only_once = yes
+	mean_time_to_happen = {
+		days = 2
+	}
+	trigger = {
+		tag = FRA
+		has_government = n_socialism
+		date > 1938.4.9
+		date < 1939.1.1
+	}
+	option = {
+		name = rcmfrance.5.a
+		ai_chance = { factor = 100 }
+		remove_ideas = FRA_front_populaire
+		add_popularity = {
+			ideology = democratic
+			popularity = 0.10
+		}
+		set_politics = { ruling_party = democratic elections_allowed = yes }
+		create_country_leader = {
+			name = "Édouard Daladier"
+			desc = ""
+			picture = "Portrait_France_Edouard_Daladier.dds"
+			expire = "1965.1.1"
+			ideology = socialism
+			traits = {
+				stout_defender
+			}
+		}
+		
+	} 
+}
+
+#Reynaud Government formed
+
+country_event = {
+	id = rcmfrance.6
+	title = rcmfrance.6.t
+	desc = rcmfrance.6.d
+	picture = GFX_report_event_french_election
+ 
+	fire_only_once = yes
+	mean_time_to_happen = {
+		days = 2
+	}
+	trigger = {
+		tag = FRA
+		has_government = democratic
+		date > 1940.1.1
+		has_war_with = GER
+		OR = {
+			FIN = { has_war_with = SOV }
+			FIN = { NOT = { controls_state = 146 } }
+		}
+		NOT = {
+			has_global_flag = fall_of_france
+		}
+	}
+	
+	option = {
+		name = rcmfrance.6.a
+		ai_chance = { factor = 100 }
+		create_country_leader = {
+			name = "Paul Reynaud"
+			desc = ""
+			picture = "Portrait_France_Paul_Reynaud.dds"
+			expire = "1965.1.1"
+			ideology = liberalism
+			traits = {
+			
+			}
+		}
+	} 
+}
+
+#Catroux joins Free France
+country_event = {
+	id = rcmfrance.7
+	title = rcmfrance.7.t
+	desc = rcmfrance.7.d
+	picture = GFX_report_event_degaulle_inspect_troops
+ 
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = rcmfrance.7.a
+		ai_chance = { factor = 100 }
+		create_corps_commander = {
+			name = "Georges Catroux"
+			portrait_path = "gfx/leaders/FIC/Portrait_Indochina_Georges_Catroux.dds"
+			traits = { career_officer desert_fox infantry_officer brilliant_strategist }
+			skill = 4
+			attack_skill = 3
+			defense_skill = 4
+			planning_skill = 3
+			logistics_skill = 3
+		}
+	} 
+}
+
+#Return french territories
+country_event = {
+	id = rcmfrance.8
+	title = rcmfrance.8.t
+	desc = rcmfrance.8.d
+	picture = GFX_report_event_degaulle_inspect_troops
+	#fire_only_once = yes
+	trigger = {
+		has_global_flag = had_yalta_conference
+		is_in_faction_with = FRA
+		FRA = {
+			is_puppet = no
+		}
+		any_owned_state = {
+			is_fully_controlled_by = ROOT
+			is_core_of = FRA
+		}
+		NOT = {
+			tag = FRA
+			is_ai = no
+		}
+	}
+	mean_time_to_happen = {
+		days = 2
+	}
+	option = {
+		name = rcmfrance.8.a
+		ai_chance = { factor = 100 }
+		effect_tooltip = {
+			every_owned_state = {
+				limit = {
+					is_fully_controlled_by = ROOT
+					is_core_of = FRA
+				}
+				FRA = {
+					transfer_state = PREV
+				}
+			}
+		}
+		FRA = {
+			country_event = rcmfrance.9
+		}
+	} 
+}
+
+country_event = {
+	id = rcmfrance.9
+	title = rcmfrance.9.t
+	desc = rcmfrance.9.d
+	picture = GFX_report_event_degaulle_inspect_troops
+	#fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = rcmfrance.9.a
+		ai_chance = { factor = 100 }
+		FROM = {
+			every_owned_state = {
+				limit = {
+					is_fully_controlled_by = FROM
+					is_core_of = FRA
+				}
+				FRA = {
+					transfer_state = PREV
+				}
+			}
+		}
+	} 
+}
+
+add_namespace = RCM_old_france
+# China MOD
+# China demand indochina
+country_event = {
+	id = RCM_old_france.1000
+	title = RCM_old_france.1000.t
+	desc = RCM_old_france.1000.d
+	picture = GFX_report_event_chiang_speech
+	
+	is_triggered_only = yes
+	
+	option = { # Accept demands
+		name = RCM_old_france.1000.a
+		ai_chance = {
+			base = 40 
+			modifier = {
+				add = 40
+				has_war = yes
+				any_enemy_country = {
+					strength_ratio = { 
+						tag = ROOT 
+						ratio > 0.4
+					}
+				}
+			}
+			modifier = {
+				add = 75
+				capital_scope = { NOT = { is_controlled_by = ROOT } } #Paris	
+			}
+		} 
+		CHI = {
+			country_event = { days = 1 id = RCM_old_china.1010 }
+		}
+	}
+	option = { # Refuse
+		name = RCM_old_france.1000.b
+		ai_chance = {
+			base = 35
+			modifier = {
+				add = -20
+				strength_ratio = {
+					tag = FROM
+					ratio < 0.5
+				}
+			}
+			modifier = {
+				factor = 0
+				strength_ratio = {
+					tag = FROM
+					ratio < 0.25
+				}
+			}
+		}
+		CHI = {
+			country_event = { days = 1 id = RCM_old_china.1011 }
+		}
+	}
+}
+
+# China demand malaya & north borneo
+country_event = {
+	id = RCM_old_france.1001
+	title = RCM_old_france.1001.t
+	desc = RCM_old_france.1001.d
+	picture = GFX_report_event_chiang_speech
+	
+	is_triggered_only = yes
+	
+	option = { # Accept demands
+		name = RCM_old_france.1001.a
+		ai_chance = {
+			base = 40 
+			modifier = {
+				add = 40
+				has_war = yes
+				any_enemy_country = {
+					strength_ratio = { 
+						tag = ROOT 
+						ratio > 0.4
+					}
+				}
+			}
+			modifier = {
+				add = 75
+				capital_scope = { NOT = { is_controlled_by = ROOT } } #Paris	
+			}
+		} 
+		CHI = {
+			country_event = { days = 1 id = RCM_old_china.1010 }
+		}
+	}
+	option = { # Refuse
+		name = RCM_old_france.1001.b
+		ai_chance = {
+			base = 35
+			modifier = {
+				add = -20
+				strength_ratio = {
+					tag = FROM
+					ratio < 0.5
+				}
+			}
+			modifier = {
+				factor = 0
+				strength_ratio = {
+					tag = FROM
+					ratio < 0.25
+				}
+			}
+		}
+		CHI = {
+			country_event = { days = 1 id = RCM_old_china.1011 }
+		}
+	}
+}
+
+
+# China demand burma
+country_event = {
+	id = RCM_old_france.1002
+	title = RCM_old_france.1002.t
+	desc = RCM_old_france.1002.d
+	picture = GFX_report_event_chiang_speech
+	
+	is_triggered_only = yes
+	
+	option = { # Accept demands
+		name = RCM_old_france.1002.a
+		ai_chance = {
+			base = 40 
+			modifier = {
+				add = 40
+				has_war = yes
+				any_enemy_country = {
+					strength_ratio = { 
+						tag = ROOT 
+						ratio > 0.4
+					}
+				}
+			}
+			modifier = {
+				add = 75
+				capital_scope = { NOT = { is_controlled_by = ROOT } } #Paris	
+			}
+		} 
+		CHI = {
+			country_event = { days = 1 id = RCM_old_china.1010 }
+		}
+	}
+	option = { # Refuse
+		name = RCM_old_france.1002.b
+		ai_chance = {
+			base = 35
+			modifier = {
+				add = -20
+				strength_ratio = {
+					tag = FROM
+					ratio < 0.5
+				}
+			}
+			modifier = {
+				factor = 0
+				strength_ratio = {
+					tag = FROM
+					ratio < 0.25
+				}
+			}
+		}
+		CHI = {
+			country_event = { days = 1 id = RCM_old_china.1011 }
+		}
+	}
+}
+
+# China demand philip 
+country_event = {
+	id = RCM_old_france.1003
+	title = RCM_old_france.1003.t
+	desc = RCM_old_france.1003.d
+	picture = GFX_report_event_chiang_speech
+	
+	is_triggered_only = yes
+	
+	option = { # Accept demands
+		name = RCM_old_france.1003.a
+		ai_chance = {
+			base = 40 
+			modifier = {
+				add = 40
+				has_war = yes
+				any_enemy_country = {
+					strength_ratio = { 
+						tag = ROOT 
+						ratio > 0.4
+					}
+				}
+			}
+			modifier = {
+				add = 75
+				capital_scope = { NOT = { is_controlled_by = ROOT } } #Paris	
+			}
+		} 
+		CHI = {
+			country_event = { days = 1 id = RCM_old_china.1010 }
+		}
+	}
+	option = { # Refuse
+		name = RCM_old_france.1003.b
+		ai_chance = {
+			base = 35
+			modifier = {
+				add = -20
+				strength_ratio = {
+					tag = FROM
+					ratio < 0.5
+				}
+			}
+			modifier = {
+				factor = 0
+				strength_ratio = {
+					tag = FROM
+					ratio < 0.25
+				}
+			}
+		}
+		CHI = {
+			country_event = { days = 1 id = RCM_old_china.1011 }
+		}
+	}
+}
+
+# China demand indo 
+country_event = {
+	id = RCM_old_france.1004
+	title = RCM_old_france.1004.t
+	desc = RCM_old_france.1004.d
+	picture = GFX_report_event_chiang_speech
+	
+	is_triggered_only = yes
+	
+	option = { # Accept demands
+		name = RCM_old_france.1004.a
+		ai_chance = {
+			base = 40 
+			modifier = {
+				add = 40
+				has_war = yes
+				any_enemy_country = {
+					strength_ratio = { 
+						tag = ROOT 
+						ratio > 0.4
+					}
+				}
+			}
+			modifier = {
+				add = 75
+				capital_scope = { NOT = { is_controlled_by = ROOT } } #Paris	
+			}
+		} 
+		CHI = {
+			country_event = { days = 1 id = RCM_old_china.1010 }
+		}
+	}
+	option = { # Refuse
+		name = RCM_old_france.1004.b
+		ai_chance = {
+			base = 35
+			modifier = {
+				add = -20
+				strength_ratio = {
+					tag = FROM
+					ratio < 0.5
+				}
+			}
+			modifier = {
+				factor = 0
+				strength_ratio = {
+					tag = FROM
+					ratio < 0.25
+				}
+			}
+		}
+		CHI = {
+			country_event = { days = 1 id = RCM_old_china.1011 }
+		}
+	}
+}
+
+# China demand indo 
+country_event = {
+	id = RCM_old_france.1005
+	title = RCM_old_france.1005.t
+	desc = RCM_old_france.1005.d
+	picture = GFX_report_event_chiang_speech
+	
+	is_triggered_only = yes
+	
+	option = { # Accept demands
+		name = RCM_old_france.1005.a
+		ai_chance = {
+			base = 40 
+			modifier = {
+				add = 40
+				has_war = yes
+				any_enemy_country = {
+					strength_ratio = { 
+						tag = ROOT 
+						ratio > 0.4
+					}
+				}
+			}
+			modifier = {
+				add = 75
+				capital_scope = { NOT = { is_controlled_by = ROOT } } #Paris	
+			}
+		} 
+		CHI = {
+			country_event = { days = 1 id = RCM_old_france.1010 }
+		}
+		custom_effect_tooltip = GAME_OVER_TT
+	}
+	option = { # Refuse
+		name = RCM_old_france.1005.b
+		ai_chance = {
+			base = 35
+			modifier = {
+				add = -20
+				strength_ratio = {
+					tag = FROM
+					ratio < 0.5
+				}
+			}
+			modifier = {
+				factor = 0
+				strength_ratio = {
+					tag = FROM
+					ratio < 0.25
+				}
+			}
+		}
+		CHI = {
+			country_event = { days = 1 id = RCM_old_france.1011 }
+		}
+		custom_effect_tooltip = this_will_lead_to_war_tt
+	}
+}
+# French Accept Demand
+country_event = {
+	id = RCM_old_france.1010
+	title = RCM_old_france.1010.t
+	desc = RCM_old_france.1010.d
+	picture = GFX_report_event_chinese_soldiers_chungking
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = RCM_old_france.1010.a
+		SST = {
+			annex_country = {
+				target = FROM
+				transfer_troops = yes
+			}
+		}
+	}
+}
+
+# French Reject Demand
+country_event = {
+	id = RCM_old_france.1011
+	title = RCM_old_france.1011.t
+	desc = RCM_old_france.1011.d
+	picture = GFX_report_event_chinese_soldiers_chungking
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = RCM_old_france.1011.a
+		end_puppet = FROM
+		create_wargoal = {
+			target = FROM
+			type = annex_everything
+		}
+	}
+}

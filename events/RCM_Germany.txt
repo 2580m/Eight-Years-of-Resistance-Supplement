@@ -1,0 +1,296 @@
+﻿add_namespace = rcmgermany
+# China Mod
+country_event = {
+	id = rcmgermany.2000
+	title = rcmgermany.2000.t
+	desc = rcmgermany.2000.d
+	picture = GFX_report_event_HHK_berlin
+
+	is_triggered_only = yes
+
+	option = {
+		name = rcmgermany.2000.a		#Agree
+		ai_chance = {
+			factor = 70
+			modifier = {
+				factor = 100
+				event_target:WTT_current_china_leader = {
+					GER_will_support = yes
+				}
+			}
+		}
+
+		add_political_power = 100
+		set_global_flag = ger_support_chi
+		GER = {
+			add_opinion_modifier = { target = event_target:WTT_current_china_leader modifier = CHI_promise_focus }
+		}
+		JAP = {
+			add_opinion_modifier = { target = GER modifier = ger_support_chi }
+		}
+		event_target:WTT_current_china_leader = {
+			effect_tooltip = {
+				add_tech_bonus = {
+					name = industrial_bonus
+					bonus = 1
+					uses = 1
+					category = industry
+				}
+				add_tech_bonus = {
+					name = infantry_equipment
+					bonus = 0.25
+					uses = 1
+					category = infantry_tech
+					category = infantry_weapons
+					category = artillery
+				}
+				add_popularity = {
+					ideology = fascism
+					popularity = 0.05
+				}
+				add_ideas = CHI_german_coop
+			}
+			add_opinion_modifier = { target = GER modifier = ger_accept_chi }
+			if = {
+				limit = {
+					has_dlc = "Arms Against Tyranny"
+				}
+				add_equipment_subsidy = {
+					cic = 2000
+					equipment_type = infantry_equipment
+					#equipment_type = support_equipment
+					#equipment_type = artillery_equipment
+					seller_tags = { GER }
+				}
+			}
+			country_event = { days = 5 id = rcmchina.229 }
+		}
+	}
+
+	option = {
+		name = rcmgermany.2000.b		#refuse
+		ai_chance = {
+			factor = 30
+			modifier = {
+				factor = 0
+				event_target:WTT_current_china_leader = {
+					GER_will_support = yes
+				}
+			}
+		}
+		event_target:WTT_current_china_leader =  {
+			add_opinion_modifier = { target = GER modifier = ger_refuse_chi }
+			if = {
+				limit = {
+					tag = CHI
+				}
+				country_event = { days = 5 id = rcmchina.230 }
+			}
+			else = {
+				country_event = { days = 5 id = rcmchina.2300 } #picture no CKS
+			}
+		}
+	}
+}
+# Japan Demands Withdrawal of Falkenhausen
+country_event = {
+	id = rcmgermany.24
+	title = rcmgermany.24.t
+	desc = rcmgermany.24.d
+	picture = GFX_report_event_hitler_china
+
+	is_triggered_only = yes
+	
+	fire_only_once = yes#guo
+
+	option = { # Agree
+		name = rcmgermany.24.a
+		ai_chance = {
+			factor = 20		
+			modifier = { #guo
+				factor = 999
+				is_historical_focus_on = yes
+				event_target:WTT_current_china_leader = { #guo
+					not = { has_idea = CHI_german_coop }
+				}
+			}
+			modifier = {
+				factor = 5
+				event_target:WTT_current_china_leader = {
+					GER_will_support = yes
+				}
+				JAP = {
+					GER_will_support = yes
+				}
+			}
+			modifier = {
+				factor = 5
+				JAP = {
+					GER_will_support = yes
+					ic_ratio = {
+						tag = event_target:WTT_current_china_leader
+						ratio > 1.2
+					}
+				}
+			}
+			modifier = {
+				factor = 0
+				event_target:WTT_current_china_leader = { #guo
+					has_idea = CHI_german_coop
+				}
+				OR = {
+					AND = {
+						event_target:WTT_current_china_leader = {
+							GER_will_support = yes
+						}
+						JAP = {
+							NOT = {
+								GER_will_support = yes
+							}
+						}
+					}
+					event_target:WTT_current_china_leader = {
+						has_idea = CHI_german_coop
+					}		
+				}
+				
+			}
+		}
+		JAP = {
+			country_event = { days = 1 id = rcmjapan.8 }
+		}
+		event_target:WTT_current_china_leader = {
+			country_event = { days = 1 id = china.2 }
+			effect_tooltip = {
+				remove_ideas = CHI_alexander_von_falkenhausen
+				show_ideas_tooltip = CHI_alexander_von_falkenhausen
+			}
+			set_global_flag = falkenhausen_recalled
+		}
+		
+		CHI = { remove_opinion_modifier = { target = GER modifier = GER_CHI_military_cooperation } } #guo
+		GER = { remove_opinion_modifier = { target = CHI modifier = GER_CHI_military_cooperation } } #guo
+	}
+	option = { # Refuse
+		name = rcmgermany.24.b
+
+		ai_chance = {
+			factor = 30
+			modifier = { #guo
+				factor = 0
+				is_historical_focus_on = yes
+				event_target:WTT_current_china_leader = { #guo
+					not = { has_idea = CHI_german_coop }
+				}
+			}
+			modifier = {
+				factor = 100
+				OR = {
+					event_target:WTT_current_china_leader = {
+						has_idea = CHI_german_coop
+					}
+					event_target:WTT_current_china_leader = {
+						GER_will_support = yes
+					}
+				}				
+			}
+			modifier = {
+				factor = 50
+				event_target:WTT_current_china_leader = {
+					GER_will_support = yes
+				}
+				JAP = {
+					GER_will_support = yes
+				}
+			}
+			modifier = {
+				factor = 0
+				NOT = {
+					event_target:WTT_current_china_leader = {
+						has_idea = CHI_german_coop
+					}
+				}
+				JAP = {
+					GER_will_support = yes
+					ic_ratio = {
+						tag = event_target:WTT_current_china_leader
+						ratio > 1.2
+					}
+				}
+			}
+		}
+		JAP = {
+			country_event = { days = 1 id = rcmjapan.9 }
+		}
+	}
+
+}
+
+# German - Chinese Relations Poor, Mission Recalled
+country_event = {
+	id = rcmgermany.25
+	title = rcmgermany.25.t
+	desc = rcmgermany.25.d
+	picture = GFX_report_event_chinese_army_training
+
+	fire_only_once = yes
+
+	trigger = {
+		tag = GER
+		NOT = {
+			has_idea = CHI_german_coop
+		}
+		CHI = { has_idea = CHI_alexander_von_falkenhausen }
+		has_opinion = { target = CHI value < -20 }
+	}
+
+	mean_time_to_happen = {
+		days = 1
+	}
+
+	immediate = {
+		hidden_effect = {
+			event_target:WTT_current_china_leader = { remove_ideas = CHI_alexander_von_falkenhausen }
+		}
+	}
+
+	option = {
+		name = rcmgermany.25.a
+		event_target:WTT_current_china_leader = {
+			country_event = { id = china.3 }
+		}
+	}
+}
+
+# Germany at war with China, Advisors Detained
+country_event = {
+	id = rcmgermany.26
+	title = rcmgermany.26.t
+	desc = rcmgermany.26.d
+	picture = GFX_report_event_german_detained_china
+
+	fire_only_once = yes
+
+	trigger = {
+		tag = GER
+		event_target:WTT_current_china_leader = { has_idea = CHI_alexander_von_falkenhausen }
+		has_war_with = event_target:WTT_current_china_leader
+	}
+
+	mean_time_to_happen = {
+		days = 1
+	}
+
+	immediate = {
+		hidden_effect = {
+			CHI = { remove_ideas = CHI_alexander_von_falkenhausen }
+		}
+	}
+
+	option = {
+		name = rcmgermany.26.a
+		CHI = {
+			country_event = { id = china.4 }
+		}
+	}
+}

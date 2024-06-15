@@ -1,0 +1,582 @@
+﻿###########################
+# Chinese Events BORDER WARS ADDED SOUTHERN SHAANXI #ID = 744#
+###########################
+
+######BORDER CLASH
+add_namespace = RCM_border_conflict_won_attacker
+
+country_event = {
+	id = RCM_border_conflict_won_attacker.1
+	title = RCM_border_conflict_won_attacker.1.t
+	desc = RCM_border_conflict_won_attacker.1.desc
+
+	picture = GFX_report_event_chinese_soldiers_city_ruin
+
+	is_triggered_only = yes
+
+	immediate = {
+		save_event_target_as = our_country
+		FROM = {
+			save_event_target_as = our_state
+			clr_state_flag = border_incident_active
+		}
+		FROM.FROM = { save_event_target_as = their_country }
+		FROM.FROM.FROM = {
+			save_global_event_target_as = new_conquered_state
+			save_event_target_as = their_state
+			clr_state_flag = border_incident_active
+		}
+		remove_targeted_decision = { target = event_target:their_country decision = RCM_border_conflict_time_until_cancelled }
+		
+		#moved to here 
+		if = {
+			limit = {
+				tag = PRC
+				FROM.FROM.FROM = {
+					state = 1029
+				}
+			}
+			transfer_state = FROM.FROM.FROM			
+		}
+		if = {
+			limit = {
+				tag = PRC
+				FROM.FROM.FROM = {
+					state = 939
+				}
+			}
+			transfer_state = FROM.FROM.FROM			
+		}		
+	}
+
+	option = {
+		name = RCM_border_conflict_won_attacker.1.a
+		trigger = {
+			NOT = {
+				OR = {
+                    AND = {
+						tag = PRC
+						FROM.FROM.FROM = {
+							state = 939
+						}
+					}
+					AND = {
+						tag = PRC
+						FROM.FROM.FROM = {
+							state = 1029
+						}
+					}
+				}
+			}
+		}
+		add_political_power = 50
+		add_war_support = .02
+		if = {
+			limit = {
+				has_country_flag = im_doing_east_conquest_flag
+			}
+			clr_country_flag = im_doing_east_conquest_flag
+			add_manpower = 6000
+			add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = 600
+				producer = SHX
+			}
+			add_equipment_to_stockpile = {
+				type = artillery_equipment
+				amount = 24
+				producer = SHX
+			}
+			custom_effect_tooltip = receive_6k_ammo
+		    add_to_variable = { ammunition_variable = 6 }
+		}
+		if = {
+			limit = {
+				is_major = yes
+			}
+			add_named_threat = { threat = 2 name = border_threat }
+		}
+		else = {
+			add_named_threat = { threat = 0.5 name = border_threat }
+		}
+		if = { #second victory
+			limit = {
+				ROOT = {
+					tag = PRC
+				}
+				FROM.FROM.FROM = {
+					state = 1044
+				}
+			}
+			XSM = {
+				country_event = qng.2
+			}
+			set_country_flag = PRC_west_expedition_victory
+		}
+		if = {
+			limit = {
+				check_variable = {
+					FROM.FROM.num_owned_states > 1
+				}
+			}
+			transfer_state = FROM.FROM.FROM
+		}		
+		else = {
+			FROM.FROM = { ROOT = { annex_country = { target = PREV } } }
+		}
+        if = {
+			limit = {
+				ROOT = {
+					tag = SUY
+					has_completed_focus = SUY_ping_sui_railway_campaign
+				}
+				FROM.FROM = {
+					tag = event_target:WTT_communist_china
+				}
+				FROM.FROM.FROM = {
+					state = 1020
+				}
+			}
+		}
+
+		custom_effect_tooltip = RCM_buildings_damaged
+		hidden_effect = {
+			FROM.FROM.FROM = {
+				random_list = {
+					60 = { damage_building = { type = arms_factory damage = 0.6 } }
+					30 = { damage_building = { type = arms_factory damage = 0.3 } }
+					10 = { damage_building = { type = industrial_complex damage = 0.9 } }
+				}
+			}
+		}
+	}
+	option = { #for west expedition going further
+		name = RCM_border_conflict_won_attacker.1.b
+		trigger = {
+			tag = PRC
+			OR = {
+				FROM.FROM.FROM = {
+					state = 939
+				}
+				FROM.FROM.FROM = {
+					state = 1029
+				}
+			}
+		}
+		if = {
+			limit = {
+				FROM.FROM.FROM = {
+					state = 939
+				}
+			}
+			PRC_border_conflict_NXM_option_second_time = yes
+		    activate_targeted_decision = { target = NXM decision = RCM_border_conflict_prepare_next_offensive }
+		}
+		if = {
+			limit = {
+				FROM.FROM.FROM = {
+					state = 1029
+				}
+			}
+			PRC_border_conflict_NXM_option_937_w_939 = yes
+		    activate_targeted_decision = { target = NXM decision = RCM_border_conflict_prepare_next_offensive_937 }
+		}
+		#set_country_flag = PRC_west_expedition_victory
+		add_political_power = 50
+		add_war_support = .02
+		add_named_threat = { threat = 0.5 name = border_threat }
+		effect_tooltip = { #moved to immediate
+			if = {
+				limit = {
+					check_variable = {
+						FROM.FROM.num_owned_states > 1
+					}
+				}
+				transfer_state = FROM.FROM.FROM
+			}		
+			else = {
+				FROM.FROM = { ROOT = { annex_country = { target = PREV } } }
+			}
+		}
+		custom_effect_tooltip = RCM_buildings_damaged
+		hidden_effect = {
+			FROM.FROM.FROM = {
+				random_list = {
+					60 = { damage_building = { type = arms_factory damage = 0.6 } }
+					30 = { damage_building = { type = arms_factory damage = 0.3 } }
+					10 = { damage_building = { type = industrial_complex damage = 0.9 } }
+				}
+			}
+		}
+	}
+}
+
+add_namespace = RCM_border_conflict_won_defender
+
+country_event = {
+	id = RCM_border_conflict_won_defender.1
+	title = RCM_border_conflict_won_defender.1.t
+	desc = RCM_border_conflict_won_defender.1.desc
+
+	picture = GFX_report_event_chinese_soldiers_mountain
+
+	is_triggered_only = yes
+
+	immediate = {
+		hidden_effect = {
+			save_event_target_as = our_country
+			FROM = {
+				save_event_target_as = our_state
+				clr_state_flag = border_incident_active
+			}
+			FROM.FROM = { save_event_target_as = their_country }
+			FROM.FROM.FROM = {
+				save_event_target_as = their_state
+				clr_state_flag = border_incident_active
+			}
+			set_country_flag = show_effect_tooltips
+			clear_variable = attacker_state_vs_@FROM.FROM
+			clear_variable = defender_state_vs_@FROM.FROM
+			remove_targeted_decision = { target = event_target:their_country decision = RCM_border_conflict_time_until_cancelled }
+		}
+	}
+
+	#Same effect as attacker. Tooltip for their effects
+	option = {
+		name = RCM_border_conflict_won_defender.1.a
+		add_political_power = 150
+		army_experience = 30
+		add_war_support = .05
+		add_doctrine_cost_reduction = {
+                name = defensive_border_conflict_won
+                cost_reduction = 0.5
+                uses = 1
+                category = land_doctrine
+            }
+		if = {
+			limit = { has_country_flag = show_effect_tooltips }
+			event_target:their_country = {
+				effect_tooltip = {
+					add_political_power = -50
+					army_experience = 10
+				}
+			}
+			clr_country_flag = show_effect_tooltips
+		}
+	}
+}
+
+add_namespace = RCM_border_conflict_lost_attacker
+
+country_event = {
+	id = RCM_border_conflict_lost_attacker.1
+	title = RCM_border_conflict_lost_attacker.1.t
+	desc = RCM_border_conflict_lost_attacker.1.desc
+
+	picture = GFX_report_event_dead_soldiers
+
+	is_triggered_only = yes
+
+	immediate = {
+		save_event_target_as = our_country
+		FROM = { save_event_target_as = our_state }
+		FROM.FROM = { save_event_target_as = their_country }
+		FROM.FROM.FROM = { save_event_target_as = their_state }
+		set_country_flag = show_effect_tooltips
+		remove_targeted_decision = { target = event_target:their_country decision = RCM_border_conflict_time_until_cancelled }
+	}
+
+	#Same effect as defender. Tooltip for their effects
+	option = {
+		name = RCM_border_conflict_lost_attacker.1.a
+		add_political_power = -50
+		army_experience = 10
+		add_war_support = -.02
+		if = {
+			limit = {
+				has_country_flag = im_doing_east_conquest_flag
+			}
+			clr_country_flag = im_doing_east_conquest_flag
+			add_manpower = 4000
+			add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = 400
+				producer = SHX
+			}
+			add_equipment_to_stockpile = {
+				type = artillery_equipment
+				amount = 12
+				producer = SHX
+			}
+			custom_effect_tooltip = receive_3k_ammo
+		    add_to_variable = { ammunition_variable = 3 }
+			if = {
+				limit = {
+					622 = {
+						is_owned_and_controlled_by = ROOT
+					}
+				}
+				set_province_name = { id = 13402 name = VICTORY_POINTS_chihtan } 
+				set_global_flag = prc_chihtan_flag
+			}
+		}
+		### ideology loss
+
+		###
+
+		custom_effect_tooltip = RCM_buildings_damaged
+		hidden_effect = {
+			FROM = {
+				random_list = {
+					60 = { damage_building = { type = arms_factory damage = 0.6 } }
+					30 = { damage_building = { type = arms_factory damage = 0.3 } }
+					5 = { damage_building = { type = industrial_complex damage = 0.9 } }
+					5 = { add_manpower = -500 }
+				}
+			}
+		}
+		if = {
+			limit = { has_country_flag = show_effect_tooltips }
+			event_target:their_country = {
+				effect_tooltip = {
+					add_political_power = 150
+					army_experience = 30
+					add_doctrine_cost_reduction = {
+                        name = defensive_border_conflict_won
+                        cost_reduction = 0.5
+                        uses = 1
+                        category = land_doctrine
+                    }
+				}
+			}
+			clr_country_flag = show_effect_tooltips
+		}
+	}
+}
+
+add_namespace = RCM_border_conflict_lost_defender
+
+country_event = {
+	id = RCM_border_conflict_lost_defender.1
+	title = RCM_border_conflict_lost_defender.1.t
+	desc = RCM_border_conflict_lost_defender.1.desc
+
+	picture = GFX_report_event_dead_soldiers
+
+	is_triggered_only = yes
+
+	immediate = {
+		hidden_effect = {
+			save_event_target_as = our_country
+			FROM = {
+				save_event_target_as = our_state
+				clr_state_flag = border_incident_active
+			}
+			FROM.FROM = { save_event_target_as = their_country }
+			FROM.FROM.FROM = {
+				save_event_target_as = their_state
+				clr_state_flag = border_incident_active
+			}
+			set_country_flag = show_effect_tooltips
+			clear_variable = attacker_state_vs_@FROM.FROM
+			clear_variable = defender_state_vs_@FROM.FROM
+			remove_targeted_decision = { target = event_target:their_country decision = RCM_border_conflict_time_until_cancelled }
+		}
+	}
+
+	#Same effect as attacker. Tooltip for their effects
+	option = {
+		name = RCM_border_conflict_lost_defender.1.a
+		if = {
+			limit = { has_country_flag = show_effect_tooltips }
+			effect_tooltip = {
+				add_political_power = 50
+				add_manpower = -500
+				add_war_support = .10
+				FROM.FROM = { transfer_state = event_target:new_conquered_state }
+			}
+			clear_global_event_target = new_conquered_state
+			clr_country_flag = show_effect_tooltips
+		}
+	}
+}
+
+add_namespace = RCM_border_conflict_canceled_attacker
+
+country_event = {
+	id = RCM_border_conflict_canceled_attacker.1
+	title = RCM_border_conflict_canceled_attacker.1.t
+	desc = RCM_border_conflict_canceled_attacker.1.desc
+
+	picture = GFX_report_event_chinese_soldiers_mountain
+
+	is_triggered_only = yes
+
+	immediate = {
+		save_event_target_as = our_country
+		FROM = { save_event_target_as = our_state }
+		FROM.FROM = { save_event_target_as = their_country }
+		FROM.FROM.FROM = { save_event_target_as = their_state }
+		set_country_flag = show_effect_tooltips
+	}
+
+	option = {
+		name = RCM_border_conflict_canceled_attacker.1.a
+		army_experience = 15
+		if = {
+			limit = { has_country_flag = show_effect_tooltips }
+			event_target:their_country = {
+				effect_tooltip = {
+					army_experience = 30
+					add_political_power = 50
+				}
+			}
+			clr_country_flag = show_effect_tooltips
+		}
+	}
+}
+
+add_namespace = RCM_border_conflict_canceled_defender
+
+country_event = {
+	id = RCM_border_conflict_canceled_defender.1
+	title = RCM_border_conflict_canceled_defender.1.t
+	desc = RCM_border_conflict_canceled_defender.1.desc
+
+	picture = GFX_report_event_chinese_soldiers_mountain
+
+	is_triggered_only = yes
+
+	immediate = {
+		hidden_effect = {
+			save_event_target_as = our_country
+			FROM = {
+				save_event_target_as = our_state
+				clr_state_flag = border_incident_active
+			}
+			FROM.FROM = { save_event_target_as = their_country }
+			FROM.FROM.FROM = {
+				save_event_target_as = their_state
+				clr_state_flag = border_incident_active
+			}
+			set_country_flag = show_effect_tooltips
+			clear_variable = attacker_state_vs_@FROM.FROM
+			clear_variable = defender_state_vs_@FROM.FROM
+		}
+	}
+
+	option = {
+		name = RCM_border_conflict_canceled_defender.1.a
+		army_experience = 30
+		add_political_power = 50
+		if = {
+			limit = {
+				has_country_flag = im_doing_east_conquest_flag
+			}
+			clr_country_flag = im_doing_east_conquest_flag
+			add_manpower = 4000
+			add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = 400
+				producer = SHX
+			}
+			add_equipment_to_stockpile = {
+				type = artillery_equipment
+				amount = 12
+				producer = SHX
+			}
+			custom_effect_tooltip = receive_3k_ammo
+		    add_to_variable = { ammunition_variable = 3 }
+			if = {
+				limit = {
+					622 = {
+						is_owned_and_controlled_by = ROOT
+					}
+				}
+				set_province_name = { id = 13402 name = VICTORY_POINTS_chihtan } 
+				set_global_flag = prc_chihtan_flag
+			}
+		}
+		if = {
+			limit = { has_country_flag = show_effect_tooltips }
+			event_target:their_country = {
+				effect_tooltip = {
+					army_experience = 15
+				}
+			}
+			clr_country_flag = show_effect_tooltips
+		}
+	}
+}
+
+add_namespace = RCM_border_incident_defender_warning
+
+country_event = {
+	id = RCM_border_incident_defender_warning.1
+	title = RCM_border_incident_defender_warning.1.t
+	desc = RCM_border_incident_defender_warning.1.desc
+
+	picture = GFX_report_event_chinese_soldiers_mountain
+
+	is_triggered_only = yes
+
+	#Event targets saved
+	#attacker_state
+	#defender_state
+	immediate = {
+		save_event_target_as = our_country
+		FROM = { save_event_target_as = their_country }
+	}
+
+	option = {
+		name = RCM_border_incident_defender_warning.1.a
+	}
+}
+
+add_namespace = RCM_border_conflict_escalation
+
+country_event = {
+	id = RCM_border_conflict_escalation.1
+	title = RCM_border_conflict_escalation.1.t
+	desc = RCM_border_conflict_escalation.1.desc
+
+	picture = GFX_report_event_chinese_soldiers_01
+
+	is_triggered_only = yes
+
+	#Event targets saved
+	#attacker_state
+	#defender_state
+	immediate = {
+		save_event_target_as = our_country
+		FROM = { save_event_target_as = their_country }
+	}
+
+	option = {
+		name = RCM_border_conflict_escalation.1.a
+	}
+}
+
+add_namespace = RCM_border_conflict_escalate_to_war
+
+country_event = {
+	id = RCM_border_conflict_escalate_to_war.1
+	title = RCM_border_conflict_escalate_to_war.1.t
+	desc = RCM_border_conflict_escalate_to_war.1.desc
+
+	picture = GFX_report_event_chinese_soldiers
+
+	is_triggered_only = yes
+
+	#Event targets saved
+	#attacker_state
+	#defender_state
+	immediate = {
+		save_event_target_as = our_country
+		FROM = { save_event_target_as = their_country }
+	}
+
+	option = {
+		name = RCM_border_conflict_escalate_to_war.1.a
+	}
+}

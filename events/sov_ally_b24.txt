@@ -1,0 +1,940 @@
+add_namespace = bbb
+add_namespace = tehran_meeting
+add_namespace = usa_support_sov_defense_war
+
+country_event = {
+	id = usa_support_sov_defense_war.1
+	title = usa_support_sov_defense_war.1.t
+	desc = usa_support_sov_defense_war.1.d
+	
+	fire_only_once = no
+	is_triggered_only = yes
+			
+	option = {
+		name = usa_support_sov_defense_war.1.1
+		ai_chance = { factor = 100 }
+		effect_tooltip = {
+		add_equipment_to_stockpile = {
+						type = infantry_equipment
+						amount = 15000
+						producer = USA
+					}
+                    add_equipment_to_stockpile = {
+				        type = train_equipment
+				        amount = 25
+				        producer = USA
+			        }				
+					add_equipment_to_stockpile = {
+						type = medium_tank_chassis
+						amount = 500
+						producer = USA
+					}
+					add_equipment_to_stockpile = {
+						type = anti_air_equipment
+						amount = 300
+						producer = USA
+					}
+					add_equipment_to_stockpile = {
+						type = anti_tank_equipment
+						amount = 300
+						producer = USA
+					}
+					add_equipment_to_stockpile = {
+						type = artillery_equipment
+						amount = 1500
+						producer = USA
+					}
+					add_equipment_to_stockpile = {#always biggest gap
+						type = support_equipment
+						amount = 1500 #not a typo
+						producer = USA
+					}
+					add_equipment_to_stockpile = {
+						type = motorized_equipment
+						amount = 500
+						producer = USA
+					}
+					add_equipment_to_stockpile = {#always losing air war at this point
+						type = small_plane_airframe
+						amount = 200
+						producer = USA
+					}
+					add_equipment_to_stockpile = {
+						type = convoy
+						amount = 100
+						producer = USA
+					}
+		}
+	}
+	
+}
+
+country_event = {
+	id = bbb.24111
+	title = bbb.24111
+	desc = bbb.24111d
+	#picture = GFX_news_event_generic_sign_treaty3
+	is_triggered_only = yes
+    fire_only_once = yes
+                
+                
+	immediate = {
+
+	}
+	  
+	option = {
+		ai_chance = { factor = 100 }
+		name = bbb.24.111
+                                custom_effect_tooltip = bbb.24.111.a
+		set_faction_name = shijiefanfaxisilianmeng-sulianjituan
+                                #set_rule = { can_only_justify_war_on_threat_country = yes }
+								
+                                set_global_flag = lianheguojiaxuanyan
+								SOV = {							
+diplomatic_relation = {
+	country = USA
+	relation = non_aggression_pact
+	active = yes
+}
+diplomatic_relation = {
+	country = event_target:WTT_current_china_leader
+	relation = non_aggression_pact
+	active = yes
+}
+								}
+								USA = {							
+diplomatic_relation = {
+	country = SOV
+	relation = non_aggression_pact
+	active = yes
+}
+diplomatic_relation = {
+	country = event_target:WTT_current_china_leader
+	relation = non_aggression_pact
+	active = yes
+}
+								}
+								event_target:WTT_current_china_leader = {							
+diplomatic_relation = {
+	country = USA
+	relation = non_aggression_pact
+	active = yes
+}
+diplomatic_relation = {
+	country = SOV
+	relation = non_aggression_pact
+	active = yes
+}
+								}
+								
+								
+hidden_effect = {
+                                news_event = { days = 0 id = news.1000 }
+}
+                                add_ideas = lianheguojiaxuanyan
+								add_political_power = 150
+								add_war_support = 0.1
+								set_country_flag = i_have_opinion_lianheguojiaxuanyan
+								give_guarantee = USA
+give_guarantee = event_target:WTT_current_china_leader
+                                 every_other_country = {
+							limit = {								
+								is_in_faction_with = ROOT
+                                                                                                                                NOT = { has_idea = mon_weibeichengren }                
+							}
+							
+                                                                add_ideas = lianheguojiaxuanyan
+																set_country_flag = i_have_opinion_lianheguojiaxuanyan
+																if = {
+										 limit = { NOT = { has_idea = usa_lend_lease_support } }
+										 add_ideas = usa_lend_lease_support
+										 }
+                                }
+hidden_effect = {
+                                every_other_country = {
+							limit = {
+								OR = {
+									tag = USA
+                                                                                                                                                tag = ENG
+                                                                                                                                                #tag = FRA
+									is_in_faction_with = USA
+                                                                                                                                                
+								}
+							}
+                                           add_ai_strategy = {
+		                                         type = befriend
+		                                         id = SOV
+		                                         value = 100
+	                                       }
+                                           add_ai_strategy = {
+		                                         type = support
+		                                         id = SOV
+		                                         value = 500
+	                                                }
+                                           add_ai_strategy = { #help you in other ways
+		              type = send_lend_lease_desire
+		              id = SOV
+		              value = 500
+	                            }
+                               }
+
+                               every_other_country = {
+							limit = {
+								OR = {
+									TAG = event_target:WTT_current_china_leader
+            TAG = CHI                                                                                                           
+									is_in_faction_with = event_target:WTT_current_china_leader
+                                                                                                                                                
+								}
+							}
+                                           add_ai_strategy = {
+		                                         type = befriend
+		                                         id = SOV
+		                                         value = 100
+	                                                }
+                                           
+                               }
+                               every_country = {
+							limit = {
+								OR = {
+									tag = SOV
+                                                                                                                                                
+									is_in_faction_with = SOV
+                                                                                                                                                
+								}
+							}
+                                           add_ai_strategy = {
+		                                         type = befriend
+		                                         id = USA
+		                                         value = 100
+	                                                }
+                                           add_ai_strategy = {
+		                                         type = befriend
+		                                         id = ENG
+		                                         value = 100
+	                                                }
+                                           add_ai_strategy = {
+		                                         type = befriend
+		                                         id = FRA
+		                                         value = 100
+	                                                }
+                                           add_ai_strategy = {
+		                                         type = befriend
+		                                         id = CHI
+		                                         value = 100
+	                                                }
+                               }
+}
+                               USA = {
+give_guarantee = SOV
+give_guarantee = event_target:WTT_current_china_leader
+                                         set_faction_name = shijiefanfaxisilianmeng-oumeijituan                                                                                                                         
+                              }
+
+
+
+
+hidden_effect = {
+if = {
+				limit = {
+					COS = {
+is_ai = yes
+is_subject = no
+NOT = { has_war_with = USA }		
+	NOT = { has_government = fascism }	
+}	
+				}
+				USA = { add_to_faction = COS }
+COS = {
+                                         add_to_war = {
+					targeted_alliance = USA
+					enemy = GER
+				}
+                                }
+			}
+if = {
+				limit = {
+					CUB = {
+is_ai = yes
+is_subject = no
+NOT = { has_war_with = USA }		
+	NOT = { has_government = fascism }	
+}	
+				}
+				USA = { add_to_faction = CUB }
+CUB = {
+                                         add_to_war = {
+					targeted_alliance = USA
+					enemy = GER
+				}
+                                }
+			}
+if = {
+				limit = {
+					DOM = {
+is_ai = yes
+is_subject = no
+NOT = { has_war_with = USA }		
+	#NOT = { has_government = fascism }	
+}	
+				}
+				USA = { add_to_faction = DOM }
+DOM = {
+                                         add_to_war = {
+					targeted_alliance = USA
+					enemy = GER
+				}
+                                }
+			}
+if = {
+				limit = {
+					ELS = {
+is_ai = yes
+is_subject = no
+NOT = { has_war_with = USA }		
+	#NOT = { has_government = fascism }		
+}	
+				}
+				USA = { add_to_faction = ELS }
+ELS = {
+                                         add_to_war = {
+					targeted_alliance = USA
+					enemy = GER
+				}
+                                }
+			}
+if = {
+				limit = {
+					GUA = {
+is_ai = yes
+is_subject = no
+NOT = { has_war_with = USA }		
+	NOT = { has_government = fascism }
+}	
+				}
+				USA = { add_to_faction = GUA }
+GUA = {
+                                         add_to_war = {
+					targeted_alliance = USA
+					enemy = GER
+				}
+                                }
+			}
+if = {
+				limit = {
+					HON = {
+is_ai = yes
+is_subject = no
+NOT = { has_war_with = USA }		
+	NOT = { has_government = fascism }	
+}	
+				}
+				USA = { add_to_faction = HON }
+HON = {
+                                         add_to_war = {
+					targeted_alliance = USA
+					enemy = GER
+				}
+                                }
+			}
+if = {
+				limit = {
+					NIC = { 
+is_ai = yes
+is_subject = no
+NOT = { has_war_with = USA }		
+	NOT = { has_government = fascism }
+}	
+				}
+				USA = { add_to_faction = NIC }
+NIC = {
+                                         add_to_war = {
+					targeted_alliance = USA
+					enemy = GER
+				}
+                                }
+			}
+if = {
+				limit = {
+					PAN = {
+is_ai = yes
+is_subject = no
+NOT = { has_war_with = USA }		
+	NOT = { has_government = fascism }	
+}	
+				}
+				USA = { add_to_faction = PAN }
+PAN = {
+                                         add_to_war = {
+					targeted_alliance = USA
+					enemy = GER
+				}
+                                }
+			}
+if = {
+				limit = {
+					HAI = {
+is_ai = yes
+is_subject = no
+NOT = { has_war_with = USA }		
+	NOT = { has_government = fascism }
+}	
+				}
+				USA = { add_to_faction = HAI }
+HAI = {
+                                         add_to_war = {
+					targeted_alliance = USA
+					enemy = GER
+				}
+                                }
+			}
+
+
+
+}
+
+
+
+
+
+
+
+
+
+                              event_target:WTT_current_china_leader = {
+give_guarantee = USA
+give_guarantee = SOV
+                                         set_faction_name = shijiefanfaxisilianmeng-zhongguojituan
+										 hidden_effect = {
+										 add_political_power = 150
+								add_war_support = 0.1
+								}
+                              }
+
+                              every_other_country = {
+							limit = {	
+                                                                                                                           																
+                                  OR = {
+            TAG = event_target:WTT_current_china_leader
+            TAG = CHI
+            }                                                                                                  
+									
+																
+							}
+                                           add_ideas = lianheguojiaxuanyan
+										   set_country_flag = i_have_opinion_lianheguojiaxuanyan
+										   if = {
+										 limit = { NOT = { has_idea = usa_lend_lease_support } }
+										 add_ideas = usa_lend_lease_support
+										 }
+                               }
+                              every_other_country = {
+							limit = {
+								OR = {
+									tag = USA
+                                                                                                                                                tag = ENG
+                                                                                                                                                #tag = FRA
+									is_in_faction_with = USA                                                                                                                                             
+								}
+                                    NOT = {
+tag = NEP
+tag = BHU
+tag = OMA
+tag = YEM
+tag = SAR
+tag = MAL
+tag = SST
+tag = BOR
+tag = INS
+tag = DEN
+
+                                    }
+
+							}
+                                                                add_ideas = lianheguojiaxuanyan
+																set_country_flag = i_have_opinion_lianheguojiaxuanyan
+																if = {
+										 limit = { 
+										 NOT = { has_idea = usa_lend_lease_support }
+										 NOT = { TAG = USA }
+										 }										
+										 add_ideas = usa_lend_lease_support
+										 }
+                               }
+							   
+							   hidden_effect = {
+							   						  
+
+							   every_country = {
+limit = {
+has_country_flag = i_have_opinion_lianheguojiaxuanyan
+NOT = { TAG = SOV }
+}
+				add_opinion_modifier = {
+					target = SOV
+					modifier = anti_facism_league
+				}
+			}
+			
+			every_country = {
+limit = {
+has_country_flag = i_have_opinion_lianheguojiaxuanyan
+NOT = { TAG = USA }
+}
+				add_opinion_modifier = {
+					target = USA
+					modifier = anti_facism_league
+				}
+			}
+			
+			every_country = {
+limit = {
+has_country_flag = i_have_opinion_lianheguojiaxuanyan
+NOT = { TAG = CHI }
+NOT = { TAG = event_target:WTT_current_china_leader }
+}
+				add_opinion_modifier = {
+					target = event_target:WTT_current_china_leader
+					modifier = anti_facism_league
+				}
+			}
+			
+			every_country = {
+limit = {
+has_country_flag = i_have_opinion_lianheguojiaxuanyan
+NOT = { TAG = ENG }
+}
+				add_opinion_modifier = {
+					target = ENG
+					modifier = anti_facism_league
+				}
+			}
+			
+			every_country = {
+limit = {
+has_country_flag = i_have_opinion_lianheguojiaxuanyan
+}
+
+                USA = {
+				add_opinion_modifier = {
+					target = PREV
+					modifier = anti_facism_league
+				}
+				
+				}
+				
+				ENG = {
+				add_opinion_modifier = {
+					target = PREV
+					modifier = anti_facism_league
+				}
+				
+				}
+				
+				event_target:WTT_current_china_leader = {
+				add_opinion_modifier = {
+					target = PREV
+					modifier = anti_facism_league
+				}
+				
+				}
+				
+				SOV = {
+				add_opinion_modifier = {
+					target = PREV
+					modifier = anti_facism_league
+				}
+				
+				}
+				
+			}
+		}	
+	}
+
+	option = {
+		ai_chance = { factor = 0 }
+		name = bbb.24.222
+		
+		if = {
+		limit = { surrender_progress > 0.25 }
+                                custom_effect_tooltip = bbb.24.2.bb
+                                add_ideas = dulizuozhan
+                                add_war_support = -0.25
+                                add_stability = -0.25
+                                add_political_power = -350
+if = {
+limit = { has_government = communism }
+                                add_popularity = {
+                                                           ideology = communism
+                                                           popularity = -0.25
+                                }
+                                add_popularity = {
+                                                           ideology = democratic  
+                                                           popularity = 0.1
+                                }
+                                add_popularity = {
+                                                           ideology = fascism  
+                                                           popularity = 0.1
+                                }
+}
+
+hidden_effect = {
+                                every_other_country = {
+							limit = {
+								OR = {
+									tag = USA
+                                                                                                                                                tag = ENG
+                                                                                                                                                #tag = FRA
+									is_in_faction_with = USA
+                                                                                                                                                
+								}
+							}
+                                           add_ai_strategy = {
+		                                         type = antagonize
+		                                         id = SOV
+		                                         value = 50
+	                                                }
+                                           add_ai_strategy = {
+		                                         type = support
+		                                         id = SOV
+		                                         value = -9999
+	                                                }
+                                           add_ai_strategy = { #help you in other ways
+		              type = send_lend_lease_desire
+		              id = SOV
+		              value = -9999
+	                            }
+                               }
+}
+                }       
+}		
+
+}
+
+
+country_event = {#eng
+	id = tehran_meeting.1
+	title = tehran_meeting.1.t
+	desc = tehran_meeting.1.d
+	
+	fire_only_once = yes
+	is_triggered_only = yes
+			
+	option = {
+		name = tehran_meeting.1.1
+		ai_chance = { factor = 100 }
+		
+	}
+	
+}
+
+country_event = {#sov
+	id = tehran_meeting.2
+	title = tehran_meeting.2.t
+	desc = tehran_meeting.2.d
+	
+	fire_only_once = yes
+	is_triggered_only = yes
+			
+	option = {
+		name = tehran_meeting.2.1
+		ai_chance = { factor = 100 }
+		
+	}
+	
+}
+
+country_event = {#dierzhanchang(trigger)
+	id = tehran_meeting.3
+	title = tehran_meeting.3.t
+	desc = tehran_meeting.3.d
+	trigger = {
+	15 = { controller = { has_war_with = ROOT } }
+    16 = { controller = { has_war_with = ROOT } }
+	GER = { surrender_progress < 0.05 } 
+	}
+	fire_only_once = yes
+	is_triggered_only = yes
+			
+	option = {
+		name = tehran_meeting.3.1
+		ai_chance = { factor = 100 }
+		set_global_flag = ally_prepare_for_overlord
+		every_country = {
+		limit = {
+		is_in_faction_with = ROOT
+		OR = {
+		tag = USA
+		tag = ENG
+		tag = CAN
+		tag = FRA
+		tag = POL		
+		}
+		}
+		add_timed_idea = {
+                 idea = ally_prepare_for_overlord
+                 days = 240
+             }
+		}	 
+		add_political_power = -25
+	}
+	option = {
+		name = tehran_meeting.3.2
+		ai_chance = { factor = 0 }
+		set_global_flag = ally_ready_for_overlord	
+		every_country = {
+		limit = {
+		is_in_faction_with = ROOT
+		OR = {
+		tag = USA
+		tag = ENG
+		tag = CAN
+		tag = FRA
+		tag = POL		
+		}
+		}
+		add_timed_idea = {
+                 idea = ally_ready_for_overlord
+                 days = 120
+             }
+		}
+		
+		add_political_power = 50
+	}
+}
+
+country_event = {#lianheguo all tooltip(same)
+	id = tehran_meeting.4
+	title = tehran_meeting.4.t
+	desc = tehran_meeting.4.d
+	
+	fire_only_once = no
+	is_triggered_only = yes
+			
+	option = {
+		name = tehran_meeting.4.1
+		ai_chance = { factor = 100 }
+		add_political_power = 20
+	}
+	
+}
+
+country_event = {#chuzhideguo all tooltip(same)
+	id = tehran_meeting.5
+	title = tehran_meeting.5.t
+	desc = tehran_meeting.5.d
+	
+	fire_only_once = no
+	is_triggered_only = yes
+			
+	option = {
+		name = tehran_meeting.5.1
+		ai_chance = { factor = 100 }
+		if = {
+		limit = {
+		tag = SOV
+		}
+		custom_effect_tooltip = sov_maybe_quicker_germany
+		}
+		add_political_power = 20
+	}
+	
+}
+
+country_event = {#dierzhanchang all tooltip(different)(trigger)
+	id = tehran_meeting.55
+	title = tehran_meeting.55.t
+	
+	desc = {
+		text = tehran_meeting.55.d1
+		trigger = {
+			
+			has_global_flag = ally_prepare_for_overlord 
+			
+			
+		}
+	}
+	desc = {
+		text = tehran_meeting.55.d2
+		trigger = {
+			
+			has_global_flag = ally_ready_for_overlord
+			
+			
+		}
+	}
+	trigger = {
+	15 = { controller = { has_war_with = ROOT } }
+    16 = { controller = { has_war_with = ROOT } }
+	GER = { surrender_progress < 0.05 } 
+	}
+	fire_only_once = no
+	is_triggered_only = yes
+			
+	option = {
+		name = tehran_meeting.55.1
+		ai_chance = { factor = 100 }
+		trigger = {
+			tag = SOV
+			has_global_flag = ally_prepare_for_overlord 
+			
+			
+		}
+		add_political_power = 20
+	}
+	option = {
+		name = tehran_meeting.55.2
+		ai_chance = { factor = 100 }
+		trigger = {
+		OR = {
+		    tag = USA
+			tag = ENG
+			}
+			has_global_flag = ally_prepare_for_overlord 
+			
+			
+		}
+		add_political_power = 20
+		every_country = {
+		limit = {
+		is_in_faction_with = ROOT
+		OR = {
+		tag = USA
+		tag = ENG
+		tag = CAN
+		tag = FRA
+		tag = POL		
+		}
+		}
+		add_timed_idea = {
+                 idea = ally_prepare_for_overlord
+                 days = 240
+             }
+		}
+	}
+	option = {
+		name = tehran_meeting.55.3
+		ai_chance = { factor = 100 }
+		trigger = {
+			tag = SOV
+			has_global_flag = ally_ready_for_overlord 
+			
+			
+		}
+		add_political_power = 20
+	}
+	option = {
+		name = tehran_meeting.55.4
+		ai_chance = { factor = 100 }
+		trigger = {
+			OR = {
+		    tag = USA
+			tag = ENG
+			}
+			has_global_flag = ally_ready_for_overlord 
+			
+			
+		}
+		add_political_power = 20
+		every_country = {
+		limit = {
+		is_in_faction_with = ROOT
+		OR = {
+		tag = USA
+		tag = ENG
+		tag = CAN
+		tag = FRA
+		tag = POL		
+		}
+		}
+		add_timed_idea = {
+                 idea = ally_ready_for_overlord
+                 days = 120
+             }
+		}
+	}
+}
+
+country_event = { #bolanwenti all tooltip(same)(trigger)
+	id = tehran_meeting.6
+	title = tehran_meeting.6.t
+	desc = tehran_meeting.6.d
+	trigger = {
+	POL = {
+	has_war_with = GER
+	is_in_faction_with = ENG
+	has_capitulated = yes 
+	}
+	}
+	fire_only_once = no
+	is_triggered_only = yes
+			
+	option = {
+		name = tehran_meeting.6.1
+		ai_chance = { factor = 100 }
+		trigger = {
+			
+			tag = SOV
+			 
+			
+			
+		}
+		784 = { remove_core_of = POL }
+		96 = { remove_core_of = POL }
+		95 = { remove_core_of = POL }
+		94 = { remove_core_of = POL }
+		93 = { remove_core_of = POL }
+		91 = { remove_core_of = POL }
+		89 = { remove_core_of = POL }
+		#97 = { remove_core_of = POL }
+		#97 = { add_core_of = SOV }
+		97 = { remove_claim_by = SOV }
+		784 = { add_core_of = SOV }
+		96 = { add_core_of = SOV }
+		95 = { add_core_of = SOV }
+		94 = { add_core_of = SOV }
+		93 = { add_core_of = SOV }
+		91 = { add_core_of = SOV }
+		89 = { add_core_of = SOV }
+		add_political_power = 20
+	}
+	option = {
+		name = tehran_meeting.6.2
+		ai_chance = { factor = 100 }
+		trigger = {
+			OR = {
+		    tag = USA
+			tag = ENG
+			}
+			
+			
+			
+		}
+		add_political_power = 20
+	}
+	
+}
+
+country_event = {#duirizuozhan all tooltip(same)(trigger)
+	id = tehran_meeting.7
+	title = tehran_meeting.7.t
+	desc = tehran_meeting.7.d
+	trigger = {
+	JAP = {
+	has_war_with = USA
+	has_war_with = event_target:WTT_current_china_leader
+	surrender_progress < 0.05
+	NOT = { has_war_with = SOV }
+	}
+	}
+	fire_only_once = no
+	is_triggered_only = yes
+			
+	option = {
+		name = tehran_meeting.7.1
+		ai_chance = { factor = 100 }
+		
+		add_political_power = 20
+	}
+	
+}

@@ -1,0 +1,112 @@
+﻿###########################
+# Chinese Events BORDER WARS ADDED SOUTHERN SHAANXI #ID = 744#
+###########################
+
+add_namespace = puppet_transfer
+
+# puppet_transfer on annex
+country_event = {
+	id = puppet_transfer.1
+	hidden = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		log = "[GetDateText]: [Root.GetName]: event puppet_transfer.1"
+		FROM = {
+			country_event = { id = puppet_transfer.2 }
+		}
+	}
+	option = {
+	}
+}
+country_event = {
+	id = puppet_transfer.2
+	hidden = yes
+	is_triggered_only = yes
+	immediate = {
+		log = "[GetDateText]: [Root.GetName]: event puppet_transfer.2"
+		FROM = {
+			if = {
+				limit = {
+					tag = event_target:WTT_communist_china
+				}
+				every_other_country = {
+					limit = {
+						OR = {
+							is_literally_china = yes
+							has_war_with = JAP
+						}
+						NOT = {
+							has_government = communism
+						}
+					}
+					country_event = {
+						days = 1 id = prc.7 #oh no!
+					}
+				}
+			}
+			country_event = {
+				id = prc.6 #Kill THE HANJIAN!
+			}
+		}
+	}
+	option = {
+	}
+}
+country_event = {
+	id = puppet_transfer.3
+	hidden = yes
+	is_triggered_only = yes
+	immediate = {
+		log = "[GetDateText]: [Root.GetName]: event puppet_transfer.3"
+		FROM = {
+			country_event = { id = puppet_transfer.4 }
+		}
+	}
+	option = {
+	}
+}
+country_event = {
+	id = puppet_transfer.4
+	hidden = yes
+	is_triggered_only = yes
+	immediate = {
+		log = "[GetDateText]: [Root.GetName]: event puppet_transfer.4"
+		FROM = {
+			if = {
+				limit = {
+					OR = {
+						is_originally_warlord = yes
+						tag = event_target:WTT_current_china_leader
+					}
+				}
+			}
+			country_event = {
+				days = 1 id = prc.7 #oh no!
+			}
+		}
+		event_target:WTT_communist_china = {
+			country_event = {
+				hours = 4 id = prc.8 #Kill THE HANJIAN!(Remotely cuz I can)
+			}
+		}
+	}
+	option = {
+	}
+}
+#subject capped
+country_event = {
+	id = puppet_transfer.5
+	hidden = yes
+	is_triggered_only = yes
+	immediate = {
+		log = "[GetDateText]: [Root.GetName]: event puppet_transfer.5"
+		JAP = {
+			country_event = {
+				id = rcmjapan.1000
+			}
+		}
+	}
+	option = {
+	}
+}

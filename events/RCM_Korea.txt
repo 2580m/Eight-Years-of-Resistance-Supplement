@@ -1,0 +1,156 @@
+﻿########KOREA FORMS###########################################################
+# SOV notified USA southern influence
+add_namespace = RCM_KOR_country_formation
+country_event = {
+	id = RCM_KOR_country_formation.1
+	title = RCM_KOR_country_formation.1.t
+	desc = RCM_KOR_country_formation.1.desc
+	picture = GFX_report_event_japanese_soldiers_02
+	is_triggered_only = yes
+	option = { # Agree
+		name = RCM_KOR_country_formation.1.a
+		set_country_flag = USA_is_setting_up_government_in_korea_flag
+		unlock_decision_tooltip = SOV_set_up_military_government_in_korea
+	}
+}
+
+# south forms
+country_event = {
+	id = RCM_KOR_country_formation.2
+	title = RCM_KOR_country_formation.2.t
+	desc = RCM_KOR_country_formation.2.desc
+	picture = GFX_report_event_chinese_army_training
+	is_triggered_only = yes
+	#immediate = {
+	#	hidden_effect = {
+	#		form_south_korea = yes
+	#	}
+	#}
+	option = { # Agree
+		name = RCM_KOR_country_formation.2.a
+		#effect_tooltip = {
+			form_south_korea = yes
+		#}	
+	}
+}
+
+# KOR notices USA set up MG
+country_event = {
+	id = RCM_KOR_country_formation.3
+	title = RCM_KOR_country_formation.3.t
+	desc = RCM_KOR_country_formation.3.desc
+	picture = GFX_report_event_japanese_soldiers_02
+	is_triggered_only = yes
+	option = {
+		name = RCM_KOR_country_formation.3.a
+	}
+}
+
+# north forms
+country_event = {
+	id = RCM_KOR_country_formation.4
+	title = RCM_KOR_country_formation.4.t
+	desc = RCM_KOR_country_formation.4.desc
+	picture = GFX_report_event_german_detained_china
+
+	is_triggered_only = yes
+	#immediate = {
+	#	hidden_effect = {
+	#		form_north_korea = yes
+	#	}
+	#}
+	option = {
+		name = RCM_KOR_country_formation.4.a
+		#effect_tooltip = {
+		form_north_korea = yes
+		#}
+	}
+}
+# CHICOM notices north is about to form
+country_event = {
+	id = RCM_KOR_country_formation.5
+	title = RCM_KOR_country_formation.5.t
+	desc = RCM_KOR_country_formation.5.desc
+	picture = GFX_report_event_japanese_soldiers_02
+
+	is_triggered_only = yes
+
+	option = {
+		name = RCM_KOR_country_formation.5.a
+	}
+	#option = { # Withdraw from the Anti-Comintern Pact
+	#	name = RCM_KOR_country_formation.5.b
+	#}
+}
+
+# USA notices north is about to form
+country_event = {
+	id = RCM_KOR_country_formation.6
+	title = RCM_KOR_country_formation.6.t
+	desc = RCM_KOR_country_formation.6.desc
+	picture = GFX_report_event_japanese_soldiers_02
+	is_triggered_only = yes
+	option = {
+		name = RCM_KOR_country_formation.6.a
+	}
+}
+# KOR notices north is about to form
+country_event = {
+	id = RCM_KOR_country_formation.7
+	title = RCM_KOR_country_formation.7.t
+	desc = RCM_KOR_country_formation.7.desc
+	picture = GFX_report_event_japanese_soldiers_02
+	is_triggered_only = yes
+	option = {
+		name = RCM_KOR_country_formation.7.a
+	}
+}
+
+# USA notified south success
+country_event = {
+	id = RCM_KOR_country_formation.8
+	title = RCM_KOR_country_formation.8.t
+	desc = RCM_KOR_country_formation.8.desc
+	picture = GFX_report_event_bul_boris_military
+	is_triggered_only = yes
+	option = {
+		name = RCM_KOR_country_formation.8.a
+	}
+}
+
+#SOV notified north success
+country_event = {
+	id = RCM_KOR_country_formation.9
+	title = RCM_KOR_country_formation.9.t
+	desc = RCM_KOR_country_formation.9.desc
+	picture = GFX_report_event_bul_boris_military
+	is_triggered_only = yes
+	option = {
+		name = RCM_KOR_country_formation.9.a
+	}
+}
+
+#USA notified SOV expansion #.1 alt
+country_event = {
+	id = RCM_KOR_country_formation.11
+	title = RCM_KOR_country_formation.11.t
+	desc = RCM_KOR_country_formation.11.desc
+	picture = GFX_report_event_japanese_soldiers_02
+	is_triggered_only = yes
+	option = { # Agree
+		name = RCM_KOR_country_formation.1.a
+		set_country_flag = SOV_is_setting_up_government_in_korea_flag
+		unlock_decision_tooltip = USA_set_up_military_government_in_korea
+	}
+}
+# SOV notices south is about to form #.6 alt
+country_event = {
+	id = RCM_KOR_country_formation.12
+	title = RCM_KOR_country_formation.12.t
+	desc = RCM_KOR_country_formation.12.desc
+	picture = GFX_report_event_japanese_soldiers_02
+	is_triggered_only = yes
+	option = {
+		name = RCM_KOR_country_formation.12.a
+	}
+}

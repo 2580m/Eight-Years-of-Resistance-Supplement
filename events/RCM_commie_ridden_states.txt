@@ -1,0 +1,193 @@
+﻿###########################
+# Chinese Events COMMIE RIDDEN STATES BORDER WAR SETTING (the yellow lines) TODO: MAKE THIS ON DAILY
+###########################
+add_namespace = borderwar_news
+news_event = {
+	id = borderwar_news.1
+	hidden = yes
+	#is_triggered_only = yes
+	trigger = {
+		any_of_scopes = {
+			array = global.big_china
+			THIS = {
+				OR = {
+					is_north_china_state_for_liberation = yes
+					is_MAN_state_for_liberation = yes
+				}
+				has_state_flag = commie_ridden_states
+				NOT = {
+					has_state_flag = i_cracked_down_you
+				}
+			}
+		}
+		NOT = {
+			has_country_flag = border_war_marker
+		}
+	}
+	mean_time_to_happen = {
+		days = 2
+	}
+	immediate = {
+		hidden_effect = {
+			for_each_scope_loop = {
+				array = global.big_china
+				THIS = {
+					if = {
+						limit = {
+							OR = {
+								is_north_china_state_for_liberation = yes
+								is_MAN_state_for_liberation = yes
+							}
+							has_state_flag = commie_ridden_states
+							OR = {
+								controller = {
+									NOT = {
+										OR = {
+											tag = PRC
+											has_government = communism
+											#has_government = n_socialism
+										}
+									}
+								}
+								owner = {
+									NOT = {
+										OR = {
+											tag = PRC
+											has_government = communism
+											#has_government = n_socialism
+										}
+									}
+								}
+							}
+						}
+						set_border_war = yes
+					}
+				}
+			}
+			#old code
+			#every_state = {
+			#	limit = {
+			#		OR = {
+			#			is_north_china_state_for_liberation = yes
+			#			is_MAN_state_for_liberation = yes
+			#		}
+			#		has_state_flag = commie_ridden_states
+			#		OR = {
+			#			controller = {
+			#				NOT = {
+			#					OR = {
+			#						tag = PRC
+			#						has_government = communism
+			#						has_government = n_socialism
+			#					}
+			#				}
+			#			}
+			#			owner = {
+			#				NOT = {
+			#					OR = {
+			#						tag = PRC
+			#						has_government = communism
+			#						has_government = n_socialism
+			#					}
+			#				}
+			#			}
+			#		}
+			#	}
+			#	set_border_war = yes
+			#}
+			for_each_scope_loop = {
+				array = global.big_china
+				THIS = {
+					if = {
+						limit = {
+							is_border_conflict = yes
+							has_state_flag = commie_ridden_states
+							OR = {
+								NOT = {
+									OR = {
+										OR = {
+											is_north_china_state_for_liberation = yes
+											is_MAN_state_for_liberation = yes
+										}
+										has_state_flag = commie_ridden_states
+									}
+								}
+								controller = {
+									has_full_control_of_state = PREV
+									OR = {
+										tag = PRC
+										has_government = communism
+										#has_government = n_socialism
+									}
+								}
+								owner = {
+									OR = {
+										tag = PRC
+										has_government = communism
+										#has_government = n_socialism
+									}
+								}
+							}
+						}
+						clr_state_flag = commie_ridden_states
+						set_border_war = no
+					}
+				}
+			}
+			#old code
+			#every_state = {
+			#	limit = {
+			#		is_border_conflict = yes
+			#		has_state_flag = commie_ridden_states
+			#		OR = {
+			#			NOT = {
+			#				OR = {
+			#					OR = {
+			#						is_north_china_state_for_liberation = yes
+			#						is_MAN_state_for_liberation = yes
+			#					}
+			#					has_state_flag = commie_ridden_states
+			#				}
+			#			}
+			#			controller = {
+			#				has_full_control_of_state = PREV
+			#				OR = {
+			#					tag = PRC
+			#					has_government = communism
+			#					has_government = n_socialism
+			#				}
+			#			}
+			#			owner = {
+			#				OR = {
+			#					tag = PRC
+			#					has_government = communism
+			#					has_government = n_socialism
+			#				}
+			#			}
+			#		}
+			#	}
+			#	clr_state_flag = commie_ridden_states
+			#	set_border_war = no
+			#}
+			set_country_flag = border_war_marker
+			news_event = {
+				days = 1 id = borderwar_news.2
+			}
+		}
+	}
+	option = {
+	}
+}
+news_event = {
+	id = borderwar_news.2
+	hidden = yes
+	is_triggered_only = yes
+	#mean_time_to_happen = {
+	#	days = 0
+	#}
+	immediate = {
+		clr_country_flag = border_war_marker
+	}
+	option = {
+	}
+}

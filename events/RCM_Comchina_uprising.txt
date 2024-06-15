@@ -1,0 +1,492 @@
+###########################
+# Chinese Events
+###########################
+
+add_namespace = RCM_communist_uprising
+#state event triggered upon uprising/infiltrate
+state_event = {
+	id = RCM_communist_uprising.1
+	title = RCM_communist_uprising.1.t
+	desc = RCM_communist_uprising.1.d
+
+
+	picture = GFX_report_event_chinese_soldiers_01
+	hidden = no
+	is_triggered_only = yes
+	fire_only_once = no
+	immediate = {
+	}
+
+
+	option = {
+		name = RCM_communist_uprising.1.a
+		trigger = {
+			owner = {
+				tag = event_target:WTT_communist_china
+			}
+		}
+	}
+	option = {
+		name = RCM_communist_uprising.1.b
+		trigger = {
+			owner = {
+				NOT = {
+					tag = event_target:WTT_communist_china
+				}
+			}
+		}
+	}
+}
+
+country_event = {
+	id = RCM_communist_uprising.2
+	title = RCM_communist_uprising.2.t
+	desc = {
+		text = RCM_communist_uprising.2.d
+		trigger = {
+			tag = event_target:WTT_communist_china
+		}
+	}
+	desc = {
+		text = RCM_communist_uprising.2.d_CHI
+		trigger = {
+			NOT = {
+				tag = event_target:WTT_communist_china
+			}
+		}
+	}
+
+	picture = GFX_report_event_chinese_soldiers_01
+	hidden = no
+	is_triggered_only = yes
+	fire_only_once = no
+	immediate = {
+		#
+	}
+
+
+	option = {
+		name = RCM_communist_uprising.2.a
+		trigger = {
+			tag = event_target:WTT_communist_china
+		}
+	}
+	option = {
+		name = RCM_communist_uprising.2.b
+		trigger = {
+			NOT = {
+				tag = event_target:WTT_communist_china
+			}
+		}
+
+	}
+}
+state_event = {
+	id = RCM_communist_uprising.3
+	title = RCM_communist_uprising.3.t
+	desc = {
+		text = RCM_communist_uprising.3.d
+		trigger = {
+			OWNER = {
+				tag = event_target:WTT_communist_china
+			}
+		}
+	}
+	desc = {
+		text = RCM_communist_uprising.3.d_CHI
+		trigger = {
+			OWNER = {
+				NOT = {
+					TAG = event_target:WTT_communist_china
+				}
+			}
+		}
+	}
+	is_triggered_only = yes
+	immediate = {
+		hidden_effect = {
+			OWNER = {
+				every_country = {
+					limit = {
+						OR = {
+							AND = {
+								var:ROOT.controller = {
+									OR = {
+										is_subject_of = JAP
+										tag = JAP
+									}
+								}
+								#OR = { #commented out cause less spam
+								#is_subject_of = JAP
+								tag = JAP
+								#}
+							}
+							AND = {
+								var:ROOT.controller = {
+									OR = {
+										AND = {
+											is_in_faction_with = event_target:WTT_current_china_leader
+											has_war_together_with = event_target:WTT_current_china_leader
+										}
+										tag = event_target:WTT_current_china_leader
+									}
+								}
+								NOT = {
+									has_country_flag = cooperation_with_communist_flag
+								}
+								OR = {
+									AND = {
+										is_in_faction_with = event_target:WTT_current_china_leader
+										has_war_together_with = event_target:WTT_current_china_leader
+									}
+									tag = event_target:WTT_current_china_leader
+								}
+							}
+						}
+					}
+					country_event = RCM_communist_uprising_country.2
+				}
+			}
+		}
+	}
+	picture = GFX_report_event_china_flag
+	#fire_only_once = yes
+	option = { #OH YEA! #b is great
+		name = RCM_communist_uprising.3.b
+		#trigger = {
+		#	owner = {
+		#		NOT =
+		#	}
+		#}
+		effect_tooltip = {
+			THIS = {
+				set_border_war = no
+			}
+		}
+	}
+	#option = { #OH NO!
+	#	name = RCM_communist_uprising_country.3.b
+	#	trigger = {
+	#		owner = {
+	#			TAG = event_target:WTT_communist_china
+	#		}
+	#	}
+	#}
+}
+
+#VANSALISM
+country_event = {
+	id = RCM_communist_uprising.4
+	title = RCM_communist_uprising.4.t
+	desc = {
+		text = RCM_communist_uprising.4.d
+		trigger = {
+			tag = event_target:WTT_communist_china
+		}
+	}
+	desc = {
+		text = RCM_communist_uprising.4.d_CHI
+		trigger = {
+			NOT = {
+				TAG = event_target:WTT_communist_china
+			}
+		}
+	}
+	is_triggered_only = yes
+	immediate = {
+		hidden_effect = {
+			if = {
+				limit = {
+					tag = event_target:WTT_communist_china
+				}
+				set_country_flag = sabotaging_in_progress_flag #prevent multiple clicking when the event pops up
+			}
+		}
+	}
+	picture = GFX_report_event_chinese_soldiers_city_ruin
+	#fire_only_once = yes
+	option = { #OH NO!(to JAP and pups)
+		name = RCM_communist_uprising_country.4.a
+		trigger = {
+			OR = {
+				is_subject_of = JAP
+				tag = JAP
+			}
+		}
+		effect_tooltip = {
+			From.From = {
+				vandalize_this_state = yes
+			}
+		}
+	}
+	option = { #OH YEA!(to PRC)
+		name = RCM_communist_uprising_country.4.b
+		trigger = {
+			tag = event_target:WTT_communist_china
+		}
+		clr_country_flag = sabotaging_in_progress_flag
+		From.From = {
+			vandalize_this_state = yes
+		}
+	}
+}
+#communist attack #guo
+country_event = {
+	id = RCM_communist_uprising.6
+	title = RCM_communist_uprising.6.t
+	desc = {
+		text = RCM_communist_uprising.6.d
+		trigger = {
+			tag = event_target:WTT_communist_china
+		}
+	}
+	desc = {
+		text = RCM_communist_uprising.6.d_CHI
+		trigger = {
+			NOT = {
+				TAG = event_target:WTT_communist_china
+			}
+		}
+	}
+	is_triggered_only = yes
+	immediate = {
+		hidden_effect = {
+			if = {
+				limit = {
+					tag = event_target:WTT_communist_china
+				}
+				set_country_flag = attacking_in_progress_flag #prevent multiple clicking when the event pops up
+			}
+		}
+	}
+	picture = GFX_report_event_chinese_soldiers_city_ruin
+	#fire_only_once = yes
+	option = { #OH NO!(to JAP and pups)
+		name = RCM_communist_uprising.6.a
+		trigger = {
+			OR = {
+				is_subject_of = JAP
+				tag = JAP
+			}
+		}
+				#none
+				if = {
+				limit = {
+					not = { has_global_flag = PRC_Breaking_operations_flag has_global_flag = PRC_Block_enemy_flag }
+				}
+					custom_effect_tooltip = damage_units_jap_tt
+				}
+				
+				#PRC_Breaking_operations_flag
+				if = {
+				limit = {
+					has_global_flag = PRC_Breaking_operations_flag not = { has_global_flag = PRC_Block_enemy_flag }
+				}
+					custom_effect_tooltip = damage_units_jap_tt_2
+				}
+				
+				#PRC_Block_enemy_flag
+				if = {
+				limit = {
+					has_global_flag = PRC_Block_enemy_flag
+				}
+					custom_effect_tooltip = damage_units_jap_tt_3
+				}
+	}
+	option = { #OH YEA!(to PRC)
+		name = RCM_communist_uprising.6.b
+		trigger = {
+			tag = event_target:WTT_communist_china
+		}
+		clr_country_flag = attacking_in_progress_flag
+		
+				#none
+				if = {
+				limit = {
+					not = { has_global_flag = PRC_Breaking_operations_flag has_global_flag = PRC_Block_enemy_flag }
+				}
+					custom_effect_tooltip = damage_units_prc_tt
+				}
+				
+				#PRC_Breaking_operations_flag
+				if = {
+				limit = {
+					has_global_flag = PRC_Breaking_operations_flag not = { has_global_flag = PRC_Block_enemy_flag }
+				}
+					custom_effect_tooltip = damage_units_prc_tt_2
+				}
+				
+				#PRC_Block_enemy_flag
+				if = {
+				limit = {
+					has_global_flag = PRC_Block_enemy_flag
+				}
+					custom_effect_tooltip = damage_units_prc_tt_3
+				}
+		
+		hidden_effect = {
+		  every_state ={
+			clr_state_flag = attack_this_state_flag
+		  }
+		}
+		#From.From = {
+		#	attack_this_state = yes
+		#}
+	}
+}
+
+
+
+add_namespace = RCM_communist_uprising_country
+country_event = {
+	id = RCM_communist_uprising_country.1
+	title = RCM_communist_uprising_country.1.t
+	desc = RCM_communist_uprising.1.d_CHI
+	picture = GFX_report_event_chinese_soldiers_01
+	hidden = no
+	trigger = {
+		NOT = {
+			tag = event_target:WTT_communist_china
+		}
+		is_in_faction_with = event_target:WTT_current_china_leader
+	}
+
+	is_triggered_only = yes
+	fire_only_once = no
+	immediate = {
+		#
+		set_country_flag = i_have_been_notified
+	}
+
+	option = {
+		name = RCM_communist_uprising.1.a
+		trigger = {
+			tag = event_target:WTT_communist_china
+		}
+	}
+	option = {
+		name = RCM_communist_uprising.1.b
+		trigger = {
+			NOT = {
+				tag = event_target:WTT_communist_china
+			}
+		}
+	}
+
+}
+#crack down
+country_event = {
+	id = RCM_communist_uprising_country.2
+	title = RCM_communist_uprising_country.2.t
+	desc = {
+		text = RCM_communist_uprising_country.2.d
+		trigger = {
+			tag = event_target:WTT_communist_china
+		}
+	}
+	desc = {
+		text = RCM_communist_uprising_country.2.d_CHI
+		trigger = {
+			NOT = {
+				TAG = event_target:WTT_communist_china
+			}
+		}
+	}
+	trigger = {
+	}
+	is_triggered_only = yes
+	picture = GFX_report_event_china_flag
+	#fire_only_once = yes
+	option = { #OH NO!
+		name = RCM_communist_uprising_country.2.a
+		trigger = {
+			tag = event_target:WTT_communist_china
+		}
+	}
+	option = { #OH YEA!
+		name = RCM_communist_uprising_country.2.b
+		trigger = {
+			NOT = {
+				tag = event_target:WTT_communist_china
+			}
+		}
+	}
+}
+
+
+#AMASS SUPPORT
+country_event = {
+	id = RCM_communist_uprising.5
+	title = RCM_communist_uprising.5.t
+	desc = {
+		text = RCM_communist_uprising.5.d
+		trigger = {
+			tag = event_target:WTT_communist_china
+		}
+	}
+	desc = {
+		text = RCM_communist_uprising.5.d_CHI
+		trigger = {
+			NOT = {
+				tag = event_target:WTT_communist_china
+			}
+		}
+	}
+	is_triggered_only = yes
+	immediate = {
+	}
+	picture = GFX_report_event_chinese_soldiers_city_ruin
+	#fire_only_once = yes
+	option = { #OH NO!(to JAP and pups)
+		name = RCM_communist_uprising.5.a
+		trigger = {
+			OR = {
+				tag = event_target:WTT_current_china_leader
+				is_warlord = yes
+				tag = JAP
+				is_subject_of = JAP
+			}
+			NOT = {
+				tag = event_target:WTT_communist_china
+			}
+		}
+		effect_tooltip = {
+			event_target:amass_support_flag_temp = {
+				add_core_of = event_target:WTT_communist_china
+			}
+			if = {
+				limit = {
+					event_target:amass_support_flag_temp = {
+						is_owned_by_jap_or_its_puppet = yes
+					}
+				}
+				custom_effect_tooltip = gain_public_support_nationalist_owned_by_jap_tt
+				else = {
+					custom_effect_tooltip = gain_public_support_nationalist_owned_by_us_tt
+				}
+			}
+		}
+	}
+	option = { #OH YEA!(to PRC)
+		name = RCM_communist_uprising.5.b
+		trigger = {
+			tag = event_target:WTT_communist_china
+		}
+		effect_tooltip = {
+			event_target:amass_support_flag_temp = {
+				add_core_of = event_target:WTT_communist_china
+			}
+			if = {
+				limit = {
+					event_target:amass_support_flag_temp = {
+						is_owned_by_jap_or_its_puppet = yes
+					}
+				}
+				custom_effect_tooltip = gain_public_support_communist_owned_by_jap_tt
+				else = {
+					custom_effect_tooltip = gain_public_support_communist_owned_by_nat_tt
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,252 @@
+﻿###########################
+# roc Events
+###########################
+
+
+add_namespace = roc
+
+			###############
+			###roc EVENT###
+			###############
+#HK
+country_event = {
+	id = roc.7
+	title = roc.7.t
+	desc = roc.7.d
+	picture = GFX_report_event_generic_sign_treaty2
+
+	is_triggered_only = yes
+
+	fire_only_once = yes
+
+	option = {
+		name = roc.7.a
+		ai_chance = {
+			factor = 25
+			modifier = {
+				factor = 0.3
+				FROM = { has_war = yes }
+			}
+			modifier = {
+				factor = 0.1
+				FROM = { has_army_manpower = { size < 949999 } }
+			}
+		}
+		ROOT = { add_stability = -0.02 }
+		FROM = { transfer_state = 326 }
+		FROM = { country_event = { id = roc.13 } }
+	}
+
+	option = {
+		name = roc.7.b
+		ai_chance = {
+			factor = 75
+			modifier = {
+				factor = 0.5
+				has_war = yes
+			}
+			modifier = {
+				factor = 0
+				has_capitulated = yes
+			}
+		}
+		FROM = { country_event = { id = roc.10 } }
+	}
+}
+
+#MC
+country_event = {
+	id = roc.8
+	title = roc.8.t
+	desc = roc.8.d
+	picture = GFX_report_event_generic_sign_treaty2
+
+	is_triggered_only = yes
+
+	fire_only_once = yes
+
+	option = {
+		name = roc.8.a
+		ai_chance = {
+			factor = 25
+			modifier = {
+				factor = 0.3
+				FROM = { has_war = yes }
+			}
+			modifier = {
+				factor = 0.1
+				FROM = { has_army_manpower = { size < 949999 } }
+			}
+		}
+		ROOT = { add_stability = -0.02 }
+		FROM = { transfer_state = 729 }
+		FROM = { country_event = { id = roc.14 } }
+	}
+
+	option = {
+		name = roc.8.b
+		ai_chance = {
+			factor = 75
+			modifier = {
+				factor = 0.5
+				has_war = yes
+			}
+			modifier = {
+				factor = 0
+				has_capitulated = yes
+			}
+		}
+		FROM = { country_event = { id = roc.11 } }
+	}
+}
+
+#KCW
+country_event = {
+	id = roc.9
+	title = roc.9.t
+	desc = roc.9.d
+	picture = GFX_report_event_generic_sign_treaty2
+
+	is_triggered_only = yes
+
+	fire_only_once = yes
+
+	option = {
+		name = roc.9.a
+		ai_chance = {
+			factor = 25
+			modifier = {
+				factor = 0.3
+				FROM = { has_war = yes }
+			}
+			modifier = {
+				factor = 0.1
+				FROM = { has_army_manpower = { size < 949999 } }
+			}
+		}
+		ROOT = { add_stability = -0.02 }
+		FROM = { transfer_state = 728 }
+		FROM = { country_event = { id = roc.15 } }
+	}
+
+	option = {
+		name = roc.9.b
+		ai_chance = {
+			factor = 75
+			modifier = {
+				factor = 0.5
+				has_war = yes
+			}
+			modifier = {
+				factor = 0
+				has_capitulated = yes
+			}
+		}
+		FROM = { country_event = { id = roc.12 } }
+	}
+}
+
+#flag-HK
+country_event = {
+	id = roc.10
+	title = roc.10.t
+	desc = roc.10.d
+	picture = GFX_report_event_chinese_high_commander
+
+	is_triggered_only = yes
+
+	fire_only_once = yes
+
+	option = {
+		name = roc.10.a
+		ROOT = { add_stability = 0.02 }
+		set_country_flag = CHI_reject_returning_hk
+	}
+}
+
+#flag-MC
+country_event = {
+	id = roc.11
+	title = roc.11.t
+	desc = roc.11.d
+	picture = GFX_report_event_chinese_high_commander
+
+	is_triggered_only = yes
+
+	fire_only_once = yes
+
+	option = {
+		name = roc.11.a
+		ROOT = { add_stability = 0.02 }
+		set_country_flag = CHI_reject_returning_mc
+	}
+}
+
+#flag-KCW
+country_event = {
+	id = roc.12
+	title = roc.12.t
+	desc = roc.12.d
+	picture = GFX_report_event_chinese_high_commander
+
+	is_triggered_only = yes
+
+	fire_only_once = yes
+
+	option = {
+		name = roc.12.a
+		ROOT = { add_stability = 0.02 }
+		set_country_flag = CHI_reject_returning_kcw
+	}
+}
+
+#Hk Returned
+country_event = {
+	id = roc.13
+	title = roc.13.t
+	desc = roc.13.d
+	picture = GFX_report_event_chinese_soldiers
+
+	is_triggered_only = yes
+
+	fire_only_once = yes
+
+	option = {
+		name = roc.13.a
+		ROOT = { add_stability = 0.02 }
+	}
+}
+
+#Mc Returned
+country_event = {
+	id = roc.14
+	title = roc.14.t
+	desc = roc.14.d
+	picture = GFX_report_event_chinese_soldiers
+
+	is_triggered_only = yes
+
+	fire_only_once = yes
+
+	option = {
+		name = roc.14.a
+		ROOT = { add_stability = 0.02 }
+	}
+}
+
+#KCW Returned
+country_event = {
+	id = roc.15
+	title = roc.15.t
+	desc = roc.15.d
+	picture = GFX_report_event_chinese_soldiers
+
+	is_triggered_only = yes
+
+	fire_only_once = yes
+
+	option = {
+		name = roc.15.a
+		ROOT = { add_stability = 0.02 }
+	}
+}

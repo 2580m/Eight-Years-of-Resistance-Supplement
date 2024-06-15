@@ -1,0 +1,36 @@
+add_namespace = tyt_news 
+
+news_event = {
+	id = tyt_news.1
+	title = { text = tyt_news.1.t }
+	desc = { text = tyt_news.1.desc }
+
+	is_triggered_only = yes
+	major = yes
+	
+	option = {
+		name = tyt_news.1.a
+		trigger = {
+			original_tag = XXX
+		}
+	}
+	option = {
+		name = tyt_news.1.c
+		trigger = {
+			original_tag = XXX   #不同tag可以对相同的新闻有不同的按钮
+		}
+	}
+	option = {
+		name = tyt_news.1.e
+		trigger = {
+			original_tag = XXX
+		}
+	}
+	option = {
+		name = tyt_news.1.d
+		trigger = {
+			original_tag = XXX
+		}
+	}
+}
+

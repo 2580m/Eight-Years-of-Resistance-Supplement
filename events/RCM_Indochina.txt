@@ -1,0 +1,1604 @@
+﻿###########################
+# French Indochina Events
+###########################
+
+add_namespace = rcmindochina #by Sasha
+
+# new colonial governor appointed
+country_event = {
+	id = rcmindochina.1
+	title = rcmindochina.1.t
+	desc = rcmindochina.1.d
+	picture = GFX_report_event_french_election
+	is_triggered_only = yes
+	
+	option = {
+		name = rcmindochina.1.a
+		hidden_effect = {
+			kill_country_leader = yes
+		}
+		create_country_leader = {
+			name = "Jules Brévié"
+			desc = "POLITICS_JULES_BREVIE_DESC"
+			picture = "Portrait_Indochina_Joseph_Jules_Brevie.dds"
+			expire = "1965.1.1"
+			ideology = oligarchism
+			traits = {
+			}
+		}
+		
+	}
+}
+
+#Georges Catroux appointed
+country_event = {
+	id = rcmindochina.2
+	title = rcmindochina.2.t
+	desc = rcmindochina.2.d
+	picture = GFX_report_event_military_planning
+	is_triggered_only = no
+	fire_only_once = yes
+	trigger = {
+		tag = FIC
+		date > 1939.8.1
+	}
+	option = {
+		name = rcmindochina.2.a
+		hidden_effect = {
+			kill_country_leader = yes
+		}
+		#create_country_leader = {
+		#	name = "Georges Catroux"
+		#	desc = "POLITICS_GEORGES_CATROUX_DESC"
+		#	picture = "Portrait_Indochina_Georges_Catroux.dds"
+		#	expire = "1965.1.1"
+		#	ideology = oligarchism
+		#	traits = {
+		#	}
+		#}
+		FIC_georges_catroux_hq = {
+			add_country_leader_role = {
+				country_leader = {
+					expire = "1965.1.1"
+					ideology = oligarchism
+					traits = {
+					}
+				}
+				promote_leader = yes
+			}  
+		}
+	}
+}
+
+#Jean Decoux appointed
+country_event = {
+	id = rcmindochina.3
+	title = rcmindochina.3.t
+	desc = rcmindochina.3.d
+	picture = GFX_report_event_generic_peaceful_annexation
+	is_triggered_only = yes
+	
+	option = {
+		name = rcmindochina.3.a #defect
+		trigger = { is_ai = no }
+		ai_chance = {
+			factor = 0
+		}
+		every_country = {
+			limit = {
+				OR = { 
+					original_tag = FRA
+					tag = FRA 
+				}
+				NOT = { has_government = fascism }
+			}
+			set_autonomy = {
+				target = FIC
+				autonomous_state = autonomy_colony
+			}
+		}
+		#create_country_leader = {
+		#	name = "Georges Catroux"
+		#	desc = "POLITICS_GEORGES_CATROUX_DESC"
+		#	picture = "Portrait_Indochina_Georges_Catroux.dds"
+		#	expire = "1965.1.1"
+		#	ideology = conservatism
+		#	traits = {
+		#	}
+		#}
+		set_party_name = {
+			ideology = democratic
+			name = FIC_democratic_col
+			long_name = FIC_democratic_col_long
+		}
+		hidden_effect = {
+			retire_country_leader = yes
+			retire_country_leader = yes
+		}
+		FIC_georges_catroux_hq = {
+			add_country_leader_role = {
+				country_leader = {
+					expire = "1965.1.1"
+					ideology = conservatism
+					traits = {
+					}
+				}
+				promote_leader = yes
+			}  
+		}
+		every_country = {
+			limit = {
+				OR = { 
+					original_tag = FRA
+					tag = FRA 
+				}
+				NOT = { has_government = fascism }
+			}
+			country_event = { days = 1 id = rcmindochina.5 } #free france informed
+		}
+		every_country = {
+			limit = {
+				original_tag = FRA
+				has_government = fascism 
+			} 
+			country_event = { days = 1 id = rcmindochina.6 } #vichy informed
+		}	
+	}
+	
+	option = { # we can't oppose the government's will
+		name = rcmindochina.3.b
+		ai_chance = {
+			factor = 100
+		}
+		custom_effect_tooltip = THIS_IS_HISTORICAL_TT
+		hidden_effect = {
+			kill_country_leader = yes
+		}
+		set_politics = { ruling_party = fascism }
+		add_popularity = {
+			ideology = fascism
+			popularity = 0.6
+		}
+		set_party_name = {
+			ideology = fascism
+			name = FIC_fascism_col
+			long_name = FIC_fascism_col_long
+		}
+		create_country_leader = {
+			name = "Jean Decoux"
+			desc = "POLITICS_JEAN_DECOUX_DESC"
+			picture = "Portrait_Indochina_Jean_Decoux.dds"
+			expire = "1965.1.1"
+			ideology = collaborationism
+			traits = {
+			}
+		}
+		set_party_name = {
+			ideology = neutrality
+			name = FIC_neutrality_gaullists
+			long_name = FIC_neutrality_gaullists_long
+		}
+		hidden_effect = {
+			every_country = {
+				limit = {
+					OR = { 
+						original_tag = FRA
+						tag = FRA 
+					}
+					NOT = { has_government = fascism }
+				}
+				country_event = { days = 10 id = rcmfrance.7 } #general catroux joins FFL
+			}
+		}
+		
+	}
+}
+
+#Defect?
+country_event = {
+	id = rcmindochina.4
+	title = rcmindochina.4.t
+	desc = rcmindochina.4.d
+	picture = GFX_report_event_degaulle_churchill
+	is_triggered_only = yes
+	
+	
+	option = {
+		name = rcmindochina.4.a #defect
+		ai_chance = {
+			factor = 100
+		}
+		every_country = {
+			limit = {
+				OR = { 
+					original_tag = FRA
+					tag = FRA 
+				}
+				NOT = { has_government = fascism }
+			}
+			set_autonomy = {
+				target = FIC
+				autonomous_state = autonomy_colony
+			}
+		}
+		#create_country_leader = {
+		#	name = "Georges Catroux"
+		#	desc = "POLITICS_GEORGES_CATROUX_DESC"
+		#	picture = "Portrait_Indochina_Georges_Catroux.dds"
+		#	expire = "1965.1.1"
+		#	ideology = conservatism
+		#	traits = {
+		#	}
+		#}
+		set_party_name = {
+			ideology = democratic
+			name = FIC_democratic_col
+			long_name = FIC_democratic_col_long
+		}
+		hidden_effect = {
+			retire_country_leader = yes
+			retire_country_leader = yes
+		}
+		FIC_georges_catroux_hq = {
+			add_country_leader_role = {
+				country_leader = {
+					expire = "1965.1.1"
+					ideology = conservatism
+					traits = {
+					}
+				}
+				promote_leader = yes
+			}  
+		}
+		every_country = {
+			limit = {
+				OR = { 
+					original_tag = FRA
+					tag = FRA 
+				}
+				NOT = { has_government = fascism }
+			}
+			country_event = { days = 1 id = rcmindochina.5 } #free france informed
+		}
+		every_country = {
+			limit = {
+				original_tag = FRA
+				has_government = fascism 
+			} 
+			country_event = { days = 1 id = rcmindochina.6 } #vichy informed
+		}	
+	}
+	
+	option = {
+		name = rcmindochina.4.b #stay independent (player only)
+		trigger = { is_ai = no }
+		ai_chance = {
+			factor = 0
+		}
+	}
+}
+#Indochina defects (Free France)
+country_event = {
+	id = rcmindochina.5
+	title = rcmindochina.5.t
+	desc = rcmindochina.5.d
+	picture = GFX_report_event_degaulle_inspect_troops
+	is_triggered_only = yes
+	
+	option = {
+		name = rcmindochina.5.a #ok
+	}
+}
+
+#Indochina defects (Vichy)
+country_event = {
+	id = rcmindochina.6
+	title = rcmindochina.6.t
+	desc = rcmindochina.6.d
+	picture = GFX_report_event_worried_french
+	is_triggered_only = yes
+	
+	option = {
+		name = rcmindochina.6.a #ok
+	}
+}
+
+#strikes
+country_event = {
+	id = rcmindochina.7
+	title = rcmindochina.7.t
+	desc = rcmindochina.7.d
+	picture = GFX_report_event_india_protests
+	is_triggered_only = yes
+	
+	option = {
+		name = rcmindochina.7.a #ok
+		add_political_power = -100
+		add_ideas = FIC_strikes
+	}
+}
+
+#JAP enforces ceasefire (Siam)
+
+country_event = {
+	id = rcmindochina.8
+	title = rcmindochina.8.t
+	desc = rcmindochina.8.d
+	picture = GFX_report_event_japanese_soldiers_02
+	is_triggered_only = yes
+	
+	option = {
+		name = rcmindochina.8.a #ok
+		ai_chance = {
+			factor = 70
+			modifier = {
+				factor = 10
+				is_historical_focus_on = yes
+			}
+		}
+		FIC = { country_event = rcmindochina.10 }
+		add_political_power = -25
+		effect_tooltip = {
+			add_timed_idea = { idea = sia_pay_warrep days = 540 }
+		}
+	}
+	
+	option = {
+		name = rcmindochina.8.b #no
+		ai_chance = {
+			factor = 30
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
+		}
+		JAP = { country_event = rcmindochina.9 } #JAP angry
+	}
+}
+
+#SIA refuses (Japan)
+
+country_event = {
+	id = rcmindochina.9
+	title = rcmindochina.9.t
+	desc = rcmindochina.9.d
+	picture = GFX_report_event_japan_army_mountainside
+	is_triggered_only = yes
+	
+	option = {
+		name = rcmindochina.9.a #ok
+		add_political_power = -25
+	}
+}
+
+#JAP enforces ceasefire (FIC)
+country_event = {
+	id = rcmindochina.10
+	title = rcmindochina.10.t
+	desc = rcmindochina.10.d
+	picture = GFX_report_event_japanese_siam_politicians
+	is_triggered_only = yes
+	
+	option = {
+		name = rcmindochina.10.a #accept
+		ai_chance = {
+			factor = 45
+			modifier = {
+				factor = 10
+				is_historical_focus_on = yes
+			}
+		}
+		SIA = { country_event = rcmindochina.11 }
+		add_political_power = -50
+		add_timed_idea = { idea = fic_war_rep_from_sia days = 1012 }
+	}
+	
+	option = {
+		name = rcmindochina.10.b #refuse
+		ai_chance = {
+			factor = 0
+		}
+		trigger = { is_ai = no }
+		SIA = { country_event = rcmindochina.12 }
+	}
+}
+
+#FIC accepts
+country_event = {
+	id = rcmindochina.11
+	title = rcmindochina.11.t
+	desc = rcmindochina.11.d
+	picture = GFX_report_event_generic_sign_treaty2
+	is_triggered_only = yes
+	
+	option = {
+		name = rcmindochina.11.a #ok
+		white_peace = FIC
+		add_political_power = 50
+		transfer_state = 980
+		transfer_state = 981
+		transfer_state = 983
+		add_state_core = 980
+		add_state_core = 981
+		add_state_core = 983 
+		add_timed_idea = { idea = sia_pay_warrep days = 540 }
+		set_global_flag = fic_sia_warend
+		clr_global_flag = frasiamwarpreparation
+		FIC = {
+			for_each_scope_loop = {
+				array = FIC.faction_members
+				tooltip = faction_members_tt
+				if = {
+					limit = {
+						has_war_with = SIA
+					}
+					white_peace = SIA
+				}
+			}
+		}
+		for_each_scope_loop = {
+			array = SIA.faction_members
+			tooltip = faction_members_tt
+			if = {
+				limit = {
+					has_war_with = FIC
+				}
+				white_peace = FIC
+			}
+		}
+	}
+}
+
+#FIC refuses
+country_event = {
+	id = rcmindochina.12
+	title = rcmindochina.12.t
+	desc = rcmindochina.12.d
+	picture = GFX_report_event_generic_sign_treaty3
+	is_triggered_only = yes
+	
+	option = {
+		name = rcmindochina.12.a #ok
+		add_political_power = -25
+	}
+}
+
+#JAP demand bases
+country_event = {
+	id = rcmindochina.13
+	title = rcmindochina.13.t
+	desc = rcmindochina.13.d
+	picture = GFX_report_event_japanese_transport_soldiers
+	is_triggered_only = yes
+	immediate = {
+	}
+	option = {
+		name = rcmindochina.13.a #accept
+		ai_chance = {
+			factor = 45
+			modifier = {
+				factor = 1000
+				has_government = fascism
+			}
+			modifier = {
+				factor = 0.5
+				has_government = democratic
+			}
+			
+		}
+		effect_tooltip = {
+			JAP = {
+				transfer_state = 728
+				transfer_state = 986
+				transfer_state = 988
+				transfer_state = 670
+				transfer_state = 987
+				give_military_access = FIC				
+				#add_to_faction = FIC
+			}
+			add_ideas = FIC_darlankato_agreement
+		    if = {
+				limit = {
+					JAP = {
+						has_war_with = event_target:WTT_current_china_leader
+					}
+				}
+                every_state = {
+					limit = {
+						OR = {
+							state = 728
+							state = 986
+							state = 988
+							state = 670
+							state = 987
+						}
+					}
+					add_dynamic_modifier = { modifier = jap_shanghai_modifier scope = JAP }
+					add_dynamic_modifier = { modifier = jap_shanghai_modifier scope = SIA }
+				}
+			}
+		}
+		JAP = { 
+			country_event = rcmindochina.15
+		}
+		hidden_effect = {
+			set_capital = { state = 978 }
+		}
+	}
+	
+	option = {
+		name = rcmindochina.13.b #refuse
+		ai_chance = {
+			factor = 55
+			modifier = {
+				factor = 1000
+				has_government = democratic
+			}
+			modifier = {
+				factor = 0
+				has_government = fascism
+			}
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
+		}
+		add_ideas = FIC_friendly_invasion
+		JAP = { country_event = rcmindochina.14 }
+	}
+}
+
+#FIC refuses
+country_event = {
+	id = rcmindochina.14
+	title = rcmindochina.14.t
+	desc = rcmindochina.14.d
+	picture = GFX_report_event_french_liberation
+	is_triggered_only = yes
+	
+	option = {
+		name = rcmindochina.14.a #ok
+		JAP = {
+			add_opinion_modifier = {
+				target = FIC
+				modifier = embargo
+			}
+		}
+		create_wargoal = {
+			type = puppet_wargoal_focus
+			target = FIC
+		}
+		
+		effect_tooltip = {
+			FIC = {
+				add_ideas = FIC_friendly_invasion
+			}
+			random_other_country = {
+				limit = {
+					original_tag = FRA
+					has_government = fascism
+				}
+				add_ideas = FIC_friendly_invasion
+			}
+		}
+	}
+}
+#FIC accepts
+country_event = {
+	id = rcmindochina.15
+	title = rcmindochina.15.t
+	desc = rcmindochina.15.d
+	picture = GFX_report_event_japanese_soldiers_03
+	is_triggered_only = yes
+	
+	option = {
+		name = rcmindochina.15.a #ok
+		hidden_effect = {
+			988 = {
+				remove_building = {
+					type = arms_factory
+					level = 1
+				}
+			}
+			FIC = {
+				random_owned_controlled_state = {
+					prioritize = { 987 671 989 978 }
+					limit = {
+						is_fully_controlled_by = ROOT
+						free_building_slots = {
+							building = arms_factory
+							size > 0
+							include_locked = yes
+						}
+					}
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = arms_factory
+						level = 1
+						instant_build = yes
+					}
+				}
+			}
+		}
+		JAP = {
+			transfer_state = 728
+			transfer_state = 986
+			transfer_state = 988
+			transfer_state = 670
+			transfer_state = 987
+			give_military_access = FIC
+			FIC = {
+				give_military_access = JAP
+			}
+			if = {
+				limit = {
+					JAP = {
+						has_war_with = event_target:WTT_current_china_leader
+					}
+				}
+                every_state = {
+					limit = {
+						OR = {
+							state = 728
+							state = 986
+							state = 988
+							state = 670
+							state = 987
+						}
+					}
+					add_dynamic_modifier = { modifier = jap_shanghai_modifier scope = JAP }
+				}
+			}
+			hidden_effect = {
+				division_template = {
+					name = "Hohei Rydan"
+					division_names_group = JAP_IMB_01
+					regiments = {
+						infantry = { x = 0 y = 0 }
+						infantry = { x = 0 y = 1 }
+						infantry = { x = 0 y = 2 }
+						infantry = { x = 1 y = 0 }
+						infantry = { x = 1 y = 1 }
+						infantry = { x = 1 y = 2 }
+					}
+					support = {
+						engineer = { x = 0 y = 0 }
+					}
+				}
+				#every_state = { #AI teleport armies #they leave anyways
+				#	limit = {
+				#		ROOT = {
+				#			is_ai = yes
+				#			divisions_in_state = { state = PREV size > 0 }
+				#		}
+				#		is_controlled_by_jap_or_its_puppet = yes
+				#		CONTROLLER = {
+				#			has_full_control_of_state = PREV
+				#		}
+				#		NOT = {
+				#			any_neighbor_state = {
+				#				NOT = {
+				#					is_controlled_by_jap_or_its_puppet = yes
+				#				}
+				#			}
+				#		}
+				#	}
+				#	random_list = {
+				#		1 = {
+				#			teleport_armies = { 
+				#				to_state = 988
+				#			}
+				#		}
+				#		1 = {
+				#			teleport_armies = { 
+				#				to_state = 670
+				#			}
+				#		}
+				#		1 = {
+				#			teleport_armies = { 
+				#				to_state = 986
+				#			}
+				#		}
+				#	}
+				#}
+				986 = {
+					create_unit = { 
+						division = "name = \"Indoshina Haken Hohei-dan 1\" division_template = \"Hohei Rydan\" start_experience_factor = 0.2 " 
+						owner = ROOT
+						prioritize_location = 9948
+					}					
+					create_unit = { 
+						division = "name = \"Indoshina Haken Hohei-dan 2\" division_template = \"Hohei Rydan\" start_experience_factor = 0.2 " 
+						owner = ROOT
+						prioritize_location = 12008
+					}
+					create_unit = { 
+						division = "name = \"Indoshina Haken Hohei-dan 3\" division_template = \"Hohei Rydan\" start_experience_factor = 0.2 " 
+						owner = ROOT
+						prioritize_location = 12065
+					}
+					create_unit = { 
+						division = "name = \"Indoshina Haken Hohei-dan 4\" division_template = \"Hohei Rydan\" start_experience_factor = 0.2 " 
+						owner = ROOT
+						prioritize_location = 12065
+					}
+					if = {
+						limit = {
+							JAP = {
+								is_ai = yes #give ai more armies
+							}
+						}
+						create_unit = { 
+							division = "name = \"Indoshina Haken Hohei-dan 5\" division_template = \"Hohei Rydan\" start_experience_factor = 0.2 " 
+							owner = ROOT
+							prioritize_location = 12065
+						}
+						create_unit = { 
+							division = "name = \"Indoshina Haken Hohei-dan 6\" division_template = \"Hohei Rydan\" start_experience_factor = 0.2 " 
+							owner = ROOT
+							prioritize_location = 12065
+						}
+					}
+				}
+				988 = {
+					
+					create_unit = { 
+						division = "name = \"Indoshina Haken Hohei-dan 7\" division_template = \"Hohei Rydan\" start_experience_factor = 0.2 " 
+						owner = ROOT
+						prioritize_location = 12319
+					}
+					create_unit = { 
+						division = "name = \"Indoshina Haken Hohei-dan 8\" division_template = \"Hohei Rydan\" start_experience_factor = 0.2 " 
+						owner = ROOT
+						prioritize_location = 12319
+					}
+					if = {
+						limit = {
+							JAP = {
+								is_ai = yes #give ai more armies
+							}
+						}
+						create_unit = { 
+							division = "name = \"Indoshina Haken Hohei-dan 9\" division_template = \"Hohei Rydan\" start_experience_factor = 0.2 " 
+							owner = ROOT
+							prioritize_location = 12319
+						}
+						create_unit = { 
+							division = "name = \"Indoshina Haken Hohei-dan 10\" division_template = \"Hohei Rydan\" start_experience_factor = 0.2 " 
+							owner = ROOT
+							prioritize_location = 12319
+						}
+					}
+				}
+				670 = {					
+					create_unit = { 
+						division = "name = \"Indoshina Haken Hohei-dan 11\" division_template = \"Hohei Rydan\" start_experience_factor = 0.2 " 
+						owner = ROOT
+						prioritize_location = 4568
+					}
+					create_unit = { 
+						division = "name = \"Indoshina Haken Hohei-dan 12\" division_template = \"Hohei Rydan\" start_experience_factor = 0.2 " 
+						owner = ROOT
+						prioritize_location = 12433
+					}
+					if = {
+						limit = {
+							JAP = {
+								is_ai = yes #give ai more armies
+							}
+						}
+						create_unit = { 
+							division = "name = \"Indoshina Haken Hohei-dan 13\" division_template = \"Hohei Rydan\" start_experience_factor = 0.2 " 
+							owner = ROOT
+							prioritize_location = 12392
+						}
+						create_unit = { 
+							division = "name = \"Indoshina Haken Hohei-dan 14\" division_template = \"Hohei Rydan\" start_experience_factor = 0.2 " 
+							owner = ROOT
+							prioritize_location = 12392
+						}
+					}			
+				}
+				728 = {
+					create_unit = { 
+						division = "name = \"Indoshina Haken Hohei-dan 15\" division_template = \"Hohei Rydan\" start_experience_factor = 0.2 " 
+						owner = ROOT
+						prioritize_location = 11981
+					}
+					create_unit = { 
+						division = "name = \"Indoshina Haken Hohei-dan 16\" division_template = \"Hohei Rydan\" start_experience_factor = 0.2 " 
+						owner = ROOT
+						prioritize_location = 11981
+					}
+					create_unit = { 
+						division = "name = \"Indoshina Haken Hohei-dan 5\" division_template = \"Hohei Rydan\" start_experience_factor = 0.2 " 
+						owner = ROOT
+						prioritize_location = 11981
+					}
+					if = {
+						limit = {
+							JAP = {
+								is_ai = yes #give ai more armies
+							}
+						}
+						create_unit = { 
+							division = "name = \"Indoshina Haken Hohei-dan 17\" division_template = \"Hohei Rydan\" start_experience_factor = 0.2 " 
+							owner = ROOT
+							prioritize_location = 11981
+						}
+						create_unit = { 
+							division = "name = \"Indoshina Haken Hohei-dan 18\" division_template = \"Hohei Rydan\" start_experience_factor = 0.2 " 
+							owner = ROOT
+							prioritize_location = 11981
+						}
+					}
+				}
+			}
+			#add_to_faction = FIC
+		}
+		FIC = {
+			add_ideas = FIC_darlankato_agreement
+		}
+		random_other_country = {
+			limit = {
+				original_tag = FRA
+				has_government = fascism
+			}
+			country_event = rcmindochina.16
+		}
+		effect_tooltip = {
+			FIC = {
+				add_ideas = FIC_friendly_invasion
+			}
+			random_other_country = {
+				limit = {
+					original_tag = FRA
+					has_government = fascism
+				}
+				add_ideas = FIC_friendly_invasion
+			}
+		}		
+		set_country_flag = invade_indochina_flag
+		unlock_decision_tooltip = invade_indochina
+	}
+}
+#to VIC
+country_event = {
+	id = rcmindochina.16
+	title = rcmindochina.16.t
+	desc = rcmindochina.16.d
+	picture = GFX_report_event_pierre_laval
+	is_triggered_only = yes
+	option = {
+		add_ideas = FIC_friendly_invasion
+		name = rcmindochina.16.a #ok
+	}
+}
+
+#FIC demands transfer of New Caledonia (Vichy)
+country_event = {
+	id = rcmindochina.17
+	title = rcmindochina.17.t
+	desc = rcmindochina.17.d
+	picture = GFX_report_event_burma_government_house
+	is_triggered_only = yes
+	
+	option = {
+		name = rcmindochina.17.a #accept
+		add_political_power = 25
+		ai_chance = { factor = 85 }
+		effect_tooltip = {
+			FIC = {
+				transfer_state = 635
+				transfer_state = 734
+			}
+		}		
+		FIC = { country_event = { id = rcmindochina.18 days = 1 } }
+	}
+	option = {
+		name = rcmindochina.17.b #refuse
+		ai_chance = { factor = 15 }
+		FIC = { country_event = { id = rcmindochina.19 days = 1 } }
+	}
+}
+
+#Vichy Accepts
+country_event = {
+	id = rcmindochina.18
+	title = rcmindochina.18.t
+	desc = rcmindochina.18.d
+	picture = GFX_report_event_pierre_laval
+	is_triggered_only = yes
+	
+	option = {
+		name = rcmindochina.18.a #accept
+		add_war_support = 0.03
+		add_stability = 0.03
+		transfer_state = 635
+		add_state_core = 635
+		transfer_state = 734		
+		add_state_core = 734
+	}
+}
+
+#Vichy Refuses
+country_event = {
+	id = rcmindochina.19
+	title = rcmindochina.19.t
+	desc = rcmindochina.19.d
+	picture = GFX_report_event_pierre_laval
+	is_triggered_only = yes
+	
+	option = {
+		name = rcmindochina.19.a #accept
+	}
+}
+
+#FIC demands transfer of New Caledonia (Japan)
+country_event = {
+	id = rcmindochina.20
+	title = rcmindochina.20.t
+	desc = rcmindochina.20.d
+	picture = GFX_report_event_pierre_laval
+	is_triggered_only = yes
+	
+	option = {
+		name = rcmindochina.20.a #accept
+		add_political_power = 25
+		ai_chance = { factor = 25 }
+		effect_tooltip = {
+			FIC = {
+				transfer_state = 635
+				transfer_state = 734
+			}
+		}		
+		FIC = { country_event = { id = rcmindochina.21 days = 1 } }
+	}
+	option = {
+		name = rcmindochina.20.b #accept but seize resources
+		add_political_power = 25
+		ai_chance = { factor = 70 }
+		set_global_flag = jap_demanded_newcal_resources
+		effect_tooltip = {
+			FIC = {
+				transfer_state = 635
+				transfer_state = 734
+				give_resource_rights = { receiver = JAP state = 635 }
+			}
+		}
+		FIC = { country_event = { id = rcmindochina.21 days = 1 } }
+	}
+	option = {
+		name = rcmindochina.20.c #refuse
+		ai_chance = { factor = 5 }
+		FIC = { country_event = { id = rcmindochina.22 days = 1 } }
+	}
+}
+
+#Japan Accepts
+country_event = {
+	id = rcmindochina.21
+	title = rcmindochina.21.t
+	desc = {
+		text = rcmindochina.21.d
+		trigger = { NOT = { has_global_flag = jap_demanded_newcal_resources } }
+	}
+	desc = {
+		text = rcmindochina.21.d1
+		trigger = { has_global_flag = jap_demanded_newcal_resources }
+	}
+	picture = GFX_report_japan_europe_pact
+	is_triggered_only = yes
+	
+	option = {
+		name = rcmindochina.21.a #accept
+		add_war_support = 0.03
+		add_stability = 0.03
+		add_political_power = 25
+		transfer_state = 635
+		add_state_core = 635
+		transfer_state = 734		
+		add_state_core = 734
+		if = { 
+			limit = { has_global_flag = jap_demanded_newcal_resources }
+			give_resource_rights = { receiver = JAP state = 635 }
+		}
+		add_opinion_modifier = {
+			target = JAP
+			modifier = small_increase
+		}
+	}
+}
+
+#Japan Refuses
+country_event = {
+	id = rcmindochina.22
+	title = rcmindochina.22.t
+	desc = rcmindochina.22.d
+	picture = GFX_report_event_worried_french
+	is_triggered_only = yes
+	
+	option = {
+		name = rcmindochina.22.a #accept
+		add_political_power = -25
+		add_opinion_modifier = {
+			target = JAP
+			modifier = rejected_demands
+		}
+	}
+}
+
+#Local rulers reaffirm their loyalty
+country_event = {
+	id = rcmindochina.23
+	title = rcmindochina.23.t
+	desc = rcmindochina.23.d
+	picture = GFX_report_event_burma_government_house
+	is_triggered_only = yes
+	
+	option = {
+		name = rcmindochina.23.a #great!
+		add_political_power = 50
+		add_stability = 0.02
+		add_war_support = 0.05
+		set_country_flag = ficmet_local_leaders
+	}
+}
+
+#The Sinking of Le Phénix
+country_event = {
+	id = rcmindochina.24
+	title = rcmindochina.24.t
+	desc = rcmindochina.24.d
+	picture = GFX_report_event_ast_navy
+	is_triggered_only = no
+	fire_only_once = yes
+	trigger = {
+		tag = FIC
+		date > 1939.6.1
+		date < 1939.8.1
+	}
+	
+	option = {
+		name = rcmindochina.24.a #oof
+		destroy_ships = {
+			type = ship_hull_submarine
+			count = 1
+		}
+	}
+}
+
+#Thailand renames western Cambodia
+country_event = {
+	id = rcmindochina.25
+	is_triggered_only = no
+	fire_only_once = yes
+	hidden = yes
+	trigger = {
+		SIA = {
+			controls_state = 983
+			NOT = {
+				983 = {
+					has_state_flag = renamed_to_phibun
+				}
+			}
+		}
+	}
+	immediate = {
+		983 = { 
+			set_state_name = "Phibunsongkhram" 
+			set_state_flag = renamed_to_phibun
+		}
+	}
+}
+
+#Names revert back to their previous names
+country_event = {
+	id = rcmindochina.26
+	is_triggered_only = no
+	fire_only_once = yes
+	hidden = yes
+	trigger = {
+		SIA = {
+			NOT = {
+				controls_state = 983
+			}
+			983 = {
+				has_state_flag = renamed_to_phibun
+			}
+		}
+	}
+	immediate = {
+		983 = { 
+			set_state_name = "Battambang" 
+			clr_state_flag = renamed_to_phibun
+		}
+	}
+}
+
+#Thai Army Maneuvers at the Border
+country_event = {
+	id = rcmindochina.27
+	title = rcmindochina.27.t
+	desc = rcmindochina.27.d
+	picture = GFX_report_event_china_infiltration
+	is_triggered_only = yes
+	
+	option = {
+		name = rcmindochina.27.a #worrying!
+		custom_effect_tooltip = thaiwar_inamonth
+		hidden_effect = {
+			add_ideas = fic_regional_war
+			if = {
+				limit = {
+					FIC = { is_puppet_of = FRA }
+				}
+				FRA = { add_ideas = fic_regional_war }
+			}
+		}
+	}
+}
+
+#Thai defeat against France
+country_event = {
+	id = rcmindochina.28
+	title = rcmindochina.28.t
+	desc = rcmindochina.28.d
+	picture = GFX_report_event_generic_battle
+	is_triggered_only = no
+	fire_only_once = yes
+	
+	trigger = {
+		tag = SIA
+		has_war_with = FIC
+		NOT = { has_global_flag = fic_sia_warend }
+		OR = {
+			surrender_progress > 0.5
+			NOT = { controls_state = 289 }
+		}
+		FIC = { surrender_progress < 0.4 }
+	}
+	
+	option = {
+		name = rcmindochina.28.a #worrying!
+		add_political_power = -50
+		add_stability = -0.05
+		add_war_support = -0.1
+		#possible pridi coup idk
+		effect_tooltip = {
+			add_timed_idea = { idea = sia_pay_warrep days = 2000 }
+			for_each_scope_loop = {
+				array = FIC.faction_members
+				tooltip = faction_members_tt
+				white_peace = ROOT
+			}
+			white_peace = FIC
+		}
+		FIC = {
+			country_event = rcmindochina.29
+		}
+	}
+
+	option = {
+		name = rcmindochina.28.b #don't surrender
+		trigger = { 
+			is_ai = no
+		}
+		add_war_support = 0.1
+		add_stability = -0.15
+	}
+}
+
+#Thai sign a peace treaty (FIC victory)
+country_event = {
+	id = rcmindochina.29
+	title = rcmindochina.29.t
+	desc = rcmindochina.29.d
+	picture = GFX_report_event_generic_conference
+	is_triggered_only = yes
+	
+	option = {
+		name = rcmindochina.29.a #great!
+		white_peace = SIA
+		for_each_scope_loop = {
+			array = FIC.faction_members
+			tooltip = faction_members_tt
+			if = {
+				limit = {
+					has_war_with = SIA
+				}
+				white_peace = SIA
+			}
+		}
+		add_political_power = 50
+		add_stability = 0.05
+		add_war_support = 0.05
+		set_global_flag = fic_sia_warend
+		clr_global_flag = frasiamwarpreparation
+		add_timed_idea = { idea = fic_war_rep_from_sia days = 1460 }
+		hidden_effect = {
+			SIA = { add_timed_idea = { idea = sia_pay_warrep days = 2000 } }
+			for_each_scope_loop = {
+				array = SIA.faction_members
+				tooltip = faction_members_tt
+				if = {
+					limit = {
+						has_war_with = FIC
+					}
+					white_peace = FIC
+				}
+			}
+		}
+	}
+}
+
+#JAP invades south indochina (FIC)
+country_event = {
+	id = rcmindochina.30
+	title = rcmindochina.30.t
+	desc = rcmindochina.30.d
+	picture = GFX_report_event_japanese_soldiers_03
+	is_triggered_only = yes
+	
+	option = {
+		name = rcmindochina.30.a #thats not a real invasion, right?
+		effect_tooltip = {
+			JAP = {
+				transfer_state = 286
+				transfer_state = 741
+				transfer_state = 979
+				transfer_state = 982			
+			}
+		}
+		if = {
+			limit = {
+				has_war_with = GER
+			}
+			every_enemy_country = {
+				limit = { is_in_faction_with = GER }
+				ROOT = {
+					white_peace = PREV
+				}
+				white_peace = ROOT
+			}
+		}
+		if = {
+			limit = {
+				is_in_faction = yes
+			}
+			leave_faction = yes
+		}
+		JAP = {
+			add_to_faction = ROOT
+		}
+		add_ideas = FIC_friendly_invasion
+		add_political_power = -50
+		add_stability = -0.05
+		add_war_support = 0.05
+		hidden_effect = {
+			286 = {
+				remove_building = {
+					type = dockyard
+					level = 1
+				}
+			}
+			FIC = {
+				random_owned_controlled_state = {
+					prioritize = { 987 671 }
+					limit = {
+						is_fully_controlled_by = ROOT
+						free_building_slots = {
+							building = arms_factory
+							size > 0
+							include_locked = yes
+						}
+					}
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = dockyard
+						level = 1
+						instant_build = yes
+					}
+				}
+			}
+		}
+	}
+}
+
+#GFC elections
+country_event = {
+	id = rcmindochina.31
+	title = rcmindochina.31.t
+	desc = rcmindochina.31.d
+	picture = GFX_report_event_election_jap
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		name = rcmindochina.31.a #const party
+		ai_chance = {
+			factor = 55
+		}
+		add_ideas = fic_pci_majority
+	}
+
+	option = {
+		name = rcmindochina.31.b #democrat party
+		ai_chance = {
+			factor = 45
+		}
+		add_ideas = fic_pdi_majority
+	}
+}
+
+
+
+##################
+###INDEPENDENCE###
+##################
+
+#Bao wants to meet french leader
+country_event = {
+	id = rcmindochina.100
+	title = rcmindochina.100.t
+	desc = rcmindochina.100.d
+	picture = GFX_report_event_bao_french_officials
+	is_triggered_only = yes
+	
+	option = {
+		name = rcmindochina.100.a #allow him to meet
+		ai_chance = {
+			factor = 35
+			modifier = {
+				factor = 2
+				is_historical_focus_on = no
+			}
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
+		}
+		FRA = { country_event = { id = rcmindochina.101 days = 4 } }
+	}
+	
+	option = {
+		name = rcmindochina.100.b #he will just see the Eiffel Tower
+		ai_chance = {
+			factor = 65
+			modifier = {
+				factor = 1000
+				is_historical_focus_on = yes
+			}
+		}
+	}
+}
+
+#accept bao's reform
+country_event = {
+	id = rcmindochina.101
+	title = rcmindochina.101.t
+	desc = rcmindochina.101.d
+	picture = GFX_report_event_generic_conference
+	is_triggered_only = yes
+	
+	option = {
+		name = rcmindochina.101.a #accept his reforms
+		ai_chance = {
+			factor = 10
+			modifier = {
+				factor = 1000
+				is_ai = yes
+				FIC = { is_ai = no }
+			}
+		}
+		FIC = { country_event = { id = rcmindochina.102 days = 3 } }
+	}
+	 
+	option = {
+		name = rcmindochina.101.b #refuse
+		FIC = { country_event = { id = rcmindochina.103 days = 3 } }
+	}
+}
+
+#FRA support Bao's solution
+country_event = {
+	id = rcmindochina.102
+	title = rcmindochina.102.t
+	desc = rcmindochina.102.d
+	picture = GFX_report_event_generic_conference
+	is_triggered_only = yes
+	
+	option = {
+		name = rcmindochina.102.a #all according to keikaku
+		set_global_flag = baodais_reform
+		set_country_flag = indo_independent
+		load_focus_tree = indochina_independent
+	}
+}
+
+#FRA rejects Bao's solution
+country_event = {
+	id = rcmindochina.103
+	title = rcmindochina.103.t
+	desc = rcmindochina.103.d
+	picture = GFX_report_event_generic_conference
+	is_triggered_only = yes
+	
+	option = {
+		name = rcmindochina.103.a #rip
+		#more strikes?
+	}
+}
+
+add_namespace = form_malayan_union
+country_event = {
+	id = form_malayan_union.1 #to UK
+	title = form_malayan_union.1.t
+	desc = form_malayan_union.1.d
+	picture = GFX_report_event_generic_conference
+	is_triggered_only = yes
+	
+	option = {
+		name = form_malayan_union.1.a #rip
+		ai_chance = {
+			factor = 10
+		}
+		effect_tooltip = {
+			MAL = {
+				set_cosmetic_tag = MAL_MAU
+				transfer_state = 1056
+				transfer_state = 1057
+				transfer_state = 1058
+				transfer_state = 1059
+				transfer_state = 1061
+				add_state_core = 1056
+				add_state_core = 1057
+				add_state_core = 1058
+				add_state_core = 1059
+				add_state_core = 1061
+			}
+		}
+		MAL = {
+			country_event = form_malayan_union.2
+		}
+		SST = {
+			country_event = form_malayan_union.3
+		}
+	}
+	option = {
+		name = form_malayan_union.1.b #rip
+		ai_chance = {
+			factor = 0
+		}
+		#more strikes?
+	}
+}
+country_event = {
+	id = form_malayan_union.2 #to MAL
+	title = form_malayan_union.2.t
+	desc = form_malayan_union.2.d
+	picture = GFX_report_event_generic_conference
+	is_triggered_only = yes
+	
+	option = {
+		name = form_malayan_union.2.a #
+		MAL = {
+			set_cosmetic_tag = MAL_MAU
+			transfer_state = 1056
+			transfer_state = 1057
+			transfer_state = 1058
+			transfer_state = 1059
+			transfer_state = 1061
+			add_state_core = 1056
+			add_state_core = 1057
+			add_state_core = 1058
+			add_state_core = 1059
+			add_state_core = 1061
+		}
+	}
+}
+country_event = {
+	id = form_malayan_union.3 # to SST
+	title = form_malayan_union.3.t
+	desc = form_malayan_union.3.d
+	picture = GFX_report_event_generic_conference
+	is_triggered_only = yes
+	
+	option = {
+		name = form_malayan_union.3.a #rip
+		effect_tooltip = {
+			MAL = {
+				set_cosmetic_tag = MAL_MAU
+				transfer_state = 1056
+				transfer_state = 1057
+				transfer_state = 1058
+				transfer_state = 1059
+				transfer_state = 1061
+			}
+		}
+		#more strikes?
+	}
+}
+
+#thailand
+add_namespace = RCM_thailand
+country_event = {#GUO
+	id = RCM_thailand.1 # to SST
+	title = RCM_thailand.1.t
+	desc = RCM_thailand.1.d
+	picture = GFX_report_event_generic_conference
+	
+	is_triggered_only = no
+	fire_only_once = yes
+	
+	trigger = {
+	    if = {
+		limit = { not = { has_completed_focus = GEN_go_fascist } }
+		date > 1938.12.1
+		}
+		else = { always = yes }
+		
+		has_government = neutrality
+		tag = SIA
+	}
+	
+	option = {
+		name = RCM_thailand.1.a #rip
+		set_politics = {
+			ruling_party = fascism
+			elections_allowed = no
+		}
+		add_political_power = 150
+		add_war_support = 0.05
+		hidden_effect = {
+			set_popularities = {
+				democratic = 15
+				neutrality = 15
+				fascism = 55
+				communism = 15
+			}
+		}
+		
+	}
+}
+
+#Malaya dindings join perak
+add_namespace = RCM_malaya
+country_event = {
+	id = RCM_malaya.1 # to MAL
+	title = RCM_malaya.1.t
+	desc = RCM_malaya.1.d
+	picture = GFX_report_event_generic_conference
+	fire_only_once = yes
+	trigger = {
+		date > 1937.5.1
+		has_government = neutrality
+		tag = MAL
+	}
+	
+	option = {
+		name = RCM_malaya.1.a #rip
+		transfer_state = 1060
+		add_state_core = 1060
+		SST = {
+			country_event = RCM_malaya.2
+		}
+	}
+}
+country_event = {
+	id = RCM_malaya.2 # to SST
+	title = RCM_malaya.2.t
+	desc = RCM_malaya.2.d
+	picture = GFX_report_event_generic_conference
+	is_triggered_only = yes
+	
+	option = {
+		name = RCM_malaya.2.a #rip
+		effect_tooltip = {
+			MAL = {
+				transfer_state = 1060
+				add_state_core = 1060
+			}
+		}
+	}
+}

@@ -1,0 +1,772 @@
+add_namespace = age_leader
+
+country_event = { #qiujier
+	id = age_leader.200
+	title = age_leader.200.t
+	desc = age_leader.200.desc
+	
+	hidden = yes
+
+	is_triggered_only = no
+	
+	trigger = {
+	    tag = ENG
+		date > 1941.6.1
+		has_country_leader = { ruling_only = yes
+		    character = ENG_winston_churchill
+		}
+	}
+
+	immediate = {
+	}
+	
+    fire_only_once = yes
+	option = {
+		name = age_leader.200.a
+		set_country_leader_portrait = {
+		    portrait = "gfx/leaders/ENG/Churchill_1940.dds"
+		}
+		#set_global_flag = 1945_leader_portrait_sov
+	}
+}
+
+country_event = { #Stalin
+	id = age_leader.1
+	title = age_leader.1.t
+	desc = age_leader.1.desc
+	
+	hidden = yes
+
+	is_triggered_only = no
+	
+	trigger = {
+	    tag = SOV
+		date > 1945.1.1
+		has_country_leader = { ruling_only = yes
+		    character = SOV_iosif_stalin
+		}
+	}
+
+	immediate = {
+	}
+	
+    fire_only_once = yes
+	option = {
+		name = age_leader.1.a
+		set_country_leader_portrait = {
+		    portrait = "gfx/leaders/SOV/Joseph_Stalin_Old.dds"
+		}
+		#set_global_flag = 1945_leader_portrait_sov
+	}
+}
+
+country_event = { #Chiang
+	id = age_leader.3
+	title = age_leader.3.t
+	desc = age_leader.3.desc
+	
+	hidden = yes
+
+	is_triggered_only = no
+	
+	trigger = {
+	    tag = CHI
+		date > 1945.1.1
+		NOT = { has_global_flag = roc_in_taiwan_flag }
+		has_country_leader = {
+		    ruling_only = yes character = CHI_chiang_kai_shek
+		}
+		NOT = { has_country_flag = Portrait_CHI_Chiang_Kai_Shek_v1 }
+		NOT = { has_country_flag = chiang_win_flag }
+	}
+
+	immediate = {
+	}
+	
+    fire_only_once = yes
+	option = {
+		name = age_leader.3.a
+		set_country_leader_portrait = {
+		    portrait = "gfx/leaders/CHI/Chiang_Old.dds"
+		}
+		CHI_chiang_kai_shek = {
+		set_portraits = {
+			army={
+				large="gfx/leaders/CHI/Chiang_Old.dds"
+			}
+		}
+	    }
+		#set_global_flag = 1945_leader_portrait_chi
+	}
+}
+
+country_event = { #Chiang
+	id = age_leader.111
+	title = age_leader.111.t
+	desc = age_leader.111.desc
+	
+	hidden = yes
+
+	is_triggered_only = no
+	
+	trigger = {
+	    tag = CHI
+		has_country_leader = {
+		    ruling_only = yes character = CHI_chiang_kai_shek
+		}
+		has_global_flag = roc_in_taiwan_flag
+	}
+
+	immediate = {
+	}
+	
+    fire_only_once = yes
+	option = {
+		name = age_leader.111.a
+		set_country_leader_portrait = {
+		    portrait = "gfx/leaders/CHI/chiang_kai_shek_army_ROCA.dds"
+		}
+		CHI_chiang_kai_shek = {
+		set_portraits = {
+			army={
+				large="gfx/leaders/CHI/chiang_kai_shek_army_ROCA.dds"
+			}
+		}
+	    }
+		#set_global_flag = 1945_leader_portrait_chi
+	}
+}
+
+country_event = { #Franco
+	id = age_leader.4
+	title = age_leader.4.t
+	desc = age_leader.4.desc
+	
+	hidden = yes
+
+	is_triggered_only = no
+	
+	trigger = {
+	    tag = SPA
+		date > 1945.1.1
+		has_country_leader = { ruling_only = yes
+		    character = SPA_francisco_franco
+		}
+	}
+
+	immediate = {
+	}
+	
+    fire_only_once = yes
+	option = {
+		name = age_leader.4.a
+		set_country_leader_portrait = {
+		    portrait = "gfx/leaders/SPA/Portrait_Spain_Francisco_Franco_old.dds"
+		}
+		#set_global_flag = 1945_leader_portrait_spa
+	}
+}
+
+country_event = { #Stalin 1941
+	id = age_leader.5
+	title = age_leader.5.t
+	desc = age_leader.5.desc
+	
+	hidden = yes
+
+	is_triggered_only = no
+	
+	trigger = {
+	    tag = SOV
+		date > 1941.1.1
+		date < 1943.1.1
+		has_country_leader = { ruling_only = yes
+		    character = SOV_iosif_stalin
+		}
+	}
+
+	immediate = {
+	}
+	
+    fire_only_once = yes
+	option = {
+		name = age_leader.5.a
+		set_country_leader_portrait = {
+		    portrait = "gfx/leaders/SOV/Joseph_Stalin_1941.dds"
+		}
+		#set_global_flag = 1941_leader_portrait_sov
+	}
+}
+
+country_event = { #Hitler 1940
+	id = age_leader.6
+	title = age_leader.6.t
+	desc = age_leader.6.desc
+	
+	hidden = yes
+
+	is_triggered_only = no
+	
+	trigger = {
+	    tag = GER
+		or = { date > 1940.1.1 has_war = yes }
+		date < 1943.1.1
+		has_country_leader = { ruling_only = yes
+		    character = GER_adolf_hitler
+		}
+		not = { has_global_flag = hitler_kill_self }
+	}
+
+	immediate = {
+	}
+	
+    fire_only_once = yes
+	option = {
+		name = age_leader.6.a
+		set_country_leader_portrait = {
+		    portrait = "gfx/leaders/GER/Adolf_Hitler_1940.dds"
+		}
+		#set_global_flag = 1940_leader_portrait_ger
+	}
+}
+
+country_event = { #Hitler 1943
+	id = age_leader.7
+	title = age_leader.7.t
+	desc = age_leader.7.desc
+	
+	hidden = yes
+
+	is_triggered_only = no
+	
+	trigger = {
+	    tag = GER
+		date > 1943.1.1
+		date < 1945.12.31
+		has_country_leader = { ruling_only = yes
+		    character = GER_adolf_hitler
+		}
+		not = { has_global_flag = hitler_kill_self }
+	}
+
+	immediate = {
+	}
+	
+    fire_only_once = yes
+	option = {
+		name = age_leader.7.a
+		set_country_leader_portrait = {
+		    portrait = "gfx/leaders/GER/Adolf_Hitler_1943.dds"
+		}
+		GER_adolf_hitler = {
+		set_portraits = {
+			army={
+				large="gfx/leaders/GER/Adolf_Hitler_1943.dds"
+			}
+		}
+	    }
+		#set_global_flag = 1943_leader_portrait_ger
+	}
+}
+
+country_event = { #Hitler 1945
+	id = age_leader.8
+	title = age_leader.8.t
+	desc = age_leader.8.desc
+	
+	hidden = yes
+
+	is_triggered_only = no
+	
+	trigger = {
+	    tag = GER
+		date > 1945.1.1
+		date < 1946.1.1
+		has_country_leader = { ruling_only = yes
+		    character = GER_adolf_hitler
+		}
+		not = { has_global_flag = hitler_kill_self }
+	}
+
+	immediate = {
+	}
+	
+    fire_only_once = yes
+	option = {
+		name = age_leader.8.a
+		set_country_leader_portrait = {
+		    portrait = "gfx/leaders/GER/Adolf_Hitler_1945.dds"
+		}
+		GER_adolf_hitler = {
+		set_portraits = {
+			army={
+				large="gfx/leaders/GER/Adolf_Hitler_1945.dds"
+			}
+		}
+	    }
+		#set_global_flag = 1945_leader_portrait_ger
+	}
+}
+
+country_event = { #Stalin 1943
+	id = age_leader.9
+	title = age_leader.9.t
+	desc = age_leader.9.desc
+	
+	hidden = yes
+
+	is_triggered_only = no
+	
+	trigger = {
+	    tag = SOV
+		date > 1943.1.1
+		date < 1945.1.1
+		has_country_leader = { ruling_only = yes
+		    character = SOV_iosif_stalin
+		}
+	}
+
+	immediate = {
+	}
+	
+    fire_only_once = yes
+	option = {
+		name = age_leader.9.a
+		set_country_leader_portrait = {
+		    portrait = "gfx/leaders/SOV/Joseph_Stalin_1943.dds"
+		}
+		#set_global_flag = 1943_leader_portrait_sov
+	}
+}
+
+country_event = { #Hitler Post 1945 --> Cold War
+	id = age_leader.11
+	title = age_leader.11.t
+	desc = age_leader.11.desc
+	
+	hidden = yes
+
+	is_triggered_only = no
+	
+	trigger = {
+	    tag = GER
+		date > 1946.1.1
+		has_country_leader = { ruling_only = yes
+		    character = GER_adolf_hitler
+		}
+		has_idea = triumphant_will
+	}
+
+	immediate = {
+	}
+	
+    fire_only_once = yes
+	option = {
+		name = age_leader.11.a
+		set_country_leader_portrait = {
+		    portrait = "gfx/leaders/GER/Adolf_Hitler_Old.dds"
+		}
+		GER_adolf_hitler = {
+		set_portraits = {
+			army={
+				large="gfx/leaders/GER/Adolf_Hitler_Old.dds"
+			}
+		}
+	    }
+		#set_global_flag = 1946_leader_portrait_ger
+	}
+}
+
+country_event = { #Li Zongren
+	id = age_leader.13
+	title = age_leader.13.t
+	desc = age_leader.13.desc
+	
+	hidden = yes
+
+	is_triggered_only = no
+	
+	trigger = {
+	    tag = GXC
+		date > 1945.1.1
+		has_country_leader = { ruling_only = yes
+		    character = GXC_li_zongren
+		}
+	}
+
+	immediate = {
+	}
+	
+    fire_only_once = yes
+	option = {
+		name = age_leader.13.a
+		set_country_leader_portrait = {
+		    portrait = "gfx/leaders/GXC/Li_Zongren_Old.dds"
+		}
+		GXC_li_zongren = {
+		    set_portraits = {
+			    army = { large ="gfx/leaders/GXC/Li_Zongren_Old.dds" }
+			}
+		}
+		#set_global_flag = 1945_leader_portrait_gxc
+	}
+}
+
+country_event = { #Mussolini
+	id = age_leader.14
+	title = age_leader.14.t
+	desc = age_leader.14.desc
+	
+	hidden = yes
+
+	is_triggered_only = no
+	
+	trigger = {
+	    tag = ITA
+		date > 1943.1.1
+		has_country_leader = { ruling_only = yes
+		    character = ITA_benito_mussolini
+		}
+	}
+
+	immediate = {
+	}
+	
+    fire_only_once = yes
+	option = {
+		name = age_leader.14.a
+		set_country_leader_portrait = {
+		    portrait = "gfx/leaders/ITA/Spaghetti_Man_1943.dds"
+		}
+		#set_global_flag = 1943_leader_portrait_sov
+	}
+}
+
+country_event = { #De Gaulle
+	id = age_leader.15
+	title = age_leader.15.t
+	desc = age_leader.15.desc
+	
+	hidden = yes
+
+	is_triggered_only = no
+	
+	trigger = {
+	    tag = FRA
+		date > 1944.1.1
+		has_country_leader = { ruling_only = yes
+		    character = FRA_charles_de_gaulle
+		}
+	}
+
+	immediate = {
+	}
+	
+    fire_only_once = yes
+	option = {
+		name = age_leader.15.a
+		set_country_leader_portrait = {
+		    portrait = "gfx/leaders/FRA/De_Gaulle_1945.dds"
+		}
+		FRA_charles_de_gaulle = {
+		    set_portraits = {
+			    army = { large ="gfx/leaders/FRA/De_Gaulle_1945.dds" }
+			}
+		}
+		#set_global_flag = 1944_leader_portrait_fra
+	}
+}
+
+country_event = { #FDR 1940
+	id = age_leader.16
+	title = age_leader.16.t
+	desc = age_leader.16.desc
+	
+	hidden = yes
+
+	is_triggered_only = no
+	
+	trigger = {
+	    tag = USA
+		date > 1940.1.1
+		date < 1943.1.1
+		has_country_leader = { ruling_only = yes
+		    character = USA_franklin_delano_roosevelt
+		}
+	}
+
+	immediate = {
+	}
+	
+    fire_only_once = yes
+	option = {
+		name = age_leader.16.a
+		set_country_leader_portrait = {
+		    portrait = "gfx/leaders/USA/FDR_1940.dds"
+		}
+		#set_global_flag = 1940_leader_portrait_usa
+	}
+}
+
+country_event = { #FDR 1943
+	id = age_leader.17
+	title = age_leader.17.t
+	desc = age_leader.17.desc
+	
+	hidden = yes
+
+	is_triggered_only = no
+	
+	trigger = {
+	    tag = USA
+		date > 1943.1.1
+		date < 1944.1.1
+		has_country_leader = { ruling_only = yes
+		    character = USA_franklin_delano_roosevelt
+		}
+	}
+
+	immediate = {
+	}
+	
+    fire_only_once = yes
+	option = {
+		name = age_leader.17.a
+		set_country_leader_portrait = {
+		    portrait = "gfx/leaders/USA/FDR_1943.dds"
+		}
+		#set_global_flag = 1943_leader_portrait_usa
+	}
+}
+
+country_event = { #FDR 1945
+	id = age_leader.18
+	title = age_leader.18.t
+	desc = age_leader.18.desc
+	
+	hidden = yes
+
+	is_triggered_only = no
+	
+	trigger = {
+	    tag = USA
+		date > 1945.1.1
+		has_country_leader = { ruling_only = yes
+		    character = USA_franklin_delano_roosevelt
+		}
+	}
+
+	immediate = {
+	}
+	
+    fire_only_once = yes
+	option = {
+		name = age_leader.18.a
+		set_country_leader_portrait = {
+		    portrait = "gfx/leaders/USA/FDR_1944.dds"
+		}
+		#set_global_flag = 1944_leader_portrait_usa
+	}
+}
+
+country_event = { #Franco
+	id = age_leader.19
+	title = age_leader.19.t
+	desc = age_leader.19.desc
+	
+	hidden = yes
+
+	is_triggered_only = no
+	
+	trigger = {
+	    tag = SPA
+		date > 1940.1.1
+		date < 1945.1.1
+		has_country_leader = { ruling_only = yes
+		    character = SPA_francisco_franco
+		}
+	}
+
+	immediate = {
+	}
+	
+    fire_only_once = yes
+	option = {
+		name = age_leader.19.a
+		set_country_leader_portrait = {
+		    portrait = "gfx/leaders/SPA/Portrait_Spain_Francisco_Franco_1940.dds"
+		}
+		#set_global_flag = 1940_leader_portrait_fra
+	}
+}
+
+country_event = { #Jiang Sino Jap War
+	id = age_leader.20
+	title = age_leader.20.t
+	desc = age_leader.20.desc
+	
+	hidden = yes
+
+	is_triggered_only = yes
+	
+	trigger = {
+	    tag = CHI
+		has_war_with = JAP
+		date < 1943.1.1
+		has_country_leader = {
+		    ruling_only = yes character = CHI_chiang_kai_shek
+		}
+		NOT = { has_country_flag = Portrait_CHI_Chiang_Kai_Shek_v1 }
+		NOT = { has_country_flag = chiang_win_flag }
+		NOT = { has_country_leader = { ruling_only = yes character = CHI_he_yingqin } has_country_leader = { ruling_only = yes name = "何应钦" } }
+	}
+
+	immediate = {
+	}
+	
+    fire_only_once = yes
+	option = {
+		name = age_leader.20.a
+		set_country_leader_portrait = {
+		    portrait = "gfx/leaders/CHI/Chiang_Sino_Jap_War_v3.dds"
+		}
+		CHI_chiang_kai_shek = {
+		set_portraits = {
+			army={
+				large="gfx/leaders/CHI/Chiang_Sino_Jap_War_v3.dds"
+			}
+		}
+	    }
+		#set_global_flag = 1937_leader_portrait_chi
+	}
+}
+
+country_event = { #Jiang 1943
+	id = age_leader.21
+	title = age_leader.21.t
+	desc = age_leader.21.desc
+	
+	hidden = yes
+
+	is_triggered_only = no
+	
+	trigger = {
+	    tag = CHI
+		date > 1943.1.1
+		date < 1945.1.1
+		has_country_leader = {
+		    ruling_only = yes character = CHI_chiang_kai_shek
+		}
+		NOT = { has_country_flag = Portrait_CHI_Chiang_Kai_Shek_v1 }
+		NOT = { has_country_flag = chiang_win_flag }
+	}
+
+	immediate = {
+	}
+	
+    fire_only_once = yes
+	option = {
+		name = age_leader.21.a
+		set_country_leader_portrait = {
+		    portrait = "gfx/leaders/CHI/Chiang_Sino_Jap_War.dds"
+		}
+		CHI_chiang_kai_shek = {
+		set_portraits = {
+			army={
+				large="gfx/leaders/CHI/Chiang_Sino_Jap_War.dds"
+			}
+		}
+	    }
+		#set_global_flag = 1943_leader_portrait_chi
+	}
+}
+
+country_event = { #FDR 1945
+	id = age_leader.22
+	title = age_leader.22.t
+	desc = age_leader.22.desc
+	
+	hidden = yes
+
+	is_triggered_only = no
+	
+	trigger = {
+	    tag = USA
+		date > 1945.1.1
+		has_country_leader = { ruling_only = yes
+		    character = USA_franklin_delano_roosevelt
+		}
+	}
+
+	immediate = {
+	}
+	
+    fire_only_once = yes
+	option = {
+		name = age_leader.22.a
+		set_country_leader_portrait = {
+		    portrait = "gfx/leaders/USA/FDR_1945.dds"
+		}
+		#set_global_flag = 1945_leader_portrait_usa
+	}
+}
+
+country_event = { #JAP konoe 1939
+	id = age_leader.23
+	title = age_leader.23.t
+	desc = age_leader.23.desc
+	
+	hidden = yes
+
+	is_triggered_only = no
+	
+	trigger = {
+	    tag = JAP
+		date > 1939.1.1
+		has_country_leader = { ruling_only = yes
+		    character = fumimaro_konoe
+		}
+	}
+
+	immediate = {
+	}
+	
+    fire_only_once = yes
+	option = {
+		name = age_leader.23.a
+		set_country_leader_portrait = {
+		    portrait = "gfx/leaders/JAP/Portrait_Japan_Fumimaro_Konoe_1940.dds"
+		}
+		#set_global_flag = 1939_leader_portrait_konoe
+	}
+}
+
+country_event = { #Yan
+	id = age_leader.25
+	title = age_leader.25.t
+	desc = age_leader.25.desc
+	
+	hidden = yes
+
+	is_triggered_only = no
+	
+	trigger = {
+	    tag = SHX
+		date > 1945.1.1
+		has_country_leader = { ruling_only = yes
+		    character = SHX_yan_xishan
+		}
+	}
+
+	immediate = {
+	}
+	
+    fire_only_once = yes
+	option = {
+		name = age_leader.25.a
+		set_country_leader_portrait = {
+		    portrait = "gfx/leaders/SHX/Yan_Xishan_1945.dds"
+		}
+		#set_global_flag = 1945_leader_portrait_shx
+	}
+}

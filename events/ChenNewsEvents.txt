@@ -1,0 +1,974 @@
+﻿###########################
+# Chen's News Events
+###########################
+
+add_namespace = chen_news
+add_namespace = wtt_news
+
+#Victory of the Sino-Japs War (China)
+news_event = {
+	id = chen_news.331
+	title = chen_news.331.t
+	desc = chen_news.331.d
+	picture = GFX_news_event_chinese_victory
+
+	major = yes
+
+	is_triggered_only = yes
+	
+	trigger = { always = no } #guo
+	
+	option = {
+		name = chen_news.145.a
+		trigger = {
+			NOT = {
+				TAG = event_target:WTT_current_china_leader
+				TAG = JAP
+				TAG = PRC
+				TAG = SOV
+			}
+		}
+	}
+	option = {
+		name = news.132.b
+		trigger = { TAG = event_target:WTT_current_china_leader }
+	}
+	option = {
+		name = chen_news.331.b
+		trigger = { TAG = JAP }
+	}
+	option = {
+		name = chen_news.331.a
+		trigger = { TAG = PRC }
+	}
+	option = {
+		name = chen_news.331.c
+		trigger = { TAG = SOV }
+	}
+}
+
+# The Liberation of Changchun (China)
+news_event = {
+	id = chen_news.332
+	title = chen_news.332.t
+	desc = chen_news.332.d
+	picture = GFX_news_event_chinese_soldiers_march
+	
+	major = yes
+	
+	trigger = {
+		328 = { is_controlled_by = event_target:WTT_current_china_leader }
+		328 = { is_owned_by = MAN }
+		MAN = { has_war_with = event_target:WTT_current_china_leader }
+	    NOT = { has_global_flag = liberation_of_changchun }
+	}
+	
+	immediate = {
+		set_global_flag = liberation_of_changchun
+	}
+	
+	mean_time_to_happen = {
+		days = 2
+	}
+	
+	option = {
+		name = news.145.a
+		trigger = {
+			NOT = {
+				TAG = event_target:WTT_current_china_leader
+				TAG = JAP
+				TAG = MAN
+			}
+		}
+	}
+	option = {
+		name = chen_news.332.b
+		trigger = { TAG = event_target:WTT_current_china_leader }
+	}
+	option = {
+		name = chen_news.100.c
+		trigger = { TAG = JAP }
+	}
+	option = {
+		name = chen_news.332.a
+		trigger = { TAG = MAN }
+	}
+}
+
+#Civil War (China)
+news_event = {
+	id = chen_news.333
+	title = chen_news.333.t
+	desc = chen_news.333.d
+	picture = GFX_news_event_chinese_civil_war
+
+	major = yes
+	#is_triggered_only = yes
+	trigger = {
+		JAP_offered_peace = yes
+		event_target:WTT_current_china_leader = { has_defensive_war_with = event_target:WTT_communist_china } #guo
+		NOT = { has_global_flag = chi_commie_attack }
+	}
+	
+	mean_time_to_happen = {
+		days = 2
+	}
+	
+	immediate = {
+		set_global_flag = chi_commie_attack 
+	}
+	
+	option = {
+		name = chen_news.333.e
+		trigger = {
+			NOT = {
+				TAG = event_target:WTT_current_china_leader
+				TAG = event_target:WTT_communist_china
+				TAG = SOV
+			}
+		}
+	}
+	option = {
+		name = chen_news.333.a
+		trigger = { TAG = event_target:WTT_current_china_leader }
+	}
+	option = {
+		name = chen_news.333.b
+		trigger = { TAG = event_target:WTT_communist_china }
+	}
+	option = {
+		name = chen_news.333.c
+		trigger = { TAG = SOV }
+	}
+}
+
+#Victory of Civil War (China)
+news_event = {#guo
+	id = chen_news.334
+	title = chen_news.334.t
+	
+	desc = { #
+		text = chen_news.334.d
+		trigger = {
+			event_target:WTT_communist_china = { exists = no }
+		}
+	}
+	desc = { #
+		text = chen_news.334.dbadend
+		trigger = {
+			event_target:WTT_communist_china = { is_subject_of = SOV }
+		}
+	}
+	
+	picture = GFX_news_event_government_victory
+
+	major = yes
+
+	trigger = {
+		has_global_flag = PRC_civil_war_started #guo
+		NOT = { has_global_flag = chinese_civil_war_victory }
+		event_target:WTT_communist_china = { or = { exists = no and = { has_global_flag = chi_guoguangjihua is_subject_of = SOV } } } #guo
+		event_target:WTT_current_china_leader = { exists = yes }
+    }
+	
+	immediate = {
+		set_global_flag = chinese_civil_war_victory
+	}
+	
+	mean_time_to_happen = {
+		days = 2
+	}
+	
+	option = {
+		name = chen_news.334.a
+		trigger = {
+			NOT = {
+				TAG = event_target:WTT_current_china_leader
+				TAG = SOV
+			}
+		}
+	}
+	option = {
+		name = chen_news.334.b
+		trigger = { TAG = event_target:WTT_current_china_leader not = { has_global_flag = chi_guoguangjihua } }
+	}
+	
+	option = {
+		name = chen_news.334.bbadend
+		trigger = { TAG = event_target:WTT_current_china_leader has_global_flag = chi_guoguangjihua }
+	}
+	
+	option = {
+		name = chen_news.334.c
+		trigger = { TAG = SOV }
+	}
+}
+
+#Victory of Civil War (Chinese Communist Party)
+news_event = {
+	id = chen_news.335
+	title = chen_news.335.t
+	desc = chen_news.335.d
+	picture = GFX_news_event_communist_victory
+
+	major = yes
+
+	trigger = {
+		has_global_flag = PRC_civil_war_started #guo
+		NOT = { has_global_flag = china_communist_civil_war_victory }
+		event_target:WTT_current_china_leader = { #guo
+		or = {
+		exists = no 
+		has_global_flag = roc_in_taiwan_flag
+		}
+		}
+		event_target:WTT_communist_china = { exists = yes }
+    }
+	
+	immediate = {
+		set_global_flag = china_communist_civil_war_victory
+	}
+	
+	mean_time_to_happen = {
+		days = 2
+	}
+	
+	option = {
+		name = chen_news.335.a
+		trigger = {
+			NOT = {
+				TAG = PRC
+				TAG = SOV
+			}
+		}
+	}
+	option = {
+		name = chen_news.335.b
+		trigger = { TAG = PRC }
+	}
+	option = {
+		name = chen_news.335.c
+		trigger = { TAG = SOV }
+	}
+}
+
+#Chiang One China Policy
+news_event = {
+	id = chen_news.336
+	title = wtt_news.46.t
+	desc = wtt_news.46.desc
+	picture = GFX_news_event_chiang_speech2
+
+	is_triggered_only = yes
+	
+	option = {
+		name = wtt_news.46.a
+		trigger = {
+			is_literally_china = yes
+			NOT = {
+				tag = ROOT
+			}
+		}
+	}
+	option = {
+		name = wtt_news.46.b
+		trigger = {
+			tag = ROOT
+		}
+	}
+	option = {
+		name = wtt_news.46.d
+		trigger = {
+			is_literally_china = no
+		}
+	}
+}
+
+#Asian-Pacific League
+news_event = {
+	id = chen_news.337
+	title = chen_news.337.t
+	desc = chen_news.337.d
+	picture = GFX_news_event_chiang_speech
+
+	is_triggered_only = yes
+	
+	option = {
+		name = chen_news.337.a
+		trigger = {
+			tag = ROOT
+		}
+	}
+	
+	option = {
+		name = chen_news.337.b
+		trigger = {
+			OR = {
+				original_tag = HOL
+				original_tag = ENG
+				AND = {
+					original_tag = FRA
+					has_government = democratic
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = chen_news.337.c
+		trigger = {
+			NOT = {
+				tag = ROOT
+				original_tag = HOL
+				original_tag = ENG
+				AND = {
+					original_tag = FRA
+					has_government = democratic
+				}
+			}
+		}
+	}
+}
+
+news_event = {
+	id = chen_news.338
+	title = chen_news.338.t
+	desc = chen_news.338.d
+	picture = GFX_news_event_prc_declared
+
+	is_triggered_only = yes
+	
+	option = {
+		name = chen_news.337.a
+		trigger = {
+			tag = ROOT
+		}
+	}
+	
+	option = {
+		name = chen_news.337.b
+		trigger = {
+			OR = {
+				original_tag = HOL
+				original_tag = ENG
+				AND = {
+					original_tag = FRA
+					has_government = democratic
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = chen_news.338.c
+		trigger = {
+			NOT = {
+				tag = ROOT
+				original_tag = HOL
+				original_tag = ENG
+				AND = {
+					original_tag = FRA
+					has_government = democratic
+				}
+			}
+		}
+	}
+}
+
+#South Anhui Incident  (China)
+news_event = {
+	id = chen_news.339
+	title = chen_news.339.t
+	#desc = chen_news.339.d
+	desc = {
+		text = chen_news.339.d_PRC
+		trigger = { 
+			OR = {
+				tag = event_target:WTT_communist_china
+				AND = {
+					NOT = { has_war_with = event_target:WTT_communist_china }
+					OR = {
+						has_government = communism
+						has_government = n_socialism
+					}
+				}
+			}
+		}
+	}
+	desc = {
+		text = chen_news.339.d_NEU
+		trigger = { 
+			NOT = {
+				OR = {
+					tag = event_target:WTT_communist_china
+					AND = {
+						NOT = { has_war_with = event_target:WTT_communist_china }
+						OR = {
+							has_government = communism
+							has_government = n_socialism
+						}
+					}
+				}
+				tag = event_target:WTT_current_china_leader
+			}
+		}
+	}
+	desc = {
+		text = chen_news.339.d_CHI
+		trigger = { 
+			tag = event_target:WTT_current_china_leader
+		}
+	}
+	picture = GFX_news_event_south_anhui_incident
+
+	major = yes
+
+	is_triggered_only = yes
+		
+	option = {
+		name = chen_news.339.a
+		trigger = { 
+			OR = {
+				tag = PRC
+				AND = {
+					NOT = { has_war_with = PRC }
+					OR = {
+						has_government = communism
+						has_government = n_socialism
+					}
+				}
+			}
+		}
+		effect_tooltip = {
+			PRC = {
+				retire_character = PRC_Ye_Ting		
+				retire_character = PRC_Xiang_Ying					
+                add_manpower = -4000   
+			    add_equipment_to_stockpile = {
+			  	    type = infantry_equipment
+				    amount = -400
+			    }
+			}			
+		}
+	}
+	option = {
+		name = chen_news.339.b
+		trigger = { 
+			NOT = {
+				OR = {
+					tag = PRC
+					AND = {
+						NOT = { has_war_with = PRC }
+						OR = {
+							has_government = communism
+							has_government = n_socialism
+						}
+					}
+				}
+				tag = event_target:WTT_current_china_leader
+			}
+		}
+		effect_tooltip = {
+			PRC = {
+				retire_character = PRC_Ye_Ting		
+				retire_character = PRC_Xiang_Ying					
+                add_manpower = -4000   
+			    add_equipment_to_stockpile = {
+			  	    type = infantry_equipment
+				    amount = -400
+			    }
+			}			
+		}
+	}
+	option = {
+		name = chen_news.339.c
+		trigger = { 
+			tag = event_target:WTT_current_china_leader
+		}
+		effect_tooltip = {
+			PRC = {
+				retire_character = PRC_Ye_Ting		
+				retire_character = PRC_Xiang_Ying					
+                add_manpower = -4000   
+			    add_equipment_to_stockpile = {
+			  	    type = infantry_equipment
+				    amount = -400
+			    }
+			}			
+		}
+	}
+}
+
+#Battle of Beping (China)
+news_event = {
+	id = chen_news.340
+	title = chen_news.340.t
+	desc = chen_news.340.d
+	picture = GFX_news_event_battle_of_beping
+	
+	major = yes
+
+	trigger = {
+		OR = {
+			608 = {
+				OR = {
+					is_controlled_by_jap_or_its_puppet = yes
+					controller = {
+						has_war_together_with = JAP
+					}
+					controller = {
+						is_in_faction_with = JAP
+					}
+				}
+			}
+		}
+		OR = {
+		608 = { is_owned_by = event_target:WTT_current_china_leader }
+		608 = { 
+		        owner = {
+						is_in_faction_with = event_target:WTT_current_china_leader
+			    }
+		    }
+		}
+		JAP = { has_war_with = event_target:WTT_current_china_leader }
+		NOT = { has_global_flag = fall_of_beping_jap }
+	}
+	
+	immediate = {
+		set_global_flag = fall_of_beping_jap
+	}
+	
+	mean_time_to_happen = {
+		days = 2
+	}
+	
+	option = {
+		name = chen_news.340.a
+	}   
+}
+
+#Battle of Canton (China)
+news_event = {
+	id = chen_news.341
+	title = chen_news.341.t
+	desc = chen_news.341.d
+	picture = GFX_news_event_canton_operation
+	
+	major = yes
+
+	trigger = {
+		OR = {
+			592 = {
+				OR = {
+					is_controlled_by_jap_or_its_puppet = yes
+					controller = {
+						has_war_together_with = JAP
+					}
+					controller = {
+						is_in_faction_with = JAP
+					}
+				}
+			}
+		}
+		OR = {
+		592 = { is_owned_by = event_target:WTT_current_china_leader }
+		592 = { 
+		        owner = {
+						is_in_faction_with = event_target:WTT_current_china_leader
+			    }
+		    }
+		}
+		JAP = { has_war_with = event_target:WTT_current_china_leader }
+		NOT = { has_global_flag = fall_of_canton_jap }
+	}
+	
+	immediate = {
+		set_global_flag = fall_of_canton_jap
+	}
+	
+	mean_time_to_happen = {
+		days = 2
+	}
+	
+	option = {
+		name = chen_news.341.a
+        trigger = { 
+		    NOT = {
+		        tag = JAP 
+			}
+		}
+	}
+    option = {
+		name = chen_news.341.b
+		trigger = { tag = JAP }
+	}
+} 
+
+#Battle of Taiyuan (China)
+news_event = {
+	id = chen_news.342
+	title = chen_news.342.t
+	desc = chen_news.342.d
+	picture = GFX_news_event_battle_of_taiyuan_1937
+	
+	major = yes
+
+	trigger = {
+		OR = {
+			615 = {
+				OR = {
+					is_controlled_by_jap_or_its_puppet = yes
+					controller = {
+						has_war_together_with = JAP
+					}
+					controller = {
+						is_in_faction_with = JAP
+					}
+				}
+			}
+		}
+		OR = {
+		615 = { is_owned_by = event_target:WTT_current_china_leader }
+		615 = { 
+		        owner = {
+						is_in_faction_with = event_target:WTT_current_china_leader
+			    }
+		    }
+		}
+		JAP = { has_war_with = event_target:WTT_current_china_leader }
+		NOT = { has_global_flag = fall_of_taiyuan_jap }
+	}
+	
+	immediate = {
+		set_global_flag = fall_of_taiyuan_jap
+	}
+	
+	mean_time_to_happen = {
+		days = 2
+	}
+	
+	option = {
+		trigger = {
+		NOT = {
+		 has_war_with = JAP
+		  }
+		}
+		name = chen_news.342.a
+        
+	}
+    option = {
+		trigger = {
+		 has_war_with = JAP
+		}
+		name = chen_news.342.b
+    }
+
+}
+
+#Battle of Hongkong
+news_event = {
+	id = chen_news.343
+	title = chen_news.343.t
+	desc = chen_news.343.d
+	picture = GFX_news_event_battle_of_hong_kong
+	
+	major = yes
+
+	trigger = {
+		OR = {
+			326 = {
+				OR = {
+					is_controlled_by_jap_or_its_puppet = yes
+					controller = {
+						is_in_faction_with = JAP
+					}
+				}
+			}
+		}
+		326 = { is_owned_by = ENG }
+		JAP = { has_war_with = ENG }
+		NOT = { has_global_flag = fall_of_hk_jap }
+	    always = no ###
+	}
+	
+	immediate = {
+		set_global_flag = fall_of_hk_jap
+	}
+	
+	mean_time_to_happen = {
+		days = 2
+	}
+	
+	option = {
+		name = chen_news.343.a
+        trigger = {
+		NOT = { 
+		 has_war_with = JAP 
+	    }
+	  }
+	} 
+	option = {
+		name = chen_news.343.b
+        trigger = { has_war_with = JAP }
+	}
+    option = {
+		name = chen_news.343.c
+        trigger = { tag = JAP }
+	}
+}
+#battle of singapore
+news_event = {
+	id = chen_news.344
+	title = chen_news.344.t
+	desc = chen_news.344.d
+	picture = GFX_news_event_fall_of_sg
+	
+	major = yes
+
+	trigger = {
+		OR = {
+			336 = {
+				OR = {
+					is_controlled_by_jap_or_its_puppet = yes
+					controller = {
+						has_war_together_with = JAP
+					}
+					controller = {
+						is_in_faction_with = JAP
+					}
+				}
+			}
+		}
+		OR = {
+		336 = { is_owned_by = ENG }
+		336 = { is_owned_by = SST }
+		}
+		JAP = { has_war_with = ENG }
+		NOT = { has_global_flag = fall_of_sg_jap }
+	    always = no #vanilla already have one i guess
+	}
+	
+	immediate = {
+		set_global_flag = fall_of_sg_jap
+	}
+	
+	mean_time_to_happen = {
+		days = 2
+	}
+	
+	option = {
+		name = chen_news.344.a
+        trigger = {
+		NOT = { 
+		    has_war_with = JAP 
+	    }
+	  }
+	} 
+	option = {
+		name = chen_news.344.b
+        trigger = { has_war_with = JAP }
+	}
+    option = {
+		name = chen_news.344.c
+        trigger = { tag = JAP }
+	}
+}
+
+#PRC captured Nanking
+news_event = { #guo
+	id = chen_news.345
+	title = chen_news.345.t
+	desc = chen_news.345.d
+	picture = GFX_event_dujiangzhanyi
+	
+	major = yes
+
+	trigger = {
+		1015 = { is_controlled_by = event_target:WTT_communist_china }
+		event_target:WTT_current_china_leader = { has_war_with = event_target:WTT_communist_china }
+	    NOT = { has_global_flag = fall_of_nanking_ccw }
+	}
+	
+	immediate = {
+		set_global_flag = fall_of_nanking_ccw
+		hidden_effect = {
+		play_song = "nea_chenshengzhuiji"
+		event_target:WTT_communist_china = { country_event = PRC_luobinghui.6 }
+		
+		CHI = {
+		if = {
+		limit = {
+		or = {
+		608 = { controller = { has_war_with = CHI } }
+		716 = { controller = { has_war_with = CHI } }
+		is_ai = yes
+		}
+		has_country_leader = {
+		    ruling_only = yes character = CHI_chiang_kai_shek
+		}
+		}
+		set_country_leader_portrait = {
+		    portrait = "gfx/leaders/CHI/its_jiangover.dds"
+		}
+		CHI_chiang_kai_shek = {
+		set_portraits = {
+			army={
+				large="gfx/leaders/CHI/its_jiangover.dds"
+			}
+		}
+	    }
+		}
+		}
+		
+		}
+	}
+	
+	mean_time_to_happen = {
+		days = 2
+	}
+	
+	option = {
+		name = chen_news.345.a
+        trigger = { has_war_with = event_target:WTT_communist_china }
+	}
+    option = {
+		name = chen_news.345.b
+        trigger = { has_war_with = event_target:WTT_current_china_leader }
+	}
+    option = {
+		name = chen_news.345.c
+        trigger = { 
+		NOT = { has_war_with = event_target:WTT_current_china_leader }
+	    NOT = { has_war_with = event_target:WTT_communist_china }
+	    }
+	}
+} 
+#ROC captured Yanan
+news_event = {
+	id = chen_news.346
+	title = chen_news.346.t
+	desc = chen_news.346.d
+	picture = GFX_news_event_northern_shaanxi_campaign
+	
+	major = yes
+
+	trigger = {
+		622 = { is_owned_by = event_target:WTT_current_china_leader }
+		event_target:WTT_current_china_leader = { has_war_with = event_target:WTT_communist_china }
+	    NOT = { has_global_flag = fall_of_yanan_ccw }
+	    always = no ###
+	}
+	
+	immediate = {
+		set_global_flag = fall_of_yanan_ccw
+	}
+	
+	mean_time_to_happen = {
+		days = 2
+	}
+	
+	option = {
+		name = chen_news.346.a
+        trigger = { has_war_with = event_target:WTT_communist_china }
+	}
+    option = {
+		name = chen_news.346.b
+        trigger = { has_war_with = event_target:WTT_current_china_leader }
+	}
+    option = {
+		name = chen_news.346.c
+        trigger = { 
+		NOT = { has_war_with = event_target:WTT_current_china_leader }
+	    NOT = { has_war_with = event_target:WTT_communist_china }
+	    }
+	}
+}
+
+#PRC captured Liaoshen
+news_event = {
+	id = chen_news.347
+	title = chen_news.347.t
+	desc = chen_news.347.d
+	picture = GFX_news_event_river_crossing_campaign
+	
+	major = yes
+
+	trigger = {
+		1015 = { is_owned_by = event_target:WTT_communist_china }
+		event_target:WTT_current_china_leader = { has_war_with = event_target:WTT_communist_china }
+	    NOT = { has_global_flag = fall_of_nanking_ccw }
+	    always = no ###
+	}  
+	
+	immediate = {
+		set_global_flag = fall_of_nanking_ccw
+	}
+	
+	mean_time_to_happen = {
+		days = 2
+	}
+	
+	option = {
+		name = chen_news.347.a
+        trigger = { has_war_with = event_target:WTT_communist_china }
+	}
+    option = {
+		name = chen_news.347.b
+        trigger = { has_war_with = event_target:WTT_current_china_leader }
+	}
+    option = {
+		name = chen_news.347.c
+        trigger = { 
+		NOT = { has_war_with = event_target:WTT_current_china_leader }
+	    NOT = { has_war_with = event_target:WTT_communist_china }
+	    }
+	}
+} 
+
+#United States Air Force C-47 crash
+news_event = { #guo
+	id = chen_news.348
+	title = chen_news.348.t
+	desc = chen_news.348.d
+	picture = GFX_news_event_us_airforce_c47_crash
+ 
+	major = yes
+	is_triggered_only = yes
+	fire_only_once = yes
+	hidden = yes
+	
+	trigger = {
+	always = no #guo
+		tag = PRC
+		622 = { is_controlled_by = PRC } #Yan'an 
+		751 = { is_controlled_by = CHI } #Chongqing
+		has_country_flag = PRC_joined_CHI_against_JAP
+	        NOT = { has_global_flag = us_airforce_c47_crash }
+		NOT = { 
+		    has_war_with = JAP 
+		    has_war_with = CHI 
+		    has_war_with = USA 			
+	        }
+		NOT = {
+			has_country_leader = {
+				name = "Bo Gu"
+				ruling_only = yes
+			}
+		}
+	    CHI = {	
+		    NOT = { 
+		        has_war_with = JAP 
+		        has_war_with = PRC 
+		        has_war_with = USA 			
+	        }
+	    }		
+	}
+
+	immediate = {
+		set_global_flag = us_airforce_c47_crash
+		news_event = { id = zizhinews.11 days = 60 }
+	}
+
+	option = {		
+	}
+}

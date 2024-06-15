@@ -1,0 +1,1444 @@
+﻿###########################
+# Ace pilots Events
+###########################
+
+add_namespace = dfn_belgium
+add_namespace = dfn_belgium_colonial_expansion
+
+country_event = {
+	id = dfn_belgium.1 
+	title = dfn_belgium.1.t
+	desc = dfn_belgium.1.d
+	picture = GFX_report_event_lithuania_army
+	
+	is_triggered_only = yes 
+	
+	option = {
+		name = "North Angola is nothing for us"
+		ai_chance = {
+			base = 10
+			modifier = {
+				tag = ANG 
+				factor = 0 
+				}
+			}
+			FROM = { country_event = { id = dfn_belgium.2 hours = 12 } }
+		}
+	
+	option = {
+		name = "North Angola cannot be given"
+		ai_chance = {
+			base = 0
+			modifier = {
+				tag = ANG 
+				add = 10 
+				}
+			}
+			FROM = { country_event = { id = dfn_belgium.3 hours = 12 } }
+		}
+	
+	}
+
+country_event = {
+	id = dfn_belgium.2 
+	title = dfn_belgium.2.t
+	desc = dfn_belgium.2.d
+	picture = GFX_report_event_lithuania_army
+	
+	is_triggered_only = yes 
+	
+	option = {
+		name = "Nice."
+		ai_chance = {
+			base = 10
+			modifier = {
+				tag = ANG 
+				factor = 0 
+				}
+			}
+			IF = {
+				limit = {
+					COG = {
+						is_subject_of = BEL 
+						controls_state = 295
+						}
+					}
+			COG = { 
+				transfer_state = 796 
+				add_state_core = 796	
+				}
+			}
+			else = {
+				transfer_state = 796
+				}
+		}
+	}
+
+country_event = {
+	id = dfn_belgium.3 
+	title = dfn_belgium.3.t
+	desc = dfn_belgium.3.d
+	picture = GFX_report_event_lithuania_army
+	
+	is_triggered_only = yes 
+	
+	option = {
+		name = "Nothing can be done about this"
+		ai_chance = {
+			base = 10
+			modifier = {
+				tag = ANG 
+				factor = 0 
+				}
+			}
+		add_political_power = -25
+		}
+	}
+
+country_event = {
+	id = dfn_belgium.4 
+	title = dfn_belgium.4.t
+	desc = dfn_belgium.4.d
+	picture = GFX_report_event_lithuania_army
+	
+	is_triggered_only = yes 
+	
+	option = {
+		name = "This will beneficial for us"
+		ai_chance = {
+			base = 10
+			}
+			set_country_flag = BEL_agreed_benelux_economic_pact
+		}
+	
+	option = {
+		name = "We don't need to cooperate with them"
+		ai_chance = {
+			base = 0
+			}
+			
+		}
+	
+	}
+
+country_event = {
+	id = dfn_belgium.5
+	title = dfn_belgium.5.t
+	desc = dfn_belgium.5.d
+	picture = GFX_report_event_lithuania_army
+	
+	is_triggered_only = yes 
+	
+	option = {
+		name = "Ok."
+		ai_chance = {
+			base = 10
+			}
+		IF = {
+			limit = {
+				HOL = { has_country_flag = BEL_agreed_benelux_economic_pact }
+				LUX = { has_country_flag = BEL_agreed_benelux_economic_pact }
+				}
+			add_ideas = BEL_benelux_economic_pact
+				HOL = { add_ideas = BEL_benelux_economic_pact }
+				LUX = { add_ideas = BEL_benelux_economic_pact }
+			}
+		else_if = {
+			limit = {
+				HOL = { has_country_flag = BEL_agreed_benelux_economic_pact }
+				NOT = { LUX  = { has_country_flag = BEL_agreed_benelux_economic_pact } }
+				}
+			add_ideas = BEL_benelux_economic_pact1
+			HOL = { add_ideas = BEL_benelux_economic_pact1 }
+			}
+		else_if = {
+			limit = {
+				NOT = { HOL = { has_country_flag = BEL_agreed_benelux_economic_pact } }
+				LUX  = { has_country_flag = BEL_agreed_benelux_economic_pact }
+				}
+			add_ideas = BEL_benelux_economic_pact1
+			LUX = { add_ideas = BEL_benelux_economic_pact1 }
+			}
+		else = {
+			add_political_power = -50
+			}
+		}
+	}
+
+country_event = {
+	id = dfn_belgium.6 
+	title = dfn_belgium.6.t
+	desc = dfn_belgium.6.d
+	picture = GFX_report_event_lithuania_army
+	
+	is_triggered_only = yes 
+	
+	option = {
+		name = "Vote Yes to Union"
+		ai_chance = {
+			base = 10
+			}
+		FROM = { country_event = { id = dfn_belgium.7 days = 1 } }
+		}
+		
+	option = {
+		name = "Reject the Union"
+		ai_chance = {
+			base = 0
+			}
+		FROM = { country_event = { id = dfn_belgium.8 days = 1 } }
+		}
+	}
+
+country_event = {
+	id = dfn_belgium.7 
+	title = dfn_belgium.7.t
+	desc = dfn_belgium.7.d
+	picture = GFX_report_event_lithuania_army
+	
+	is_triggered_only = yes 
+	
+	option = {
+		name = "Wonderful!"
+		ai_chance = {
+			base = 10
+			}
+		IF = {
+			limit = {
+				FROM = { original_tag = HOL }
+				INS = { is_subject_of = HOL }
+				}
+				puppet = INS
+			}
+		FROM = { 
+			every_unit_leader = {
+				set_nationality = BEL 
+				}
+			}
+		every_state = {
+			limit = {
+				is_core_of = FROM 
+				}
+			add_core_of = ROOT 
+			}
+		annex_country = { target = FROM transfer_troops = yes }
+		}
+	}
+
+country_event = {
+	id = dfn_belgium.8 
+	title = dfn_belgium.8.t
+	desc = dfn_belgium.8.d
+	picture = GFX_report_event_lithuania_army
+	
+	is_triggered_only = yes 
+	
+	option = {
+		name = "That's what democracy called"
+		ai_chance = {
+			base = 10
+			}
+		add_political_power = -50
+		}
+	option = {
+		name = "They should know their place"
+		ai_chance = {
+			base = 0
+			}
+		create_wargoal = {
+			target = FROM 
+			type = annex_everything 
+			}
+		}
+	}
+
+country_event = {
+	id = dfn_belgium.9
+	title = dfn_belgium.9.t
+	desc = dfn_belgium.9.d
+	picture = GFX_report_event_lithuania_army
+	
+	is_triggered_only = yes 
+	
+	option = {
+		name = "Accept the Demand"
+		ai_chance = {
+			base = 10
+			}
+		FROM = { country_event = { id = dfn_belgium.10 days = 1 } }
+		}
+		
+	option = {
+		name = "Reject the Demand"
+		ai_chance = {
+			base = 0
+			}
+		FROM = { country_event = { id = dfn_belgium.11 days = 1 } }
+		}
+	}
+
+country_event = {
+	id = dfn_belgium.10
+	title = dfn_belgium.10.t
+	desc = dfn_belgium.10.d
+	picture = GFX_report_event_lithuania_army
+	
+	is_triggered_only = yes 
+	
+	option = {
+		name = "Nice!"
+		ai_chance = {
+			base = 10
+			}
+		annex_country = { target = FROM transfer_troops = no }
+		}
+	}
+
+country_event = {
+	id = dfn_belgium.11
+	title = dfn_belgium.11.t
+	desc = dfn_belgium.11.d
+	picture = GFX_report_event_lithuania_army
+	
+	is_triggered_only = yes 
+	
+	option = {
+		name = "We can't declare war on them"
+		ai_chance = {
+			base = 3
+			}
+		add_war_support = -0.05
+		}
+	option = {
+		name = "They should know their place"
+		ai_chance = {
+			base = 7
+			}
+		create_wargoal = {
+			target = FROM 
+			type = annex_everything 
+			}
+		}
+	}
+
+country_event = {
+	id = dfn_belgium.12
+	title = dfn_belgium.12.t
+	desc = dfn_belgium.12.d
+	picture = GFX_report_event_lithuania_army
+	
+	is_triggered_only = yes 
+	
+	option = {
+		name = "Ok."
+		ai_chance = {
+			base = 10
+			}
+		effect_tooltip = {
+			puppet = BEL
+			}
+		hidden_effect = {
+			FROM = { country_event = { id = dfn_belgium.13 days = 1 } }
+			}
+		}
+	}
+
+country_event = {
+	id = dfn_belgium.13
+	title = dfn_belgium.13.t
+	desc = dfn_belgium.13.d
+	picture = GFX_report_event_lithuania_army
+	
+	is_triggered_only = yes 
+	
+	option = {
+		name = "Ok."
+		ai_chance = {
+			base = 10
+			}
+		set_autonomy = {
+			target = LUX
+			autonomous_state = autonomy_integrated_puppet
+			}
+		}
+	}
+
+country_event = {
+	id = dfn_belgium.14
+	title = dfn_belgium.14.t
+	desc = dfn_belgium.14.d
+	picture = GFX_report_event_lithuania_army
+	
+	is_triggered_only = yes 
+	
+	option = {
+		name = "This will beneficial for us."
+		ai_chance = {
+			base = 10
+			}
+		add_ideas = BEL_german_trade_pact
+		FROM = { country_event = { id = dfn_belgium.15 hours = 12 } }
+		}
+	}
+
+country_event = {
+	id = dfn_belgium.15
+	title = dfn_belgium.15.t
+	desc = dfn_belgium.15.d
+	picture = GFX_report_event_lithuania_army
+	
+	is_triggered_only = yes 
+	
+	option = {
+		name = "Nice!"
+		ai_chance = {
+			base = 10
+			}
+		add_ideas = BEL_german_trade_pact
+		}
+	}
+
+country_event = {
+	id = dfn_belgium.16
+	title = dfn_belgium.16.t
+	desc = dfn_belgium.16.d
+	picture = GFX_report_event_lithuania_army
+	
+	is_triggered_only = yes 
+	
+	option = {
+		name = "It's needed for peace"
+		ai_chance = {
+			base = 3
+			}
+		FROM = { country_event = { id = dfn_belgium.17 hours = 24 } }
+		}
+	option = {
+		name = "We won't give them any piece of land"
+		ai_chance = {
+			base = 7
+			}
+		FROM = { country_event = { id = dfn_belgium.18 hours = 24 } }
+		}
+	}
+
+country_event = {
+	id = dfn_belgium.17
+	title = dfn_belgium.17.t
+	desc = dfn_belgium.17.d
+	picture = GFX_report_event_lithuania_army
+	
+	is_triggered_only = yes 
+	
+	option = {
+		name = "Amazing!"
+		ai_chance = {
+			base = 10
+			}
+		transfer_state = 29
+		}
+	}
+
+country_event = {
+	id = dfn_belgium.18
+	title = dfn_belgium.18.t
+	desc = dfn_belgium.18.d
+	picture = GFX_report_event_lithuania_army
+	
+	is_triggered_only = yes 
+	
+	option = {
+		name = "Ok."
+		ai_chance = {
+			base = 10
+			}
+		add_war_support = -0.05
+		}
+	option = {
+		name = "How dare they?"
+		ai_chance = {
+			base = 0
+			}
+			create_wargoal = {
+				target = FROM 
+				type = take_state_focus 
+				generator = { 29 }
+			}
+		}
+	}
+
+country_event = {
+	id = dfn_belgium.19
+	title = dfn_belgium.19.t
+	desc = dfn_belgium.19.d
+	picture = GFX_report_event_lithuania_army
+	
+	trigger = {
+		original_tag = BEL
+		has_war_with = GER
+		has_capitulated = yes 
+	}
+	
+	fire_only_once = yes
+	
+	option = {
+		name = "Ok."
+		ai_chance = {
+			base = 0
+			}
+		set_country_flag = BEL_king_arrested_once
+		set_country_flag = BEL_leopold_iii_arrested
+		}
+	}
+
+country_event = {
+	id = dfn_belgium.20
+	title = dfn_belgium.20.t
+	desc = dfn_belgium.20.d
+	picture = GFX_report_event_lithuania_army
+	
+	trigger = {
+		original_tag = BEL
+		has_war_with = GER
+		has_capitulated = yes 
+		has_country_flag = { 
+			flag = BEL_leopold_iii_arrested
+			days > 365
+			value > 0
+			}
+	}
+	
+	fire_only_once = yes
+	
+	option = {
+		name = "Congrats."
+		ai_chance = {
+			base = 0
+			}
+		add_political_power = -100
+		set_country_flag = BEL_leopold_iii_married
+		add_ideas = BEL_princess_lilian_idea
+		}
+	}
+
+country_event = {
+	id = dfn_belgium.21
+	title = dfn_belgium.21.t
+	desc = dfn_belgium.21.d
+	picture = GFX_report_event_lithuania_army
+	
+	trigger = {
+		original_tag = BEL
+		has_war_with = GER
+		has_capitulated = no 
+		has_country_flag = BEL_leopold_iii_arrested
+	}
+	
+	fire_only_once = yes
+	
+	option = {
+		name = "Nice."
+		ai_chance = {
+			base = 0
+			}
+		clr_country_flag = BEL_leopold_iii_arrested
+		}
+	}
+
+country_event = {
+	id = dfn_belgium.22
+	title = dfn_belgium.22.t
+	desc = dfn_belgium.22.d
+	picture = GFX_report_event_lithuania_army
+	
+	trigger = {
+		original_tag = BEL
+		has_country_flag = BEL_germany_declared_war 
+		has_country_flag = BEL_king_arrested_once
+		NOT = { has_war_with = GER }
+	}
+	
+	fire_only_once = yes
+	
+	option = {
+		name = "Princess wasn't guilty"
+		ai_chance = {
+			base = 0
+			}
+		BEL_princess_lilian = {
+			add_country_leader_role = {
+				country_leader = {
+					expire = "1965.1.1"
+					ideology = despotism
+					traits = {
+						BEL_princess_of_belgium1
+						}
+					}
+				promote_leader = yes
+				}
+			}
+		IF = {
+			limit = {
+				has_government = neutrality
+				}
+			add_ideas = BEL_leopold_iii
+			}
+		}
+	option = {
+		name = "Continue with Leopold III"
+		ai_chance = {
+			base = 0
+			}
+		add_ideas = BEL_royal_question
+		}
+	option = {
+		name = "Make Prince Charles Regent"
+		ai_chance = {
+			base = 10
+			}
+		set_country_flag = BEL_regency
+		BEL_prince_charles = {
+			add_country_leader_role = {
+				country_leader = {
+					expire = "1965.1.1"
+					ideology = despotism
+					traits = {
+						BEL_regent_king
+						}
+					}
+				promote_leader = yes
+				}
+			}
+		}
+	}
+
+country_event = {
+	id = dfn_belgium.23
+	title = dfn_belgium.23.t
+	desc = dfn_belgium.23.d
+	picture = GFX_report_event_lithuania_army
+	
+	trigger = {
+		original_tag = BEL
+		has_country_flag = BEL_regency
+		date > 1950.1.1
+	}
+	
+	fire_only_once = yes
+	
+	option = {
+		name = "Nice."
+		ai_chance = {
+			base = 0
+			}
+		BEL_king_baudouin = {
+			add_country_leader_role = {
+				country_leader = {
+					expire = "1965.1.1"
+					ideology = despotism
+					traits = {
+						BEL_king_of_belgium
+						}
+					}
+				promote_leader = yes
+				}
+			}
+		}
+	}
+
+country_event = {
+	id = dfn_belgium.24
+	title = generic.2.t
+	desc = generic.2.d.e
+	picture = GFX_report_event_lithuania_army
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "Let's welcome them"
+		ai_chance = {
+			base = 10
+			modifier = {
+				has_war_with = FROM 
+				factor = 0
+				}
+			}
+		add_to_faction = FROM
+		FROM = { country_event = { id = generic.3 hours = 6 } }
+		hidden_effect = {
+			set_country_flag = alliance_inviter@ROOT
+			FROM = { set_country_flag = alliance_applicant@ROOT }
+			news_event = { id = news.289 hours = 12 }
+		}
+		}
+	
+	option = {
+		name = "We are better of without them"
+		ai_chance = {
+			base = 0
+			modifier = {
+				has_war_with = FROM 
+				add = 10
+				}
+			}
+		FROM = { 
+			country_event = { id = generic.4 hours = 6 }
+		}
+		}
+	}
+
+country_event = {
+	id = dfn_belgium.25
+	title = dfn_belgium.25.t
+	desc = dfn_belgium.25.d
+	picture = GFX_report_event_lithuania_army
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "We have no other option"
+		ai_chance = {
+			base = 10
+			}
+		effect_tooltip = {
+			BEL = {
+				transfer_state = 29
+				transfer_state = 785
+				transfer_state = 15
+				transfer_state = 14
+				transfer_state = 30
+			}
+		}
+		FROM = { country_event = { id = dfn_belgium.26 hours = 6 } }
+		}
+	
+	option = {
+		name = "No."
+		ai_chance = {
+			base = 0
+			}
+		FROM = { 
+			country_event = { id = dfn_belgium.27 hours = 6 }
+			}
+		}
+	}
+
+country_event = {
+	id = dfn_belgium.26
+	title = dfn_belgium.26.t
+	desc = dfn_belgium.26.d
+	picture = GFX_report_event_lithuania_army
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "Nice."
+		ai_chance = {
+			base = 10
+			}
+		transfer_state = 29
+		transfer_state = 785
+		transfer_state = 15
+		transfer_state = 14
+		transfer_state = 30
+		}
+	}
+
+country_event = {
+	id = dfn_belgium.27
+	title = dfn_belgium.27.t
+	desc = dfn_belgium.27.d
+	picture = GFX_report_event_lithuania_army
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "What?"
+		ai_chance = {
+			base = 10
+			}
+		FRA = {
+			add_ideas = BEL_angry_master 
+			}
+		}
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+#Colonial Expansion
+country_event = {
+	id = dfn_belgium_colonial_expansion.1
+	title = dfn_belgium_colonial_expansion.1.t
+	desc = dfn_belgium_colonial_expansion.1.d
+	picture = GFX_report_event_lithuania_army
+	
+	is_triggered_only = yes 
+	
+	option = {
+		name = "This territory is unnecessary"
+		ai_chance = {
+			base = 8
+			}
+		FROM = { country_event = { id = dfn_belgium_colonial_expansion.2 hours = 24 } }
+		}
+	option = {
+		name = "We won't give them any piece of land"
+		ai_chance = {
+			base = 2
+			}
+		FROM = { country_event = { id = dfn_belgium_colonial_expansion.3 hours = 24 } }
+		}
+	}
+
+country_event = {
+	id = dfn_belgium_colonial_expansion.2
+	title = dfn_belgium_colonial_expansion.2.t
+	desc = dfn_belgium_colonial_expansion.2.d
+	picture = GFX_report_event_lithuania_army
+	
+	is_triggered_only = yes 
+	
+	option = {
+		name = "Amazing!"
+		ai_chance = {
+			base = 10
+			}
+		transfer_state = 772
+		}
+	}
+
+country_event = {
+	id = dfn_belgium_colonial_expansion.3
+	title = dfn_belgium_colonial_expansion.3.t
+	desc = dfn_belgium_colonial_expansion.3.d
+	picture = GFX_report_event_lithuania_army
+	
+	is_triggered_only = yes 
+	
+	option = {
+		name = "Ok."
+		ai_chance = {
+			base = 10
+			}
+		}
+	}
+
+country_event = {
+	id = dfn_belgium_colonial_expansion.4
+	title = dfn_belgium_colonial_expansion.4.t
+	desc = dfn_belgium_colonial_expansion.4.d
+	picture = GFX_report_event_lithuania_army
+	
+	is_triggered_only = yes 
+	
+	option = {
+		name = "This territory is unnecessary"
+		ai_chance = {
+			base = 8
+			}
+		FROM = { country_event = { id = dfn_belgium_colonial_expansion.5 hours = 24 } }
+		}
+	option = {
+		name = "We won't give them any piece of land"
+		ai_chance = {
+			base = 2
+			}
+		FROM = { country_event = { id = dfn_belgium_colonial_expansion.6 hours = 24 } }
+		}
+	}
+
+country_event = {
+	id = dfn_belgium_colonial_expansion.5
+	title = dfn_belgium_colonial_expansion.2.t
+	desc = dfn_belgium_colonial_expansion.2.d
+	picture = GFX_report_event_lithuania_army
+	
+	is_triggered_only = yes 
+	
+	option = {
+		name = "Amazing!"
+		ai_chance = {
+			base = 10
+			}
+		transfer_state = 539
+		}
+	}
+
+country_event = {
+	id = dfn_belgium_colonial_expansion.6
+	title = dfn_belgium_colonial_expansion.6.t
+	desc = dfn_belgium_colonial_expansion.6.d
+	picture = GFX_report_event_lithuania_army
+	
+	is_triggered_only = yes 
+	
+	option = {
+		name = "Ok."
+		ai_chance = {
+			base = 10
+			}
+		}
+	}
+
+country_event = {
+	id = dfn_belgium_colonial_expansion.7
+	title = dfn_belgium_colonial_expansion.7.t
+	desc = dfn_belgium_colonial_expansion.7.d
+	picture = GFX_report_event_lithuania_army
+	
+	is_triggered_only = yes 
+	
+	option = {
+		name = "This territory is unnecessary"
+		ai_chance = {
+			base = 8
+			}
+		FROM = { country_event = { id = dfn_belgium_colonial_expansion.8 hours = 24 } }
+		}
+	option = {
+		name = "We won't give them any piece of land"
+		ai_chance = {
+			base = 2
+			}
+		FROM = { country_event = { id = dfn_belgium_colonial_expansion.9 hours = 24 } }
+		}
+	}
+
+country_event = {
+	id = dfn_belgium_colonial_expansion.8
+	title = dfn_belgium_colonial_expansion.2.t
+	desc = dfn_belgium_colonial_expansion.2.d
+	picture = GFX_report_event_lithuania_army
+	
+	is_triggered_only = yes 
+	
+	option = {
+		name = "Amazing!"
+		ai_chance = {
+			base = 10
+			}
+		transfer_state = 297
+		}
+	}
+
+country_event = {
+	id = dfn_belgium_colonial_expansion.9
+	title = dfn_belgium_colonial_expansion.3.t
+	desc = dfn_belgium_colonial_expansion.3.d
+	picture = GFX_report_event_lithuania_army
+	
+	is_triggered_only = yes 
+	
+	option = {
+		name = "Ok."
+		ai_chance = {
+			base = 10
+			}
+		}
+	}
+
+country_event = {
+	id = dfn_belgium_colonial_expansion.10
+	title = dfn_belgium_colonial_expansion.10.t
+	desc = dfn_belgium_colonial_expansion.10.d
+	picture = GFX_report_event_lithuania_army
+	
+	is_triggered_only = yes 
+	
+	option = {
+		name = "This territory is unnecessary"
+		ai_chance = {
+			base = 8
+			}
+		FROM = { country_event = { id = dfn_belgium_colonial_expansion.11 hours = 24 } }
+		}
+	option = {
+		name = "We won't give them any piece of land"
+		ai_chance = {
+			base = 2
+			}
+		FROM = { country_event = { id = dfn_belgium_colonial_expansion.12 hours = 24 } }
+		}
+	}
+
+country_event = {
+	id = dfn_belgium_colonial_expansion.11
+	title = dfn_belgium_colonial_expansion.2.t
+	desc = dfn_belgium_colonial_expansion.2.d
+	picture = GFX_report_event_lithuania_army
+	
+	is_triggered_only = yes 
+	
+	option = {
+		name = "Amazing!"
+		ai_chance = {
+			base = 10
+			}
+		transfer_state = 773
+		}
+	}
+
+country_event = {
+	id = dfn_belgium_colonial_expansion.12
+	title = dfn_belgium_colonial_expansion.3.t
+	desc = dfn_belgium_colonial_expansion.3.d
+	picture = GFX_report_event_lithuania_army
+	
+	is_triggered_only = yes 
+	
+	option = {
+		name = "Ok."
+		ai_chance = {
+			base = 10
+			}
+		}
+	}
+
+country_event = {
+	id = dfn_belgium_colonial_expansion.13
+	title = dfn_belgium_colonial_expansion.13.t
+	desc = dfn_belgium_colonial_expansion.13.d
+	picture = GFX_report_event_lithuania_army
+	
+	is_triggered_only = yes 
+	
+	option = {
+		name = "This territory is unnecessary"
+		ai_chance = {
+			base = 8
+			}
+		FROM = { country_event = { id = dfn_belgium_colonial_expansion.13 hours = 24 } }
+		}
+	option = {
+		name = "We won't give them any piece of land"
+		ai_chance = {
+			base = 2
+			}
+		FROM = { country_event = { id = dfn_belgium_colonial_expansion.14 hours = 24 } }
+		}
+	}
+
+country_event = {
+	id = dfn_belgium_colonial_expansion.14
+	title = dfn_belgium_colonial_expansion.2.t
+	desc = dfn_belgium_colonial_expansion.2.d
+	picture = GFX_report_event_lithuania_army
+	
+	is_triggered_only = yes 
+	
+	option = {
+		name = "Amazing!"
+		ai_chance = {
+			base = 10
+			}
+		transfer_state = 660
+		}
+	}
+
+country_event = {
+	id = dfn_belgium_colonial_expansion.15
+	title = dfn_belgium_colonial_expansion.3.t
+	desc = dfn_belgium_colonial_expansion.3.d
+	picture = GFX_report_event_lithuania_army
+	
+	is_triggered_only = yes 
+	
+	option = {
+		name = "Ok."
+		ai_chance = {
+			base = 10
+			}
+		}
+	}
+
+country_event = {
+	id = dfn_belgium_colonial_expansion.16
+	title = dfn_belgium_colonial_expansion.16.t
+	desc = dfn_belgium_colonial_expansion.16.d
+	picture = GFX_report_event_lithuania_army
+	
+	is_triggered_only = yes 
+	
+	option = {
+		name = "This territory is unnecessary"
+		ai_chance = {
+			base = 8
+			}
+		FROM = { country_event = { id = dfn_belgium_colonial_expansion.17 hours = 24 } }
+		}
+	option = {
+		name = "We won't give them any piece of land"
+		ai_chance = {
+			base = 2
+			}
+		FROM = { country_event = { id = dfn_belgium_colonial_expansion.18 hours = 24 } }
+		}
+	}
+
+country_event = {
+	id = dfn_belgium_colonial_expansion.17
+	title = dfn_belgium_colonial_expansion.2.t
+	desc = dfn_belgium_colonial_expansion.2.d
+	picture = GFX_report_event_lithuania_army
+	
+	is_triggered_only = yes 
+	
+	option = {
+		name = "Amazing!"
+		ai_chance = {
+			base = 10
+			}
+		transfer_state = 774
+		}
+	}
+
+country_event = {
+	id = dfn_belgium_colonial_expansion.18
+	title = dfn_belgium_colonial_expansion.3.t
+	desc = dfn_belgium_colonial_expansion.3.d
+	picture = GFX_report_event_lithuania_army
+	
+	is_triggered_only = yes 
+	
+	option = {
+		name = "Ok."
+		ai_chance = {
+			base = 10
+			}
+		}
+	}
+
+country_event = {
+	id = dfn_belgium_colonial_expansion.19
+	title = dfn_belgium_colonial_expansion.19.t
+	desc = dfn_belgium_colonial_expansion.19.d
+	picture = GFX_report_event_lithuania_army
+	
+	is_triggered_only = yes 
+	
+	option = {
+		name = "Allow them to colonization"
+		ai_chance = {
+			base = 9
+			}
+		FROM = { country_event = { id = dfn_belgium_colonial_expansion.20 hours = 24 } }
+		}
+	option = {
+		name = "Protect Central America"
+		ai_chance = {
+			base = 1
+			}
+		FROM = { country_event = { id = dfn_belgium_colonial_expansion.21 hours = 24 } }
+		}
+	}
+
+country_event = {
+	id = dfn_belgium_colonial_expansion.20
+	title = dfn_belgium_colonial_expansion.20.t
+	desc = dfn_belgium_colonial_expansion.20.d
+	picture = GFX_report_event_lithuania_army
+	
+	is_triggered_only = yes 
+	
+	option = {
+		name = "Nice."
+		ai_chance = {
+			base = 10
+			}
+		set_country_flag = BEL_america_agreed
+		USA = {
+			diplomatic_relation = {
+			country = GUA
+			relation = guarantee
+			active = no
+				}
+			diplomatic_relation = {
+			country = HON
+			relation = guarantee
+			active = no
+				}
+			diplomatic_relation = {
+			country = ELS
+			relation = guarantee
+			active = no
+				}
+			diplomatic_relation = {
+			country = NIC
+			relation = guarantee
+			active = no
+				}
+			diplomatic_relation = {
+			country = COS
+			relation = guarantee
+			active = no
+				}
+			diplomatic_relation = {
+			country = PAN
+			relation = guarantee
+			active = no
+				}
+			}
+		}
+	}
+
+country_event = {
+	id = dfn_belgium_colonial_expansion.21
+	title = dfn_belgium_colonial_expansion.21.t
+	desc = dfn_belgium_colonial_expansion.21.d
+	picture = GFX_report_event_lithuania_army
+	
+	is_triggered_only = yes 
+	
+	option = {
+		name = "Ok."
+		ai_chance = {
+			base = 10
+			}
+		}
+	}
+
+country_event = {
+	id = dfn_belgium_colonial_expansion.22
+	title = dfn_belgium_colonial_expansion.22.t
+	desc = dfn_belgium_colonial_expansion.21.d
+	picture = GFX_report_event_lithuania_army
+	
+	is_triggered_only = yes 
+	
+	option = {
+		name = "This territory is unnecessary"
+		ai_chance = {
+			base = 8
+			}
+		FROM = { country_event = { id = dfn_belgium_colonial_expansion.23 hours = 24 } }
+		}
+	option = {
+		name = "We won't give them any piece of land"
+		ai_chance = {
+			base = 2
+			}
+		FROM = { country_event = { id = dfn_belgium_colonial_expansion.24 hours = 24 } }
+		}
+	}
+
+country_event = {
+	id = dfn_belgium_colonial_expansion.23
+	title = dfn_belgium_colonial_expansion.23.t
+	desc = dfn_belgium_colonial_expansion.21.d
+	picture = GFX_report_event_lithuania_army
+	
+	is_triggered_only = yes 
+	
+	option = {
+		name = "Amazing!"
+		ai_chance = {
+			base = 10
+			}
+		transfer_state = 311
+		}
+	}
+
+country_event = {
+	id = dfn_belgium_colonial_expansion.24
+	title = dfn_belgium_colonial_expansion.24.t
+	desc = dfn_belgium_colonial_expansion.21.d
+	picture = GFX_report_event_lithuania_army
+	
+	is_triggered_only = yes 
+	
+	option = {
+		name = "Ok."
+		ai_chance = {
+			base = 10
+			}
+		}
+	}
+
+country_event = {
+	id = dfn_belgium_colonial_expansion.25
+	title = dfn_belgium_colonial_expansion.25.t
+	desc = dfn_belgium_colonial_expansion.21.d
+	picture = GFX_report_event_lithuania_army
+	
+	is_triggered_only = yes 
+	
+	option = {
+		name = "This territory is unnecessary"
+		ai_chance = {
+			base = 8
+			}
+		FROM = { country_event = { id = dfn_belgium_colonial_expansion.26 hours = 24 } }
+		}
+	option = {
+		name = "We won't give them any piece of land"
+		ai_chance = {
+			base = 2
+			}
+		FROM = { country_event = { id = dfn_belgium_colonial_expansion.27 hours = 24 } }
+		}
+	}
+
+country_event = {
+	id = dfn_belgium_colonial_expansion.26
+	title = dfn_belgium_colonial_expansion.26.t
+	desc = dfn_belgium_colonial_expansion.21.d
+	picture = GFX_report_event_lithuania_army
+	
+	is_triggered_only = yes 
+	
+	option = {
+		name = "Amazing!"
+		ai_chance = {
+			base = 10
+			}
+		transfer_state = 685
+		}
+	}
+
+country_event = {
+	id = dfn_belgium_colonial_expansion.27
+	title = dfn_belgium_colonial_expansion.27.t
+	desc = dfn_belgium_colonial_expansion.21.d
+	picture = GFX_report_event_lithuania_army
+	
+	is_triggered_only = yes 
+	
+	option = {
+		name = "Ok."
+		ai_chance = {
+			base = 10
+			}
+		}
+	}
+
+country_event = {
+	id = dfn_belgium_colonial_expansion.28
+	title = dfn_belgium_colonial_expansion.28.t
+	desc = dfn_belgium_colonial_expansion.21.d
+	picture = GFX_report_event_lithuania_army
+	
+	is_triggered_only = yes 
+	
+	option = {
+		name = "Allow them to colonization"
+		ai_chance = {
+			base = 7
+			}
+		FROM = { country_event = { id = dfn_belgium_colonial_expansion.29 hours = 24 } }
+		}
+	option = {
+		name = "Protect America"
+		ai_chance = {
+			base = 3
+			}
+		FROM = { country_event = { id = dfn_belgium_colonial_expansion.30 hours = 24 } }
+		}
+	}
+
+country_event = {
+	id = dfn_belgium_colonial_expansion.29
+	title = dfn_belgium_colonial_expansion.29.t
+	desc = dfn_belgium_colonial_expansion.21.d
+	picture = GFX_report_event_lithuania_army
+	
+	is_triggered_only = yes 
+	
+	option = {
+		name = "Nice."
+		ai_chance = {
+			base = 10
+			}
+		every_country = {
+			limit = {
+				has_country_flag = monroe_doctrine
+				}
+			clr_country_flag = monroe_doctrine
+			}
+		USA = {
+			diplomatic_relation = {
+				country = COL
+				relation = guarantee
+				active = no
+				}
+			diplomatic_relation = {
+				country = VEN
+				relation = guarantee
+				active = no
+				}
+			diplomatic_relation = {
+				country = BRA
+				relation = guarantee
+				active = no
+				}
+			diplomatic_relation = {
+				country = ECU
+				relation = guarantee
+				active = no
+				}
+			diplomatic_relation = {
+				country = PRU
+				relation = guarantee
+				active = no
+				}
+			diplomatic_relation = {
+				country = BOL
+				relation = guarantee
+				active = no
+				}
+			diplomatic_relation = {
+				country = CHL
+				relation = guarantee
+				active = no
+				}
+			diplomatic_relation = {
+				country = PAR
+				relation = guarantee
+				active = no
+				}
+			diplomatic_relation = {
+				country = ARG
+				relation = guarantee
+				active = no
+				}
+			diplomatic_relation = {
+				country = URG
+				relation = guarantee
+				active = no
+				}
+			}
+		set_country_flag = BEL_usa_ended_monroe_doctrine
+		}
+	}
+
+country_event = {
+	id = dfn_belgium_colonial_expansion.30
+	title = dfn_belgium_colonial_expansion.30.t
+	desc = dfn_belgium_colonial_expansion.21.d
+	picture = GFX_report_event_lithuania_army
+	
+	is_triggered_only = yes 
+	
+	option = {
+		name = "Ok."
+		ai_chance = {
+			base = 10
+			}
+		}
+	}

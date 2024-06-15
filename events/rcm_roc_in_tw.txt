@@ -1,0 +1,26 @@
+add_namespace = rcm_roc_in_tw
+
+country_event = {
+	id = rcm_roc_in_tw.3
+	title = rcm_roc_in_tw.3.t
+	desc = rcm_roc_in_tw.3.d
+    is_triggered_only = yes
+	picture = report_event_china_chiang_kai_shek
+	fire_only_once = yes
+	timeout_days = 10
+	option = { #accept
+		name = rcm_roc_in_tw.3.a
+		USA = { give_guarantee = CHI }
+        USA = { add_ai_strategy = { type = alliance id = CHI value = 200 } }
+        add_ideas =  SINO_USA 
+        ai_chance = { 
+			base = 100
+        }
+    }
+    option = { #reject
+		name = rcm_roc_in_tw.3.b
+	    ai_chance = { 
+			base = 0
+        }
+    }
+}

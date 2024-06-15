@@ -1,0 +1,1031 @@
+﻿###################################################################
+# Japan Demands Withdrawal of USA
+add_namespace = rcmUSA
+country_event = {
+	id = rcmUSA.1
+	title = rcmUSA.1.t
+	desc = rcmUSA.1.d
+	picture = GFX_report_event_japanese_officers
+	is_triggered_only = yes
+	option = { # Agree
+		name = rcmUSA.1.a
+		ai_chance = {
+			factor = 90
+		}
+		set_global_flag = CHI_USA_ties_severed
+		JAP = {
+			country_event = { days = 1 id = rcmUSA.4 }
+		}
+		CHI = {
+			country_event = { days = 1 id = rcmUSA.6 }
+			custom_effect_tooltip = remove_soviet_advisors
+		}
+	}
+	option = { # Refuse
+		name = rcmUSA.1.b
+		ai_chance = {
+			factor = 10
+		}
+		JAP = {
+			country_event = { days = 1 id = rcmUSA.5 }
+		}
+	}
+}
+
+# USA - Chinese Relations Poor, Mission Recalled
+country_event = {
+	id = rcmUSA.2
+	title = rcmUSA.2.t
+	desc = rcmUSA.2.d
+	picture = GFX_report_event_chinese_army_training
+	fire_only_once = yes
+	trigger = {
+		tag = USA
+		CHI = {
+			tag = event_target:WTT_current_china_leader
+			OR = {
+				stilwell_check = yes
+				chennalt_check = yes
+			}
+		}
+		has_opinion = { target = CHI value < -60 }
+	}
+	mean_time_to_happen = {
+		days = 2
+	}
+	immediate = {
+		set_global_flag = CHI_USA_ties_severed
+		CHI = { set_global_flag = USA_recalled_advisors }
+	}
+	option = {
+		name = rcmUSA.2.a
+		CHI = {
+			country_event = { id = rcmUSA.7 }
+		}
+	}
+}
+
+# USA at war with China, Advisors Detained
+country_event = {
+	id = rcmUSA.3
+	title = rcmUSA.3.t
+	desc = rcmUSA.3.d
+	picture = GFX_report_event_german_detained_china
+	fire_only_once = yes
+	trigger = {
+		tag = USA
+		CHI = {
+			tag = event_target:WTT_current_china_leader
+			OR = {
+				stilwell_check = yes
+				chennalt_check = yes
+			}
+		}
+		has_war_with = CHI
+	}
+	mean_time_to_happen = {
+		days = 2
+	}
+	immediate = {
+		CHI = { remove_ideas = joseph_stilwell_chi }
+		CHI = { remove_ideas = CHI_claire_chennault }
+		set_global_flag = CHI_USA_ties_severed
+	}
+	option = {
+		name = rcmUSA.3.a
+		CHI = {
+			country_event = { id = rcmUSA.8 }
+		}
+	}
+}
+
+# USA Agrees to Withdraw USA advisors
+country_event = {
+	id = rcmUSA.4
+	title = rcmUSA.4.t
+	desc = rcmUSA.4.d
+	picture = GFX_report_event_german_detained_china
+
+	is_triggered_only = yes
+
+	option = {
+		name = rcmUSA.4.a
+	}
+}
+# USA Refuses to Withdraw USA advisors
+country_event = {
+	id = rcmUSA.5
+	title = rcmUSA.5.t
+	desc = rcmUSA.5.d
+	picture = GFX_report_event_german_advisors_remain
+
+	is_triggered_only = yes
+
+	option = {
+		name = rcmUSA.5.a
+	}
+	#option = { # Withdraw from the Anti-Comintern Pact
+	#	name = rcmUSA.5.b
+	#}
+}
+
+# USA Withdraws Advisors
+country_event = {
+	id = rcmUSA.6
+	title = rcmUSA.6.t
+	desc = rcmUSA.6.d
+	picture = GFX_report_event_chinese_army_training
+	is_triggered_only = yes
+	immediate = {
+		hidden_effect = {
+			set_global_flag = USA_recalled_advisors
+			CHI = { remove_ideas = joseph_stilwell_chi }
+			CHI = { remove_ideas = CHI_claire_chennault }
+		}
+	}
+	option = {
+		name = rcmUSA.6.a
+		ai_chance = { factor = 100 }
+		custom_effect_tooltip = remove_soviet_advisors
+	}
+}
+# Chinese - USA Relations Poor, Mission Recalled
+country_event = {
+	id = rcmUSA.7
+	title = rcmUSA.7.t
+	desc = rcmUSA.7.d
+	picture = GFX_report_event_chinese_soldiers
+	is_triggered_only = yes
+	option = {
+		name = rcmUSA.7.a
+	}
+}
+# China is at war with OV, Advisors Detained
+country_event = {
+	id = rcmUSA.8
+	title = rcmUSA.8.t
+	desc = rcmUSA.8.d
+	picture = GFX_report_event_german_detained_china
+	is_triggered_only = yes
+	option = {
+		name = rcmUSA.8.a
+	}
+}
+
+
+#RCM USA REWORK
+# AFC
+news_event = {
+	id = rcmUSA.9
+	title = rcmUSA.9.t
+	desc = rcmUSA.9.d
+	picture = GFX_news_america_first
+	is_triggered_only = yes
+	major = yes
+	trigger = {
+		has_dlc = "Man the Guns"
+		has_war = no
+	}
+	immediate = {
+		hidden_effect = {
+			if = {
+				limit = {
+					tag = USA
+				}
+				add_ideas = USA_america_first_committee_1
+			}
+		}
+	}
+	option = {
+		name = rcmUSA.9.a
+		effect_tooltip = {
+			if = {
+				limit = {
+					tag = USA
+				}
+				add_ideas = USA_america_first_committee_1
+			}
+		}
+	}
+}
+#invite trosky
+country_event = {
+	id = rcmUSA.10
+	title = rcmUSA.10.title
+	desc = rcmUSA.10.desc
+	picture = GFX_report_event_soviet_purge_politicians
+	is_triggered_only = yes
+	option = { #invite him as cheif of army
+		name = rcmUSA.10.a
+		ai_chance = {
+			factor = 0
+		}
+		if = {
+			limit = {
+				SOV = {
+					has_country_leader = { character = SOV_iosif_stalin }
+				}
+			}
+			SOV = {
+				add_opinion_modifier = {
+					target = ROOT
+					modifier = hostile_status
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_country_flag = mtg_usa_civil_war_fascists_1
+				not = {
+					has_country_flag = mtg_usa_civil_war_fascists_2
+				}
+			}
+			country_event = mtg_usa_civil_war_fascists.1
+			custom_effect_tooltip = mtg_usa_civil_war_warning_tt
+		}
+		else_if = {
+			limit = { not = { has_country_flag = mtg_usa_civil_war_fascists_1 } }
+			country_event = mtg_usa_civil_war_fascists.1
+			custom_effect_tooltip = mtg_usa_civil_war_warning_tt
+		}
+		hidden_effect = {
+			if = {
+				limit = {
+					has_country_flag = mtg_usa_civil_war_fascists_2
+					has_war = no
+					not = { has_country_flag = mucwf4 }
+				}
+				country_event = mtg_usa_civil_war_fascists.4
+			}
+		}
+		custom_effect_tooltip = available_chief_of_army
+		show_ideas_tooltip = MEX_leon_trotsky
+		set_global_flag = flag_USA_invited_trotsky_to_government
+	}
+	option = { #invite him as country leader
+		name = rcmUSA.10.c
+		if = {
+			limit = {
+				SOV = {
+					has_country_leader = { character = SOV_iosif_stalin }
+				}
+			}
+			SOV = {
+				add_opinion_modifier = {
+					target = ROOT
+					modifier = hostile_status
+				}
+			}
+		}
+		if = {
+			limit = {
+				NOT = {
+					has_global_flag = USA_civil_war_fired
+				}
+			}
+			custom_effect_tooltip = mtg_usa_civil_war_warning_fire_now_tt
+			set_country_flag = mtg_usa_civil_war_fascists_1
+			set_country_flag = mtg_usa_civil_war_fascists_2
+			#country_event = mtg_usa_civil_war_fascists.4
+			country_event = mtg_usa_civil_war_fascists.20
+			#effect_tooltip = {
+			#	event_target:CSAcapital = {
+			#		CSA = {
+			#			transfer_state = PREV
+			#			add_state_core = PREV
+			#		}
+			#		USA = { 
+			#			remove_state_core = PREV 
+			#			add_state_claim = PREV
+			#			USA_congress_remove_state = yes
+			#		}
+			#	}
+			#}
+		}
+		set_politics = {
+			ruling_party = communism
+			elections_allowed = no
+		}
+		set_cosmetic_tag = USA_SWSA
+		create_country_leader = {
+			name = "Leon Trotsky"
+			desc = "POLITICS_LEON_TROTSKY_DESC"
+			picture = "Portrait_Leon_Trotsky.dds"
+			expire = "1965.1.1"
+			ideology = trotskyism
+			traits = {
+				permanent_revolutionary
+			}
+		}
+		set_global_flag = flag_mexico_invited_trotsky_to_government
+		custom_effect_tooltip = available_chief_of_army
+		show_ideas_tooltip = MEX_leon_trotsky
+		set_global_flag = flag_USA_invited_trotsky_to_government
+	}
+}
+#let's help chi
+country_event = {
+	id = rcmUSA.11
+	title = rcmUSA.11.t
+	desc = rcmUSA.11.d
+	picture = GFX_report_event_china_flag
+	is_triggered_only = yes
+	option = {
+		name = rcmUSA.11.a
+		event_target:WTT_current_china_leader = {
+			country_event = rcmUSA.12
+		}
+	}
+}
+#china choose
+country_event = {
+	id = rcmUSA.12
+	title = rcmUSA.12.t
+	desc = rcmUSA.12.d
+	picture = GFX_report_event_generic_truck
+	is_triggered_only = yes
+	option = {
+		name = rcmUSA.12.a
+		ai_chance = {
+			base = 1
+		}
+		FROM = {
+			country_event = rcmUSA.13
+		}
+	}
+	option = {
+		name = rcmUSA.12.b
+		ai_chance = {
+			base = 0
+			modifier = {
+				add = 5
+				is_ally_with = JAP
+			}
+		}
+		FROM = {
+			country_event = rcmUSA.14
+		}
+	}
+}
+#china accepts
+country_event = {
+	id = rcmUSA.13
+	title = rcmUSA.13.t
+	desc = rcmUSA.13.d
+	picture = GFX_report_event_generic_sign_treaty1
+	is_triggered_only = yes
+	option = {
+		name = rcmUSA.13.a
+		event_target:WTT_current_china_leader = {
+			add_ideas = usa_tribute_idea
+
+		}
+		add_ideas = chinese_tribute_idea
+	}
+}
+#china refuse
+country_event = {
+	id = rcmUSA.14
+	title = rcmUSA.14.t
+	desc = rcmUSA.14.d
+	picture = GFX_report_event_nra_march
+	is_triggered_only = yes
+	option = {
+		name = rcmUSA.14.a
+		USA_congress_small_opposition = yes
+	}
+}
+#Stalinist Coup
+country_event = {
+	id = rcmUSA.15
+	title = rcmUSA.15.t
+	desc = rcmUSA.15.d
+	picture = GFX_report_event_stalin_propaganda
+	is_triggered_only = yes
+	option = {
+		name = rcmUSA.15.a
+		set_politics = {
+			ruling_party = communism
+			elections_allowed = no
+		}
+		set_cosmetic_tag = USA_USSA
+		set_party_name = {
+			ideology = communism
+			name = AICP_short
+			long_name = AICP_long
+		}
+		if = {
+			limit = {
+				has_country_flag = mtg_usa_civil_war_fascists_1
+				not = {
+					has_country_flag = mtg_usa_civil_war_fascists_2
+				}
+			}
+			country_event = mtg_usa_civil_war_fascists.2
+			custom_effect_tooltip = mtg_usa_civil_war_warning_tt
+		}
+		else_if = {
+			limit = { not = { has_country_flag = mtg_usa_civil_war_fascists_1 } }
+			country_event = mtg_usa_civil_war_fascists.1
+			custom_effect_tooltip = mtg_usa_civil_war_warning_tt
+		}
+		hidden_effect = {
+			if = {
+				limit = {
+					has_country_flag = mtg_usa_civil_war_fascists_2
+					has_war = no
+					not = { has_country_flag = mucwf4 }
+				}
+				country_event = mtg_usa_civil_war_fascists.4
+			}
+		}
+		
+	}
+}
+#black belt republic
+country_event = {
+	id = rcmUSA.16
+	title = rcmUSA.16.t
+	desc = rcmUSA.16.d
+	picture = GFX_report_event_stalin_propaganda
+	is_triggered_only = yes
+	immediate = {
+		hidden_effect = {
+			WES = {			
+					
+				transfer_state = 371
+				transfer_state = 370
+				transfer_state = 367
+				transfer_state = 365
+				transfer_state = 364
+				transfer_state = 363
+				add_state_core = 371
+				add_state_core = 370
+				add_state_core = 367
+				add_state_core = 365
+				add_state_core = 364
+				add_state_core = 363
+				remove_state_core = 699
+				set_cosmetic_tag = BBR
+			}
+			puppet = WES
+		}
+	}
+	option = {
+		name = rcmUSA.16.a		
+		WES = {
+			create_country_leader = {
+				name = "Harry Haywood"
+				desc = "POLITICS_harry_haywood_DESC"
+				picture = "gfx/leaders/USA/Portait_USA_harry_haywood.dds"
+				expire = "1965.1.1"
+				ideology = leninism
+				traits = {
+				}
+			}			
+			
+			transfer_state = 371
+			transfer_state = 370
+			transfer_state = 367
+			transfer_state = 365
+			transfer_state = 364
+			transfer_state = 363
+					
+		}
+		puppet = WES
+	}
+}
+#proclaim communism
+country_event = {
+	id = rcmUSA.52
+	title = rcmUSA.52.title
+	desc = {
+		text = rcmUSA.52.desc_not_trotsky
+		trigger = {
+			NOT = {
+				FROM = {
+					has_country_leader = { ruling_only = yes name = "Leon Trotsky" }
+				}			
+			}	
+		}
+	}
+	desc = {
+		text = rcmUSA.52.desc_trotsky
+		trigger = {			
+			FROM = {
+				has_country_leader = { ruling_only = yes name = "Leon Trotsky" }
+			}				
+		}
+	}		
+	picture = GFX_report_event_soviet_purge_politicians
+
+	is_triggered_only = yes
+
+	option = { #ask other communist faction leaders to dismantle their faction and join Trotsky
+		name = rcmUSA.52.a
+		every_other_country = {
+			limit = {
+				is_in_faction_with = ROOT
+			}
+			country_event = {
+				id = rcmUSA.53
+			}
+		}
+		dismantle_faction = yes
+		FROM = {
+			add_to_faction = PREV
+		}
+		ai_chance = {
+			factor = 70
+		}		
+	}	
+	option = {
+		name = rcmUSA.52.b #Never! Stalinism best -ism.
+		ai_chance = {
+			factor = 30
+		}		
+	}
+}
+country_event = {
+	id = rcmUSA.53
+	title = rcmUSA.53.title
+	desc = rcmUSA.53.desc
+	
+	picture = GFX_report_event_communists_cheer
+
+	is_triggered_only = yes
+
+	option = { #ask minor communist countries to join Trotsky
+		name = rcmUSA.53.a
+		FROM = {
+			add_to_faction = ROOT
+		}
+		ai_chance = {
+			factor = 90
+		}		
+	}	
+	option = {
+		name = rcmUSA.53.b
+		#Never! Stalinism best -ism.
+		ai_chance = {
+			factor = 10
+		}		
+	}
+}
+#hidden buffs for usa (dday)
+country_event = {
+	id = rcmUSA.110
+	title = rcmUSA.110.t
+	desc = rcmUSA.110.d
+	is_triggered_only = no
+	hidden = yes
+	trigger = {
+	    is_ai = yes
+	    tag = USA
+	    has_war_with = GER
+	    date > 1944.1.1
+	    NOT = { has_idea = balance_idea_allies }
+	}
+	immediate = { 
+	    add_ideas = balance_idea_allies
+	}
+	fire_only_once = yes
+	option = { 
+		name = rcmUSA.110.a
+		ai_chance = {
+			factor = 100
+		}
+	}
+}
+
+#hidden buffs for eng (dday)
+country_event = {
+	id = rcmUSA.111
+	title = rcmUSA.110.t
+	desc = rcmUSA.111.d
+	is_triggered_only = no
+	hidden = yes
+	trigger = {
+	    is_ai = yes
+	    tag = ENG
+	    has_war_with = GER
+	    date > 1944.1.1
+	    NOT = { has_idea = balance_idea_allies }
+	}
+	immediate = { 
+	    add_ideas = balance_idea_allies
+	}
+	fire_only_once = yes
+	option = { 
+		name = rcmUSA.111.a
+		ai_chance = {
+			factor = 100
+		}
+	}
+}
+
+country_event = {
+	id = rcmUSA.112
+	title = rcmUSA.112.t
+	desc = rcmUSA.112.d
+	is_triggered_only = no
+	hidden = yes
+	trigger = {
+	    is_ai = yes
+	    tag = USA
+	    OR = {
+			date > 1940.1.1
+			any_enemy_country = {
+				is_major = yes
+			}
+		}
+	    NOT = { has_idea = balance_idea_usa }
+	}
+	fire_only_once = yes
+	immediate = { 
+	    add_ideas = balance_idea_usa
+		random_owned_controlled_state = {
+			limit = {
+				is_core_of = ROOT
+			}
+			add_resource = {
+				type = chromium
+				amount = 250
+			}
+		}
+		add_equipment_to_stockpile = {
+			type = convoy
+			amount = 300
+		}
+	}
+	option = { 
+		name = rcmUSA.112.a
+		ai_chance = {
+			factor = 100
+		}
+	}
+}
+
+country_event = {
+	id = rcmUSA.113
+	title = rcmUSA.113.t
+	desc = rcmUSA.113.d
+	is_triggered_only = no
+	hidden = yes
+	fire_only_once = yes
+	trigger = {
+	   is_ai = yes
+	   tag = GER
+	   date > 1940.1.1
+	   has_war_with = SOV
+	}
+	mean_time_to_happen = {
+		days = 2
+	}
+	immediate = { 
+	    add_to_variable = {
+		    var = This.supply_condition
+			value = 500 #MODDED
+		}
+		add_to_variable = {
+			var = This.supply_condition_base
+			value = 500 #MODDED
+		}
+	}
+	option = { 
+		name = rcmUSA.113.a
+		ai_chance = {
+			factor = 100
+		}    
+	}
+}
+
+country_event = {
+	id = rcmUSA.114
+	title = rcmUSA.114.t
+	desc = rcmUSA.114.d
+	is_triggered_only = no
+	hidden = yes
+	fire_only_once = yes
+	trigger = {
+	   is_ai = yes
+	   tag = SOV
+	   date > 1940.1.1
+	   has_war_with = GER
+	}
+	mean_time_to_happen = {
+		days = 2
+	}
+	immediate = { 
+	    add_to_variable = {
+		    var = This.supply_condition
+			value = 500 #MODDED
+		}
+		add_to_variable = {
+			var = This.supply_condition_base
+			value = 500 #MODDED
+		}
+	    add_ideas = balance_idea_sov
+	}
+	option = { 
+		name = rcmUSA.114.a
+		ai_chance = {
+			factor = 100
+		}    
+	}
+}
+
+country_event = {
+	id = rcmUSA.115
+	title = rcmUSA.115.t
+	desc = rcmUSA.115.d
+	is_triggered_only = yes ###
+	hidden = yes
+	fire_only_once = yes
+	trigger = {
+	    is_historical_focus_on = yes
+	    is_ai = yes
+	    tag = PRC
+	    date > 1940.1.1
+	}
+	immediate = { 
+	    set_temp_variable = { temp_member = 2 }
+		set_temp_variable = { temp_seats = 0.4 tooltip = MAOIST_faction_support_tt }		
+		modify_parliament_seat = yes
+	    add_stability = 0.5
+	}
+	option = { 
+		name = rcmUSA.115.a
+		ai_chance = {
+			factor = 100
+		}    
+	}
+}
+
+country_event = {
+	id = rcmUSA.116
+	title = rcmUSA.116.t
+	desc = rcmUSA.116.d
+	is_triggered_only = yes
+	hidden = yes
+	fire_only_once = yes
+	trigger = {
+	    is_ai = yes
+	    tag = SOV
+	    has_war_with = GER
+		OR = {
+	        date > 1944.1.1
+			GER = {
+			    surrender_progress > 0.05
+			}
+		}
+	}
+	immediate = { 
+	    add_ideas = balance_idea_sov_2
+	}
+	option = { 
+		name = rcmUSA.116.a
+		ai_chance = {
+			factor = 100
+		}    
+	}
+}
+
+country_event = { #lend lease to sov
+	id = rcmUSA.117
+	title = rcmUSA.117.t
+	desc = rcmUSA.117.d
+	is_triggered_only = no
+	fire_only_once = yes
+	picture = GFX_report_event_generic_lend_lease
+	trigger = {
+	    is_subject = no
+		has_completed_focus = USA_lend_lease_act
+		NOT = {
+			has_war_with = SOV
+		}
+		NOT = {
+			GER = {
+				has_idea = GER_barbarossa
+			}
+		}
+		SOV = {
+			has_defensive_war = yes
+			any_enemy_country = {
+				has_government = fascism
+				is_major = yes
+				NOT = {
+					is_ally_with = USA
+				}
+				num_of_factories > 120
+			}
+			OR = {
+				AND = {
+					has_war_together_with = ENG
+					NOT = {
+						has_war_with = ENG
+					}
+				}
+				has_war_together_with = ROOT
+			}
+		}
+		
+		NOT = { has_global_flag = SOV_BAD_GUYS_flag } #guo
+	}
+	
+	option = { 
+		name = rcmUSA.117.a
+		ai_chance = {
+			factor = 100
+		} 
+		custom_effect_tooltip = THIS_IS_HISTORICAL_TT 
+        add_war_support = 0.1
+		add_ideas = USA_lend_lease_act_sov
+		SOV = {
+			country_event = rcmUSA.118
+		    effect_tooltip = {
+				add_offsite_building = { type = industrial_complex level = 45 }
+				add_offsite_building = { type = arms_factory level = 45 }
+			}
+			
+			213 = { add_dynamic_modifier = { modifier = SOV_usa_yuanzhu scope = SOV } } #guo
+		}
+        custom_effect_tooltip = remove_if_sov_not_in_defensive_war_tt
+	}
+
+	option = { 
+		name = rcmUSA.117.b
+		add_war_support = -0.1
+	}
+}
+
+country_event = { #lend lease to sov to sov
+	id = rcmUSA.118
+	title = rcmUSA.118.t
+	desc = rcmUSA.118.d
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = { 
+		name = rcmUSA.118.a
+		ai_chance = {
+			factor = 100
+		} 
+        add_war_support = 0.05
+		add_ideas = USA_lend_lease_act_sov_sov
+		effect_tooltip = {
+			add_offsite_building = { type = industrial_complex level = 45 }
+			add_offsite_building = { type = arms_factory level = 45 }
+		}
+		
+		213 = { add_dynamic_modifier = { modifier = SOV_usa_yuanzhu scope = SOV } } #guo
+		
+        custom_effect_tooltip = remove_if_sov_not_in_defensive_war_tt
+	}
+}
+###########################################################################################
+#################China Burma India Theater Chief of Staff to Generalissimo#################
+###########################################################################################
+
+add_namespace = chief_of_staff_to_china
+#FROM invites Stillwell - event for USA
+country_event = {
+	id = chief_of_staff_to_china.1
+	title = chief_of_staff_to_china.1.t
+	desc = chief_of_staff_to_china.1.desc
+	picture = GFX_report_event_generic_usa_treaty
+
+	is_triggered_only = yes
+
+	option = { #accept - Stillwell
+		name = chief_of_staff_to_china.1.a
+		ai_chance = {
+			base = 90
+		}
+		set_country_flag = joseph_stilwell_sent_to_china
+		FROM = {
+			country_event = chief_of_staff_to_china.2
+		}
+		army_experience = 25
+	}
+
+	option = { #refuse
+		name = chief_of_staff_to_china.1.b
+		ai_chance = {
+			base = 10
+			modifier = {
+				USA_is_on_historical_plan_trigger = yes
+				factor = 0
+			}
+		}
+		reverse_add_opinion_modifier = { target = FROM modifier = CHI_refused_support }
+		add_war_support = -0.1
+		FROM = {
+			country_event = chief_of_staff_to_china.3
+		}
+	}
+}
+
+#FROM invites Stillwell - positive response
+country_event = {
+	id = chief_of_staff_to_china.2
+	title = chief_of_staff_to_china.2.t
+	desc = chief_of_staff_to_china.2.desc
+	picture = GFX_report_event_generic_usa_treaty
+
+	is_triggered_only = yes
+
+	option = { #accept
+		name = chief_of_staff_to_china.2.a
+		custom_effect_tooltip = available_foreign_advisor
+		show_ideas_tooltip = joseph_stilwell_chi
+	}
+}
+
+#FROM invites Stillwell - negative response
+country_event = {
+	id = chief_of_staff_to_china.3
+	title = chief_of_staff_to_china.3.t
+	desc = chief_of_staff_to_china.3.desc
+	picture = GFX_report_event_generic_read_write
+
+	is_triggered_only = yes
+
+	option = {
+		name = chief_of_staff_to_china.3.a
+	}
+}
+
+#FROM invites Wedemeyer - event for USA
+country_event = {
+	id = chief_of_staff_to_china.4
+	title = chief_of_staff_to_china.4.t
+	desc = chief_of_staff_to_china.4.desc
+	picture = GFX_report_event_generic_usa_treaty
+
+	is_triggered_only = yes
+
+	option = { #accept - Wedemeyer
+		name = chief_of_staff_to_china.4.a
+		ai_chance = {
+			base = 90
+		}
+		set_country_flag = albert_wedemeyer_sent_to_china
+		clr_country_flag = joseph_stilwell_sent_to_china
+		FROM = {
+			country_event = chief_of_staff_to_china.5
+		}
+		army_experience = 25
+	}
+
+	option = { #refuse
+		name = chief_of_staff_to_china.4.b
+		ai_chance = {
+			base = 10
+			modifier = {
+				USA_is_on_historical_plan_trigger = yes
+				factor = 0
+			}
+		}
+		reverse_add_opinion_modifier = { target = FROM modifier = CHI_refused_support }
+		add_war_support = -0.1
+		FROM = {
+			country_event = chief_of_staff_to_china.6
+		}
+	}
+}
+
+#FROM invites Wedemeyer - positive response
+country_event = {
+	id = chief_of_staff_to_china.5
+	title = chief_of_staff_to_china.5.t
+	desc = chief_of_staff_to_china.5.desc
+	picture = GFX_report_event_generic_usa_treaty
+
+	is_triggered_only = yes
+
+	option = { #accept
+		name = chief_of_staff_to_china.5.a
+		custom_effect_tooltip = available_foreign_advisor
+		show_ideas_tooltip = albert_coady_wedemeyer
+		if = {
+			limit = { has_idea = joseph_stilwell_chi }
+			remove_ideas = { joseph_stilwell_chi }
+		}	
+		set_global_flag = stilwell_resign
+	}
+}
+
+#FROM invites Wedemeyer - negative response
+country_event = {
+	id = chief_of_staff_to_china.6
+	title = chief_of_staff_to_china.6.t
+	desc = chief_of_staff_to_china.6.desc
+	picture = GFX_report_event_generic_read_write
+
+	is_triggered_only = yes
+
+	option = {
+		name = chief_of_staff_to_china.6.a
+	}
+}

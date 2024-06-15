@@ -1,0 +1,6979 @@
+﻿###########################
+# Chinese Events BORDER WARS ADDED SOUTHERN SHAANXI #ID = 744#
+###########################
+
+add_namespace = prc
+#liangguange PRC and other cliques choose to join or not
+country_event = {
+	id = prc.1
+	title = prc.1.t
+	desc = {
+		text = prc.1.d_com
+		trigger = { TAG = PRC }
+	}
+	desc = {
+		text = prc.1.d_clique
+		trigger = { NOT = { TAG = PRC } }
+	}
+	picture = GFX_report_event_chinese_soldiers_02
+	is_triggered_only = yes
+	option = { #join
+		name = prc.1.a
+		ai_chance = {
+			factor = 30
+			modifier = {
+				factor = 200
+				NOT = { #these warlords don't wanna join
+					OR = {
+						tag = XSM
+						tag = NXM
+						tag = GSM
+						tag = EGM
+						tag = HMI
+						tag = TNG
+						tag = SIK
+						tag = XIK
+						tag = SHX
+						tag = SUY
+						tag = YUN
+						tag = HPC
+					    tag = KHR
+						tag = KRS
+						tag = ATM
+					}
+				}
+			}
+			modifier = {
+				factor = 200
+				tag = GUD
+				OR = { #GUD with GXC or historical, don't let them miss the war!
+					AND = {
+						has_global_flag = gud_ready
+						GXC = { has_offensive_war_with = CHI }
+					}
+					is_historical_focus_on = yes
+				}
+			}
+			modifier = {
+				factor = 0
+				OR = {
+					# don't let(factor) these join(option)
+					tag = XSM
+					tag = NXM
+					tag = GSM
+					tag = EGM
+					tag = HMI
+					tag = TNG
+					tag = SIK
+					tag = XIK
+					tag = SHX
+					tag = SUY
+					tag = YUN
+					tag = HPC
+				    tag = KHR
+					tag = KRS
+					tag = ATM
+				}
+			}
+			modifier = {
+				factor = 0
+				tag = GUD
+				NOT = {
+					OR = { #GUD wont join if they aren't ready
+						AND = {
+							has_global_flag = gud_ready
+							GXC = { has_offensive_war_with = CHI }
+						}
+						is_historical_focus_on = yes
+					}
+				}
+			}
+		}
+		hidden_effect = {
+			set_country_flag = joined_2g_war
+		}
+		if = {
+			limit = {
+				is_subject = yes
+			}
+			random_other_country = {
+				limit = {
+					ROOT = {
+						is_subject_of = PREV
+					}
+				}
+				end_puppet = ROOT
+			}
+		}
+		if = {
+			limit = {
+				has_war_with = event_target:WTT_communist_china
+				any_owned_state = {
+					has_state_flag = I_choose_this_state_to_DMZ
+				}
+			}
+			every_owned_state = {
+				clr_state_flag = I_choose_this_state_to_DMZ
+				set_demilitarized_zone = no
+			}
+			white_peace = event_target:WTT_communist_china
+			hidden_effect = {
+				event_target:WTT_communist_china = {
+					white_peace = ROOT
+				}
+			}
+		}
+		GXC = { country_event = { days = 5 id = gxc.11 } }
+		GUD = { country_event = { days = 5 id = gxc.11 } }
+		CHI = { country_event = { days = 5 id = gxc.11 } }
+	}
+	option = { #not join
+		name = prc.1.b
+		set_country_flag = not_join_civil_war_flag
+		ai_chance = {
+			factor = 15
+			modifier = { #these warlords won't join no matter what
+				factor = 200
+				OR = {
+					#they don't want join
+					tag = XSM
+					tag = NXM
+					tag = GSM
+					tag = EGM
+					tag = HMI
+					tag = TNG
+					tag = SIK
+					tag = XIK
+					tag = YUN
+					tag = HPC
+				    tag = KHR
+					tag = KRS
+					tag = ATM
+				}
+			}
+			modifier = {
+				factor = 0
+				NOT = { #Not these warlords, let them not join
+					OR = {
+						tag = XSM
+						tag = NXM
+						tag = GSM
+						tag = EGM
+						tag = HMI
+						tag = TNG
+						tag = SIK
+						tag = XIK
+						tag = SHX
+						tag = SUY
+						tag = YUN
+						tag = HPC
+					    tag = KHR
+						tag = KRS
+						tag = ATM
+					}
+				}
+			}
+			modifier = {
+				factor = 0
+				tag = GUD
+				OR = { #GUD with GXC or historical, don't let them miss the war!
+					AND = {
+						has_global_flag = gud_ready
+						GXC = { has_offensive_war_with = CHI }
+					}
+					is_historical_focus_on = yes
+				}
+			}
+		}
+	}
+}
+#PRC switch flag
+country_event = {
+	id = prc.2
+	title = prc.2.t
+	desc = prc.2.d
+	picture = GFX_report_event_chinese_soldiers_02
+	trigger = {
+		tag = PRC
+		country_exists = event_target:WTT_current_china_leader
+		has_war_with = event_target:WTT_current_china_leader
+		date < 1939.1.1
+		NOT = {
+			has_idea = Chinese_Red_Army
+			has_global_flag = xibeiguofangzhengfu_FOUND
+		}
+		event_target:WTT_current_china_leader = {
+			NOT = {
+				OR = {
+					has_government = n_socialism
+					has_government = communism
+				}
+			}
+		}
+	}
+	fire_only_once = yes
+	option = { #yes
+		name = prc.2.a
+		ai_chance = {
+			factor = 100
+		}
+		add_political_power = 20
+		hidden_effect = { drop_cosmetic_tag = yes }
+		set_cosmetic_tag = PRC_xibei_communism
+		custom_effect_tooltip = THIS_IS_HISTORICAL_TT
+		#custom_effect_tooltip = reform_government_tt
+		event_target:WTT_current_china_leader = { add_opinion_modifier = { target = PRC modifier = prc_government_reform } }
+	}
+	option = {
+		name = prc.2.b
+		ai_chance = { factor = 0 }
+		add_political_power = -85
+	}
+}
+country_event = {#guo
+	id = prc.3
+	title = prc.3.t
+	desc = prc.3.d
+	picture = GFX_report_event_chinese_soldiers_02
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = { #CDL outlawed and joins PRC
+		name = prc.3.a
+		add_political_power = 150
+		add_stability = 0.05
+		set_party_name = {
+			ideology = democratic
+			name = CHI_n_socialism_cdl
+			long_name = CHI_n_socialism_cdl_long
+		}
+		add_popularity = {
+			ideology = democratic
+			popularity = 0.25
+		}
+		PRC_zhanglan = {
+			add_country_leader_role = {
+				country_leader = {
+					expire = "1965.1.1"
+					ideology = sanmin_constitutional_government
+					desc=PRC_zhanglan_desc
+					traits={ democratic_firebrand education_reformer }
+				}
+				promote_leader = yes
+			}
+		}
+		
+		#create_country_leader = {
+		#	name = "Zhang Lan"
+		#	desc = "POLITICS_ZHANG_LAN_DESC"
+		#	picture = "Portrait_China_Zhang_Lan.dds"
+		#	expire = "1965.1.1"
+		#	ideology = liberalism
+		#	traits = {
+		#		social_reformer #guo
+		#	}
+		#}
+	}
+}
+country_event = {
+	id = prc.4
+	title = prc.4.t
+	desc = prc.4.d
+	picture = GFX_report_event_chinese_soldiers_02
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = { ##CDL in power
+		name = prc.2.a
+		effect_tooltip = {
+			if = {
+				limit = { has_war_with = SOV }
+			white_peace = SOV
+			}
+			white_peace = event_target:WTT_communist_china
+		}
+		if = {
+			limit = { country_exists = event_target:WTT_current_china_leader }
+			diplomatic_relation = { country = event_target:WTT_current_china_leader relation = non_aggression_pact }
+		}
+
+		hidden_effect = {
+			event_target:WTT_current_china_leader = {
+				white_peace = SOV
+				white_peace = event_target:WTT_communist_china
+				white_peace = MON
+				white_peace = TAN
+				white_peace = SIK
+			}
+			every_country = {
+				limit = {
+					is_in_faction_with = event_target:WTT_current_china_leader
+					capital_scope = { is_on_continent = asia }
+					NOT = { tag = event_target:WTT_current_china_leader }
+				}
+				if = {
+					limit = { event_target:WTT_current_china_leader = { is_faction_leader = yes } }
+					white_peace = SOV
+					white_peace = event_target:WTT_communist_china
+					white_peace = MON
+					white_peace = TAN
+					white_peace = SIK
+					else = {
+						every_country = {
+							limit = {
+								is_faction_leader = yes
+								is_in_faction_with = event_target:WTT_current_china_leader
+							}
+							set_country_flag = peace_sov_@ROOT
+							remove_from_faction = event_target:WTT_current_china_leader
+						}
+					}
+				}
+
+			}
+			every_country = {
+				limit = {
+					is_in_faction_with = SOV
+					NOT = { tag = SOV }
+				}
+				white_peace = event_target:WTT_current_china_leader
+			}
+			every_country = {
+				limit = {
+				   has_country_flag = peace_sov_@ROOT
+				}
+				add_to_faction = event_target:WTT_current_china_leader
+			}
+		}
+	}
+}
+#country_event = {
+#	id = prc.5
+#	title = prc.5.t
+#	desc = prc.5.d
+#	picture = GFX_report_event_chinese_soldiers_02
+#	is_triggered_only = yes
+#	fire_only_once = yes
+#	option = { #ROC apologize
+#		name = prc.5.a
+#		add_political_power = 120
+#		PRC = {
+#			remove_opinion_modifier = {
+#				target = CHI
+#				modifier = hostile_status
+#			}
+#		}
+#	}
+#}
+
+###Kill THE HANJIAN! (for WARLORD/CHI/PRC when capture Hanjian capital)
+country_event = {
+	id = prc.6
+	title = prc.6.t
+	desc = prc.6.d
+	picture = GFX_report_event_chinese_soldiers_02
+	is_triggered_only = yes
+	#trigger = {
+	#	NOT = {
+	#		OR = {
+	#			tag = JAP
+	#			has_war_together_with = JAP
+	#		}
+	#	}
+	#	any_of_scopes = {
+	#		array = global.big_china
+	#		tooltip = big_china_tt
+	#		THIS = {
+	#			state = event_target:hanjian_captured_state
+	#			#owner = {
+	#			#	has_war_with = ROOT
+	#			#}
+	#			#OR = {
+	#			#	is_claimed_by = ROOT
+	#			#	is_core_of = ROOT
+	#			#}
+	#			#is_capital_of_japan_puppet = yes
+	#			#has_state_flag = hanjian_captured_@FROM
+	#		}
+	#	}
+	#}
+	immediate = {
+		#if = {
+		#	limit = {
+		#		event_target:captured_hanjian = {
+		#			surrender_progress < 0.99
+		#		}
+		#	}
+		#	set_state_owner = event_target:hanjian_captured_state
+		#	event_target:hanjian_captured_state = {
+		#		set_state_province_controller = {
+		#			controller = ROOT
+		#			limit = {
+		#				has_war_together_with = ROOT
+		#			}
+		#		}
+		#	}
+		#}
+		#else = {
+		#	capture_collaborators = yes
+		#}
+	}
+	option = { #KILL THEM ALL! #guo
+		name = prc.6.a
+		ai_chance = {
+			factor = 80
+		}
+		add_political_power = 50
+		add_war_support = 0.03
+		#if = {
+		#	limit = {
+		#		has_global_flag = wtf_pdx
+		#	}
+		#	capture_collaborators = yes
+		#	clr_global_flag = wtf_pdx
+		#}
+		#capture_collaborators = yes
+	}
+	option = { #RECRUIT THE REMAINS #guo
+		name = prc.6.b
+		ai_chance = {
+			factor = 20
+		}
+		add_political_power = -50
+		add_war_support = -0.03
+		add_manpower = 30000
+		add_equipment_to_stockpile = {
+						type = infantry_equipment
+						amount = 2000
+						producer = JAP
+					}
+		#if = {
+		#	limit = {
+		#		has_global_flag = wtf_pdx
+		#	}
+		#	capture_collaborators = yes
+		#	clr_global_flag = wtf_pdx
+		#}
+		#capture_collaborators = yes
+	}
+}
+#THE COMMIES TAKE OVER
+country_event = {
+	id = prc.7
+	title = prc.7.t
+	desc = prc.7.d
+	picture = GFX_report_event_chinese_soldiers_02
+	is_triggered_only = yes
+	option = { #OH NO!
+		name = prc.7.a
+	}
+}
+###Kill THE HANJIAN! (for COMMIE REMOTE capture Hanjian capital)
+country_event = {
+	id = prc.8
+	title = prc.8.t
+	desc = prc.8.d
+	picture = GFX_report_event_chinese_soldiers_02
+	is_triggered_only = yes
+	#trigger = {
+	#	NOT = {
+	#		OR = {
+	#			tag = JAP
+	#			has_war_together_with = JAP
+	#		}
+	#	}
+	#	any_enemy_country = {
+	#		any_owned_state = {
+	#			OR = {
+	#				is_claimed_by = ROOT
+	#				is_core_of = ROOT
+	#			}
+	#			is_capital_of_japan_puppet = yes
+	#			has_state_flag = hanjian_captured_@FROM
+	#		}
+	#	}
+	#}
+	immediate = {
+		
+		#hidden_effect = {
+		#	event_target:captured_hanjian = {
+		#		every_owned_state = {
+		#			limit = {
+		#				NOT = {
+		#					is_controlled_by = event_target:captured_hanjian
+		#				}
+		#				NOT = {
+		#					is_controlled_by = event_target:WTT_communist_china
+		#				}
+		#			}
+		#			controller = {
+		#				set_state_owner = PREV
+		#			}
+		#		}				
+		#	}
+		#}
+	}
+	option = { #KILL THEM ALL!
+		name = prc.8.a
+		ai_chance = {
+			factor = 100
+		}
+		add_political_power = 50
+		add_war_support = 0.03
+        #capture_collaborators = yes
+	}
+	option = { #RECRUIT THE REMAINS
+		name = prc.8.b
+		ai_chance = {
+			factor = 0
+		}
+		add_political_power = -50
+		add_war_support = -0.03
+		add_manpower = 30000
+		add_equipment_to_stockpile = {
+						type = infantry_equipment
+						amount = 2000
+						producer = JAP
+					}
+		#capture_collaborators = yes
+	}
+}
+#request SOV for MAN(NE) to SOV
+country_event = {
+	id = prc.9
+	title = prc.9.t
+	desc = prc.9.d
+	picture = GFX_report_event_operation_august_storm
+	is_triggered_only = yes
+	#fire_only_once = yes
+	option = { #SURE #guo take some factory and resource
+		name = prc.9.aaa 
+		ai_chance = {
+			factor = 100
+		}
+		#SOV = {
+		#	give_military_access = PRC
+		#}
+		event_target:WTT_communist_china = {
+			country_event = prc.10
+			effect_tooltip = {
+				give_military_access = ROOT
+				for_each_scope_loop = {					
+					array = global.small_china
+					tooltip = small_china_tt
+					if = {
+						limit = {
+							NOT = { state = 745 } #dalian
+							OR = {
+								is_controlled_by = SOV
+								AND = {
+									is_controlled_by = MON
+									MON = {										
+										is_in_faction_with = SOV
+										#has_war_together_with = SOV
+									}
+								}
+							}
+						}
+						if = {
+							limit = {
+								is_core_of = event_target:WTT_communist_china
+							} 
+							event_target:WTT_communist_china = {
+								transfer_state = PREV
+							}
+							else = {
+								event_target:WTT_current_china_leader = {
+									transfer_state = PREV
+								}
+							}
+						}
+					}
+				}
+				for_each_scope_loop = {					
+					array = global.small_china
+					tooltip = small_china_tt
+					if = {
+						limit = {
+							NOT = {
+								NOT = { state = 745 } #dalian
+								OR = {
+									is_controlled_by = SOV
+									AND = {
+										is_controlled_by = MON
+										MON = {
+											is_in_faction_with = SOV
+											#has_war_together_with = SOV
+										}
+									}
+								}
+							}
+							is_controlled_by_jap_or_its_puppet = yes
+							controller = {
+								has_war_with = SOV
+								has_war_with = event_target:WTT_communist_china
+							}
+						}
+						event_target:WTT_communist_china = {
+							set_state_owner = PREV
+						}
+					}
+				}
+			}
+		}
+		event_target:WTT_current_china_leader = {
+			country_event = {
+				days = 2 id = prc.10
+			}
+		}
+		add_political_power = -150 #guo
+		
+		#guo拆毁东北工业设施
+		if = {
+		limit = { controls_state = 716 }
+		716 = { #沈阳
+				remove_building = {
+					type = arms_factory
+					level = 1
+				}
+				remove_building = {
+					type = industrial_complex
+					level = 1
+				}
+				add_resource = {
+				type = steel
+				amount = -10
+			    }
+		}
+		}
+		
+		if = {
+		limit = { controls_state = 328 }
+		328 = { #长春
+				remove_building = {
+					type = arms_factory
+					level = 1
+				}
+				remove_building = {
+					type = industrial_complex
+					level = 1
+				}
+				add_resource = {
+				type = aluminium
+				amount = -3
+			    }
+		}
+		}
+		
+		if = {
+		limit = { controls_state = 1005 }
+		1005 = { #哈尔滨
+				remove_building = {
+					type = arms_factory
+					level = 1
+				}
+				remove_building = {
+					type = industrial_complex
+					level = 1
+				}
+		}
+		}
+		
+		219 = { #莫斯科
+		add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+				add_resource = {
+				type = steel
+				amount = 5
+			    }
+				add_resource = {
+				type = aluminium
+				amount = 3
+			    }
+		}
+		217 = { #斯大林格勒
+		add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+				add_resource = {
+				type = steel
+				amount = 5
+			    }
+		}
+	}
+	
+	option = { #nice factory leave for prc comrade #guo
+		name = prc.9.bbb
+		ai_chance = {
+			factor = 0
+		}
+		#SOV = {
+		#	give_military_access = PRC
+		#}
+		event_target:WTT_communist_china = {
+			country_event = prc.10
+			effect_tooltip = {
+				give_military_access = ROOT
+				for_each_scope_loop = {					
+					array = global.small_china
+					tooltip = small_china_tt
+					if = {
+						limit = {
+							NOT = { state = 745 } #dalian
+							OR = {
+								is_controlled_by = SOV
+								AND = {
+									is_controlled_by = MON
+									MON = {										
+										is_in_faction_with = SOV
+										#has_war_together_with = SOV
+									}
+								}
+							}
+						}
+						if = {
+							limit = {
+								is_core_of = event_target:WTT_communist_china
+							} 
+							event_target:WTT_communist_china = {
+								transfer_state = PREV
+							}
+							else = {
+								event_target:WTT_current_china_leader = {
+									transfer_state = PREV
+								}
+							}
+						}
+					}
+				}
+				for_each_scope_loop = {					
+					array = global.small_china
+					tooltip = small_china_tt
+					if = {
+						limit = {
+							NOT = {
+								NOT = { state = 745 } #dalian
+								OR = {
+									is_controlled_by = SOV
+									AND = {
+										is_controlled_by = MON
+										MON = {
+											is_in_faction_with = SOV
+											#has_war_together_with = SOV
+										}
+									}
+								}
+							}
+							is_controlled_by_jap_or_its_puppet = yes
+							controller = {
+								has_war_with = SOV
+								has_war_with = event_target:WTT_communist_china
+							}
+						}
+						event_target:WTT_communist_china = {
+							set_state_owner = PREV
+						}
+					}
+				}
+			}
+		}
+		event_target:WTT_current_china_leader = {
+			country_event = {
+				days = 2 id = prc.10
+			}
+		}
+		add_political_power = 150 #guo
+		
+	}
+	
+	#option = { #NAH  #guo 默许进军才会有索取东北国策
+	#	name = prc.9.b
+	#	ai_chance = {
+	#		factor = 0
+	#	}
+	#}
+}
+#request SOV for MAN(NE)(YES to PRC/CHI)
+country_event = {
+	id = prc.10
+	title = {
+		text = prc.10.t
+		trigger = {
+			tag = event_target:WTT_communist_china
+		}
+	}
+	title = {
+		text = prc.10.t_CHI
+		trigger = {
+			tag = event_target:WTT_current_china_leader
+		}
+	}
+	desc = {
+		text = prc.10.d
+		trigger = {
+			tag = event_target:WTT_communist_china
+		}
+	}
+	desc = {
+		text = prc.10.d_CHI
+		trigger = {
+			NOT = {
+				tag = event_target:WTT_communist_china
+			}
+		}
+	}
+	picture = GFX_report_event_operation_august_storm
+	is_triggered_only = yes
+	#fire_only_once = yes
+	option = { #OH YEAH!
+		name = prc.10.a
+		trigger = {
+			tag = event_target:WTT_communist_china
+		}
+		effect_tooltip = { #guo
+		SOV = {
+		if = {
+		limit = { controls_state = 716 }
+		716 = { #沈阳
+				remove_building = {
+					type = arms_factory
+					level = 1
+				}
+				remove_building = {
+					type = industrial_complex
+					level = 1
+				}
+				add_resource = {
+				type = steel
+				amount = -10
+			    }
+		}
+		}
+		
+		if = {
+		limit = { controls_state = 328 }
+		328 = { #长春
+				remove_building = {
+					type = arms_factory
+					level = 1
+				}
+				remove_building = {
+					type = industrial_complex
+					level = 1
+				}
+				add_resource = {
+				type = aluminium
+				amount = -3
+			    }
+		}
+		}
+		
+		if = {
+		limit = { controls_state = 1005 }
+		1005 = { #哈尔滨
+				remove_building = {
+					type = arms_factory
+					level = 1
+				}
+				remove_building = {
+					type = industrial_complex
+					level = 1
+				}
+		}
+		}
+		
+		219 = { #莫斯科
+		add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+				add_resource = {
+				type = steel
+				amount = 5
+			    }
+				add_resource = {
+				type = aluminium
+				amount = 3
+			    }
+		}
+		217 = { #斯大林格勒
+		add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+				add_resource = {
+				type = steel
+				amount = 5
+			    }
+		}
+		}
+		}
+		
+		give_military_access = FROM
+		if = {
+			limit = {
+				OR = {
+					AND = {
+						64 = { #germany has fallen
+							controller = {
+								has_government = ROOT
+							}
+						}
+						1008 = {
+							controller = {
+								OR = {
+									tag = SOV
+									tag = ROOT
+								}
+							}
+						}
+					}
+					has_global_flag = had_yalta_conference
+				}
+				NOT = {
+					has_country_flag = SOV_reinforcement_flag
+				}				
+			}
+			custom_effect_tooltip = rcmchina.221_PRC_SOV_reinforcements_2
+			hidden_effect = {
+				load_oob = "PRC_SOV_reinforcements_3"
+			}
+			set_country_flag = SOV_reinforcement_flag
+		}
+		for_each_scope_loop = {
+			array = global.small_china
+			tooltip = small_china_tt
+			effect_tooltip = {
+				event_target:WTT_communist_china = {
+					transfer_state = PREV
+				}
+			}
+			if = {
+				limit = {
+					NOT = { state = 745 } #dalian
+					OR = {
+						is_controlled_by = SOV
+						AND = {
+							is_controlled_by = MON
+							MON = {
+								is_in_faction_with = SOV
+								#has_war_together_with = SOV
+							}
+						}
+					}
+				}
+				if = {
+					limit = {
+						is_core_of = event_target:WTT_communist_china
+					    NOT = { has_state_flag = we_will_help_the_legit_government }
+					}
+					event_target:WTT_communist_china = {
+						transfer_state = PREV
+					}
+					else = {
+						event_target:WTT_current_china_leader = {
+							transfer_state = PREV
+						}
+					}
+				}
+			}
+		}
+		hidden_effect = {
+			for_each_scope_loop = {
+				array = SOV.core_states
+				if = {
+					limit = {
+						is_controlled_by = event_target:WTT_communist_china
+					}
+					SOV = {
+						transfer_state = PREV
+					}
+				}
+			}
+		}
+	}
+	option = { #OH NO!
+		name = prc.10.b
+		trigger = {
+			NOT = {
+				TAG = event_target:WTT_communist_china
+			}
+		}
+	}
+}
+#request SOV for MAN(NE)(NO to PRC)
+country_event = {
+	id = prc.11
+	title = prc.11.t
+	desc = prc.11.d
+	picture = GFX_report_event_operation_august_storm
+	is_triggered_only = yes
+	#fire_only_once = yes
+	option = { #OH NO!
+		name = prc.11.a
+	}
+}
+
+#8RA renamed to 18GA
+country_event = {
+	id = prc.15
+	title = prc.15.t
+	desc = prc.15.d
+	picture = GFX_report_event_18ga
+	is_triggered_only = yes
+	fire_only_once = yes
+	trigger = {
+	always = no
+		tag = PRC
+        has_completed_focus = PRC_Join_the_war
+		is_ally_with = event_target:WTT_current_china_leader
+	}
+	immediate = {
+		set_global_flag = r_18ga_flag
+	}
+	option = {
+		name = prc.15.a
+        set_global_flag = renamed_to_18ga_flag
+		add_political_power = 20
+		custom_effect_tooltip = replace_8ra_unit_names_tt
+	}
+}
+
+#War of Liberation
+add_namespace = prc_states_liberated
+country_event = {
+	id = prc_states_liberated.1
+	hidden = yes#guo
+	title = {
+		text = prc_states_liberated.1.t
+		trigger = {
+			OR = {
+				tag = event_target:WTT_communist_china
+				ROOT = {
+					is_warlord = yes
+					has_war_together_with = event_target:WTT_communist_china
+				}
+			}
+		}
+	}
+	title = {
+		text = prc_states_liberated.1.t_chi
+		trigger = {
+			OR = {
+				tag = event_target:WTT_current_china_leader
+				ROOT = {
+					is_warlord = yes
+					has_war_together_with = event_target:WTT_current_china_leader
+				}
+			}
+		}
+	}
+	desc = {
+		text = prc_states_liberated.1.d
+		trigger = {
+			OR = {
+				tag = event_target:WTT_communist_china
+				ROOT = {
+					is_warlord = yes
+					has_war_together_with = event_target:WTT_communist_china
+				}
+			}
+		}
+	}
+	desc = {
+		text = prc_states_liberated.1.d_chi
+		trigger = {
+			OR = {
+				tag = event_target:WTT_current_china_leader
+				ROOT = {
+					is_warlord = yes
+					has_war_together_with = event_target:WTT_current_china_leader
+				}
+			}
+		}
+	}
+	picture = GFX_report_event_sinkiang_join_PRC
+	is_triggered_only = yes
+	immediate = {
+		hidden_effect = {
+			event_target:WTT_communist_china = {
+				set_state_owner = FROM
+				if = {
+					limit = {
+						FROM = {
+							is_core_of = event_target:WTT_communist_china
+						}
+					}
+					FROM = { set_state_flag = dont_show_tt }#guo
+				}
+				if = {
+					limit = {
+						FROM = {
+							is_in_array = { global.big_china = This.id }
+							NOT = { is_core_of = MON }
+							NOT = { is_core_of = TAN }
+							NOT = { is_core_of = event_target:WTT_communist_china }
+							NOT = { is_claimed_by = event_target:WTT_communist_china }
+						}
+					}
+					FROM = { set_state_flag = dont_show_tt }#guo
+				}
+				if = {
+					limit = {
+						FROM = {
+							is_in_array = { global.small_china = This.id }
+							NOT = { is_core_of = event_target:WTT_communist_china }
+						}
+					}
+					add_state_core = FROM
+				}
+				if = {
+					limit = {
+						FROM = {
+							is_in_array = { global.big_china = This.id }
+							NOT = { is_core_of = MON }
+							NOT = { is_core_of = TAN }
+							NOT = { is_core_of = event_target:WTT_communist_china }
+							NOT = { is_claimed_by = event_target:WTT_communist_china }
+						}
+					}
+					FROM = { set_state_flag = dont_show_tt }#guo
+					add_state_claim = FROM
+				}
+			}
+		}
+	}
+	#fire_only_once = yes
+	option = { #OH NO!
+		name = prc_states_liberated.1.a
+		trigger = {
+			OR = {
+				tag = event_target:WTT_communist_china
+				ROOT = {
+					is_warlord = yes
+					has_war_together_with = event_target:WTT_communist_china
+				}
+			}
+		}
+		effect_tooltip = {
+			event_target:WTT_communist_china = {
+				set_state_owner = FROM
+				add_state_core = FROM
+			}
+		}
+	}
+	option = { #OH NO!
+		name = prc_states_liberated.1.b
+		trigger = {
+			OR = {
+				tag = event_target:WTT_current_china_leader
+				ROOT = {
+					is_warlord = yes
+					has_war_together_with = event_target:WTT_current_china_leader
+				}
+			}
+		}
+		effect_tooltip = {
+			event_target:WTT_communist_china = {
+				set_state_owner = FROM
+				if = {
+					limit = {
+						FROM = {
+							NOT = { has_state_flag = dont_show_tt }
+							has_state_flag = this_is_claim
+						}
+					}
+					add_state_claim = FROM
+				}
+				if = {
+					limit = {
+						FROM = {
+							NOT = { has_state_flag = dont_show_tt }
+							NOT = { has_state_flag = this_is_claim }
+						}
+					}
+					add_state_claim = FROM
+				}
+			}
+		}
+	}
+}
+country_event = {
+	id = prc_states_liberated.2
+	hidden = yes#guo
+	title = {
+		text = prc_states_liberated.2.t
+		trigger = {
+			OR = {
+				tag = event_target:WTT_communist_china
+				ROOT = {
+					is_warlord = yes
+					has_war_together_with = event_target:WTT_communist_china
+				}
+			}
+		}
+	}
+	title = {
+		text = prc_states_liberated.2.t_chi
+		trigger = {
+			OR = {
+				tag = event_target:WTT_current_china_leader
+				ROOT = {
+					is_warlord = yes
+					has_war_together_with = event_target:WTT_current_china_leader
+				}
+			}
+		}
+	}
+	desc = {
+		text = prc_states_liberated.2.d
+		trigger = {
+			OR = {
+				tag = event_target:WTT_communist_china
+				ROOT = {
+					is_warlord = yes
+					has_war_together_with = event_target:WTT_communist_china
+				}
+			}
+		}
+	}
+	desc = {
+		text = prc_states_liberated.2.d_chi
+		trigger = {
+			OR = {
+				tag = event_target:WTT_current_china_leader
+				ROOT = {
+					is_warlord = yes
+					has_war_together_with = event_target:WTT_current_china_leader
+				}
+			}
+		}
+	}
+	picture = GFX_report_event_sinkiang_join_PRC
+	is_triggered_only = yes
+	#fire_only_once = yes
+	immediate = {
+		hidden_effect = {
+			event_target:WTT_current_china_leader = {
+				set_state_owner = FROM
+			}
+		}
+	}
+	option = { #OH NO!
+		name = prc_states_liberated.2.a
+		trigger = {
+			OR = {
+				tag = event_target:WTT_communist_china
+				ROOT = {
+					is_warlord = yes
+					has_war_together_with = event_target:WTT_communist_china
+				}
+			}
+		}
+		effect_tooltip = {
+			event_target:WTT_current_china_leader = {
+				set_state_owner = FROM
+			}
+		}
+	}
+	option = { #OH NO!
+		name = prc_states_liberated.2.b
+		trigger = {
+			OR = {
+				tag = event_target:WTT_current_china_leader
+				ROOT = {
+					is_warlord = yes
+					has_war_together_with = event_target:WTT_current_china_leader
+				}
+			}
+		}
+		effect_tooltip = {
+			event_target:WTT_current_china_leader = {
+				set_state_owner = FROM
+			}
+		}
+	}
+}
+add_namespace = prc_states_liberated_state
+state_event = {
+	id = prc_states_liberated_state.1
+	hidden = yes
+	is_triggered_only = yes
+	immediate = {
+		 event_target:WTT_current_china_leader = {
+			 country_event = prc_states_liberated.1
+		 }
+		 event_target:WTT_communist_china = {
+			 country_event = prc_states_liberated.1
+		 }
+	}
+	#fire_only_once = yes
+	option = { #OH NO!
+		name = prc_states_liberated_state.1.a
+	}
+}
+state_event = {
+	id = prc_states_liberated_state.2
+	hidden = yes
+	is_triggered_only = yes
+	#fire_only_once = yes
+	immediate = {
+		event_target:WTT_current_china_leader = {
+			country_event = prc_states_liberated.2
+		}
+		event_target:WTT_communist_china = {
+			country_event = prc_states_liberated.2
+		}
+	}
+	option = { #OH NO!
+		name = prc_states_liberated_state.2.a
+	}
+}
+add_namespace = prc_states_occupied_state
+state_event = {
+	id = prc_states_occupied_state.1
+	hidden = yes
+	is_triggered_only = yes
+	immediate = {
+		event_target:WTT_current_china_leader = {
+			country_event = ccw.87
+		}
+		event_target:WTT_communist_china = {
+			country_event = ccw.87
+		}
+	}
+	#fire_only_once = yes
+	option = { #OH NO!
+		name = prc_states_occupied_state.1.a
+	}
+}
+state_event = {
+	id = prc_states_occupied_state.2
+	hidden = yes
+	is_triggered_only = yes
+	#fire_only_once = yes
+	immediate = {
+		event_target:WTT_current_china_leader = {
+			country_event = ccw.88
+		}
+		event_target:WTT_communist_china = {
+			country_event = ccw.88
+		}
+	}
+	option = { #OH NO!
+		name = prc_states_occupied_state.2.a
+	}
+}
+
+
+add_namespace = RCM_comchina_west_expedition
+#hong 2 fm and 4 fm arrives
+country_event = {
+	id = RCM_comchina_west_expedition.1
+	title = RCM_comchina_west_expedition.1.t
+	desc = RCM_comchina_west_expedition.1.d
+	picture = GFX_report_event_china_mao
+
+	immediate = {
+		
+	}
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = { #push further
+		name = RCM_comchina_west_expedition.1.a
+		activate_mission = PRC_Survival_crisis #guo
+		remove_ideas = Chinese_Red_Army
+		set_temp_variable = { temp_member = 1 }
+		set_temp_variable = { temp_seats = 0.275 tooltip = ZHANG_faction_support_tt }
+										#percentage
+		modify_parliament_seat = yes
+		custom_effect_tooltip = available_political_advisor
+		show_ideas_tooltip = PRC_zhang_guotao
+
+        add_ideas = PRC_zhang_guotao #guo
+		
+		custom_effect_tooltip = available_theorist #guo
+		show_ideas_tooltip = prc_ren_bishi	
+		custom_effect_tooltip = available_chief_of_army
+		show_ideas_tooltip = PRC_he_long			
+		custom_effect_tooltip = available_theorist
+		show_ideas_tooltip = PRC_liu_bocheng				
+		custom_effect_tooltip = available_military_high_command
+		show_ideas_tooltip = PRC_xu_xiangqian				
+		custom_effect_tooltip = PRC_west_road_army_tt
+        set_country_flag = union_of_the_three_armies
+		set_global_flag = union_of_the_three_armies #guo
+        custom_effect_tooltip = zhu_de_becomes_marshal		
+        custom_effect_tooltip = liu_bocheng_becomes_general	
+        custom_effect_tooltip = he_long_becomes_general	
+        custom_effect_tooltip = xu_xiangqian_becomes_general
+        custom_effect_tooltip = xiao_ke_becomes_general
+        custom_effect_tooltip = wang_shusheng_becomes_general			
+		hidden_effect = {
+			#if = {
+			#	limit = {
+			#		controls_state = 1031
+			#	}
+			#	load_oob = PRC_west_road_army
+			#}
+			#else = {
+			#	load_oob = PRC_west_road_army_no_west
+			#}
+			load_oob = PRC_west_route_army
+		}
+	}
+}
+country_event = {
+	id = RCM_comchina_west_expedition.2
+	hidden = yes
+	is_triggered_only = yes
+	#fire_only_once = yes
+	immediate = {
+		if = {
+			limit = { controls_state = 1031 }
+			finalize_border_war = {
+				attacker_win = yes
+				attacker = 1031		#MODDED
+				defender = 616
+			}
+		}
+		else = {
+			finalize_border_war = {
+				attacker = 1029		#MODDED
+				defender = 1031
+				attacker_win = yes
+			}
+		}
+	}
+	option = { #OH NO!
+	}
+}
+country_event = {
+	id = RCM_comchina_west_expedition.3
+	hidden = yes
+	is_triggered_only = yes
+	#fire_only_once = yes
+	immediate = {
+		finalize_border_war = {
+			defender_win = yes
+			attacker = 622		#MODDED
+			defender = 998
+		}
+	}
+	option = { #OH NO!
+	}
+}
+
+country_event = {
+	id = RCM_comchina_west_expedition.4
+	hidden = yes
+	is_triggered_only = yes
+	#fire_only_once = yes
+	immediate = {
+		if = {
+			limit = { controls_state = 1029 }
+			finalize_border_war = {
+				attacker_win = yes
+				attacker = 622		#MODDED
+				defender = 1029
+			}
+		}
+		else = {
+			finalize_border_war = {
+				attacker = 622		#MODDED
+				defender = 1029
+				attacker_win = yes
+			}
+		}
+	}
+	option = { #OH NO!
+	}
+}
+
+
+
+
+
+########################################
+add_namespace = RCM_comchina
+#new PRC events
+
+#Wang Ming, Chen Yun, Kang Sheng Return 1937.11.29
+country_event = {
+	id = RCM_comchina.1
+	title = RCM_comchina.1.t
+	desc = RCM_comchina.1.d
+	picture = GFX_report_event_wang_ming_chen_yun_kang_sheng
+	is_triggered_only = no
+	fire_only_once = yes
+	
+	trigger = {
+		OR = {
+			TAG = event_target:WTT_communist_china
+			TAG = PRC
+		}
+		or = {
+			date > 1937.11.27
+			and = { has_global_flag = xibeiguofangzhengfu_FOUND not = { country_exists = CHI } }
+			focus_progress = { focus = PRC_End_of_Long_March progress > 0.000 }
+		}
+		not = { has_global_flag = PRC_wang_ming_returned_flag }
+	}
+	
+	immediate = {
+		set_global_flag = PRC_chen_yun_returned_flag
+		set_global_flag = PRC_kang_sheng_returned_flag
+		set_global_flag = PRC_wang_ming_returned_flag
+	}
+	option = {
+		name = RCM_comchina.1.a
+		ai_chance = {
+			factor = 1
+		}
+		custom_effect_tooltip = THIS_IS_HISTORICAL_TT
+		
+		custom_effect_tooltip = zhengzhiju_gui_will_change
+
+		set_temp_variable = { temp_member = 3 }
+		set_temp_variable = { temp_seats = 0.1 tooltip = TEB_faction_support_tt } #MODDED was 15%
+		modify_parliament_seat = yes
+
+		custom_effect_tooltip = available_political_advisor
+		show_ideas_tooltip = PRC_kang_sheng
+		custom_effect_tooltip = available_political_advisor
+		show_ideas_tooltip = PRC_chen_yun
+		custom_effect_tooltip = available_political_advisor
+		show_ideas_tooltip = prc_wang_ming
+		
+		add_trait = {
+			character = prc_kaifeng
+			slot = political_advisor
+			trait = trait_28b_trait_prc_kaifeng
+		}
+		set_global_flag = prc_kaifeng_now_be_28b
+	}
+	option = {
+		name = RCM_comchina.1.b
+		ai_chance = {
+			factor = 0
+		}
+		
+		custom_effect_tooltip = zhengzhiju_gui_will_change
+		
+		set_temp_variable = { temp_member = 3 }
+		set_temp_variable = { temp_seats = 0.05 tooltip = TEB_faction_support_tt }
+		modify_parliament_seat = yes
+
+		add_political_power = -45
+
+		custom_effect_tooltip = available_political_advisor
+		show_ideas_tooltip = PRC_kang_sheng
+		custom_effect_tooltip = available_political_advisor
+		show_ideas_tooltip = PRC_chen_yun
+		custom_effect_tooltip = available_political_advisor
+		show_ideas_tooltip = prc_wang_ming
+		
+		add_trait = {
+			character = prc_kaifeng
+			slot = political_advisor
+			trait = trait_28b_trait_prc_kaifeng
+		}
+		set_global_flag = prc_kaifeng_now_be_28b
+	}
+}
+
+#Wang Jiaxiang go soviet see doctor
+country_event = {
+	id = RCM_comchina.2
+	title = RCM_comchina.2.t
+	desc = RCM_comchina.2.d
+	picture = GFX_report_event_wang_jiaxiang_1
+	is_triggered_only = yes
+	#fire_only_once = yes
+	immediate = {
+		set_global_flag = prc_wang_jiaxiang_go_to_soviet_union
+	}
+	option = { #Get well soon, comrade
+		name = RCM_comchina.2.a
+		ai_chance = {
+			factor = 1
+		}
+		custom_effect_tooltip = THIS_IS_HISTORICAL_TT
+		
+		set_temp_variable = { temp_member = 2 }
+		set_temp_variable = { temp_seats = -0.005 tooltip = MAOIST_faction_support_tt }
+										#percentage
+		modify_parliament_seat = yes
+
+		custom_effect_tooltip = remove_political_advisor
+		show_ideas_tooltip = prc_wang_jiaxiang
+	}
+	option = { #Glad he left the country
+		name = RCM_comchina.2.b
+		ai_chance = {
+			factor = 0
+		}
+		
+		set_temp_variable = { temp_member = 2 }
+		set_temp_variable = { temp_seats = -0.01 tooltip = MAOIST_faction_support_tt }
+										#percentage
+		modify_parliament_seat = yes
+
+		add_political_power = -25
+		custom_effect_tooltip = remove_political_advisor
+		show_ideas_tooltip = prc_wang_jiaxiang
+	}
+}
+#Wang Jiaxiang return
+country_event = {
+	id = RCM_comchina.3
+	title = RCM_comchina.3.t
+	desc = RCM_comchina.3.d
+	picture = GFX_report_event_wang_jiaxiang_1
+	is_triggered_only = yes
+	trigger = {
+		tag = event_target:WTT_communist_china
+		#date > 1938.7.12
+		#has_global_flag = ren_bishi_in_moscow		
+	}
+	fire_only_once = yes
+	immediate = {
+		set_global_flag = wang_jiaxiang_return_from_soviet
+		clr_global_flag = prc_wang_jiaxiang_go_to_soviet_union
+	}
+	#mean_time_to_happen = {
+	#	days = 60
+	#}
+	option = { #Welcome back!
+		name = RCM_comchina.3.a
+		ai_chance = {
+			factor = 1
+		}
+		custom_effect_tooltip = THIS_IS_HISTORICAL_TT
+		
+		set_temp_variable = { temp_member = 2 }
+		set_temp_variable = { temp_seats = 0.015 tooltip = MAOIST_faction_support_tt }
+										#percentage
+		modify_parliament_seat = yes
+		add_political_power = 15
+		custom_effect_tooltip = available_political_advisor
+		show_ideas_tooltip = prc_wang_jiaxiang
+	}
+	option = { #ugh why is he back
+		name = RCM_comchina.3.b
+		ai_chance = {
+			factor = 0
+		}
+		set_temp_variable = { temp_member = 2 }
+		set_temp_variable = { temp_seats = 0.001 tooltip = MAOIST_faction_support_tt }
+										#percentage
+		modify_parliament_seat = yes
+
+		
+		custom_effect_tooltip = available_political_advisor
+		show_ideas_tooltip = prc_wang_jiaxiang
+	}
+}
+
+#otto braun depart
+country_event = {
+	id = RCM_comchina.4
+	title = RCM_comchina.4.t
+	desc = RCM_comchina.4.d
+	picture = GFX_report_event_otto_braun
+	#is_triggered_only = yes
+	trigger = {
+		NOT = { #not 1939 scenario
+			has_global_flag = dont_do_this_flag
+		}
+		tag = event_target:WTT_communist_china
+		date > 1939.6.1 #roughly summer
+		NOT = {
+			has_completed_focus = PRC_reunite_the_group_of_three_focus
+		}
+	}
+	mean_time_to_happen = {
+		days = 35
+	}
+	fire_only_once = yes
+	immediate = {
+		set_global_flag = otto_braun_left_yanan
+	}
+	option = { #good luck
+		name = RCM_comchina.4.a
+		ai_chance = {
+			factor = 0
+		}
+		
+		
+		set_temp_variable = { temp_member = 3 }
+		set_temp_variable = { temp_seats = -0.015 tooltip = TEB_faction_support_tt }
+										#percentage
+		modify_parliament_seat = yes
+
+		custom_effect_tooltip = remove_political_advisor
+		show_ideas_tooltip = PRC_otto_braun
+	}
+	option = {#good riddance
+		name = RCM_comchina.4.b
+		ai_chance = {
+			factor = 1
+		}
+		custom_effect_tooltip = THIS_IS_HISTORICAL_TT
+		set_temp_variable = { temp_member = 3 }
+		set_temp_variable = { temp_seats = -0.025 tooltip = TEB_faction_support_tt }
+										#percentage
+		modify_parliament_seat = yes
+
+		add_political_power = -25
+		custom_effect_tooltip = remove_political_advisor
+		show_ideas_tooltip = PRC_otto_braun
+	}
+}
+
+#troskyists released (To ROC)
+country_event = {
+	id = RCM_comchina.5
+	title = RCM_comchina.5.t
+	desc = RCM_comchina.5.d
+	picture = GFX_report_event_trotskyists
+	#is_triggered_only = yes
+	fire_only_once = yes
+	
+	immediate = {
+		set_global_flag = PRC_trotskyist_released
+	}
+	
+	trigger = {
+		NOT = { #not 1939 scenario
+			has_global_flag = dont_do_this_flag
+		}
+		tag = event_target:WTT_current_china_leader
+		613 = {
+			is_controlled_by_jap_or_its_puppet = yes
+		}
+	    country_exists = PRC
+	}
+	mean_time_to_happen = {
+		days = 15
+	}
+	option = {
+		name = RCM_comchina.5.a
+		ai_chance = {
+			factor = 1
+		}
+		set_global_flag = PRC_trotskyist_released
+		event_target:WTT_communist_china = {
+			country_event = RCM_comchina.6
+		}
+	}
+}
+
+#troskyists released (to PRC) (allows the troskyist branch be available)
+country_event = {
+	id = RCM_comchina.6
+	title = RCM_comchina.6.t
+	desc = RCM_comchina.6.d
+	picture = GFX_report_event_trotskyists
+	is_triggered_only = no
+	fire_only_once = yes
+	
+	trigger = {
+		OR = {
+			TAG = event_target:WTT_communist_china
+			TAG = PRC
+		}
+		OR = {
+			1015 = {
+				is_controlled_by_ROOT_or_puppet = yes
+			}
+			has_global_flag = PRC_trotskyist_released
+		}
+	}
+	
+	immediate = {
+	}
+	option = {
+		name = RCM_comchina.6.a
+		ai_chance = {
+			factor = 1
+		}
+		custom_effect_tooltip = THIS_IS_HISTORICAL_TT
+        country_event = {
+			id = RCM_comchina.555
+		}		
+		add_political_power = -25
+		set_temp_variable = { temp_member = 4 }
+		set_temp_variable = { temp_seats = 0.03 tooltip = TROT_faction_support_tt }
+										#percentage
+		modify_parliament_seat = yes
+	}
+	option = {
+		name = RCM_comchina.6.b
+		ai_chance = {
+			factor = 0
+		}
+        country_event = {
+			id = RCM_comchina.555
+		}		
+		set_temp_variable = { temp_member = 4 }
+		set_temp_variable = { temp_seats = 0.05 tooltip = TROT_faction_support_tt }
+										#percentage
+		modify_parliament_seat = yes
+	}
+}
+
+country_event = {
+	id = RCM_comchina.555
+	title = RCM_comchina.555.t
+	desc = RCM_comchina.555.d
+	picture = GFX_gaojingting
+	is_triggered_only = no
+	fire_only_once = yes
+	
+	trigger = {
+		OR = {
+			TAG = event_target:WTT_communist_china
+			TAG = PRC
+		}
+		OR = {
+			1015 = {
+				is_controlled_by_ROOT_or_puppet = yes
+			}
+			has_global_flag = PRC_trotskyist_released
+		}
+	}
+	
+	immediate = {
+	}
+	option = {
+		name = RCM_comchina.555.a
+	    custom_effect_tooltip = THIS_IS_HISTORICAL_TT
+		#Take first two, other will be training ships	
+		ai_chance = {
+			factor = 100
+		}
+		add_manpower = -1
+		add_political_power = 50
+		add_stability = 0.05
+	}
+	option = {
+		name = RCM_comchina.555.b
+		ai_chance = {
+			factor = 0
+		}
+		army_experience = 15
+        add_war_support = 0.05
+	}
+}
+
+#ren bishi to soviet (fired by focus)
+country_event = {
+	id = RCM_comchina.7
+	title = RCM_comchina.7.t
+	desc = RCM_comchina.7.d
+	picture = GFX_report_event_ren_bishi_to_ussr
+	is_triggered_only = yes
+	#fire_only_once = yes
+	immediate = {
+		set_global_flag = ren_bishi_in_moscow
+		hidden_effect = { country_event = { id = RCM_comchina.3 days = 60 } }
+	}
+	option = { #Good luck, comrade!
+		name = RCM_comchina.7.a
+		ai_chance = {
+			factor = 1
+		}
+		custom_effect_tooltip = THIS_IS_HISTORICAL_TT
+		
+		set_temp_variable = { temp_member = 2 }
+		set_temp_variable = { temp_seats = -0.02 tooltip = MAOIST_faction_support_tt }
+										#percentage
+		modify_parliament_seat = yes
+
+		custom_effect_tooltip = remove_political_advisor
+		show_ideas_tooltip = prc_ren_bishi
+	}
+	option = { #Yeah, go away.
+		name = RCM_comchina.7.b
+		ai_chance = {
+			factor = 0
+		}
+		
+		set_temp_variable = { temp_member = 2 }
+		set_temp_variable = { temp_seats = -0.03 tooltip = MAOIST_faction_support_tt }
+										#percentage
+		modify_parliament_seat = yes
+
+		add_political_power = -20
+		custom_effect_tooltip = remove_political_advisor
+		show_ideas_tooltip = prc_ren_bishi
+	}
+}
+
+#1940.3.26 Ren beshi returns (if he was ever sent through focus)
+country_event = {
+	id = RCM_comchina.8
+	title = RCM_comchina.8.t
+	desc = RCM_comchina.8.d
+	picture = GFX_report_event_ren_bishi
+	#is_triggered_only = yes
+	fire_only_once = yes
+	trigger = {
+		tag = event_target:WTT_communist_china
+		date > 1939.4.1 #1940.3.25
+		has_global_flag = ren_bishi_in_moscow	
+		has_global_flag = wang_jiaxiang_return_from_soviet	
+	}
+	mean_time_to_happen = {
+		days = 360 #1939.4.1+360 = 1940.3.25
+	}
+	immediate = {
+		clr_global_flag = ren_bishi_in_moscow
+	}
+
+	option = { #Welcome back!
+		name = RCM_comchina.8.a
+		ai_chance = {
+			factor = 1
+		}
+		custom_effect_tooltip = THIS_IS_HISTORICAL_TT
+		
+		set_temp_variable = { temp_member = 2 }
+		set_temp_variable = { temp_seats = 0.02 tooltip = MAOIST_faction_support_tt }
+										#percentage
+		modify_parliament_seat = yes
+
+		custom_effect_tooltip = available_political_advisor
+		show_ideas_tooltip = prc_ren_bishi
+	}
+	option = { #ugh why is he back
+		name = RCM_comchina.8.b
+		ai_chance = {
+			factor = 0
+		}
+		set_temp_variable = { temp_member = 2 }
+		set_temp_variable = { temp_seats = 0.01 tooltip = MAOIST_faction_support_tt }
+										#percentage
+		modify_parliament_seat = yes
+
+		add_political_power = -25
+		custom_effect_tooltip = available_political_advisor
+		show_ideas_tooltip = prc_ren_bishi
+	}
+}
+
+#1939年8月 Chen Chang Hao head to soviet for cure for stomach ache, and never returns (unless 28b took power)
+country_event = {
+	id = RCM_comchina.9
+	title = RCM_comchina.9.t
+	desc = RCM_comchina.9.d
+	picture = GFX_report_event_chen_changhao_1
+	#is_triggered_only = yes
+	fire_only_once = yes
+	
+	trigger = {
+		NOT = { #not 1939 scenario
+			has_global_flag = dont_do_this_flag
+		}
+		tag = event_target:WTT_communist_china
+		date > 1939.8.1	
+	}
+	mean_time_to_happen = {
+		days = 10
+	}
+	immediate = {
+		set_global_flag = prc_chen_changhao_go_to_soviet_union
+	}
+
+	option = { #Yeah, and don't come back!
+		name = RCM_comchina.9.a
+		ai_chance = {
+			factor = 1
+		}
+		custom_effect_tooltip = THIS_IS_HISTORICAL_TT
+		
+		set_temp_variable = { temp_member = 3 }
+		set_temp_variable = { temp_seats = -0.025 tooltip = TEB_faction_support_tt }
+		
+		if = {
+		limit = { has_character = PRC_zhang_guotao }
+		set_temp_variable = { temp_member = 1 }
+		set_temp_variable = { temp_seats = -0.025 tooltip = ZHANG_faction_support_tt }
+		}
+										#percentage
+		modify_parliament_seat = yes
+
+		custom_effect_tooltip = remove_political_advisor
+		show_ideas_tooltip = prc_chen_changhao
+	}
+	option = { #See you soon, comrade!
+		name = RCM_comchina.9.b
+		ai_chance = {
+			factor = 0
+		}
+		
+		set_temp_variable = { temp_member = 3 }
+		set_temp_variable = { temp_seats = -0.015 tooltip = TEB_faction_support_tt }
+		
+		if = {
+		limit = { has_character = PRC_zhang_guotao }
+		set_temp_variable = { temp_member = 1 }
+		set_temp_variable = { temp_seats = -0.015 tooltip = ZHANG_faction_support_tt }
+		}
+										#percentage
+		modify_parliament_seat = yes
+
+		add_political_power = -25
+		custom_effect_tooltip = remove_political_advisor
+		show_ideas_tooltip = prc_chen_changhao
+	}
+}
+# Chen Chang Hao returns about 5 months after 28b took power
+country_event = {
+	id = RCM_comchina.10
+	title = RCM_comchina.10.t
+	desc = RCM_comchina.10.d
+	picture = GFX_report_event_chen_changhao_2 
+	#is_triggered_only = yes
+	fire_only_once = yes
+	trigger = {
+		tag = event_target:WTT_communist_china
+		has_global_flag = { flag = prc_chen_changhao_go_to_soviet_union days > 180 }
+		SOV = {
+			has_government = communism
+		}
+		or = {
+		leader_is_28b = yes
+		leader_is_zhang_guotao = yes
+		}
+	}
+	immediate = {
+		clr_global_flag = prc_chen_changhao_go_to_soviet_union
+	}
+	mean_time_to_happen = {
+		days = 2
+	}
+	option = { #ugh why is he back
+		name = RCM_comchina.10.a
+		ai_chance = {
+			factor = 1
+		}
+		
+		set_temp_variable = { temp_member = 3 }
+		set_temp_variable = { temp_seats = 0.05 tooltip = TEB_faction_support_tt }
+		
+		if = {
+		limit = { has_character = PRC_zhang_guotao }
+		set_temp_variable = { temp_member = 1 }
+		set_temp_variable = { temp_seats = 0.05 tooltip = ZHANG_faction_support_tt }
+		}
+										#percentage
+		modify_parliament_seat = yes
+
+		custom_effect_tooltip = available_political_advisor
+		show_ideas_tooltip = prc_chen_changhao
+	}
+	option = { #Welcome back!
+		name = RCM_comchina.10.b
+		ai_chance = {
+			factor = 0
+		}
+		set_temp_variable = { temp_member = 3 }
+		set_temp_variable = { temp_seats = 0.075 tooltip = TEB_faction_support_tt }
+		
+		if = {
+		limit = { has_character = PRC_zhang_guotao }
+		set_temp_variable = { temp_member = 1 }
+		set_temp_variable = { temp_seats = 0.075 tooltip = ZHANG_faction_support_tt }
+		}
+										#percentage
+		modify_parliament_seat = yes
+
+		add_political_power = -25
+		custom_effect_tooltip = available_political_advisor
+		show_ideas_tooltip = prc_chen_changhao
+	}
+}
+#Mao and Jiang Qing get Married 28 November 1938, (opposition option will show if any opposing advisor is selected (Liu Shaoqi and Zhang Wentian))
+country_event = {
+	id = RCM_comchina.11
+	title = RCM_comchina.11.t
+	desc = RCM_comchina.11.d
+	picture = GFX_report_event_mao_and_jiang
+	is_triggered_only = yes
+	#fire_only_once = yes
+	option = {
+		name = RCM_comchina.11.a
+		trigger = {
+			OR = {
+				has_idea = PRC_liu_shaoqi
+				has_idea = prc_zhang_wentian
+			}
+		}
+		ai_chance = {
+			factor = 0
+		}
+		add_political_power = -55
+		retire_character = PRC_jiangqing
+	}
+	option = {
+		name = RCM_comchina.11.b
+		ai_chance = {
+			factor = 1
+		}
+		custom_effect_tooltip = THIS_IS_HISTORICAL_TT
+		set_global_flag = PRC_jiangqing_Married #guo
+		custom_effect_tooltip = available_political_advisor
+		show_ideas_tooltip = PRC_jiangqing
+		
+		set_temp_variable = { temp_member = 2 }
+		set_temp_variable = { temp_seats = -0.035 tooltip = MAOIST_faction_support_tt }
+										#percentage
+		modify_parliament_seat = yes
+	}
+}
+#1938.1.11 Xinhua Daily is created (only when Bo Gu is available)
+country_event = {
+	id = RCM_comchina.12
+	title = RCM_comchina.12.t
+	desc = RCM_comchina.12.d
+	picture = GFX_report_event_xinhua_daily 
+	is_triggered_only = yes
+	trigger = {
+		OR = {
+			has_available_idea_with_traits = { idea = editor limit = 1 }
+			has_idea_with_trait = editor
+		}
+	}
+	#fire_only_once = yes
+	immediate = {
+		set_global_flag = Xinhua_news_created
+	}
+	option = {
+		name = RCM_comchina.12.a
+		ai_chance = {
+			factor = 1
+		}
+		custom_effect_tooltip = THIS_IS_HISTORICAL_TT
+		set_temp_variable = { temp_member = 3 }
+		set_temp_variable = { temp_seats = 0.025 tooltip = TEB_faction_support_tt }
+										#percentage
+		modify_parliament_seat = yes
+	}
+	option = {
+		name = RCM_comchina.12.b
+		ai_chance = {
+			factor = 0
+		}
+		add_political_power = -10
+	}
+}
+#bo gu successfully reach second united front with nationalists (boost 28b, trigger by 2nd united front event)
+country_event = {
+	id = RCM_comchina.13
+	title = RCM_comchina.13.t
+	desc = RCM_comchina.13.d
+	picture = GFX_report_event_united_front
+	is_triggered_only = yes
+	#fire_only_once = yes
+	immediate = {
+		
+	}
+	option = {
+		name = RCM_comchina.13.a
+		ai_chance = {
+			factor = 1
+		}
+		custom_effect_tooltip = THIS_IS_HISTORICAL_TT
+		set_temp_variable = { temp_member = 3 }
+		set_temp_variable = { temp_seats = 0.05 tooltip = TEB_faction_support_tt }
+										#percentage
+		modify_parliament_seat = yes
+	}
+	option = {
+		name = RCM_comchina.13.b
+		ai_chance = {
+			factor = 0
+		}
+		set_temp_variable = { temp_member = 3 }
+		set_temp_variable = { temp_seats = 0.03 tooltip = TEB_faction_support_tt }
+										#percentage
+		modify_parliament_seat = yes
+		add_political_power = -45
+	}
+}
+#1941.5.16 Jiefang Daily created (with Bo Gu's help)
+country_event = {
+	id = RCM_comchina.14
+	title = RCM_comchina.14.t
+	desc = RCM_comchina.14.d
+	picture = GFX_report_event_jiefang_daily
+	is_triggered_only = yes
+	#fire_only_once = yes
+	immediate = {
+		set_global_flag = jiefang_daily_created
+	}
+	option = {
+		name = RCM_comchina.14.a
+		ai_chance = {
+			factor = 1
+		}
+		custom_effect_tooltip = THIS_IS_HISTORICAL_TT
+		set_temp_variable = { temp_member = 3 }
+		set_temp_variable = { temp_seats = 0.025 tooltip = TEB_faction_support_tt }
+										#percentage
+		modify_parliament_seat = yes
+	}
+	option = {
+		name = RCM_comchina.14.b
+		ai_chance = {
+			factor = 0
+		}
+		add_political_power = -10
+	}
+}
+#1936.6 Deng Fa to Soviet Union
+country_event = {
+	id = RCM_comchina.15
+	title = RCM_comchina.15.t
+	desc = RCM_comchina.15.d
+	picture = GFX_report_event_deng_fa
+	is_triggered_only = yes
+	trigger = {
+		SOV = {
+			has_government = communism
+		}
+	}
+	immediate = {
+		set_global_flag = deng_fa_to_USSR
+	}
+	option = {
+		name = RCM_comchina.15.a
+		ai_chance = {
+			factor = 1
+		}
+		custom_effect_tooltip = remove_political_advisor
+		show_ideas_tooltip = prc_deng_fa
+	}
+}
+#1937.9 Deng Fa Returns to sinkiang
+country_event = {
+	id = RCM_comchina.16
+	title = RCM_comchina.16.t
+	desc = RCM_comchina.16.d
+	picture = GFX_report_event_deng_fa
+	is_triggered_only = yes
+	trigger = {
+		SOV = {
+			has_government = communism
+		}
+		has_global_flag = deng_fa_to_USSR
+		SIK = {
+			has_government = communism
+		}
+	}
+	#fire_only_once = yes
+	immediate = {
+		clr_global_flag = deng_fa_to_USSR
+		set_global_flag = deng_fa_to_SIK
+	}
+	option = {
+		name = RCM_comchina.16.a
+		ai_chance = {
+			factor = 1
+		}
+	}
+}
+#1939.9?(Fall) Deng Fa returns to PRC
+country_event = {
+	id = RCM_comchina.17
+	title = RCM_comchina.17.t
+	desc = RCM_comchina.17.d
+	picture = GFX_report_event_deng_fa
+	is_triggered_only = yes
+	#fire_only_once = yes
+	trigger = {
+		SOV = {
+			has_government = communism
+		}
+		OR = {
+			has_global_flag = deng_fa_to_USSR
+			has_global_flag = deng_fa_to_SIK
+		}
+	}
+	immediate = {
+		clr_global_flag = deng_fa_to_USSR
+		clr_global_flag = deng_fa_to_SIK
+		set_global_flag = deng_fa_returned_to_yanan
+	}
+	option = {
+		name = RCM_comchina.17.a
+		ai_chance = {
+			factor = 1
+		}
+		custom_effect_tooltip = available_political_advisor
+		show_ideas_tooltip = prc_deng_fa
+	}
+}
+#THIS iS A EMPTY SLOT
+country_event = {
+	id = RCM_comchina.18
+	title = RCM_comchina.18.t
+	desc = RCM_comchina.18.d
+	picture = GFX_report_event_deng_fa
+	is_triggered_only = yes
+	#fire_only_once = yes
+	option = {
+		name = RCM_comchina.18.a
+		ai_chance = {
+			factor = 1
+		}
+	}
+	option = {
+		name = RCM_comchina.18.b
+		ai_chance = {
+			factor = 1
+		}
+	}
+	option = {
+		name = RCM_comchina.18.c
+		ai_chance = {
+			factor = 1
+		}
+	}
+}
+#zhang one is in zhang
+#1939.7 Zhou head to moscow for cure
+country_event = {
+	id = RCM_comchina.19
+	title = RCM_comchina.19.t
+	desc = RCM_comchina.19.d
+	picture = GFX_report_event_zhou_hurt
+	is_triggered_only = yes
+	#fire_only_once = yes
+	
+	trigger = {
+		has_global_flag = PRC_jiangqing_Married
+		prc_leader_can_go_to_soviet = yEs
+		is_major = no
+	}
+	
+	immediate = {
+		set_global_flag = zhou_enlai_in_moscow
+	}
+	option = {
+		name = RCM_comchina.19.a
+		ai_chance = {
+			factor = 1
+		}
+		custom_effect_tooltip = remove_political_advisor
+		show_ideas_tooltip = PRC_zhou_enlai
+	}
+}
+#1940.3 Zhou head return with support
+country_event = {
+	id = RCM_comchina.20
+	title = RCM_comchina.20.t
+	desc = RCM_comchina.20.d
+	picture = GFX_report_event_zhou
+	is_triggered_only = yes
+	#fire_only_once = yes
+	
+	trigger = {
+		has_global_flag = zhou_enlai_in_moscow
+	}
+	
+	immediate = {
+		clr_global_flag = zhou_enlai_in_moscow
+		hidden_effect = { country_event = PRC_sanzo_nosaka.1 }
+	}
+	option = {
+		name = RCM_comchina.20.a
+		ai_chance = {
+			factor = 1
+		}
+		add_political_power = 50
+		add_equipment_to_stockpile = {
+						type = infantry_equipment
+						amount = 2000
+						producer = SOV
+					}
+					add_equipment_to_stockpile = {#always biggest gap
+						type = support_equipment
+						amount = 200 #not a typo
+						producer = SOV
+					}
+		custom_effect_tooltip = available_political_advisor
+		show_ideas_tooltip = PRC_zhou_enlai
+	}
+}
+#1946.4.8 crash, Ye Ting, Bo Gu, Deng Fa killed (Wang RuoFei) (won't happen if Bogu is chairman)
+country_event = { #guo
+	id = RCM_comchina.21
+	title = RCM_comchina.21.t
+	desc = RCM_comchina.21.d
+	picture = GFX_report_event_plane_crash
+	is_triggered_only = yes
+	hidden = yes
+	trigger = {
+	always = no
+		NOT = {
+			has_country_leader = { name = "Bo Gu" ruling_only = yes }
+		}
+	}
+	#fire_only_once = yes
+	immediate = {
+		set_global_flag = bo_gu_killed_in_flight
+		set_global_flag = Deng_Fa_killed_in_flight
+		set_global_flag = wangruofei_killed_in_flight
+		
+		hidden_effect = {
+		retire_character = prc_bo_gu
+		retire_character = prc_deng_fa
+		retire_character = PRC_wangruofei
+		
+		news_event = zizhinews.11
+		}
+	}
+	option = {
+		#name = RCM_comchina.21.aa 
+		#ai_chance = {
+		#	factor = 1
+		#}
+		#custom_effect_tooltip = remove_political_advisor
+		#show_ideas_tooltip = prc_bo_gu
+		#custom_effect_tooltip = remove_political_advisor
+		#show_ideas_tooltip = prc_deng_fa
+		#custom_effect_tooltip = remove_political_advisor
+		#show_ideas_tooltip = PRC_wangruofei
+		
+	}
+}
+#1939.7 liu shaoqi published How to be a good communist
+country_event = {
+	id = RCM_comchina.22
+	title = RCM_comchina.22.t
+	desc = RCM_comchina.22.d
+	picture = GFX_report_event_liu_shaoqi
+	is_triggered_only = yes
+	fire_only_once = yes#guo
+	immediate = {
+
+	}
+	option = { #good book!
+		name = RCM_comchina.22.a
+		ai_chance = {
+			factor = 1
+		}
+		custom_effect_tooltip = THIS_IS_HISTORICAL_TT
+		set_temp_variable = { temp_member = 2 }
+		set_temp_variable = { temp_seats = 0.005 tooltip = MAOIST_faction_support_tt }
+										#percentage
+		modify_parliament_seat = yes
+		add_political_power = 10
+	}
+	option = { #This book sounds like propaganda
+		name = RCM_comchina.22.b
+		ai_chance = {
+			factor = 0
+		}
+		set_temp_variable = { temp_member = 2 }
+		set_temp_variable = { temp_seats = -0.005 tooltip = MAOIST_faction_support_tt }
+										#percentage
+		modify_parliament_seat = yes
+		add_political_power = -10
+	}
+}
+
+#1937.12 conference (Wang Ming)
+#Zhang Wentian (Current Situation and the Party's Tasks)
+country_event = {
+	id = RCM_comchina.23
+	title = RCM_comchina.23.t
+	desc = RCM_comchina.23.d
+	picture = GFX_report_event_politburo_december_conference
+	is_triggered_only = yes
+	#fire_only_once = yes
+	option = {
+		name = RCM_comchina.23.a
+		ai_chance = {
+			factor = 0
+		}
+		add_political_power = -25
+		set_temp_variable = { temp_member = 2 }
+		set_temp_variable = { temp_seats = 0.02 tooltip = MAOIST_faction_support_tt }
+										#percentage
+		modify_parliament_seat = yes
+
+		country_event = RCM_comchina.24
+	}
+	option = {
+		name = RCM_comchina.23.b
+		ai_chance = {
+			factor = 1
+		}
+		custom_effect_tooltip = THIS_IS_HISTORICAL_TT
+		set_temp_variable = { temp_member = 2 }
+		set_temp_variable = { temp_seats = 0.015 tooltip = MAOIST_faction_support_tt }
+										#percentage #guo
+		modify_parliament_seat = yes
+		country_event = RCM_comchina.24
+	}
+	option = {
+		name = RCM_comchina.23.c
+		ai_chance = {
+			factor = 0
+		}
+		add_political_power = -25
+		set_temp_variable = { temp_member = 2 }
+		set_temp_variable = { temp_seats = 0.01 tooltip = MAOIST_faction_support_tt }
+										#percentage
+		modify_parliament_seat = yes
+		country_event = RCM_comchina.24
+	}
+}
+#Wang Ming (How to Continue the War of Resistance and Gain Victory)(also critisized lochwan conference and liu shaoqi and mao)
+country_event = {
+	id = RCM_comchina.24
+	title = RCM_comchina.24.t
+	desc = RCM_comchina.24.d
+	picture = GFX_report_event_politburo_december_conference
+	is_triggered_only = yes
+	#fire_only_once = yes
+	option = {
+		name = RCM_comchina.24.a
+		ai_chance = {
+			factor = 0
+		}		
+		set_temp_variable = { temp_member = 3 }
+		set_temp_variable = { temp_seats = 0.065 tooltip = TEB_faction_support_tt }
+										#percentage
+		modify_parliament_seat = yes
+		country_event = RCM_comchina.25
+	}
+	option = {
+		name = RCM_comchina.24.b
+		ai_chance = {
+			factor = 1
+		}
+		custom_effect_tooltip = THIS_IS_HISTORICAL_TT
+		add_political_power = -25
+		set_temp_variable = { temp_member = 3 }
+		set_temp_variable = { temp_seats = 0.055 tooltip = TEB_faction_support_tt }
+										#percentage
+		modify_parliament_seat = yes
+		country_event = RCM_comchina.25
+	}
+	option = {
+		name = RCM_comchina.24.c
+		ai_chance = {
+			factor = 0
+		}
+		add_political_power = -50
+		set_temp_variable = { temp_member = 3 }
+		set_temp_variable = { temp_seats = 0.045 tooltip = TEB_faction_support_tt }
+										#percentage
+		modify_parliament_seat = yes
+		country_event = RCM_comchina.25
+	}
+}
+
+#mao rebuttle
+country_event = {
+	id = RCM_comchina.25
+	title = RCM_comchina.25.t
+	desc = RCM_comchina.25.d
+	picture = GFX_report_event_mao_speak_2
+	is_triggered_only = yes
+	#fire_only_once = yes
+	option = {
+		name = RCM_comchina.25.a
+		ai_chance = {
+			factor = 0
+		}
+		set_temp_variable = { temp_member = 2 }
+		set_temp_variable = { temp_seats = 0.02 tooltip = MAOIST_faction_support_tt }
+										#percentage
+		modify_parliament_seat = yes
+		add_political_power = -15
+		country_event = RCM_comchina.26
+		
+	}
+	option = {
+		name = RCM_comchina.25.b
+		ai_chance = {
+			factor = 1
+		}
+		custom_effect_tooltip = THIS_IS_HISTORICAL_TT
+		set_temp_variable = { temp_member = 2 }
+		set_temp_variable = { temp_seats = 0.015 tooltip = MAOIST_faction_support_tt }
+										#percentage
+		modify_parliament_seat = yes
+		country_event = RCM_comchina.26
+	}
+	option = {
+		name = RCM_comchina.25.c
+		ai_chance = {
+			factor = 0
+		}
+		set_temp_variable = { temp_member = 2 }
+		set_temp_variable = { temp_seats = 0.01 tooltip = MAOIST_faction_support_tt }
+										#percentage
+		modify_parliament_seat = yes
+		add_political_power = -15
+		country_event = RCM_comchina.26
+	}
+}
+#establishment of Changjiang bureau (allow boosting KMT communism  and add a 28b monthly modifier)
+country_event = {
+	id = RCM_comchina.26
+	title = RCM_comchina.26.t
+	desc = RCM_comchina.26.d
+	picture = GFX_report_event_wang_ming_bogu
+	is_triggered_only = yes
+	#fire_only_once = yes
+	option = {
+		name = RCM_comchina.26.a
+		ai_chance = {
+			factor = 1
+		}
+		add_ideas = changjiang_bureau
+	}
+}
+#############
+#1938.9.29 6th6
+#Wang Jiaxiang declare start, saying current leader should lead(if Ren was dispatched, wang return [and is hired]?)(big influence against wang ming)
+country_event = {
+	id = RCM_comchina.27
+	title = RCM_comchina.27.t
+	desc = {
+		text = RCM_comchina.27.d
+		trigger = {
+			not = { has_country_leader = { ruling_only = yes character = prc_zhang_wentian } }
+		}
+	}
+	desc = {
+		text = RCM_comchina.27.dmao
+		trigger = {
+			has_country_leader = { ruling_only = yes character = prc_zhang_wentian }
+		}
+	}
+	picture = GFX_report_event_sixth_central_committee_6th_plenary_session
+	is_triggered_only = yes
+	#trigger = {
+	#	has_global_flag = wang_jiaxiang_return_from_soviet
+	#}
+	#fire_only_once = yes
+	option = {
+		name = RCM_comchina.27.a
+		ai_chance = {
+			factor = 0
+		}
+		if = {
+		limit = {
+		has_country_leader = { ruling_only = yes character = prc_zhang_wentian }
+		}
+		promote_character = prc_mao_zedong
+		hidden_effect = {
+		prc_mao_zedong = {
+					set_portraits = {
+						army={
+							large="GFX_MAO_1938"
+						}
+					}
+				}
+		}
+		unlock_decision_tooltip = PRC_Rectification_Movement_in_advance
+		}
+		set_temp_variable = { temp_member = 3 }
+		set_temp_variable = { temp_seats = -0.035 tooltip = TEB_faction_support_tt }
+										#percentage
+		modify_parliament_seat = yes
+		#add_political_power = -15
+		if = {
+			limit = {
+				leader_is_maoist = yes
+			}
+			country_event = RCM_comchina.28
+		}
+		else_if = {
+			limit = {
+				leader_is_zhang_guotao = yes
+			}
+			country_event = RCM_comchina.29
+		}
+		else_if = {
+			limit = {
+				leader_is_28b = yes
+			}
+			country_event = RCM_comchina.30
+		}
+		else_if = {
+			limit = {
+				leader_is_trotskyist = yes
+			}
+			country_event = RCM_comchina.29
+		}
+	}
+	option = {
+		name = RCM_comchina.27.b
+		ai_chance = {
+			factor = 0
+		}
+		if = {
+		limit = {
+		has_country_leader = { ruling_only = yes character = prc_zhang_wentian }
+		}
+		promote_character = prc_mao_zedong
+		hidden_effect = {
+		prc_mao_zedong = {
+					set_portraits = {
+						army={
+							large="GFX_MAO_1938"
+						}
+					}
+				}
+		}
+		unlock_decision_tooltip = PRC_Rectification_Movement_in_advance
+		}
+		set_temp_variable = { temp_member = 3 }
+		set_temp_variable = { temp_seats = -0.055 tooltip = TEB_faction_support_tt }
+										#percentage
+		modify_parliament_seat = yes
+		add_political_power = -15
+		if = {
+			limit = {
+				leader_is_maoist = yes
+			}
+			country_event = RCM_comchina.28
+		}
+		else_if = {
+			limit = {
+				leader_is_zhang_guotao = yes
+			}
+			country_event = RCM_comchina.29
+		}
+		else_if = {
+			limit = {
+				leader_is_28b = yes
+			}
+			country_event = RCM_comchina.30
+		}
+		else_if = {
+			limit = {
+				leader_is_trotskyist = yes
+			}
+			country_event = RCM_comchina.29
+		}
+	}
+	option = {
+		name = RCM_comchina.27.c
+		ai_chance = {
+			factor = 1
+		}
+		custom_effect_tooltip = THIS_IS_HISTORICAL_TT
+		if = {
+		limit = {
+		has_country_leader = { ruling_only = yes character = prc_zhang_wentian }
+		}
+		promote_character = prc_mao_zedong
+		hidden_effect = {
+		prc_mao_zedong = {
+					set_portraits = {
+						army={
+							large="GFX_MAO_1938"
+						}
+					}
+				}
+		}
+		unlock_decision_tooltip = PRC_Rectification_Movement_in_advance
+		}
+		set_temp_variable = { temp_member = 3 }
+		set_temp_variable = { temp_seats = -0.075 tooltip = TEB_faction_support_tt }
+										#percentage
+		modify_parliament_seat = yes
+		add_political_power = -25
+		if = {
+			limit = {
+				leader_is_maoist = yes
+			}
+			country_event = RCM_comchina.28
+		}
+		else_if = {
+			limit = {
+				leader_is_zhang_guotao = yes
+			}
+			country_event = RCM_comchina.29
+		}
+		else_if = {
+			limit = {
+				leader_is_28b = yes
+			}
+			country_event = RCM_comchina.30
+		}
+		else_if = {
+			limit = {
+				leader_is_trotskyist = yes
+			}
+			country_event = RCM_comchina.29
+		}
+	}
+}
+#On the New Stage (mao) 
+country_event = {
+	id = RCM_comchina.28
+	title = RCM_comchina.28.t
+	desc = RCM_comchina.28.d
+	picture = GFX_report_event_mao_speak
+	is_triggered_only = yes
+	#fire_only_once = yes
+	immediate = {
+		
+	}
+	option = {
+		name = RCM_comchina.28.a
+		ai_chance = {
+			factor = 0
+		}
+		set_temp_variable = { temp_member = 2 }
+		set_temp_variable = { temp_seats = 0.045 tooltip = MAOIST_faction_support_tt }
+										#percentage
+		modify_parliament_seat = yes
+		add_political_power = -35
+		if = {
+			limit = {
+				NOT = { has_completed_focus = PRC_demand_reentry_of_cpc_focus }
+			}
+			country_event = RCM_comchina.32
+		}
+		else = {
+			country_event = RCM_comchina.31
+		}
+	}
+	option = {
+		name = RCM_comchina.28.b
+		ai_chance = {
+			factor = 1
+		}
+		custom_effect_tooltip = THIS_IS_HISTORICAL_TT
+		set_temp_variable = { temp_member = 2 }
+		set_temp_variable = { temp_seats = 0.035 tooltip = MAOIST_faction_support_tt }
+										#percentage
+		modify_parliament_seat = yes
+		add_political_power = -15
+		if = {
+			limit = {
+				NOT = { has_completed_focus = PRC_demand_reentry_of_cpc_focus }
+			}
+			country_event = RCM_comchina.32
+		}
+		else = {
+			country_event = RCM_comchina.31
+		}
+	}
+	option = {
+		name = RCM_comchina.28.c
+		ai_chance = {
+			factor = 0
+		}
+		set_temp_variable = { temp_member = 2 }
+		set_temp_variable = { temp_seats = 0.025 tooltip = MAOIST_faction_support_tt }
+										#percentage
+		modify_parliament_seat = yes
+		add_political_power = -35
+		if = {
+			limit = {
+				NOT = { has_completed_focus = PRC_demand_reentry_of_cpc_focus }
+			}
+			country_event = RCM_comchina.32
+		}
+		else = {
+			country_event = RCM_comchina.31
+		}
+	}
+}
+#On Strategic Cooperation (fictional speech if zhang took power) (zhang)
+country_event = {
+	id = RCM_comchina.29
+	title = RCM_comchina.29.t
+	desc = RCM_comchina.29.d
+	picture = GFX_report_event_guotao
+	is_triggered_only = yes
+	#fire_only_once = yes
+	immediate = {
+		
+	}
+	option = {
+		name = RCM_comchina.29.a
+		ai_chance = {
+			factor = 1
+		}
+		set_temp_variable = { temp_member = 1 }
+		set_temp_variable = { temp_seats = 0.045 tooltip = ZHANG_faction_support_tt }
+										#percentage
+		modify_parliament_seat = yes
+		if = {
+			limit = {
+				NOT = { has_completed_focus = PRC_demand_reentry_of_cpc_focus }
+			}
+			country_event = RCM_comchina.32
+		}
+		else = {
+			country_event = RCM_comchina.31
+		}
+		add_political_power = -45
+	}
+	option = {
+		name = RCM_comchina.29.b
+		ai_chance = {
+			factor = 1
+		}
+		set_temp_variable = { temp_member = 1 }
+		set_temp_variable = { temp_seats = 0.035 tooltip = ZHANG_faction_support_tt }
+										#percentage
+		modify_parliament_seat = yes
+		if = {
+			limit = {
+				NOT = { has_completed_focus = PRC_demand_reentry_of_cpc_focus }
+			}
+			country_event = RCM_comchina.32
+		}
+		else = {
+			country_event = RCM_comchina.31
+		}
+		add_political_power = -35
+	}
+	option = {
+		name = RCM_comchina.29.c
+		ai_chance = {
+			factor = 1
+		}
+		set_temp_variable = { temp_member = 1 }
+		set_temp_variable = { temp_seats = 0.025 tooltip = ZHANG_faction_support_tt }
+										#percentage
+		modify_parliament_seat = yes
+		if = {
+			limit = {
+				NOT = { has_completed_focus = PRC_demand_reentry_of_cpc_focus }
+			}
+			country_event = RCM_comchina.32
+		}
+		else = {
+			country_event = RCM_comchina.31
+		}
+		add_political_power = -25
+	}
+}
+#On Strategic Cooperation (fictional speech if wang took power) (wang)
+country_event = {
+	id = RCM_comchina.30
+	title = RCM_comchina.30.t
+	desc = RCM_comchina.30.d
+	picture = GFX_report_event_wang_ming
+	is_triggered_only = yes
+	#fire_only_once = yes
+	immediate = {
+		
+	}
+	option = {
+		name = RCM_comchina.30.a
+		ai_chance = {
+			factor = 1
+		}
+		set_temp_variable = { temp_member = 3 }
+		set_temp_variable = { temp_seats = 0.045 tooltip = TEB_faction_support_tt }
+										#percentage
+		modify_parliament_seat = yes
+		if = {
+			limit = {
+				NOT = { has_completed_focus = PRC_demand_reentry_of_cpc_focus }
+			}
+			country_event = RCM_comchina.32
+		}
+		else = {
+			country_event = RCM_comchina.31
+		}
+		add_political_power = -45
+	}
+	option = {
+		name = RCM_comchina.30.b
+		ai_chance = {
+			factor = 1
+		}
+		set_temp_variable = { temp_member = 3 }
+		set_temp_variable = { temp_seats = 0.035 tooltip = TEB_faction_support_tt }
+										#percentage
+		modify_parliament_seat = yes
+		if = {
+			limit = {
+				NOT = { has_completed_focus = PRC_demand_reentry_of_cpc_focus }
+			}
+			country_event = RCM_comchina.32
+		}
+		else = {
+			country_event = RCM_comchina.31
+		}
+		add_political_power = -35
+	}
+	option = {
+		name = RCM_comchina.30.c
+		ai_chance = {
+			factor = 1
+		}
+		set_temp_variable = { temp_member = 3 }
+		set_temp_variable = { temp_seats = 0.025 tooltip = TEB_faction_support_tt }
+										#percentage
+		modify_parliament_seat = yes
+		if = {
+			limit = {
+				NOT = { has_completed_focus = PRC_demand_reentry_of_cpc_focus }
+			}
+			country_event = RCM_comchina.32
+		}
+		else = {
+			country_event = RCM_comchina.31
+		}
+		add_political_power = -25
+	}
+}
+#Oppose anti-trotskyist sentiment. Justify the trotskyist movement (if trotskyist support is above certain threshold and completed the focus(both path))
+country_event = {
+	id = RCM_comchina.31
+	title = RCM_comchina.31.t
+	desc = RCM_comchina.31.d
+	picture = GFX_report_event_sixth_central_committee_6th_plenary_session
+	is_triggered_only = yes
+	#fire_only_once = yes
+	immediate = {
+		
+	}
+	option = {
+		name = RCM_comchina.31.a
+		ai_chance = {
+			factor = 1
+		}
+		set_temp_variable = { temp_member = 4 }
+		set_temp_variable = { temp_seats = 0.07 tooltip = TROT_faction_support_tt }
+										#percentage
+		modify_parliament_seat = yes
+		country_event = RCM_comchina.32
+		add_political_power = -65
+	}
+	option = {
+		name = RCM_comchina.31.b
+		ai_chance = {
+			factor = 1
+		}
+		set_temp_variable = { temp_member = 4 }
+		set_temp_variable = { temp_seats = 0.055 tooltip = TROT_faction_support_tt }
+										#percentage
+		modify_parliament_seat = yes
+		country_event = RCM_comchina.32
+		add_political_power = -35
+	}
+	option = {
+		name = RCM_comchina.31.c
+		ai_chance = {
+			factor = 1
+		}
+		set_temp_variable = { temp_member = 4 }
+		set_temp_variable = { temp_seats = 0.04 tooltip = TROT_faction_support_tt }
+										#percentage
+		modify_parliament_seat = yes
+		country_event = RCM_comchina.32
+		add_political_power = -15
+	}
+}
+#Disband Changjiang bureau (if wang ming is below certain support)
+country_event = {
+	id = RCM_comchina.32
+	title = RCM_comchina.32.t
+	desc = RCM_comchina.32.d
+	picture = GFX_report_event_sixth_central_committee_6th_plenary_session
+	is_triggered_only = yes
+	#fire_only_once = yes
+	trigger = {
+		NOT = { has_idea = changjiang_bureau_2 }
+		check_variable = { parliament_seat_array_adjusted^2 < 40 }
+	}
+	immediate = {
+	}
+	option = {
+		name = RCM_comchina.32.a
+		ai_chance = {
+			factor = 0
+		}
+		set_temp_variable = { temp_member = 3 }
+		set_temp_variable = { temp_seats = -0.055 tooltip = TEB_faction_support_tt }
+										#percentage
+		modify_parliament_seat = yes
+		add_political_power = -45
+		if = {
+			limit = {
+				has_idea = changjiang_bureau
+			}
+			remove_ideas = changjiang_bureau
+		}
+		if = {
+			limit = {
+				has_idea = changjiang_bureau_2
+			}
+			remove_ideas = changjiang_bureau_2
+		}
+	}
+	option = {
+		name = RCM_comchina.32.b
+		ai_chance = {
+			factor = 1
+		}
+		custom_effect_tooltip = THIS_IS_HISTORICAL_TT
+		set_temp_variable = { temp_member = 3 }
+		set_temp_variable = { temp_seats = -0.04 tooltip = TEB_faction_support_tt }
+										#percentage
+		modify_parliament_seat = yes
+		add_political_power = -30
+		if = {
+			limit = {
+				has_idea = changjiang_bureau
+			}
+			remove_ideas = changjiang_bureau
+		}
+		if = {
+			limit = {
+				has_idea = changjiang_bureau_2
+			}
+			remove_ideas = changjiang_bureau_2
+		}
+	}
+	option = {
+		name = RCM_comchina.32.c
+		ai_chance = {
+			factor = 0
+		}
+		set_temp_variable = { temp_member = 3 }
+		set_temp_variable = { temp_seats = -0.025 tooltip = TEB_faction_support_tt }
+										#percentage
+		modify_parliament_seat = yes
+		add_political_power = -15
+		if = {
+			limit = {
+				has_idea = changjiang_bureau
+			}
+			remove_ideas = changjiang_bureau
+		}
+		if = {
+			limit = {
+				has_idea = changjiang_bureau_2
+			}
+			remove_ideas = changjiang_bureau_2
+		}
+	}
+}
+#EMPTY SLOT
+country_event = {
+	id = RCM_comchina.33
+	title = RCM_comchina.33.t
+	desc = RCM_comchina.33.d
+	picture = GFX_report_event_china_mao
+	is_triggered_only = yes
+	#fire_only_once = yes
+	immediate = {
+	}
+	option = {
+		name = RCM_comchina.33.a
+		ai_chance = {
+			factor = 1
+		}
+	}
+	option = {
+		name = RCM_comchina.33.b
+		ai_chance = {
+			factor = 1
+		}
+	}
+	option = {
+		name = RCM_comchina.33.c
+		ai_chance = {
+			factor = 1
+		}
+	}
+}
+###################
+#if went with troskyist CCL route it should probably be blocked
+#1941.9.10 Central Political Bureau (done via focus, fired after finished as event chain)
+#a selective of advisor politicians will be forced to do self criticism (Peng will only be forced if they join the CCP and Mao is still in power)
+#(A genuine self re-examination, well done my comrade) (Gain factional support)
+#(Whether he is genuine remains to be seen.) (-)
+#(What a bunch of excuses!) (lose factional support)
+# Central Political Bureau begins!(Hosted by leader, except when leader is Zhang wentian mao will still host)
+country_event = {
+	id = RCM_comchina.34
+	title = {
+		text = RCM_comchina.34.t
+		trigger = {
+			NOT = {
+				leader_is_maoist = yes
+			}
+		}
+	}
+	title = {
+		text = RCM_comchina.34.t_mao
+		trigger = {
+			leader_is_maoist = yes
+		}
+	}
+	desc = {
+		text = RCM_comchina.34.d
+		trigger = {
+			NOT = {
+				leader_is_maoist = yes
+			}
+		}
+	}
+	desc = {
+		text = RCM_comchina.34.d_mao
+		trigger = {
+			leader_is_maoist = yes
+		}
+	}
+	picture = GFX_report_event_communist_conference
+	is_triggered_only = yes
+	#fire_only_once = yes
+	immediate = {
+		
+	}
+	option = {
+		name = RCM_comchina.34.a
+		ai_chance = {
+			factor = 1
+		}
+		custom_effect_tooltip = forced_to_admit_errors
+		hidden_effect = {
+			country_event = RCM_comchina.35
+			country_event = RCM_comchina.36
+			country_event = RCM_comchina.37
+			country_event = RCM_comchina.38
+			country_event = RCM_comchina.39
+			country_event = RCM_comchina.40
+			country_event = prc_kaifeng.1 #guo
+		}
+	}
+}
+#zhang guotao forced to admit errors(if he didn't defect)
+country_event = {
+	id = RCM_comchina.35
+	title = RCM_comchina.35.t
+	desc = RCM_comchina.35.d
+	picture = GFX_report_event_guotao
+	is_triggered_only = yes
+	trigger = {
+		NOT = {
+			has_global_flag = PRC_zhang_guotao_defect
+		}
+	}
+	#fire_only_once = yes
+	immediate = {
+		
+	}
+	option = {
+		name = RCM_comchina.35.a
+		ai_chance = {
+			factor = 0
+		}
+		set_temp_variable = { temp_member = 3 }
+		set_temp_variable = { temp_seats = -0.035 tooltip = ZHANG_faction_support_tt }
+										#percentage
+		modify_parliament_seat = yes
+		add_political_power = 30
+	}
+	option = {
+		name = RCM_comchina.35.b
+		ai_chance = {
+			factor = 0
+		}
+		set_temp_variable = { temp_member = 3 }
+		set_temp_variable = { temp_seats = -0.045 tooltip = ZHANG_faction_support_tt }
+										#percentage
+		modify_parliament_seat = yes
+		add_political_power = 20
+	}
+	option = {
+		name = RCM_comchina.35.c
+		ai_chance = {
+			factor = 1
+		}
+		set_temp_variable = { temp_member = 3 }
+		set_temp_variable = { temp_seats = -0.055 tooltip = ZHANG_faction_support_tt }
+										#percentage
+		modify_parliament_seat = yes
+		add_political_power = 10
+		remove_ideas = PRC_zhang_guotao
+	}
+}
+#mao forced to admit errors(if maoist aren't in power)
+country_event = {
+	id = RCM_comchina.36
+	title = RCM_comchina.36.t
+	desc = RCM_comchina.36.d
+	picture = GFX_report_event_mao_otto_braun
+	is_triggered_only = yes
+	#fire_only_once = yes
+	trigger = {
+		NOT = {
+			leader_is_maoist = yes
+		}
+	}
+	immediate = {
+		
+	}
+	option = {
+		name = RCM_comchina.36.a
+		ai_chance = {
+			factor = 1
+		}
+		
+		set_temp_variable = { temp_member = 2 }
+		set_temp_variable = { temp_seats = -0.05 tooltip = MAOIST_faction_support_tt }
+										#percentage
+		modify_parliament_seat = yes
+		add_political_power = -10
+	}
+	option = {
+		name = RCM_comchina.36.b
+		ai_chance = {
+			factor = 0
+		}
+		set_temp_variable = { temp_member = 2 }
+		set_temp_variable = { temp_seats = -0.075 tooltip = MAOIST_faction_support_tt }
+										#percentage
+		modify_parliament_seat = yes
+		add_political_power = -25
+	}
+	option = {
+		name = RCM_comchina.36.c
+		ai_chance = {
+			factor = 0
+		}
+		set_temp_variable = { temp_member = 2 }
+		set_temp_variable = { temp_seats = -0.10 tooltip = MAOIST_faction_support_tt }
+										#percentage
+		modify_parliament_seat = yes
+		add_political_power = -45
+		remove_ideas = prc_mao_zedong
+	}
+}
+#zhang wentian forced to admit errors(always happen)
+country_event = {
+	id = RCM_comchina.37
+	title = RCM_comchina.37.t
+	desc = RCM_comchina.37.d
+	picture = GFX_report_event_zhou_and_zhang
+	is_triggered_only = yes
+	#fire_only_once = yes
+	immediate = {
+		
+	}
+	option = {
+		name = RCM_comchina.37.a
+		ai_chance = {
+			factor = 0
+		}
+		custom_effect_tooltip = THIS_IS_HISTORICAL_TT
+		set_temp_variable = { temp_member = 2 }
+		set_temp_variable = { temp_seats = 0.005 tooltip = MAOIST_faction_support_tt }
+										#percentage
+		modify_parliament_seat = yes
+		add_political_power = -10
+	}
+	option = {
+		name = RCM_comchina.37.b
+		ai_chance = {
+			factor = 1
+		}
+		#custom_effect_tooltip = THIS_IS_HISTORICAL_TT
+		set_temp_variable = { temp_member = 2 }
+		set_temp_variable = { temp_seats = 0.015 tooltip = MAOIST_faction_support_tt }
+										#percentage
+		modify_parliament_seat = yes
+		add_political_power = -25
+	}
+	option = {
+		name = RCM_comchina.37.c
+		ai_chance = {
+			factor = 0
+		}
+		set_temp_variable = { temp_member = 2 }
+		set_temp_variable = { temp_seats = 0.035 tooltip = MAOIST_faction_support_tt }
+										#percentage
+		modify_parliament_seat = yes
+		add_political_power = -45
+		remove_ideas = prc_zhang_wentian
+	}
+}
+#Peng Shuzhi forced to admit errors(if Peng re-enterred CCP, but isn't in power yet)(other guys will just coup the CCL)
+country_event = {
+	id = RCM_comchina.38
+	title = RCM_comchina.38.t
+	desc = RCM_comchina.38.d
+	picture = GFX_report_event_peng_shuzhi
+	is_triggered_only = yes
+	#fire_only_once = yes
+	trigger = {
+		NOT = {
+			leader_is_trotskyist = yes
+		}
+		has_completed_focus = PRC_demand_reentry_of_cpc_focus
+	}
+	option = {
+		name = RCM_comchina.38.a
+		ai_chance = {
+			factor = 0
+		}
+		set_temp_variable = { temp_member = 4 }
+		set_temp_variable = { temp_seats = -0.025 tooltip = TROT_faction_support_tt }
+										#percentage
+		modify_parliament_seat = yes
+		add_political_power = -10
+	}
+	option = {
+		name = RCM_comchina.38.b
+		ai_chance = {
+			factor = 1
+		}
+		set_temp_variable = { temp_member = 4 }
+		set_temp_variable = { temp_seats = -0.035 tooltip = TROT_faction_support_tt }
+										#percentage
+		modify_parliament_seat = yes
+		add_political_power = -25
+	}
+	option = {
+		name = RCM_comchina.38.c
+		ai_chance = {
+			factor = 0
+		}
+		set_temp_variable = { temp_member = 4 }
+		set_temp_variable = { temp_seats = -0.045 tooltip = TROT_faction_support_tt }
+										#percentage
+		modify_parliament_seat = yes
+		add_political_power = -45
+		remove_ideas = prc_peng_shuzhi
+	}
+}
+#Bo Gu forced to admit errors (if he is still alive lol)
+country_event = {
+	id = RCM_comchina.39
+	title = RCM_comchina.39.t
+	desc = RCM_comchina.39.d
+	picture = GFX_report_event_bo_gu
+	is_triggered_only = yes
+	#fire_only_once = yes
+	trigger = {
+		NOT = {
+			has_global_flag = bo_gu_killed_in_flight
+			leader_is_28b = yes 
+		}
+	}
+	immediate = {
+		
+	}
+	option = {
+		name = RCM_comchina.39.a
+		ai_chance = {
+			factor = 0
+		}
+		custom_effect_tooltip = THIS_IS_HISTORICAL_TT
+		set_temp_variable = { temp_member = 3 }
+		set_temp_variable = { temp_seats = -0.025 tooltip = TEB_faction_support_tt }
+										#percentage
+		modify_parliament_seat = yes
+		add_political_power = -10
+	}
+	option = {
+		name = RCM_comchina.39.b
+		ai_chance = {
+			factor = 0
+		}
+		set_temp_variable = { temp_member = 3 }
+		set_temp_variable = { temp_seats = -0.035 tooltip = TEB_faction_support_tt }
+										#percentage
+		modify_parliament_seat = yes
+		add_political_power = -25
+	}
+	option = {
+		name = RCM_comchina.39.c
+		ai_chance = {
+			factor = 1
+		}
+		#custom_effect_tooltip = THIS_IS_HISTORICAL_TT
+		set_temp_variable = { temp_member = 3 }
+		set_temp_variable = { temp_seats = -0.045 tooltip = TEB_faction_support_tt }
+										#percentage
+		modify_parliament_seat = yes
+		add_political_power = -45
+		remove_ideas = prc_bo_gu
+	}
+}
+#Wang Ming forced to admit errors (Not when he is the leader)
+country_event = {
+	id = RCM_comchina.40
+	title = RCM_comchina.40.t
+	desc = RCM_comchina.40.d
+	picture = GFX_report_event_wang_ming_write
+	is_triggered_only = yes
+	#fire_only_once = yes
+	immediate = {
+		
+	}
+	option = {
+		name = RCM_comchina.40.a
+		ai_chance = {
+			factor = 0
+		}
+		set_temp_variable = { temp_member = 3 }
+		set_temp_variable = { temp_seats = -0.035 tooltip = TEB_faction_support_tt }
+										#percentage
+		modify_parliament_seat = yes
+		add_political_power = -10
+	}
+	option = {
+		name = RCM_comchina.40.b
+		ai_chance = {
+			factor = 0
+		}
+		set_temp_variable = { temp_member = 3 }
+		set_temp_variable = { temp_seats = -0.045 tooltip = TEB_faction_support_tt }
+										#percentage
+		modify_parliament_seat = yes
+		add_political_power = -25
+	}
+	option = {
+		name = RCM_comchina.40.c
+		ai_chance = {
+			factor = 1
+		}
+		custom_effect_tooltip = THIS_IS_HISTORICAL_TT
+		set_temp_variable = { temp_member = 3 }
+		set_temp_variable = { temp_seats = -0.055 tooltip = TEB_faction_support_tt }
+										#percentage
+		modify_parliament_seat = yes
+		add_political_power = -45
+		remove_ideas = prc_wang_ming
+	}
+}
+#####
+#7th plenum of 6th congress, fired after focus (no need to make it 11 months)
+#Resolution on Certain Questions in the History of Our Party Passed (all opposition gets debuff)
+country_event = {
+	id = RCM_comchina.41
+	title = RCM_comchina.41.t
+	desc = {
+		text = RCM_comchina.41.d
+		trigger = {
+			leader_is_maoist = yes
+		}
+	}
+	desc = {
+		text = RCM_comchina.41.dnomao
+		trigger = {
+			leader_is_maoist = no
+		}
+	}
+	picture = GFX_report_event_conference_of_soviet_regions
+	is_triggered_only = yes
+	#fire_only_once = yes
+	immediate = {
+		
+	}
+	option = {
+		name = RCM_comchina.41.a
+		ai_chance = {
+			factor = 1
+		}
+		if = {
+			limit = {
+				leader_is_zhang_guotao = yes
+			}
+			add_ideas = CCP_question_history_zhang
+		}
+		if = {
+			limit = {
+				leader_is_maoist = yes
+			}
+			add_ideas = CCP_question_history_mao
+		}
+		if = {
+			limit = {
+				leader_is_28b = yes
+			}
+			add_ideas = CCP_question_history_teb
+		}
+		if = {
+			limit = {
+				leader_is_trotskyist = yes
+			}
+			add_ideas = CCP_question_history_trot
+		}
+	}
+}
+#7th national congress
+#Congress start, changes the name of the decision category (focus start)
+country_event = {
+	id = RCM_comchina.42
+	title = RCM_comchina.42.t
+	desc = RCM_comchina.42.d
+	picture = GFX_report_event_conference_of_soviet_regions
+	is_triggered_only = yes
+	#fire_only_once = yes
+	immediate = {
+		set_global_flag = its_seventh_now
+	}
+	option = {
+		name = RCM_comchina.42.a
+		ai_chance = {
+			factor = 1
+		}
+		add_political_power = 25
+		country_event = PRC_linyuying.37
+	}
+}
+#中國共產黨黨章(Constitution of the Chinese Communist Party) Passed 
+#boost leadership and leader gets perma buff along with other buff
+country_event = {
+	id = RCM_comchina.43
+	title = RCM_comchina.43.t
+	desc = RCM_comchina.43.d
+	picture = GFX_report_event_7th_plenum
+	is_triggered_only = yes
+	#fire_only_once = yes
+	immediate = {
+		
+	}
+	option = {
+		name = RCM_comchina.43.a
+		ai_chance = {
+			factor = 1
+		}
+		if = {
+			limit = {
+				leader_is_zhang_guotao = yes
+			}
+			add_ideas = CCP_constitution_zhang
+		}
+		if = {
+			limit = {
+				leader_is_maoist = yes
+			}
+			add_ideas = CCP_constitution_mao
+		}
+		if = {
+			limit = {
+				leader_is_28b = yes
+			}
+			add_ideas = CCP_constitution_28b
+		}
+		if = {
+			limit = {
+				leader_is_trotskyist = yes
+			}
+			add_ideas = CCP_constitution_trot
+		}
+	}
+}
+
+#NEA retreated from central shensi(1030)
+country_event = {
+	id = RCM_comchina.44
+	title = RCM_comchina.44.t
+	desc = RCM_comchina.44.d
+	picture = GFX_report_event_china_infiltration
+	is_triggered_only = yes
+	#fire_only_once = yes
+	trigger = {
+		always = no
+	}
+	immediate = {
+		set_country_flag = RCM_comchina.44_flag
+		hidden_effect = {
+			622 = {
+				set_variable = {
+					ROOT.622_industrial_complex_level = This.industrial_complex_level
+				}
+				set_variable = {
+					ROOT.622_arms_factory_level = This.arms_factory_level
+				}
+			}
+			set_variable = {
+				ROOT.622_combined_level = ROOT.622_industrial_complex_level
+			}
+			add_to_variable = {
+				ROOT.622_combined_level = ROOT.622_arms_factory_level
+			}
+		}	
+	}
+	option = {
+		name = RCM_comchina.44.a
+		#move to yenan
+		ai_chance = {
+			factor = 100
+		}
+		custom_effect_tooltip = THIS_IS_HISTORICAL_TT
+        add_stability = 0.03
+		add_war_support = 0.03
+		1030 = {
+			transfer_state_to = ROOT
+			set_victory_points = {
+				province = 13405
+				value = 10
+			}
+			add_building_construction = {
+				type = bunker
+				level = 5
+				province = 13405
+				instant_build = yes
+			}	
+		}
+		set_capital = { state = 1030 }
+		custom_effect_tooltip = move_622_factories_to_938_tt
+		622 = {
+			set_victory_points = {
+				province = 13402
+				value = 3
+			}
+			hidden_effect = {
+				remove_building = {
+					type = arms_factory
+					level = This.arms_factory_level
+				}
+				remove_building = {
+					type = industrial_complex
+					level = This.industrial_complex_level
+				}
+			}
+		}
+		1030 = {
+			hidden_effect = {
+				add_extra_state_shared_building_slots = ROOT.622_combined_level
+				add_building_construction = {
+					type = industrial_complex
+					level = ROOT.622_industrial_complex_level
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = arms_factory
+					level = ROOT.622_arms_factory_level
+					instant_build = yes
+				}
+				#move_building_damage = yes
+				clear_variable = ROOT.622_combined_level
+			    clear_variable = ROOT.622_industrial_complex_level
+			    clear_variable = ROOT.622_arms_factory_level
+			}
+		}
+		clr_country_flag = RCM_comchina.44_flag
+	}
+	option = {
+		name = RCM_comchina.44.b
+		#move to yenan
+		ai_chance = {
+			factor = 0
+		}
+        1030 = {
+			transfer_state_to = ROOT
+		}
+		clr_country_flag = RCM_comchina.44_flag
+	}
+}
+
+#move capital from 瓦窯堡 to 保安(志丹)
+country_event = {
+	id = RCM_comchina.45
+	title = RCM_comchina.45.t
+	desc = RCM_comchina.45.d
+	picture = GFX_report_event_china_infiltration
+	is_triggered_only = yes
+	fire_only_once = yes
+	trigger = {
+        always = no
+		controls_province = 13408
+		controls_province = 13402
+		SHC = {
+			is_neighbor_of = ROOT
+			NOT = {
+				is_ally_with = ROOT
+			}
+		}
+		622 = {
+			is_owned_and_controlled_by = ROOT
+		}
+		1029 = {
+			is_controlled_by = ROOT
+		}
+		NOT = {
+			1030 = {
+				is_owned_and_controlled_by = ROOT
+			}
+		}
+	}
+	immediate = {
+		hidden_effect = {
+			set_capital = { state = 1029 }
+		}
+	}
+	option = {
+		name = RCM_comchina.45.a
+		ai_chance = {
+			factor = 100
+		}
+		add_war_support = -0.01
+		622 = {
+			set_victory_points = {
+				province = 13408
+				value = 1
+			}
+			set_victory_points = {
+				province = 13402
+				value = 10
+			}	
+		}
+		hidden_effect = {
+			set_capital = { state = 622 }
+		}
+	}
+}
+
+##########################################
+#WANG MING
+add_namespace = RCM_comchina_wang_ming
+#1938.3 conference(another conference)
+#wang made reports
+country_event = {
+	id = RCM_comchina_wang_ming.1
+	title = RCM_comchina_wang_ming.1.t
+	desc = RCM_comchina_wang_ming.1.d
+	picture = GFX_report_event_wang_ming
+	is_triggered_only = yes
+	#fire_only_once = yes
+	immediate = {
+		
+	}
+	option = {
+		name = RCM_comchina_wang_ming.1.a
+		ai_chance = {
+			factor = 0
+		}
+		#custom_effect_tooltip = THIS_IS_HISTORICAL_TT
+		set_temp_variable = { temp_member = 3 }
+		set_temp_variable = { temp_seats = 0.035 tooltip = TEB_faction_support_tt }
+										#percentage
+		modify_parliament_seat = yes
+		add_political_power = -45
+	}
+	option = {
+		name = RCM_comchina_wang_ming.1.b
+		ai_chance = {
+			factor = 0
+		}
+		set_temp_variable = { temp_member = 3 }
+		set_temp_variable = { temp_seats = 0.025 tooltip = TEB_faction_support_tt }
+										#percentage
+		modify_parliament_seat = yes
+		add_political_power = -25
+	}
+	option = {
+		name = RCM_comchina_wang_ming.1.c
+		ai_chance = {
+			factor = 1
+		}
+		custom_effect_tooltip = THIS_IS_HISTORICAL_TT
+		set_temp_variable = { temp_member = 3 }
+		set_temp_variable = { temp_seats = 0.015 tooltip = TEB_faction_support_tt }
+										#percentage
+		modify_parliament_seat = yes
+		add_political_power = -10
+	}
+}
+#zhang made reports
+country_event = {
+	id = RCM_comchina_wang_ming.2
+	title = RCM_comchina_wang_ming.2.t
+	desc = RCM_comchina_wang_ming.2.d
+	picture = GFX_report_event_communist_conference
+	is_triggered_only = yes
+	#fire_only_once = yes
+	immediate = {
+		
+	}
+	option = {
+		name = RCM_comchina_wang_ming.2.a
+		ai_chance = {
+			factor = 0
+		}
+		
+		set_temp_variable = { temp_member = 3 }
+		set_temp_variable = { temp_seats = 0.015 tooltip = MAOIST_faction_support_tt }
+										#percentage
+		modify_parliament_seat = yes
+		add_political_power = -35
+		
+	}
+	option = {
+		name = RCM_comchina_wang_ming.2.b
+		ai_chance = {
+			factor = 1
+		}
+		custom_effect_tooltip = THIS_IS_HISTORICAL_TT
+		set_temp_variable = { temp_member = 3 }
+		set_temp_variable = { temp_seats = 0.01 tooltip = MAOIST_faction_support_tt }
+										#percentage
+		modify_parliament_seat = yes
+		add_political_power = -25
+	}
+	option = {
+		name = RCM_comchina_wang_ming.2.c
+		ai_chance = {
+			factor = 0
+		}
+		#custom_effect_tooltip = THIS_IS_HISTORICAL_TT
+		set_temp_variable = { temp_member = 3 }
+		set_temp_variable = { temp_seats = 0.025 tooltip = MAOIST_faction_support_tt }
+										#percentage
+		modify_parliament_seat = yes
+		add_political_power = -45
+	}
+}
+#mao made comments
+country_event = {
+	id = RCM_comchina_wang_ming.3
+	title = RCM_comchina_wang_ming.3.t
+	desc = RCM_comchina_wang_ming.3.d
+	picture = GFX_report_event_mao_speak_2
+	is_triggered_only = yes
+	#fire_only_once = yes
+	immediate = {
+		
+	}
+	option = {
+		name = RCM_comchina_wang_ming.3.a
+		ai_chance = {
+			factor = 1
+		}
+		custom_effect_tooltip = THIS_IS_HISTORICAL_TT
+		set_temp_variable = { temp_member = 3 }
+		set_temp_variable = { temp_seats = 0.015 tooltip = MAOIST_faction_support_tt }
+										#percentage
+		modify_parliament_seat = yes
+		add_political_power = -45
+	}
+	option = {
+		name = RCM_comchina_wang_ming.3.b
+		ai_chance = {
+			factor = 0
+		}
+		
+		set_temp_variable = { temp_member = 3 }
+		set_temp_variable = { temp_seats = 0.01 tooltip = MAOIST_faction_support_tt }
+										#percentage
+		modify_parliament_seat = yes
+		add_political_power = -25
+	}
+	option = {
+		name = RCM_comchina_wang_ming.3.c
+		ai_chance = {
+			factor = 0
+		}
+		set_temp_variable = { temp_member = 3 }
+		set_temp_variable = { temp_seats = 0.05 tooltip = MAOIST_faction_support_tt }
+										#percentage
+		modify_parliament_seat = yes
+		add_political_power = -10
+	}
+}
+###
+#Changjiang bureau expanded
+country_event = {
+	id = RCM_comchina_wang_ming.4
+	title = RCM_comchina_wang_ming.4.t
+	desc = RCM_comchina_wang_ming.4.d
+	picture = GFX_report_event_changjiang_big_three #wang bo and zhou #to do
+	is_triggered_only = yes
+	#fire_only_once = yes
+	immediate = {
+		
+	}
+	option = {
+		name = RCM_comchina_wang_ming.4.a
+		ai_chance = {
+			factor = 1
+		}
+		swap_ideas = {
+			remove_idea = changjiang_bureau
+			add_idea = changjiang_bureau_2
+		}
+		custom_effect_tooltip = TEB_faction_monthly_tt
+		custom_effect_tooltip = allows_direct_boost_of_ideology
+	}
+}
+#send troskyists to sinkiang (deng fa in sinkiang)
+country_event = {
+	id = RCM_comchina_wang_ming.5
+	title = RCM_comchina_wang_ming.5.t
+	desc = RCM_comchina_wang_ming.5.d
+	picture = GFX_report_event_deng_fa
+	is_triggered_only = yes
+	#fire_only_once = yes
+	immediate = {
+		
+	}
+	option = {
+		name = RCM_comchina_wang_ming.5.a
+		ai_chance = {
+			factor = 1
+		}
+		SIK = {
+			country_event = RCM_comchina_wang_ming.6
+		}
+		set_temp_variable = { temp_member = 4 }
+		set_temp_variable = { temp_seats = -0.02 tooltip = TROT_faction_support_tt }
+										#percentage
+		modify_parliament_seat = yes
+		add_political_power = 100
+		effect_tooltip = {
+			add_manpower = -300
+		}
+	}
+}
+#(to SIK)Wang send troskyists to sinkiang (deng fa in sinkiang)
+#kill them!
+country_event = {
+	id = RCM_comchina_wang_ming.6
+	title = RCM_comchina_wang_ming.6.t
+	desc = RCM_comchina_wang_ming.6.d
+	picture = GFX_report_event_remove_cks
+	is_triggered_only = yes
+	#fire_only_once = yes
+	immediate = {
+		
+	}
+	option = {
+		name = RCM_comchina_wang_ming.6.a
+		ai_chance = {
+			factor = 1
+		}
+		add_political_power = 30
+		FROM = {
+			add_manpower = -300
+		}
+	}
+}
+#wang ming consolidate
+country_event = {
+	id = RCM_comchina_wang_ming.7
+	title = RCM_comchina_wang_ming.7.t
+	desc = RCM_comchina_wang_ming.7.d
+	picture = GFX_report_event_wang_ming #guo
+	is_triggered_only = yes
+	#fire_only_once = yes
+	immediate = {
+		
+	}
+	option = {
+		name = RCM_comchina_wang_ming.7.a
+		ai_chance = {
+			factor = 1
+		}
+		set_temp_variable = { temp_member = 3 }
+		set_temp_variable = { temp_seats = 0.05 tooltip = TEB_faction_support_tt }
+										#percentage
+		modify_parliament_seat = yes
+		add_political_power = 100
+		retire_country_leader = yes
+		prc_wang_ming = {
+			add_country_leader_role = {
+				country_leader = {
+					expire = "1965.1.1"
+					ideology = stalinism
+					desc=prc_wang_ming_desc
+					traits = { #guo
+					stalins_puppet
+					comintern_celebrity
+					legitimate_heir
+					staunch_stalinist
+					}
+				}
+				promote_leader = yes
+			}   
+		} 
+		#create_country_leader = {
+		#	name = "Wang Ming"
+		#	desc = "POLITICS_WANG_MING_DESC"
+		#	picture = "gfx/leaders/PRC/Portrait_China_Wang_Ming.dds"
+		#	expire = "1965.1.1"
+		#	ideology = marxism
+		#	traits = {
+		#	}
+		#}
+	}
+}
+#bogu consolidate (and zhou/otto get better trait)
+country_event = {
+	id = RCM_comchina_wang_ming.8
+	title = RCM_comchina_wang_ming.8.t
+	desc = RCM_comchina_wang_ming.8.d
+	picture = GFX_report_event_bo_gu #guo
+	is_triggered_only = yes
+	#fire_only_once = yes
+	immediate = {
+		
+	}
+	option = {
+		name = RCM_comchina_wang_ming.8.a
+		ai_chance = {
+			factor = 1
+		}
+		effect_tooltip = {
+			remove_ideas = PRC_otto_braun
+			add_ideas = PRC_otto_braun_2
+			remove_ideas = PRC_zhou_enlai
+			add_ideas = PRC_zhou_enlai_2
+		}
+		hidden_effect = {
+			if = {
+				limit = {
+					has_idea = PRC_otto_braun
+				}
+				remove_ideas = PRC_otto_braun
+				add_ideas = PRC_otto_braun_2
+			}
+			if = {
+				limit = {
+					has_idea = PRC_zhou_enlai
+				}
+				remove_ideas = PRC_zhou_enlai
+				add_ideas = PRC_zhou_enlai_2
+			}
+		}
+		set_temp_variable = { temp_member = 4 }
+		set_temp_variable = { temp_seats = -0.05 tooltip = TEB_faction_support_tt }
+										#percentage
+		modify_parliament_seat = yes
+		add_political_power = 100
+		retire_country_leader = yes
+		prc_bo_gu = {
+			add_country_leader_role = {
+				country_leader = {
+					expire = "1965.1.1"
+					ideology = marxism
+					desc=prc_bo_gu_desc
+					traits = { #guo
+					comintern_celebrity
+					propaganda_expert
+					dangdelilunxuanchuanjia
+					}
+				}
+				promote_leader = yes
+			}   
+		}
+	}
+}
+##############################################
+#MAO
+add_namespace = RCM_comchina_mao
+#purge trotskyist
+country_event = {
+	id = RCM_comchina_mao.1
+	title = RCM_comchina_mao.1.t
+	desc = RCM_comchina_mao.1.d
+	picture = GFX_report_event_trotskyists
+	is_triggered_only = no
+	fire_only_once = yes
+	
+	trigger = {
+		OR = {
+			TAG = event_target:WTT_communist_china
+			TAG = PRC
+		}
+		date > 1939.6.5
+			597 = {
+			    or = {
+				is_controlled_by = root
+				has_state_flag = commie_ridden_states
+				is_core_of = root
+				}
+			}
+			
+			or = {
+			
+			and = {
+			
+			has_idea = PRC_kang_sheng
+			
+			set_temp_variable = { temp_faction_support = 40 }
+			set_temp_variable = { temp_greater_or_smaller = 1 } #1 greater 0 smaller
+			set_temp_variable = { temp_get_faction = 2 }
+			custom_trigger_tooltip = {
+				tooltip = CHECK_FACTION_SUPPORT_tt
+				check_variable = { parliament_seat_array_adjusted^1 > 40 }
+			}
+			}
+			
+			and = {
+			
+			has_idea = prc_wang_ming
+			
+			set_temp_variable = { temp_faction_support = 25 }
+			set_temp_variable = { temp_greater_or_smaller = 1 } #1 greater 0 smaller
+			set_temp_variable = { temp_get_faction = 3 }
+			custom_trigger_tooltip = {
+				tooltip = CHECK_FACTION_SUPPORT_tt
+				check_variable = { parliament_seat_array_adjusted^2 > 25 }
+			}
+			}
+			
+			}
+	}
+	
+	immediate = {
+	}
+	option = {
+		name = RCM_comchina_mao.1.a #KILL THEM ALL
+		ai_chance = {
+			factor = 0
+		}
+		add_manpower = -1000
+		add_political_power = 100
+		add_war_support = -0.045
+		set_temp_variable = { temp_member = 4 }
+		set_temp_variable = { temp_seats = -0.045 tooltip = TROT_faction_support_tt }
+										#percentage
+		modify_parliament_seat = yes
+	}
+	option = {
+		name = RCM_comchina_mao.1.b #
+		ai_chance = {
+			factor = 1
+		}
+		custom_effect_tooltip = THIS_IS_HISTORICAL_TT
+		add_manpower = -300
+		add_political_power = 70
+		add_war_support = -0.025
+		set_temp_variable = { temp_member = 4 }
+		set_temp_variable = { temp_seats = -0.025 tooltip = TROT_faction_support_tt }
+										#percentage
+		modify_parliament_seat = yes
+	}
+	option = {
+		name = RCM_comchina_mao.1.c
+		ai_chance = {
+			factor = 0
+		}
+		add_manpower = -100
+		add_political_power = 40
+		add_war_support = -0.015
+		set_temp_variable = { temp_member = 4 }
+		set_temp_variable = { temp_seats = -0.015 tooltip = TROT_faction_support_tt }
+										#percentage
+		modify_parliament_seat = yes
+	}
+}
+#phase I
+#Mao publish "The reconstruction of our studies"
+country_event = {
+	id = RCM_comchina_mao.2
+	title = RCM_comchina_mao.2.t
+	desc = RCM_comchina_mao.2.d
+	picture = GFX_report_event_mao_speak_2
+	is_triggered_only = yes
+	fire_only_once = yes #guo
+	immediate = {
+		set_global_flag = RCM_comchina_mao2_happen
+	}
+	option = {
+		name = RCM_comchina_mao.2.a
+		ai_chance = {
+			factor = 1
+		}
+		custom_effect_tooltip = THIS_IS_HISTORICAL_TT
+		add_ideas = yanan_rect_1
+		add_political_power = -25
+		set_temp_variable = { temp_member = 2 }
+		set_temp_variable = { temp_seats = 0.02 tooltip = MAOIST_faction_support_tt }
+										#percentage
+		modify_parliament_seat = yes
+	}
+	option = {
+		name = RCM_comchina_mao.2.b
+		ai_chance = {
+			factor = 0
+		}
+		add_ideas = yanan_rect_1
+		
+		set_temp_variable = { temp_member = 2 }
+		set_temp_variable = { temp_seats = 0.015 tooltip = MAOIST_faction_support_tt }
+										#percentage
+		modify_parliament_seat = yes
+	}
+	option = {
+		name = RCM_comchina_mao.2.c
+		ai_chance = {
+			factor = 0
+		}
+		add_ideas = yanan_rect_1
+		add_political_power = -25
+		set_temp_variable = { temp_member = 2 }
+		set_temp_variable = { temp_seats = 0.01 tooltip = MAOIST_faction_support_tt }
+										#percentage
+		modify_parliament_seat = yes
+	}
+}
+#yanan retification - Mao declare retification at central party school(initiate the second phase) ("Reform in Learning, the Party and Literature" and "In opposition to party formalism")
+country_event = {
+	id = RCM_comchina_mao.3
+	title = RCM_comchina_mao.3.t
+	desc = RCM_comchina_mao.3.d
+	picture = GFX_report_event_mao_yanan_start
+	is_triggered_only = yes
+	#fire_only_once = yes
+	immediate = {
+		
+	}
+	option = {
+		name = RCM_comchina_mao.3.a
+		ai_chance = {
+			factor = 1
+		}
+		custom_effect_tooltip = THIS_IS_HISTORICAL_TT
+		swap_ideas = {
+			remove_idea = yanan_rect_1
+			add_idea = yanan_rect_2
+		}
+		add_political_power = -20
+		set_temp_variable = { temp_member = 2 }
+		set_temp_variable = { temp_seats = 0.02 tooltip = MAOIST_faction_support_tt }
+										#percentage
+		modify_parliament_seat = yes
+	}
+	option = {
+		name = RCM_comchina_mao.3.b
+		ai_chance = {
+			factor = 0
+		}
+		swap_ideas = {
+			remove_idea = yanan_rect_1
+			add_idea = yanan_rect_2
+		}
+		add_political_power = -10
+		set_temp_variable = { temp_member = 2 }
+		set_temp_variable = { temp_seats = 0.015 tooltip = MAOIST_faction_support_tt }
+										#percentage
+		modify_parliament_seat = yes
+	}
+	option = {
+		name = RCM_comchina_mao.3.c
+		ai_chance = {
+			factor = 0
+		}
+		swap_ideas = {
+			remove_idea = yanan_rect_1
+			add_idea = yanan_rect_2
+		}
+		set_temp_variable = { temp_member = 2 }
+		set_temp_variable = { temp_seats = 0.01 tooltip = MAOIST_faction_support_tt }
+										#percentage
+		modify_parliament_seat = yes
+	}
+}
+#set up Central General Study Committee #trigger from decision(available after finishing the focus as decisions, phase II) (this will add a spirit and allow for many different decisions, when doing those opposition might arose)
+country_event = {
+	id = RCM_comchina_mao.4
+	title = RCM_comchina_mao.4.t
+	desc = RCM_comchina_mao.4.d
+	picture = GFX_report_event_marxist_study
+	is_triggered_only = yes
+	#fire_only_once = yes
+	immediate = {
+		
+	}
+	option = {
+		name = RCM_comchina_mao.4.a
+		ai_chance = {
+			factor = 1
+		}
+		custom_effect_tooltip = THIS_IS_HISTORICAL_TT
+		set_global_flag = study_committee
+		#to do add decisions, no need for spirits
+		add_political_power = -25
+		set_temp_variable = { temp_member = 2 }
+		set_temp_variable = { temp_seats = 0.025 tooltip = MAOIST_faction_support_tt }
+										#percentage
+		modify_parliament_seat = yes
+		unlock_decision_tooltip = RCM_PRC_pushes_against_dogmatism
+		unlock_decision_tooltip = RCM_PRC_push_against_empiricism
+		unlock_decision_tooltip = RCM_PRC_push_against_sectarianism
+		unlock_decision_tooltip = RCM_PRC_push_against_liberalism
+		unlock_decision_tooltip = RCM_PRC_perform_speech_on_yanan_forum
+		unlock_decision_tooltip = RCM_PRC_Conclude_Studies_in_each_departments
+	}
+	option = {
+		name = RCM_comchina_mao.4.b
+		ai_chance = {
+			factor = 0
+		}
+		add_political_power = -10
+		set_global_flag = study_committee
+		#to do add decisions, no need for spirits
+		set_temp_variable = { temp_member = 2 }
+		set_temp_variable = { temp_seats = 0.02 tooltip = MAOIST_faction_support_tt }
+										#percentage
+		modify_parliament_seat = yes
+		unlock_decision_tooltip = RCM_PRC_pushes_against_dogmatism
+		unlock_decision_tooltip = RCM_PRC_push_against_empiricism
+		unlock_decision_tooltip = RCM_PRC_push_against_sectarianism
+		unlock_decision_tooltip = RCM_PRC_push_against_liberalism
+		unlock_decision_tooltip = RCM_PRC_perform_speech_on_yanan_forum
+		unlock_decision_tooltip = RCM_PRC_Conclude_Studies_in_each_departments
+	}
+	option = {
+		ai_chance = {
+			factor = 0
+		}		
+		name = RCM_comchina_mao.4.c
+		set_global_flag = study_committee
+		#to do add decisions, no need for spirits
+		set_temp_variable = { temp_member = 2 }
+		set_temp_variable = { temp_seats = 0.015 tooltip = MAOIST_faction_support_tt }
+										#percentage
+		modify_parliament_seat = yes
+		unlock_decision_tooltip = RCM_PRC_pushes_against_dogmatism
+		unlock_decision_tooltip = RCM_PRC_push_against_empiricism
+		unlock_decision_tooltip = RCM_PRC_push_against_sectarianism
+		unlock_decision_tooltip = RCM_PRC_push_against_liberalism
+		unlock_decision_tooltip = RCM_PRC_perform_speech_on_yanan_forum
+		unlock_decision_tooltip = RCM_PRC_Conclude_Studies_in_each_departments
+	}
+}
+#Implementation of the Rectification Movement of the Three Work-Styles Throughout the Party (launch after finishing focus) (Begin's the rectification!)
+#Initiate Phase II
+country_event = {
+	id = RCM_comchina_mao.5
+	title = RCM_comchina_mao.5.t
+	desc = RCM_comchina_mao.5.d
+	picture = GFX_report_event_mao_speech
+	is_triggered_only = yes
+	#fire_only_once = yes
+	immediate = {
+		
+	}
+	option = {
+		name = RCM_comchina_mao.5.a
+		ai_chance = {
+			factor = 1
+		}
+		custom_effect_tooltip = THIS_IS_HISTORICAL_TT
+		#to do add decisions cat unlock
+		add_political_power = -25
+		set_temp_variable = { temp_member = 2 }
+		set_temp_variable = { temp_seats = 0.025 tooltip = MAOIST_faction_support_tt }
+										#percentage
+		modify_parliament_seat = yes
+	}
+	option = {
+		name = RCM_comchina_mao.5.b
+		ai_chance = {
+			factor = 0
+		}
+		add_political_power = -10
+		#to do add decisions cat unlock
+		set_temp_variable = { temp_member = 2 }
+		set_temp_variable = { temp_seats = 0.02 tooltip = MAOIST_faction_support_tt }
+										#percentage
+		modify_parliament_seat = yes
+	}
+	option = {
+		name = RCM_comchina_mao.5.c
+		ai_chance = {
+			factor = 0
+		}		
+		name = RCM_comchina_mao.4.c
+		#to do add decisions cat unlock
+		set_temp_variable = { temp_member = 2 }
+		set_temp_variable = { temp_seats = 0.015 tooltip = MAOIST_faction_support_tt }
+										#percentage
+		modify_parliament_seat = yes
+	}
+}
+#[X] question our push against (subjectivism) Dogmatism (appear during decisions)
+country_event = {
+	id = RCM_comchina_mao.6
+	title = RCM_comchina_mao.6.t
+	desc = RCM_comchina_mao.6.d
+	picture = GFX_report_event_anti_dogma
+	is_triggered_only = yes
+	#fire_only_once = yes
+	immediate = {
+		
+	}
+	option = {
+		name = RCM_comchina_mao.6.a
+		ai_chance = {
+			factor = 1
+		}
+		custom_effect_tooltip = THIS_IS_HISTORICAL_TT
+		#to do add decisions cat unlock
+				#to do add decisions cat unlock
+		add_stability = -0.025
+		set_temp_variable = { temp_member = 3 }
+		set_temp_variable = { temp_seats = 0.015 tooltip = TEB_faction_support_tt }
+										#percentage
+		modify_parliament_seat = yes
+	}
+	option = {
+		name = RCM_comchina_mao.6.b
+		ai_chance = {
+			factor = 0
+		}
+				add_stability = -0.02
+		#to do add decisions cat unlock
+		set_temp_variable = { temp_member = 3 }
+		set_temp_variable = { temp_seats = 0.02 tooltip = TEB_faction_support_tt }
+										#percentage
+		modify_parliament_seat = yes
+	}
+	option = {
+		name = RCM_comchina_mao.6.c
+		ai_chance = {
+			factor = 0
+		}
+				add_stability = -0.015
+		#to do add decisions cat unlock
+		set_temp_variable = { temp_member = 3 }
+		set_temp_variable = { temp_seats = 0.025 tooltip = TEB_faction_support_tt }
+										#percentage
+		modify_parliament_seat = yes
+	}
+}
+#[X] question our push against (subjectivism) empiricism (appear during decisions)
+country_event = {
+	id = RCM_comchina_mao.7
+	title = RCM_comchina_mao.7.t
+	desc = RCM_comchina_mao.7.d
+	picture = GFX_report_event_mao_on_practice_anti_empiricist 
+	is_triggered_only = yes
+	#fire_only_once = yes
+	immediate = {
+		
+	}
+	option = {
+		name = RCM_comchina_mao.7.a
+		ai_chance = {
+			factor = 0
+		}
+		
+		#to do add decisions cat unlock
+		add_political_power = -35
+		set_temp_variable = { temp_member = 2 }
+		set_temp_variable = { temp_seats = -0.015 tooltip = MAOIST_faction_support_tt }
+										#percentage
+		modify_parliament_seat = yes
+	}
+	option = {
+		name = RCM_comchina_mao.7.b
+		ai_chance = {
+			factor = 1
+		}
+		custom_effect_tooltip = THIS_IS_HISTORICAL_TT
+		add_political_power = -25
+		#to do add decisions cat unlock
+		set_temp_variable = { temp_member = 2 }
+		set_temp_variable = { temp_seats = -0.02 tooltip = MAOIST_faction_support_tt }
+										#percentage
+		modify_parliament_seat = yes
+	}
+	option = {
+		name = RCM_comchina_mao.7.c
+		ai_chance = {
+			factor = 0
+		}
+		add_political_power = -15
+		#to do add decisions cat unlock
+		set_temp_variable = { temp_member = 2 }
+		set_temp_variable = { temp_seats = -0.025 tooltip = MAOIST_faction_support_tt }
+										#percentage
+		modify_parliament_seat = yes		
+	}
+}
+#Party members question our push against sectarianism (appear during decisions)
+country_event = {
+	id = RCM_comchina_mao.8
+	title = RCM_comchina_mao.8.t
+	desc = RCM_comchina_mao.8.d
+	picture = GFX_report_event_anti_sectarianism
+	is_triggered_only = yes
+	#fire_only_once = yes
+	immediate = {
+		
+	}
+	option = {
+		name = RCM_comchina_mao.8.a
+		ai_chance = {
+			factor = 1
+		}
+		custom_effect_tooltip = THIS_IS_HISTORICAL_TT
+		#to do add decisions cat unlock
+		add_stability = -0.025
+		set_temp_variable = { temp_member = 2 }
+		set_temp_variable = { temp_seats = -0.015 tooltip = MAOIST_faction_support_tt }
+										#percentage
+		modify_parliament_seat = yes
+	}
+	option = {
+		name = RCM_comchina_mao.8.b
+		ai_chance = {
+			factor = 0
+		}
+		add_stability = -0.02
+		#to do add decisions cat unlock
+		set_temp_variable = { temp_member = 2 }
+		set_temp_variable = { temp_seats = -0.02 tooltip = MAOIST_faction_support_tt }
+										#percentage
+		modify_parliament_seat = yes
+	}
+	option = {
+		name = RCM_comchina_mao.8.c
+		ai_chance = {
+			factor = 0
+		}		
+		add_stability = -0.015
+		#to do add decisions cat unlock
+		set_temp_variable = { temp_member = 2 }
+		set_temp_variable = { temp_seats = -0.025 tooltip = MAOIST_faction_support_tt }
+										#percentage
+		modify_parliament_seat = yes
+	}
+}
+#Party members question our push against liberalism (appear during decisions)
+country_event = {
+	id = RCM_comchina_mao.9
+	title = RCM_comchina_mao.9.t
+	desc = RCM_comchina_mao.9.d
+	picture = GFX_report_event_anti_liberalism 
+	is_triggered_only = yes
+	#fire_only_once = yes
+	immediate = {
+		
+	}
+	option = {
+		name = RCM_comchina_mao.9.a
+		ai_chance = {
+			factor = 1
+		}
+		custom_effect_tooltip = THIS_IS_HISTORICAL_TT
+		#to do add decisions cat unlock
+		add_stability = -0.025
+		set_temp_variable = { temp_member = 2 }
+		set_temp_variable = { temp_seats = -0.015 tooltip = MAOIST_faction_support_tt }
+										#percentage
+		modify_parliament_seat = yes
+	}
+	option = {
+		name = RCM_comchina_mao.9.b
+		ai_chance = {
+			factor = 0
+		}
+		add_stability = -0.02
+		#to do add decisions cat unlock
+		set_temp_variable = { temp_member = 2 }
+		set_temp_variable = { temp_seats = -0.02 tooltip = MAOIST_faction_support_tt }
+										#percentage
+		modify_parliament_seat = yes
+	}
+	option = {
+		name = RCM_comchina_mao.9.c
+		ai_chance = {
+			factor = 0
+		}		
+		add_stability = -0.015
+		#to do add decisions cat unlock
+		set_temp_variable = { temp_member = 2 }
+		set_temp_variable = { temp_seats = -0.025 tooltip = MAOIST_faction_support_tt }
+										#percentage
+		modify_parliament_seat = yes
+	}
+}
+#mao do the Talks on Yanan Forum (Wang shiwei be demonized)(after they criticized us)
+country_event = {
+	id = RCM_comchina_mao.10
+	title = RCM_comchina_mao.10.t
+	desc = RCM_comchina_mao.10.d
+	picture = GFX_report_event_retification_movement_1
+	is_triggered_only = yes
+	#fire_only_once = yes
+	immediate = {
+		
+	}
+	option = {
+		name = RCM_comchina_mao.10.a
+		ai_chance = {
+			factor = 1
+		}
+		custom_effect_tooltip = THIS_IS_HISTORICAL_TT
+		#to do add decisions cat unlock
+		add_political_power = -45
+		set_temp_variable = { temp_member = 2 }
+		set_temp_variable = { temp_seats = 0.04 tooltip = MAOIST_faction_support_tt }
+										#percentage
+		modify_parliament_seat = yes
+	}
+	option = {
+		name = RCM_comchina_mao.10.b
+		ai_chance = {
+			factor = 0
+		}
+		add_political_power = -25
+		#to do add decisions cat unlock
+		set_temp_variable = { temp_member = 2 }
+		set_temp_variable = { temp_seats = 0.025 tooltip = MAOIST_faction_support_tt }
+										#percentage
+		modify_parliament_seat = yes
+	}
+	option = {
+		name = RCM_comchina_mao.10.c
+		ai_chance = {
+			factor = 0
+		}	
+		#to do add decisions cat unlock
+		set_temp_variable = { temp_member = 2 }
+		set_temp_variable = { temp_seats = 0.01 tooltip = MAOIST_faction_support_tt }
+										#percentage
+		modify_parliament_seat = yes
+	}
+}
+#wang shiwei and other people question our party's oppression (pic needed)
+country_event = {
+	id = RCM_comchina_mao.11
+	title = RCM_comchina_mao.11.t
+	desc = {
+		text = RCM_comchina_mao.11.d_phase_one
+		trigger = {
+			NOT = { has_global_flag = rescue_campaign_initiated }
+		}
+	}
+	desc = {
+		text = RCM_comchina_mao.11.d_phase_two
+		trigger = {
+			has_global_flag = rescue_campaign_initiated
+		}
+	}
+	picture = GFX_report_event_wang_shiwei
+	is_triggered_only = yes
+	#fire_only_once = yes
+	trigger = {
+	not = { has_completed_focus = PRC_7th_National_Congress_focus }
+	}
+	immediate = {
+		
+	}
+	option = {
+		name = RCM_comchina_mao.11.a
+		ai_chance = {
+			factor = 1
+		}
+		custom_effect_tooltip = THIS_IS_HISTORICAL_TT
+		#to do add decisions cat unlock
+		add_stability = -0.06
+		set_temp_variable = { temp_member = 2 }
+		set_temp_variable = { temp_seats = -0.015 tooltip = MAOIST_faction_support_tt }
+										#percentage
+		modify_parliament_seat = yes
+		activate_mission = RCM_wang_shiwei_protest_mission
+	}
+	option = {
+		name = RCM_comchina_mao.11.b
+		ai_chance = {
+			factor = 0
+		}
+		#custom_effect_tooltip = THIS_IS_HISTORICAL_TT
+		add_stability = -0.04
+		#to do add decisions cat unlock
+		set_temp_variable = { temp_member = 2 }
+		set_temp_variable = { temp_seats = -0.02 tooltip = MAOIST_faction_support_tt }
+										#percentage
+		modify_parliament_seat = yes
+		activate_mission = RCM_wang_shiwei_protest_mission
+	}
+	option = {
+		name = RCM_comchina_mao.11.c
+		ai_chance = {
+			factor = 0
+		}		
+		add_stability = -0.02
+		#to do add decisions cat unlock
+		set_temp_variable = { temp_member = 2 }
+		set_temp_variable = { temp_seats = -0.025 tooltip = MAOIST_faction_support_tt }
+										#percentage
+		modify_parliament_seat = yes
+		activate_mission = RCM_wang_shiwei_protest_mission
+	}
+}
+#Phase III (Enabled after taking the "Conclude Studies in each departments")
+#takeover leadership (Mao becomes chairman) (trigger a mission to force take rescue campaign, and unlock the next bactch of decision and next mission after won)
+country_event = {
+	id = RCM_comchina_mao.12
+	title = RCM_comchina_mao.12.t
+	desc = RCM_comchina_mao.12.d
+	picture = GFX_report_event_cool_mao 
+	is_triggered_only = yes
+	#fire_only_once = yes
+	immediate = {
+		
+	}
+	option = {
+		name = RCM_comchina_mao.12.a
+		ai_chance = {
+			factor = 1
+		}
+		
+		custom_effect_tooltip = zhengzhiju_gui_will_change
+		
+		set_global_flag = mao_becomes_chairman
+		set_country_flag = mao_becomes_chairman
+		if = {
+		limit = {
+		not = { has_country_leader = { ruling_only = yes character = prc_mao_zedong } }
+		}
+		retire_country_leader = yes
+		promote_character = prc_mao_zedong #guo
+		}
+		hidden_effect = {
+		    prc_mao_zedong = {
+					set_portraits = {
+						army={
+							large="gfx/leaders/PRC/Mao_Zedong_1943.dds"
+						}
+					}
+			}
+			set_country_leader_portrait = {
+		    portrait = "gfx/leaders/PRC/Mao_Zedong_1943.dds"
+		    }
+		}
+			
+		if = {
+			limit = {
+			always = no
+				has_country_leader_with_trait = cornered_fox
+				always = no
+			}
+			prc_mao_zedong = {
+		        add_country_leader_role = {
+			        country_leader = {
+				        expire = "1965.1.1"
+				        ideology = maoism
+						desc=prc_mao_zedong_desc
+				        traits = {
+				        }
+			        }
+			        promote_leader = yes
+			    }   
+		    } 
+			add_country_leader_trait = {
+				ideology = maoism
+				trait = cornered_fox
+			}
+			#create_country_leader = {
+			#	name = "Mao Zedong"
+			#	desc = "POLITICS_MAO_ZEDONG_DESC"
+			#	picture = "Portrait_PRC_Mao_Zedong.dds"
+			#	expire = "1965.1.1"
+			#	ideology = maoism
+			#	traits = {
+			#		cornered_fox
+			#	}
+			#}
+		}
+		
+		add_trait = {
+			character = PRC_liu_shaoqi
+			slot = political_advisor
+			trait = maoists_trait_liushaoqi
+		}
+		set_global_flag = PRC_liu_shaoqi_maoists_trait_liushaoqi
+		PRC_liu_shaoqi = { promote_leader = yes }
+		
+		add_trait = {
+			character = prc_ren_bishi
+			slot = theorist
+			trait = maoists_trait_renbishi
+		}
+		set_global_flag = prc_ren_bishi_maoists_trait_renbishi
+		prc_ren_bishi = { promote_leader = yes }
+		
+		#to do add unlock mission to do rescue
+		set_temp_variable = { temp_member = 2 }
+		set_temp_variable = { temp_seats = 0.05 tooltip = MAOIST_faction_support_tt }
+										#percentage
+		modify_parliament_seat = yes
+		add_political_power = 100
+	}
+}
+#initiate the "rescue campaign" (unlock the following decisions)
+country_event = {
+	id = RCM_comchina_mao.13
+	title = RCM_comchina_mao.13.t
+	desc = RCM_comchina_mao.13.d
+	picture = GFX_report_event_kangsheng
+	is_triggered_only = yes
+	#fire_only_once = yes
+	immediate = {
+		
+	}
+	option = {
+		name = RCM_comchina_mao.13.a
+		ai_chance = {
+			factor = 1
+		}
+	}
+}
+#"rescue campaign" coerce confessions 
+country_event = {
+	id = RCM_comchina_mao.14
+	title = RCM_comchina_mao.14.t
+	desc = RCM_comchina_mao.14.d
+	picture = GFX_report_event_kangsheng_2
+	is_triggered_only = yes
+	#fire_only_once = yes
+	immediate = {
+		
+	}
+	option = {
+		name = RCM_comchina_mao.14.a
+		ai_chance = {
+			factor = 0
+		}
+		#custom_effect_tooltip = THIS_IS_HISTORICAL_TT
+		#to do add decisions cat unlock
+		add_political_power = 100
+		add_stability = 0.05
+		add_war_support = -0.05
+		#add_manpower = -9000
+		set_temp_variable = { temp_member = 2 }
+		set_temp_variable = { temp_seats = 0.035 tooltip = MAOIST_faction_support_tt }
+										#percentage
+		modify_parliament_seat = yes
+	}
+	option = {
+		name = RCM_comchina_mao.14.b
+		ai_chance = {
+			factor = 0
+		}
+		add_political_power = 65
+		add_stability = 0.035
+		add_war_support = -0.035
+		#add_manpower = -3000
+		#to do add decisions cat unlock
+		set_temp_variable = { temp_member = 2 }
+		set_temp_variable = { temp_seats = 0.02 tooltip = MAOIST_faction_support_tt }
+										#percentage
+		modify_parliament_seat = yes
+	}
+	option = {
+		name = RCM_comchina_mao.14.c
+		ai_chance = {
+			factor = 1
+		}
+		custom_effect_tooltip = THIS_IS_HISTORICAL_TT
+		add_political_power = 25
+		add_stability = 0.02
+		add_war_support = -0.02
+		#add_manpower = -1000
+		#to do add decisions cat unlock
+		set_temp_variable = { temp_member = 2 }
+		set_temp_variable = { temp_seats = 0.01 tooltip = MAOIST_faction_support_tt }
+										#percentage
+		modify_parliament_seat = yes
+	}
+}
+#"rescue campaign" purge the new comers
+country_event = {
+	id = RCM_comchina_mao.15
+	title = RCM_comchina_mao.15.t
+	desc = RCM_comchina_mao.15.d
+	picture = GFX_report_event_remove_cks
+	is_triggered_only = yes
+	#fire_only_once = yes
+	immediate = {
+		
+	}
+	option = {
+		name = RCM_comchina_mao.15.a
+		ai_chance = {
+			factor = 0
+		}
+		#custom_effect_tooltip = THIS_IS_HISTORICAL_TT
+		#to do add decisions cat unlock
+		add_war_support = -0.05
+		#add_manpower = -7000
+		set_temp_variable = { temp_member = 2 }
+		set_temp_variable = { temp_seats = 0.035 tooltip = MAOIST_faction_support_tt }
+										#percentage
+		modify_parliament_seat = yes
+	}
+	option = {
+		name = RCM_comchina_mao.15.b
+		ai_chance = {
+			factor = 0
+		}
+		add_war_support = -0.035
+		#add_manpower = -2000
+		#to do add decisions cat unlock
+		set_temp_variable = { temp_member = 2 }
+		set_temp_variable = { temp_seats = 0.02 tooltip = MAOIST_faction_support_tt }
+										#percentage
+		modify_parliament_seat = yes
+	}
+	option = {
+		name = RCM_comchina_mao.15.c
+		ai_chance = {
+			factor = 1
+		}
+		custom_effect_tooltip = THIS_IS_HISTORICAL_TT
+		add_war_support = -0.02
+		#add_manpower = -500
+		#to do add decisions cat unlock
+		set_temp_variable = { temp_member = 2 }
+		set_temp_variable = { temp_seats = 0.005 tooltip = MAOIST_faction_support_tt }
+										#percentage
+		modify_parliament_seat = yes
+	}
+}
+#"rescue campaign" trial of Wang Shiwei (jial him or just critize him and correct him)
+country_event = {
+	id = RCM_comchina_mao.16
+	title = RCM_comchina_mao.16.t
+	desc = RCM_comchina_mao.16.d
+	picture = GFX_report_event_wang_shiwei_arrested
+	is_triggered_only = yes
+	#fire_only_once = yes
+	immediate = {
+		
+	}
+	option = {
+		name = RCM_comchina_mao.16.a
+		ai_chance = {
+			factor = 1
+		}
+		add_war_support = -0.025
+		custom_effect_tooltip = THIS_IS_HISTORICAL_TT
+		set_global_flag = wang_shiwei_jailed
+		custom_effect_tooltip = remove_political_advisor
+		show_ideas_tooltip = prc_wang_shiwei
+	}
+	#option = {
+	#	name = RCM_comchina_mao.16.b
+	#	ai_chance = {
+	#		factor = 1
+	#	}
+	#}
+	option = {
+		name = RCM_comchina_mao.16.c
+		ai_chance = {
+			factor = 0
+		}
+		add_stability = -0.025
+		set_temp_variable = { temp_member = 4 }
+		set_temp_variable = { temp_seats = 0.025 tooltip = TROT_faction_support_tt }
+										#percentage
+		modify_parliament_seat = yes
+	}
+}
+#unrelated event, 1947.7.1
+#execute wang shiwei, if he is arrested
+country_event = { #guo
+	id = RCM_comchina_mao.17
+	title = RCM_comchina_mao.17.t
+	desc = RCM_comchina_mao.17.d
+	picture = GFX_report_event_wang_shiwei_arrested
+	is_triggered_only = no
+	trigger = {
+		has_global_flag = wang_shiwei_jailed
+		OR = {
+            TAG = event_target:WTT_communist_china
+            TAG = PRC
+        }
+		has_global_flag = PRC_civil_war_started
+	}
+	fire_only_once = yes
+	mean_time_to_happen = { days = 90 }
+	immediate = {
+		
+	}
+	option = {
+		name = RCM_comchina_mao.17.a
+		ai_chance = {
+			factor = 1
+		}
+		custom_effect_tooltip = THIS_IS_HISTORICAL_TT
+		set_global_flag = wang_shiwei_executed
+        retire_character = prc_wang_shiwei
+		add_political_power = -25
+		set_temp_variable = { temp_member = 4 }
+		set_temp_variable = { temp_seats = -0.025 tooltip = TROT_faction_support_tt }
+										#percentage
+		modify_parliament_seat = yes
+	}
+	option = {
+		name = RCM_comchina_mao.17.b
+		ai_chance = {
+			factor = 0
+		}
+		add_political_power = -20
+	}
+	option = {
+		name = RCM_comchina_mao.17.c
+		ai_chance = {
+			factor = 0
+		}
+		add_political_power = -15
+		custom_effect_tooltip = available_political_advisor
+		show_ideas_tooltip = prc_wang_shiwei
+	}
+}
+###################################
+#AFTER RESCUE CAMPAIGN
+#Wang forced to admit error (choose to marginalize him(he will lose power) or keep him somewhat) (marginalized)
+country_event = {
+	id = RCM_comchina_mao.18
+	title = RCM_comchina_mao.18.t
+	desc = RCM_comchina_mao.18.d
+	picture = GFX_report_event_wang_ming_write
+	is_triggered_only = yes
+	#fire_only_once = yes
+	immediate = {
+		
+	}
+	option = {
+		name = RCM_comchina_mao.18.a
+		ai_chance = {
+			factor = 0
+		}
+		#custom_effect_tooltip = THIS_IS_HISTORICAL_TT
+		set_global_flag = Wang_ming_marginalized
+
+		add_political_power = -30
+		set_temp_variable = { temp_member = 3 }
+		set_temp_variable = { temp_seats = -0.035 tooltip = TEB_faction_support_tt }
+										#percentage
+		modify_parliament_seat = yes
+	}
+	option = {
+		name = RCM_comchina_mao.18.b
+		ai_chance = {
+			factor = 1
+		}
+		custom_effect_tooltip = THIS_IS_HISTORICAL_TT
+		add_political_power = -30
+		set_temp_variable = { temp_member = 3 }
+		set_temp_variable = { temp_seats = -0.025 tooltip = TEB_faction_support_tt }
+										#percentage
+		modify_parliament_seat = yes
+	}
+	option = {
+		name = RCM_comchina_mao.18.c
+		ai_chance = {
+			factor = 0
+		}
+		add_political_power = -15
+		set_temp_variable = { temp_member = 3 }
+		set_temp_variable = { temp_seats = -0.015 tooltip = TEB_faction_support_tt }
+										#percentage
+		modify_parliament_seat = yes
+	}
+}
+#Zhou forced to admit error (choose to marginalize him(he will lose power) or keep him somewhat, if he is marginilized, soviet intervene)
+country_event = {
+	id = RCM_comchina_mao.19
+	title = RCM_comchina_mao.19.t
+	desc = RCM_comchina_mao.19.d
+	picture = GFX_report_event_zhou_reflect #to do a clearer zhou pic is needed
+	is_triggered_only = yes
+	#fire_only_once = yes
+	immediate = {
+		
+	}
+	option = {
+		name = RCM_comchina_mao.19.a
+		ai_chance = {
+			factor = 0
+		}
+		custom_effect_tooltip = THIS_IS_HISTORICAL_TT
+		#custom_effect_tooltip = USSR_will_potentially_intervene_this_decision_tt
+		country_event = { id = RCM_comchina_mao.20 days = 5 } #guo
+		set_global_flag = zhou_enlai_marginalized
+		custom_effect_tooltip = remove_political_advisor
+		show_ideas_tooltip = PRC_zhou_enlai
+		add_political_power = -30
+		set_temp_variable = { temp_member = 3 }
+		set_temp_variable = { temp_seats = -0.035 tooltip = TEB_faction_support_tt }
+										#percentage
+		modify_parliament_seat = yes
+	}
+	option = {
+		name = RCM_comchina_mao.19.b
+		ai_chance = {
+			factor = 0
+		}
+		add_political_power = -30
+		set_temp_variable = { temp_member = 3 }
+		set_temp_variable = { temp_seats = -0.025 tooltip = TEB_faction_support_tt }
+										#percentage
+		modify_parliament_seat = yes
+	}
+	option = {
+		name = RCM_comchina_mao.19.c
+		ai_chance = {
+			factor = 1
+		}
+		add_political_power = -15
+		
+		add_trait = {
+			character = PRC_zhou_enlai
+			slot = political_advisor
+			trait = maoists_trait_zhouenlai
+		}
+		set_global_flag = PRC_zhou_enlai_maoists_trait_zhouenlai
+		
+		set_temp_variable = { temp_member = 3 }
+		set_temp_variable = { temp_seats = -0.015 tooltip = TEB_faction_support_tt }
+										#percentage
+		modify_parliament_seat = yes
+	}
+}
+#Dimitrov intervene on Zhou 
+country_event = {
+	id = RCM_comchina_mao.20
+	title = RCM_comchina_mao.20.t
+	desc = RCM_comchina_mao.20.d
+	picture = GFX_report_event_dimitrov
+	is_triggered_only = yes
+	#fire_only_once = yes
+	immediate = {
+		
+	}
+	option = { #sure
+		name = RCM_comchina_mao.20.a
+		ai_chance = {
+			factor = 1
+		}
+		custom_effect_tooltip = THIS_IS_HISTORICAL_TT
+		add_political_power = -30
+		clr_global_flag = zhou_enlai_marginalized
+		custom_effect_tooltip = available_political_advisor
+		show_ideas_tooltip = PRC_zhou_enlai
+		
+		add_trait = {
+			character = PRC_zhou_enlai
+			slot = political_advisor
+			trait = maoists_trait_zhouenlai
+		}
+		set_global_flag = PRC_zhou_enlai_maoists_trait_zhouenlai
+	}
+	option = { #get away russians
+		name = RCM_comchina_mao.20.b
+		ai_chance = {
+			factor = 0
+		}
+		add_stability = -0.05
+		SOV = {
+			add_opinion_modifier = { target = PRC modifier = weibeisulian } 
+		}
+	}
+}
+
+#Bo Gu forced to admit error (choose to marginalize him(he will lose power) or keep him somewhat)
+country_event = {
+	id = RCM_comchina_mao.21
+	title = RCM_comchina_mao.21.t
+	desc = RCM_comchina_mao.21.d
+	picture = GFX_report_event_bo_gu
+	is_triggered_only = yes
+	#fire_only_once = yes
+	immediate = {
+		
+	}
+	option = {
+		name = RCM_comchina_mao.21.a
+		ai_chance = {
+			factor = 0
+		}
+		#custom_effect_tooltip = THIS_IS_HISTORICAL_TT
+		set_global_flag = bo_gu_marginalized
+		custom_effect_tooltip = remove_political_advisor
+		show_ideas_tooltip = prc_bo_gu
+		add_political_power = -30
+		set_temp_variable = { temp_member = 3 }
+		set_temp_variable = { temp_seats = -0.035 tooltip = TEB_faction_support_tt }
+										#percentage
+		modify_parliament_seat = yes
+	}
+	option = {
+		name = RCM_comchina_mao.21.b
+		ai_chance = {
+			factor = 1
+		}
+		custom_effect_tooltip = THIS_IS_HISTORICAL_TT
+		add_political_power = -30
+		set_temp_variable = { temp_member = 3 }
+		set_temp_variable = { temp_seats = -0.025 tooltip = TEB_faction_support_tt }
+										#percentage
+		modify_parliament_seat = yes
+	}
+	option = {
+		name = RCM_comchina_mao.21.c
+		ai_chance = {
+			factor = 0
+		}
+		add_political_power = -15
+		set_temp_variable = { temp_member = 3 }
+		set_temp_variable = { temp_seats = -0.015 tooltip = TEB_faction_support_tt }
+										#percentage
+		modify_parliament_seat = yes
+	}
+}
+#Core Party members protest the rescue campaign
+country_event = {
+	id = RCM_comchina_mao.22
+	title = RCM_comchina_mao.22.t
+	desc = RCM_comchina_mao.22.d
+
+	picture = GFX_report_event_communist_conference
+	is_triggered_only = yes
+	#fire_only_once = yes
+	immediate = {
+		
+	}
+	option = {
+		name = RCM_comchina_mao.22.a
+		ai_chance = {
+			factor = 0
+		}
+		
+		#to do add decisions cat unlock
+		add_stability = -0.06
+		set_temp_variable = { temp_member = 2 }
+		set_temp_variable = { temp_seats = -0.015 tooltip = MAOIST_faction_support_tt }
+										#percentage
+		modify_parliament_seat = yes
+		activate_mission = RCM_core_member_protest_mission
+	}
+	option = {
+		name = RCM_comchina_mao.22.b
+		ai_chance = {
+			factor = 0
+		}
+		#custom_effect_tooltip = THIS_IS_HISTORICAL_TT
+		add_stability = -0.04
+		#to do add decisions cat unlock
+		set_temp_variable = { temp_member = 2 }
+		set_temp_variable = { temp_seats = -0.02 tooltip = MAOIST_faction_support_tt }
+										#percentage
+		modify_parliament_seat = yes
+		activate_mission = RCM_core_member_protest_mission
+	}
+	option = {
+		name = RCM_comchina_mao.22.c
+		ai_chance = {
+			factor = 1
+		}		
+		custom_effect_tooltip = THIS_IS_HISTORICAL_TT
+		add_political_power = -250
+		add_stability = 0.025
+		set_temp_variable = { temp_member = 2 }
+		set_temp_variable = { temp_seats = -0.05 tooltip = MAOIST_faction_support_tt }
+										#percentage
+		modify_parliament_seat = yes
+	}
+}
+##########################################################
+#Zhang Guotao
+add_namespace = RCM_comchina_zhang
+#(To Sov) PRC request supply (fired from decision)
+country_event = {
+	id = RCM_comchina_zhang.1
+	title = RCM_comchina_zhang.1.t
+	desc = RCM_comchina_zhang.1.desc
+	picture = GFX_report_event_generic_rifles #to do
+	is_triggered_only = yes
+	#fire_only_once = yes
+	option = { #Give them some weapons
+		name = RCM_comchina_zhang.1.a
+		ai_chance = {
+			factor = 80
+		}
+		
+		effect_tooltip = {
+			send_equipment = {
+				equipment = infantry_equipment
+				amount = 3000
+				target = FROM
+			}
+			send_equipment = {
+				equipment = artillery_equipment
+				amount = 100
+				target = FROM
+			}
+			send_equipment = {
+				equipment = support_equipment
+				amount = 300
+				target = FROM
+			}
+		}
+		
+		FROM ={
+			#Eeffect_tooltip = {
+			#	set_temp_variable = { temp_seats = 0.01 tooltip = ZHANG_faction_support_tt }
+			#}
+			country_event = {
+				id = RCM_comchina_zhang.2
+			}
+		}
+	}
+	option = { #Give them some economic aid
+		name = RCM_comchina_zhang.1.b
+		ai_chance = {
+			factor = 15
+		}
+		FROM ={
+			effect_tooltip = {
+				add_to_variable = {
+					This.supply_condition_base = 10 tooltip = gain_base_supp_cond_p10_tt
+				}
+				#}set_temp_variable = { temp_seats = 0.01 tooltip = ZHANG_faction_support_tt }
+			}
+			country_event = {
+				id = RCM_comchina_zhang.3
+			}
+		}
+	}
+	option = { #Give them some money
+		name = RCM_comchina_zhang.1.c
+		ai_chance = {
+			factor = 5
+		}
+		FROM ={
+			effect_tooltip = {
+				add_political_power = 150
+				#}set_temp_variable = { temp_seats = 0.01 tooltip = ZHANG_faction_support_tt }
+			}
+			country_event = {
+				id = RCM_comchina_zhang.4
+			}
+		}
+	}
+	option = { #Damn, why do we have to satisfy what they want every time!
+		name = RCM_comchina_zhang.1.d
+		ai_chance = {
+			factor = 0
+		}
+		PRC ={
+			country_event = {
+				id = RCM_comchina_zhang.5
+			}
+		}
+	}
+}
+#(To PRC) We got guns
+country_event = {
+	id = RCM_comchina_zhang.2
+	title = RCM_comchina_zhang.2.t
+	desc = RCM_comchina_zhang.2.d
+	picture = GFX_report_event_generic_rifles #to do
+	is_triggered_only = yes
+	#fire_only_once = yes
+
+	option = { #Thanks, comrade
+		name = RCM_comchina_zhang.2.a
+		ai_chance = {
+			factor = 1
+		}
+		
+			add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = 3000
+				producer = SOV
+			}
+			add_equipment_to_stockpile = {
+				type = artillery_equipment
+				amount = 100
+				producer = SOV
+			}
+			add_equipment_to_stockpile = {
+				type = support_equipment
+				amount = 300
+				producer = SOV
+			}
+			
+			if = {
+					limit = {
+						has_dlc = "Arms Against Tyranny"
+					}
+				    add_equipment_subsidy = {
+						cic = 1500
+						equipment_type = infantry_equipment
+						seller_tags = { SOV }
+					}
+					add_equipment_subsidy = {
+						cic = 1500
+						equipment_type = support_equipment
+						seller_tags = { SOV }
+					}
+					add_equipment_subsidy = {
+						cic = 1500
+						equipment_type = artillery_equipment
+						seller_tags = { SOV }
+					}
+				}
+		
+		#set_temp_variable = { temp_member = 1 }
+		#set_temp_variable = { temp_seats = 0.01 tooltip = ZHANG_faction_support_tt }
+		#								#percentage
+		#modify_parliament_seat = yes		
+	}
+}
+#(To PRC) We got economic aid
+country_event = {
+	id = RCM_comchina_zhang.3
+	title = RCM_comchina_zhang.3.t
+	desc = RCM_comchina_zhang.3.d
+	picture = GFX_report_event_generic_truck #to do
+	is_triggered_only = yes
+	#fire_only_once = yes
+
+	option = { #Thanks, comrade
+		name = RCM_comchina_zhang.3.a
+		ai_chance = {
+			factor = 1
+		}
+		add_to_variable = {
+			This.supply_condition_base = 10 tooltip = gain_base_supp_cond_p10_tt
+		}
+		
+		if = {
+					limit = {
+						has_dlc = "Arms Against Tyranny"
+					}
+				    add_equipment_subsidy = {
+						cic = 1000
+						equipment_type = infantry_equipment
+						seller_tags = { SOV }
+					}
+					add_equipment_subsidy = {
+						cic = 1000
+						equipment_type = support_equipment
+						seller_tags = { SOV }
+					}
+					add_equipment_subsidy = {
+						cic = 1000
+						equipment_type = artillery_equipment
+						seller_tags = { SOV }
+					}
+				}
+		
+		#set_temp_variable = { temp_member = 1 }
+		#set_temp_variable = { temp_seats = 0.01 tooltip = ZHANG_faction_support_tt }
+		#								#percentage
+		#modify_parliament_seat = yes	
+	}
+}
+#(To PRC) We got financial support
+country_event = {
+	id = RCM_comchina_zhang.4
+	title = RCM_comchina_zhang.4.t
+	desc = RCM_comchina_zhang.4.d
+	picture = GFX_report_event_hitler_handshake #to do
+	is_triggered_only = yes
+	#fire_only_once = yes
+
+	option = { #Thanks, comrade
+		name = RCM_comchina_zhang.4.a
+		ai_chance = {
+			factor = 1
+		}
+		add_political_power = 150
+		
+		if = {
+					limit = {
+						has_dlc = "Arms Against Tyranny"
+					}
+				    add_equipment_subsidy = {
+						cic = 500
+						equipment_type = infantry_equipment
+						seller_tags = { SOV }
+					}
+					add_equipment_subsidy = {
+						cic = 500
+						equipment_type = support_equipment
+						seller_tags = { SOV }
+					}
+					add_equipment_subsidy = {
+						cic = 500
+						equipment_type = artillery_equipment
+						seller_tags = { SOV }
+					}
+				}
+		
+		#set_temp_variable = { temp_member = 1 }
+		#set_temp_variable = { temp_seats = 0.01 tooltip = ZHANG_faction_support_tt }
+		#								#percentage
+		#modify_parliament_seat = yes	
+	}
+}
+#(To PRC) We got nothing :(
+country_event = {
+	id = RCM_comchina_zhang.5
+	title = RCM_comchina_zhang.5.t
+	desc = RCM_comchina_zhang.5.d
+	picture = GFX_report_event_chinese_officers #to do
+	is_triggered_only = yes
+	#fire_only_once = yes
+	option = { #Disappointing...
+		name = RCM_comchina_zhang.5.a
+		ai_chance = {
+			factor = 1
+		}
+		#set_temp_variable = { temp_member = 1 }
+		#set_temp_variable = { temp_seats = 0.01 tooltip = ZHANG_faction_support_tt }
+		#								#percentage
+		#modify_parliament_seat = yes	
+	}
+}
+
+#Grand northwest alliance
+#Grand northwest alliance type (start things now or wait for xian incident)
+country_event = {
+	id = RCM_comchina_zhang.6
+	title = RCM_comchina_zhang.6.t
+	desc = RCM_comchina_zhang.6.d
+	picture = GFX_report_event_zang_yang_attack #to do
+	is_triggered_only = yes
+	#fire_only_once = yes
+
+	option = { #Contact Zhang now
+		name = RCM_comchina_zhang.6.a
+		ai_chance = {
+			factor = 1
+		}
+		
+		NEA ={
+			country_event = RCM_comchina_zhang.7
+		}
+	}
+}
+#(To NEA) PRC propose grand northwest alliance (2 options, 1 for yes, and then PRC will choice now or xian 2 for no)
+country_event = {
+	id = RCM_comchina_zhang.7
+	title = RCM_comchina_zhang.7.t
+	desc = RCM_comchina_zhang.7.d
+	picture = GFX_report_event_zhang_guotao #to do
+	is_triggered_only = yes
+	#fire_only_once = yes
+
+	option = { #Accept the proposal
+		name = RCM_comchina_zhang.7.a
+		ai_chance = {
+			factor = 1
+		}
+		FROM ={
+			country_event = RCM_comchina_zhang.8
+		}
+		add_political_power = -25
+		#effect_tooltip = {
+		#	create_faction = "Northwest Anti-Japan United Army"
+		#}
+		custom_effect_tooltip = NORTHWEST_ALLIANCE_FORM_TT
+		
+	}
+	option = { #It's too risky
+		name = RCM_comchina_zhang.7.b
+		ai_chance = {
+			factor = 0
+		}
+		set_global_flag = no_nw_alliance_flag
+		add_political_power = -5
+		FROM ={
+			country_event = RCM_comchina_zhang.9
+		}
+	}
+}
+#to PRC (NEA accepts, 2 options, 1 for now 2 for xian) #JK now is retarded
+country_event = {
+	id = RCM_comchina_zhang.8
+	title = RCM_comchina_zhang.8.t
+	desc = RCM_comchina_zhang.8.d
+	picture = GFX_report_event_zang_yang_attack #to do
+	is_triggered_only = yes
+	#fire_only_once = yes
+
+
+	option = { #We can keep the option for later...
+		name = RCM_comchina_zhang.8.b
+		ai_chance = {
+			factor = 1
+		}
+		add_political_power = 50
+		custom_effect_tooltip = gain_base_supp_cond_n10_tt
+			add_to_variable = {
+		    var = This.supply_condition
+			value = 10 #MODDED
+		    }
+		    add_to_variable = {
+			var = This.supply_condition_base
+			value = 10 #MODDED
+		    }
+			add_to_variable = {
+				Root.supply_condition_base = 10
+			}
+				add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = 5000
+				producer = NEA
+				}
+				add_equipment_to_stockpile = {
+				type = support_equipment
+				amount = 350
+				producer = NEA
+				}
+				add_equipment_to_stockpile = {
+				type = artillery_equipment
+				amount = 100
+				producer = NEA
+				}
+		
+		custom_effect_tooltip = NORTHWEST_ALLIANCE_LATER_TT
+		unlock_decision_tooltip = PRC_NORTHWEST_ALLIANCE_FORM_ZZ
+		set_global_flag = Secret_Northwest_Alliance
+	}
+}
+#to PRC (NEA refuses)
+country_event = {
+	id = RCM_comchina_zhang.9
+	title = RCM_comchina_zhang.9.t
+	desc = RCM_comchina_zhang.9.d
+	picture = GFX_report_event_arrive_xian #to do
+	is_triggered_only = yes
+	#fire_only_once = yes
+
+	option = {  #Well...Fine...
+		name = RCM_comchina_zhang.9.a
+		ai_chance = {
+			factor = 1
+		}
+		add_political_power = -25
+		#set_temp_variable = { temp_member = 1 }
+		#set_temp_variable = { temp_seats = -0.01 tooltip = ZHANG_faction_support_tt } #It's a shame they refused us
+										#percentage
+		#modify_parliament_seat = yes
+	}
+}
+#Challenge the First Red Army
+country_event = {
+	id = RCM_comchina_zhang.10
+	title = RCM_comchina_zhang.10.t
+	desc = RCM_comchina_zhang.10.d
+	picture = GFX_report_event_zhang_guotao #to do
+	is_triggered_only = yes
+	
+	option = {
+		name = RCM_comchina_zhang.10.a
+		ai_chance = {
+			factor = 1
+		}
+		retire_country_leader = yes
+		PRC_zhang_guotao = {
+            add_country_leader_role = {
+				country_leader = {
+					expire = "1965.1.1"
+					ideology = marxism
+					desc=PRC_zhang_guotao_desc
+					traits = {
+					comintern_celebrity #guo
+					RCM_propaganda_expert
+					dangdeyuanlao
+					}
+				}
+				promote_leader = yes
+			}   
+		}
+		
+		#create_country_leader = {
+		#	name = "Zhang Guotao"
+		#	desc = "POLITICS_Zhang_Guotao_DESC"
+		#	picture = "Portrait_China_Zhang_Guotao.dds"
+		##	expire = "1965.1.1"
+		#	ideology = marxism
+		#	traits = { red_army_organizer }
+		#}
+	}
+}
+#Challenge central
+#to PRC (Join power struggle)
+country_event = {
+	id = RCM_comchina_zhang.11
+	title = RCM_comchina_zhang.11.t
+	desc = RCM_comchina_zhang.11.d
+	picture = GFX_report_event_assembly_china #to do
+	is_triggered_only = yes
+	#fire_only_once = yes
+
+	option = { #Ask [SIK.GetName] to join.
+		name = RCM_comchina_zhang.11.a
+		ai_chance = {
+			factor = 1
+		}
+		SIK ={
+			country_event = {
+				id = RCM_comchina_zhang.12
+				days = 2
+			}
+		}
+		custom_effect_tooltip = enable_power_struggle
+		hidden_effect = {
+			WTT_setup_political_struggle = yes
+			WTT_add_ROOT_to_political_struggle = yes
+		}
+		every_controlled_state = {
+			limit = {
+				is_core_of = ROOT
+				WTT_is_potential_political_struggle_state = yes
+			}
+			#Add random state support for ROOT
+			WTT_random_support_chance_increase_for_ROOT_in_state = yes
+			hidden_effect = {
+				#Save relevant event targets. Need to be done before updating state support
+				save_event_target_as = state
+				random_country = {
+					limit = {
+						PREV = { has_state_flag = majority_political_platform_@PREV }
+					}
+					save_event_target_as = majority_country
+				}
+				#Update state support
+				WTT_recalculate_state_support_for_ROOT = yes
+				#Status events
+				WTT_fire_add_support_status_events = yes
+				#Recalc all support
+				WTT_political_struggle_recalculate_support = yes
+			}
+		}
+	}
+}
+#Challenge central
+#to SIK (PRC join power struggle, join or not join(support?))
+country_event = {
+	id = RCM_comchina_zhang.12
+	title = RCM_comchina_zhang.12.t
+	desc = RCM_comchina_zhang.12.d
+	picture = GFX_report_event_assembly_china #to do
+	is_triggered_only = yes
+	#fire_only_once = yes
+
+	option = { #Sure, comrade
+		name = RCM_comchina_zhang.12.a
+		ai_chance = {
+			factor = 1
+		}
+		custom_effect_tooltip = enable_power_struggle
+		hidden_effect = {
+			WTT_setup_political_struggle = yes
+			WTT_add_ROOT_to_political_struggle = yes
+		}
+		every_controlled_state = {
+			limit = {
+				is_core_of = ROOT
+				WTT_is_potential_political_struggle_state = yes
+			}
+			#Add random state support for ROOT
+			WTT_random_support_chance_increase_for_ROOT_in_state = yes
+			hidden_effect = {
+				#Save relevant event targets. Need to be done before updating state support
+				save_event_target_as = state
+				random_country = {
+					limit = {
+						PREV = { has_state_flag = majority_political_platform_@PREV }
+					}
+					save_event_target_as = majority_country
+				}
+				#Update state support
+				WTT_recalculate_state_support_for_ROOT = yes
+				#Status events
+				WTT_fire_add_support_status_events = yes
+				#Recalc all support
+				WTT_political_struggle_recalculate_support = yes
+			}
+		}
+		PRC ={
+			country_event = {
+				id = RCM_comchina_zhang.13
+				days = 2
+			}
+		}
+	}
+	option = { #nah
+		name = RCM_comchina_zhang.12.b
+		ai_chance = {
+			factor = 1
+		}
+		set_country_flag = warlord_supports_PRC
+		WTT_political_struggle_recalculate_support = yes		
+		PRC ={
+			country_event = {
+				id = RCM_comchina_zhang.14
+				days = 2
+			}
+		}
+	}
+}
+#Challenge central
+#to prc siK JOIN
+country_event = {
+	id = RCM_comchina_zhang.13
+	title = RCM_comchina_zhang.13.t
+	desc = RCM_comchina_zhang.13.d
+	picture = GFX_report_event_the_king_of_sinkiang_sheng_shicai #to do
+	is_triggered_only = yes
+	#fire_only_once = yes
+
+	option = { #Great!
+		name = RCM_comchina_zhang.13.a
+		ai_chance = {
+			factor = 1
+		}
+		
+		effect_tooltip = {
+			SIK = {	
+				set_country_flag = warlord_supports_PRC
+				WTT_political_struggle_recalculate_support = yes
+			}
+		}
+	}
+}
+#to prc siK no join(support?)
+country_event = {
+	id = RCM_comchina_zhang.14
+	title = RCM_comchina_zhang.14.t
+	desc = RCM_comchina_zhang.14.d
+	picture = GFX_report_event_political_hearing #to do
+	is_triggered_only = yes
+	#fire_only_once = yes
+
+	option = { #They are our comrade, right?
+		name = RCM_comchina_zhang.14.a
+		ai_chance = {
+			factor = 1
+		}
+	}
+}
+
+#unrelated (IF Lost west war and trotskyists got sent to sinkiang)
+#defect to KMT 1938.4
+country_event = {
+	id = RCM_comchina_zhang.15
+	title = RCM_comchina_zhang.15.t
+	desc = RCM_comchina_zhang.15.d
+	picture = GFX_report_event_zhang_no_hat
+	#is_triggered_only = yes
+	fire_only_once = yes
+	trigger = {
+		NOT = { #not 1939 scenario
+			has_global_flag = dont_do_this_flag
+		}
+		or = {
+		has_completed_focus = PRC_send_trotskyists_to_sinkiang_focus
+		#has_completed_focus = PRC_great_troskyist_purge_focus
+		has_global_flag = zhang_be_dismissed
+		}
+		
+		has_country_flag = no_PRC_west_expedition_victory
+		date > 1938.4.1
+		tag = event_target:WTT_communist_china
+		leader_is_zhang_guotao = no
+		
+		event_target:WTT_current_china_leader = {
+		exists = yes
+		is_subject = no
+		not = { tag = NEA }
+		}
+	}
+	mean_time_to_happen = {
+		days = 10
+	}
+	immediate = {
+		set_global_flag = PRC_zhang_guotao_defect
+	}
+
+	option = { #Traitor!
+		name = RCM_comchina_zhang.15.a
+		ai_chance = {
+			factor = 1
+		}
+		add_political_power = -25
+		custom_effect_tooltip = remove_political_advisor
+		show_ideas_tooltip = PRC_zhang_guotao
+		
+		event_target:WTT_current_china_leader = {
+		country_event = PRC_zhang_guotaozz.1
+		}
+		effect_tooltip = {
+		PRC_zhang_guotao = { set_nationality = event_target:WTT_current_china_leader }
+		}
+		
+		set_temp_variable = { temp_member = 1 }
+		set_temp_variable = { temp_seats = -1 tooltip = ZHANG_faction_support_tt }  #percentage
+		modify_parliament_seat = yes
+	}
+}
+#(IF lost war)
+#unrelated a conference will hold to critize zhang 1937.3.23
+country_event = {
+	id = RCM_comchina_zhang.16
+	title = RCM_comchina_zhang.16.t
+	desc = RCM_comchina_zhang.16.d
+	picture = GFX_report_event_zhang_no_hat
+	#is_triggered_only = yes
+	fire_only_once = yes
+	trigger = {
+		has_country_flag = no_PRC_west_expedition_victory
+		date > 1937.3.22
+		tag = event_target:WTT_communist_china
+	}
+	mean_time_to_happen = {
+		days = 1
+	}
+
+	option = { #Comrade, Your mistake had caused great harm to the party!
+		name = RCM_comchina_zhang.16.a
+		ai_chance = {
+			factor = 1
+		}
+		add_political_power = -35
+		set_temp_variable = { temp_member = 1 }
+		set_temp_variable = { temp_seats = -0.1 tooltip = ZHANG_faction_support_tt } #percentage #MODDED was 0.15
+		modify_parliament_seat = yes
+		remove_ideas = PRC_zhang_guotao
+	}
+}
+
+
+#TROTSKIST
+add_namespace = RCM_comchina_trot
+#chen duxiu published "Proletariat and Democracy"
+country_event = {
+	id = RCM_comchina_trot.1
+	title = RCM_comchina_trot.1.t
+	desc = RCM_comchina_trot.1.d
+	picture = GFX_report_event_chen_duxiu
+	is_triggered_only = yes
+	#fire_only_once = yes
+
+	option = {
+		name = RCM_comchina_trot.1.a
+		ai_chance = {
+			factor = 0
+		}
+		set_temp_variable = { temp_member = 4 }
+		set_temp_variable = { temp_seats = 0.055 tooltip = TROT_faction_support_tt } #percentage
+		modify_parliament_seat = yes
+		add_political_power = -75
+	}
+	option = {
+		name = RCM_comchina_trot.1.b
+		ai_chance = {
+			factor = 1
+		}
+		custom_effect_tooltip = THIS_IS_HISTORICAL_TT
+		set_temp_variable = { temp_member = 4 }
+		set_temp_variable = { temp_seats = 0.04 tooltip = TROT_faction_support_tt }
+										#percentage
+		modify_parliament_seat = yes
+		
+	}
+	option = {
+		name = RCM_comchina_trot.1.c
+		ai_chance = {
+			factor = 0
+		}
+		
+		set_temp_variable = { temp_member = 4 }
+		set_temp_variable = { temp_seats = 0.025 tooltip = TROT_faction_support_tt }
+										#percentage
+		modify_parliament_seat = yes
+		add_political_power = -75
+	}
+}
+#THIS iS A EMPTY SLOT
+country_event = {
+	id = RCM_comchina_trot.2
+	title = RCM_comchina_trot.2.t
+	desc = RCM_comchina_trot.2.d
+	picture = GFX_report_event_china_mao
+	is_triggered_only = yes
+	#fire_only_once = yes
+	immediate = {
+		
+	}
+	option = {
+		name = RCM_comchina_trot.2.a
+		ai_chance = {
+			factor = 1
+		}
+	}
+	option = {
+		name = RCM_comchina_trot.2.b
+		ai_chance = {
+			factor = 1
+		}
+	}
+	option = {
+		name = RCM_comchina_trot.2.c
+		ai_chance = {
+			factor = 1
+		}
+	}
+}
+#trotskyist released #obsolete
+country_event = {
+	id = RCM_comchina_trot.3
+	title = RCM_comchina_trot.3.t
+	desc = RCM_comchina_trot.3.d
+	picture = GFX_report_event_trotskyists
+	is_triggered_only = yes
+	#trigger = {
+	#	613 = {
+	#		is_controlled_by_jap_or_its_puppet = yes
+	#	}
+	#}
+	#mean_time_to_happen = {
+	#	days = 15
+	#}
+	#is_triggered_only = yes
+	#fire_only_once = yes
+
+	option = {
+		name = RCM_comchina_trot.3.a
+		ai_chance = {
+			factor = 1
+		}
+		set_temp_variable = { temp_member = 4 }
+		set_temp_variable = { temp_seats = 0.03 tooltip = TROT_faction_support_tt }
+										#percentage
+		modify_parliament_seat = yes
+		set_global_flag = PRC_trotskyist_released
+	}
+}
+#The question of Chen Duxiu
+country_event = {
+	id = RCM_comchina_trot.4
+	title = RCM_comchina_trot.4.t
+	desc = RCM_comchina_trot.4.d
+	picture = GFX_report_event_chen_duxiu
+
+	# triggered by PRC_question_of_chen_duxiu_focus
+
+	is_triggered_only = yes
+	#fire_only_once = yes
+
+	immediate = {
+		hidden_effect = {
+			#clear_variable = accept_chance
+			#clear_variable = reject_chance
+			#clear_variable = pp_cost
+			set_variable = { accept_chance = 0 }
+			add_to_variable = { accept_chance = parliament_seat_array_adjusted^3 }
+			set_variable = { reject_chance = 100 }
+			subtract_from_variable = { reject_chance = parliament_seat_array_adjusted^3 }
+			multiply_variable = { reject_chance = 0.5 }
+
+			
+			set_variable = { pp_cost = 0 }
+			add_to_variable = { pp_cost = reject_chance }
+			multiply_variable = { pp_cost = -5 }
+		}
+	}
+
+	option = {
+		name = RCM_comchina_trot.4.a
+		ai_chance = {
+			factor = 1
+		}
+		custom_effect_tooltip = THIS_IS_HISTORICAL_TT
+		hidden_effect = {
+			clear_variable = accept_chance
+			clear_variable = reject_chance
+			clear_variable = pp_cost
+		}
+	}
+	option = {
+		name = RCM_comchina_trot.4.b
+		ai_chance = {
+			factor = 0
+		}
+		
+		custom_effect_tooltip = CHEN_WILL_ONLY_ACCEPT_WHEN_TROT_IS_HIGH_ENOUGH_TT
+		add_political_power = -25
+		random_list = {
+			accept_chance = {
+				country_event = RCM_comchina_trot.8
+			}
+			reject_chance = {
+				country_event = RCM_comchina_trot.9
+			}
+		}
+		hidden_effect = {
+			
+			clear_variable = accept_chance
+			clear_variable = reject_chance
+			clear_variable = pp_cost
+		}
+	}
+	option = {
+		name = RCM_comchina_trot.4.c
+		ai_chance = {
+			factor = 0
+		}
+		custom_effect_tooltip = CHEN_ACCEPT_BUT_COST_PP_AS_TROT_POPULARITY_TT
+		add_political_power = pp_cost
+		hidden_effect = {
+			clear_variable = accept_chance
+			clear_variable = reject_chance
+			clear_variable = pp_cost
+		}
+		country_event = RCM_comchina_trot.8
+	}
+}
+#demand CPC reentry
+country_event = {
+	id = RCM_comchina_trot.5
+	title = RCM_comchina_trot.5.t
+	desc = RCM_comchina_trot.5.d
+	picture = GFX_report_event_communist_conference
+
+	# triggered by PRC_demand_reentry_of_cpc_focus
+
+	is_triggered_only = yes
+	#fire_only_once = yes
+	immediate = {
+		set_global_flag = Peng_reentry_CCP
+	}
+	option = {
+		name = RCM_comchina_trot.5.a
+		ai_chance = {
+			factor = 1
+		}
+		if = {
+			limit = {
+				NOT = { has_global_flag = chen_accepts_to_join_party }
+			}
+			custom_effect_tooltip = prc_peng_shuzhi_becomes_leader
+		}
+		else = {
+			set_temp_variable = { temp_member = 4 }
+			set_temp_variable = { temp_seats = 0.075 tooltip = TROT_faction_support_tt }
+									#percentage
+			modify_parliament_seat = yes			
+		}
+	}
+}
+#cooperate with 4th international
+country_event = {
+	id = RCM_comchina_trot.6
+	title = RCM_comchina_trot.6.t
+	desc = RCM_comchina_trot.6.d
+	picture = GFX_report_event_fourth_international
+	is_triggered_only = yes
+	#fire_only_once = yes
+	option = {
+		name = RCM_comchina_trot.6.a
+		ai_chance = {
+			factor = 1
+		}
+		add_ideas =  PRC_cooperate_with_4th_international
+	}
+}
+
+#trotskyist coup(if join party, change leadership, if not change party name and ruling party)
+country_event = {
+	id = RCM_comchina_trot.7
+	title = RCM_comchina_trot.7.t
+	desc = RCM_comchina_trot.7.d
+	picture = GFX_report_event_communist_conference 
+	is_triggered_only = yes
+	#fire_only_once = yes
+	#trigger = {
+	#	check_variable = { parliament_seat_array_adjusted^3 > 0.5 }
+	#	TAG = PRC
+	#}
+	#mean_time_to_happen = {
+	#	days = 20
+	#}
+
+	option = {
+		name = RCM_comchina_trot.7.a
+		ai_chance = {
+			factor = 1
+		}
+		trigger = {
+			NOT = {
+				has_completed_focus = PRC_minority_faction_focus
+			}
+			has_global_flag = chen_accepts_to_join_party
+		}
+		retire_country_leader = yes
+		prc_chen_duxiu = {
+			add_country_leader_role = {
+				country_leader = {
+					expire = "1965.1.1"
+					ideology = trotskyism
+					desc=prc_chen_duxiu_desc
+					traits = { permanent_revolutionary revolutionary_author } #guo
+				}
+				promote_leader = yes
+			}   
+		} 
+		add_country_leader_trait = {
+			ideology = trotskyism
+			trait = permanent_revolutionary
+		}
+		#create_country_leader = {
+		#	name = "Chen Duxiu"
+		#	desc = "POLITICS_CHEN_DUXIU_DESC"
+		#	picture = "Portrait_China_Chen_Duxiu.dds"
+		#	expire = "1965.1.1"
+		#	ideology = trotskyism
+		#	traits = { permanent_revolutionary }
+		#}
+	}
+	option = {
+		name = RCM_comchina_trot.7.b
+		ai_chance = {
+			factor = 1
+		}
+		trigger = {
+			NOT = {
+				has_global_flag = chen_accepts_to_join_party
+			}
+			has_global_flag = Peng_reentry_CCP
+		}
+		retire_country_leader = yes
+		prc_peng_shuzhi = {
+			add_country_leader_role = {
+				country_leader = {
+					expire = "1965.1.1"
+					ideology = trotskyism
+					desc=prc_peng_shuzhi_desc
+					traits = { permanent_revolutionary revolutionary_author } #guo
+				}
+				promote_leader = yes
+			}   
+		} 
+		#create_country_leader = {
+		#	name = "Peng Shuzhi"
+		#	desc = "POLITICS_PENG_SHUZHI_DESC"
+		#	picture = "Portrait_China_Peng_Shuzhi.dds"
+		#	expire = "1965.1.1"
+		#	ideology = trotskyism
+		#	traits = {  }
+		#}
+	}
+	option = {
+		name = RCM_comchina_trot.7.c
+		ai_chance = {
+			factor = 1
+		}
+		trigger = {
+			has_completed_focus = PRC_minority_faction_focus
+		}
+		if = {
+			limit = {
+				has_idea = prc_mao_zedong
+			}
+			remove_ideas = prc_mao_zedong
+		}
+		if = {
+			limit = {
+				has_idea = prc_bo_gu
+			}
+			remove_ideas = prc_bo_gu
+		}
+		set_party_name = {
+			ideology = communism
+			long_name = PRC_Chinese_communist_league
+			name = PRC_Chinese_communist_league
+		}
+		retire_country_leader = yes
+		prc_wang_fanxi = {
+			add_country_leader_role = {
+				country_leader = {
+					expire = "1965.1.1"
+					ideology = trotskyism
+					desc=prc_wang_fanxi_desc
+					traits = { permanent_revolutionary revolutionary_author } #guo
+				}
+				promote_leader = yes
+			}   
+		} 
+		
+		#create_country_leader = {
+		#	name = "Wang Fanxi"
+		#	desc = "POLITICS_WANG_FANGXI_DESC"
+		#	picture = "Portrait_PRC_Wang_Fanxi.dds"
+		#	expire = "1965.1.1"
+		#	ideology = trotskyism
+		#	traits = {  }
+		#}
+	}
+}
+#chen duxiu accepts
+country_event = {
+	id = RCM_comchina_trot.8
+	title = RCM_comchina_trot.8.t
+	desc = RCM_comchina_trot.8.d
+	picture = GFX_report_event_chen_duxiu
+	is_triggered_only = yes
+	#fire_only_once = yes
+	option = {
+		name = RCM_comchina_trot.8.a
+		ai_chance = {
+			factor = 1
+		}
+		set_global_flag = chen_accepts_to_join_party
+	}
+}
+#chen duxiu refused
+country_event = {
+	id = RCM_comchina_trot.9
+	title = RCM_comchina_trot.9.t
+	desc = RCM_comchina_trot.9.d
+	picture = GFX_report_event_chen_duxiu
+	is_triggered_only = yes
+	#fire_only_once = yes
+	option = {
+		name = RCM_comchina_trot.9.a
+		ai_chance = {
+			factor = 1
+		}
+		set_global_flag = chen_refused_to_join_party
+	}
+}
+
+
+add_namespace = RCM_comchina_decisions
+#decisions events
+#minority rule (start mission)
+country_event = {
+	id = RCM_comchina_decisions.1
+	title = RCM_comchina_decisions.1.t
+	desc = RCM_comchina_decisions.1.d
+	picture = GFX_report_event_communist_conference
+	trigger = {
+		tag = event_target:WTT_communist_china
+		NOT = {
+			has_active_mission = RCM_minority_rule_mission
+		}
+		OR = {
+			AND = {
+				OR = {
+					check_variable = { parliament_seat_array^0 < parliament_seat_array^1 }
+					check_variable = { parliament_seat_array^0 < parliament_seat_array^2 }
+					check_variable = { parliament_seat_array^0 < parliament_seat_array^3 }
+				}
+				leader_is_zhang_guotao = yes
+			}
+
+
+			AND = {
+				OR = {
+					check_variable = { parliament_seat_array^1 < parliament_seat_array^0 }
+					check_variable = { parliament_seat_array^1 < parliament_seat_array^2 }
+					check_variable = { parliament_seat_array^1 < parliament_seat_array^3 }
+				}
+				leader_is_maoist = yes
+			}
+
+
+			AND = {
+				OR = {
+					check_variable = { parliament_seat_array^2 < parliament_seat_array^0 }
+					check_variable = { parliament_seat_array^2 < parliament_seat_array^1 }
+					check_variable = { parliament_seat_array^2 < parliament_seat_array^3 }
+				}
+				leader_is_28b = yes
+			}    
+
+			AND = {
+					OR = {
+					check_variable = { parliament_seat_array^3 < parliament_seat_array^0 }
+					check_variable = { parliament_seat_array^3 < parliament_seat_array^1 }
+					check_variable = { parliament_seat_array^3 < parliament_seat_array^2 }
+				}
+				leader_is_trotskyist = yes
+			}
+		}
+	}
+	mean_time_to_happen = {
+		days = 5
+	}
+	#fire_only_once = yes
+	option = {
+		name = RCM_comchina_decisions.1.a
+		ai_chance = {
+			factor = 1
+		}		
+		activate_mission = RCM_minority_rule_mission		
+	}
+}
+#minority rule loop
+country_event = {
+	id = RCM_comchina_decisions.2
+	title = RCM_comchina_decisions.2.t
+	desc = RCM_comchina_decisions.2.d
+	picture = GFX_report_event_communist_conference
+	is_triggered_only = yes
+	immediate = {
+		set_global_flag = minority_rule_ongoing
+	}
+	#fire_only_once = yes
+	option = {
+		name = RCM_comchina_decisions.2.a
+		ai_chance = {
+			factor = 2
+		}
+		clr_global_flag = minority_rule_ongoing
+		if = {
+			limit = {
+				has_stability < 0.15
+			}
+			if = {
+				limit = {
+					AND = {
+						OR = {
+							check_variable = { parliament_seat_array^0 < parliament_seat_array^1 }
+							check_variable = { parliament_seat_array^0 < parliament_seat_array^2 }
+							check_variable = { parliament_seat_array^0 < parliament_seat_array^3 }
+						}
+						leader_is_zhang_guotao = yes
+					}
+				}
+				country_event = RCM_comchina_decisions.3
+			}
+			else_if = {
+				limit = {
+					 AND = {
+						OR = {
+							check_variable = { parliament_seat_array^1 < parliament_seat_array^0 }
+							check_variable = { parliament_seat_array^1 < parliament_seat_array^2 }
+							check_variable = { parliament_seat_array^1 < parliament_seat_array^3 }
+						}
+						leader_is_maoist = yes
+					}
+				}
+				country_event = RCM_comchina_decisions.4
+			}
+			else_if = {
+				limit = {
+					AND = {
+						OR = {
+							check_variable = { parliament_seat_array^2 < parliament_seat_array^0 }
+							check_variable = { parliament_seat_array^2 < parliament_seat_array^1 }
+							check_variable = { parliament_seat_array^2 < parliament_seat_array^3 }
+						}
+						leader_is_28b = yes
+					}    
+				}
+				country_event = RCM_comchina_decisions.5
+			}
+			else_if = {
+				limit = {
+					AND = {
+						OR = {
+							check_variable = { parliament_seat_array^3 < parliament_seat_array^0 }
+							check_variable = { parliament_seat_array^3 < parliament_seat_array^1 }
+							check_variable = { parliament_seat_array^3 < parliament_seat_array^2 }
+						}
+						leader_is_trotskyist = yes
+					}
+				}
+				country_event = RCM_comchina_decisions.6
+			}
+		}
+		else = {
+			activate_mission = RCM_minority_rule_mission
+			add_stability = -0.035
+		}
+	}
+}
+#zhang stages a coup
+country_event = {
+	id = RCM_comchina_decisions.3
+	title = RCM_comchina_decisions.3.t
+	desc = RCM_comchina_decisions.3.d
+	picture = GFX_report_event_zhang_guotao
+	is_triggered_only = yes
+	#fire_only_once = yes
+	option = {
+		name = RCM_comchina_decisions.3.a
+		ai_chance = {
+			factor = 3
+		}
+		retire_country_leader = yes
+		PRC_zhang_guotao = {
+			add_country_leader_role = {
+				country_leader = {
+					expire = "1965.1.1"
+					ideology = marxism
+					desc=PRC_zhang_guotao_desc
+					traits = {
+					comintern_celebrity #guo
+					RCM_propaganda_expert
+					dangdeyuanlao
+					}
+				}
+				promote_leader = yes
+			}   
+		} 
+		#add_country_leader_trait = {
+		#	ideology = marxism
+		#	trait = cornered_fox
+		#}
+		#create_country_leader = {
+		#	name = "Zhang Guotao"
+		#	desc = "POLITICS_Zhang_Guotao_DESC"
+		#	picture = "Portrait_China_Zhang_Guotao.dds"
+		#	expire = "1965.1.1"
+		#	ideology = marxism
+		#	traits = { red_army_organizer }
+		#}
+	}
+}
+#maoists stage a coup
+country_event = {
+	id = RCM_comchina_decisions.4
+	title = RCM_comchina_decisions.4.t
+	desc = RCM_comchina_decisions.4.d
+	picture = GFX_report_event_communist_conference
+	is_triggered_only = yes
+	#fire_only_once = yes
+	option = {
+		name = RCM_comchina_decisions.4.a
+		ai_chance = {
+			factor = 4
+		}
+		retire_country_leader = yes
+		if = {
+			limit ={
+				OR = {
+					check_variable = { parliament_seat_array_adjusted^1 > 0 }
+					has_country_leader = { character = prc_zhang_wentian ruling_only = yes }
+				}
+				has_global_flag = Zhang_Wentian_as_maoist_leader
+			}
+			prc_zhang_wentian = {
+		        add_country_leader_role = {
+			        country_leader = {
+				        expire = "1965.1.1"
+				        ideology = marxism
+						desc=prc_zhang_wentian_desc
+				        traits = {
+						appeaser
+				        }
+			        }
+			        promote_leader = yes
+			    }   
+		    } 
+			
+			#create_country_leader = {
+			#	name = "Zhang Wentian"
+			#	desc = "POLITICS_MAO_ZEDONG_DESC"
+			#	picture = "Zhang_Wentian.dds"
+			#	expire = "1965.1.1"
+			#	ideology = marxism
+			#	traits = {
+			#		cornered_fox
+			#	}
+			#}
+		}
+		else = {
+			promote_character = prc_mao_zedong #guo
+			#add_country_leader_trait = {
+			#	ideology = maoism
+			#	trait = cornered_fox
+			#}
+			#create_country_leader = {
+			#	name = "Mao Zedong"
+			#	desc = "POLITICS_MAO_ZEDONG_DESC"
+			#	picture = "Portrait_China_Mao_Zedong.dds"
+			#	expire = "1965.1.1"
+			#	ideology = maoism
+			#	traits = {
+			#		
+			#	}
+			#}
+		}
+		
+	}
+}
+#28b stages a coup
+country_event = {
+	id = RCM_comchina_decisions.5
+	title = RCM_comchina_decisions.5.t
+	desc = RCM_comchina_decisions.5.d
+	picture = GFX_report_event_communist_conference
+	is_triggered_only = yes
+	#fire_only_once = yes
+	option = {
+		name = RCM_comchina_decisions.5.a
+		ai_chance = {
+			factor = 5
+		}
+		retire_country_leader = yes
+		if = {
+			limit ={
+				OR = {
+					check_variable = { parliament_seat_array_adjusted^2 > 0 }
+					has_country_leader = { character = prc_bo_gu ruling_only = yes }
+				}			
+				OR = {
+					NOT = { has_global_flag = PRC_wang_ming_returned_flag }
+					has_completed_focus = PRC_reunite_the_group_of_three_focus
+				}
+			}
+			prc_bo_gu = {
+				add_country_leader_role = {
+					country_leader = {
+						expire = "1965.1.1"
+						ideology = marxism
+						desc=prc_bo_gu_desc
+						traits = { #guo
+					    comintern_celebrity
+					    propaganda_expert
+					    dangdelilunxuanchuanjia
+					    }
+					}
+					promote_leader = yes
+				}   
+			}
+			#create_country_leader = {
+			#	name = "Bo Gu"
+			#	desc = "POLITICS_WANG_MING_DESC"
+			#	picture = "gfx/leaders/PRC/Portrait_China_Bo_Gu.dds"
+			#	expire = "1965.1.1"
+			#	ideology = marxism
+			#	traits = {
+			#	}
+			#}
+		}
+		else = {
+			prc_wang_ming = {
+				add_country_leader_role = {
+					country_leader = {
+						expire = "1965.1.1"
+						ideology = stalinism
+						desc=prc_wang_ming_desc
+						traits = { #guo
+						stalins_puppet
+					    comintern_celebrity
+					    legitimate_heir
+						staunch_stalinist
+					    }
+					}
+					promote_leader = yes
+				}   
+			}
+			#create_country_leader = {
+			#	name = "Wang Ming"
+			#	desc = "POLITICS_WANG_MING_DESC"
+			#	picture = "gfx/leaders/PRC/Portrait_China_Wang_Ming.dds"
+			#	expire = "1965.1.1"
+			#	ideology = marxism
+			#	traits = {
+			#	}
+			#}
+		}
+	}
+}
+#trotskyist stages a coup
+country_event = {
+	id = RCM_comchina_decisions.6
+	title = RCM_comchina_decisions.6.t
+	desc = RCM_comchina_decisions.6.d
+	picture = GFX_report_event_trotskyists
+	is_triggered_only = yes
+	#fire_only_once = yes
+	option = {
+		name = RCM_comchina_decisions.6.a
+		ai_chance = {
+			factor = 6
+		}
+		retire_country_leader = yes
+		if = {
+			limit ={
+				OR = {
+					check_variable = { parliament_seat_array_adjusted^3 > 0 }
+					has_country_leader = { character = prc_chen_duxiu ruling_only = yes }
+				}
+				has_global_flag = chen_accepts_to_join_party
+			}
+			prc_chen_duxiu = {
+		        add_country_leader_role = {
+			        country_leader = {
+				        expire = "1965.1.1"
+				        ideology = trotskyism
+						desc=prc_chen_duxiu_desc
+				        traits = { permanent_revolutionary revolutionary_author } #guo
+			        }
+			        promote_leader = yes
+			    }   
+		    } 
+			add_country_leader_trait = {
+				ideology = trotskyism
+				trait = permanent_revolutionary
+			}
+			#create_country_leader = {
+			#	name = "Chen Duxiu"
+			#	desc = "POLITICS_CHEN_DUXIU_DESC"
+			#	picture = "Portrait_China_Chen_Duxiu.dds"
+			#	expire = "1965.1.1"
+			#	ideology = trotskyism
+			#	traits = { permanent_revolutionary }
+			#}
+		}
+		else = {
+			set_global_flag = Peng_reentry_CCP
+			prc_peng_shuzhi = {
+		        add_country_leader_role = {
+			        country_leader = {
+				        expire = "1965.1.1"
+				        ideology = trotskyism
+						desc=prc_peng_shuzhi_desc
+				        traits = { permanent_revolutionary revolutionary_author } #guo
+			        }
+			        promote_leader = yes
+			    }   
+		    } 
+			#create_country_leader = {
+			#	name = "Peng Shuzhi"
+			#	desc = "POLITICS_PENG_SHUZHI_DESC"
+			#	picture = "Portrait_China_Peng_Shuzhi.dds"
+			#	expire = "1965.1.1"
+			#	ideology = trotskyism
+			#	traits = {  }
+			#}
+		}
+	}
+}
+
+
+
+#
+#decisions events
+#Wang ming demand
+country_event = {
+	id = RCM_comchina_decisions.7
+	title = RCM_comchina_decisions.7.t
+	desc = RCM_comchina_decisions.7.d
+	picture = GFX_report_event_wang_ming
+	trigger = {
+		NOT = {
+			has_completed_focus = PRC_demand_another_politburo_meeting_focus
+		}
+		tag = event_target:WTT_communist_china
+		date > 1938.1.25
+		has_completed_focus = PRC_End_of_Long_March
+		NOT = {
+			has_active_mission = RCM_wang_ming_demand_meeting_mission
+		}
+		
+		has_idea = changjiang_bureau
+	}
+	mean_time_to_happen = {
+		days = 2
+	}
+	option = {
+		name = RCM_comchina_decisions.7.a
+		ai_chance = {
+			factor = 1
+		}		
+		activate_mission = RCM_wang_ming_demand_meeting_mission		
+	}
+}
+#minority rule loop
+country_event = {
+	id = RCM_comchina_decisions.8
+	title = RCM_comchina_decisions.8.t
+	desc = RCM_comchina_decisions.8.d
+	picture = GFX_report_event_wang_ming
+	is_triggered_only = yes
+	immediate = {
+		set_global_flag = wang_ming_mission_ongoing
+	}
+	#fire_only_once = yes
+	option = {
+		name = RCM_comchina_decisions.8.a
+		ai_chance = {
+			factor = 2
+		}
+		clr_global_flag = wang_ming_mission_ongoing		
+		activate_mission = RCM_wang_ming_demand_meeting_mission
+		if = {
+			limit = {
+				check_variable = { count_wang_ming < 4 }
+			}
+			add_days_mission_timeout  = {
+				mission = RCM_wang_ming_demand_meeting_mission
+				days = -30
+			}
+		}
+		set_temp_variable = { temp_member = 3 }
+		set_temp_variable = { temp_seats = 0.05 tooltip = TEB_faction_support_tt }
+										#percentage
+		modify_parliament_seat = yes
+		add_stability = -0.05
+        add_political_power = -75
+				
+				if = {
+				limit = { leader_is_maoist = yes }
+				set_temp_variable = { temp_member = 2 }
+				set_temp_variable = { temp_seats = -0.05 tooltip = MAOIST_faction_support_tt }
+										#percentage
+				modify_parliament_seat = yes
+				}
+	}
+}

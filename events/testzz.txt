@@ -1,0 +1,77 @@
+add_namespace = testzz
+
+country_event = {
+	id = testzz.2
+	title = testzz.2.t
+	desc = testzz.2.desc
+	fire_only_once = no
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		
+	}
+	
+	trigger = {
+		
+	}
+	
+	option = {
+		#CHI = { every_unit_leader = { set_nationality = root } }
+		#complete_national_focus = tzxx_PRC_eastern_Expedition
+		activate_mission = PRC_kuodadongzheng_mission
+		#remove_mission = PRC_kuodadongzheng_mission
+	}
+}
+	
+country_event = {
+	id = testzz.1
+	title = testzz.1.t
+	desc = testzz.1.desc
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+	
+	trigger = {
+	tag = BHU
+	date > 1937.7.7
+	}
+	
+	option = {
+		name = testzz.1.a
+		ai_chance = {
+			base = 100
+		}
+		add_equipment_to_stockpile = {
+						type = convoy
+						amount = 250
+						producer = USA
+					}
+	}
+}
+
+country_event = {
+	id = testzz.3
+	title = testzz.3.t
+	desc = testzz.3.desc
+	fire_only_once = no
+	
+	is_triggered_only = yes
+	
+	trigger = {
+	    exists = yes
+	}
+	
+	immediate = {
+	    #every_owned_state = { add_core_of = root }
+		#complete_national_focus = CHI_counterattack_the_mainland
+	}
+	
+	option = {
+	    set_politics = {
+				ruling_party = communism
+				elections_allowed = yes
+				election_frequency = 60
+			}
+	}
+}

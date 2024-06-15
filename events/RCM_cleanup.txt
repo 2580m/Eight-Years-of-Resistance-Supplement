@@ -1,0 +1,436 @@
+﻿add_namespace = MONCLN
+
+#Японская Монголия
+country_event = {
+	id = MONCLN.1
+	title = MONCLN.1.t
+	desc = MONCLN.1.d
+	picture = GFX_report_event_japan_europe_pact
+	fire_only_once = yes
+	
+	trigger = {
+		tag = JAP
+		ECA = { is_puppet_of = JAP }
+		OR = {
+			MON = { is_puppet_of = JAP }
+			330 = { is_controlled_by = JAP }
+			330 = {
+				controller = { is_puppet_of = JAP }
+			}
+		}
+	}
+	mean_time_to_happen = {
+		days = 7
+	}
+	option = {
+		name = MONCLN.1.a
+		hidden_effect = {
+			ECA = {
+				set_cosmetic_tag = MEN_MON
+				set_capital = { state = 330 }
+				annex_country = { target = MON transfer_troops = yes }
+				add_country_leader_trait = cooperative_leader
+				add_state_core = 330
+				add_state_core = 621
+				add_state_core = 746
+				add_state_core = 1019
+				add_state_core = 1020
+				add_state_core = 1014
+				add_state_core = 616
+				add_state_core = 618
+				add_state_core = 1054
+				add_state_core = 817
+				add_state_core = 818
+				add_state_core = 1025
+				add_state_core = 1026
+				add_state_core = 819
+				add_state_core = 820
+				add_state_core = 1024
+				add_state_core = 1018
+			}
+			if = {
+				limit = {
+					OR = {
+						330 = { is_controlled_by = JAP }
+						330 = { controller = { is_puppet_of = JAP } }
+					}
+				}
+				ECA = { transfer_state = 330 }
+			}
+			if = {
+				limit = {
+					OR = {
+						611 = { is_controlled_by = JAP }
+						611 = { controller = { is_puppet_of = JAP } }
+					}
+				}
+				ECA = { transfer_state = 611 }
+			}
+			if = {
+				limit = {
+					OR = {
+						612 = { is_controlled_by = JAP }
+						612 = { controller = { is_puppet_of = JAP } }
+					}
+				}
+				ECA = { transfer_state = 612 }
+			}
+			if = {
+				limit = {
+					OR = {
+						621 = { is_controlled_by = JAP }
+						621 = { controller = { is_puppet_of = JAP } }
+					}
+				}
+				ECA = { transfer_state = 621 }
+			}
+			if = {
+				limit = {
+					OR = {
+						746 = { is_controlled_by = JAP }
+						746 = { controller = { is_puppet_of = JAP } }
+					}
+				}
+				ECA = { transfer_state = 746 }
+			}
+			if = {
+				limit = {
+					OR = {
+						1019 = { is_controlled_by = JAP }
+						1019 = { controller = { is_puppet_of = JAP } }
+					}
+				}
+				ECA = { transfer_state = 1019 }
+			}
+			if = {
+				limit = {
+					OR = {
+						1020 = { is_controlled_by = JAP }
+						1020 = { controller = { is_puppet_of = JAP } }
+					}
+				}
+				ECA = { transfer_state = 1020 }
+			}
+			if = {
+				limit = {
+					OR = {
+						1014 = { is_controlled_by = JAP }
+						1014 = { controller = { is_puppet_of = JAP } }
+					}
+				}
+				ECA = { transfer_state = 1014 }
+			}
+			if = {
+				limit = {
+					OR = {
+						616 = { is_controlled_by = JAP }
+						616 = { controller = { is_puppet_of = JAP } }
+					}
+				}
+				ECA = { transfer_state = 616 }
+			}
+			if = {
+				limit = {
+					OR = {
+						618 = { is_controlled_by = JAP }
+						618 = { controller = { is_puppet_of = JAP } }
+					}
+				}
+				ECA = { transfer_state = 618 }
+			}
+			if = {
+				limit = {
+					OR = {
+						1054 = { is_controlled_by = JAP }
+						1054 = { controller = { is_puppet_of = JAP } }
+					}
+				}
+				ECA = { transfer_state = 1054 }
+			}
+			if = {
+				limit = {
+					OR = {
+						817 = { is_controlled_by = JAP }
+						817 = { controller = { is_puppet_of = JAP } }
+					}
+				}
+				ECA = { transfer_state = 817 }
+			}
+			if = {
+				limit = {
+					OR = {
+						818 = { is_controlled_by = JAP }
+						818 = { controller = { is_puppet_of = JAP } }
+					}
+				}
+				ECA = { transfer_state = 818 }
+			}
+			if = {
+				limit = {
+					OR = {
+						1025 = { is_controlled_by = JAP }
+						1025 = { controller = { is_puppet_of = JAP } }
+					}
+				}
+				ECA = { transfer_state = 1025 }
+			}
+			if = {
+				limit = {
+					OR = {
+						1026 = { is_controlled_by = JAP }
+						1026 = { controller = { is_puppet_of = JAP } }
+					}
+				}
+				ECA = { transfer_state = 1026 }
+			}
+			if = {
+				limit = {
+					OR = {
+						819 = { is_controlled_by = JAP }
+						819 = { controller = { is_puppet_of = JAP } }
+					}
+				}
+				ECA = { transfer_state = 819 }
+			}
+			if = {
+				limit = {
+					OR = {
+						820 = { is_controlled_by = JAP }
+						820 = { controller = { is_puppet_of = JAP } }
+					}
+				}
+				ECA = { transfer_state = 820 }
+			}
+			if = {
+				limit = {
+					OR = {
+						1024 = { is_controlled_by = JAP }
+						1024 = { controller = { is_puppet_of = JAP } }
+					}
+				}
+				ECA = { transfer_state = 1024 }
+			}
+			if = {
+				limit = {
+					OR = {
+						1018 = { is_controlled_by = JAP }
+						1018 = { controller = { is_puppet_of = JAP } }
+					}
+				}
+				ECA = { transfer_state = 1018 }
+			}
+			set_province_name = { id = 4801 name = "Urga" }
+		}
+	}
+	option = {
+		name = MONCLN.1.b
+	}
+}
+#Судьба Чойбалсана
+country_event = {
+	id = MONCLN.2
+	title = MONCLN.2.t
+	desc = MONCLN.2.d
+	picture = GFX_report_event_japan_europe_pact
+	fire_only_once = yes
+	
+	trigger = {
+		tag = MON
+		NOT = { 
+			has_government = communism 
+			has_country_flag = MAN_split
+		}
+	}
+	mean_time_to_happen = {
+		days = 7
+	}
+	option = {
+		name = MONCLN.2.a
+		if = {
+			limit = {
+				has_character = MON_khorloogiin_choibalsan
+			}
+			retire_character = MON_khorloogiin_choibalsan
+		}
+		add_popularity = { ideology = communism popularity = -0.1 }
+		add_stability = 0.05
+		army_experience = -5
+		set_country_flag = MON_communists_purged
+	}
+	option = {
+		name = MONCLN.2.b
+	}
+}
+#Богдо-гэгэн при смене режима
+country_event = {
+	id = MONCLN.3
+	title = MONCLN.3.t
+	desc = MONCLN.3.d
+	picture = GFX_report_event_japan_europe_pact
+	fire_only_once = yes
+	
+	trigger = {
+		tag = MON
+		has_country_flag = bogd_khan
+		OR = { 
+			AND = {
+				has_government = democratic 
+				NOT = { has_country_flag = constitutinal_monarchy }
+			}
+			AND = {
+				has_government = neutrality
+				has_country_flag = whie_mongolia
+			}
+		}
+	}
+	mean_time_to_happen = {
+		days = 60
+	}
+	option = {
+		name = MONCLN.3.a
+		trigger = { has_government = democratic }
+		add_political_power = 50
+		clr_country_flag = bogd_khan
+	}
+	option = {
+		name = MONCLN.3.b
+		trigger = { has_government = democratic }
+		add_ideas = MON_bogd_khan
+		set_cosmetic_tag = MON_const
+		set_country_flag = constitutinal_monarchy
+	}
+	option = {
+		name = MONCLN.3.c
+		trigger = { has_government = neutrality }
+		add_political_power = 50
+		clr_country_flag = bogd_khan
+	}
+	option = {
+		name = MONCLN.3.dd
+		trigger = { has_government = neutrality }
+		add_ideas = MON_bogd_khan
+	}
+}
+#Марионеточные Ма присоединяются к КНР
+country_event = {
+	id = MONCLN.4
+	title = MONCLN.4.t
+	desc = MONCLN.4.d
+	picture = GFX_report_event_japan_europe_pact
+	fire_only_once = yes
+	
+	trigger = {
+		tag = PRC
+		XSM = {
+			is_ai = yes
+			has_government = communism
+			is_puppet_of = PRC
+			has_war = no
+		}
+	}
+	mean_time_to_happen = {
+		days = 150
+	}
+	option = {
+		name = MONCLN.4.a
+		annex_country = { target = XSM transfer_troops = yes }
+		create_corps_commander = {
+			name = "Ma Hongbin"
+			portrait_path = "gfx/leaders/NXM/Portrait_NXM_Ma_Hongbin.dds"
+			traits = {
+			}
+			skill = 2
+		}
+	}
+}
+#Марионеточный Мэнцзян присоединяется к Монголии
+country_event = {
+	id = MONCLN.5
+	title = MONCLN.5.t
+	desc = MONCLN.5.d
+	picture = GFX_report_event_japan_europe_pact
+	fire_only_once = yes
+	
+	trigger = {
+		tag = MON
+		ECA = {
+			is_ai = yes
+			is_puppet_of = MON
+			has_war = no
+		}
+	}
+	mean_time_to_happen = {
+		days = 150
+	}
+	option = {
+		name = MONCLN.5.a
+		annex_country = { target = ECA transfer_troops = yes }
+	}
+}
+
+#Монголия может присоединиться вместе с Тувой
+country_event = {
+	id = MONCLN.6
+	title = MONCLN.6.t
+	desc = MONCLN.6.d
+	picture = GFX_report_event_japan_europe_pact
+	fire_only_once = yes
+	
+	trigger = {
+		tag = MON
+		has_completed_focus = MON_SOV_focus
+		is_ai = yes
+		SOV = { has_completed_focus = SOV_annex_tannu_tuva }
+		TAN = { exists = no }
+	}
+	option = {
+		name = MONCLN.6.a
+		ai_chance = { 
+			factor = 0
+		}
+		SOV = { annex_country = { target = MON transfer_troops = yes } }
+		every_state = {
+			limit = {
+				is_core_of = MON
+			}
+			add_core_of = SOV
+		}
+	}
+	option = {
+		name = MONCLN.6.b
+		ai_chance = { 
+			factor = 100
+		}
+		add_political_power = 100
+	}
+}
+
+#Чойбалсан - марионетка СССР
+country_event = {
+	id = MONCLN.7
+	fire_only_once = yes
+	hidden = yes
+    is_triggered_only = yes ###
+
+	trigger = {
+		tag = MON
+		is_puppet_of = SOV
+		has_completed_focus = MON_repressions
+		SOV = { has_government = communism }
+		NOT = { has_country_flag = MON_communists_purged }
+	    always = no ###
+	}
+
+	immediate = {
+		create_country_leader = {
+			name = MON_khorloogiin_choibalsan
+			desc = "POLITICS_KHORLOOGIIN_CHOIBALSAN_DESC"
+			picture = "gfx/leaders/MON/Portrait_MON_Khorloogiin_Choibalsan.dds"
+			expire = "1952.1.1"
+			ideology = stalinism
+			traits = {
+				dictator
+			}
+		}
+	}
+}

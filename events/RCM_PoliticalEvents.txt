@@ -1,0 +1,2016 @@
+﻿###########################
+# Political Events
+###########################
+
+add_namespace = rcmpolitical
+#####Political Consultative Assembly####
+
+#ask PRC to comply
+country_event = {
+	id = rcmpolitical.23
+	title = rcmpolitical.23.t
+	desc = rcmpolitical.23.d
+	picture = GFX_report_event_gathering_protest
+	is_triggered_only = yes #triggered by the PCA focus
+	fire_only_once = yes
+	trigger = {
+		country_exists = event_target:WTT_communist_china
+	}
+	immediate = {
+
+	}
+
+	option = { #PRC gets PCA
+		name = rcmpolitical.23.a
+		event_target:WTT_communist_china = {
+			country_event = rcmpolitical.24
+		}
+		if = {
+			limit = {
+				is_historical_focus_on = yes
+			}
+			custom_effect_tooltip = it_is_unlikely_they_will_comply_tt
+			else = {
+				custom_effect_tooltip = comply_or_not_base_on_how_strong_we_are_compared_to_them_tt
+			}
+		}
+	}
+}
+country_event = { #to PRC
+	id = rcmpolitical.24
+	title = rcmpolitical.24.t
+	desc = rcmpolitical.24.d
+	picture = GFX_report_event_gathering_protest
+	is_triggered_only = yes #triggered by the PCA focus
+	fire_only_once = yes
+	immediate = {
+
+	}
+
+	option = { #COMPLY
+		name = rcmpolitical.24.a
+		#trigger = { #poll says no
+		#	NOT = { #mao can't go this one
+		#		has_idea = PRC_autonomy_over_unity_idea
+		#	}
+		#}
+		ai_chance = {
+			base = 0
+			modifier = {
+				add = 1
+				NOT = {
+					has_game_rule = {
+						rule = PCA_AI_BEHAVIOR
+						option = HISTORICAL
+					}
+				}
+				OR = {
+					is_historical_focus_on = no
+					has_game_rule = {
+						rule = PCA_AI_BEHAVIOR
+						option = STRENGTH_BASED
+					}
+				}
+			}
+			modifier = {
+				factor = 5
+				strength_ratio = {
+				    tag = event_target:WTT_current_china_leader
+				    ratio < 0.4
+				}
+			}
+			modifier = {
+				factor = 15
+				strength_ratio = {
+				    tag = event_target:WTT_current_china_leader
+				    ratio < 0.3
+				}
+			}
+			modifier = {
+				factor = 25
+				strength_ratio = {
+				    tag = event_target:WTT_current_china_leader
+				    ratio < 0.2
+				}
+			}
+			modifier = {
+				factor = 40
+				strength_ratio = {
+				    tag = event_target:WTT_current_china_leader
+				    ratio < 0.1
+				}
+			}
+			modifier = {
+				add = 100
+				has_game_rule = {
+					rule = PCA_AI_BEHAVIOR
+					option = ALWAYS_CONCEDE
+				}
+			}
+			modifier = {
+				factor = 0
+				has_game_rule = {
+					rule = PCA_AI_BEHAVIOR
+					option = NEVER_CONCEDE
+				}
+			}
+			modifier = {
+				factor = 0
+				has_game_rule = {
+					rule = PCA_AI_BEHAVIOR
+					option = COMPROMISE #reject first, but no suprise attack
+				}
+			}
+			modifier = {
+				factor = 0
+				has_game_rule = {
+					rule = PCA_AI_BEHAVIOR
+					option = HISTORICAL 
+				}
+			}
+		}
+		custom_effect_tooltip = you_can_subvert_china_without_civil_war_but_difficult_tt
+		FROM = {			
+			country_event = rcmpolitical.28
+			effect_tooltip = {
+				add_war_support_add_commie_leader = yes
+				every_unit_leader = {
+					limit = {
+						OWNER = { TAG = ROOT }
+					}
+					set_unit_leader_flag = former_communist_forces #return when wars break out
+					set_nationality = FROM
+				}
+				annex_from_change_party_name_boost_commie_popularity = yes
+			}
+		}
+	}
+	option = { #NO
+		name = rcmpolitical.24.b
+		#trigger = { #poll says no
+		#	NOT = { #Wang can't go this one
+		#		has_idea = PRC_unity_over_autonomy_idea
+		#	}
+		#}
+		ai_chance = {
+			base = 100
+			modifier = {
+				factor = 0.95
+				strength_ratio = {
+				    tag = event_target:WTT_current_china_leader
+				    ratio < 0.4
+				}
+				NOT = {
+					has_game_rule = {
+						rule = PCA_AI_BEHAVIOR
+						option = HISTORICAL
+					}
+				}
+				OR = {
+					is_historical_focus_on = no
+					has_game_rule = {
+						rule = PCA_AI_BEHAVIOR
+						option = STRENGTH_BASED
+					}
+				}
+			}
+			modifier = {
+				factor = 0.85
+				strength_ratio = {
+				    tag = event_target:WTT_current_china_leader
+				    ratio < 0.3
+				}
+				NOT = {
+					has_game_rule = {
+						rule = PCA_AI_BEHAVIOR
+						option = HISTORICAL
+					}
+				}
+				OR = {
+					is_historical_focus_on = no
+					has_game_rule = {
+						rule = PCA_AI_BEHAVIOR
+						option = STRENGTH_BASED
+					}
+				}
+			}
+			modifier = {
+				factor = 0.75
+				strength_ratio = {
+				    tag = event_target:WTT_current_china_leader
+				    ratio < 0.2
+				}
+				NOT = {
+					has_game_rule = {
+						rule = PCA_AI_BEHAVIOR
+						option = HISTORICAL
+					}
+				}
+				OR = {
+					is_historical_focus_on = no
+					has_game_rule = {
+						rule = PCA_AI_BEHAVIOR
+						option = STRENGTH_BASED
+					}
+				}
+			}
+			modifier = {
+				factor = 0.75
+				strength_ratio = {
+				    tag = event_target:WTT_current_china_leader
+				    ratio < 0.1
+				}
+				NOT = {
+					has_game_rule = {
+						rule = PCA_AI_BEHAVIOR
+						option = HISTORICAL
+					}
+				}
+				OR = {
+					is_historical_focus_on = no
+					has_game_rule = {
+						rule = PCA_AI_BEHAVIOR
+						option = STRENGTH_BASED
+					}
+				}
+			}
+			modifier = {
+				factor = 0
+				has_completed_focus = CHI_revive_new_culture_movement_focus #new culture always comply
+			}
+			modifier = {
+				factor = 0
+				has_game_rule = {
+					rule = PCA_AI_BEHAVIOR
+					option = ALWAYS_CONCEDE
+				}
+			}
+			modifier = {
+				add = 100
+				has_game_rule = {
+					rule = PCA_AI_BEHAVIOR
+					option = NEVER_CONCEDE
+				}
+			}
+			modifier = {
+				add = 100
+				has_game_rule = {
+					rule = PCA_AI_BEHAVIOR
+					option = COMPROMISE #reject first, but no suprise attack
+				}
+			}
+			modifier = {
+				add = 100
+				has_game_rule = {
+					rule = PCA_AI_BEHAVIOR
+					option = HISTORICAL 
+				}
+			}
+		}
+		custom_effect_tooltip = THIS_IS_HISTORICAL_TT
+		FROM = {
+			country_event = rcmpolitical.25
+		}
+		if = {
+			limit = {
+				is_historical_focus_on = yes
+			}
+			custom_effect_tooltip = it_is_unlikely_they_will_concede_tt
+			else = {
+				custom_effect_tooltip = nationalists_will_choose_to_concede_or_not_base_on_how_strong_we_are_compared_to_them_tt
+			}
+		}
+		custom_effect_tooltip = this_could_lead_to_war_tt
+		custom_effect_tooltip = blank_line
+		custom_effect_tooltip = if_they_concede_tt
+		custom_effect_tooltip = we_will_have_the_choice_to_proceed_with_civil_war_or_not_tt
+		custom_effect_tooltip = if_we_choose_to_join_their_government_tt
+		custom_effect_tooltip = you_can_subvert_china_without_civil_war_tt
+		effect_tooltip = { #COmmunist joins
+			allow_elections_scripted_effect = yes
+			add_war_support_add_commie_leader = yes
+			every_unit_leader = {
+				limit = {
+					OWNER = { TAG = event_target:WTT_communist_china }
+				}
+				set_unit_leader_flag = former_communist_forces #return when wars break out
+				set_nationality = ROOT
+			}
+			annex_from_change_party_name_boost_commie_popularity = yes
+		}
+	}
+}
+
+#Commies refuses
+country_event = {
+	id = rcmpolitical.25
+	title = {
+		trigger = {
+			OR = {
+				NOT = { has_global_flag = cdl_founded }
+				has_completed_focus = CHI_revive_new_culture_movement_focus
+			}
+		}
+		text = rcmpolitical.25.t
+	}
+	title = {
+		trigger = {
+			has_global_flag = cdl_founded
+			NOT = {
+				has_completed_focus = CHI_revive_new_culture_movement_focus
+			}
+		}
+		text = rcmpolitical.25.t_cdl
+	}
+	desc = {
+		trigger = {
+			OR = {
+				NOT = { has_global_flag = cdl_founded }
+				has_completed_focus = CHI_revive_new_culture_movement_focus
+			}
+		}
+		text = rcmpolitical.25.d
+	}
+	desc = {
+		trigger = {
+			has_global_flag = cdl_founded
+			NOT = {
+				has_completed_focus = CHI_revive_new_culture_movement_focus
+			}
+		}
+		text = rcmpolitical.25.d_cdl
+	}
+	picture = GFX_report_event_gathering_protest
+	is_triggered_only = yes
+	fire_only_once = yes
+	immediate = {
+
+	}
+	option = { #outlaw CDL
+		name = rcmpolitical.25.a
+		trigger = {
+			has_global_flag = cdl_founded
+			NOT = {
+				has_completed_focus = CHI_revive_new_culture_movement_focus
+			}
+		}
+		ai_chance = {
+			base = 100
+			modifier = {
+				factor = 0.85
+				strength_ratio = {
+				    tag = event_target:WTT_communist_china
+				    ratio < 1.5
+				}
+				NOT = {
+					has_game_rule = {
+						rule = PCA_AI_BEHAVIOR
+						option = HISTORICAL
+					}
+				}
+				OR = {
+					is_historical_focus_on = no
+					has_game_rule = {
+						rule = PCA_AI_BEHAVIOR
+						option = STRENGTH_BASED
+					}
+				}
+			}
+			modifier = {
+				factor = 0.85
+				strength_ratio = {
+				    tag = event_target:WTT_communist_china
+				    ratio < 1.2
+				}
+				NOT = {
+					has_game_rule = {
+						rule = PCA_AI_BEHAVIOR
+						option = HISTORICAL
+					}
+				}
+				OR = {
+					is_historical_focus_on = no
+					has_game_rule = {
+						rule = PCA_AI_BEHAVIOR
+						option = STRENGTH_BASED
+					}
+				}
+			}
+			modifier = {
+				factor = 0.85
+				strength_ratio = {
+				    tag = event_target:WTT_communist_china
+				    ratio < 1
+				}
+				NOT = {
+					has_game_rule = {
+						rule = PCA_AI_BEHAVIOR
+						option = HISTORICAL
+					}
+				}
+				OR = {
+					is_historical_focus_on = no
+					has_game_rule = {
+						rule = PCA_AI_BEHAVIOR
+						option = STRENGTH_BASED
+					}
+				}
+			}
+			modifier = {
+				factor = 0.85
+				strength_ratio = {
+				    tag = event_target:WTT_communist_china
+				    ratio < 0.8
+				}
+				NOT = {
+					has_game_rule = {
+						rule = PCA_AI_BEHAVIOR
+						option = HISTORICAL
+					}
+				}
+				OR = {
+					is_historical_focus_on = no
+					has_game_rule = {
+						rule = PCA_AI_BEHAVIOR
+						option = STRENGTH_BASED
+					}
+				}
+			}
+			modifier = {
+				factor = 0.85
+				strength_ratio = {
+				    tag = event_target:WTT_communist_china
+				    ratio < 0.7
+				}
+				NOT = {
+					has_game_rule = {
+						rule = PCA_AI_BEHAVIOR
+						option = HISTORICAL
+					}
+				}
+				OR = {
+					is_historical_focus_on = no
+					has_game_rule = {
+						rule = PCA_AI_BEHAVIOR
+						option = STRENGTH_BASED
+					}
+				}
+			}
+			modifier = {
+				factor = 0.85
+				strength_ratio = {
+				    tag = event_target:WTT_communist_china
+				    ratio < 0.6
+				}
+				NOT = {
+					has_game_rule = {
+						rule = PCA_AI_BEHAVIOR
+						option = HISTORICAL
+					}
+				}
+				OR = {
+					is_historical_focus_on = no
+					has_game_rule = {
+						rule = PCA_AI_BEHAVIOR
+						option = STRENGTH_BASED
+					}
+				}
+			}
+			modifier = {
+				factor = 0.85
+				strength_ratio = {
+				    tag = event_target:WTT_communist_china
+				    ratio < 0.5
+				}
+				NOT = {
+					has_game_rule = {
+						rule = PCA_AI_BEHAVIOR
+						option = HISTORICAL
+					}
+				}
+				OR = {
+					is_historical_focus_on = no
+					has_game_rule = {
+						rule = PCA_AI_BEHAVIOR
+						option = STRENGTH_BASED
+					}
+				}
+			}
+			modifier = {
+				factor = 0.85
+				strength_ratio = {
+				    tag = event_target:WTT_communist_china
+				    ratio < 0.4
+				}
+				NOT = {
+					has_game_rule = {
+						rule = PCA_AI_BEHAVIOR
+						option = HISTORICAL
+					}
+				}
+				OR = {
+					is_historical_focus_on = no
+					has_game_rule = {
+						rule = PCA_AI_BEHAVIOR
+						option = STRENGTH_BASED
+					}
+				}
+			}
+			modifier = {
+				factor = 0
+				has_completed_focus = CHI_revive_new_culture_movement_focus
+			}
+			modifier = {
+				add = 100
+				has_game_rule = {
+					rule = PCA_AI_BEHAVIOR
+					option = HISTORICAL
+				}
+			}
+			modifier = {
+				factor = 0
+				has_game_rule = {
+					rule = PCA_AI_BEHAVIOR
+					option = ALWAYS_CONCEDE
+				}
+			}
+			modifier = {
+				add = 100
+				has_game_rule = {
+					rule = PCA_AI_BEHAVIOR
+					option = NEVER_CONCEDE
+				}
+			}
+			modifier = {
+				factor = 0
+				has_game_rule = {
+					rule = PCA_AI_BEHAVIOR
+					option = COMPROMISE #reject first, but no suprise attack
+				}
+			}
+			
+			modifier = { #guo
+				factor = 0
+				has_global_flag = PRC_zhangwozhudongquan_flag
+			}
+		}
+		custom_effect_tooltip = THIS_IS_HISTORICAL_TT
+		
+		unlock_decision_tooltip = KMT_attack_prc_first #guo
+		set_global_flag = prc_kmt_meeting_broken #guo
+		event_target:WTT_communist_china = { #guo
+			if = {
+			limit = { has_completed_focus = PRC_zhangwozhudongquan }
+				uncomplete_national_focus = {
+					focus = PRC_zhangwozhudongquan
+				}
+				set_global_flag = kmt_jujue_lianhe
+				mark_focus_tree_layout_dirty = yes
+			}
+		}
+		
+		add_political_power = 50
+		add_stability = -0.20
+		custom_effect_tooltip = CNSP_leaves_CDL_tt
+		hidden_effect = {
+			set_party_name = {
+				ideology = democratic
+				name = CHI_democratic_party
+				long_name = CHI_democratic_party_long
+			}
+			add_popularity = {
+				ideology = democratic
+				popularity = -0.25
+			}
+			if = {
+				limit = {
+					democratic < 0.1
+				}
+				add_popularity = {
+					ideology = democratic
+					popularity = 0.07
+				}
+			}
+		}
+		#declare_war_on = {
+		#	target = event_target:WTT_communist_china
+		#	type = annex_everything
+		#}
+		hidden_effect = { set_country_flag = dongsun_to_cdl }
+		clr_global_flag = cdl_founded
+		remove_ideas = pro_com_demo
+		hidden_effect = {
+			PRC = {
+				country_event = rcmpolitical.27 #notify them CDL joins and add some effect
+				#country_event = { id = prc.3 }
+			}
+			create_country_leader = {
+				name = Xu_Fulin
+				desc = ""
+				picture = "Portrait_CHI_Xu_Fulin.dds"
+				expire = "1965.1.1"
+				ideology = socialism
+				traits = {
+					#
+				}
+			}
+		}
+	}
+	option = { #no cdl, just gommies
+		name = rcmpolitical.25.b
+		trigger = {
+			OR = {
+				NOT = { has_global_flag = cdl_founded }
+				has_completed_focus = CHI_revive_new_culture_movement_focus
+			}
+		}
+		ai_chance = {
+			base = 100
+			modifier = {
+				factor = 0.85
+				strength_ratio = {
+				    tag = event_target:WTT_communist_china
+				    ratio < 1.5
+				}
+				NOT = {
+					has_game_rule = {
+						rule = PCA_AI_BEHAVIOR
+						option = HISTORICAL
+					}
+				}
+				OR = {
+					is_historical_focus_on = no
+					has_game_rule = {
+						rule = PCA_AI_BEHAVIOR
+						option = STRENGTH_BASED
+					}
+				}
+			}
+			modifier = {
+				factor = 0.85
+				strength_ratio = {
+				    tag = event_target:WTT_communist_china
+				    ratio < 1.2
+				}
+				NOT = {
+					has_game_rule = {
+						rule = PCA_AI_BEHAVIOR
+						option = HISTORICAL
+					}
+				}
+				OR = {
+					is_historical_focus_on = no
+					has_game_rule = {
+						rule = PCA_AI_BEHAVIOR
+						option = STRENGTH_BASED
+					}
+				}
+			}
+			modifier = {
+				factor = 0.85
+				strength_ratio = {
+				    tag = event_target:WTT_communist_china
+				    ratio < 1
+				}
+				NOT = {
+					has_game_rule = {
+						rule = PCA_AI_BEHAVIOR
+						option = HISTORICAL
+					}
+				}
+				OR = {
+					is_historical_focus_on = no
+					has_game_rule = {
+						rule = PCA_AI_BEHAVIOR
+						option = STRENGTH_BASED
+					}
+				}
+			}
+			modifier = {
+				factor = 0.85
+				strength_ratio = {
+				    tag = event_target:WTT_communist_china
+				    ratio < 0.8
+				}
+				NOT = {
+					has_game_rule = {
+						rule = PCA_AI_BEHAVIOR
+						option = HISTORICAL
+					}
+				}
+				OR = {
+					is_historical_focus_on = no
+					has_game_rule = {
+						rule = PCA_AI_BEHAVIOR
+						option = STRENGTH_BASED
+					}
+				}
+			}
+			modifier = {
+				factor = 0.85
+				strength_ratio = {
+				    tag = event_target:WTT_communist_china
+				    ratio < 0.7
+				}
+				NOT = {
+					has_game_rule = {
+						rule = PCA_AI_BEHAVIOR
+						option = HISTORICAL
+					}
+				}
+				OR = {
+					is_historical_focus_on = no
+					has_game_rule = {
+						rule = PCA_AI_BEHAVIOR
+						option = STRENGTH_BASED
+					}
+				}
+			}
+			modifier = {
+				factor = 0.85
+				strength_ratio = {
+				    tag = event_target:WTT_communist_china
+				    ratio < 0.6
+				}
+				NOT = {
+					has_game_rule = {
+						rule = PCA_AI_BEHAVIOR
+						option = HISTORICAL
+					}
+				}
+				OR = {
+					is_historical_focus_on = no
+					has_game_rule = {
+						rule = PCA_AI_BEHAVIOR
+						option = STRENGTH_BASED
+					}
+				}
+			}
+			modifier = {
+				factor = 0.85
+				strength_ratio = {
+				    tag = event_target:WTT_communist_china
+				    ratio < 0.5
+				}
+				NOT = {
+					has_game_rule = {
+						rule = PCA_AI_BEHAVIOR
+						option = HISTORICAL
+					}
+				}
+				OR = {
+					is_historical_focus_on = no
+					has_game_rule = {
+						rule = PCA_AI_BEHAVIOR
+						option = STRENGTH_BASED
+					}
+				}
+			}
+			modifier = {
+				factor = 0.85
+				strength_ratio = {
+				    tag = event_target:WTT_communist_china
+				    ratio < 0.4
+				}
+				NOT = {
+					has_game_rule = {
+						rule = PCA_AI_BEHAVIOR
+						option = HISTORICAL
+					}
+				}
+				OR = {
+					is_historical_focus_on = no
+					has_game_rule = {
+						rule = PCA_AI_BEHAVIOR
+						option = STRENGTH_BASED
+					}
+				}
+			}
+			modifier = {
+				factor = 0
+				has_completed_focus = CHI_revive_new_culture_movement_focus
+			}
+			modifier = {
+				add = 100
+				has_game_rule = {
+					rule = PCA_AI_BEHAVIOR
+					option = HISTORICAL
+				}
+			}
+			modifier = {
+				factor = 0
+				has_game_rule = {
+					rule = PCA_AI_BEHAVIOR
+					option = ALWAYS_CONCEDE
+				}
+			}
+			modifier = {
+				add = 100
+				has_game_rule = {
+					rule = PCA_AI_BEHAVIOR
+					option = NEVER_CONCEDE
+				}
+			}
+			modifier = {
+				factor = 0
+				has_game_rule = {
+					rule = PCA_AI_BEHAVIOR
+					option = COMPROMISE #reject first, but no suprise attack
+				}
+			}
+			
+			modifier = { #guo
+				factor = 0
+				has_global_flag = PRC_zhangwozhudongquan_flag
+			}
+		}
+		custom_effect_tooltip = THIS_IS_HISTORICAL_TT
+		
+		unlock_decision_tooltip = KMT_attack_prc_first #guo
+		set_global_flag = prc_kmt_meeting_broken #guo
+		event_target:WTT_communist_china = { #guo
+			if = {
+			limit = { has_completed_focus = PRC_zhangwozhudongquan }
+				uncomplete_national_focus = {
+					focus = PRC_zhangwozhudongquan
+				}
+				set_global_flag = kmt_jujue_lianhe
+				mark_focus_tree_layout_dirty = yes
+			}
+		}
+		
+		#declare_war_on = {
+		#	target = event_target:WTT_communist_china
+		#	type = annex_everything
+		#}
+		add_political_power = 50
+		add_stability = -0.20
+		clr_global_flag = cdl_founded
+	}
+	option = { #we will concede
+		name = rcmpolitical.25.c
+		ai_chance = {
+			base = 30
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+				NOT = {
+					has_game_rule = {
+						rule = PCA_AI_BEHAVIOR
+						option = STRENGTH_BASED
+					}
+				}
+			}
+			modifier = {
+				factor = 0
+				has_game_rule = {
+					rule = PCA_AI_BEHAVIOR
+					option = HISTORICAL
+				}
+			}
+			modifier = {
+				add = 100
+				has_game_rule = {
+					rule = PCA_AI_BEHAVIOR
+					option = ALWAYS_CONCEDE
+				}
+			}
+			modifier = {
+				factor = 0
+				has_game_rule = {
+					rule = PCA_AI_BEHAVIOR
+					option = NEVER_CONCEDE
+				}
+			}
+			modifier = {
+				add = 100
+				has_game_rule = {
+					rule = PCA_AI_BEHAVIOR
+					option = COMPROMISE #reject first, but no suprise attack
+				}
+			}
+			
+			modifier = { #guo
+				factor = 0
+				has_global_flag = PRC_zhangwozhudongquan_flag
+			}
+		}
+		set_global_flag = PCA_nationalist_concede #determine .28 desc/ use to prevent dangguo_system
+		
+		remove_country_leader_trait = anti_communist#guo
+		event_target:WTT_communist_china = { #guo
+			if = {
+			limit = { has_completed_focus = PRC_zhangwozhudongquan }
+				uncomplete_national_focus = {
+					focus = PRC_zhangwozhudongquan
+				}
+				set_global_flag = kmt_jujue_lianhe
+				mark_focus_tree_layout_dirty = yes
+			}
+		}
+		
+		FROM = {
+			country_event = {
+				id = rcmpolitical.26 hours = 5
+			}
+		}
+		add_stability = 0.1
+		add_political_power = -250
+		add_ideas = civilian_economy
+		add_ideas = volunteer_only
+		if = {
+			limit = {
+				has_idea = dangguo_system
+			}
+			remove_ideas = dangguo_system
+		}
+		if = {
+			limit = {
+				tag = CHI
+			}
+			effect_tooltip = {
+				remove_ideas = chiang
+			}
+			hidden_effect = {
+				remove_ideas = chiang
+				remove_ideas = chiang1
+				remove_ideas = chiang2
+				remove_ideas = chiang3
+			}
+		}
+		custom_effect_tooltip = blank_line
+		custom_effect_tooltip = we_will_annex_PRC_if_they_are_willing_to_cooperate_tt
+		custom_effect_tooltip = blank_line
+		custom_effect_tooltip = if_they_submits
+		#################################
+		effect_tooltip = { #COmmunist joins
+			if = {
+				limit = {
+					tag = CHI
+				}
+				allow_elections_scripted_effect = yes
+			}
+			add_war_support_add_commie_leader = yes
+			every_unit_leader = {
+				limit = {
+					OWNER = { TAG = FROM }
+				}
+				set_unit_leader_flag = former_communist_forces #return when wars break out
+				set_nationality = ROOT
+			}
+			annex_from_change_party_name_boost_commie_popularity = yes
+		}
+		###############################
+	}
+	
+	option = { #极大让步 #guo
+		name = rcmpolitical.25.ccc
+		trigger = {
+			has_global_flag = PRC_zhangwozhudongquan_flag
+		}
+		ai_chance = {
+			base = 100
+		}
+		set_global_flag = PCA_nationalist_concede #determine .28 desc/ use to prevent dangguo_system
+		
+		remove_country_leader_trait = anti_communist#guo
+		
+		FROM = {
+			country_event = {
+				id = PRC_linyuying.28 hours = 5
+			}
+		}
+		if = {
+			limit = {
+				has_idea = dangguo_system
+			}
+			remove_ideas = dangguo_system
+		}
+		if = {
+			limit = {
+				tag = CHI
+			}
+			effect_tooltip = {
+				remove_ideas = chiang
+			}
+			hidden_effect = {
+				remove_ideas = chiang
+				remove_ideas = chiang1
+				remove_ideas = chiang2
+				remove_ideas = chiang3
+			}
+		}
+		custom_effect_tooltip = blank_line
+		custom_effect_tooltip = PRC_zhangwozhudongquan_flag_tt_chi
+	}
+}
+#(to PRC) Nat concede
+country_event = {
+	id = rcmpolitical.26
+	title = rcmpolitical.26.t
+	desc = rcmpolitical.26.d
+	picture = GFX_report_event_gathering_protest
+	is_triggered_only = yes #triggered by the PCA focus
+	fire_only_once = yes
+	immediate = {
+
+	}
+
+	option = { #reunite
+		name = rcmpolitical.26.a
+		ai_chance = {
+			factor = 55
+			modifier = {
+				factor = 65
+				strength_ratio = {
+				    tag = event_target:WTT_current_china_leader
+				    ratio < 1
+				}
+			}
+			modifier = {
+				factor = 75
+				strength_ratio = {
+				    tag = event_target:WTT_current_china_leader
+				    ratio < 0.85
+				}
+			}
+			modifier = {
+				factor = 85
+				strength_ratio = {
+				    tag = event_target:WTT_current_china_leader
+				    ratio < 0.7
+				}
+			}
+			modifier = {
+				factor = 100
+				strength_ratio = {
+				    tag = event_target:WTT_current_china_leader
+				    ratio < 0.55
+				}
+			}
+			modifier = {
+				factor = 0
+				has_game_rule = {
+					rule = PCA_AI_BEHAVIOR
+					option = NEVER_CONCEDE
+				}
+			}			
+		}
+		FROM = {
+			country_event = rcmpolitical.28 #PRC submits
+		}
+		custom_effect_tooltip = you_can_subvert_china_without_civil_war_tt
+		effect_tooltip = {
+			FROM = {
+				change_tag_from = ROOT
+				if = {
+					limit = {
+						tag = CHI
+					}
+					allow_elections_scripted_effect = yes
+				}
+				add_war_support_add_commie_leader = yes
+				every_unit_leader = {
+					limit = {
+						OWNER = { TAG = FROM }
+					}
+					set_unit_leader_flag = former_communist_forces #return when wars break out
+					set_nationality = ROOT
+				}
+				annex_from_change_party_name_boost_commie_popularity = yes
+			}
+		}
+
+	}
+	option = { #suprise attack
+		name = rcmpolitical.26.b
+		ai_chance = {
+			factor = 45
+			modifier = {
+				factor = 35
+				strength_ratio = {
+				    tag = event_target:WTT_current_china_leader
+				    ratio < 1
+				}
+			}
+			modifier = {
+				factor = 25
+				strength_ratio = {
+				    tag = event_target:WTT_current_china_leader
+				    ratio < 0.85
+				}
+			}
+			modifier = {
+				factor = 15
+				strength_ratio = {
+				    tag = event_target:WTT_current_china_leader
+				    ratio < 0.7
+				}
+			}
+			modifier = {
+				factor = 0
+				NOT = {
+					has_game_rule = {
+						rule = PCA_AI_BEHAVIOR
+						option = NEVER_CONCEDE
+					}
+				}
+				strength_ratio = {
+				    tag = event_target:WTT_current_china_leader
+				    ratio < 0.55
+				}
+			}
+			modifier = {
+				factor = 0
+				NOT = {
+					has_game_rule = {
+						rule = PCA_AI_BEHAVIOR
+						option = NEVER_CONCEDE
+					}
+				}
+				has_completed_focus = CHI_revive_new_culture_movement_focus
+			}
+			modifier = {
+				factor = 0
+				has_game_rule = {
+					rule = PCA_AI_BEHAVIOR
+					option = COMPROMISE
+				}
+			}
+			modifier = {
+				factor = 0
+				has_game_rule = {
+					rule = PCA_AI_BEHAVIOR
+					option = ALWAYS_CONCEDE
+				}
+			}
+			modifier = {
+				factor = 0
+				has_game_rule = {
+					rule = PCA_AI_BEHAVIOR
+					option = HISTORICAL
+				}
+			}
+		}
+		FROM = {
+			country_event = rcmpolitical.29
+		}
+		declare_war_on = {
+			target = FROM
+			type = annex_everything
+		}
+		
+		event_target:WTT_communist_china = { #guo
+			if = {
+			limit = { has_completed_focus = PRC_zhangwozhudongquan }
+				uncomplete_national_focus = {
+					focus = PRC_zhangwozhudongquan
+				}
+				set_global_flag = kmt_jujue_lianhe
+				mark_focus_tree_layout_dirty = yes
+			}
+		}
+	}
+}
+#(to PRC) Nat outlawed us!
+country_event = {
+	id = rcmpolitical.27
+	title = rcmpolitical.27.t
+	desc = rcmpolitical.27.d
+	picture = GFX_report_event_gathering_protest
+	is_triggered_only = yes #triggered by the PCA focus
+	fire_only_once = yes
+	immediate = {
+
+	}
+
+	option = { #cdl outlawed
+		name = rcmpolitical.27.a
+		hidden_effect = {
+			country_event = { id = prc.3 }
+		}
+	}
+}
+#communists submits
+country_event = {
+	id = rcmpolitical.28
+	title = rcmpolitical.28.t
+	desc = {
+		trigger = { NOT = { has_global_flag = PCA_nationalist_concede } }
+		text = rcmpolitical.28.d_comply
+	}
+	desc = {
+		trigger = { has_global_flag = PCA_nationalist_concede }
+		text = rcmpolitical.28.d_concede
+	}
+	picture = GFX_report_event_gathering_protest
+	is_triggered_only = yes #triggered by the PCA focus
+	#fire_only_once = yes
+	immediate = {
+	}
+
+	option = { #PRC joined us
+		name = rcmpolitical.28.a
+		custom_effect_tooltip = PRC_joined_our_government_tt
+		set_global_flag = PRC_joined_our_government
+		
+		remove_country_leader_trait = anti_communist#guo
+		
+		if = {
+			limit = {
+				tag = CHI
+				has_global_flag = PCA_nationalist_concede
+			}
+			allow_elections_scripted_effect = yes
+		}
+		
+		add_war_support_add_commie_leader = yes
+		event_target:WTT_communist_china = {
+			every_owned_state = {
+				set_state_flag = commie_ridden_states
+			}
+			every_unit_leader = {
+				limit = {
+					OWNER = { TAG = event_target:WTT_communist_china }
+				}
+				set_unit_leader_flag = former_communist_forces
+				set_nationality = ROOT
+			}
+		}
+		annex_from_change_party_name_boost_commie_popularity = yes
+		#if = {
+		#	limit = {
+		#		is_ai = yes
+		#		FROM = {
+		#			is_ai = no
+		#		}
+		#	}
+		#	set_global_flag = PRC_was_player_can_usurp_CHI
+		#	change_tag_from = FROM
+		#}
+	}
+}
+
+#commie surprise attack(to CHI)
+country_event = {
+	id = rcmpolitical.29
+	title = rcmpolitical.29.t
+	desc = rcmpolitical.29.d
+	picture = GFX_report_event_gathering_protest
+	is_triggered_only = yes #triggered by the PCA focus
+	fire_only_once = yes
+	immediate = {
+
+	}
+
+	option = { #cdl outlawed
+		name = rcmpolitical.29.a
+		ai_chance = {
+			factor = 70
+			modifier = {
+				factor = 100
+				is_historical_focus_on = yes
+			}
+		}
+	}
+}
+####################
+###socialism
+##############################
+# Socialism on the Rise
+country_event = {
+	id = rcmpolitical.30
+	title = rcmpolitical.30.t
+	desc = rcmpolitical.30.d
+	picture = GFX_report_event_worker_protests
+
+	is_triggered_only = yes
+
+	trigger = {
+		check_has_focus_tree_to_switch_to_n_socialism = yes
+		NOT = { has_government = n_socialism }
+		AND = { NOT = { has_idea = chiang } NOT = { has_idea = chiang1 } NOT = { has_idea = chiang2 } NOT = { has_idea = chiang3 } }
+		NOT = { tag = FRA }
+		NOT = { tag = ENG }
+		OR = {
+			AND = {
+				tag = JAP
+				has_idea_with_trait = socialist_idealist
+			}
+			NOT = { tag = JAP }
+		}
+	}
+
+	# Seek government support
+	option = {
+		name = rcmpolitical.30.a
+		trigger = {
+			AND = { NOT = { has_idea = chiang } NOT = { has_idea = chiang1 } NOT = { has_idea = chiang2 } NOT = { has_idea = chiang3 } }
+		}
+		custom_effect_tooltip = rcmpolitical.30.a.tt
+		clr_country_flag = socialism_popular_movement
+		set_country_flag = socialism_political_movement
+	}
+
+	# Seek popular support
+	option = {
+		name = rcmpolitical.30.b
+		custom_effect_tooltip = rcmpolitical.30.b.tt
+		clr_country_flag = socialism_political_movement
+		clr_country_flag = socialism_government_support
+		set_country_flag = socialism_popular_movement
+	}
+}
+
+# socialist Sympathies in Government
+country_event = {
+	id = rcmpolitical.31
+	title = rcmpolitical.31.t
+	desc = {
+		trigger = { NOT = { has_government = communism } }
+		text = rcmpolitical.31.d
+	}
+	desc = {
+		trigger = { has_government = communism }
+		text = rcmpolitical.31.d_com
+	}
+	picture = GFX_report_event_worker_protests
+
+	trigger = {
+		has_idea_with_trait = socialist_idealist
+		NOT = { has_government = n_socialism }
+		NOT = { has_country_flag = socialism_government_support }
+	}
+
+	mean_time_to_happen = {
+		days = 500
+		modifier = {
+			factor = 0.5
+			has_country_flag = socialism_political_movement
+		}
+	}
+
+	option = {
+		name = rcmpolitical.31.a
+
+		clr_country_flag = socialism_political_movement
+		set_country_flag = socialism_government_support
+	}
+}
+
+#socialist opposition formed
+country_event = {
+	id = rcmpolitical.32
+	title = rcmpolitical.32.t
+	desc = rcmpolitical.32.d
+	picture = GFX_report_event_gathering_protest
+
+	trigger = {
+		has_idea_with_trait = socialist_idealist
+		check_has_focus_tree_to_switch_to_n_socialism = yes
+		NOT = { has_government = n_socialism }
+		NOT = { has_country_flag = socialism_opposition_formed }
+		has_country_flag = socialism_government_support
+		n_socialism > 0.2
+		is_puppet = no
+		AND = { NOT = { has_idea = chiang } NOT = { has_idea = chiang1 } NOT = { has_idea = chiang2 } NOT = { has_idea = chiang3 } }
+	}
+
+	mean_time_to_happen = {
+		days = 100
+		modifier = {
+			factor = 0.5
+			n_socialism > 0.5
+		}
+	}
+
+	immediate = {
+		hidden_effect = {
+			remove_ideas = socialist_revolutionaries
+			set_country_flag = socialism_opposition_formed
+		}
+	}
+
+	option = {
+		name = rcmpolitical.32.a
+		trigger = { NOT = { has_government = communism } }
+		add_popularity = {
+			ideology = n_socialism
+			popularity = 0.10
+		}
+		add_stability = -0.02
+		set_country_flag = democratic_approach
+		custom_effect_tooltip = rcmpolitical.32.a.tt
+	}
+	option = {
+		name = rcmpolitical.32.b
+		trigger = { NOT = { tag = FRA } NOT = { tag = ENG } }
+		add_popularity = {
+			ideology = n_socialism
+			popularity = 0.20
+		}
+		add_stability = -0.10
+		set_country_flag = revolutionary_approach
+		custom_effect_tooltip = rcmpolitical.32.b.tt
+		custom_effect_tooltip = rcmpolitical.32.b.tt2
+	}
+}
+
+
+# Public Call for Elections
+country_event = {
+	id = rcmpolitical.33
+	title = {
+		trigger = { NOT = { has_government = democratic } }
+		text = rcmpolitical.33.t
+	}
+	title = {
+		trigger = { has_government = democratic }
+		text = rcmpolitical.33.t_demo
+	}
+	desc = rcmpolitical.33.d
+	picture = GFX_report_event_election_vote
+
+	trigger = {
+		check_has_focus_tree_to_switch_to_n_socialism = yes
+		has_idea_with_trait = socialist_idealist
+		NOT = { has_government = n_socialism }
+		NOT = { has_government = communism }
+		has_country_flag = socialism_opposition_formed
+		has_country_flag = democratic_approach
+		NOT = { has_idea = socialist_opposition_voicing_protests }
+	}
+
+	mean_time_to_happen = {
+		days = 150
+	}
+
+	option = {
+		name = rcmpolitical.33.a
+		add_political_power = -20
+		add_popularity = {
+			ideology = n_socialism
+			popularity = -0.05
+		}
+	}
+	option = {
+		name = rcmpolitical.33.b
+		add_political_power = -20
+		add_ideas = socialist_opposition_voicing_protests
+	}
+}
+
+country_event = {
+	id = rcmpolitical.34
+	title = {
+		trigger = { NOT = { has_government = democratic } }
+		text = rcmpolitical.34.t
+	}
+	title = {
+		trigger = { has_government = democratic }
+		text = rcmpolitical.34.t_demo
+	}
+	desc = {
+		trigger = { NOT = { has_government = democratic } }
+		text = rcmpolitical.34.d
+	}
+	desc = {
+		trigger = { has_government = democratic }
+		text = rcmpolitical.34.d_demo
+	}
+	picture = GFX_report_event_election_vote
+
+	trigger = {
+		check_has_focus_tree_to_switch_to_n_socialism = yes
+		has_idea_with_trait = socialist_idealist
+		NOT = { has_government = n_socialism }
+		NOT = { has_government = communism }
+		has_country_flag = democratic_approach
+		n_socialism > 0.5
+		has_country_flag = socialism_government_support
+		is_puppet = no
+		AND = { NOT = { has_idea = chiang } NOT = { has_idea = chiang1 } NOT = { has_idea = chiang2 } NOT = { has_idea = chiang3 } }
+	}
+
+	mean_time_to_happen = {
+		days = 200
+	}
+
+	option = {
+		name = rcmpolitical.34.a
+		if = {
+			limit = { has_government = fascism }
+			add_timed_idea = { idea = fascism_defeated days = 730 }
+		}
+		if = {
+			limit = { has_government = communism }
+			add_timed_idea = { idea = communism_defeated days = 730 }
+		}
+		set_politics = {
+			ruling_party = n_socialism
+			election_frequency = 48
+			elections_allowed = yes
+		}
+		hold_election = ROOT
+		remove_ideas = socialist_revolutionaries
+	}
+	option = {
+		name = rcmpolitical.34.b
+	}
+}
+###coup
+country_event = {
+	id = rcmpolitical.35
+	title = rcmpolitical.35.t
+	desc = rcmpolitical.35.d
+	picture = GFX_report_event_gathering_protest
+
+	trigger = {
+		check_has_focus_tree_to_switch_to_n_socialism = yes
+		has_idea_with_trait = socialist_idealist
+		NOT = { has_government = n_socialism }
+		has_country_flag = socialism_government_support
+		has_country_flag = revolutionary_approach
+		n_socialism > 0.4
+		is_major = no
+		is_puppet = no
+		AND = { NOT = { has_idea = chiang } NOT = { has_idea = chiang1 } NOT = { has_idea = chiang2 } NOT = { has_idea = chiang3 } }
+	}
+
+	mean_time_to_happen = {
+		days = 100
+		modifier = {
+			factor = 0.5
+			n_socialism > 0.5
+		}
+	}
+
+	option = {
+		name = rcmpolitical.35.a
+		set_politics = {
+			ruling_party = n_socialism
+			elections_allowed = no
+		}
+		add_timed_idea = { idea = reign_of_terror days = 300 }
+		remove_ideas = socialist_revolutionaries
+	}
+	option = {
+		name = rcmpolitical.35.b
+		add_political_power = -250
+		add_popularity = {
+			ideology = n_socialism
+			popularity = -0.05
+		}
+		add_stability = -0.25
+	}
+}
+
+# Class Conflicts Divide [Root.GetName]
+country_event = {
+	id = rcmpolitical.36
+	title = rcmpolitical.36.t
+	desc = rcmpolitical.36.d
+	picture = GFX_report_event_gathering_protest
+
+	trigger = {
+		check_has_focus_tree_to_switch_to_n_socialism = yes
+		has_idea_with_trait = socialist_idealist
+		NOT = { has_government = n_socialism }
+		NOT = { has_government = communism }
+		n_socialism > 0.2
+	}
+
+	mean_time_to_happen = {
+		days = 365
+		modifier = {
+			factor = 0.5
+			has_country_flag = socialism_popular_movement
+		}
+	}
+
+	option = {
+		name = rcmpolitical.36.a
+		add_popularity = {
+			ideology = n_socialism
+			popularity = 0.10
+		}
+		add_stability = -0.02
+	}
+}
+
+country_event = {
+	id = rcmpolitical.37
+	title = rcmpolitical.37.t
+	desc = rcmpolitical.37.d
+	picture = GFX_report_event_desertion_poster
+
+	trigger = {
+		check_has_focus_tree_to_switch_to_n_socialism = yes
+		has_idea_with_trait = socialist_idealist
+		has_country_flag = revolutionary_approach
+		NOT = { has_government = n_socialism }
+		n_socialism > 0.25
+		NOT = { has_idea = socialist_partisans_recruiting }
+	}
+
+	mean_time_to_happen = {
+		days = 365
+		modifier = {
+			factor = 0.5
+			has_country_flag = socialism_popular_movement
+		}
+	}
+
+	option = {
+		name = rcmpolitical.37.a
+		add_popularity = {
+			ideology = n_socialism
+			popularity = 0.10
+		}
+		add_ideas = socialist_partisans_recruiting
+	}
+}
+
+# The [Month] Revolution
+country_event = {
+	id = rcmpolitical.38
+	title = rcmpolitical.38.t
+	desc = rcmpolitical.38.d
+	picture = GFX_report_event_gathering_protest
+
+	trigger = {
+		check_has_focus_tree_to_switch_to_n_socialism = yes
+		has_idea_with_trait = socialist_idealist
+		has_country_flag = revolutionary_approach
+		NOT = { has_government = n_socialism }
+		n_socialism > 0.4
+		AND = { NOT = { has_idea = chiang } NOT = { has_idea = chiang1 } NOT = { has_idea = chiang2 } NOT = { has_idea = chiang3 } }
+	}
+
+	mean_time_to_happen = {
+		days = 365
+		modifier = {
+			factor = 0.75
+			has_country_flag = socialism_popular_movement
+		}
+	}
+
+	option = {
+		name = rcmpolitical.38.a
+		if = {
+			limit = {
+				has_government = democratic
+			}
+			start_civil_war = {
+				ruling_party = n_socialism
+				ideology = democratic
+				size = 0.6
+			}
+		}
+		if = {
+			limit = {
+				has_government = fascism
+			}
+			start_civil_war = {
+				ruling_party = n_socialism
+				ideology = fascism
+				size = 0.6
+			}
+		}
+		if = {
+			limit = {
+				has_government = communism
+			}
+			start_civil_war = {
+				ruling_party = n_socialism
+				ideology = communism
+				size = 0.6
+			}
+		}
+		if = {
+			limit = {
+				has_government = neutrality
+			}
+			start_civil_war = {
+				ruling_party = n_socialism
+				ideology = neutrality
+				size = 0.6
+			}
+		}
+		#add_timed_idea = { idea = reign_of_terror days = 730 }
+		remove_ideas = socialist_revolutionaries
+	}
+	option = {
+		name = rcmpolitical.38.b
+	}
+}
+
+# rcmpolitical.39 socialism >50
+
+country_event = {
+	id = rcmpolitical.39
+	title = rcmpolitical.39.t
+	desc = rcmpolitical.39.d
+	picture = GFX_report_event_journalists_speech
+
+	trigger = {
+		n_socialism > 0.5
+		check_has_focus_tree_to_switch_to_n_socialism = yes
+		NOT = { has_government = n_socialism }
+		NOT = { has_idea = socialist_revolutionaries }
+		NOT = { has_idea = reign_of_terror }
+		is_puppet = no
+		AND = { NOT = { has_idea = chiang } NOT = { has_idea = chiang1 } NOT = { has_idea = chiang2 } NOT = { has_idea = chiang3 } }
+	}
+
+	mean_time_to_happen = {
+		days = 30
+	}
+
+	option = {
+		name = rcmpolitical.39.a
+		add_political_power = -100
+		trigger = { NOT = { has_government = democratic } }
+		add_popularity = {
+			ideology = n_socialism
+			popularity = -0.10
+		}
+		add_timed_idea = {
+			idea = socialist_revolutionaries
+			days = 365
+		}
+	}
+
+	option = {
+		name = rcmpolitical.39.b
+		trigger = { NOT = { has_government = democratic } }
+		add_timed_idea = {
+			idea = socialist_revolutionaries
+			days = 365
+		}
+	}
+
+	option = {
+		name = rcmpolitical.39.c
+		if = {
+			limit = { has_government = fascism }
+			add_timed_idea = { idea = fascism_defeated days = 730 }
+		}
+		if = {
+			limit = { has_government = communism }
+			add_timed_idea = { idea = communism_defeated days = 730 }
+		}
+		if = {
+			limit = { has_country_flag = democratic_approach }
+			set_politics = {
+				ruling_party = n_socialism
+				elections_allowed = yes
+			}
+		}
+		if = {
+			limit = { NOT = { has_country_flag = democratic_approach } }
+			set_politics = {
+				ruling_party = n_socialism
+				elections_allowed = no
+			}
+		}
+		add_stability = -0.05
+	}
+}
+###revo
+country_event = {
+	id = rcmpolitical.40
+	title = rcmpolitical.40.t
+	desc = rcmpolitical.40.d
+	picture = GFX_report_event_gathering_protest
+
+	trigger = {
+		n_socialism > 0.7
+		check_has_focus_tree_to_switch_to_n_socialism = yes
+		has_idea = socialist_revolutionaries
+		#Special case CHI PRC
+		AND = { NOT = { has_idea = chiang } NOT = { has_idea = chiang1 } NOT = { has_idea = chiang2 } NOT = { has_idea = chiang3 } }
+	}
+
+	mean_time_to_happen = {
+		days = 2
+	}
+
+	immediate = {
+		hidden_effect = { remove_ideas = socialist_revolutionaries }
+	}
+
+	option = {
+		name = rcmpolitical.40.a
+		start_civil_war = {
+			ideology = n_socialism
+			size = 0.5
+		}
+	}
+
+	option = {
+		name = rcmpolitical.40.b
+		if = {
+			limit = {
+				has_government = neutrality
+			}
+			start_civil_war = {
+				ruling_party = n_socialism
+				ideology = neutrality
+				size = 0.5
+			}
+		}
+		if = {
+			limit = {
+				has_government = fascism
+			}
+			add_timed_idea = { idea = fascism_defeated days = 730 }
+			start_civil_war = {
+				ruling_party = n_socialism
+				ideology = fascism
+				size = 0.5
+			}
+		}
+		if = {
+			limit = {
+				has_government = communism
+			}
+			add_timed_idea = { idea = communism_defeated days = 730 }
+			start_civil_war = {
+				ruling_party = n_socialism
+				ideology = communism
+				size = 0.5
+			}
+		}
+		if = {
+			limit = {
+				has_government = democratic
+			}
+			start_civil_war = {
+				ruling_party = n_socialism
+				ideology = democratic
+				size = 0.5
+			}
+		}
+	}
+}
+
+###suppressed
+# rcmpolitical.41 socialism
+country_event = {
+	id = rcmpolitical.41
+	title = rcmpolitical.41.t
+	desc = rcmpolitical.41.d
+	picture = GFX_report_event_europe_funeral
+
+	trigger = {
+		n_socialism < 0.3
+		has_idea = socialist_revolutionaries
+	}
+
+	mean_time_to_happen = {
+		days = 2
+	}
+
+	option = {
+		name = rcmpolitical.41.a
+		remove_ideas = socialist_revolutionaries
+	}
+}
+
+# socialist_like_commies
+country_event = {
+	id = rcmpolitical.42
+	hidden = yes
+	trigger = {
+		has_government = n_socialism
+		NOT = { has_idea = socialist_like_commies }
+	}
+	mean_time_to_happen = {
+		days = 2
+	}
+	immediate = {
+		add_ideas = socialist_like_commies
+	}
+	option = {
+	}
+}
+# no longer socialist_like_commies
+country_event = {
+	id = rcmpolitical.43
+	hidden = yes
+	trigger = {
+		NOT = { has_government = n_socialism }
+		has_idea = socialist_like_commies
+	}
+	mean_time_to_happen = {
+		days = 2
+	}
+	immediate = {
+		remove_ideas = socialist_like_commies
+	}
+	option = {
+	}
+}
+# commies_like_socialist
+country_event = {
+	id = rcmpolitical.44
+	hidden = yes
+	trigger = {
+		has_government = communism
+		NOT = { has_idea = commies_like_socialist }
+	}
+	mean_time_to_happen = {
+		days = 2
+	}
+	immediate = {
+		add_ideas = commies_like_socialist
+	}
+	option = {
+	}
+}
+# no longer commies_like_socialist
+country_event = {
+	id = rcmpolitical.45
+	hidden = yes
+	trigger = {
+		NOT = { has_government = communism }
+		has_idea = commies_like_socialist
+	}
+	immediate = {
+		remove_ideas = commies_like_socialist
+	}
+	mean_time_to_happen = {
+		days = 2
+	}
+	option = {
+	}
+}
+# democratic_dont_hate_socialist
+country_event = {
+	id = rcmpolitical.46
+	hidden = yes
+	trigger = {
+		has_government = democratic
+		NOT = { has_idea = democratic_dont_hate_socialist }
+	}
+	mean_time_to_happen = {
+		days = 2
+	}
+	immediate = {
+		add_ideas = democratic_dont_hate_socialist
+	}
+	option = {
+	}
+}
+# no longer democratic_dont_hate_socialist
+country_event = {
+	id = rcmpolitical.47
+	hidden = yes
+	trigger = {
+		NOT = { has_government = democratic }
+		has_idea = democratic_dont_hate_socialist
+	}
+	mean_time_to_happen = {
+		days = 2
+	}
+	immediate = {
+		remove_ideas = democratic_dont_hate_socialist
+	}
+	option = {
+	}
+}
+# socialist_dont_hate_democratic
+country_event = {
+	id = rcmpolitical.48
+	hidden = yes
+	trigger = {
+		has_government = n_socialism
+		NOT = { has_idea = socialist_dont_hate_democratic }
+	}
+	mean_time_to_happen = {
+		days = 2
+	}
+	immediate = {
+		add_ideas = socialist_dont_hate_democratic
+	}
+	option = {
+	}
+}
+# no longer socialist_dont_hate_democratic
+country_event = {
+	id = rcmpolitical.49
+	hidden = yes
+	trigger = {
+		NOT = { has_government = n_socialism }
+		has_idea = socialist_dont_hate_democratic
+	}
+	mean_time_to_happen = {
+		days = 2
+	}
+	immediate = {
+		remove_ideas = socialist_dont_hate_democratic
+	}
+	option = {
+	}
+}

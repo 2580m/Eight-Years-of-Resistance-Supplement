@@ -1,0 +1,729 @@
+add_namespace = hon_event
+
+#Turkey Proposes Unification
+country_event = {
+	id = hon_event.1
+	title = hon_event.1.t
+	desc = hon_event.1.d
+
+	picture = GFX_report_event_SOV_demands
+	fire_only_once = no
+	is_triggered_only = yes
+	option = {
+		name = hon_event.1.a
+		trigger = {
+			
+		}
+		ai_chance = { factor = 20 }
+		
+		
+		add_ideas = HON_army_report
+		add_ideas = HON_national_opp
+		}
+	
+		
+}
+
+country_event = {
+	id = hon_event.2
+	title = hon_event.2.t
+	desc = hon_event.2.d
+
+	picture = GFX_report_event_generic_rally
+	fire_only_once = no
+	is_triggered_only = yes
+	option = {
+		name = hon_event.2.a
+		trigger = {
+			
+		}
+		ai_chance = { factor = 20 }
+		
+		add_political_power = 75
+			
+		}
+	
+		
+}
+
+country_event = {
+	id = hon_event.3
+	title = hon_event.3.t
+	desc = hon_event.3.d
+
+	picture = GFX_report_event_generic_riot
+	fire_only_once = no
+	is_triggered_only = yes
+	option = {
+		name = hon_event.3.a
+		trigger = {
+			
+		}
+		ai_chance = { factor = 20 }
+		
+		add_ideas = HON_national_opp
+		add_popularity = {
+    ideology = communism
+    popularity = 0.15
+}
+		}
+	
+		
+}
+
+country_event = {
+	id = hon_event.4
+	title = hon_event.4.t
+	desc = hon_event.4.d
+
+	picture = GFX_report_event_generic_factory
+	fire_only_once = no
+	is_triggered_only = yes
+	option = {
+		name = hon_event.4.a
+		trigger = {
+			
+		}
+		ai_chance = { factor = 20 }
+		
+		HON = {country_event = hon_event.5}
+		
+		}
+	
+		option = {
+		name = hon_event.4.b
+		trigger = {
+			
+		}
+		ai_chance = { factor = 0 }
+		
+		
+		}
+}
+
+country_event = {
+	id = hon_event.5
+	title = hon_event.5.t
+	desc = hon_event.5.d
+
+	picture = GFX_report_event_generic_factory
+	fire_only_once = no
+	is_triggered_only = yes
+	option = {
+		name = hon_event.5.a
+		trigger = {
+			
+		}
+		ai_chance = { factor = 20 }
+		
+		random_owned_controlled_state = {
+				
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+				
+			}
+		
+		}
+	
+		
+}
+
+country_event = {
+	id = hon_event.6
+	title = hon_event.6.t
+	desc = hon_event.6.d
+
+	picture = GFX_report_event_bul_troops_dobrudja
+	fire_only_once = no
+	is_triggered_only = yes
+	option = {
+		name = hon_event.6.a
+		trigger = {
+			
+		}
+		ai_chance = { factor = 20 }
+		SOV = {remove_unit_leader = 413}
+		HON = {country_event = hon_event.7}
+		
+		}
+	
+		option = {
+		name = hon_event.6.b
+		trigger = {
+			
+		}
+		ai_chance = { factor = 20 }
+		
+		
+		}
+}
+
+country_event = {
+	id = hon_event.7
+	title = hon_event.7.t
+	desc = hon_event.7.d
+
+	picture = GFX_report_event_chinese_army_training
+	fire_only_once = no
+	is_triggered_only = yes
+	option = {
+		name = hon_event.7.a
+		trigger = {
+			
+		}
+		ai_chance = { factor = 0 }
+		
+	create_corps_commander = {
+	name = SOV_ivan_chernyakhovsky
+	picture = "GFX_portrait_SOV_ivan_chernyakhovsky"
+	traits = { armor_officer }
+	skill = 2
+	attack_skill = 2
+	defense_skill = 3
+	planning_skill = 2
+	logistics_skill = 3
+}
+		
+		}
+	
+		
+}
+
+country_event = {
+	id = hon_event.8
+	title = hon_event.8.t
+	desc = hon_event.8.d
+
+	picture = GFX_report_event_por_salazar_franco1
+	fire_only_once = no
+	is_triggered_only = yes
+	option = {
+		name = hon_event.8.a
+		trigger = {
+			
+		}
+		ai_chance = { factor = 20 }
+		
+		SOV = {add_to_faction = HON}
+		
+		}
+	
+		option = {
+		name = hon_event.8.b
+		trigger = {
+			
+		}
+		ai_chance = { factor = 0 }
+		
+		
+		}
+}
+
+
+country_event = {
+	id = hon_event.9
+	title = hon_event.9.t
+	desc = hon_event.9.d
+
+	picture = GFX_report_event_spr_no_pasaran
+	fire_only_once = no
+	is_triggered_only = yes
+	option = {
+		name = hon_event.8.a
+		trigger = {
+			
+		}
+		ai_chance = { factor = 20 }
+		
+		HON = {add_to_faction = ROOT}
+		
+		}
+	
+		option = {
+		name = hon_event.8.b
+		trigger = {
+			
+		}
+		ai_chance = { factor = 0 }
+		HON = {create_wargoal = {
+		type = puppet_wargoal_focus
+		target = ROOT
+		}
+		}
+		}
+}
+
+country_event = {
+	id = hon_event.10
+	title = hon_event.10.t
+	desc = hon_event.10.d
+
+	picture = GFX_report_event_spr_no_pasaran
+	fire_only_once = no
+	is_triggered_only = yes
+	option = {
+		name = hon_event.8.a
+		trigger = {
+			
+		}
+		ai_chance = { factor = 20 }
+		
+		HON = {add_to_faction = ROOT}
+		
+		}
+	
+		option = {
+		name = hon_event.8.b
+		trigger = {
+			
+		}
+		ai_chance = { factor = 0 }
+		
+		}
+		}
+
+country_event = {
+	id = hon_event.11
+	title = hon_event.11.t
+	desc = hon_event.11.d
+
+	picture = GFX_report_event_spr_no_pasaran
+	fire_only_once = no
+	is_triggered_only = yes
+	option = {
+		name = hon_event.8.a
+		trigger = {
+			
+		}
+		ai_chance = { factor = 20 }
+		
+		HON = {annex_country = {
+    target = ROOT
+    transfer_troops = yes
+}
+}
+		
+		}
+	
+		option = {
+		name = hon_event.8.b
+		trigger = {
+			
+		}
+		ai_chance = { factor = 0 }
+	HON = {	create_wargoal = {
+				type = puppet_wargoal_focus
+				target = ROOT
+			}
+		}
+		}
+		}
+		
+	country_event = {
+	id = hon_event.12
+	title = hon_event.12.t
+	desc = hon_event.12.d
+
+	picture = GFX_report_event_gre_cabinet_meeting
+	fire_only_once = no
+	is_triggered_only = yes
+	option = {
+		name = hon_event.12.a
+		trigger = {
+			
+		}
+		ai_chance = { factor = 20 }
+		
+		HON = {country_event = hon_event.13}
+
+		
+		}
+	
+		option = {
+		name = hon_event.12.b
+		trigger = {
+			
+		}
+		ai_chance = { factor = 0 }
+	
+		}
+		}
+		
+	country_event = {
+	id = hon_event.13
+	title = hon_event.13.t
+	desc = hon_event.13.d
+
+	picture = GFX_report_event_gre_cabinet_meeting
+	fire_only_once = no
+	is_triggered_only = yes
+	option = {
+		name = hon_event.13.a
+		trigger = {
+			
+		}
+		ai_chance = { factor = 20 }
+		
+		HON = {transfer_state = 685}
+
+		
+		}
+	
+		
+		}
+		
+	country_event = {
+	id = hon_event.14
+	title = hon_event.14.t
+	desc = hon_event.14.d
+
+	picture = GFX_report_event_lithuania_army
+	fire_only_once = no
+	is_triggered_only = yes
+	option = {
+		name = hon_event.14.a
+		trigger = {
+			
+		}
+		ai_chance = { factor = 20 }
+		
+		HON = {country_event = hon_event.15}
+		custom_effect_tooltip = HON_ger_event_tt
+		
+		}
+	
+		option = {
+		name = hon_event.14.b
+		trigger = {
+			
+		}
+		ai_chance = { factor = 0 }
+	
+		}
+		}
+		
+	country_event = {
+	id = hon_event.15
+	title = hon_event.15.t
+	desc = hon_event.15.d
+
+	picture = GFX_report_event_lithuania_army
+	fire_only_once = no
+	is_triggered_only = yes
+	option = {
+		name = hon_event.15.a
+		trigger = {
+			
+		}
+		ai_chance = { factor = 20 }
+		
+		add_equipment_to_stockpile = {
+			type = infantry_equipment
+			amount = 1000
+			producer = GER
+		}
+		add_popularity = {
+		ideology = neutrality
+		popularity = 0.15
+		}
+		
+		}
+	option = {
+		name = hon_event.15.b
+		trigger = {
+			
+		}
+		ai_chance = { factor = 20 }
+		
+		add_equipment_to_stockpile = {
+			type = infantry_equipment
+			amount = 1000
+			producer = GER
+		}
+		add_popularity = {
+		ideology = fascism
+		popularity = 0.15
+		}
+		
+		}
+		
+		}
+		
+		country_event = {
+	id = hon_event.16
+	title = hon_event.16.t
+	desc = hon_event.16.d
+
+	picture = GFX_report_event_lithuania_army
+	fire_only_once = no
+	is_triggered_only = yes
+	option = {
+		name = hon_event.14.a
+		trigger = {
+			
+		}
+		ai_chance = { factor = 20 }
+		
+		HON = {country_event = hon_event.17}
+		custom_effect_tooltip = HON_ger_event_tt
+		
+		}
+	
+		option = {
+		name = hon_event.14.b
+		trigger = {
+			
+		}
+		ai_chance = { factor = 0 }
+	
+		}
+		}
+		
+	country_event = {
+	id = hon_event.17
+	title = hon_event.17.t
+	desc = hon_event.17.d
+
+	picture = GFX_report_event_lithuania_army
+	fire_only_once = no
+	is_triggered_only = yes
+	
+	
+	option = {
+		name = hon_event.17.b
+		trigger = {
+			
+		}
+		ai_chance = { factor = 20 }
+		
+		add_equipment_to_stockpile = {
+			type = infantry_equipment
+			amount = 1000
+			producer = USA
+		}
+		add_popularity = {
+			ideology = neutrality
+			popularity = 0.1
+		}
+		
+		}
+		
+		}
+		
+	news_event = {
+	id = hon_event.18
+	title = hon_event.18.t
+	desc = hon_event.18.d
+	picture = GFX_news_event_generic_sign_treaty1
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	
+	option = {
+		name = hon_event.18.a
+		
+	}
+}
+
+country_event = {
+	id = hon_event.19
+	title = hon_event.19.t
+	desc = hon_event.19.d
+
+	picture = GFX_report_event_gre_allied_diplomacy_military
+	fire_only_once = no
+	is_triggered_only = yes
+	option = {
+		name = hon_event.19.a
+		trigger = {
+			
+		}
+		ai_chance = { factor = 20 }
+		HON = {country_event = hon_event.20}
+		}
+		
+		option = {
+		name = hon_event.19.b
+		trigger = {
+			
+		}
+		ai_chance = { factor = 20 }
+	
+		}
+		
+		}
+		
+	country_event = {
+	id = hon_event.20
+	title = hon_event.20.t
+	desc = hon_event.20.d
+
+	picture = GFX_report_event_lithuania_army
+	fire_only_once = no
+	is_triggered_only = yes
+	option = {
+		name = hon_event.20.a
+		trigger = {
+			
+		}
+		ai_chance = { factor = 20 }
+		
+		add_equipment_to_stockpile = {
+			type = infantry_equipment
+			amount = 750
+			producer = ITA
+			}
+
+		
+		}
+	
+		
+		}
+	
+	country_event = {
+	id = hon_event.21
+	title = hon_event.21.t
+	desc = hon_event.21.d
+
+	picture = GFX_report_event_spr_carlists_franco
+	fire_only_once = no
+	is_triggered_only = yes
+	option = {
+		name = hon_event.21.a
+		trigger = {
+			
+		}
+		ai_chance = { factor = 20 }
+		HON = {country_event = hon_event.22}
+		custom_effect_tooltip = HON_spain_annex_tt
+		}
+		
+		option = {
+		name = hon_event.21.b
+		trigger = {
+			
+		}
+		ai_chance = { factor = 20 }
+	
+		}
+		
+		}
+		
+		country_event = {
+	id = hon_event.22
+	title = hon_event.22.t
+	desc = hon_event.22.d
+
+	picture = GFX_report_event_spr_carlists_franco
+	fire_only_once = no
+	is_triggered_only = yes
+	option = {
+		name = hon_event.22.a
+		trigger = {
+			
+		}
+		ai_chance = { factor = 20 }
+		HON = {puppet = SPB}
+		}
+		
+		
+		
+		}
+		
+		country_event = {
+	id = hon_event.23
+	title = hon_event.21.t
+	desc = hon_event.21.d
+
+	picture = GFX_report_event_spr_carlists_franco
+	fire_only_once = no
+	is_triggered_only = yes
+	option = {
+		name = hon_event.23.a
+		trigger = {
+			
+		}
+		ai_chance = { factor = 20 }
+		if = {limit = {country_exists = SPA}
+		HON = {add_to_faction = SPA}
+		}
+		if = {limit = {country_exists = SPB}
+		HON = {add_to_faction = SPB}
+		}
+		}
+		
+		option = {
+		name = hon_event.21.b
+		trigger = {
+			
+		}
+		ai_chance = { factor = 20 }
+	
+		}
+		
+		}
+		
+		country_event = {
+	id = hon_event.24
+	title = hon_event.24.t
+	desc = hon_event.24.d
+
+	picture = GFX_report_event_canada_treaty
+	fire_only_once = no
+	is_triggered_only = yes
+	option = {
+		name = hon_event.24.a
+		trigger = {
+			
+		}
+		ai_chance = { factor = 20 }
+		add_to_faction = HON
+		
+		}
+		
+		option = {
+		name = hon_event.24.b
+		trigger = {
+			
+		}
+		ai_chance = { factor = 20 }
+	
+		}
+		
+		}
+		
+		country_event = {
+	id = hon_event.25
+	title = hon_event.25.t
+	desc = hon_event.25.d
+
+	picture = GFX_report_event_mex_civil_war
+	fire_only_once = no
+	is_triggered_only = yes
+	option = {
+		name = hon_event.25.a
+		trigger = {
+			
+		}
+		ai_chance = { factor = 30 }
+		
+		add_ideas = HON_mex_second_crist
+		
+		}
+		
+		option = {
+		name = hon_event.25.b
+		trigger = {
+			
+		}
+		ai_chance = { factor = 10 }
+		add_ideas = HON_mex_second_crist1
+		}
+		
+		}

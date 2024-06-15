@@ -1,0 +1,149 @@
+﻿###########################
+# Middle East Events
+###########################
+
+add_namespace = rcm_middle_east
+
+#British notice for iraq nationalised the oil
+country_event = {
+	id = rcm_middle_east.1
+	title = rcm_middle_east.1.t
+	desc = rcm_middle_east.1.d
+	picture = GFX_report_event_soldiers_marching
+ 
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = {
+		#War
+		name = rcm_middle_east.1.a
+		ai_chance = { factor = 100 }
+	    if = { 
+		    limit = {
+			    is_ai = no
+			}
+		    create_wargoal = {
+			    target = IRQ
+			    type = puppet_wargoal_focus
+		    }
+		    else = {
+		        load_oob = "ENG_iraq_1941"
+				declare_war_on = {
+				    target = IRQ
+				    type = puppet_wargoal_focus
+			    }
+			}
+	    }   
+    }	
+	option = {
+		#no War
+		name = rcm_middle_east.1.b
+		ai_chance = { factor = 0 }     
+        add_political_power = -50
+	    add_stability = 0.05
+	}
+
+}
+#The death of Ghazi
+country_event = {  
+	id = rcm_middle_east.2
+	title = rcm_middle_east.2.t
+	desc = rcm_middle_east.2.d
+    is_triggered_only = no
+	picture = GFX_report_event_generic_sign_treaty1
+	fire_only_once = yes
+	trigger = {
+        has_government = neutrality 
+        date > 1939.4.1 
+		#has_country_leader = {
+        #    name = "Ghazi I"
+        #    ruling_only = yes
+        #} 
+        original_tag = IRQ
+    }
+    option = { 
+		name = rcm_middle_east.2.a  
+        ai_chance = { factor = 100 }  
+		kill_country_leader = yes    
+        create_country_leader = {
+		    name = Abd_al_Ilah
+		    desc = "POLITICS_FAISAL_II_DESC"
+		    picture = "gfx/leaders/IRQ/'Abd al-Ilah.dds"
+		    expire = "1965.1.1"
+		    ideology = despotism
+		    traits = {}
+		       
+	    }
+    }
+}
+
+#the rise of the golden square 
+country_event = {
+	id = rcm_middle_east.3
+	title = rcm_middle_east.3.t
+	desc = rcm_middle_east.3.d
+    picture = GFX_report_event_generic_military_parade
+    is_triggered_only = no
+	fire_only_once = yes
+	trigger = {
+        #has_idea_with_trait = fascist_demagogue
+		ENG = { has_war_with = GER }
+        is_subject = no
+        NOT = { is_in_faction_with = ENG }
+        NOT = { has_war_with = GER }	
+	    original_tag = IRQ
+		FRA = { has_capitulated = yes }      
+        POL = { has_capitulated = yes }
+	    #date > 1940.5.1
+	}	
+    option = { 		
+        name = rcm_middle_east.3.a  
+        ai_chance = { factor = 100 }  
+		custom_effect_tooltip = THIS_IS_HISTORICAL_TT
+		add_timed_idea = {
+			idea = nationalism days = 365
+		}
+		add_timed_idea = {
+			idea = fascist_influence_weak days = 365
+		}
+	} 
+
+	option = { 		
+        name = rcm_middle_east.3.b 
+        ai_chance = { factor = 0 }  
+		add_stability = -0.15
+	} 
+}
+
+#the golden square coup d'état
+country_event = {
+	id = rcm_middle_east.4
+	title = rcm_middle_east.4.t
+	desc = rcm_middle_east.4.2.d
+    is_triggered_only = no 
+	picture = GFX_report_event_fascist_gathering
+	fire_only_once = yes
+	trigger = {
+        #has_idea_with_trait = fascist_demagogue
+		fascism > 0.4
+        is_subject = no
+        original_tag = IRQ
+        NOT = { has_government = fascism }
+        NOT = { is_in_faction_with = ENG }
+        NOT = { has_war_with = GER }	
+	}
+	
+    option = { 
+		name = rcm_middle_east.4.a  
+        add_stability = -0.05
+        add_popularity = {
+	        ideology = fascism
+		    popularity = 0.05
+		}
+        set_politics = {
+	        ruling_party = fascism
+	        elections_allowed = no
+		}
+    }
+}
+

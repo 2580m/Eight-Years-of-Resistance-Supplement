@@ -1,0 +1,519 @@
+add_namespace = JAP_SOV_border_nuomenhan
+
+country_event = { #just title tip event
+	id = JAP_SOV_border_nuomenhan.21
+	title = JAP_SOV_border_nuomenhan.21
+	
+	hidden = yes
+	
+	is_triggered_only = yes
+	
+	immediate = {
+	
+	}
+	
+	option = {
+	
+	}
+}
+country_event = { #just title tip event
+	id = JAP_SOV_border_nuomenhan.31
+	title = JAP_SOV_border_nuomenhan.31
+	
+	hidden = yes
+	
+	is_triggered_only = yes
+	
+	immediate = {
+	
+	}
+	
+	option = {
+	
+	}
+}
+country_event = { #just title tip event
+	id = JAP_SOV_border_nuomenhan.41
+	title = JAP_SOV_border_nuomenhan.41
+	
+	hidden = yes
+	
+	is_triggered_only = yes
+	
+	immediate = {
+	
+	}
+	
+	option = {
+	
+	}
+}
+
+#诺门罕战役
+#just tip for MON
+country_event = {
+	id = JAP_SOV_border_nuomenhan.1
+	title = JAP_SOV_border_nuomenhan.1.t
+	desc = JAP_SOV_border_nuomenhan.1.desc
+	#picture = GFX_report_event_japan_army_mountainside
+
+	is_triggered_only = yes
+
+	option = {
+		name = JAP_SOV_border_nuomenhan.1.a
+		ai_chance = {
+			base = 100
+		}
+		SOV = {
+		country_event = JAP_SOV_border_nuomenhan.111
+		}
+	}
+	
+	option = {
+		name = JAP_SOV_border_nuomenhan.1.b
+		ai_chance = {
+			base = 0
+		}
+		activate_mission = SOV_JAP_is_assembling_in_nuomenhan
+	}
+}
+#just tip for SOV
+country_event = {
+	id = JAP_SOV_border_nuomenhan.111
+	title = JAP_SOV_border_nuomenhan.111.t
+	desc = JAP_SOV_border_nuomenhan.111.desc
+	#picture = GFX_report_event_japan_army_mountainside
+
+	is_triggered_only = yes
+
+	option = {
+		name = JAP_SOV_border_nuomenhan.111.a
+		ai_chance = {
+			base = 100
+		}
+		transfer_state = 819
+		activate_mission = SOV_JAP_is_assembling_in_nuomenhan
+	}
+}
+
+#JAP wins
+news_event = {
+	id = JAP_SOV_border_nuomenhan.2
+	title = JAP_SOV_border_nuomenhan.2.t
+	desc = JAP_SOV_border_nuomenhan.2.desc
+	picture = GFX_event_nuomenhan_jap
+
+	is_triggered_only = yes
+
+	major = yes
+
+	option = {
+		name = JAP_SOV_border_nuomenhan.2.a
+		trigger = {
+			TAG = JAP
+		}
+		add_doctrine_cost_reduction = {
+			
+			cost_reduction = 0.5
+			uses = 2
+			category = land_doctrine
+		}
+		set_global_flag = JAP_SOV_border_nuomenhan_win
+		army_experience = 50
+		add_political_power = 75
+		add_war_support = 0.1
+		effect_tooltip = { unlock_national_focus = northern_expansion_focus }
+		if = {
+		limit = {
+		is_in_faction_with = MAN
+		}
+		MAN = { transfer_state = 761 }
+		}
+	}
+	option = {
+		name = JAP_SOV_border_nuomenhan.2.b
+		trigger = {
+			OR = {
+			TAG = SOV
+			TAG = MON
+			}
+		}
+		army_experience = 25
+		add_political_power = -50
+		add_war_support = -0.05
+		if = {
+		limit = {
+		SOV = { owns_state = 819 }
+		}
+		MON = { transfer_state = 819 }
+		}
+	}
+	option = {
+		name = JAP_SOV_border_nuomenhan.2.c
+		trigger = {
+			NOT = {
+			TAG = JAP
+			is_in_faction_with = SOV
+			}
+		}
+	}
+}
+#JAP loses
+news_event = {
+	id = JAP_SOV_border_nuomenhan.3
+	title = JAP_SOV_border_nuomenhan.3.t
+	desc = JAP_SOV_border_nuomenhan.3.desc
+	picture = GFX_event_nuomenhan_sov
+
+	is_triggered_only = yes
+
+	major = yes
+
+	option = {
+		name = JAP_SOV_border_nuomenhan.3.a
+		trigger = {
+			TAG = JAP
+		}
+		army_experience = 25
+		add_political_power = -50
+		add_war_support = -0.05
+		if = {
+		limit = {
+		is_in_faction_with = MAN
+		}
+		MAN = { transfer_state = 761 }
+		}
+	}
+	option = {
+		name = JAP_SOV_border_nuomenhan.3.b
+		trigger = {
+			OR = {
+			TAG = SOV
+			TAG = MON
+			}
+		}
+		add_doctrine_cost_reduction = {
+			
+			cost_reduction = 0.5
+			uses = 2
+			category = land_doctrine
+		}
+		army_experience = 50
+		add_political_power = 75
+		add_war_support = 0.05
+		if = {
+		limit = {
+		SOV = { owns_state = 819 }
+		}
+		MON = { transfer_state = 819 }
+		}
+	}
+	option = {
+		name = JAP_SOV_border_nuomenhan.3.c
+		trigger = {
+			NOT = {
+			TAG = JAP
+			is_in_faction_with = SOV
+			has_war_with = JAP
+			}
+		}
+	}
+	option = {
+		name = JAP_SOV_border_nuomenhan.3.d
+		trigger = {
+			has_war_with = JAP
+		}
+	}
+}
+
+#stalemate
+news_event = { 
+	id = JAP_SOV_border_nuomenhan.4
+	title = JAP_SOV_border_nuomenhan.4.t
+	desc = JAP_SOV_border_nuomenhan.4.desc
+	picture = GFX_event_nuomenhan_none
+
+	is_triggered_only = yes
+
+	major = yes
+
+	option = {
+		name = JAP_SOV_border_nuomenhan.4.a
+		trigger = {
+			TAG = JAP
+		}
+		army_experience = 50
+		if = {
+		limit = {
+		is_in_faction_with = MAN
+		}
+		MAN = { transfer_state = 761 }
+		}
+	}
+	option = {
+		name = JAP_SOV_border_nuomenhan.4.b
+		trigger = {
+			OR = {
+			TAG = SOV
+			TAG = MON
+			}
+		}
+		army_experience = 50
+		add_political_power = 25
+		if = {
+		limit = {
+		SOV = { owns_state = 819 }
+		}
+		MON = { transfer_state = 819 }
+		}
+	}
+	option = {
+		name = JAP_SOV_border_nuomenhan.4.c
+		trigger = {
+			NOT = {
+			TAG = JAP
+			is_in_faction_with = SOV
+			}
+		}
+	}
+}
+
+
+add_namespace = jap_unplanned_offensive
+
+country_event = {
+	id = jap_unplanned_offensive.1
+	title = {
+		text = jap_unplanned_offensive.1.t_JAP
+		trigger = {
+			tag = JAP
+		}
+	}
+	title = {
+		text = jap_unplanned_offensive.1.t_CHI
+		trigger = {
+			OR = {
+            TAG = event_target:WTT_current_china_leader
+            TAG = CHI
+            }
+		}
+	}
+	desc = {
+		text = jap_unplanned_offensive.1.d_JAP
+		trigger = {
+			tag = JAP
+		}
+	}
+	desc = {
+		text = jap_unplanned_offensive.1.d_CHI
+		trigger = {
+			OR = {
+            TAG = event_target:WTT_current_china_leader
+            TAG = CHI
+            }
+		}
+	}
+	
+	trigger = {
+	not = { has_country_flag = jap_unplanned_offensive_happen }
+	OR = {
+        TAG = event_target:WTT_current_china_leader
+        TAG = CHI
+		TAG = JAP
+    }
+	event_target:WTT_current_china_leader = {
+	has_defensive_war_with = JAP
+	surrender_progress > 0.3
+	OR = {
+        surrender_progress > 0.65
+        1034 = { is_controlled_by_jap_or_its_puppet = yes }
+		744 = { is_controlled_by_jap_or_its_puppet = yes }
+		620 = { is_controlled_by_jap_or_its_puppet = yes }
+		1035 = { is_controlled_by_jap_or_its_puppet = yes }
+		602 = { is_controlled_by_jap_or_its_puppet = yes }
+		1039 = { is_controlled_by_jap_or_its_puppet = yes }
+		1038 = { is_controlled_by_jap_or_its_puppet = yes }
+    }
+	}
+	}
+	
+	fire_only_once = no
+	
+	mean_time_to_happen = { days = 2 }
+
+	immediate = {
+		hidden_effect = {
+			set_global_flag = jap_unplanned_offensive_happen
+			set_country_flag = jap_unplanned_offensive_happen
+			every_state = {
+				limit = {
+				    or = {
+				    is_core_of = event_target:WTT_current_china_leader
+					is_core_of = CHI
+					is_core_of = event_target:WTT_communist_china
+					}
+					controller = {
+					is_literally_china = yes
+					or = {
+					is_in_faction_with = event_target:WTT_current_china_leader
+					tag = event_target:WTT_current_china_leader
+					tag = CHI
+					}
+					has_war_with = JAP
+					}
+					#NOT = { has_dynamic_modifier = { modifier = suiyuan_stronghold_JAP scope = JAP } }
+					NOT = { #让给日本
+					state = 615
+					state = 1014
+					
+					state = 1043
+					state = 1032
+					state = 592
+					state = 591
+					state = 749
+					state = 606
+					state = 1015
+					state = 613
+					state = 598
+					state = 597
+					state = 614
+					state = 1028
+					state = 743
+					state = 608
+					state = 1013
+					state = 1014
+					state = 611
+					state = 596
+					state = 1034
+					state = 1017
+					
+					#is_controlled_by = event_target:WTT_communist_china
+					}
+				}
+				set_state_flag = jap_unplanned_offensive_state
+				add_dynamic_modifier = { modifier = jap_unplanned_offensive_state }					
+			}
+		}
+	}
+	
+	option = { #for jap
+		name = jap_unplanned_offensive.1.a
+		trigger = {
+			tag = JAP
+		}
+		set_country_flag = jap_unplanned_offensive_happen
+		effect_tooltip = {
+			every_state = {
+				limit = {
+				    or = {
+				    is_core_of = event_target:WTT_current_china_leader
+					is_core_of = CHI
+					is_core_of = event_target:WTT_communist_china
+					}
+					controller = {
+					is_literally_china = yes
+					or = {
+					is_in_faction_with = event_target:WTT_current_china_leader
+					tag = event_target:WTT_current_china_leader
+					tag = CHI
+					}
+					has_war_with = JAP
+					}
+					NOT = { #让给日本
+					state = 615
+					state = 1014
+					
+					state = 1043
+					state = 1032
+					state = 592
+					state = 591
+					state = 749
+					state = 606
+					state = 1015
+					state = 613
+					state = 598
+					state = 597
+					state = 614
+					state = 1028
+					state = 743
+					state = 608
+					state = 1013
+					state = 1014
+					state = 611
+					state = 596
+					state = 1034
+					state = 1017
+					
+					#is_controlled_by = event_target:WTT_communist_china
+					}
+					#NOT = { has_dynamic_modifier = { modifier = suiyuan_stronghold_JAP scope = JAP } }
+				}
+				set_state_flag = jap_unplanned_offensive_state
+				add_dynamic_modifier = { modifier = jap_unplanned_offensive_state }					
+			}
+		}
+		unlock_decision_category_tooltip = jap_unplanned_offensive_prepare_catagory
+	}
+	
+	option = { #for chi
+		name = jap_unplanned_offensive.1.b
+		trigger = {
+			OR = {
+            TAG = event_target:WTT_current_china_leader
+            TAG = CHI
+            }
+		}
+		set_country_flag = jap_unplanned_offensive_happen
+		effect_tooltip = {
+			every_state = {
+				limit = {
+				    or = {
+				    is_core_of = event_target:WTT_current_china_leader
+					is_core_of = CHI
+					is_core_of = event_target:WTT_communist_china
+					}
+					controller = {
+					is_literally_china = yes
+					or = {
+					is_in_faction_with = event_target:WTT_current_china_leader
+					tag = event_target:WTT_current_china_leader
+					tag = CHI
+					}
+					has_war_with = JAP
+					}
+					NOT = { #让给日本
+					state = 615
+					state = 1014
+					
+					state = 1043
+					state = 1032
+					state = 592
+					state = 591
+					state = 749
+					state = 606
+					state = 1015
+					state = 613
+					state = 598
+					state = 597
+					state = 614
+					state = 1028
+					state = 743
+					state = 608
+					state = 1013
+					state = 1014
+					state = 611
+					state = 596
+					state = 1034
+					state = 1017
+					
+					#is_controlled_by = event_target:WTT_communist_china
+					}
+					#NOT = { has_dynamic_modifier = { modifier = suiyuan_stronghold_JAP scope = JAP } }
+				}
+				set_state_flag = jap_unplanned_offensive_state
+				add_dynamic_modifier = { modifier = jap_unplanned_offensive_state }
+			}
+			unlock_decision_category_tooltip = chi_unplanned_offensive_prepare_catagory
+		}
+	}
+}

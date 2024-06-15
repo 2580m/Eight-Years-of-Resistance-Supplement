@@ -1,0 +1,69 @@
+﻿add_namespace = nan_news
+add_namespace = nan
+
+news_event = {
+	id = nan_news.1
+	title = { text = nan_news.1.t }
+	desc = { text = nan_news.1.desc }
+
+	is_triggered_only = yes
+	major = yes
+	
+	option = {
+		name = nan_news.1.a
+		trigger = {
+			original_tag = PRC
+		}
+	}
+	option = {
+		name = nan_news.1.c
+		trigger = {
+			original_tag = CHI
+		}
+	}
+	option = {
+		name = nan_news.1.e
+		trigger = {
+			original_tag = JAP
+		}
+	}
+	option = {
+		name = nan_news.1.d
+		trigger = {
+			original_tag = MAN
+		}
+	}
+}
+
+country_event = {
+	id = nan.1
+	title = nan.1.t
+	desc = nan.1.d
+	picture = GFX_report_event_assembly_china
+
+	is_triggered_only = yes
+	
+	immediate = {
+	}
+
+	option = {
+		name = nan.1.a	
+		effect_tooltip = {
+			add_popularity = {
+				ideology = n_socialism
+				popularity = 0.1
+			}
+			add_popularity = {
+				ideology = democratic
+				popularity = 0.1
+			}
+			remove_ideas = dangguo_system
+			unlock_national_focus = CHI_support_kmt_opposition_focus
+			add_to_variable = {
+				chi_constitutionalization_pressure = -10
+			}
+			custom_effect_tooltip = blank_line
+			custom_effect_tooltip = chi_constitutionalization_pressure_minus_10_tt
+		}
+	}
+}

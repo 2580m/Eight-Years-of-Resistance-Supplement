@@ -1,0 +1,193 @@
+﻿###########################
+# Chinese Events BORDER WARS ADDED SOUTHERN SHAANXI #ID = 744#
+###########################
+
+add_namespace = news_mesc
+
+# puppet_transfer on annex
+
+news_event = {
+	id = news_mesc.1
+	hidden = yes
+	trigger = {
+		NOT = {
+			has_country_flag = Ive_fought_jap
+		}
+		OR = {
+			is_legit_china = yes
+		}
+		has_war_with = JAP
+	}
+	mean_time_to_happen = {
+		days = 2
+	}
+	immediate = {
+		set_country_flag = Ive_fought_jap
+	}
+	option = {
+	}
+}
+news_event = {
+	id = news_mesc.2
+	hidden = yes
+	trigger = {
+		1030 = {
+			has_state_flag = DMZ_state_flag@ROOT
+		}
+		NOT = {
+			OR = {
+				744 = {
+					is_controlled_by = NEA
+				}
+				1030 = {
+					is_controlled_by = NEA
+				}
+			}
+		}
+	}
+	mean_time_to_happen = {
+		days = 2
+	}
+	immediate = {
+		1030 = {
+			set_demilitarized_zone = no
+			clr_state_flag = I_choose_this_state_to_DMZ
+		}
+	}
+	option = {
+	}
+}
+add_namespace = news_mesc_dmz
+news_event = {
+	id = news_mesc_dmz.1
+	hidden = yes
+	trigger = {
+		1053 = {
+			has_state_flag = DMZ_state_flag@ROOT
+		}
+		NOT = {
+			OR = {
+				1053 = {
+					is_controlled_by = NEA
+				}
+				283 = {
+					is_controlled_by = NEA
+				}
+			}
+		}
+	}
+	mean_time_to_happen = {
+		days = 2
+	}
+	immediate = {
+		1053 = {
+			set_demilitarized_zone = no
+			clr_state_flag = I_choose_this_state_to_DMZ
+		}
+	}
+	option = {
+	}
+}
+#Kiangsu transfer control state
+news_event = {
+	id = news_mesc.3
+	hidden = yes
+	trigger = {
+		is_subject_of = JAP
+		has_war = yes
+		owns_state = 1015
+		598 = {
+			controller = {
+				tag = JAP
+				has_war = yes
+			}
+			NOT = {
+				any_neighbor_state = {
+					NOT = {
+						OR = {
+							controller = {
+								has_war_together_with = JAP
+							}
+							state = 1043
+						}
+					}
+				}
+			}
+		}
+	}
+	mean_time_to_happen = {
+		days = 2
+	}
+	immediate = {
+		set_state_controller = 598
+	}
+	option = {
+	}
+}
+news_event = {
+	id = news_mesc.4
+	hidden = yes
+	trigger = {
+		tag = PRC
+		has_country_flag = CHI_communist_infiltration_flag
+	}
+	mean_time_to_happen = {
+		days = 5
+	}
+	immediate = {
+		set_country_flag = Ive_fought_jap
+	}
+	option = {
+	}
+}
+news_event = {
+	id = news_mesc.5
+	hidden = yes
+	is_triggered_only = yes
+	immediate = {
+		if = {
+			limit = {
+				has_idea = JAP_expansionist_propaganda_1
+			}
+			swap_ideas = {
+				remove_idea = JAP_expansionist_propaganda_1
+				add_idea = JAP_expansionist_propaganda_2
+			}
+		}
+		else_if = {
+			limit = {
+				has_idea = JAP_expansionist_propaganda_2
+			}
+			swap_ideas = {
+				remove_idea = JAP_expansionist_propaganda_2
+				add_idea = JAP_expansionist_propaganda_3
+			}
+		}
+		else_if = {
+			limit = {
+				has_idea = JAP_expansionist_propaganda_3
+			}
+			swap_ideas = {
+				remove_idea = JAP_expansionist_propaganda_3
+				add_idea = JAP_expansionist_propaganda_4
+			}
+		}
+		else_if = {
+			limit = {
+				has_idea = JAP_expansionist_propaganda_4
+			}
+			swap_ideas = {
+				remove_idea = JAP_expansionist_propaganda_4
+				add_idea = JAP_expansionist_propaganda_5
+			}
+		}
+		else_if = {
+			limit = {
+				has_idea = JAP_expansionist_propaganda_5
+			}
+			remove_ideas = JAP_expansionist_propaganda_5
+		}
+	}
+	option = {
+	}
+}

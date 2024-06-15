@@ -1,0 +1,848 @@
+add_namespace = snl_news
+
+news_event = { #巴黎陷落
+	id = snl_news.5
+	title = snl_news.5.t
+	desc = snl_news.5.desc
+	picture = GFX_news_event_german_soldiers
+	major = yes
+	trigger = {
+		16 = { is_controlled_by = PRC }
+		16 = { is_owned_by = FRA }
+		PRC = { has_war_with = FRA }
+		NOT = { has_global_flag = PRC_flag_fall_of_paris }
+	}
+	immediate = {
+		set_global_flag = PRC_flag_fall_of_paris
+	}
+	mean_time_to_happen = {
+		days = 2
+	}
+	option = {
+		name = snl_news.5.a
+		trigger = {
+			NOT = {
+				is_in_faction_with = FRA
+				TAG = PRC
+				TAG = FRA
+			}
+		}
+	}
+	option = {
+		name = snl_news.5.b
+		trigger = { TAG = PRC }
+	}
+	option = {
+		name = snl_news.5.c
+		trigger = { 
+			or = {
+				is_in_faction_with = FRA
+				TAG = FRA 
+			}
+		}
+	}
+}
+news_event = { #伦敦陷落
+	id = snl_news.6
+	title = snl_news.6.t
+	desc = snl_news.6.desc
+	picture = GFX_news_event_018
+	major = yes
+	trigger = {
+		126 = { is_controlled_by = PRC }
+		126 = { is_owned_by = ENG }
+		PRC = { has_war_with = ENG }
+		NOT = { has_global_flag = PRC_flag_fall_of_london }
+	}
+	immediate = {
+		set_global_flag = PRC_flag_fall_of_london
+	}
+	mean_time_to_happen = {
+		days = 2
+	}
+	option = {
+		name = snl_news.6.a
+		trigger = {
+			NOT = {
+				is_in_faction_with = ENG
+				TAG = PRC
+				TAG = ENG
+			}
+		}
+	}
+	option = {
+		name = snl_news.6.b
+		trigger = { TAG = PRC }
+	}
+	option = {
+		name = snl_news.6.c
+		trigger = { 
+			or = {
+				is_in_faction_with = ENG
+				TAG = ENG 
+			}
+		}
+	}
+}
+news_event = { #开罗陷落
+	id = snl_news.7
+	title = snl_news.7.t
+	desc = snl_news.7.desc
+	picture = GFX_news_event_042
+	major = yes
+	trigger = {
+		907 = { is_controlled_by = PRC }
+		907 = { is_owned_by = ENG }
+		PRC = { has_war_with = ENG }
+		NOT = { has_global_flag = PRC_flag_fall_of_cairo }
+	}
+	immediate = {
+		set_global_flag = PRC_flag_fall_of_cairo
+	}
+	mean_time_to_happen = {
+		days = 2
+	}
+	option = {
+		name = snl_news.7.a
+		trigger = {
+			NOT = {
+				is_in_faction_with = ENG
+				TAG = PRC
+				TAG = ENG
+			}
+		}
+	}
+	option = {
+		name = snl_news.7.b
+		trigger = { TAG = PRC }
+	}
+	option = {
+		name = snl_news.7.c
+		trigger = { 
+			or = {
+				is_in_faction_with = ENG
+				TAG = ENG 
+			}
+		}
+	}
+}
+news_event = { #直布罗陀陷落
+	id = snl_news.8
+	title = snl_news.8.t
+	desc = snl_news.8.desc
+	picture = GFX_news_event_052
+	major = yes
+	trigger = {
+		118 = { is_controlled_by = PRC }
+		118 = { is_owned_by = ENG }
+		PRC = { has_war_with = ENG }
+		NOT = { has_global_flag = PRC_flag_fall_of_gibraltar }
+	}
+	immediate = {
+		set_global_flag = PRC_flag_fall_of_gibraltar
+	}
+	mean_time_to_happen = {
+		days = 2
+	}
+	option = {
+		name = snl_news.8.a
+		trigger = {
+			NOT = {
+				is_in_faction_with = ENG
+				TAG = PRC
+				TAG = ENG
+			}
+		}
+	}
+	option = {
+		name = snl_news.8.b
+		trigger = { TAG = PRC }
+	}
+	option = {
+		name = snl_news.8.c
+		trigger = { 
+			or = {
+				is_in_faction_with = ENG
+				TAG = ENG 
+			}
+		}
+	}
+}
+news_event = { #新加坡陷落
+	id = snl_news.9
+	title = snl_news.9.t
+	desc = snl_news.9.desc
+	picture = GFX_news_event_038
+	major = yes
+	trigger = {
+		336 = { is_controlled_by = PRC }
+		336 = { is_owned_by = MAL }
+		PRC = { has_war_with = MAL }
+		NOT = { has_global_flag = PRC_flag_fall_of_singapore }
+	}
+	immediate = {
+		set_global_flag = PRC_flag_fall_of_singapore
+	}
+	mean_time_to_happen = {
+		days = 2
+	}
+	option = {
+		name = snl_news.9.a
+		trigger = {
+			NOT = {
+				is_in_faction_with = MAL
+				TAG = PRC
+				TAG = ENG
+			}
+		}
+	}
+	option = {
+		name = snl_news.9.b
+		trigger = { TAG = PRC }
+	}
+	option = {
+		name = snl_news.9.c
+		trigger = { 
+			or = {
+				is_in_faction_with = MAL
+				TAG = MAL 
+			}
+		}
+	}
+}
+news_event = { #罗马陷落
+	id = snl_news.10
+	title = snl_news.10.t
+	desc = snl_news.10.desc
+	picture = GFX_news_event_057
+	major = yes
+	trigger = {
+		2 = { is_controlled_by = PRC }
+		2 = { is_owned_by = ITA }
+		PRC = { has_war_with = ITA }
+		NOT = { has_global_flag = PRC_flag_fall_of_rome }
+	}
+	immediate = {
+		set_global_flag = PRC_flag_fall_of_rome
+	}
+	mean_time_to_happen = {
+		days = 2
+	}
+	option = {
+		name = snl_news.10.a
+		trigger = {
+			NOT = {
+				is_in_faction_with = ITA
+				TAG = PRC
+				TAG = ITA
+			}
+		}
+	}
+	option = {
+		name = snl_news.10.b
+		trigger = { TAG = PRC }
+	}
+	option = {
+		name = snl_news.10.c
+		trigger = { 
+			or = {
+				is_in_faction_with = ITA
+				TAG = ITA 
+			}
+		}
+	}
+}
+news_event = { #华盛顿陷落
+	id = snl_news.11
+	title = snl_news.11.t
+	desc = snl_news.11.desc
+	picture = GFX_news_event_chinese_soldiers_city_ruin
+	major = yes
+	trigger = {
+		361 = { is_controlled_by = PRC }
+		361 = { is_owned_by = USA }
+		PRC = { has_war_with = USA }
+		NOT = { has_global_flag = PRC_flag_fall_of_washington }
+	}
+	immediate = {
+		set_global_flag = PRC_flag_fall_of_washington
+	}
+	mean_time_to_happen = {
+		days = 2
+	}
+	option = {
+		name = snl_news.11.a
+		trigger = {
+			NOT = {
+				is_in_faction_with = USA
+				TAG = PRC
+				TAG = USA
+			}
+		}
+	}
+	option = {
+		name = snl_news.11.b
+		trigger = { TAG = PRC }
+	}
+	option = {
+		name = snl_news.11.c
+		trigger = { 
+			or = {
+				is_in_faction_with = USA
+				TAG = USA 
+			}
+		}
+	}
+}
+news_event = { #纽约陷落
+	id = snl_news.12
+	title = snl_news.12.t
+	desc = snl_news.12.desc
+	picture = GFX_news_event_fall_of_new_york2
+	major = yes
+	trigger = {
+		358 = { is_controlled_by = PRC }
+		358 = { is_owned_by = USA }
+		PRC = { has_war_with = USA }
+		NOT = { has_global_flag = PRC_flag_fall_of_new_york }
+	}
+	immediate = {
+		set_global_flag = PRC_flag_fall_of_new_york
+	}
+	mean_time_to_happen = {
+		days = 2
+	}
+	option = {
+		name = snl_news.12.a
+		trigger = {
+			NOT = {
+				is_in_faction_with = USA
+				TAG = PRC
+				TAG = USA
+			}
+		}
+	}
+	option = {
+		name = snl_news.12.b
+		trigger = { TAG = PRC }
+	}
+	option = {
+		name = snl_news.12.c
+		trigger = { 
+			or = {
+				is_in_faction_with = USA
+				TAG = USA 
+			}
+		}
+	}
+}
+news_event = { #珍珠港陷落
+	id = snl_news.13
+	title = snl_news.13.t
+	desc = snl_news.13.desc
+	picture = GFX_news_event_020
+	major = yes
+	trigger = {
+		629 = { is_controlled_by = PRC }
+		629 = { is_owned_by = USA }
+		PRC = { has_war_with = USA }
+		NOT = { has_global_flag = PRC_flag_fall_of_pearl_harbor }
+	}
+	immediate = {
+		set_global_flag = PRC_flag_fall_of_pearl_harbor
+	}
+	mean_time_to_happen = {
+		days = 2
+	}
+	option = {
+		name = snl_news.13.a
+		trigger = {
+			NOT = {
+				is_in_faction_with = USA
+				TAG = PRC
+				TAG = USA
+			}
+		}
+	}
+	option = {
+		name = snl_news.13.b
+		trigger = { TAG = PRC }
+	}
+	option = {
+		name = snl_news.13.c
+		trigger = { 
+			or = {
+				is_in_faction_with = USA
+				TAG = USA 
+			}
+		}
+	}
+}
+news_event = { #洛杉矶陷落
+	id = snl_news.14
+	title = snl_news.14.t
+	desc = snl_news.14.desc
+	picture = GFX_news_event_020
+	major = yes
+	trigger = {
+		378 = { is_controlled_by = PRC }
+		378 = { is_owned_by = USA }
+		PRC = { has_war_with = USA }
+		NOT = { has_global_flag = PRC_flag_fall_of_los_angeles }
+	}
+	immediate = {
+		set_global_flag = PRC_flag_fall_of_los_angeles
+	}
+	mean_time_to_happen = {
+		days = 2
+	}
+	option = {
+		name = snl_news.14.a
+		trigger = {
+			NOT = {
+				is_in_faction_with = USA
+				TAG = PRC
+				TAG = USA
+			}
+		}
+	}
+	option = {
+		name = snl_news.14.b
+		trigger = { TAG = PRC }
+	}
+	option = {
+		name = snl_news.14.c
+		trigger = { 
+			or = {
+				is_in_faction_with = USA
+				TAG = USA 
+			}
+		}
+	}
+}
+news_event = { #巴拿马运河区陷落
+	id = snl_news.15
+	title = snl_news.15.t
+	desc = snl_news.15.desc
+	picture = GFX_news_event_020
+	major = yes
+	trigger = {
+		685 = { is_controlled_by = PRC }
+		685 = { is_owned_by = USA }
+		PRC = { has_war_with = USA }
+		NOT = { has_global_flag = PRC_flag_fall_of_panama }
+	}
+	immediate = {
+		set_global_flag = PRC_flag_fall_of_panama
+	}
+	mean_time_to_happen = {
+		days = 2
+	}
+	option = {
+		name = snl_news.15.a
+		trigger = {
+			NOT = {
+				is_in_faction_with = USA
+				TAG = PRC
+				TAG = USA
+			}
+		}
+	}
+	option = {
+		name = snl_news.15.b
+		trigger = { TAG = PRC }
+	}
+	option = {
+		name = snl_news.15.c
+		trigger = { 
+			or = {
+				is_in_faction_with = USA
+				TAG = USA 
+			}
+		}
+	}
+}
+news_event = { #东京陷落
+	id = snl_news.16
+	title = snl_news.16.t
+	desc = snl_news.16.desc
+	picture = GFX_news_event_fall_of_tokyo
+	major = yes
+	trigger = {
+		282 = { is_controlled_by = PRC }
+		282 = { is_owned_by = JAP }
+		PRC = { has_war_with = JAP }
+		NOT = { has_global_flag = PRC_flag_fall_of_tokyo }
+	}
+	immediate = {
+		set_global_flag = PRC_flag_fall_of_tokyo
+	}
+	mean_time_to_happen = {
+		days = 2
+	}
+	option = {
+		name = snl_news.16.a
+		trigger = {
+			NOT = {
+				is_in_faction_with = JAP
+				TAG = PRC
+				TAG = JAP
+			}
+		}
+	}
+	option = {
+		name = snl_news.16.b
+		trigger = { TAG = PRC }
+	}
+	option = {
+		name = snl_news.16.c
+		trigger = { 
+			or = {
+				is_in_faction_with = JAP
+				TAG = JAP 
+			}
+		}
+	}
+}
+news_event = { #莫斯科陷落
+	id = snl_news.17
+	title = snl_news.17.t
+	desc = snl_news.17.desc
+	picture = GFX_news_event_fall_of_moscow
+	major = yes
+	trigger = {
+		219 = { is_controlled_by = PRC }
+		219 = { is_owned_by = SOV }
+		PRC = { has_war_with = SOV }
+		NOT = { has_global_flag = PRC_flag_fall_of_moscow }
+	}
+	immediate = {
+		set_global_flag = PRC_flag_fall_of_moscow
+	}
+	mean_time_to_happen = {
+		days = 2
+	}
+	option = {
+		name = snl_news.17.a
+		trigger = {
+			NOT = {
+				is_in_faction_with = SOV
+				TAG = PRC
+				TAG = SOV
+			}
+		}
+	}
+	option = {
+		name = snl_news.17.b
+		trigger = { TAG = PRC }
+	}
+	option = {
+		name = snl_news.17.c
+		trigger = { 
+			or = {
+				is_in_faction_with = SOV
+				TAG = SOV 
+			}
+		}
+	}
+}
+news_event = { #列宁格勒陷落
+	id = snl_news.18
+	title = snl_news.18.t
+	desc = snl_news.18.desc
+	picture = news_event_bulgarian_soldiers
+	major = yes
+	trigger = {
+		195 = { is_controlled_by = PRC }
+		195 = { is_owned_by = SOV }
+		PRC = { has_war_with = SOV }
+		NOT = { has_global_flag = PRC_flag_fall_of_leningrad }
+	}
+	immediate = {
+		set_global_flag = PRC_flag_fall_of_leningrad
+	}
+	mean_time_to_happen = {
+		days = 2
+	}
+	option = {
+		name = snl_news.18.a
+		trigger = {
+			NOT = {
+				is_in_faction_with = SOV
+				TAG = PRC
+				TAG = SOV
+			}
+		}
+	}
+	option = {
+		name = snl_news.18.b
+		trigger = { TAG = PRC }
+	}
+	option = {
+		name = snl_news.18.c
+		trigger = { 
+			or = {
+				is_in_faction_with = SOV
+				TAG = SOV 
+			}
+		}
+	}
+}
+news_event = { #基辅陷落
+	id = snl_news.19
+	title = snl_news.19.t
+	desc = snl_news.19.desc
+	picture = GFX_news_event_kiev_ruins
+	major = yes
+	trigger = {
+		195 = { is_controlled_by = PRC }
+		195 = { is_owned_by = SOV }
+		PRC = { has_war_with = SOV }
+		NOT = { has_global_flag = PRC_flag_fall_of_kiev }
+	}
+	immediate = {
+		set_global_flag = PRC_flag_fall_of_kiev
+	}
+	mean_time_to_happen = {
+		days = 2
+	}
+	option = {
+		name = snl_news.19.a
+		trigger = {
+			NOT = {
+				is_in_faction_with = SOV
+				TAG = PRC
+				TAG = SOV
+			}
+		}
+	}
+	option = {
+		name = snl_news.19.b
+		trigger = { TAG = PRC }
+	}
+	option = {
+		name = snl_news.19.c
+		trigger = { 
+			or = {
+				is_in_faction_with = SOV
+				TAG = SOV 
+			}
+		}
+	}
+}
+news_event = { #斯大林格勒陷落
+	id = snl_news.20
+	title = snl_news.20.t
+	desc = snl_news.20.desc
+	picture = GFX_news_event_soviet_soldiers_ruins
+	major = yes
+	trigger = {
+		217 = { is_controlled_by = PRC }
+		217 = { is_owned_by = SOV }
+		PRC = { has_war_with = SOV }
+		NOT = { has_global_flag = PRC_flag_fall_of_stalingrad }
+	}
+	immediate = {
+		set_global_flag = PRC_flag_fall_of_stalingrad
+	}
+	mean_time_to_happen = {
+		days = 2
+	}
+	option = {
+		name = snl_news.20.a
+		trigger = {
+			NOT = {
+				is_in_faction_with = SOV
+				TAG = PRC
+				TAG = SOV
+			}
+		}
+	}
+	option = {
+		name = snl_news.20.b
+		trigger = { TAG = PRC }
+	}
+	option = {
+		name = snl_news.20.c
+		trigger = { 
+			or = {
+				is_in_faction_with = SOV
+				TAG = SOV 
+			}
+		}
+	}
+}
+news_event = { #塞瓦斯托波尔陷落
+	id = snl_news.21
+	title = snl_news.21.t
+	desc = snl_news.21.desc
+	picture = GFX_news_event_kiev_ruins
+	major = yes
+	trigger = {
+		137 = { is_controlled_by = PRC }
+		137 = { is_owned_by = SOV }
+		PRC = { has_war_with = SOV }
+		NOT = { has_global_flag = PRC_flag_fall_of_sevastopol }
+	}
+	immediate = {
+		set_global_flag = PRC_flag_fall_of_sevastopol
+	}
+	mean_time_to_happen = {
+		days = 2
+	}
+	option = {
+		name = snl_news.21.a
+		trigger = {
+			NOT = {
+				is_in_faction_with = SOV
+				TAG = PRC
+				TAG = SOV
+			}
+		}
+	}
+	option = {
+		name = snl_news.21.b
+		trigger = { TAG = PRC }
+	}
+	option = {
+		name = snl_news.21.c
+		trigger = { 
+			or = {
+				is_in_faction_with = SOV
+				TAG = SOV 
+			}
+		}
+	}
+}
+news_event = { #巴库陷落
+	id = snl_news.22
+	title = snl_news.22.t
+	desc = snl_news.22.desc
+	picture = GFX_news_event_kiev_ruins
+	major = yes
+	trigger = {
+		229 = { is_controlled_by = PRC }
+		229 = { is_owned_by = SOV }
+		PRC = { has_war_with = SOV }
+		NOT = { has_global_flag = PRC_flag_fall_of_baku }
+	}
+	immediate = {
+		set_global_flag = PRC_flag_fall_of_baku
+	}
+	mean_time_to_happen = {
+		days = 2
+	}
+	option = {
+		name = snl_news.22.a
+		trigger = {
+			NOT = {
+				is_in_faction_with = SOV
+				TAG = PRC
+				TAG = SOV
+			}
+		}
+	}
+	option = {
+		name = snl_news.22.b
+		trigger = { TAG = PRC }
+	}
+	option = {
+		name = snl_news.22.c
+		trigger = { 
+			or = {
+				is_in_faction_with = SOV
+				TAG = SOV 
+			}
+		}
+	}
+}
+news_event = { #悉尼陷落
+	id = snl_news.23
+	title = snl_news.23.t
+	desc = snl_news.23.desc
+	picture = GFX_news_event_047
+	major = yes
+	trigger = {
+		285 = { is_controlled_by = PRC }
+		285 = { is_owned_by = AST }
+		PRC = { has_war_with = AST }
+		NOT = { has_global_flag = PRC_flag_fall_of_sydney }
+	}
+	immediate = {
+		set_global_flag = PRC_flag_fall_of_sydney
+	}
+	mean_time_to_happen = {
+		days = 2
+	}
+	option = {
+		name = snl_news.23.a
+		trigger = {
+			NOT = {
+				is_in_faction_with = AST
+				TAG = PRC
+				TAG = AST
+			}
+		}
+	}
+	option = {
+		name = snl_news.23.b
+		trigger = { TAG = PRC }
+	}
+	option = {
+		name = snl_news.23.c
+		trigger = { 
+			or = {
+				is_in_faction_with = AST
+				TAG = AST 
+			}
+		}
+	}
+}
+news_event = { #喀布尔陷落
+	id = snl_news.24
+	title = snl_news.24.t
+	desc = snl_news.24.desc
+	picture = GFX_news_event_056
+	major = yes
+	trigger = {
+		267 = { is_controlled_by = PRC }
+		267 = { is_owned_by = AFG }
+		PRC = { has_war_with = AFG }
+		NOT = { has_global_flag = PRC_flag_fall_of_afg_allies }
+	}
+	immediate = {
+		set_global_flag = PRC_flag_fall_of_afg_allies
+	}
+	mean_time_to_happen = {
+		days = 2
+	}
+	option = {
+		name = snl_news.24.a
+		trigger = {
+			NOT = {
+				is_in_faction_with = AFG
+				TAG = PRC
+				TAG = AFG
+			}
+		}
+	}
+	option = {
+		name = snl_news.24.b
+		trigger = { TAG = PRC }
+	}
+	option = {
+		name = snl_news.24.c
+		trigger = { 
+			or = {
+				is_in_faction_with = AFG
+				TAG = AFG 
+			}
+		}
+	}
+}
+
+
+
+
+
+

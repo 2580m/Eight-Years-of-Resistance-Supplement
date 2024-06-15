@@ -1,0 +1,471 @@
+add_namespace = GER_takeAXISstate
+add_namespace = JAP_takeAXISstate
+add_namespace = SOV_takeAXISstate
+add_namespace = USA_takeAXISstate
+
+country_event = {
+	id = GER_takeAXISstate.668
+	hidden = yes
+	mean_time_to_happen = { days = 2 }
+
+	trigger = {
+		is_ai = yes
+		is_in_faction_with = GER
+		has_war_with = SOV
+		is_major = no
+		GER = {
+		has_war_with = SOV
+		is_faction_leader = yes
+		}
+		SOV = {
+			any_core_state = {
+				is_fully_controlled_by = ROOT
+				NOT = {
+					is_core_of = ROOT
+					is_owned_by = ROOT
+					is_claimed_by = ROOT
+				}
+			}
+		}
+	}
+
+	immediate = {
+		SOV = {
+			every_core_state = {
+				limit = {
+				    OR = {
+					is_fully_controlled_by = ROOT
+					}
+                    NOT = {
+                    state = 198
+                    state = 192
+                    state = 834
+                    }
+					NOT = {
+						is_core_of = ROOT
+						is_owned_by = ROOT
+						is_claimed_by = ROOT
+					}
+				}
+				GER = {
+					set_state_controller = PREV
+				}
+			}
+		}
+	}
+	
+	option = {}
+}
+
+country_event = {
+	id = GER_takeAXISstate.111
+	hidden = yes
+	fire_only_once = yes
+	mean_time_to_happen = { days = 2 }
+
+	trigger = {
+		tag = ROM
+		has_war_with = SOV
+		ROM = {
+			is_in_faction_with = GER
+		}
+		SOV = {
+			any_core_state = {
+				is_fully_controlled_by = GER
+				NOT = {
+					is_core_of = GER
+					is_owned_by = GER
+					is_claimed_by = GER
+				}
+			}
+		}
+		GER = {
+		has_full_control_of_state = 198
+		has_full_control_of_state = 192
+		has_full_control_of_state = 834
+		}
+	}
+
+	immediate = {
+		SOV = {
+			every_core_state = {
+				limit = {
+					is_fully_controlled_by = GER
+                    OR = {
+                    state = 198
+                    state = 192
+                    state = 834
+                    }
+				}
+				add_claim_by = ROM
+				ROM = {
+					set_state_controller = PREV
+				}
+			}
+		}
+	}
+	
+	option = {}
+}
+
+country_event = {
+	id = GER_takeAXISstate.3
+	hidden = yes
+	mean_time_to_happen = { days = 2 }
+
+	trigger = {
+		is_in_faction_with = GER
+		GER = { is_faction_leader = yes }
+		has_war = yes
+		is_ai = yes
+		is_major = no
+		not = { original_tag = ITA }
+		not = { original_tag = LBA }
+		not = { is_subject_of = ITA }
+		any_controlled_state = {
+			is_fully_controlled_by = ROOT
+			NOT = {
+				is_core_of = ROOT
+				is_owned_by = ROOT
+				is_claimed_by = ROOT
+			}
+		}
+	}
+
+	immediate = {
+			every_controlled_state = {
+				limit = {
+					is_fully_controlled_by = ROOT
+					NOT = {
+						is_core_of = ROOT
+						is_owned_by = ROOT
+						is_claimed_by = ROOT
+					}
+				}
+				GER = {
+					set_state_controller = PREV
+				}
+			}
+	}
+	
+	option = {}
+}
+
+country_event = {
+    id = JAP_takeAXISstate.1
+	hidden = yes
+	mean_time_to_happen = { days = 2 }
+
+	trigger = {
+		original_tag = SIA
+		is_in_faction_with = JAP
+		JAP = { is_faction_leader = yes }
+		has_war = yes
+		is_ai = yes
+		any_controlled_state = {
+			is_fully_controlled_by = ROOT
+			NOT = {
+				is_core_of = ROOT
+				is_owned_by = ROOT
+				is_claimed_by = ROOT
+			}
+		}
+	}
+
+	immediate = {
+		SIA = {			
+			every_controlled_state = {
+				limit = {
+					is_fully_controlled_by = ROOT
+					NOT = {
+						is_core_of = ROOT
+						is_owned_by = ROOT
+						is_claimed_by = ROOT
+					}
+				}
+				JAP = {
+					set_state_controller = PREV
+				}
+			}
+		}
+	}
+	
+	option = {}
+}
+
+country_event = {
+    id = SOV_takeAXISstate.1
+	hidden = yes
+	mean_time_to_happen = { days = 2 }
+
+	trigger = {
+		is_in_faction_with = SOV
+		SOV = { is_faction_leader = yes }
+		has_war = yes
+		is_ai = yes
+		is_major = no
+		any_controlled_state = {
+			is_fully_controlled_by = ROOT
+			NOT = {
+				is_owned_by = ROOT
+			}
+		}
+	}
+
+	immediate = {
+		root = {
+			every_controlled_state = {
+				limit = {
+					is_fully_controlled_by = ROOT
+					NOT = {
+				    is_owned_by = ROOT
+			        }
+				}
+				SOV = {
+					set_state_controller = PREV
+				}
+			}
+		}
+	}
+	
+	option = {}
+}
+
+country_event = {
+    id = SOV_takeAXISstate.2
+	hidden = yes
+	mean_time_to_happen = { days = 2 }
+
+	trigger = {
+	    has_war_together_with = SOV
+		NOT = { is_in_faction_with = SOV }
+		NOT = { has_war_with = SOV }
+		is_ai = yes
+		any_controlled_state = {
+			is_controlled_by = ROOT
+			NOT = {
+				is_owned_by = ROOT
+			}
+			is_owned_by = SOV
+		}
+	}
+
+	immediate = {
+		root = {
+			every_controlled_state = {
+				limit = {
+					is_controlled_by = ROOT
+					NOT = {
+				    is_owned_by = ROOT
+			        }
+					is_owned_by = SOV
+				}
+				SOV = {
+					set_state_controller = PREV
+				}
+			}
+		}
+	}
+	
+	option = {}
+}
+
+country_event = {
+    id = USA_takeAXISstate.1
+	hidden = yes
+	mean_time_to_happen = { days = 2 }
+
+	trigger = {
+		has_war = yes
+		is_in_faction_with = USA
+		not = { original_tag = ITA }
+		USA = { is_faction_leader = yes }
+		is_ai = yes
+		is_major = no
+		any_controlled_state = {
+			is_fully_controlled_by = ROOT
+			NOT = {
+				is_core_of = ROOT
+				is_owned_by = ROOT
+				is_claimed_by = ROOT
+			}
+		}
+	}
+
+	immediate = {
+				
+			every_controlled_state = {
+				limit = {
+					is_fully_controlled_by = ROOT
+					NOT = {
+						is_core_of = ROOT
+						is_owned_by = ROOT
+						is_claimed_by = ROOT
+					}
+				}
+				USA = {
+					set_state_controller = PREV
+				}
+			}
+		
+	}
+	
+	option = {}
+}
+
+country_event = {
+    id = USA_takeAXISstate.2
+	hidden = yes
+	mean_time_to_happen = { days = 2 }
+
+	trigger = {
+		has_war = yes
+		is_in_faction_with = ENG
+		not = { original_tag = ITA }
+		ENG = { is_faction_leader = yes }
+		is_ai = yes
+		is_major = no
+		any_controlled_state = {
+			is_fully_controlled_by = ROOT
+			NOT = {
+				is_core_of = ROOT
+				is_owned_by = ROOT
+				is_claimed_by = ROOT
+			}
+		}
+	}
+
+	immediate = {
+				
+			every_controlled_state = {
+				limit = {
+					is_fully_controlled_by = ROOT
+					NOT = {
+						is_core_of = ROOT
+						is_owned_by = ROOT
+						is_claimed_by = ROOT
+					}
+				}
+				ENG = {
+					set_state_controller = PREV
+				}
+			}
+		
+	}
+	
+	option = {}
+}
+
+country_event = { #nansilafu#xila#nuowei#eng
+	id = GER_takeAXISstate.4
+	hidden = yes
+	mean_time_to_happen = { days = 2 }
+
+	trigger = {
+	    OR = {
+		original_tag = ITA
+		is_subject_of = ITA
+		}
+		is_in_faction_with = GER
+		GER = { is_faction_leader = yes }
+        is_ai = yes
+		has_war = yes
+		any_controlled_state = {
+			is_fully_controlled_by = ROOT
+			NOT = {
+				is_core_of = ROOT
+				is_owned_by = ROOT
+				is_claimed_by = ROOT
+			}
+			OR = {
+			    is_owned_by = GRE
+				is_owned_by = YUG
+                is_owned_by = NOR
+                is_core_of = ENG
+            }
+		}
+	}
+
+	immediate = {
+			every_controlled_state = {
+				limit = {
+				is_fully_controlled_by = ROOT
+				NOT = {
+				is_core_of = ROOT
+				is_owned_by = ROOT
+				is_claimed_by = ROOT
+			    }
+                OR = {
+			    is_owned_by = GRE
+				is_owned_by = YUG
+                is_owned_by = NOR
+                is_core_of = ENG
+                }
+				}
+				GER = {
+					set_state_controller = PREV
+				}
+			}
+	}
+	
+	option = {}
+}
+
+country_event = { #xila
+	id = GER_takeAXISstate.5
+	hidden = yes
+	mean_time_to_happen = { days = 2 }
+	fire_only_once = yes
+
+	trigger = {
+	    tag = GER
+		is_faction_leader = yes
+		has_war_with = GRE
+		GRE = { has_capitulated = yes }
+		any_state = {
+		is_owned_by = GRE
+		controller = { is_in_faction_with = GER not = { tag = GER } is_ai = yes }
+		}
+	}
+
+	immediate = {
+			every_state = {
+				limit = {
+				is_owned_by = GRE
+				NOT = { is_claimed_by = BUL }
+				controller = {
+				is_in_faction_with = GER
+				is_ai = yes
+				not = { tag = GER }
+				}
+				}
+				controller = { remove_state_claim = PREV }
+				ITA = {
+				if = {
+				limit = { is_ai = yes is_in_faction_with = GER }
+				remove_state_claim = PREV
+				}
+				}
+				GER = {
+					set_state_controller = PREV
+				}
+			}
+			
+			ITA = {
+			if = {
+			limit = {
+			is_in_faction_with = GER
+			185 = {
+			controller = {
+				is_in_faction_with = GER
+				}
+			}
+			}
+			set_state_controller = 185
+			add_state_claim = 185
+			}
+			}
+	}
+	
+	option = {}
+}

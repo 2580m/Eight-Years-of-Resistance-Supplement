@@ -1,0 +1,346 @@
+﻿add_namespace = RCM_TIB
+#Ngawang Sungrab Thutob took the leadership
+country_event = {
+	id = RCM_TIB.1
+	title = RCM_TIB.1.t
+	desc = RCM_TIB.1.d
+	picture = GFX_report_event_generic_sign_treaty2
+	is_triggered_only = no
+	trigger = {
+		original_tag = TIB
+		is_subject = no
+		country_exists = ENG
+		NOT = { 
+			has_war_with = ENG 
+		}
+		date > 1941.1.1
+	    has_government = neutrality
+	}
+	fire_only_once = yes
+	option = { 
+		name = RCM_TIB.1.a
+		ai_chance = {
+			factor = 1
+		}
+	    retire_country_leader = yes
+		create_country_leader = {
+			name = Ngawang_Sungrab_Thutob
+			desc = "POLITICS_MA_BUFANG_DESC"
+			picture = "Portrait_Tibet_Ngawang_Sungrab_Thutob.dds"
+			expire = "1975.7.1"
+			ideology = despotism
+			traits = {
+				#
+			}
+		}
+		#set_party_name = {
+		#    ideology = neutrality 
+		#    name = "Taktra Rinpoche"
+		#    long_name = "Taktra Rinpoche"
+	    #}   
+	}
+}
+#Battle of Chamdo, should we surrender?
+country_event = {
+	id = RCM_TIB.2
+	title = RCM_TIB.2.t
+	desc = RCM_TIB.2.d
+	picture = GFX_report_event_generic_sign_treaty2
+	is_triggered_only = no
+	trigger = {
+		original_tag = TIB
+		has_government = neutrality
+		#guo
+			any_enemy_country = {
+				is_literally_china = yes
+				num_of_controlled_states > 5
+			}
+			surrender_progress > 0.20
+	}
+	immediate = {
+		retire_country_leader = yes
+		create_country_leader = {
+			name = Dalai_Lama_14th
+			desc = "POLITICS_MA_BUFANG_DESC"
+			picture = "Portrait_Tibet_14th_Dalai_Lama.dds"
+			expire = "1975.7.1"
+			ideology = despotism
+			traits = {
+				popular_figurehead #guo
+			}
+		}
+	}
+	fire_only_once = yes
+	option = { 
+		name = RCM_TIB.2.a
+		ai_chance = {
+			factor = 100
+		}
+		custom_effect_tooltip = THIS_IS_HISTORICAL_TT
+		add_war_support = -0.05
+		random_enemy_country = {
+			limit = {
+				is_literally_china = yes
+				num_of_controlled_states > 5#GUO
+			}
+		    country_event = {
+				id = RCM_TIB.3 days = 1#GUO
+			}
+		}
+		custom_effect_tooltip = if_they_accept_green
+		effect_tooltip = {
+			random_enemy_country = {
+				limit = {
+					is_literally_china = yes
+					num_of_controlled_states > 5#GUO
+					is_subject = no
+					#GUO controls_province = 10865
+				}
+				PREV = {
+					set_autonomy = {
+						target = ROOT
+						autonomous_state = autonomy_rcm_provincial_government
+					}
+				}
+			}
+		}
+		#surrender
+	}
+	option = { 
+		name = RCM_TIB.2.b
+		ai_chance = {#GUO
+			factor = 0
+		}
+		#no surrender
+		add_war_support = 0.05
+	}
+}
+
+country_event = { #accept tibet surrender?
+	id = RCM_TIB.3
+	title = RCM_TIB.3.t
+	desc = RCM_TIB.3.d
+	picture = GFX_report_event_generic_sign_treaty2
+	is_triggered_only = yes
+	option = { 
+		name = RCM_TIB.3.a
+		#accept
+		custom_effect_tooltip = THIS_IS_HISTORICAL_TT
+		ai_chance = {
+			factor = 100
+		}
+		add_political_power = -50
+		effect_tooltip = {
+			FROM_become_a_HA_provincial_government_of_THIS = yes
+		    FROM = {
+				set_politics = {
+					ruling_party = neutrality
+					elections_allowed = no
+				}
+				
+				#every_owned_state = { add_core_of = root } #guo
+			}
+		}
+		FROM = {
+			country_event = RCM_TIB.4
+		}
+		
+		if = {#guo
+		limit = {
+		tag = event_target:WTT_communist_china
+		}
+		country_event = PRC_linyuying.32
+		}
+	}
+	option = { 
+		name = RCM_TIB.3.b
+		ai_chance = {
+			factor = 0#guo
+		}
+		#no 
+        FROM = {
+			country_event = RCM_TIB.5
+			
+			every_owned_state = { remove_core_of = root } #guo
+		}
+	}
+}
+
+country_event = { #Chinese accepts, to tibet
+	id = RCM_TIB.4
+	title = RCM_TIB.4.t
+	desc = RCM_TIB.4.d
+	picture = GFX_report_event_generic_sign_treaty2
+	is_triggered_only = yes
+	option = { 
+		name = RCM_TIB.4.a
+		#accept
+		
+		if = { #guo
+		limit = {
+		FROM = { not = { tag = event_target:WTT_communist_china } }
+		}
+		ROOT_become_a_HA_provincial_government_of_FROM = yes
+		}
+		else = {
+			FROM = { set_autonomy = { target = ROOT autonomy_state = autonomy_dominion freedom_level = 0.50 } }
+		}
+		
+		set_politics = {
+			ruling_party = neutrality
+			elections_allowed = no
+		}
+		
+		#every_owned_state = { add_core_of = FROM } #guo
+	}
+}
+
+country_event = { #Chinese refueses, to tibet
+	id = RCM_TIB.5
+	title = RCM_TIB.5.t
+	desc = RCM_TIB.5.d
+	picture = GFX_report_event_generic_sign_treaty2
+	is_triggered_only = yes
+	option = { 
+		name = RCM_TIB.5.a
+		#accept
+		add_war_support = 0.05
+	}
+}
+
+country_event = { #Invade Xikang?
+	id = RCM_TIB.6
+	title = RCM_TIB.6.t
+	desc = RCM_TIB.6.d
+	picture = GFX_report_event_generic_sign_treaty2
+	is_triggered_only = no
+	fire_only_once = yes
+	trigger = {
+		tag = TIB
+		has_war = no
+		has_border_war = no
+		601 = {
+			is_owned_and_controlled_by = ROOT
+		}
+		any_neighbor_country = {
+			tag = XIK
+			is_subject = no
+			has_war = no
+			has_border_war = no
+			NOT = {
+				is_ally_with = ROOT
+			}
+			owns_state = 752
+			controls_state = 752
+		}
+		event_target:WTT_communist_china = {
+			exists = yes
+			has_war_with = event_target:WTT_current_china_leader
+		}
+		date > 1936.10.1
+	}
+	option = { 
+		name = RCM_TIB.6.a
+		#sure
+		custom_effect_tooltip = THIS_IS_HISTORICAL_TT
+		ai_chance = {
+			factor = 100
+		}
+		set_global_flag = TIB_XIK_conflict_flag
+		hidden_effect = {
+			if = {
+				limit = {
+					XIK = {
+						is_ai = yes
+					    divisions_in_state = { state = 752 size < 3 }
+						1042 = {
+							is_owned_and_controlled_by = XIK
+						}
+					}
+				}
+				XIK = {
+					1042 = {
+						teleport_armies = { 
+							to_state = 752
+							#to_province = 8104
+						}
+					}
+				}
+			}
+		}
+		start_border_war = {
+			change_state_after_war = no
+			attacker = {
+				state = 601
+				num_provinces = 2
+				on_win = RCM_TIB.7 #RCM_TIB.7
+				on_lose = RCM_border_conflict_lost_attacker.1
+				on_cancel = RCM_border_conflict_canceled_attacker.1
+			}
+			defender = {
+				state = 752
+				num_provinces = 2
+				on_win = RCM_border_conflict_won_defender.1
+				on_lose = RCM_TIB.8 #RCM_TIB.8
+				on_cancel = RCM_border_conflict_canceled_defender.1
+			}
+		}
+		
+		XIK = {
+			country_event = { id = RCM_border_incident_defender_warning.1 hours = 1 }
+		}
+	}
+	option = { 
+		name = RCM_TIB.6.b
+		#too risky
+		add_war_support = -0.05
+	}
+}
+
+country_event = { #Invade Xikang win
+	id = RCM_TIB.7
+	title = RCM_TIB.7.t
+	desc = RCM_TIB.7.d
+	picture = GFX_report_event_generic_sign_treaty2
+	is_triggered_only = yes
+	option = { 
+		name = RCM_TIB.7.a
+		add_war_support = 0.05
+		add_political_power = 100
+		army_experience = 25
+		if = {
+			limit = {
+				is_ai = no 
+			}
+			752 = {
+				transfer_state_to = ROOT
+			}
+		}
+	}
+}
+
+country_event = { #Invade Xikang XIK lose
+	id = RCM_TIB.8
+	title = RCM_TIB.8.t
+	desc = RCM_TIB.8.d
+	picture = GFX_report_event_generic_sign_treaty2
+	is_triggered_only = yes
+	option = { 
+		name = RCM_TIB.8.a
+		add_political_power = -50
+		army_experience = 20
+		if = {
+			limit = {
+				TIB = {
+					is_ai = no
+				}
+			}
+			effect_tooltip = {
+				752 = {
+					transfer_state_to = TIB
+				}
+			}
+		}
+	}
+}
+

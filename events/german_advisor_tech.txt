@@ -1,0 +1,162 @@
+add_namespace = German_advisor
+
+country_event = {
+	id = German_advisor.3 #前期自由贸易
+	#hidden = yes
+	##mean_time_to_happen = { days = 2 }
+	#fire_only_once = yes
+	is_triggered_only = yes
+	title = ""
+	desc = ""
+
+	trigger = {
+		date < 1939.1.1
+		is_ai = yes
+		is_literally_china = no
+		NOT = { tag = MAN }
+        NOT = { tag = ECA }
+        NOT = { tag = EHB }
+	}
+
+	immediate = {
+		add_ideas = free_trade
+	}
+	
+	option = {}
+}
+country_event = {
+	id = German_advisor.4 #中期重视出口
+	hidden = yes
+	mean_time_to_happen = { days = 2 }
+	fire_only_once = no
+	title = ""
+	desc = ""
+
+	trigger = {
+		date > 1938.6.1
+	}
+
+	immediate = {
+	every_country = {
+	limit = {
+	    is_ai = yes
+		OR = {
+		TAG = GER
+		TAG = ITA
+		TAG = JAP
+		TAG = ENG
+		TAG = FRA
+		TAG = POL
+		is_subject_of = ENG
+		}
+	    has_idea = free_trade
+        check_variable = { resource_imported@steel > 160 }		
+	}
+		add_political_power = -150
+		add_ideas = export_focus
+	}
+	}
+	
+	option = {}
+}
+country_event = {
+	id = German_advisor.44#后期有限出口
+	#hidden = yes
+	mean_time_to_happen = { days = 2 }
+	fire_only_once = no
+	title = ""
+	desc = ""
+
+	trigger = { 
+		#any_enemy_country = {
+		#	is_major = yes
+		#}
+		OR = { 
+			and = {
+				has_war_with = MAL
+				has_war_with = INS
+			}
+			date > 1941.5.1
+			has_war_with = SOV
+		}
+		check_variable = { resource_imported@steel > 240 }
+		is_ai = yes
+		or = { tag = GER tag = ITA tag = JAP }
+		has_capitulated = no
+		or = {
+			has_idea = free_trade
+			has_idea = export_focus
+		}
+		
+	}
+
+	immediate = {
+		add_ideas = { limited_exports }
+	}
+	
+	option = {}
+}
+
+country_event = {
+	id = German_advisor.6#征兵法案
+	#hidden = yes
+	#mean_time_to_happen = { days = 2 }
+	fire_only_once = yes
+	title = ""
+	desc = ""
+
+	trigger = { 
+		is_ai = yes
+		tag = GER
+		is_subject = no
+		has_idea = extensive_conscription
+		has_manpower < 10
+		or = {
+			has_manpower < 100000
+			and = {
+				date > 1942.7.1
+				enemies_strength_ratio > 2
+			}
+		}
+		has_war = yes
+		OR = {
+			has_war_support > 0.6
+			surrender_progress > 0.05
+		}
+	}
+
+	immediate = {
+		add_political_power = -150
+		add_ideas = { service_by_requirement }
+	}
+	
+	option = {}
+}
+country_event = {
+	id = German_advisor.7#征兵法案
+	#hidden = yes
+	#mean_time_to_happen = { days = 2 }
+	fire_only_once = yes
+	title = ""
+	desc = ""
+
+	trigger = { 
+		is_ai = yes
+		tag = GER
+		is_subject = no
+		has_idea = service_by_requirement
+		has_manpower < 10
+		date > 1943.1.1
+		has_war = yes
+		enemies_strength_ratio > 2.5
+	    has_war_support > 0.6
+		has_global_flag = goebbels_total_war_mobalization_speech
+	}
+
+	immediate = {
+		add_political_power = -150
+		add_ideas = { all_adults_serve }
+	}
+	
+	option = {}
+}

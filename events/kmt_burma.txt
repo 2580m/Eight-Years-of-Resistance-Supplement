@@ -1,0 +1,482 @@
+add_namespace = kmt_burma
+country_event = {
+	id = kmt_burma.1
+	title = kmt_burma.1.t
+	desc = kmt_burma.1.d
+	is_triggered_only = no
+	picture = GFX_report_event_china_infiltration
+	fire_only_once = yes
+	trigger = {
+		1015 = { is_owned_by = event_target:WTT_communist_china }
+		1034 = { is_owned_by = event_target:WTT_communist_china }
+		605 = { is_owned_by = event_target:WTT_communist_china }
+		753 = { is_owned_by = event_target:WTT_communist_china }
+		592 = { is_owned_by = event_target:WTT_communist_china }
+		608 = { is_owned_by = event_target:WTT_communist_china }
+		NOT = { has_global_flag = chinese_civil_war_victory }
+		325 = { is_owned_by = event_target:WTT_communist_china }
+		747 = { is_owned_by = event_target:WTT_communist_china }							
+		NOT = { 993 = { is_owned_by = event_target:WTT_communist_china } }
+		NOT = {
+			country_exists = YUN
+		}
+		tag = CHI
+		NOT = {
+			has_war_with = JAP
+			has_war_with = event_target:WTT_communist_china
+		}
+		exists = yes 
+		is_subject = no
+		owns_state = 524
+		has_character = CHI_li_mi
+	}
+	#timeout_days = 5
+	option = {
+		name = kmt_burma.1.a
+		custom_effect_tooltip = li_mi_will_establish_yunnan_burma_border_region_tt
+		hidden_effect = {
+	        create_dynamic_country = {
+				original_tag = YUN
+				save_global_event_target_as = kmt_in_burma#guo
+				993 = {
+					if = {
+						limit = {
+							NOT = { is_controlled_by = event_target:WTT_communist_china }
+						}
+						event_target:kmt_in_burma = { transfer_state = PREV }
+					}				     
+				}
+				993 = { add_core_of = PREV }
+				1040 = { add_core_of = PREV }
+				747 = { add_core_of = PREV }
+				325 = { add_core_of = PREV }
+			    event_target:WTT_current_china_leader = {
+					set_autonomy = {
+						target = PREV
+						autonomy_state = autonomy_rcm_national_revolutionary_army
+					} 
+				}
+				set_rule = { 
+				   can_join_factions = no 
+				   can_create_factions = no
+			    }
+				set_capital = { state = 993 }
+				set_politics = {
+					ruling_party = neutrality
+					elections_allowed = no
+				}
+				set_popularities = {
+					fascism = 15
+					neutrality = 85
+				}
+				set_party_name = {
+					ideology = neutrality
+					name = YUN_neutrality_party
+					long_name = YUN_neutrality_party_long
+				}    
+				set_cosmetic_tag = KMT_burma
+				inherit_technology = event_target:WTT_current_china_leader
+				load_oob = Yun_Burma_Army
+				#load_focus_tree = KMT_burma_focus
+				if = {
+					limit = {
+						has_dlc = "Waking the Tiger"
+					}
+					load_focus_tree = china_warlord_focus
+					unlock_national_focus = CHI_secure_internal_politics 
+			        unlock_national_focus = CHI_cooperation_with_the_nationalists
+				    else = {
+						load_focus_tree = generic_focus
+					}
+				}
+				set_country_flag = im_kmt_in_burma
+				ROOT = {
+					CHI_li_mi = { 
+					   set_nationality = event_target:kmt_in_burma
+				    }
+				}
+                set_portraits = {
+					character = CHI_li_mi
+					army = { large = "gfx/leaders/BUR/GFX_portrait_Li_Mi.dds" }
+				}
+				retire_country_leader = yes
+				retire_country_leader = yes
+				CHI_li_mi = {
+					add_country_leader_role = {
+						promote_leader = yes
+						country_leader = {
+							expire = "1965.1.1"
+							ideology = despotism
+							traits = {
+							}
+						} 
+					} 
+					add_country_leader_role = {
+						promote_leader = yes
+						country_leader = {
+							expire = "1965.1.1"
+							ideology = marxism
+							traits = {						
+							}
+						} 
+					}
+					add_country_leader_role = {
+						promote_leader = yes
+						country_leader = {
+							expire = "1965.1.1"
+							ideology = n_socialism_ideology
+							traits = {							
+							}
+						} 
+					}
+					add_country_leader_role = {
+						promote_leader = yes
+						country_leader = {
+							expire = "1965.1.1"
+							ideology = sanmin_military_rule
+							traits = {					   
+							}
+						} 
+					}	
+					add_country_leader_role = {
+						promote_leader = yes
+						country_leader = {
+							expire = "1965.1.1"
+							ideology = conservatism
+							traits = {	
+							}
+						} 
+					}	
+					add_country_leader_trait = {
+						ideology = despotism
+						trait = anti_communist
+					}				 
+				}
+				create_country_leader = {
+					name = "None"
+					desc = "POLITICS_JING_YUEXIU_DESC"
+					picture = "gfx/leaders/leader_unknown.dds"
+					expire = "1970.11.3"
+					ideology = fascism_ideology
+					traits = {
+					}
+				}
+	  
+				create_country_leader = {
+					name = "None"
+					desc = "POLITICS_JING_YUEXIU_DESC"
+					picture = "gfx/leaders/leader_unknown.dds"
+					expire = "1970.11.3"
+					ideology = conservatism
+					traits = {
+					}
+				}
+	  
+				create_country_leader = {
+					name = "None"
+					desc = "POLITICS_JING_YUEXIU_DESC"
+					picture = "gfx/leaders/leader_unknown.dds"
+					expire = "1970.11.3"
+					ideology = n_socialism_ideology
+					traits = {
+					}
+				}
+	  
+				create_country_leader = {
+					name = "None"
+					desc = "POLITICS_JING_YUEXIU_DESC"
+					picture = "gfx/leaders/leader_unknown.dds"
+					expire = "1970.11.3"
+					ideology = marxism
+					traits = {
+					}
+				}
+				create_corps_commander = {
+					name = Li_Guo_Hui
+					portrait_path = "gfx/leaders/BUR/GFX_portrait_Li_guo_hui.dds"
+					traits = { }
+					skill = 1
+					attack_skill = 1
+					defense_skill = 1
+					planning_skill = 1
+					logistics_skill = 1
+				}
+				#create_field_marshal = {
+				#	name = Li_Mi
+				#	portrait_path = "gfx/leaders/BUR/GFX_portrait_Li_Mi.dds"
+				#	traits = { infantry_officer }
+				#	id = -1
+				#	skill = 3
+				#	attack_skill = 2
+				#	defense_skill = 3
+				#	planning_skill = 3
+				#	logistics_skill = 2
+				#}
+				
+				#guo
+				create_country_leader = {
+					name = "Li_Mi"
+					desc = "POLITICS_LI_MI_DESC"
+					picture = "gfx/leaders/BUR/GFX_portrait_Li_Mi.dds"
+					expire = "1965.1.1"
+					ideology = fascism_ideology
+					traits = { anti_communist }
+				}
+				create_country_leader = {
+					name = "Li_Mi"
+					desc = "POLITICS_LI_MI_DESC"
+					picture = "gfx/leaders/BUR/GFX_portrait_Li_Mi.dds"
+					expire = "1965.1.1"
+					ideology = despotism
+					traits = { anti_communist }
+				}
+				
+				if = {
+					limit = {
+						NOT = {
+							has_global_flag = li_mi_promoted_flag
+						}
+					}
+					set_global_flag = li_mi_promoted_flag
+				}    	
+			}  
+			news_event = { hours = 5 id = kmt_burma.4 }
+		}
+	    BUR = { country_event = kmt_burma.2 }
+    }
+}
+country_event = {
+	id = kmt_burma.2
+	title = kmt_burma.2.t
+	desc = kmt_burma.2.d
+	is_triggered_only = yes
+	picture = GFX_report_event_china_flag
+	#fire_only_once = yes
+	#mean_time_to_happen = { days = 3 }
+	#timeout_days = 5
+	option = {
+		name = kmt_burma.2.a
+		set_global_flag = burma_not_happy
+    }
+}
+country_event = {
+	id = kmt_burma.3
+	title = kmt_burma.3.t
+	desc = kmt_burma.3.d
+	is_triggered_only = yes
+	#fire_only_once = yes
+	#mean_time_to_happen = { days = 0 }
+	#timeout_days = 5
+	option = {
+		name = kmt_burma.3.a
+		random_country = {
+		    limit = {
+		        has_cosmetic_tag = KMT_burma 
+			}		     
+		    ROOT = { 
+		        set_autonomy = {
+		            target = PREV
+		            autonomy_state = autonomy_rcm_national_revolutionary_army
+			    } 
+	        }
+	    }
+	}
+}
+news_event = {
+	id = kmt_burma.4
+	title = kmt_burma.4.t
+	desc = kmt_burma.4.d
+	picture = GFX_news_event_kmt_burma
+	major = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = kmt_burma.4.a
+		trigger = { 
+		    NOT = { original_tag = BUR } 
+		    NOT = { tag = CHI }
+		    NOT =  { has_cosmetic_tag = KMT_burma } 
+		}
+	}
+	
+	option = {
+		name = kmt_burma.4.b
+		trigger = { 
+		    original_tag = BUR   
+	    }
+	}
+ 	option = {
+		name = kmt_burma.4.c
+		trigger = {  
+		    OR = { 
+			    tag = CHI 
+				has_cosmetic_tag = KMT_burma 
+			} 
+		}
+	}
+}
+country_event = {
+	id = kmt_burma.5
+	title = kmt_burma.5.t
+	desc = kmt_burma.5.d
+	is_triggered_only = no
+	trigger = {
+		1015 = { is_owned_by = CHI }
+		1034 = { is_owned_by = CHI }
+		605 = { is_owned_by = CHI }
+		753 = { is_owned_by = CHI }
+		592 = { is_owned_by = CHI }
+		608 = { is_owned_by = CHI }
+		524 = { is_owned_by = CHI }				
+		BUR = { exists = yes }
+		PRC = { exists = no }
+		CHI = { is_puppet = no }
+		tag = CHI 
+		993 = { owner = { has_cosmetic_tag = KMT_burma } } 
+	 }
+	fire_only_once = yes
+	mean_time_to_happen = { days = 0 }
+	#timeout_days = 5
+	option = {
+		name = kmt_burma.5.a
+		random_country = {
+		    limit = {
+		        has_cosmetic_tag = KMT_burma 
+			}		     
+		    CHI = { 
+		        annex_country = {
+		            target = PREV
+		            transfer_troops = yes
+			    } 
+		    }
+		    PREV = { 
+			    every_unit_leader = {
+				    set_nationality = CHI      
+				}  
+			}
+		}
+		CHI = { country_event = kmt_burma.12 }
+	}
+}
+
+country_event = {
+	id = kmt_burma.7
+	title = kmt_burma.7.t
+	desc = kmt_burma.7.d
+	is_triggered_only = yes
+	#fire_only_once = yes
+	#mean_time_to_happen = { days = 0 }
+	#timeout_days = 5
+	option = {
+		name = kmt_burma.7.a
+		SIA = { country_event = kmt_burma.8 }
+	}
+}
+country_event = {
+	id = kmt_burma.8
+	title = kmt_burma.8.t 
+	desc = kmt_burma.8.d
+	is_triggered_only = yes
+	#fire_only_once = yes
+	#mean_time_to_happen = { days = 0 }
+	##timeout_days = 5
+	option = {
+		name = kmt_burma.8.a
+		  
+		random_country = {
+		    limit = {
+		        has_cosmetic_tag = KMT_burma } PREV = { country_event = kmt_burma.9 } 
+			} 
+		    ai_chance = { 
+			    base = 90
+			} 
+	    }
+	option = {
+		name = kmt_burma.8.b
+		 
+		random_country = {
+		    limit = {
+		        has_cosmetic_tag = KMT_burma 
+			}
+		    PREV = { country_event = kmt_burma.10 }
+		}
+		ai_chance = { 
+			base = 1   
+		}      
+    }
+}
+country_event = {
+	id = kmt_burma.9
+	title = kmt_burma.9.t 
+	desc = kmt_burma.9.d
+	is_triggered_only = yes
+	#fire_only_once = yes
+	#mean_time_to_happen = { days = 0 }
+	#timeout_days = 5
+	option = {
+		name = kmt_burma.9.a
+		random_country = {
+		limit = { has_cosmetic_tag = KMT_burma }    
+			SIA = { give_military_access = PREV }
+			add_offsite_building = { type = arms_factory level = 2 }
+			add_offsite_building = { type = industrial_complex level = 2 }			
+	    }
+    }
+}
+country_event = {
+	id = kmt_burma.10
+	title = kmt_burma.10.t 
+	desc = kmt_burma.10.d
+	is_triggered_only = yes
+	#fire_only_once = yes
+	#mean_time_to_happen = { days = 0 }
+	#timeout_days = 5
+	option = {
+		name = kmt_burma.10.a
+	      }
+    }
+country_event = {
+	id = kmt_burma.11 #well actually not KMT
+	title = kmt_burma.11.t
+	desc = kmt_burma.11.d
+	is_triggered_only = no
+	trigger = {
+		OR = {
+			993 = { is_owned_by = PRC }  
+		    993 = { is_controlled_by = PRC }
+		}
+		original_tag = prc
+	} 
+	fire_only_once = yes
+	mean_time_to_happen = { days = 2 }
+	#timeout_days = 5
+	option = {
+		ai_chance = { base = 100 } 
+		name = kmt_burma.11.a
+		BUR = { transfer_state = 993  }
+	}
+	option = {
+		name = kmt_burma.11.b
+		add_stability = -0.10
+	}
+}
+country_event = {
+	id = kmt_burma.12 #well actually KMT
+	title = kmt_burma.12.t
+	desc = kmt_burma.12.d
+	is_triggered_only = yes
+	#fire_only_once = yes
+	#mean_time_to_happen = { days = 0 }
+	#timeout_days = 5
+	option = {
+		name = kmt_burma.12.a
+		BUR = { transfer_state = 993 }
+		ai_chance = { base = 100 } 
+		add_stability = 0.05     
+	}
+	option = {
+		name = kmt_burma.12.b
+		add_stability = -0.10
+		BUR = { add_opinion_modifier = { target = CHI modifier = hostile_status } }       
+	}
+}

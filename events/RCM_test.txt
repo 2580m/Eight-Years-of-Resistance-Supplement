@@ -1,0 +1,587 @@
+﻿###########################
+# Chinese Events BORDER WARS ADDED SOUTHERN SHAANXI #ID = 744#
+###########################
+
+add_namespace = rcmtest
+
+# test on annex
+
+country_event = {
+	id = rcmtest.1
+	picture = GFX_report_event_test
+	title = rcmtest.1.t
+	desc = rcmtest.1.d
+	hidden = yes
+	trigger = {
+		
+		OR = {
+			AND = {
+				var:ROOT.controller = {
+					OR = {
+						is_subject_of = JAP
+						tag = JAP
+					}
+				}
+				#OR = { #commented out cause less spam
+				#is_subject_of = JAP
+				tag = JAP
+				#}
+			}
+			AND = {
+				var:ROOT.controller = {
+					OR = {
+						AND = {
+							is_in_faction_with = event_target:WTT_current_china_leader
+							has_war_together_with = event_target:WTT_current_china_leader
+						}
+						tag = event_target:WTT_current_china_leader
+					}
+				}
+				NOT = {
+					has_country_flag = cooperation_with_communist_flag
+				}
+				OR = {
+					AND = {
+						is_in_faction_with = event_target:WTT_current_china_leader
+						has_war_together_with = event_target:WTT_current_china_leader
+					}
+					tag = event_target:WTT_current_china_leader
+				}
+			}
+		}
+	#OR = {
+			has_country_flag = JAP_raiding_regiments
+			has_country_flag = JAP_special_air_landing_force
+		#}
+		#OR = {
+			has_country_flag = JAP_everybody_serves
+			has_country_flag = JAP_draft_exemptions
+		#}
+		#OR = {
+			has_country_flag = JAP_prioritize_naval_aircraft_construction
+			has_country_flag = JAP_prioritize_army_aircraft_construction
+		#}
+		#OR = {
+			has_country_flag = JAP_steel_for_guns
+			has_country_flag = JAP_steel_for_ships
+		#}
+		#has_active_mission = RCM_constitutionalization_pressure
+		#has_manpower > ROOT.var_name
+		#has_manpower > ROOT.var_civ_per_all
+		#has_political_power > ROOT.var_consumer_goods_factory
+		#manpower_per_military_factory > 13000
+		
+		#is_literally_china = yes					
+		#OR = {
+		#	has_country_flag = wtt_political_struggle				
+		#	has_completed_focus = CHI_join_the_republican_government
+		#	tag = event_target:WTT_current_china_leader
+		#}
+	}
+	#mean_time_to_happen = {
+	#	days = 0
+	#}
+	immediate = {
+	}
+
+	is_triggered_only = yes
+	option = {
+		name = rcmtest.1.a
+		
+		#ARMY
+		custom_effect_tooltip = [?Root.num_battalions_with_type@amphibious_armor] 
+		#supply_consumption = 0.2
+		custom_effect_tooltip = [?Root.num_battalions_with_type@amphibious_mechanized] 
+		#supply_consumption = 0.18
+		custom_effect_tooltip = [?Root.num_battalions_with_type@anti_tank] 
+		#supply_consumption = 0.08
+		custom_effect_tooltip = [?Root.num_battalions_with_type@anti_tank_brigade] 
+		#supply_consumption = 0.1
+		custom_effect_tooltip = [?Root.num_battalions_with_type@mot_anti_tank_brigade] 
+		#supply_consumption = 0.15
+		custom_effect_tooltip = [?Root.num_battalions_with_type@anti_air] 
+		#supply_consumption = 0.1
+		custom_effect_tooltip = [?Root.num_battalions_with_type@anti_air_brigade] 
+		#supply_consumption = 0.1
+		custom_effect_tooltip = [?Root.num_battalions_with_type@mot_anti_air_brigade] 
+		#supply_consumption = 0.15
+		custom_effect_tooltip = [?Root.num_battalions_with_type@artillery] 
+		#supply_consumption = 0.16
+		custom_effect_tooltip = [?Root.num_battalions_with_type@rocket_artillery] 
+		#supply_consumption = 0.16
+		custom_effect_tooltip = [?Root.num_battalions_with_type@artillery_brigade] 
+		#supply_consumption = 0.2
+		custom_effect_tooltip = [?Root.num_battalions_with_type@mot_artillery_brigade] 
+		#supply_consumption = 0.3
+		custom_effect_tooltip = [?Root.num_battalions_with_type@rocket_artillery_brigade] 
+		#supply_consumption = 0.2
+		custom_effect_tooltip = [?Root.num_battalions_with_type@mot_rocket_artillery_brigade] 
+		#supply_consumption = 0.3
+		custom_effect_tooltip = [?Root.num_battalions_with_type@motorized_rocket_brigade] 
+		#supply_consumption = 0.28
+		custom_effect_tooltip = [?Root.num_battalions_with_type@cavalry] 
+		#supply_consumption = 0.12
+		custom_effect_tooltip = [?Root.num_battalions_with_type@engineer] 
+		#supply_consumption = 0.02
+		custom_effect_tooltip = [?Root.num_battalions_with_type@field_hospital] 
+		#supply_consumption = 0.05
+		custom_effect_tooltip = [?Root.num_battalions_with_type@heavy_armor] 
+		#supply_consumption = 0.3
+		custom_effect_tooltip = [?Root.num_battalions_with_type@infantry] 
+		#supply_consumption = 0.07
+		custom_effect_tooltip = [?Root.num_battalions_with_type@bicycle_battalion] 
+		#supply_consumption = 0.07
+		custom_effect_tooltip = [?Root.num_battalions_with_type@marine] 
+		#supply_consumption = 0.06
+		custom_effect_tooltip = [?Root.num_battalions_with_type@mountaineers] 
+		#supply_consumption = 0.07
+		custom_effect_tooltip = [?Root.num_battalions_with_type@paratrooper] 
+		#supply_consumption = 0.06
+		custom_effect_tooltip = [?Root.num_battalions_with_type@motorized] 
+		#supply_consumption = 0.11
+		custom_effect_tooltip = [?Root.num_battalions_with_type@mechanized] 
+		#supply_consumption = 0.18
+		custom_effect_tooltip = [?Root.num_battalions_with_type@light_armor] 
+		#supply_consumption = 0.2
+		custom_effect_tooltip = [?Root.num_battalions_with_type@logistics_company] 
+		#supply_consumption = 0.1
+		custom_effect_tooltip = [?Root.num_battalions_with_type@maintenance_company] 
+		#supply_consumption = 0.03
+		custom_effect_tooltip = [?Root.num_battalions_with_type@medium_armor] 
+		#supply_consumption = 0.22
+		custom_effect_tooltip = [?Root.num_battalions_with_type@military_police] 
+		#supply_consumption = 0.02
+		custom_effect_tooltip = [?Root.num_battalions_with_type@modern_armor] 
+		#supply_consumption = 0.25
+		custom_effect_tooltip = [?Root.num_battalions_with_type@recon] 
+		#supply_consumption = 0.02
+		custom_effect_tooltip = [?Root.num_battalions_with_type@signal_company] 
+		#supply_consumption = 0.02
+		custom_effect_tooltip = [?Root.num_battalions_with_type@light_sp_anti_air_brigade] 
+		#supply_consumption = 0.1
+		custom_effect_tooltip = [?Root.num_battalions_with_type@medium_sp_anti_air_brigade] 
+		#supply_consumption = 0.1
+		custom_effect_tooltip = [?Root.num_battalions_with_type@heavy_sp_anti_air_brigade] 
+		#supply_consumption = 0.1
+		custom_effect_tooltip = [?Root.num_battalions_with_type@super_heavy_sp_anti_air_brigade] 
+		#supply_consumption = 0.1
+		custom_effect_tooltip = [?Root.num_battalions_with_type@modern_sp_anti_air_brigade] 
+		#supply_consumption = 0.1
+		custom_effect_tooltip = [?Root.num_battalions_with_type@light_sp_artillery_brigade] 
+		#supply_consumption = 0.4
+		custom_effect_tooltip = [?Root.num_battalions_with_type@medium_sp_artillery_brigade] 
+		#supply_consumption = 0.44
+		custom_effect_tooltip = [?Root.num_battalions_with_type@heavy_sp_artillery_brigade] 
+		#supply_consumption = 0.6
+		custom_effect_tooltip = [?Root.num_battalions_with_type@super_heavy_sp_artillery_brigade] 
+		#supply_consumption = 0.8
+		custom_effect_tooltip = [?Root.num_battalions_with_type@modern_sp_artillery_brigade] 
+		#supply_consumption = 0.5
+		custom_effect_tooltip = [?Root.num_battalions_with_type@super_heavy_armor] 
+		#supply_consumption = 0.4
+		custom_effect_tooltip = [?Root.num_battalions_with_type@light_tank_destroyer_brigade] 
+		#supply_consumption = 0.2
+		custom_effect_tooltip = [?Root.num_battalions_with_type@medium_tank_destroyer_brigade] 
+		#supply_consumption = 0.22
+		custom_effect_tooltip = [?Root.num_battalions_with_type@heavy_tank_destroyer_brigade] 
+		#supply_consumption = 0.3
+		custom_effect_tooltip = [?Root.num_battalions_with_type@super_heavy_tank_destroyer_brigade] 
+		#supply_consumption = 0.4
+		custom_effect_tooltip = [?Root.num_battalions_with_type@modern_tank_destroyer_brigade] 
+		#supply_consumption = 0.25
+
+		#Navy
+		custom_effect_tooltip = Navy[?Root.num_ships_with_type@battle_cruiser]
+		#supply_consumption = 0.12
+		custom_effect_tooltip = Navy[?Root.num_ships_with_type@carrier]
+		#supply_consumption = 0.3
+		custom_effect_tooltip = Navy[?Root.num_ships_with_type@battleship]
+		#supply_consumption = 0.2
+		custom_effect_tooltip = Navy[?Root.num_ships_with_type@destroyer]
+		#supply_consumption = 0.01
+		custom_effect_tooltip = Navy[?Root.num_ships_with_type@heavy_cruiser]
+		#supply_consumption = 0.1
+		custom_effect_tooltip = Navy[?Root.num_ships_with_type@light_cruiser]
+		#supply_consumption = 0.04
+		custom_effect_tooltip = Navy[?Root.num_ships_with_type@submarine]
+		#supply_consumption = 0.01
+		
+		#air idk how to do air lol
+
+		custom_effect_tooltip = blank_line
+		custom_effect_tooltip = blank_line
+		custom_effect_tooltip = [?This.fact_mult_infra]
+		custom_effect_tooltip = SUPPLY_CONDITION_TOOLTIP
+	} 
+}
+
+country_event = { #fail!
+	id = rcmtest.2
+	picture = GFX_report_event_test
+	hidden = yes
+	is_triggered_only = yes
+	immediate = {
+		622 = { remove_dynamic_modifier = { modifier = suiyuan_stronghold scope = CHI } }
+	}
+	trigger = {
+	}
+	is_triggered_only = yes
+	option = {
+		every_country_division = {
+			limit = {
+				unit_strength > 0.49
+				NOT = {
+					division_has_battalion_in_template = cavalry
+				}
+			}
+			random_select_amount = 20
+			add_history_entry = {
+				key = become_adjusted_division
+				subject = "60 Divisions Plan"
+				allow = yes #(allow medal award)
+			}
+			hidden_effect = { #this effect has no loc
+			   add_unit_medal_to_latest_entry = {
+					unit_medals = adjusted_medal
+				}
+			}	
+		}
+	}
+}
+country_event = {
+	id = rcmtest.3
+	title = "rcmtest.3.name"
+	desc = "rcmtest.3.desc"
+	picture = GFX_evt_Picture
+	is_triggered_only = yes
+	trigger = {
+		OR = {
+			AND = {
+				country_exists = GER
+				has_war_with = GER
+				GER = { has_capitulated = no }
+			}
+			AND = {
+				has_war_with = ENG
+				ENG = { has_capitulated = no }
+			}
+			has_war = yes
+		}
+		any_enemy_country = {
+			is_neighbor_of = ROOT
+		}
+	}
+	immediate = {
+		#custom_effect_tooltip = CHI_the_yanan_incident_effect_tt
+		#save_event_target_as = warlord
+		#add_ideas = PRC_soviet_tribute_1
+		#SOV = { country_event = { id = wtt_warlord_vs_prc.1 } }
+		#custom_effect_tooltip = warn_focus_change_tt
+	}
+	option = {
+		division_template = {
+			name = "Reserve Infantry Division"
+			regiments = {
+				infantry = { x = 0 y = 0 }
+				infantry = { x = 0 y = 1 }
+				infantry = { x = 0 y = 2 }
+				artillery_brigade = { x = 0 y = 3 }
+		        infantry = { x = 1 y = 0 }
+				infantry = { x = 1 y = 1 }
+				infantry = { x = 1 y = 2 }
+				artillery_brigade = { x = 1 y = 3 }
+				infantry = { x = 2 y = 0 }
+				infantry = { x = 2 y = 1 }
+				infantry = { x = 2 y = 2 }
+				artillery_brigade = { x = 2 y = 3 }
+				infantry = { x = 3 y = 0 }
+				infantry = { x = 3 y = 1 }
+				infantry = { x = 3 y = 2 }
+				artillery_brigade = { x = 4 y = 0 }
+				infantry = { x = 4 y = 1 }
+				infantry = { x = 4 y = 2 }
+				
+				
+				
+			}
+		}
+		set_country_flag = difficulty_template_set
+		random_owned_controlled_state = {
+			create_unit = {
+				division = "name = \"Reserve Infantry Division\" division_template = \"Reserve Infantry Division\" start_experience_factor = 0.4"
+				owner = ROOT
+			}
+		}
+	}
+	
+}
+country_event = {
+	id = rcmtest.4
+	title = "rcmtest.4.name"
+	desc = "rcmtest.4.desc"
+	picture = GFX_evt_Picture
+	is_triggered_only = yes
+	trigger = {
+		OR = {
+			tag = event_target:WTT_current_china_leader
+			is_in_faction_with = event_target:WTT_current_china_leader
+		}
+		has_war_with = JAP
+		JAP = {
+			is_ai = yes
+		}
+		OR = {
+			AND = {
+				event_target:WTT_current_china_leader = {
+					surrender_progress < 0.5
+				}
+				has_global_flag = CHI_50_percent_lost
+			}
+			AND = {
+				event_target:WTT_current_china_leader = {
+					surrender_progress < 0.55
+				}
+				has_global_flag = CHI_60_percent_lost
+			}
+		}
+
+
+
+		tag = global.north_KOR_overlord
+		tag = global.south_KOR_overlord
+		is_subject = no
+			has_war = yes
+			716 = {
+				NOT = {
+					is_controlled_by_jap_or_its_puppet = yes
+				}
+			}	
+			any_enemy_country = {
+				#NOT = {
+				#	is_literally_china = yes
+				#}
+				ic_ratio = { 
+					tag = ROOT 
+					ratio > 0.7
+				}
+				owns_state = 408
+			}
+			USA = {								
+				has_country_flag = I_drop_first_nuke
+			}
+			USA = {								
+				has_country_flag = I_drop_second_nuke
+			}
+			USA = {								
+				has_country_flag = I_drop_third_nuke
+			}
+			any_enemy_country = {
+				count_triggers = {
+					amount = 2
+					has_country_flag = I_drop_first_nuke
+					has_country_flag = I_drop_second_nuke
+					has_country_flag = I_drop_third_nuke
+				}
+			}
+	}
+	
+	immediate = {
+	}
+	option = {
+		subtract_from_variable = {
+			Root.supply_condition_base = 50
+		}
+		set_rule = { can_create_factions = yes }
+		custom_effect_tooltip = create_generic_faction_tt
+		meta_effect = {
+			ROOT_NAME = "[Root.GetAdjective]" 
+			text = {
+				create_faction = "[ROOT_NAME] Coalition"				
+			}			
+		}
+				#create_faction = GEN_faction_name
+		
+	}
+	option = {		
+		set_cosmetic_tag = NXM_GAN
+		for_each_scope_loop = {
+				array = global.states_for_liberation
+				if = {
+					limit = {
+						OWNER = {
+							tag = event_target:WTT_communist_china							
+						}
+						CONTROLLER = {
+							has_war_together_with = event_target:WTT_communist_china
+							is_in_faction_with = event_target:WTT_communist_china
+						}
+					}
+					set_state_province_controller = {
+						controller = event_target:WTT_communist_china
+						limit = {
+							has_war_together_with = event_target:WTT_communist_china
+							is_in_faction_with = event_target:WTT_communist_china
+						}
+					}
+				}
+			}
+		custom_effect_tooltip = "This [?This.num_battalions|]"
+		custom_effect_tooltip = "Japan [?JAP.num_battalions|]" 
+		custom_effect_tooltip = "China [?CHI.num_battalions|]" 
+		custom_effect_tooltip = "[?SOV.send_aid_count|]" 
+		custom_effect_tooltip = "[?This.infantry_equipment_deficit|]" 
+		#527 = {
+		#	set_state_province_controller = {
+		#		controller = PRC
+		#		limit = {
+		#			has_war_together_with = PRC
+		#		}
+		#	}
+		#}
+	}
+	option = {
+
+
+
+
+		add_ideas = outline_plan_ikki_kita_2
+		load_focus_tree = { tree = warlord_generic_communist keep_completed = yes }	
+	}
+	option = {
+		
+		716 = {
+			every_country = {
+				set_variable = { This.total_vp = 0 }
+			}
+			clear_array = global.compare_vp_array
+			meta_effect = { 
+			    text = {
+			       	for_each_loop = {
+						array = [THIS_STATE_ID].provinces
+						every_country = {
+							limit = {
+								controls_province = v
+							}
+							add_to_variable = { This.total_vp = global.victory_points^v }
+						}
+					}
+			    }
+			    THIS_STATE_ID = "[?This.true_test_id|00]"
+			    #debug = yes #set to yes if you want to see what game actually executes
+			}
+			every_country = {
+				limit = { check_variable = { This.total_vp > 0 } }
+				add_to_array = {
+					global.compare_vp_array = This.total_vp
+				}
+			}
+			find_highest_in_array = {
+				array = global.compare_vp_array
+				value = temp_vp
+			}
+			random_country = {
+				limit = { check_variable = { This.total_vp > 0 } check_variable = { This.total_vp = temp_vp } }
+				save_global_event_target_as = correct_controller
+				custom_effect_tooltip = "[?This.total_vp|]"
+			}
+			
+			custom_effect_tooltip = "[correct_controller.GetName]"
+		}
+		
+		#send_unit_fraction = democratic
+	}
+}
+country_event = {
+	id = rcmtest.5
+	title = "rcmtest.5.name"
+	desc = "rcmtest.5.desc"
+	picture = GFX_evt_Picture
+	is_triggered_only = yes
+	trigger = {
+		strength_ratio = {
+			tag = NEP
+			ratio < 1
+		}
+		check_variable = { cons_infra_ratio > 2.5 } 
+		check_variable = { infantry_equipment_fill_ratio > 0.85 }
+		custom_trigger_tooltip = {
+			tooltip = "[?cons_infra_ratio]"
+			always = yes
+		}
+		custom_trigger_tooltip = {
+			tooltip = "[?infantry_equipment_fill_ratio]"
+			always = yes
+		}
+		custom_trigger_tooltip = {
+			tooltip = "[?temp_cons_infra_ratio]"
+			always = yes
+		}
+		custom_trigger_tooltip = {
+			tooltip = "[?RCM_army_supply_consumption]"
+			always = yes
+		}
+		custom_trigger_tooltip = {
+			tooltip = "[?total_infra]"
+			always = yes
+		}
+		#NOT = { #prevent over-spawning
+		#	#check_variable = { This.supply_condition_army_debuff > 50 } #upkeep over 50 percent
+		#	OR = {
+		#		
+		#	}
+		#}
+	}
+	immediate = {
+		 
+	}
+	
+	option = {
+		add_named_threat = { threat = 100 name = GER_baltic_membership }
+		custom_effect_tooltip = "[?temp_div_mil_ratio]"
+	}
+	option = {
+		clr_global_flag = fall_on_mainland
+	}
+	option = {
+		EHB = {
+			create_country_leader = {
+	name = "Yin Ju-keng"
+	desc = "POLITICS_YIN_JU_KENG_DESC"
+	picture = "Portrait_East_Hebei_Yin.dds"
+	expire = "1948.1.1"
+	ideology = maoism
+}
+
+create_country_leader = {
+	name = "Yin Ju-keng"
+	desc = "POLITICS_YIN_JU_KENG_DESC"
+	picture = "Portrait_East_Hebei_Yin.dds"
+	expire = "1948.1.1"
+	ideology = liberalism
+}
+			create_country_leader = {
+			name = "None"
+			desc = ""
+			picture = "gfx/leaders/leader_unknown.dds"
+			expire = "1965.1.1"
+			ideology = marxism
+			traits = {
+				#
+			}
+		}
+		create_country_leader = {
+			name = "None"
+			desc = ""
+			picture = "gfx/leaders/leader_unknown.dds"
+			expire = "1965.1.1"
+			ideology = n_socialism_ideology
+			traits = {
+				#
+			}
+		}
+		}
+	}
+	option = {
+		add_stability = 0.4
+	}
+}

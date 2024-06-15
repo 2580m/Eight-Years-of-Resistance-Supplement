@@ -1,0 +1,8698 @@
+add_namespace = Sinkiang
+#USSR control the SIK (player)
+#country_event = { #legacy
+#	id = Sinkiang.0
+#	title = Sinkiang.11.t
+#	desc = Sinkiang.11.d
+#	picture = GFX_report_event_stalin_01
+#	is_triggered_only = yes
+#	fire_only_once = yes
+#	trigger = {
+#		tag = SIK
+#		SIK = { is_ai = no }
+#		OR = {
+#			communism > 0.8
+#			has_political_power < 0
+#		}
+#		is_subject = no
+#		OR = {
+#			has_idea = SIK_Support_idea
+#			has_idea = SIK_Weakened_ussr_influence
+#		}
+#		NOT = {
+#			has_war_with = SOV
+#			has_war_with = TNG
+#			has_war_with = HMI
+#		}
+#	}
+#	option = {
+#		name = Sinkiang.11.a
+#		SOV = { country_event = { id = Sinkiang.12 hours = 8 } }
+#	}
+#}
+#Truce with san ma
+country_event = {
+	id = Sinkiang.1
+	title = Sinkiang.1.t
+	desc = Sinkiang.1.d
+	picture = GFX_report_event_chinese_japanese_handshake
+
+	is_triggered_only = yes
+	option = {
+		ai_chance = { factor = 90 }
+		name = Sinkiang.1.a
+		give_military_access = SIK
+		diplomatic_relation = {
+			country = SIK
+			relation = non_aggression_pact
+		}
+		SIK = {
+			give_military_access = XSM
+		}
+		add_opinion_modifier = {
+			target = SIK
+			modifier = Nations_friendly
+		}
+		XSM = {
+			add_opinion_modifier = {
+				target = SIK
+				modifier = Nations_friendly
+			}
+		}
+		set_country_flag = truce_with_sinkiang
+	}
+	option = {
+		ai_chance = { factor = 10 }
+		name = Sinkiang.1.b
+		SIK = {
+			create_wargoal = {
+				type = annex_everything
+				target = XSM
+			}
+		}
+		add_timed_idea = { idea = communist_influence days = 365 }
+	}
+}
+#Cooperation with san ma
+country_event = {
+	id = Sinkiang.2
+	title = Sinkiang.2.t
+	desc = Sinkiang.2.d
+	picture = GFX_report_event_chinese_japanese_handshake
+
+	is_triggered_only = yes
+	option = {
+		ai_chance = { factor = 100 }
+		name = Sinkiang.2.a
+		SIK = {
+			add_to_faction = XSM
+		}
+	}
+	option = {
+		ai_chance = { factor = 0 }
+		name = Sinkiang.2.b
+	}
+}
+#Accept CCP
+country_event = {#GUO
+	id = Sinkiang.3
+	title = Sinkiang.3.t
+	desc = Sinkiang.3.d
+	picture = GFX_report_event_chinese_japanese_handshake
+
+	is_triggered_only = yes
+	option = {
+		ai_chance = { factor = 100 }
+		name = Sinkiang.3.a
+		add_political_power = 75
+			custom_effect_tooltip = gain_base_supp_cond_p10_tt
+			add_to_variable = {
+		    var = This.supply_condition
+			value = 10 #MODDED
+		    }
+		    add_to_variable = {
+			var = This.supply_condition_base
+			value = 10 #MODDED
+		    }
+			add_to_variable = {
+				Root.supply_condition_base = 10
+			}
+			add_equipment_to_stockpile = {
+			type = infantry_equipment
+			amount = 2500
+			producer = SOV
+			}
+			add_equipment_to_stockpile = {
+			type = support_equipment
+			amount = 200
+			producer = SOV
+			}
+			add_equipment_to_stockpile = {
+			type = artillery_equipment
+			amount = 100
+			producer = SOV
+			}
+			add_tech_bonus = {
+				name = infantry_weapons_bonus
+				bonus = 0.75
+				uses = 1
+				category = artillery
+			}
+		PRC_chentanqiu = { set_nationality = SIK }
+		PRC_maozemin = { set_nationality = SIK }
+		unlock_decision_tooltip = prc_zhaohui_sik
+		give_military_access = SIK
+		diplomatic_relation = {
+			country = SIK
+			relation = non_aggression_pact
+		}
+		SIK = {
+			give_military_access = PRC
+		}
+		add_opinion_modifier = {
+			target = SIK
+			modifier = Nations_friendly
+		}
+		SIK = {
+			custom_effect_tooltip = improve_ai_thought
+			add_ai_strategy = { type = alliance id = PRC value = 300 }
+			add_ai_strategy = { type = befriend id = PRC value = 300 }
+			add_ai_strategy = { type = support id = PRC value = 300 }
+			add_ai_strategy = { type = send_lend_lease_desire id = PRC value = 300 }
+			add_opinion_modifier = {
+				target = PRC
+				modifier = Nations_friendly
+			}
+		}
+	}
+	option = {
+		ai_chance = { factor = 0 }
+		name = Sinkiang.3.b
+		add_political_power = -150
+		SIK = {
+			custom_effect_tooltip = bad_ai_thought
+			add_opinion_modifier = {
+				target = PRC
+				modifier = guanxiehua
+			}
+			send_embargo = PRC
+			add_ai_strategy = { type = antagonize id = PRC value = 350 }
+			add_ai_strategy = { type = alliance id = PRC value = -999 }
+			add_ai_strategy = { type = befriend id = PRC value = -500 }
+			add_ai_strategy = { type = support id = PRC value = -999 }
+			add_ai_strategy = { type = send_lend_lease_desire id = PRC value = -999 }
+		}
+		SOV = {
+			custom_effect_tooltip = bad_ai_thought
+			add_opinion_modifier = {
+				target = PRC
+				modifier = weibeisulian
+			}
+			add_ai_strategy = { type = befriend id = PRC value = -100 }
+			add_ai_strategy = { type = support id = PRC value = -500 }
+			add_ai_strategy = { type = send_lend_lease_desire id = PRC value = -500 }
+		}
+		add_opinion_modifier = {
+			target = SIK
+			modifier = guanxiehua
+		}
+	}
+}
+#PRC entry is refused
+country_event = {
+	id = Sinkiang.4
+	title = Sinkiang.4.t
+	desc = Sinkiang.4.d
+	picture = GFX_report_event_chinese_officers
+
+	is_triggered_only = yes
+	option = {
+		name = Sinkiang.4.a
+		add_opinion_modifier = {
+			target = FROM
+			modifier = Nations_estrangement
+		}
+		FROM = {
+			add_opinion_modifier = {
+				target = ROOT
+				modifier = Nations_estrangement
+			}
+		}
+	}
+}
+#Joint mining resource plan
+country_event = {
+	id = Sinkiang.5
+	title = Sinkiang.5.t
+	desc = Sinkiang.5.d
+	picture = GFX_report_event_chinese_japanese_handshake
+
+	is_triggered_only = yes
+	option = {
+		name = Sinkiang.5.a
+	}
+}
+#USSR control the SIK (AI)
+#country_event = { #legacy
+#	id = Sinkiang.11
+#	title = Sinkiang.11.t
+#	desc = Sinkiang.11.d
+#	picture = GFX_report_event_stalin_01
+#	is_triggered_only = yes
+#	fire_only_once = yes
+#	trigger = {
+#		tag = SIK
+#		SIK = { is_ai = yes }
+#		OR = {
+#			communism > 0.85
+#			has_political_power < -30
+#		}
+#		is_subject = no
+#		OR = {
+#			has_idea = SIK_Support_idea
+#			has_idea = SIK_Weakened_ussr_influence
+#		}
+#		NOT = {
+#			has_war_with = SOV
+#			has_war_with = TNG
+#			has_war_with = HMI
+#		}
+#	}
+#	option = {
+#		name = Sinkiang.11.a
+#		SOV = { country_event = { id = Sinkiang.12 hours = 8 } }
+#	}
+#}
+#country_event = { legacy
+#	id = Sinkiang.12
+#	title = Sinkiang.12.t
+#	desc = Sinkiang.12.d
+#	picture = GFX_report_event_stalin_01
+#
+#	is_triggered_only = yes
+#	option = {
+#		ai_chance = { factor = 70 }
+#		name = Sinkiang.12.a
+#		puppet = FROM
+#		FROM = { country_event = { id = Sinkiang.13 hours = 8 } }
+#	}
+#	option = {
+#		ai_chance = { factor = 20 }
+#		name = Sinkiang.12.b
+#		puppet = FROM
+#		FROM = { country_event = { id = Sinkiang.14 hours = 8 } }
+#	}
+#	option = {
+#		ai_chance = { factor = 10 }
+#		name = Sinkiang.12.c
+#	}
+#}
+#country_event = { legacy
+#	id = Sinkiang.13
+#	title = Sinkiang.13.t
+#	desc = Sinkiang.13.d
+#	picture = GFX_report_event_stalin_01
+#
+#	is_triggered_only = yes
+#	option = {
+#		name = Sinkiang.13.a
+#		retire_country_leader = yes
+#		if = {
+#			limit = {
+#				has_unit_leader = 2897
+#			}
+#			remove_unit_leader = 2897
+#		}
+#		set_party_name = { ideology = communism name = SIK_Xinjiang_defend_peace_and_democracy_alliance long_name = SIK_Xinjiang_defend_peace_and_democracy_alliance_long }
+#		set_party_name = { ideology = fascism long_name = SIK_Yining_Liberation_Organization_long name = SIK_Yining_Liberation_Organization }
+#		set_party_name = { ideology = neutrality long_name = SIK_China_nationalist_party name = SIK_Kuomintang }
+#		set_party_name = { ideology = democratic long_name = SIK_Democratic_alliance name = SIK_Democratic_alliance }
+#		remove_ideas = SIK_Autocracy
+#		create_country_leader = {
+#			name = "Abdulkerim Abbas"
+#			desc = "POLITICS_ABDULKERIM_ABBAS_DESC"
+#			picture = "Portrait_Sinkiang_Abdulkerim_Abbas.dds"
+#			expire = "1965.1.1"
+#			ideology = marxism
+#			traits = {
+#				indomitable_perseverance
+#			}
+#		}
+#		create_country_leader = {
+#			name = "Ospan Batyr"
+#			desc = "POLITICS_OSPAN_BATYR_DESC"
+#			picture = "Portrait_Sinkiang_Ospan_Batyr.dds"
+#			expire = "1965.1.1"
+#			ideology = despotism
+#			traits = {
+#				spirit_of_genghis
+#				anti_communist
+#			}
+#		}
+#		create_country_leader = {
+#			name = "Elihan Tore"
+#			desc = "POLITICS_ELIHAN_TORE_DESC"
+#			picture = "Portrait_Sinkiang_Elihan_Tore.dds"
+#			expire = "1965.1.1"
+#			ideology = rexism
+#			traits = {
+#				inexperienced_imperialist
+#				warmonger
+#			}
+#		}
+#		create_country_leader = {
+#			name = Masud_Sabri
+#			desc = "POLITICS_MASUD_SABRI_DESC"
+#			picture = "Portrait_Sinkiang_Masud_Sabri.dds"
+#			expire = "1965.1.1"
+#			ideology = conservatism
+#			traits = {
+#			}
+#		}
+#	}
+#}
+#country_event = {
+#	id = Sinkiang.14
+#	title = Sinkiang.14.t
+#	desc = Sinkiang.14.d
+#	picture = GFX_report_event_stalin_01
+#
+#	is_triggered_only = yes
+#	option = {
+#		name = Sinkiang.14.a
+#		set_party_name = { ideology = fascism long_name = SIK_Yining_Liberation_Organization_long name = SIK_Yining_Liberation_Organization }
+#		create_country_leader = {
+#			name = "Ospan Batyr"
+#			desc = "POLITICS_OSPAN_BATYR_DESC"
+#			picture = "Portrait_Sinkiang_Ospan_Batyr.dds"
+#			expire = "1965.1.1"
+#			ideology = despotism
+#			traits = {
+#				spirit_of_genghis
+#				anti_communist
+#			}
+#		}
+#		create_country_leader = {
+#			name = "Elihan Tore"
+#			desc = "POLITICS_ELIHAN_TORE_DESC"
+#			picture = "Portrait_Sinkiang_Elihan_Tore.dds"
+#			expire = "1965.1.1"
+#			ideology = rexism
+#			traits = {
+#			}
+#		}
+#		create_country_leader = {
+#			name = Masud_Sabri
+#			desc = "POLITICS_MASUD_SABRI_DESC"
+#			picture = "Portrait_Sinkiang_Masud_Sabri.dds"
+#			expire = "1965.1.1"
+#			ideology = conservatism
+#			traits = {
+#			}
+#		}
+#	}
+#}
+#The Soviet influence us #legacy
+#country_event = {
+#	id = Sinkiang.15
+#	title = Sinkiang.15.t
+#	desc = Sinkiang.15.d
+#	picture = GFX_report_event_stalin_01
+#	trigger = {
+#		tag = SIK
+#		has_idea = SIK_Support_idea
+#		NOT = {
+#			is_subject_of = SOV
+#			has_war_with = SOV
+#		}
+#	}
+#	is_triggered_only = yes
+#	#mean_time_to_happen = {
+#		#	days = 90
+#		#}
+#
+#	option = {
+#		ai_chance = { factor = 90 }
+#		name = Sinkiang.15.a
+#		if = {
+#			limit = {
+#				SIK = {
+#					is_ai = no
+#				}
+#			}
+#			add_political_power = -60
+#		}
+#		if = {
+#			limit = {
+#				SIK = {
+#					is_ai = yes
+#				}
+#			}
+#			add_political_power = -30
+#		}
+#		if = {
+#			limit = {
+#				SIK = {
+#					is_ai = yes
+#					communism > 0.7
+#					has_idea = SIK_Support_idea
+#				}
+#			}
+#			add_popularity = {
+#				ideology = communism
+#				popularity = -0.01
+#			}
+#		}
+#		if = {
+#			limit = {
+#				SIK = {
+#					is_ai = yes
+#					communism > 0.7
+#					has_idea = SIK_Support_idea
+#					date < 1939.1.1
+#				}
+#			}
+#			add_popularity = {
+#				ideology = communism
+#				popularity = -0.05
+#			}
+#		}
+#	}
+#	option = {
+#		ai_chance = { factor = 10 }
+#		name = Sinkiang.15.b
+#		add_popularity = {
+#			ideology = communism
+#			popularity = 0.05
+#		}
+#	}
+#}
+#Soviet Union supports armed groups?
+country_event = {
+	id = Sinkiang.16
+	title = Sinkiang.16.t
+	desc = Sinkiang.16.d
+	picture = GFX_report_event_generic_battle
+
+	is_triggered_only = yes
+
+	option = {
+		ai_chance = { factor = 100 }
+		name = Sinkiang.16.a
+		FROM = {
+			country_event = { id = Sinkiang.17 hours = 9 }
+		}
+	}
+	#option = {
+	#	ai_chance = { factor = 0 }
+	#	name = Sinkiang.16.b
+	#}
+}
+#Soviet back oppostion!
+country_event = {
+	id = Sinkiang.17
+	title = Sinkiang.17.t
+	desc = Sinkiang.17.d
+	picture = GFX_report_event_generic_battle
+
+	is_triggered_only = yes
+
+	option = {
+		name = Sinkiang.17.a
+		add_ideas = SIK_Soviet_supports_armed_groups
+	}
+}
+# Civil war with against USSR puppet us #these doesn't serve much use for now
+#country_event = {
+#	id = Sinkiang.18
+#	title = Sinkiang.18.t
+#	desc = Sinkiang.18.d
+#	picture = GFX_report_event_generic_battle
+#
+#	fire_only_once = yes
+#	trigger = {
+#		#always = no #what even is this for?
+#		has_government = communism
+#		has_country_leader = {
+#			name = "Sheng Shicai" ruling_only = yes
+#		}
+#		tag = SIK
+#		is_subject_of = SOV
+#	}
+#	option = {
+#		ai_chance = { factor = 90 }
+#		name = Sinkiang.18.a
+#		start_civil_war = {
+#			#ruling_party = communism
+#			ideology = neutrality
+#			size = 0.2
+#		}
+#		hidden_effect = {
+#			random_other_country = {
+#				limit = {
+#					original_tag = SIK
+#					has_government = neutrality
+#				}
+#set_equipment_fraction = 0.5
+#				#set_stability = 0.7
+#			}
+#		}
+#set_equipment_fraction = 0.5
+#		#set_stability = 0.7
+#	}
+#	option = {
+#		ai_chance = { factor = 10 }
+#		name = Sinkiang.18.b
+#		start_civil_war = {
+#			ruling_party = neutrality
+#			ideology = communism
+#			size = 0.8
+#		}
+#		hidden_effect = {
+#			random_other_country = {
+#				limit = {
+#					original_tag = SIK
+#					has_government = communism
+#				}
+#set_equipment_fraction = 0.5
+#				#set_stability = 0.7
+#			}
+#		}
+#set_equipment_fraction = 0.5
+#		#set_stability = 0.7
+#	}
+#}
+## Civil war with against event_target:WTT_current_china_leader puppet us
+#country_event = {
+#	id = Sinkiang.19
+#	title = Sinkiang.19.t
+#	desc = Sinkiang.19.d
+#	picture = GFX_report_event_generic_battle
+#
+#	fire_only_once = yes
+#	trigger = {
+#		tag = SIK
+#		is_subject_of = event_target:WTT_current_china_leader
+#		NOT = {
+#			has_idea = SIK_Soviet_supports_armed_groups
+#		}
+#	}
+#	option = {
+#		ai_chance = { factor = 90 }
+#		name = Sinkiang.19.a
+#		start_civil_war = {
+#			ruling_party = neutrality
+#			ideology = fascism
+#			size = 0.5
+#		}
+#		hidden_effect = {
+#
+#			random_other_country = {
+#				limit = {
+#					original_tag = SIK
+#					has_government = fascism
+#				}
+#set_equipment_fraction = 0.5
+#				#set_stability = 0.7
+#				set_cosmetic_tag = ETR
+#			}
+#		}
+#set_equipment_fraction = 0.5
+#		#set_stability = 0.7
+#	}
+#	option = {
+#		ai_chance = { factor = 5 }
+#		name = Sinkiang.19.b
+#		start_civil_war = {
+#			ruling_party = communism
+#			ideology = neutrality
+#			size = 0.5
+#		}
+#		hidden_effect = {
+#			retire_country_leader = yes
+#			random_other_country = {
+#				limit = {
+#					original_tag = SIK
+#					has_government = neutrality
+#				}
+#set_equipment_fraction = 0.5
+#				#set_stability = 0.7
+#			}
+#		}
+#set_equipment_fraction = 0.5
+#		#set_stability = 0.7
+#		set_cosmetic_tag = ETR
+#	}
+#	option = {
+#		ai_chance = { factor = 5 }
+#		name = Sinkiang.19.c
+#		start_civil_war = {
+#			ruling_party = fascism
+#			ideology = neutrality
+#			size = 0.5
+#		}
+#		hidden_effect = {
+#			retire_country_leader = yes
+#			random_other_country = {
+#				limit = {
+#					original_tag = SIK
+#					has_government = neutrality
+#				}
+#set_equipment_fraction = 0.5
+#				#set_stability = 0.7
+#			}
+#		}
+#set_equipment_fraction = 0.5
+#		#set_stability = 0.7
+#		set_cosmetic_tag = ETR
+#	}
+#}
+#SIK Forgery offense
+country_event = {
+	id = Sinkiang.20
+	title = Sinkiang.20.t
+	desc = Sinkiang.20.d
+	picture = GFX_report_event_remove_cks
+
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		ai_chance = { 
+		    factor = 80 
+		    modifier = {
+			    factor = 100
+				is_historical_focus_on = yes
+			}
+		}
+		name = Sinkiang.20.a
+		custom_effect_tooltip = THIS_IS_HISTORICAL_TT
+		if = {
+			limit = {
+				has_character = SIK_hoja_niyaz
+			}
+			retire_character = SIK_hoja_niyaz
+		}
+		if = {
+			limit = {
+				has_character = SIK_Manchukezhabu
+			}
+			retire_character = SIK_Manchukezhabu
+		}
+		if = {
+			limit = {
+				has_character = SIK_shariphan_zhenishkhanuly_kogedaev
+			}
+			retire_character = SIK_shariphan_zhenishkhanuly_kogedaev
+		}
+		if = {
+			limit = {
+				has_character = SIK_liu_pin
+			}
+			retire_character = SIK_liu_pin
+		}
+		#if = {
+		#	limit = {
+		#		has_unit_leader = 2889
+		#	}
+		#	remove_unit_leader = 2889
+		#}
+		add_popularity = {
+			ideology = communism
+			popularity = -0.1
+		}
+		add_political_power = 70
+		add_war_support = -0.05
+		add_manpower = -8000
+		add_stability = 0.15
+		scoped_sound_effect = gun_shot_sound
+	}
+	option = {
+		ai_chance = { 
+			factor = 20 
+			modifier = {
+			    factor = 0
+				is_historical_focus_on = yes
+			}
+		}
+		name = Sinkiang.20.b
+		add_political_power = -100
+		add_stability = -0.1
+		#add_popularity = {
+		#	ideology = communism
+		#	popularity = 0.025
+		#}
+	}
+}
+country_event = {
+	id = Sinkiang.21
+	title = Sinkiang.21.t
+	desc = Sinkiang.21.d
+	picture = GFX_report_event_generic_read_write
+
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		ai_chance = { 
+		    factor = 70 
+		    modifier = {
+			    factor = 100
+				is_historical_focus_on = yes
+			}
+		}
+		name = Sinkiang.21.a
+		custom_effect_tooltip = THIS_IS_HISTORICAL_TT
+		retire_character = SIK_sheng_shiqi
+		add_political_power = 50
+		add_manpower = -5000
+	}
+	option = {
+		ai_chance = { factor = 30 }
+		name = Sinkiang.21.b
+		add_political_power = -50
+	}
+}
+country_event = {
+	id = Sinkiang.22
+	title = Sinkiang.22.t
+	desc = Sinkiang.22.d
+	picture = GFX_report_event_generic_rally2
+
+	fire_only_once = yes
+	trigger = {
+		always = no #disable for now
+		tag = SIK
+		focus_progress = { focus = SIK_Arrest_suspicious_people progress > 0.75 }
+	}
+	mean_time_to_happen = {
+		days = 2
+	}
+	option = {
+		ai_chance = { factor = 70 }
+		name = Sinkiang.22.a
+		add_manpower = -15000
+	}
+	option = {
+		ai_chance = { factor = 30 }
+		name = Sinkiang.22.b
+		add_popularity = {
+			ideology = communism
+			popularity = 0.05
+		}
+	}
+}
+#SIK Radical approach
+country_event = {
+	id = Sinkiang.25
+	title = Sinkiang.25.t
+	desc = Sinkiang.25.d
+	picture = GFX_report_event_chinese_officers
+
+	is_triggered_only = yes
+	option = {
+		ai_chance = { factor = 50 }
+		name = Sinkiang.25.a
+		random_list = {
+			60 = {
+				country_event = { id = Sinkiang.27 hours = 9 }
+				#if = {
+				#	limit = {
+				#		has_unit_leader = 2897
+				#	}
+				#	remove_unit_leader = 2897
+				#}
+			}
+			40 = {
+				country_event = { id = Sinkiang.26 hours = 9 }
+			}
+		}
+	}
+	option = {
+		ai_chance = { factor = 50 }
+		name = Sinkiang.25.b
+		country_event = { id = Sinkiang.28 hours = 9 }
+		#if = {
+		#	limit = {
+		#		has_unit_leader = 2897
+		#	}
+		#	remove_unit_leader = 2897
+		#}
+	}
+}
+country_event = {
+	id = Sinkiang.26
+	title = Sinkiang.26.t
+	desc = Sinkiang.26.d
+	picture = GFX_report_event_chinese_soldiers_running
+
+	is_triggered_only = yes
+	option = {
+		name = Sinkiang.26.a
+		set_politics = {
+			ruling_party = neutrality
+			elections_allowed = no
+		}
+		#kill_country_leader = yes
+		retire_character = SIK_sheng_shicai
+		set_cosmetic_tag = SIK_KMT
+		#ETR_politics = yes ETR council will do this
+		add_popularity = {
+			ideology = neutrality
+			popularity = 0.3
+		}
+	}
+}
+country_event = {
+	id = Sinkiang.27
+	title = Sinkiang.27.t
+	desc = Sinkiang.27.d
+	picture = GFX_report_event_chinese_army_training
+
+	is_triggered_only = yes
+	option = {
+		name = Sinkiang.27.a
+		set_capital = { state = 1050 }
+		start_civil_war = {
+			ruling_party = neutrality
+			ideology = communism
+			size = 0.45
+			capital = 617
+			states = { 617 760 1051 1054 1046 1052 1042 }
+			PREV = {  # Original country
+			    SIK_sheng_shiqi = {
+				    set_nationality = PREV.PREV
+			    }
+			    SIK_sheng_shiji = {
+				    set_nationality = PREV.PREV
+			    }
+			    SIK_jiang_deyu = {
+				    set_nationality = PREV.PREV
+			    }
+				SIK_qiu_zongjun = {
+				    set_nationality = PREV.PREV
+			    }
+				SIK_liu_zhengxin = {
+					set_nationality = PREV.PREV	
+				}
+				SIK_liu_pin = {
+					set_nationality = PREV.PREV	
+				}
+				SIK_sheng_shicai = {
+					set_nationality = PREV.PREV	
+				}
+				if = {
+					limit = {
+						has_character = SIK_hoja_niyaz
+					}
+					SIK_hoja_niyaz = {
+						set_nationality = ROOT
+					}
+				}
+            }
+			PREV.PREV = {
+				SIK_sheng_shicai = {
+					add_country_leader_role = {
+						promote_leader = yes
+						country_leader = {
+							expire = "1965.1.1"
+							ideology = despotism
+							traits = {
+								SIK_Duban
+							}
+						} 
+					} 
+					add_country_leader_role = {
+						promote_leader = yes
+						country_leader = {
+							expire = "1965.1.1"
+							ideology = marxism
+							traits = {
+								SIK_Duban
+							}
+						} 
+					}
+					add_country_leader_role = {
+						promote_leader = yes
+						country_leader = {
+							expire = "1965.1.1"
+							ideology = n_socialism_ideology
+							traits = {
+								SIK_Duban
+							}
+						} 
+					}
+					add_country_leader_role = {
+						promote_leader = yes
+						country_leader = {
+							expire = "1965.1.1"
+							ideology = sanmin_military_rule
+							traits = {
+							    SIK_Duban
+						    }
+						} 
+					}	
+					add_country_leader_role = {
+						promote_leader = yes
+						country_leader = {
+							expire = "1965.1.1"
+							ideology = conservatism
+							traits = {
+								SIK_Duban
+							}
+						} 
+					}	
+					add_country_leader_trait = {
+						#ideology = despotism
+						trait = SIK_Duban
+					}				    
+				}
+				#create_country_leader = {
+				#	name = "Sheng Shicai"
+				#   desc = "POLITICS_SHENG_SHICAI_DESC"
+				#   picture = "gfx/leaders/SIK/Portrait_Sinkiang_Sheng_Shicai.dds"
+				#   expire = "1965.1.1"
+				#   ideology = stalinism
+				#   traits = {
+				#	   SIK_Duban
+				#   }
+				#}
+				#set_equipment_fraction = 0.8
+				#set_stability = 0.7
+			    #create_country_leader = {
+				#	name = "Sheng Shicai"
+				#	desc = "POLITICS_SHENG_SHICAI_DESC"
+				#	picture = "gfx/leaders/SIK/Portrait_Sinkiang_Sheng_Shicai.dds"
+				#	expire = "1965.1.1"
+				#	ideology = stalinism
+				#	traits = {
+				#		SIK_Duban
+				#	}
+				#}
+			}
+		}
+		#set_equipment_fraction = 0.5
+		#set_stability = 0.7
+		add_popularity = {
+			ideology = neutrality
+			popularity = 0.1
+		}
+		set_cosmetic_tag = SIK_KMT
+		#ETR_politics = yes #ETR council will do this
+	}
+}
+country_event = {
+	id = Sinkiang.28
+	title = Sinkiang.28.t
+	desc = Sinkiang.28.d
+	picture = GFX_report_event_chinese_army_training
+
+	is_triggered_only = yes
+	option = {
+		name = Sinkiang.28.a
+		if = {
+			limit = {
+				neutrality > 0.4
+			}
+			set_capital = { state = 1050 }
+			start_civil_war = {
+				ruling_party = neutrality
+				ideology = communism
+				size = 0.45
+				capital = 617
+				states = { 617 760 1051 1054 1046 1052 1042 }
+				PREV = {  # Original country
+					SIK_sheng_shiqi = {
+						set_nationality = PREV.PREV
+					}
+					SIK_sheng_shiji = {
+						set_nationality = PREV.PREV
+					}
+					SIK_jiang_deyu = {
+						set_nationality = PREV.PREV
+					}
+					SIK_qiu_zongjun = {
+						set_nationality = PREV.PREV
+					}
+					SIK_liu_zhengxin = {
+						set_nationality = PREV.PREV	
+					}
+					SIK_liu_pin = {
+						set_nationality = PREV.PREV	
+					}
+					SIK_sheng_shicai = {
+						set_nationality = PREV.PREV
+					}
+					if = {
+						limit = {
+							has_character = SIK_hoja_niyaz
+						}
+						SIK_hoja_niyaz = {
+							set_nationality = ROOT
+						}
+					}
+				}
+				PREV.PREV = {
+					SIK_sheng_shicai = {
+						add_country_leader_role = {
+							promote_leader = yes
+							country_leader = {
+								expire = "1965.1.1"
+								ideology = despotism
+								traits = {
+									SIK_Duban
+								}
+							} 
+						} 
+						add_country_leader_role = {
+							promote_leader = yes
+							country_leader = {
+								expire = "1965.1.1"
+								ideology = marxism
+								traits = {
+									SIK_Duban
+								}
+							} 
+						}
+						add_country_leader_role = {
+							promote_leader = yes
+							country_leader = {
+								expire = "1965.1.1"
+								ideology = n_socialism_ideology
+								traits = {
+									SIK_Duban
+								}
+							} 
+						}
+						add_country_leader_role = {
+							promote_leader = yes
+							country_leader = {
+								expire = "1965.1.1"
+								ideology = sanmin_military_rule
+								traits = {
+									SIK_Duban
+								}
+							} 
+						}	
+						add_country_leader_role = {
+							promote_leader = yes
+							country_leader = {
+								expire = "1965.1.1"
+								ideology = conservatism
+								traits = {
+									SIK_Duban
+								}
+							} 
+						}	
+						add_country_leader_trait = {
+							#ideology = despotism
+							trait = SIK_Duban
+						}				    
+					}
+					#set_equipment_fraction = 0.8
+					#set_stability = 0.7
+					#create_country_leader = {
+					#	name = "Sheng Shicai"
+					#	desc = "POLITICS_SHENG_SHICAI_DESC"
+					#	picture = "gfx/leaders/SIK/Portrait_Sinkiang_Sheng_Shicai.dds"
+					#	expire = "1965.1.1"
+					#	ideology = stalinism
+					#	traits = {
+					#		SIK_Duban
+					#	}
+					#}
+				}
+			}
+			#set_equipment_fraction = 0.5
+			#set_stability = 0.7
+			add_popularity = {
+				ideology = neutrality
+				popularity = 0.1
+			}
+		}
+		else = {
+			set_capital = { state = 1050 }
+			start_civil_war = {
+				ruling_party = neutrality
+				ideology = communism
+				size = 0.5
+				capital = 617
+				states = { 617 760 1051 1054 1046 1052 1042 }
+				PREV = {  # Original country
+					SIK_sheng_shiqi = {
+						set_nationality = PREV.PREV
+					}
+					SIK_sheng_shiji = {
+						set_nationality = PREV.PREV
+					}
+					SIK_jiang_deyu = {
+						set_nationality = PREV.PREV
+					}
+					SIK_qiu_zongjun = {
+						set_nationality = PREV.PREV
+					}
+					SIK_liu_zhengxin = {
+						set_nationality = PREV.PREV	
+					}
+					SIK_liu_pin = {
+						set_nationality = PREV.PREV	
+					}
+					SIK_sheng_shicai = {
+						set_nationality = PREV.PREV
+					}
+					if = {
+						limit = {
+							has_character = SIK_hoja_niyaz
+						}
+						SIK_hoja_niyaz = {
+							set_nationality = ROOT
+						}
+					}
+				}
+				PREV.PREV = {
+					SIK_sheng_shicai = {
+						add_country_leader_role = {
+							promote_leader = yes
+							country_leader = {
+								expire = "1965.1.1"
+								ideology = despotism
+								traits = {
+									SIK_Duban
+								}
+							} 
+						} 
+						add_country_leader_role = {
+							promote_leader = yes
+							country_leader = {
+								expire = "1965.1.1"
+								ideology = marxism
+								traits = {
+									SIK_Duban
+								}
+							} 
+						}
+						add_country_leader_role = {
+							promote_leader = yes
+							country_leader = {
+								expire = "1965.1.1"
+								ideology = n_socialism_ideology
+								traits = {
+									SIK_Duban
+								}
+							} 
+						}
+						add_country_leader_role = {
+							promote_leader = yes
+							country_leader = {
+								expire = "1965.1.1"
+								ideology = sanmin_military_rule
+								traits = {
+									SIK_Duban
+								}
+							} 
+						}	
+						add_country_leader_role = {
+							promote_leader = yes
+							country_leader = {
+								expire = "1965.1.1"
+								ideology = conservatism
+								traits = {
+									SIK_Duban
+								}
+							} 
+						}	
+						add_country_leader_trait = {
+							#ideology = despotism
+							trait = SIK_Duban
+						}				    
+					}
+					#set_equipment_fraction = 0.8
+					#set_stability = 0.7
+					#create_country_leader = {
+					#	name = "Sheng Shicai"
+					#	desc = "POLITICS_SHENG_SHICAI_DESC"
+					#	picture = "gfx/leaders/SIK/Portrait_Sinkiang_Sheng_Shicai.dds"
+					#	expire = "1965.1.1"
+					#	ideology = stalinism
+					#	traits = {
+					#		SIK_Duban
+					#	}
+					#}
+				}
+			}
+			#set_equipment_fraction = 0.7
+			#set_stability = 0.8
+			add_popularity = {
+				ideology = neutrality
+				popularity = 0.1
+			}
+		}
+		set_cosmetic_tag = SIK_KMT
+		#ETR_politics = yes ETR council will do this
+	}
+}
+# SIK Accept chinese rule (SOV)
+country_event = {
+	id = Sinkiang.33
+	title = Sinkiang.33.t
+	desc = Sinkiang.33.d
+	picture = GFX_report_event_chinese_officers
+
+	is_triggered_only = yes
+	option = {
+		name = Sinkiang.33.a
+	}
+}
+# SIK Accept chinese rule (event_target:WTT_current_china_leader)
+country_event = {
+	id = Sinkiang.34
+	title = Sinkiang.34.t
+	desc = Sinkiang.34.d
+	picture = GFX_report_event_chinese_officers
+
+	is_triggered_only = yes
+	option = {
+		name = Sinkiang.34.a
+	}
+}
+# Negotiate with nanjing
+country_event = {
+	id = Sinkiang.35
+	title = Sinkiang.35.t
+	desc = Sinkiang.35.d
+	picture = GFX_report_event_generic_conference
+
+	is_triggered_only = yes
+	option = { #high
+		#trigger = {
+		#	is_subject = no
+		#}
+		ai_chance = {
+			factor = 25
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
+		}
+		name = Sinkiang.35.a
+		
+		custom_effect_tooltip = they_will_always_accept_strength_tt
+		event_target:WTT_current_china_leader = { country_event = Sinkiang.38 }
+		custom_effect_tooltip = separate_line_tt
+		custom_effect_tooltip = if_they_accept_red
+		event_target:WTT_current_china_leader = {
+			custom_effect_tooltip = ROOT_become_a_HA_provincial_government_of_THIS_tt
+		}
+		retire_character = SIK_sheng_shicai
+		#if = {
+		#	limit = {
+		#		has_character = SIK_sheng_shiqi
+		#	}
+		#	retire_character = SIK_sheng_shiqi
+		#}
+		#retire_character = SIK_SIK_sheng_shiji
+		#retire_character = SIK_jiang_deyu
+		#if = {
+		#	limit = {
+		#		has_character = SIK_Ishaq_Beg_munonov
+		#	}
+		#	retire_character = SIK_Ishaq_Beg_munonov
+		#}
+		custom_effect_tooltip = separate_line_tt
+		custom_effect_tooltip = if_they_refuse_red
+		effect_tooltip = {
+			country_event = Sinkiang.36
+			custom_effect_tooltip = we_get_will_have_to_choose_to_become_ra_or_submit_ttly
+		}
+		
+	}
+	option = { #mid
+		ai_chance = { factor = 45 }
+		name = Sinkiang.35.b
+		
+		custom_effect_tooltip = THIS_IS_HISTORICAL_TT #MODDED
+		if = {
+			limit = {
+				is_historical_focus_on = no
+			}
+			custom_effect_tooltip = they_will_always_accept_strength_tt
+		}
+		else = {
+			custom_effect_tooltip = they_will_always_accept_tt
+		}
+		event_target:WTT_current_china_leader = { country_event = Sinkiang.39 }
+		custom_effect_tooltip = separate_line_tt
+		custom_effect_tooltip = if_they_accept_red
+		event_target:WTT_current_china_leader = {
+			custom_effect_tooltip = ROOT_become_a_NSA_provincial_government_of_THIS_tt
+		}
+		effect_tooltip = {
+			#create_country_leader = {
+			#	name = CHI_zhang_zhizhong
+			#	desc = "POLITICS_ZHANG_ZHIZHONG_DESC"
+			#	picture = "Portrait_Zhang_Zhizhong.dds"
+			#	expire = "1965.1.1"
+			#	ideology = despotism
+			#	traits = {
+			#	}
+			#}
+			event_target:WTT_current_china_leader = { 
+				CHI_zhang_zhizhong = { set_nationality = ROOT } 
+			    CHI_tao_Zhiyue = { set_nationality = ROOT } 
+			}
+			CHI_zhang_zhizhong = { 
+                add_country_leader_role = {
+					promote_leader = yes
+					country_leader = {
+						expire = "1965.1.1"
+						ideology = despotism
+						traits = {
+						}
+					} 
+				}
+			}
+			if = {
+				limit = {
+					NOT = {
+						country_exists = HMI
+					}
+				}
+                HMI_yulbars_khan = {
+				    retire = no
+				    set_nationality = ROOT
+			    }
+			}
+		}
+		retire_character = SIK_sheng_shicai
+		#if = {
+		#	limit = {
+		#		has_character = SIK_sheng_shiqi
+		#	}
+		#	retire_character = SIK_sheng_shiqi
+		#}
+		#retire_character = SIK_SIK_sheng_shiji
+		#retire_character = SIK_jiang_deyu
+		#if = {
+		#	limit = {
+		#		has_character = SIK_Ishaq_Beg_munonov
+		#	}
+		#	retire_character = SIK_Ishaq_Beg_munonov
+		custom_effect_tooltip = separate_line_tt
+		custom_effect_tooltip = if_they_refuse_red
+		effect_tooltip = {
+			country_event = Sinkiang.36
+		}
+		custom_effect_tooltip = we_get_will_have_to_choose_to_become_ra_or_submit_ttly
+	}
+	option = { #low
+		ai_chance = { factor = 35 modifier = { factor = 0 is_historical_focus_on = yes } }
+		name = Sinkiang.35.c
+		custom_effect_tooltip = they_will_always_accept_strength_tt
+		event_target:WTT_current_china_leader = { country_event = Sinkiang.40 }
+		custom_effect_tooltip = separate_line_tt
+		custom_effect_tooltip = if_they_accept_red
+		event_target:WTT_current_china_leader = {
+			custom_effect_tooltip = ROOT_become_a_regional_army_of_THIS_tt
+		}
+		effect_tooltip = {
+			#create_country_leader = {
+			#	name = CHI_zhang_zhizhong
+			#	desc = "POLITICS_ZHANG_ZHIZHONG_DESC"
+			#	picture = "Portrait_Zhang_Zhizhong.dds"
+			#	expire = "1965.1.1"
+			#	ideology = despotism
+			#	traits = {
+			#	}
+			#}
+
+			CHI_zhang_zhizhong = { set_nationality = ROOT }
+			CHI_tao_Zhiyue = { set_nationality = ROOT } 
+			CHI_zhang_zhizhong = { 
+                add_country_leader_role = {
+					promote_leader = yes
+					country_leader = {
+						expire = "1965.1.1"
+						ideology = despotism
+						traits = {
+						}
+					} 
+				}
+			}
+			if = {
+				limit = {
+					NOT = {
+						country_exists = HMI
+					}
+				}
+				HMI_yulbars_khan = {
+					retire = no
+					set_nationality = ROOT
+				}
+			}
+			
+			retire_character = SIK_sheng_shicai
+			#if = {
+			#	limit = {
+			#		has_character = SIK_sheng_shiqi
+			#	}
+			#	retire_character = SIK_sheng_shiqi
+			#}
+			#retire_character = SIK_SIK_sheng_shiji
+			#retire_character = SIK_jiang_deyu
+			#if = {
+			#	limit = {
+			#		has_character = SIK_Ishaq_Beg_munonov
+			#	}
+			#	retire_character = SIK_Ishaq_Beg_munonov
+			#}
+			country_event = Sinkiang.37
+		}
+		custom_effect_tooltip = separate_line_tt
+		custom_effect_tooltip = if_they_refuse_red
+		custom_effect_tooltip = we_get_will_have_to_choose_to_war_or_submit_ttly
+	}
+	option = { #annex
+		#custom_effect_tooltip = THIS_IS_HISTORICAL_TT
+		ai_chance = {
+			factor = 10
+			modifier = {
+				factor = 0 #MODDED, not yet
+				is_historical_focus_on = yes
+			}
+		}
+		name = Sinkiang.35.e
+		custom_effect_tooltip = they_will_always_accept_tt
+		event_target:WTT_current_china_leader = { country_event = { id = Sinkiang.41 hours = 8 } }
+		retire_character = SIK_sheng_shicai
+		#if = {
+		#	limit = {
+		#		has_character = SIK_sheng_shiqi
+		#	}
+		#	retire_character = SIK_sheng_shiqi
+		#}
+		#retire_character = SIK_SIK_sheng_shiji
+		#retire_character = SIK_jiang_deyu
+		#if = {
+		#	limit = {
+		#		has_character = SIK_Ishaq_Beg_munonov
+		#	}
+		#	retire_character = SIK_Ishaq_Beg_munonov
+		#}
+		custom_effect_tooltip = GAME_OVER_TT
+	}
+}
+# Nanjing refuse
+country_event = {
+	id = Sinkiang.36
+	title = Sinkiang.36.t
+	desc = Sinkiang.36.d
+	picture = GFX_report_event_chinese_soldiers_02
+
+	is_triggered_only = yes
+	option = { #we will triumph (get wargoal'd)
+		ai_chance = { factor = 60 }
+		name = Sinkiang.36.a
+		custom_effect_tooltip = this_could_lead_to_war_tt
+		FROM = { country_event = Sinkiang.42 }
+	}
+	option = { #we will submit
+		ai_chance = { factor = 30 }
+		name = Sinkiang.36.b
+		#create_country_leader = {
+		#	name = CHI_zhang_zhizhong
+		#	desc = "POLITICS_ZHANG_ZHIZHONG_DESC"
+		#	picture = "Portrait_Zhang_Zhizhong.dds"
+		#	expire = "1965.1.1"
+		#	ideology = despotism
+		#	traits = {
+		#	}
+		#}
+		FROM = { 
+			CHI_zhang_zhizhong = { set_nationality = ROOT }
+		    CHI_tao_Zhiyue = { set_nationality = ROOT } 
+		}
+		retire_country_leader = yes
+		CHI_zhang_zhizhong = { 
+			add_country_leader_role = {
+				promote_leader = yes
+				country_leader = {
+					expire = "1965.1.1"
+					ideology = despotism
+					traits = {
+					}
+				} 
+			}
+		}
+        if = {
+			limit = {
+				NOT = {
+					country_exists = HMI
+				}
+			}
+			HMI_yulbars_khan = {
+				retire = no
+				set_nationality = ROOT
+			}
+		}
+		retire_character = SIK_sheng_shicai
+		#if = {
+		#	limit = {
+		#		has_character = SIK_sheng_shiqi
+		#	}
+		#	retire_character = SIK_sheng_shiqi
+		#}
+		#retire_character = SIK_SIK_sheng_shiji
+		#retire_character = SIK_jiang_deyu
+		#if = {
+		#	limit = {
+		#		has_character = SIK_Ishaq_Beg_munonov
+		#	}
+		#	retire_character = SIK_Ishaq_Beg_munonov
+		#}
+		ROOT_become_a_regional_army_of_FROM = yes
+	}
+	option = {  #we will get 'nexed
+		ai_chance = { factor = 0 }
+		name = Sinkiang.36.c
+		FROM = { annex_country = { target = ROOT transfer_troops = yes } }
+	    retire_character = SIK_sheng_shicai
+		#if = {
+		#	limit = {
+		#		has_character = SIK_sheng_shiqi
+		#	}
+		#	retire_character = SIK_sheng_shiqi
+		#}
+		#retire_character = SIK_SIK_sheng_shiji
+		#retire_character = SIK_jiang_deyu
+		#if = {
+		#	limit = {
+		#		has_character = SIK_Ishaq_Beg_munonov
+		#	}
+		#	retire_character = SIK_Ishaq_Beg_munonov
+		#}
+	}
+}
+# Nanjing accept
+country_event = {
+	id = Sinkiang.37
+	title = Sinkiang.37.t
+	desc = Sinkiang.37.d
+	picture = GFX_report_event_generic_read_write
+
+	is_triggered_only = yes
+	option = {
+		name = Sinkiang.37.a
+	}
+}
+country_event = { #high to CHI
+	id = Sinkiang.38
+	title = Sinkiang.38.t
+	desc = Sinkiang.38.d
+	picture = GFX_report_event_generic_conference
+
+	is_triggered_only = yes
+	option = {
+		ai_chance = { factor = 20 }
+		name = Sinkiang.38.a
+		FROM_become_a_HA_provincial_government_of_THIS = yes
+		FROM = { 
+			retire_character = SIK_sheng_shicai 
+		    #if = {
+			#	limit = {
+			#		has_character = SIK_sheng_shiqi
+			#	}
+			#	retire_character = SIK_sheng_shiqi
+			#}
+			#retire_character = SIK_SIK_sheng_shiji
+			#retire_character = SIK_jiang_deyu
+			#if = {
+			#	limit = {
+			#		has_character = SIK_Ishaq_Beg_munonov
+			#	}
+			#	retire_character = SIK_Ishaq_Beg_munonov
+			#}
+		}
+		FROM = { country_event = Sinkiang.37 }
+	}
+	option = {
+		ai_chance = {
+			factor = 80
+			modifier = {
+				factor = 0.4
+				check_variable = { SIK.num_battalions > 150 }
+			}
+			modifier = {
+				factor = 0.4
+				check_variable = { SIK.num_battalions > 250 }
+			}
+			modifier = {
+				factor = 0.2
+				check_variable = { SIK.num_battalions > 350 }
+			}
+			modifier = {
+				factor = 0
+				check_variable = { SIK.num_battalions > 450 }
+			}
+		}
+		name = Sinkiang.38.b
+		FROM = { country_event = Sinkiang.36 }
+	}
+}
+country_event = { #mid to CHI
+	id = Sinkiang.39
+	title = Sinkiang.39.t
+	desc = Sinkiang.39.d
+	picture = GFX_report_event_generic_conference
+
+	is_triggered_only = yes
+	option = {
+		ai_chance = { factor = 40 }
+		name = Sinkiang.39.a
+		custom_effect_tooltip = THIS_IS_HISTORICAL_TT		
+		FROM_become_a_NSA_provincial_government_of_THIS = yes
+		FROM = {
+			#create_country_leader = {
+			#	name = CHI_zhang_zhizhong
+			#	desc = "POLITICS_ZHANG_ZHIZHONG_DESC"
+			#	picture = "Portrait_Zhang_Zhizhong.dds"
+			#	expire = "1965.1.1"
+			#	ideology = despotism
+			#	traits = {
+			#	}
+			#}
+			set_cosmetic_tag = SIK_KMT_puppet #MODDED
+			country_event = Sinkiang.37
+		    retire_character = SIK_sheng_shicai
+			#if = {
+			#	limit = {
+			#		has_character = SIK_sheng_shiqi
+			#	}
+			#	retire_character = SIK_sheng_shiqi
+			#}
+			#retire_character = SIK_SIK_sheng_shiji
+			#retire_character = SIK_jiang_deyu
+			#if = {
+			#	limit = {
+			#		has_character = SIK_Ishaq_Beg_munonov
+			#	}
+			#	retire_character = SIK_Ishaq_Beg_munonov
+			#}
+		}
+	    CHI_zhang_zhizhong = { set_nationality = FROM }
+		CHI_tao_Zhiyue = { set_nationality = FROM } 
+		FROM = {
+			retire_country_leader = yes
+			CHI_zhang_zhizhong = { 
+				add_country_leader_role = {
+					promote_leader = yes
+					country_leader = {
+						expire = "1965.1.1"
+						ideology = despotism
+						traits = {
+						}
+					} 
+				}
+			}
+		}
+		if = {
+			limit = {
+				NOT = {
+					country_exists = HMI
+				}
+			}
+			HMI_yulbars_khan = {
+				retire = no
+				set_nationality = FROM
+			}
+		}
+	}
+	option = {
+		ai_chance = {
+			factor = 60
+			modifier = {
+				factor = 0.4
+				check_variable = { SIK.num_battalions > 150 }
+			}
+			modifier = {
+				factor = 0.4
+				check_variable = { SIK.num_battalions > 250 }
+			}
+			modifier = {
+				factor = 0.2
+				check_variable = { SIK.num_battalions > 350 }
+			}
+			modifier = {
+				factor = 0
+				check_variable = { SIK.num_battalions > 450 }
+			}			
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
+		}
+		name = Sinkiang.39.b
+		FROM = { country_event = Sinkiang.36 }
+	}
+}
+country_event = { #low to CHI
+	id = Sinkiang.40
+	title = Sinkiang.40.t
+	desc = Sinkiang.40.d
+	picture = GFX_report_event_generic_conference
+
+	is_triggered_only = yes
+	option = {
+		ai_chance = { factor = 70 }
+		name = Sinkiang.40.a		
+		FROM_become_a_regional_army_of_THIS = yes
+		FROM = {
+			#create_country_leader = {
+			#	name = CHI_zhang_zhizhong
+			#	desc = "POLITICS_ZHANG_ZHIZHONG_DESC"
+			#	picture = "Portrait_Zhang_Zhizhong.dds"
+			#	expire = "1965.1.1"
+			#	ideology = despotism
+			#	traits = {
+			#	}
+			#}
+			country_event = Sinkiang.37
+		    retire_character = SIK_sheng_shicai
+			#if = {
+			#	limit = {
+			#		has_character = SIK_sheng_shiqi
+			#	}
+			#	retire_character = SIK_sheng_shiqi
+			#}
+			#retire_character = SIK_SIK_sheng_shiji
+			#retire_character = SIK_jiang_deyu
+			#if = {
+			#	limit = {
+			#		has_character = SIK_Ishaq_Beg_munonov
+			#	}
+			#	retire_character = SIK_Ishaq_Beg_munonov
+			#}
+		}
+	    ROOT = { 
+			CHI_zhang_zhizhong = { set_nationality = FROM } 
+		    CHI_tao_Zhiyue = { set_nationality = FROM } 
+		}
+		FROM = {
+			retire_country_leader = yes
+			CHI_zhang_zhizhong = { 
+				add_country_leader_role = {
+					promote_leader = yes
+					country_leader = {
+						expire = "1965.1.1"
+						ideology = despotism
+						traits = {
+						}
+					} 
+				}
+			}
+		}
+		if = {
+			limit = {
+				NOT = {
+					country_exists = HMI
+				}
+			}
+			HMI_yulbars_khan = {
+				retire = no
+				set_nationality = FROM
+			}
+		}
+	}
+	option = {
+		ai_chance = {
+			factor = 30
+			modifier = {
+				factor = 0.4
+				check_variable = { SIK.num_battalions > 150 }
+			}
+			modifier = {
+				factor = 0.4
+				check_variable = { SIK.num_battalions > 250 }
+			}
+			modifier = {
+				factor = 0.2
+				check_variable = { SIK.num_battalions > 350 }
+			}
+			modifier = {
+				factor = 0
+				check_variable = { SIK.num_battalions > 450 }
+			}
+		}
+		name = Sinkiang.40.b
+		FROM = { country_event = { id = Sinkiang.43 hours = 8 } }
+	}
+}
+country_event = { #annex to CHI
+	id = Sinkiang.41
+	title = Sinkiang.41.t
+	desc = Sinkiang.41.d
+	picture = GFX_report_event_generic_conference
+
+	is_triggered_only = yes
+	option = {
+		ai_chance = { factor = 90 }
+		name = Sinkiang.41.a
+		annex_country = { target = FROM transfer_troops = yes }
+	}
+	option = {
+		ai_chance = { factor = 0 }
+		name = Sinkiang.41.b
+		FROM_become_a_regional_army_of_THIS = yes
+	    FROM = { 
+			retire_character = SIK_sheng_shicai 
+		    #if = {
+			#	limit = {
+			#		has_character = SIK_sheng_shiqi
+			#	}
+			#	retire_character = SIK_sheng_shiqi
+			#}
+			#retire_character = SIK_SIK_sheng_shiji
+			#retire_character = SIK_jiang_deyu
+			#if = {
+			#	limit = {
+			#		has_character = SIK_Ishaq_Beg_munonov
+			#	}
+			#	retire_character = SIK_Ishaq_Beg_munonov
+			#}
+		}
+	}
+}
+country_event = { #sinkiang stubborn, kill it(Chi)
+	id = Sinkiang.42
+	title = Sinkiang.42.t
+	desc = Sinkiang.42.d
+	picture = GFX_report_event_chinese_soldiers_running
+
+	is_triggered_only = yes
+	option = {
+		name = Sinkiang.42.a
+		event_target:WTT_current_china_leader = {
+			create_wargoal = { type = annex_everything target = SIK }
+		}
+	}
+}
+country_event = { #submit or war (SIK)
+	id = Sinkiang.43
+	title = Sinkiang.43.t
+	desc = Sinkiang.43.d
+	picture = GFX_report_event_chinese_soldiers_02
+
+	is_triggered_only = yes
+	option = {
+		ai_chance = { factor = 90 }
+		name = Sinkiang.43.a
+		FROM = { country_event = { id = Sinkiang.42 hours = 8 } }
+		custom_effect_tooltip = this_could_lead_to_war_tt
+	}
+	option = {
+		ai_chance = { factor = 0 }
+		name = Sinkiang.43.b		
+		SIK = { 
+			retire_character = SIK_sheng_shicai 
+		    #if = {
+			#	limit = {
+			#		has_character = SIK_sheng_shiqi
+			#	}
+			#	retire_character = SIK_sheng_shiqi
+			#}
+			#retire_character = SIK_SIK_sheng_shiji
+			#retire_character = SIK_jiang_deyu
+			#if = {
+			#	limit = {
+			#		has_character = SIK_Ishaq_Beg_munonov
+			#	}
+			#	retire_character = SIK_Ishaq_Beg_munonov
+			#}
+		}
+		event_target:WTT_current_china_leader = { annex_country = { target = SIK transfer_troops = yes } }
+		custom_effect_tooltip = GAME_OVER_TT
+	}
+}
+# Sinkiang Crisis
+country_event = {
+	id = Sinkiang.46
+	title = Sinkiang.46.t
+	desc = Sinkiang.46.d
+	picture = GFX_report_event_three_areas_revolution
+
+	fire_only_once = yes
+	mean_time_to_happen = {
+		days = 30
+	}
+
+	trigger = {
+		tag = SIK
+		has_idea = SIK_Soviet_supports_armed_groups
+		has_civil_war = no
+		NOT = {
+			has_country_leader = {
+				character = SIK_sheng_shicai ruling_only = yes
+			}
+		}
+	    NOT = { is_subject_of = JAP }
+		NOT = { has_cosmetic_tag = ETR }
+	}
+
+	option = {
+		name = Sinkiang.46.a
+		#create_country_leader = {
+		#	name = CHI_zhang_zhizhong
+		#	desc = "POLITICS_ZHANG_ZHIZHONG_DESC"
+		#	picture = "Portrait_Zhang_Zhizhong.dds"
+		#	expire = "1965.1.1"
+		#	ideology = despotism
+		#	traits = {  }
+		#}
+		event_target:WTT_current_china_leader = { 
+			CHI_zhang_zhizhong = { set_nationality = ROOT }
+		    CHI_tao_Zhiyue = { set_nationality = ROOT } 
+		}
+		retire_character = SIK_sheng_shicai
+		retire_country_leader = yes
+		CHI_zhang_zhizhong = { 
+			add_country_leader_role = {
+				promote_leader = yes
+				country_leader = {
+					expire = "1965.1.1"
+					ideology = despotism
+					traits = {
+					}
+				} 
+			}
+		}
+		if = {
+			limit = {
+				NOT = {
+					country_exists = HMI
+				}
+			}
+			HMI_yulbars_khan = {
+				retire = no
+				set_nationality = ROOT
+			}
+		}
+		#if = {
+		#	limit = {
+		#		has_character = SIK_sheng_shiqi
+		#	}
+		#	retire_character = SIK_sheng_shiqi
+		#}
+		#retire_character = SIK_SIK_sheng_shiji
+		#retire_character = SIK_jiang_deyu
+		#if = {
+		#	limit = {
+		#		has_character = SIK_Ishaq_Beg_munonov
+		#	}
+		#	retire_character = SIK_Ishaq_Beg_munonov
+		#}
+		set_cosmetic_tag = SIK_KMT_puppet #MODDED
+		#set_global_flag = SIK_The_sinkiang_crisis
+		hidden_effect = {
+			#news_event = { hours = 6 id = news.1035 }
+		}
+	}
+}
+# Three areas war
+country_event = {
+	id = Sinkiang.47
+	title = Sinkiang.47.t
+	desc = Sinkiang.47.d
+	picture = GFX_report_event_three_areas_revolution_2
+
+	#fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		trigger = {
+			has_completed_focus = SIK_Central_assignment
+		}
+		ai_chance = { factor = 30 }
+		name = Sinkiang.47.a
+		start_civil_war = {
+			ruling_party = neutrality
+			ideology = communism
+			size = 0.3 #MODDED
+			capital = 1051
+			states = { 1051 1050 287 619 759 1049 }
+			keep_unit_leaders_trigger = {
+				always = yes
+			}
+		}
+		#create_country_leader = {
+		#	name = CHI_zhang_zhizhong
+		#	desc = "POLITICS_ZHANG_ZHIZHONG_DESC"
+		#	picture = "Portrait_Zhang_Zhizhong.dds"
+		#	expire = "1965.1.1"
+		#	ideology = despotism
+		#	traits = {
+		#	}
+		#}
+		event_target:WTT_current_china_leader = { 
+		    CHI_zhang_zhizhong = { set_nationality = SIK } 
+			CHI_tao_Zhiyue = { set_nationality = SIK } 
+		}
+		SIK = {
+			retire_character = SIK_sheng_shicai
+			retire_country_leader = yes
+			CHI_zhang_zhizhong = { 
+				add_country_leader_role = {
+					promote_leader = yes
+					country_leader = {
+						expire = "1965.1.1"
+						ideology = despotism
+						traits = {
+						}
+					} 
+				}
+			}
+		}
+		if = {
+			limit = {
+				NOT = {
+					country_exists = HMI
+				}
+			}
+			HMI_yulbars_khan = {
+				retire = no
+				set_nationality = SIK
+			}
+		}
+		
+		#if = {
+		#	limit = {
+		#		has_character = SIK_sheng_shiqi
+		#	}
+		#	retire_character = SIK_sheng_shiqi
+		#}
+		#retire_character = SIK_SIK_sheng_shiji
+		#retire_character = SIK_jiang_deyu
+		#if = {
+		#	limit = {
+		#		has_character = SIK_Ishaq_Beg_munonov
+		#	}
+		#	retire_character = SIK_Ishaq_Beg_munonov
+		#}
+		set_cosmetic_tag = SIK_KMT_puppet #MODDED
+		hidden_effect = {
+			set_country_flag = im_civ_war_exception
+			random_other_country = {
+				limit = {
+					original_tag = SIK
+					has_government = communism
+				}
+				ETR_politics = yes
+				set_party_name = { ideology = neutrality long_name = SIK_Yining_Liberation_Organization_long name = SIK_Yining_Liberation_Organization }			
+				create_country_leader = {
+					name = "Elihan Tore"
+					desc = "POLITICS_ELIHAN_TORE_DESC"
+					picture = "Portrait_Sinkiang_Elihan_Tore.dds"
+					expire = "1965.1.1"
+					ideology = despotism
+					traits = {
+					}
+				}
+				#set_equipment_fraction = 0.8
+				set_stability = 1.2
+				set_war_support = 0.7
+				set_up_supply_condition = yes
+				add_to_variable = {
+					var = This.supply_condition
+					value = 50
+				}
+				add_to_variable = {
+					var = This.supply_condition_base
+					value = 50
+				}
+				add_offsite_building = { type = industrial_complex level = 5 }
+				add_offsite_building = { type = arms_factory level = 5 }
+				set_capital = { state = 617 }
+				set_cosmetic_tag = ETR
+				SOV = {
+                    give_military_access = PREV
+                } 
+				if = {
+					limit = {
+						MON = {
+							exists = yes
+							has_government = communism
+						}
+					}
+					MON = {
+						give_military_access = PREV
+					} 
+				}
+				add_ideas = SIK_For_the_TAR_revolution
+				
+				if = {
+					limit = {
+						has_idea = SIK_Soviet_supports_armed_groups
+					}
+					remove_ideas = SIK_Soviet_supports_armed_groups
+				}
+				if = {
+					limit = {
+						has_unit_leader = 2898
+					}
+					remove_unit_leader = 2898
+				}
+				create_SIK_generals = yes #keep cause this is for designate nanking path
+				add_popularity = {
+					ideology = neutrality
+					popularity = 0.5
+				}
+				set_politics = {
+					ruling_party = neutrality
+					elections_allowed = no
+				}
+			}
+		}
+		#set_equipment_fraction = 0.8
+		#set_stability = 0.7
+		add_popularity = {
+			ideology = neutrality
+			popularity = 0.4
+		}
+		add_timed_idea = { idea = SIK_Confusion_status days = 30 }
+		if = {
+			limit = {
+				has_idea = SIK_Soviet_supports_armed_groups
+			}
+			remove_ideas = SIK_Soviet_supports_armed_groups
+		}
+		#create_corps_commander = { #he only commands a regiment
+		#	name = "Zhao Hanqi"
+		#	id = 2999
+		#	picture = "Portrait_Sinkiang_Zhao_hanqi.dds"
+		#	traits = {  }
+		#	skill = 2
+		#	attack_skill = 2
+		#	defense_skill = 2
+		#	planning_skill = 1
+		#	logistics_skill = 2
+		#}
+		set_global_flag = SIK_three_areas_revolution
+		clr_global_flag = SIK_The_sinkiang_crisis
+		#hidden_effect = {
+		#	news_event = { hours = 6 id = news.1036 }
+		#}
+	}
+	option = {
+		#ai_chance = { factor = 70 }
+		trigger = {
+			has_completed_focus = SIK_Knock_down_the_sheng
+		}
+		name = Sinkiang.47.b
+		hidden_effect = {
+			set_capital = { state = 1051 }
+			set_country_flag = im_civ_war_exception
+		}
+		start_civil_war = {
+			ruling_party = communism
+			ideology = neutrality
+			size = 0.4 #MODDED
+			capital = 617
+			keep_unit_leaders_trigger = { #we have recruited them
+				always = yes
+			}
+			states = { 617 618 760 1051 1054 1046 }
+		}
+		set_politics = {
+			ruling_party = neutrality
+			elections_allowed = no
+		}
+		add_popularity = {
+			ideology = neutrality
+			popularity = 0.5
+		}
+		ETR_politics = yes
+		set_party_name = { ideology = neutrality long_name = SIK_Yining_Liberation_Organization_long name = SIK_Yining_Liberation_Organization }
+		create_country_leader = {
+			name = "Elihan Tore"
+			desc = "POLITICS_ELIHAN_TORE_DESC"
+			picture = "Portrait_Sinkiang_Elihan_Tore.dds"
+			expire = "1965.1.1"
+			ideology = despotism
+			traits = {
+			}
+		}
+		hidden_effect = {
+			
+			random_other_country = {
+				limit = {
+					original_tag = SIK
+					#has_government = neutrality
+					NOT = {
+						has_country_leader = { name = "Elihan Tore" ruling_only = yes }
+					}
+				}
+				event_target:WTT_current_china_leader = { 
+					CHI_zhang_zhizhong = { set_nationality = PREV } 
+				    CHI_tao_Zhiyue = { set_nationality = PREV } 
+	                if = {
+						limit = {
+							NOT = {
+								country_exists = HMI
+							}
+						}
+						HMI_yulbars_khan = {
+							retire = no
+							set_nationality = PREV
+						}
+					}
+				}
+                retire_character = SIK_sheng_shicai
+			    retire_country_leader = yes
+				CHI_zhang_zhizhong = { 
+					add_country_leader_role = {
+						promote_leader = yes
+						country_leader = {
+							expire = "1965.1.1"
+							ideology = despotism
+							traits = {
+							}
+						} 
+					}
+				}
+				#if = {
+				#	limit = {
+				#		has_character = SIK_sheng_shiqi
+				#	}
+				#	retire_character = SIK_sheng_shiqi
+				#}
+				#retire_character = SIK_SIK_sheng_shiji
+				#retire_character = SIK_jiang_deyu
+				#if = {
+				#	limit = {
+				#		has_character = SIK_Ishaq_Beg_munonov
+				#	}
+				#	retire_character = SIK_Ishaq_Beg_munonov
+				#}
+				set_cosmetic_tag = SIK_KMT_puppet #MODDED
+				#set_equipment_fraction = 0.8
+				set_up_supply_condition = yes
+				add_to_variable = {
+					var = This.supply_condition
+					value = 50
+				}
+				add_to_variable = {
+					var = This.supply_condition_base
+					value = 50
+				}
+				set_stability = 1.2
+				set_war_support = 0.7
+				#add_offsite_building = { type = industrial_complex level = 5 }
+				#add_offsite_building = { type = arms_factory level = 15 }
+				add_popularity = {
+					ideology = neutrality
+					popularity = 0.3
+				}
+				add_timed_idea = { idea = SIK_Confusion_status days = 30 }
+				if = {
+					limit = {
+						has_idea = SIK_Soviet_supports_armed_groups
+					}
+					remove_ideas = SIK_Soviet_supports_armed_groups
+				}
+				#create_corps_commander = { #he only commands a regiment
+				#	name = "Zhao Hanqi"
+				#	id = 2999
+				#	picture = "Portrait_Sinkiang_Zhao_hanqi.dds"
+				#	traits = {  }
+				#	skill = 2
+				#	attack_skill = 2
+				#	defense_skill = 2
+				#	planning_skill = 1
+				#	logistics_skill = 2
+				#}
+			}
+			if = {
+				limit = {
+					has_unit_leader = 2898
+				}
+				remove_unit_leader = 2898
+			}
+		}
+		add_ideas = SIK_For_the_TAR_revolution
+		add_popularity = {
+			ideology = fascism
+			popularity = 0.4
+		}
+		set_cosmetic_tag = ETR
+		if = {
+			limit = {
+				has_idea = SIK_Soviet_supports_armed_groups
+			}
+			remove_ideas = SIK_Soviet_supports_armed_groups
+		}
+		set_global_flag = SIK_three_areas_revolution
+		clr_global_flag = SIK_The_sinkiang_crisis
+	}
+	option = {
+		trigger = {
+			has_completed_focus = SIK_Keep_the_rule
+		}
+		name = Sinkiang.47.c
+		start_civil_war = {
+			ruling_party = neutrality
+			ideology = communism
+			size = 0.4
+			capital = 1051
+			keep_unit_leaders_trigger = {
+				always = yes
+			}
+			states = { 1051 }
+		}
+		hidden_effect = {
+			set_country_flag = im_civ_war_exception
+			random_other_country = {
+				limit = {
+					original_tag = SIK
+					has_government = communism
+				}
+				retire_country_leader = yes
+				ETR_politics = yes
+				set_party_name = { ideology = neutrality long_name = SIK_Yining_Liberation_Organization_long name = SIK_Yining_Liberation_Organization }
+				create_country_leader = {
+					name = "Elihan Tore"
+					desc = "POLITICS_ELIHAN_TORE_DESC"
+					picture = "Portrait_Sinkiang_Elihan_Tore.dds"
+					expire = "1965.1.1"
+					ideology = despotism
+					traits = { }
+				}
+				#create_country_leader = {
+				#	name = "Ehmetjan Qasimi"
+				#	desc = "POLITICS_EHMETJAN_QASIMI_DESC"
+				#	picture = "Portrait_Sinkiang_Ehmetjan_Qasimi.dds"
+				#	expire = "1965.1.1"
+				#	ideology = marxism
+				#	traits = { indomitable_perseverance cornered_fox }
+				#}
+				#set_equipment_fraction = 0.5
+				set_stability = 1.2
+				set_war_support = 0.7
+				set_up_supply_condition = yes
+				add_to_variable = {
+					var = This.supply_condition
+					value = 50
+				}
+				add_to_variable = {
+					var = This.supply_condition_base
+					value = 50
+				}
+				SOV = {
+                    give_military_access = PREV
+                } 
+				if = {
+					limit = {
+						MON = {
+							exists = yes
+							has_government = communism
+						}
+					}
+					MON = {
+						give_military_access = PREV
+					} 
+				}
+				add_offsite_building = { type = industrial_complex level = 5 } #MODDED 1.12
+				add_offsite_building = { type = arms_factory level = 5 } #MODDED 1.12
+				set_cosmetic_tag = ETR
+				add_ideas = SIK_For_the_TAR_revolution
+				set_capital = { state = 617 }
+				#add_popularity = {
+				#	ideology = communism
+				#	popularity = 0.3
+				#}
+				if = {
+					limit = {
+						has_unit_leader = 2898
+					}
+					remove_unit_leader = 2898
+				}
+				create_SIK_generals = yes
+				add_popularity = {
+					ideology = neutrality
+					popularity = 0.5
+				}
+				set_politics = {
+					ruling_party = neutrality
+					elections_allowed = no
+				}
+				division_template = {
+					name = "Ining Yuchitui"			
+					division_names_group = SIK_INF_01
+					regiments = {
+						infantry = { x = 0 y = 0 }
+						infantry = { x = 0 y = 1 }
+						infantry = { x = 1 y = 0 }
+						infantry = { x = 1 y = 1 }
+					}
+					support = {
+					}
+				}
+				random_owned_controlled_state = {
+					create_unit = {
+						division = "name = \"Ining Yuchitui\" division_template = \"Ining Yuchitui\" start_experience_factor = 0.1 start_manpower_factor = 1 start_equipment_factor = 0.95"
+						owner = PREV
+					}
+					create_unit = {
+						division = "name = \"Ining Yuchitui\" division_template = \"Ining Yuchitui\" start_experience_factor = 0.1 start_manpower_factor = 1 start_equipment_factor = 0.95"
+						owner = PREV
+					}	
+					#create_unit = {
+					#	division = "name = \"Ining Yuchitui\" division_template = \"Ining Yuchitui\" start_experience_factor = 0.1 start_manpower_factor = 1 start_equipment_factor = 0.95"
+					#	owner = PREV
+					#}		
+				}
+			}
+		}
+		if = {
+			limit = {
+				NOT = {
+					has_cosmetic_tag = SIK_KMT
+					has_cosmetic_tag = SIK_KMT_puppet
+				}
+			}
+			set_cosmetic_tag = SIK_PAIA
+			set_party_name = {
+			    ideology = communism
+			    long_name = SOV_communism_party_long
+			    name = SOV_communism_party
+			}
+			set_party_name = {
+			    ideology = neutrality
+			    long_name = SIK_communism_party_long
+			    name = SIK_communism_party
+			}
+		}
+		#set_equipment_fraction = 0.5
+		#set_stability = 0.7
+		add_popularity = {
+			ideology = neutrality
+			popularity = 0.4
+		}
+		add_ideas = SIK_Sinkiang_King
+		add_timed_idea = { idea = SIK_Confusion_status days = 30 }
+		if = {
+			limit = {
+				has_idea = SIK_Soviet_supports_armed_groups
+			}
+			remove_ideas = SIK_Soviet_supports_armed_groups
+		}
+		#create_corps_commander = { #he only commands a regiment
+		#	name = "Zhao Hanqi"
+		#	id = 2999
+		#	picture = "Portrait_Sinkiang_Zhao_hanqi.dds"
+		#	traits = {  }
+		#	skill = 2
+		#	attack_skill = 2
+		#	defense_skill = 2
+		#	planning_skill = 1
+		#	logistics_skill = 2
+		#}
+		set_global_flag = SIK_three_areas_revolution
+		clr_global_flag = SIK_The_sinkiang_crisis
+		#hidden_effect = {
+		#	news_event = { hours = 6 id = news.1036 }
+		#}
+	}
+
+}
+country_event = {
+	id = Sinkiang.48
+	title = Sinkiang.48.t
+	desc = Sinkiang.48.d
+	picture = GFX_report_event_chinese_soldiers_01
+
+	fire_only_once = yes
+	mean_time_to_happen = {
+		days = 30
+	}
+	trigger = {
+		NOT = {
+			OR = {
+				has_country_leader = {
+					character = CHI_zhang_zhizhong ruling_only = yes
+				}
+				has_country_leader = {
+					character = SIK_sheng_shicai ruling_only = yes
+				}
+			}
+		}
+		OR = {
+			original_tag = SIK
+			tag = SIK
+		}
+		any_enemy_country = {
+			original_tag = SIK
+			owns_state = 618
+		}
+		has_global_flag = SIK_three_areas_revolution
+	}
+	option = {
+		name = Sinkiang.48.a
+		add_manpower = 50000
+		ROOT = {
+			transfer_state = 618
+			hidden_effect = { load_oob = ETR_Guerrillas_618_2 }
+		}
+	}
+}
+add_namespace = Sinkiang_rebel
+country_event = { #Kashgar rebellion
+	id = Sinkiang_rebel.1
+	title = Sinkiang_rebel.1.t
+	desc = Sinkiang_rebel.1.d
+	picture = GFX_report_event_end_three_areas_revolution_2
+    is_triggered_only = yes ##disabled 
+	fire_only_once = yes
+	#mean_time_to_happen = {
+	#	days = 2		
+	#}
+	trigger = {
+		tag = TNG
+		has_war_with = SIK
+	}
+	option = {
+		name = Sinkiang.1.a
+		SIK = {
+			every_unit_leader = {
+				limit = {
+					OR = {
+						#has_id = 2889
+						has_id = 2888
+					}
+				}
+				set_nationality = ROOT
+			}
+			country_event = Sinkiang_rebel.2
+		}
+		add_manpower = 50000
+		ROOT = {
+			transfer_state = 619
+			add_state_core = 619
+			set_state_controller = 287
+			add_state_core = 287
+			hidden_effect = { load_oob = KGR_guerrillas_619 }
+		}
+	}
+}
+country_event = { #Kashgar rebellion
+	id = Sinkiang_rebel.2
+	title = Sinkiang_rebel.2.t
+	desc = Sinkiang_rebel.2.d
+	picture = GFX_report_event_end_three_areas_revolution_2
+
+	is_triggered_only = yes
+	option = {
+		name = Sinkiang.2.a
+		effect_tooltip = {
+			every_unit_leader = {
+				limit = {
+					OR = {
+						#has_id = 2889
+						has_id = 2888
+					}
+				}
+				set_nationality = FROM
+			}
+			FROM = {
+				add_manpower = 50000
+				transfer_state = 619
+				add_state_core = 619
+				set_state_controller = 287
+				add_state_core = 287
+				hidden_effect = { load_oob = KGR_guerrillas_619 }
+			}
+		}
+	}
+}
+
+country_event = { #Kashgar rebellion - deal with liu pin
+	id = Sinkiang_rebel.22
+	title = Sinkiang_rebel.22.t
+	desc = Sinkiang_rebel.22.d
+	picture = GFX_report_event_kashgar_1937
+
+	is_triggered_only = yes
+	immediate = {
+		hidden_effect = {
+            if = {
+				limit = {
+					has_idea = SIK_liu_bin_force
+				}
+				remove_ideas = SIK_liu_bin_force
+			}
+		}
+	}
+	option = {
+		name = Sinkiang_rebel.22.a
+		#do nth
+		effect_tooltip = {
+			remove_ideas = SIK_liu_bin_force
+            SIK = {
+                619 = {
+					create_unit = { division = "name = \"K'ashih Chingpei Putui\" division_template = \"Tuli Lü\" start_experience_factor = 0.7 start_manpower_factor = 0.7" owner = SIK allow_spawning_on_enemy_provs = yes prioritize_location = 2015 }
+				}
+			}
+		}
+	}
+	#option = {
+	#	name = Sinkiang_rebel.22.b
+	#	custom_effect_tooltip = THIS_IS_HISTORICAL_TT
+	#	add_command_power = -35
+	#	add_manpower = -500
+	#    #encircle but dont attack
+	#    swap_ideas = { remove_idea = SIK_liu_bin_force add_idea = SIK_liu_bin_force_2 }
+	#}
+	
+	#option = {
+	#	name = Sinkiang_rebel.22.c
+	#	add_command_power = -40
+	#	add_manpower = -1000
+	#	random_list = {
+    #        80 = {
+    #            country_event = { id = Sinkiang_rebel.23 days = 7 }
+    #           #remove_ideas = SIK_liu_bin_force
+	#			#
+	#		}
+    #        15 = {
+    #            country_event = { id = Sinkiang_rebel.24 days = 7 }
+    #           #add_manpower = 500
+	#	    }
+    #        5 = {
+    #           country_event = { id = Sinkiang_rebel.25 days = 7 }
+	#	    }
+	#	}
+	#	#attack
+	#}
+}
+
+country_event = { #Kashgar rebellion - liu bin lose #unused
+	id = Sinkiang_rebel.23
+	title = Sinkiang_rebel.23.t
+	desc = Sinkiang_rebel.23.d
+	picture = GFX_report_event_kashgar_1937
+
+	is_triggered_only = yes
+	option = {
+		name = Sinkiang_rebel.23.a
+	    remove_ideas = SIK_liu_bin_force
+	    add_manpower = 800
+	}
+	
+}
+
+country_event = { #Kashgar rebellion - liu bin stalemate #unused
+	id = Sinkiang_rebel.24
+	title = Sinkiang_rebel.24.t
+	desc = Sinkiang_rebel.24.d
+	picture = GFX_report_event_kashgar_1937
+
+	is_triggered_only = yes
+	option = {
+		name = Sinkiang_rebel.23.a
+	    swap_ideas = { remove_idea = SIK_liu_bin_force add_idea = SIK_liu_bin_force_2 }
+	    add_manpower = 500
+	}
+	
+}
+
+country_event = { #Kashgar rebellion - liu pin to SIK
+	id = Sinkiang_rebel.25
+	title = Sinkiang_rebel.25.t
+	desc = Sinkiang_rebel.25.d
+	picture = GFX_report_event_kashgar_1937
+
+	is_triggered_only = yes
+	option = {
+		name = Sinkiang_rebel.25.a
+	    if = {
+			limit = {
+				NOT = {
+					has_template = "K'ashih Chingpei Putui"
+				}
+			}
+			division_template = {
+				name = "K'ashih Chingpei Putui" 			
+				division_names_group = SIK_GAR_01
+				regiments = {
+					infantry = { x = 0 y = 0 }
+					infantry = { x = 0 y = 1 }
+				}
+				support = {
+					#artillery = { x = 0 y = 0 }
+					#engineer = { x = 0 y = 1 }
+					#recon = { x = 0 y = 2 }
+				}
+			}
+		}
+		619 = {
+			create_unit = { division = "name = \"K'ashih Chingpei Putui\" division_template = \"K'ashih Chingpei Putui\" start_experience_factor = 0.7 start_manpower_factor = 0.7" owner = SIK allow_spawning_on_enemy_provs = yes prioritize_location = 2015 }
+		}
+	}
+}
+
+
+country_event = { #Kashgar rebellion start - SIK
+	id = Sinkiang_rebel.3
+	title = Sinkiang_rebel.3.t
+	desc = Sinkiang_rebel.3.d
+	picture = GFX_report_event_kashgar_1937
+	is_triggered_only = yes
+	option = {
+		trigger = { tag = SIK }
+		name = Sinkiang_rebel.3.a
+		ai_chance = {
+			factor = 100
+		}
+		add_ideas = SIK_kashi_debuff
+		effect_tooltip = {
+		    KHR = {
+                add_opinion_modifier = {
+					target = ROOT
+					modifier = hostile_status
+				}
+			}
+			activate_mission = SIK_waiting_for_sov_mission
+			if = {
+				limit = {
+					gives_military_access_to = KHR
+				}
+				diplomatic_relation = {
+					country = KHR
+					relation = military_access
+					active = no
+				}
+			}
+		}
+		add_opinion_modifier = {
+			target = KHR
+			modifier = hostile_status
+		}
+		
+		if = {
+			limit = {
+				NOT = {
+					has_global_flag = khr_seize_our_army_flag
+				}
+			}
+			effect_tooltip = {
+				KHR = {
+					custom_effect_tooltip = khr_army_defect_tt
+					transfer_units_fraction = {
+						target = SIK       # the recipient			                      
+						size = 0 
+						army_ratio = 0.1      # Overrides size modifier for army
+						stockpile_ratio = 0  # [0,1] Overrides size modifier for the stockpiled equipment and fuel
+						navy_ratio = 0       # [0,1] Overrides size modifier for navy
+						air_ratio = 0        # [0,1] Overrides size modifier for air
+						keep_unit_leaders_trigger = { # Trigger for unit leaders to remain with the original country
+							always = yes
+						}
+					}
+				}
+			}
+		}
+		###add a debuff here, will be removed after the mission timeout
+		
+		#effect_tooltip = {
+		#    SIK_mahmut_muhiti = { set_nationality = KHR }
+		#	#SIK_hoja_niyaz = { set_nationality = KHR }
+		#}
+		#KHR = {
+		#    transfer_state = 619
+		#	add_state_core = 619
+		#}
+		#declare_war_on = { target = KHR type = annex_everything }
+	    #hidden_effect = { 
+		#    KHR = { load_oob = "KHR_1936" }
+		#    SIK_mahmut_muhiti = { retire = yes }
+		#    #SIK_hoja_niyaz = { retire = yes }
+		#}
+	    country_event = Sinkiang_rebel.333
+	}
+	option = {
+		trigger = { tag = TNG }
+		name = Sinkiang_rebel.3.b
+		ai_chance = {
+			factor = 100
+		}
+        effect_tooltip = {
+			SIK = {
+				add_ideas = SIK_kashi_debuff
+		        activate_mission = SIK_waiting_for_sov_mission
+		    }
+		}
+		hidden_effect = {
+			country_event = {
+				id = tng.25 days = 7
+			}
+		}
+	}
+}
+
+country_event = { #Kashgar rebellion start - KHR
+	id = Sinkiang_rebel.32
+	title = Sinkiang_rebel.32.t
+	desc = Sinkiang_rebel.32.d
+	picture = GFX_report_event_kashgar_rebel
+	is_triggered_only = yes
+	option = {
+		name = Sinkiang_rebel.32.a
+		ai_chance = {
+			factor = 100
+		}
+		retire_character = KHR_Mahmut_Muhiti
+		KHR_abdul_niyaz = {            
+			add_country_leader_role = {
+			    promote_leader = yes
+				country_leader = {
+				    expire = "1965.1.1"
+				    ideology = despotism
+				    traits = {}            
+			    }     						  			
+		    }
+			add_country_leader_role = {
+			    promote_leader = yes
+				country_leader = {
+				    expire = "1965.1.1"
+				    ideology = sanmin_military_rule
+				    traits = {}            
+			    }     						  			
+		    }
+			add_country_leader_role = {
+			    promote_leader = yes
+				country_leader = {
+				    expire = "1965.1.1"
+				    ideology = conservatism
+				    traits = {}            
+			    }     						  			
+		    }
+			add_country_leader_role = {
+			    promote_leader = yes
+				country_leader = {
+				    expire = "1965.1.1"
+				    ideology = n_socialism_ideology
+				    traits = {}            
+			    }     						  			
+		    }
+		}
+		hidden_effect = {
+			if = {
+				limit = {
+					has_government = neutrality
+				}
+				create_country_leader = {
+					name = "None"
+					desc = ""
+					picture = "gfx/leaders/leader_unknown.dds"
+					expire = "1965.1.1"
+					ideology = marxism
+					traits = {
+						#
+					}
+				}
+				create_country_leader = {
+					name = "None"
+					desc = ""
+					picture = "gfx/leaders/leader_unknown.dds"
+					expire = "1965.1.1"
+					ideology = n_socialism_ideology
+					traits = {
+						#
+					}
+				}
+				create_country_leader = {
+					name = "None"
+					desc = ""
+					picture = "gfx/leaders/leader_unknown.dds"
+					expire = "1965.1.1"
+					ideology = conservatism
+					traits = {
+						#
+					}
+				}
+				create_country_leader = {
+					name = "None"
+					desc = ""
+					picture = "gfx/leaders/leader_unknown.dds"
+					expire = "1965.1.1"
+					ideology = fascism_ideology
+					traits = {
+						#
+					}
+				}
+			}
+			if = {
+				limit = {
+					has_government = communism
+				}
+				create_country_leader = {
+					name = "None"
+					desc = ""
+					picture = "gfx/leaders/leader_unknown.dds"
+					expire = "1965.1.1"
+					ideology = despotism
+					traits = {
+						#
+					}
+				}
+				create_country_leader = {
+					name = "None"
+					desc = ""
+					picture = "gfx/leaders/leader_unknown.dds"
+					expire = "1965.1.1"
+					ideology = n_socialism_ideology
+					traits = {
+						#
+					}
+				}
+				create_country_leader = {
+					name = "None"
+					desc = ""
+					picture = "gfx/leaders/leader_unknown.dds"
+					expire = "1965.1.1"
+					ideology = conservatism
+					traits = {
+						#
+					}
+				}
+				create_country_leader = {
+					name = "None"
+					desc = ""
+					picture = "gfx/leaders/leader_unknown.dds"
+					expire = "1965.1.1"
+					ideology = fascism_ideology
+					traits = {
+						#
+					}
+				}
+			}
+			if = {
+				limit = {
+					has_government = democratic
+				}
+				create_country_leader = {
+					name = "None"
+					desc = ""
+					picture = "gfx/leaders/leader_unknown.dds"
+					expire = "1965.1.1"
+					ideology = despotism
+					traits = {
+						#
+					}
+				}
+				create_country_leader = {
+					name = "None"
+					desc = ""
+					picture = "gfx/leaders/leader_unknown.dds"
+					expire = "1965.1.1"
+					ideology = n_socialism_ideology
+					traits = {
+						#
+					}
+				}
+				create_country_leader = {
+					name = "None"
+					desc = ""
+					picture = "gfx/leaders/leader_unknown.dds"
+					expire = "1965.1.1"
+					ideology = marxism
+					traits = {
+						#
+					}
+				}
+				create_country_leader = {
+					name = "None"
+					desc = ""
+					picture = "gfx/leaders/leader_unknown.dds"
+					expire = "1965.1.1"
+					ideology = fascism_ideology
+					traits = {
+						#
+					}
+				}
+			}
+			if = {
+				limit = {
+					has_government = n_socialism
+				}
+				create_country_leader = {
+					name = "None"
+					desc = ""
+					picture = "gfx/leaders/leader_unknown.dds"
+					expire = "1965.1.1"
+					ideology = despotism
+					traits = {
+						#
+					}
+				}
+				create_country_leader = {
+					name = "None"
+					desc = ""
+					picture = "gfx/leaders/leader_unknown.dds"
+					expire = "1965.1.1"
+					ideology = conservatism
+					traits = {
+						#
+					}
+				}
+				create_country_leader = {
+					name = "None"
+					desc = ""
+					picture = "gfx/leaders/leader_unknown.dds"
+					expire = "1965.1.1"
+					ideology = marxism
+					traits = {
+						#
+					}
+				}
+				create_country_leader = {
+					name = "None"
+					desc = ""
+					picture = "gfx/leaders/leader_unknown.dds"
+					expire = "1965.1.1"
+					ideology = fascism_ideology
+					traits = {
+						#
+					}
+				}
+			}
+			if = {
+				limit = {
+					has_government = fascism
+				}
+				create_country_leader = {
+					name = "None"
+					desc = ""
+					picture = "gfx/leaders/leader_unknown.dds"
+					expire = "1965.1.1"
+					ideology = despotism
+					traits = {
+						#
+					}
+				}
+				create_country_leader = {
+					name = "None"
+					desc = ""
+					picture = "gfx/leaders/leader_unknown.dds"
+					expire = "1965.1.1"
+					ideology = conservatism
+					traits = {
+						#
+					}
+				}
+				create_country_leader = {
+					name = "None"
+					desc = ""
+					picture = "gfx/leaders/leader_unknown.dds"
+					expire = "1965.1.1"
+					ideology = marxism
+					traits = {
+						#
+					}
+				}
+				create_country_leader = {
+					name = "None"
+					desc = ""
+					picture = "gfx/leaders/leader_unknown.dds"
+					expire = "1965.1.1"
+					ideology = n_socialism_ideology
+					traits = {
+						#
+					}
+				}
+			}
+		}
+	    activate_mission = KHR_waiting_for_sov_mission
+		if = {
+			limit = {
+				NOT = {
+					has_completed_focus = CHI_cooperation_with_the_nationalists
+				}
+			}
+		    set_party_name = {
+				ideology = neutrality 
+				name = KHR_rebel_party
+				long_name = KHR_rebel_party_long
+			}   
+		}
+		if = {
+			limit = {
+				SIK = {
+					gives_military_access_to = ROOT
+				}
+			}
+			SIK = {
+				diplomatic_relation = {
+					country = ROOT
+					relation = military_access
+					active = no
+				}
+			}
+		}
+		#custom_effect_tooltip = recruit_militia_units_tt
+		#hidden_effect = { load_oob = KHR_1937 }
+		if = {
+			limit = {
+				NOT = {
+					has_global_flag = khr_seize_our_army_flag
+				}
+			}
+			custom_effect_tooltip = khr_army_defect_tt
+			transfer_units_fraction = {
+				target = SIK       # the recipient			                      
+				size = 0 
+				army_ratio = 0.1      # Overrides size modifier for army
+				stockpile_ratio = 0  # [0,1] Overrides size modifier for the stockpiled equipment and fuel
+				navy_ratio = 0       # [0,1] Overrides size modifier for navy
+				air_ratio = 0        # [0,1] Overrides size modifier for air
+				keep_unit_leaders_trigger = { # Trigger for unit leaders to remain with the original country
+					always = yes
+				}
+			}
+		}
+		add_war_support = 0.1
+		add_manpower = 5000
+		add_equipment_to_stockpile = {
+			type = infantry_equipment
+			amount = 800
+			producer = SIK
+		}
+	}
+}
+
+country_event = { #Kashgar rebellion - KHR asks TNG
+	id = Sinkiang_rebel.33
+	title = Sinkiang_rebel.33.t
+	desc = Sinkiang_rebel.33.d
+	picture = GFX_report_event_ma_hushan
+	trigger = {
+	    has_global_flag = kashi_rebellion_flag
+		NOT = { has_global_flag = TNG_help_sik_flag }
+		tag = KHR
+	    is_subject = no
+		#NOT = { has_war_with = SIK }
+		NOT = { 
+			OR = {
+			    has_war_with = TNG 
+		        TNG = { 
+			        is_subject = yes 
+			        #has_war_with = SIK
+			    }
+		    }
+		}	    
+	}
+	is_triggered_only = no
+	fire_only_once = yes
+	mean_time_to_happen = {
+		days = 30		
+	}
+	option = {
+		name = Sinkiang_rebel.33.a
+		#ask help from TNG 
+		custom_effect_tooltip = THIS_IS_HISTORICAL_TT
+		ai_chance = {
+			factor = 100
+		    modifier = {
+			    is_historical_focus_on = yes
+				factor = 200
+			}
+		}
+		#
+		effect_tooltip = {
+		      
+		}
+		add_war_support = 0.05
+		#declare_war_on = { target = KHR type = annex_everything }
+	    TNG = {
+		    country_event = { days = 7 id = Sinkiang_rebel.34 }
+		}
+	    custom_effect_tooltip = if_they_accept_green
+		effect_tooltip = {
+		    if = { 
+		        limit = { 
+				    is_ai = no
+					is_faction_leader = no  
+				}
+			    ROOT = {
+				    #set_rule = { can_create_factions = yes }
+				    create_faction = "anti_sheng_rebel"
+				    add_to_faction = TNG
+		        }
+			    else = {			        
+			        TNG = {
+				        #set_rule = { can_create_factions = yes }
+				        create_faction = "anti_sheng_rebel"
+				        add_to_faction = KHR
+		            }
+			    }
+			    add_timed_idea = { idea = SIK_strike_sheng days = 120 }
+			}	
+		    KHR = {
+			    create_wargoal = {
+			        target = SIK
+			        type = annex_everything
+		        } 
+		        add_timed_idea = { idea = SIK_strike_sheng days = 120 }
+			}
+	    }
+	}
+    option = {
+		name = Sinkiang_rebel.34.b
+	    ai_chance = {
+			factor = 20
+		}
+		#fight alone
+		add_war_support = 0.15
+	    create_wargoal = {
+			target = SIK
+			type = annex_everything
+		}
+	}
+}
+
+country_event = { # KHR asks, to TNG
+	id = Sinkiang_rebel.34
+	title = Sinkiang_rebel.34.t
+	desc = Sinkiang_rebel.34.d
+	picture = GFX_report_event_ma_hushan
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = Sinkiang_rebel.34.a
+		custom_effect_tooltip = THIS_IS_HISTORICAL_TT
+		trigger = {
+			NOT = {
+				has_completed_focus = TNG_befriend_soviet
+			}
+		}
+		#help khr
+		ai_chance = {
+			factor = 100
+		    modifier = {
+			    is_historical_focus_on = yes
+				factor = 200
+			}
+		}
+		#
+	    if = {
+			limit = {
+				has_idea = SIK_tng_truce_agreement_tng
+			}
+			remove_ideas = SIK_tng_truce_agreement_tng
+		}
+		effect_tooltip = {
+		    if = { 
+		        limit = { 
+				    TNG = { 
+					    is_faction_leader = no 
+					    is_ai = no
+					}   
+				}
+			    TNG = {
+				    #set_rule = { can_create_factions = yes }
+				    create_faction = "anti_sheng_rebel"
+				    add_to_faction = KHR
+		        }
+			    else = {			        
+			        KHR = {
+				        #set_rule = { can_create_factions = yes }
+				        create_faction = "anti_sheng_rebel"
+				        add_to_faction = TNG
+		            }
+			    }
+			    add_timed_idea = { idea = SIK_strike_sheng days = 120 }
+			}					
+		    KHR = {
+			    create_wargoal = {
+			        target = SIK
+			        type = annex_everything
+		        }
+			    add_timed_idea = { idea = SIK_strike_sheng days = 120 }
+			}
+		}
+	    #country_event = Sinkiang_rebel.333
+	    KHR = { 
+		    country_event = { days = 7 id = Sinkiang_rebel.3333 }
+		}
+		add_political_power = 50
+	    set_global_flag = TNG_help_KHR_flag
+	}
+    option = {
+		name = Sinkiang_rebel.34.b
+	    ai_chance = {
+			factor = 10
+		}
+		#dont join
+		effect_tooltip = {
+		    KHR = {
+			    add_opinion_modifier = { target = ROOT modifier = hostile_status }
+			    create_wargoal = {
+			        target = SIK
+			        type = annex_everything
+		        }
+			    add_timed_idea = { idea = SIK_strike_sheng days = 120 }
+			}
+		}
+	    #add_political_power = -50
+	    KHR = { 
+		    country_event = { id = Sinkiang_rebel.3334 }
+		}
+	}
+}
+
+country_event = { # TNG YES TO KHR
+	id = Sinkiang_rebel.3333
+	title = Sinkiang_rebel.3333.t
+	desc = Sinkiang_rebel.3333.d
+	picture = GFX_report_event_36th_division
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = Sinkiang_rebel.3333.a
+		#help khr
+		ai_chance = {
+			factor = 100
+		}
+		#
+		if = { 
+		    limit = { 
+				is_ai = no
+			    is_faction_leader = no  
+		    }
+			ROOT = {
+				#set_rule = { can_create_factions = yes }
+				create_faction = "anti_sheng_rebel"
+				add_to_faction = TNG
+		    }
+			else = {			        
+			    TNG = {
+				    #set_rule = { can_create_factions = yes }
+				    create_faction = "anti_sheng_rebel"
+				    add_to_faction = KHR
+		        }
+			}
+		}
+		if = { 
+		    limit = { 
+				TNG = { 
+				    is_faction_leader = no 
+				    is_ai = no
+				} 
+			}
+			TNG = {
+				#set_rule = { can_create_factions = yes }
+			    create_faction = "anti_sheng_rebel"
+				add_to_faction = KHR
+			}
+	    }
+	    if = { 
+		    limit = {
+			    is_ai = no
+			}
+		    create_wargoal = {
+			    target = SIK
+			    type = annex_everything
+		    }
+		    else = {
+				declare_war_on = {
+				    target = SIK
+				    type = annex_everything
+			    }
+			}
+	    } 
+	    add_timed_idea = { idea = SIK_strike_sheng days = 120 }
+		TNG = { add_timed_idea = { idea = SIK_strike_sheng days = 120 } }
+	}   
+}
+
+country_event = { # TNG NO TO KHR
+	id = Sinkiang_rebel.3334
+	title = Sinkiang_rebel.3334.t
+	desc = Sinkiang_rebel.3334.d
+	picture = GFX_report_event_36th_division
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = Sinkiang_rebel.3334.a
+		ai_chance = {
+			factor = 100
+		}
+		#
+	    add_opinion_modifier = { target = TNG modifier = hostile_status }
+	    if = { 
+		    limit = {
+			    is_ai = no
+			}
+		    create_wargoal = {
+			    target = SIK
+			    type = annex_everything
+		    }
+		    else = {
+				declare_war_on = {
+				    target = SIK
+				    type = annex_everything
+			    }
+			}
+	    }
+	    add_timed_idea = { idea = SIK_strike_sheng days = 120 }
+	}
+}
+
+
+country_event = { #Kashgar rebellion, SIK asks TNG for help or not?
+	id = Sinkiang_rebel.333
+	title = Sinkiang_rebel.333.t
+	desc = Sinkiang_rebel.333.d
+	picture = GFX_report_event_36th_division
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = Sinkiang_rebel.333.a
+		custom_effect_tooltip = THIS_IS_HISTORICAL_TT
+		add_political_power = -50
+		ai_chance = {
+			factor = 100
+		    modifier = {
+			    is_historical_focus_on = yes
+				factor = 200
+			}
+		}
+		custom_effect_tooltip = if_they_accept_green
+		effect_tooltip = {
+		    
+		}
+		TNG = {
+		    country_event = {
+			    id = Sinkiang_rebel.334 days = 3
+			}
+		}
+		#declare_war_on = { target = KHR type = annex_everything }
+	}
+    option = {
+		ai_chance = {
+			factor = 50
+		}
+		name = Sinkiang_rebel.333.b
+	    #create_wargoal = {
+		#	target = KHR
+		#	type = annex_everything
+		#}
+	}
+}
+
+country_event = { #Kashgar rebellion, TNG helps SIK or not?
+	id = Sinkiang_rebel.334
+	title = Sinkiang_rebel.334.t
+	desc = Sinkiang_rebel.334.d
+	picture = GFX_report_event_36th_division
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = Sinkiang_rebel.334.a
+		#ye
+		ai_chance = {
+			factor = 70
+		    modifier = {
+			    is_historical_focus_on = yes
+				factor = 0
+			}
+		}
+		add_political_power = 50
+		effect_tooltip = {
+		    KHR = {
+			    add_opinion_modifier = { target = TNG modifier = Nations_estrangement }
+			} 
+		    create_wargoal = {
+			    target = KHR
+			    type = annex_everything
+		    }
+	    }
+		SIK = {
+		    country_event = {
+			    id = Sinkiang_rebel.335
+			}
+		} 
+	    set_global_flag = TNG_help_sik_flag   
+	}
+    option = {
+		name = Sinkiang_rebel.334.b
+	    ai_chance = {
+			factor = 100
+		    modifier = {
+			    is_historical_focus_on = yes
+				factor = 200
+			}
+		}
+		#no
+		custom_effect_tooltip = THIS_IS_HISTORICAL_TT
+		effect_tooltip = {
+		    SIK = {
+			    add_opinion_modifier = { target = TNG modifier = Nations_estrangement }
+			}
+		}
+		SIK = {
+		    country_event = {
+			    id = Sinkiang_rebel.336
+			}
+		} 
+	}
+}
+
+country_event = { #Kashgar rebellion, TNG agrees to help - to SIK
+	id = Sinkiang_rebel.335
+	title = Sinkiang_rebel.335.t
+	desc = Sinkiang_rebel.335.d
+	picture = GFX_report_event_36th_division
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = Sinkiang_rebel.335.a
+		#ye
+		ai_chance = {
+			factor = 100
+		}
+		hidden_effect = {
+		    KHR = {
+			    add_opinion_modifier = { target = TNG modifier = hostile_status }
+			}
+		    if = { 
+		        limit = {
+			        TNG = { is_ai = no }
+			    }
+		        TNG = {
+				   create_wargoal = {
+			            target = KHR
+			            type = annex_everything
+		            }
+		        }
+			    else = {
+				    TNG = {   
+						declare_war_on = {
+				            target = KHR
+				            type = annex_everything
+			            }
+			        }
+	            }
+		    }
+		}
+		effect_tooltip = {
+		    
+		}
+	    
+	}
+}
+
+country_event = { #Kashgar rebellion, TNG refuses to help - to SIK
+	id = Sinkiang_rebel.336
+	title = Sinkiang_rebel.336.t
+	desc = Sinkiang_rebel.336.d
+	picture = GFX_report_event_36th_division
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = Sinkiang_rebel.336.a
+		ai_chance = {
+			factor = 100
+		}
+		add_opinion_modifier = { target = TNG modifier = Nations_estrangement }
+	    #create_wargoal = {
+		#	target = KHR
+		#	type = annex_everything
+		#}
+	}
+}
+
+country_event = { #Kashgar rebellion victory - delete the faction
+	id = Sinkiang_rebel.400
+	title = Sinkiang_rebel.400.t
+	desc = Sinkiang_rebel.400.d
+	picture = GFX_report_event_ma_army_training
+	trigger = {
+	    has_global_flag = kashi_rebellion_flag
+		has_global_flag = TNG_help_KHR_flag
+		NOT = { has_global_flag = TNG_help_sik_flag }
+	    is_faction_leader = yes
+		OR = {
+		    tag = TNG
+			tag = KHR
+			tag = HMI
+		}
+		OR = {
+		    NOT = { country_exists = SIK }
+		    SIK = { is_subject_of = KHR }
+			SIK = { is_subject_of = TNG }
+			SIK = { is_subject_of = HMI }
+		}
+	}
+	is_triggered_only = no
+	fire_only_once = yes
+	hidden = yes
+	#mean_time_to_happen = {
+	#	days = 2		
+	#}
+	immediate = {
+		set_global_flag = SIK_wrls_no_longer_united_flag
+	}
+	option = {
+		name = Sinkiang_rebel.400.a
+		
+		dismantle_faction = yes
+		ai_chance = {
+			factor = 100
+		    modifier = {
+			    is_historical_focus_on = yes
+				factor = 200
+			}
+		}
+		
+		hidden_effect = {
+			KHR = { country_event = { id = Sinkiang_rebel.401 } } 
+		    HMI = { country_event = { id = Sinkiang_rebel.401 } } 
+			TNG = { country_event = { id = Sinkiang_rebel.401 } } 
+		}
+	}
+}
+
+country_event = { #Kashgar rebellion victory - delete the faction - the actual event ppl will see
+	id = Sinkiang_rebel.401
+	title = Sinkiang_rebel.401.t
+	desc = Sinkiang_rebel.401.d
+	picture = GFX_report_event_generic_sign_treaty1
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = Sinkiang_rebel.401.a
+		effect_tooltip = {
+		    dismantle_faction = yes
+		}
+		clr_global_flag = kashi_rebellion_flag
+		ai_chance = {
+			factor = 100
+		    modifier = {
+			    is_historical_focus_on = yes
+				factor = 200
+			}
+		}		
+	}
+}
+
+country_event = { #Kashgar rebellion - asks RAJ (to RAJ)
+	id = Sinkiang_rebel.402
+	title = Sinkiang_rebel.402.t
+	desc = Sinkiang_rebel.402.d
+	picture = GFX_report_event_indian_parade
+	is_triggered_only = yes
+	option = {
+		name = Sinkiang_rebel.402.a
+		#YES 
+		ai_chance = {
+			factor = 1
+		    modifier = {
+			    factor = 0
+				has_opinion = {
+					target = TNG
+					value < 10
+				}
+			}
+			modifier = {
+				factor = 1.5
+				has_opinion = {
+					target = TNG
+					value > 10
+				}
+				has_opinion = {
+					target = TNG
+					value < 50
+				}
+			}
+			modifier = {
+				factor = 5
+				has_opinion = {
+					target = TNG
+					value > 50
+				}
+			}
+			modifier = {
+				factor = 10
+				has_opinion = {
+					target = TNG
+					value > 75
+				}
+			}
+			modifier = {
+				factor = 30
+				has_opinion = {
+					target = TNG
+					value > 90
+				}
+			}
+		}
+		
+		add_ideas = SIK_RAJ_reinforce
+		if = {
+		    limit = {
+			    has_global_flag = khr_raj_250_flag
+			}
+			add_political_power = 250
+		}
+		
+		FROM = { 
+		    country_event = { id = Sinkiang_rebel.404 }
+		}
+	   
+	}
+    option = {
+		name = Sinkiang_rebel.402.b
+	    ai_chance = {
+			factor = 10
+			modifier = {
+				factor = 0.1
+				has_opinion = {
+					target = TNG
+					value > 75
+				}
+			}
+		}
+		#NO
+		FROM = { 
+		    country_event = { id = Sinkiang_rebel.403 }
+		}
+	}
+}
+
+country_event = { #Kashgar rebellion - RAJ says no, try again? #unused
+	id = Sinkiang_rebel.403
+	title = Sinkiang_rebel.403.t
+	desc = Sinkiang_rebel.403.d
+	picture = GFX_report_event_indian_parade
+	is_triggered_only = yes
+	option = {
+		name = Sinkiang_rebel.403.a
+		#YES 
+		ai_chance = {
+			factor = 100
+		}
+		#
+		effect_tooltip = {
+		      
+		}
+		set_global_flag = khr_raj_250_flag
+		add_political_power = -250
+	    custom_effect_tooltip = if_they_accept_green
+		effect_tooltip = {
+		    RAJ = {
+			    add_ideas = SIK_RAJ_reinforce	
+			}
+		    custom_effect_tooltip = RAJ_help_khr_tt
+		}
+		FROM = { 
+		    country_event = { id = Sinkiang_rebel.402 }
+		}
+		
+	}
+    option = {
+		name = Sinkiang_rebel.403.b
+	    ai_chance = {
+			factor = 95
+		}
+		#NO
+		
+		
+	}
+}
+
+country_event = { #Kashgar rebellion - RAJ yes to KHR
+	id = Sinkiang_rebel.404
+	title = Sinkiang_rebel.404.t
+	desc = Sinkiang_rebel.404.d
+	picture = GFX_report_event_indian_parade
+	is_triggered_only = yes
+	option = {
+		name = Sinkiang_rebel.404.a
+		#YES 
+		ai_chance = {
+			factor = 100
+		}
+		effect_tooltip = {  
+			RAJ = {
+			    add_ideas = SIK_RAJ_reinforce	
+			}
+	    }
+		custom_effect_tooltip = RAJ_help_khr_tt
+	}
+}
+
+country_event = { #Kashgar rebellion - no to khr
+	id = Sinkiang_rebel.405
+	title = Sinkiang_rebel.405.t
+	desc = Sinkiang_rebel.405.d
+	picture = GFX_report_event_indian_parade
+	is_triggered_only = yes
+	option = {
+		name = Sinkiang_rebel.405.a
+		ai_chance = {
+			factor = 100
+		}
+	}
+}
+
+country_event = { #the fate of sheng
+	id = Sinkiang_rebel.406
+	title = Sinkiang_rebel.406.t
+	desc = Sinkiang_rebel.406.d
+	picture = GFX_report_event_the_king_of_sinkiang_sheng_shicai
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = Sinkiang_rebel.406.a
+		#KILL
+		add_manpower = -1
+		add_stability = 0.1
+	}
+	option = {
+		name = Sinkiang_rebel.406.b
+		#DONT KILL
+		add_stability = -0.15
+		#SIK = { 
+			SIK_sheng_shicai = { set_nationality = ROOT }
+		#} 
+	}
+}
+
+country_event = { #SOV suggests a peace talk between sik and tng?
+	id = Sinkiang_rebel.407
+	title = Sinkiang_rebel.407.t
+	desc = Sinkiang_rebel.407.d
+	picture = GFX_report_event_ma_army_training
+	trigger = {
+	    tag = SOV
+	    SIK = {
+		    OR = {
+				has_idea = SIK_Support_idea
+				has_idea = SIK_Weakened_ussr_influence
+		    }
+			NOT = {
+				has_war_with = ROOT
+			}
+			has_war_with = TNG
+			has_volunteers_amount_from = {
+                tag = SOV
+                count < 1
+            }
+	    }
+	    TNG = {
+			is_subject = no
+			NOT = {
+				has_war_with = ROOT
+			}
+		}
+	}
+	is_triggered_only = no
+	fire_only_once = yes
+	#mean_time_to_happen = {
+	#	days = 2		
+	#}
+	option = {
+		name = Sinkiang_rebel.407.a
+		#yes
+		custom_effect_tooltip = THIS_IS_HISTORICAL_TT
+		ai_chance = {
+			factor = 100
+		    modifier = {
+			    is_historical_focus_on = yes
+				factor = 200
+			}
+		}
+	    add_political_power = -25
+		SIK = {
+			country_event = {
+				id = Sinkiang_rebel.408 days = 7
+			}
+		}
+	}
+
+	option = {
+		name = Sinkiang_rebel.407.b
+		#no
+		ai_chance = {
+			factor = 1
+		    modifier = {
+			    is_historical_focus_on = yes
+				factor = 0
+			}
+		}
+	}
+}
+
+country_event = { #SOV suggests a peace talk between sik and tng to sik
+	id = Sinkiang_rebel.408
+	title = Sinkiang_rebel.408.t
+	desc = Sinkiang_rebel.408.d
+	picture = GFX_report_event_ma_army_training
+	is_triggered_only = yes
+	option = {
+		name = Sinkiang_rebel.408.a
+		#yes
+		#cede kashgar
+		ai_chance = {
+			factor = 2
+		    modifier = {
+			    is_historical_focus_on = yes
+				factor = 200
+			}
+		}
+		custom_effect_tooltip = THIS_IS_HISTORICAL_TT
+		if = {
+			limit = {
+				TNG = {
+					is_ai = yes
+				}
+			}
+		    custom_effect_tooltip = they_will_almost_never_accept_in_hist_tt
+		}
+		add_political_power = -50
+		TNG = {
+			country_event = Sinkiang_rebel.409 
+		}
+		custom_effect_tooltip = if_approved_tt
+	    effect_tooltip = {
+			619 = {
+				add_core_of = TNG
+			}
+			if = {
+				limit = {
+					TNG = {
+						is_in_faction_with = KHR
+					}
+					OR = {
+						is_faction_leader = yes
+						KHR = {
+							is_faction_leader = yes
+						}
+					}
+				}
+				TNG = {
+					leave_faction = yes
+				}
+			}
+			white_peace = TNG
+			if = {
+				limit = {
+					619 = {
+						is_owned_and_controlled_by = ROOT
+					}
+				}
+				619 = {
+					transfer_state_to = TNG
+				}
+			    else_if = {
+					limit = {
+						619 = {
+							is_owned_and_controlled_by = KHR
+						}
+					}
+				    TNG = {
+                        create_wargoal = {
+							target = KHR
+							type = annex_everything
+						}
+					}
+				}
+			}
+		}
+		#custom_effect_tooltip = wont_be_able_to_declare_war_by_focus_tt
+	}
+
+	option = {
+		name = Sinkiang_rebel.408.b
+		#cede kashgar, also provide some assistance
+		ai_chance = {
+			factor = 1
+		    modifier = {
+			    is_historical_focus_on = yes
+				factor = 0
+			}
+		}
+		add_political_power = -100
+		TNG = {
+			country_event = Sinkiang_rebel.410
+		}
+		custom_effect_tooltip = if_approved_tt
+	    effect_tooltip = {
+			619 = {
+				add_core_of = TNG
+			}
+			if = {
+				limit = {
+					TNG = {
+						is_in_faction_with = KHR
+					}
+					OR = {
+						is_faction_leader = yes
+						KHR = {
+							is_faction_leader = yes
+						}
+					}
+				}
+				TNG = {
+					leave_faction = yes
+				}
+			}
+			white_peace = TNG
+			if = {
+				limit = {
+					619 = {
+						is_owned_and_controlled_by = ROOT
+					}
+				}
+				619 = {
+					transfer_state_to = TNG
+				}
+			    else_if = {
+					limit = {
+						619 = {
+							is_owned_and_controlled_by = KHR
+						}
+					}
+				    TNG = {
+                        create_wargoal = {
+							target = KHR
+							type = annex_everything
+						}
+					}
+				}
+			}
+			TNG = {
+				add_offsite_building = { type = arms_factory level = 1 }
+			    add_equipment_to_stockpile = {
+					type = infantry_equipment
+					amount = 1000
+					producer = SOV
+				}
+			}
+		}
+		#custom_effect_tooltip = wont_be_able_to_declare_war_by_focus_tt
+	}
+	
+	option = {
+		name = Sinkiang_rebel.408.c
+		#no
+		ai_chance = {
+			factor = 1
+		    modifier = {
+			    is_historical_focus_on = yes
+				factor = 0
+			}
+		}
+		add_war_support = 0.05
+	}
+}
+
+country_event = { #a peace talk with sik to tng (hist)
+	id = Sinkiang_rebel.409
+	title = Sinkiang_rebel.409.t
+	desc = Sinkiang_rebel.409.d
+	picture = GFX_report_event_ma_army_training
+	is_triggered_only = yes
+	option = {
+		name = Sinkiang_rebel.409.a
+		#yes
+		#cede kashgar
+		ai_chance = {
+			factor = 2
+		    modifier = {
+			    is_historical_focus_on = yes
+				factor = 0
+			}
+		}
+	    effect_tooltip = {
+			619 = {
+				add_core_of = ROOT
+			}
+			990 = {
+				add_core_of = ROOT
+			}
+			if = {
+				limit = {
+					is_in_faction_with = KHR
+					OR = {
+						is_faction_leader = yes
+						KHR = {
+							is_faction_leader = yes
+						}
+					}
+				}
+				leave_faction = yes
+			}
+			white_peace = FROM
+			if = {
+				limit = {
+					619 = {
+						is_owned_and_controlled_by = FROM
+					}
+				}
+				619 = {
+					transfer_state_to = ROOT
+				}
+			    else_if = {
+					limit = {
+						619 = {
+							is_owned_and_controlled_by = KHR
+						}
+					}
+				    create_wargoal = {
+						target = KHR
+						type = annex_everything
+					}
+				}
+			}
+			if = {
+				limit = {
+					990 = {
+						is_owned_and_controlled_by = FROM
+					}
+				}
+				990 = {
+					transfer_state_to = ROOT
+				}
+			    else_if = {
+					limit = {
+						990 = {
+							is_owned_and_controlled_by = KHR
+						}
+					}
+				    create_wargoal = {
+						target = KHR
+						type = annex_everything
+					}
+				}
+			}
+		}
+		FROM = {
+			country_event = {
+				id = Sinkiang_rebel.412
+			}
+		}
+	}
+
+	option = {
+		name = Sinkiang_rebel.409.b
+		#no
+		custom_effect_tooltip = THIS_IS_HISTORICAL_TT
+		ai_chance = {
+			factor = 3
+		    modifier = {
+			    is_historical_focus_on = yes
+				factor = 200
+			}
+		}
+		add_war_support = 0.1
+		FROM = {
+			country_event = {
+				id = Sinkiang_rebel.411
+			}
+		}
+	}
+}
+
+country_event = { #a peace talk with sik to tng (althist)
+	id = Sinkiang_rebel.410
+	title = Sinkiang_rebel.410.t
+	desc = Sinkiang_rebel.410.d
+	picture = GFX_report_event_ma_army_training
+	is_triggered_only = yes
+	option = {
+		name = Sinkiang_rebel.410.a
+		#yes
+		#cede kashgar
+		ai_chance = {
+			factor = 100
+		    modifier = {
+			    is_historical_focus_on = yes
+				factor = 1
+			}
+		}
+	    effect_tooltip = {
+			619 = {
+				add_core_of = ROOT
+			}
+			990 = {
+				add_core_of = ROOT
+			}
+			if = {
+				limit = {
+					is_in_faction_with = KHR
+					OR = {
+						is_faction_leader = yes
+						KHR = {
+							is_faction_leader = yes
+						}
+					}
+				}
+				leave_faction = yes
+			}
+			white_peace = FROM
+			if = {
+				limit = {
+					619 = {
+						is_owned_and_controlled_by = FROM
+					}
+				}
+				619 = {
+					transfer_state_to = ROOT
+				}
+			    else_if = {
+					limit = {
+						619 = {
+							is_owned_and_controlled_by = KHR
+						}
+					}
+				    create_wargoal = {
+						target = KHR
+						type = annex_everything
+					}
+				}
+			}
+			if = {
+				limit = {
+					990 = {
+						is_owned_and_controlled_by = FROM
+					}
+				}
+				990 = {
+					transfer_state_to = ROOT
+				}
+			    else_if = {
+					limit = {
+						990 = {
+							is_owned_and_controlled_by = KHR
+						}
+					}
+				    create_wargoal = {
+						target = KHR
+						type = annex_everything
+					}
+				}
+			}
+		    add_offsite_building = { type = arms_factory level = 1 }
+			add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = 1000
+				producer = SOV
+			}
+		}
+		FROM = {
+			country_event = {
+				id = Sinkiang_rebel.413
+			}
+		}
+	}
+
+	option = {
+		name = Sinkiang_rebel.410.b
+		#no
+		add_war_support = 0.1
+		ai_chance = {
+			factor = 1
+		    modifier = {
+			    is_historical_focus_on = yes
+				factor = 1
+			}
+		}
+		FROM = {
+			country_event = {
+				id = Sinkiang_rebel.411
+			}
+		}
+	}
+}
+
+country_event = { #tng refuses to sik
+	id = Sinkiang_rebel.411
+	title = Sinkiang_rebel.411.t
+	desc = Sinkiang_rebel.411.d
+	picture = GFX_report_event_ma_army_training
+	is_triggered_only = yes
+	option = {
+		name = Sinkiang_rebel.411.a
+		#yes
+		ai_chance = {
+			factor = 100
+		    modifier = {
+			    is_historical_focus_on = yes
+				factor = 1
+			}
+		} 
+	}	
+}
+
+country_event = { #tng accepts (hist)
+	id = Sinkiang_rebel.412
+	title = Sinkiang_rebel.412.t
+	desc = Sinkiang_rebel.412.d
+	picture = GFX_report_event_ma_army_training
+	is_triggered_only = yes
+	option = {
+		name = Sinkiang_rebel.412.a
+		#yes
+		ai_chance = {
+			factor = 100
+		    modifier = {
+			    is_historical_focus_on = yes
+				factor = 1
+			}
+		} 
+		619 = {
+			add_core_of = TNG
+		}
+		990 = {
+			add_core_of = TNG
+		}
+		if = {
+			limit = {
+				TNG = {
+					is_in_faction_with = KHR
+				}
+				OR = {
+					is_faction_leader = yes
+					KHR = {
+						is_faction_leader = yes
+					}
+				}
+			}
+			TNG = {
+				leave_faction = yes
+			}
+		}
+		white_peace = TNG
+		if = {
+			limit = {
+				619 = {
+					is_owned_and_controlled_by = ROOT
+				}
+			}
+			619 = {
+				transfer_state_to = TNG
+			}
+			else_if = {
+				limit = {
+					619 = {
+						is_owned_and_controlled_by = KHR
+					}
+				}
+				TNG = {
+					create_wargoal = {
+						target = KHR
+						type = annex_everything
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				990 = {
+					is_owned_and_controlled_by = ROOT
+				}
+			}
+			990 = {
+				transfer_state_to = TNG
+			}
+			else_if = {
+				limit = {
+					619 = {
+						is_owned_and_controlled_by = KHR
+					}
+				}
+				TNG = {
+					create_wargoal = {
+						target = KHR
+						type = annex_everything
+					}
+				}
+			}
+		}
+	    custom_effect_tooltip = wont_be_able_to_declare_war_by_focus_tt
+	}
+}
+
+country_event = { #tng accepts (althist)
+	id = Sinkiang_rebel.413
+	title = Sinkiang_rebel.413.t
+	desc = Sinkiang_rebel.413.d
+	picture = GFX_report_event_ma_army_training
+	is_triggered_only = yes
+	option = {
+		name = Sinkiang_rebel.413.a
+		#yes
+		ai_chance = {
+			factor = 100
+		    modifier = {
+			    is_historical_focus_on = yes
+				factor = 1
+			}
+		} 
+		619 = {
+			add_core_of = TNG
+		}
+		990 = {
+			add_core_of = TNG
+		}
+		if = {
+			limit = {
+				TNG = {
+					is_in_faction_with = KHR
+				}
+				OR = {
+					is_faction_leader = yes
+					KHR = {
+						is_faction_leader = yes
+					}
+				}
+			}
+			TNG = {
+				leave_faction = yes
+			}
+		}
+		white_peace = TNG
+		if = {
+			limit = {
+				619 = {
+					is_owned_and_controlled_by = ROOT
+				}
+			}
+			619 = {
+				transfer_state_to = TNG
+			}
+			else_if = {
+				limit = {
+					619 = {
+						is_owned_and_controlled_by = KHR
+					}
+				}
+				TNG = {
+					create_wargoal = {
+						target = KHR
+						type = annex_everything
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				990 = {
+					is_owned_and_controlled_by = ROOT
+				}
+			}
+			990 = {
+				transfer_state_to = TNG
+			}
+			else_if = {
+				limit = {
+					990 = {
+						is_owned_and_controlled_by = KHR
+					}
+				}
+				TNG = {
+					create_wargoal = {
+						target = KHR
+						type = annex_everything
+					}
+				}
+			}
+		}
+		TNG = {
+			add_offsite_building = { type = arms_factory level = 1 }
+			add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = 1000
+				producer = SOV
+			}
+		}
+	    custom_effect_tooltip = wont_be_able_to_declare_war_by_focus_tt
+	}
+}
+
+country_event = { #Kashgar war - join TNG
+	id = Sinkiang_rebel.4
+	title = Sinkiang_rebel.4.t
+	desc = Sinkiang_rebel.4.d
+	picture = GFX_report_event_end_three_areas_revolution_2
+    #mean_time_to_happen = {
+	#	days = 2		
+	#}
+	trigger = {
+		tag = KHR
+		is_subject = no
+	    NOT = { has_war_with = TNG }
+		TNG = { has_war_with = SIK }
+	}
+	is_triggered_only = yes #disabled
+	fire_only_once = yes
+	option = {
+		name = Sinkiang_rebel.4.a
+		#join
+		ai_chance = {
+			factor = 100
+		}
+		custom_effect_tooltip = if_approved_tt
+        custom_effect_tooltip = GAME_OVER_TT
+		TNG = { country_event = Sinkiang_rebel.5 }
+	}
+    option = {
+		name = Sinkiang_rebel.4.b
+	    #no
+	}
+}
+
+country_event = { #Kashgar war - TNG noticed
+	id = Sinkiang_rebel.5
+	title = Sinkiang_rebel.5.t
+	desc = Sinkiang_rebel.5.d
+	picture = GFX_report_event_end_three_areas_revolution_2
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = Sinkiang_rebel.5.a
+		ai_chance = {
+			factor = 100
+		}
+		KHR = {
+			every_unit_leader = {
+				set_nationality = ROOT
+			}
+		}
+	    ROOT = {
+			add_manpower = 50000
+			transfer_state = 619
+			add_state_core = 619
+			set_state_controller = 287
+			add_state_core = 287
+			annex_country = { target = KHR transfer_troops = yes }
+			hidden_effect = { load_oob = KGR_guerrillas_619 }
+		}
+	}
+
+    option = {
+		name = Sinkiang_rebel.5.b
+	}
+}
+#ETR asks peace with the KMT sinkiang government #1.11
+country_event = {
+	id = Sinkiang_rebel.6
+	title = Sinkiang_rebel.6.t
+	desc = Sinkiang_rebel.6.d
+	picture = GFX_report_event_generic_sign_treaty1
+	is_triggered_only = yes
+	#fire_only_once = yes
+	
+	#trigger = {
+	#	NOT = {
+	#		OR = {
+	#			has_country_leader = {
+	#				character = CHI_zhang_zhizhong ruling_only = yes
+	#			}
+	#			has_country_leader = {
+	#				character = SIK_sheng_shicai ruling_only = yes
+	#			}
+	#		}
+	#	}
+	#	original_tag = SIK
+	#	owns_state = 1051
+	#	has_idea = SIK_For_the_TAR_revolution
+	#	any_enemy_country = {
+	#		original_tag = SIK
+	#		owns_state = 617
+	#		NOT = {
+	#			has_war_with = event_target:WTT_current_china_leader
+	#		}
+	#	}
+	#    SOV = { 
+	#		has_defensive_war = no 
+	#		NOT = {
+	#			has_war_with = event_target:WTT_current_china_leader
+	#		}
+	#    }
+	#    NOT = { 
+	#	    event_target:WTT_current_china_leader = { has_war_with = JAP }
+	#	}
+	#}
+	#mean_time_to_happen = {
+	#	days = 60
+	#}
+	option = {
+		name = Sinkiang_rebel.6.a #yes
+		ai_chance = { factor = 100 }
+		custom_effect_tooltip = THIS_IS_HISTORICAL_TT
+		add_political_power = -10
+		add_stability = -0.05
+		add_war_support = -0.1
+		add_offsite_building = { type = industrial_complex level = -5 }
+		add_offsite_building = { type = arms_factory level = -5 }
+		custom_effect_tooltip = if_they_accept_green
+		custom_effect_tooltip = will_cancel_etr_tt
+		effect_tooltip = {
+			white_peace = SIK
+		    #diplomatic_relation = { country = SIK relation = non_aggression_pact }
+			add_manpower = 20000
+		}	
+		random_enemy_country = {
+		    limit = {   
+				original_tag = SIK
+			}
+			country_event = { id = Sinkiang_rebel.7 days = 7 }
+		}
+	}
+
+	option = {
+		name = Sinkiang_rebel.6.b #don't
+		trigger = { 
+			is_ai = no
+		}
+		add_manpower = 50000
+		add_war_support = 0.1
+		add_stability = 0.05
+	    add_offsite_building = { type = industrial_complex level = -5 }
+		add_offsite_building = { type = arms_factory level = -5 }
+	}
+}
+
+#ETR ask peace with the KMT sinkiang government, KMT's reply #1.11
+country_event = {
+	id = Sinkiang_rebel.7
+	title = Sinkiang_rebel.7.t
+	desc = Sinkiang_rebel.7.d
+	picture = GFX_report_event_generic_sign_treaty1
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = {
+		name = Sinkiang_rebel.7.a #yes
+		custom_effect_tooltip = THIS_IS_HISTORICAL_TT
+		add_political_power = 50
+		ai_chance = { factor = 100 }
+		FROM = {
+			country_event = Sinkiang_rebel.8
+		}
+	    custom_effect_tooltip = they_will_cancel_etr_tt
+		set_party_name = {
+			ideology = communism
+			name = SIK_communism_party_etprp
+			long_name = SIK_communism_party_etprp_long
+		}    
+		add_popularity = {
+			ideology = communism
+			popularity = 0.25
+		}
+		effect_tooltip = {
+			white_peace = FROM
+		    #diplomatic_relation = { country = FROM relation = non_aggression_pact }
+		}	
+	}
+
+	option = {
+		name = Sinkiang_rebel.7.b #don't 
+		add_war_support = 0.1
+	    FROM = {
+			country_event = Sinkiang_rebel.9
+		}
+	}
+}
+#KMT ACCEPTED
+country_event = { 
+	id = Sinkiang_rebel.8
+	title = Sinkiang_rebel.8.t
+	desc = Sinkiang_rebel.8.d
+	picture = GFX_report_event_generic_sign_treaty1
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = {
+		name = Sinkiang_rebel.8.a #yes
+		custom_effect_tooltip = will_cancel_etr_tt
+		effect_tooltip = {
+			white_peace = FROM
+		}	
+		hidden_effect = {
+			create_dynamic_country = {
+		        original_tag = SIK
+		        save_event_target_as = second_ETR_ili 
+		        set_cosmetic_tag = SIK_Ili_Council
+			    set_rule = { 
+				    can_join_factions = no 
+				    can_create_factions = no
+		        }
+			    set_capital = { state = 1051 }
+			    set_politics = {
+				    ruling_party = communism
+				    elections_allowed = no
+			    }
+			    set_popularities = {
+				    communism = 85
+				    neutrality = 15
+			    }     
+		        set_party_name = {
+				    ideology = communism
+				    name = SIK_communism_party_etprp
+				    long_name = SIK_communism_party_etprp_long
+			    }    
+	            create_country_leader = {
+			        name = "Ehmetjan Qasimi"
+			        desc = "POLITICS_EHMETJAN_QASIMI_DESC"
+			        picture = "Portrait_Sinkiang_Ehmetjan_Qasimi.dds"
+			        expire = "1965.1.1"
+			        ideology = marxism
+			        traits = { indomitable_perseverance }
+		        }
+				create_country_leader = {
+			        name = "Ehmetjan Qasimi"
+			        desc = "POLITICS_EHMETJAN_QASIMI_DESC"
+			        picture = "Portrait_Sinkiang_Ehmetjan_Qasimi.dds"
+			        expire = "1965.1.1"
+			        ideology = marxism
+			        traits = { indomitable_perseverance }
+		        }
+				create_country_leader = {
+			        name = "Ehmetjan Qasimi"
+			        desc = "POLITICS_EHMETJAN_QASIMI_DESC"
+			        picture = "Portrait_Sinkiang_Ehmetjan_Qasimi.dds"
+			        expire = "1965.1.1"
+			        ideology = marxism
+			        traits = { indomitable_perseverance }
+		        }
+				#in case he retires
+				every_state = {
+				    limit = {
+					    is_core_of = ROOT
+					}
+					remove_core_of = ROOT
+				}
+				add_manpower = 20000
+	            #create_corps_commander = {
+		        #    name = "Peter Romanovich Aleksandrov"
+		        #    id = 3895
+		        #    portrait_path = "gfx/leaders/Europe/Portrait_Europe_Generic_land_2.dds"
+		        #    traits = {  }
+		        #    skill = 1
+		        #    attack_skill = 2
+		        #    defense_skill = 1
+		        #    planning_skill = 1
+		        #    logistics_skill = 1
+	            #}
+	            #create_corps_commander = {
+		        #    name = "Ivan J.Polinov"
+		        #    id = 3894
+		        #    portrait_path = "gfx/leaders/Europe/Portrait_Europe_Generic_land_3.dds"
+		        #    traits = {  }
+		        #    skill = 2
+		        #    attack_skill = 2
+		        #    defense_skill = 2
+		        #    planning_skill = 1
+		        #    logistics_skill = 2
+	            #}
+	            create_corps_commander = {
+		            name = "Dalelkhan Sugirbayev"
+		            id = 3893
+		            portrait_path = "gfx/leaders/SIK/Dalelkhan_Sugirbayev.dds"
+		            traits = {  }
+		            skill = 2
+		            attack_skill = 2
+		            defense_skill = 2
+		            planning_skill = 1
+		            logistics_skill = 2
+	            }
+	            create_corps_commander = {
+		            name = "Fatih Muslimov"
+		            id = 3892
+		            portrait_path = "gfx/leaders/SIK/Fatih_Muslimov.dds"
+		            traits = {  }
+		            skill = 1
+		            attack_skill = 2
+		            defense_skill = 1
+		            planning_skill = 1
+		            logistics_skill = 1
+	            }
+	            create_corps_commander = {
+		            name = "Ishaq Beg Munonov"
+		            id = 3891
+		            portrait_path = "gfx/leaders/SIK/Ishaq_Beg_Munonov.dds"
+		            traits = {  }
+		            skill = 2
+		            attack_skill = 2
+		            defense_skill = 2
+		            planning_skill = 1
+		            logistics_skill = 2
+	            }
+	            #create_corps_commander = {
+		        #    name = "Ospan Batyr"
+		        #    id = 3900
+		        #    picture = "Portrait_Sinkiang_Ospan_Batyr.dds"
+		        #    traits = {  }
+		        #    skill = 3
+		        #    attack_skill = 2
+		        #    defense_skill = 3
+		        #    planning_skill = 3
+		        #    logistics_skill = 2
+	            #}
+	            create_corps_commander = {
+		            name = "Abdulkerim Abbas"
+		            id = 3890
+		            picture = "Portrait_Sinkiang_Abdulkerim_Abbas.dds"
+		            traits = {  }
+		            skill = 3
+		            attack_skill = 2
+		            defense_skill = 3
+		            planning_skill = 2
+		            logistics_skill = 3
+	            }
+				annex_country = { target = ROOT transfer_troops = yes }
+				change_tag_from = ROOT  
+				#country_event = Sinkiang_rebel.10
+				#load_oob = ETR_Guerrillas_618
+				#load_oob = ETR_Guerrillas_962
+			    #load_oob = ETR_Guerrillas_618_2
+				#load_oob = ETR_Military_adviser_959		    
+			} 
+		    
+		}
+		#set_global_flag = ETR_peace_flag
+	}
+}
+#KMT refused
+country_event = { 
+	id = Sinkiang_rebel.9
+	title = Sinkiang_rebel.9.t
+	desc = Sinkiang_rebel.9.d
+	picture = GFX_report_event_generic_battle
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = {
+		name = Sinkiang_rebel.9.a #yes
+		
+	}
+}
+#Chinese tags ask ETR to join them
+country_event = {
+	id = Sinkiang_rebel.11
+	title = Sinkiang_rebel.11.t
+	desc = Sinkiang_rebel.11.d
+	picture = GFX_report_event_generic_battle
+	is_triggered_only = yes ###
+	fire_only_once = yes
+	
+	trigger = {
+	#tag = event_target:WTT_communist_china
+	is_literally_china = yes   
+	any_other_country = {
+		original_tag = SIK
+	    NOT = { has_war_with = ROOT }
+	    OR = {
+		    has_war_with = SIK
+		    has_civil_war = yes
+            has_war = no 
+	    }
+	    is_neighbor_of = ROOT
+    }  
+    OR = {
+		NOT = { country_exists = event_target:WTT_communist_china }
+        NOT = { country_exists = event_target:WTT_current_china_leader }
+        event_target:WTT_current_china_leader = { num_of_controlled_states < 5 }
+    }
+    AND = {
+		controls_state = 1015
+		controls_state = 756
+		controls_state = 608
+	    controls_state = 622
+	}
+}
+	option = {
+		name = Sinkiang_rebel.11.a #yes
+		ai_chance = { factor = 100 }
+		PREV = {
+			#country_event = Sinkiang_rebel.12
+		}
+	}
+
+	option = {
+		name = Sinkiang_rebel.11.b #don't
+		add_stability = 0.05
+	}
+}
+country_event = {
+	id = Sinkiang_rebel.48
+	title = Sinkiang_rebel.48.t
+	desc = Sinkiang_rebel.48.d
+	picture = GFX_report_event_chinese_soldiers_01
+
+	fire_only_once = yes
+	mean_time_to_happen = {
+		days = 40
+	}
+	trigger = {
+		NOT = {
+			OR = {
+				has_country_leader = {
+					character = CHI_zhang_zhizhong ruling_only = yes
+				}
+				has_country_leader = {
+					character = SIK_sheng_shicai ruling_only = yes
+				}
+			}
+		}
+		OR = {
+			original_tag = SIK
+			tag = SIK
+		}
+		any_enemy_country = {
+			original_tag = SIK
+			owns_state = 618
+		}
+		has_global_flag = SIK_three_areas_revolution
+	}
+	option = {
+		name = Sinkiang.48.a
+		add_manpower = 50000
+		ROOT = {
+			transfer_state = 618
+			hidden_effect = { load_oob = ETR_Guerrillas_618 }
+		}
+	}
+}
+country_event = {
+	id = Sinkiang.49
+	title = Sinkiang.49.t
+	desc = Sinkiang.49.d
+	picture = GFX_report_event_chinese_soldiers_01
+
+	fire_only_once = yes
+	mean_time_to_happen = {
+		days = 20
+	}
+	trigger = {
+		NOT = {
+			OR = {
+				has_country_leader = {
+					character = CHI_zhang_zhizhong ruling_only = yes
+				}
+				has_country_leader = {
+					character = SIK_sheng_shicai ruling_only = yes
+				}
+			}
+		}
+		OR = {
+			original_tag = SIK
+			tag = SIK
+		}
+		any_enemy_country = {
+			original_tag = SIK
+			owns_state = 1054
+		}
+		has_global_flag = SIK_three_areas_revolution
+	}
+	option = {
+		name = Sinkiang.49.a
+		add_manpower = 50000
+		transfer_state = 1054
+		hidden_effect = { load_oob = ETR_Guerrillas_962 }
+	}
+}
+# China join?
+country_event = {
+	id = Sinkiang.50
+	title = Sinkiang.50.t
+	desc = Sinkiang.50.d
+	picture = GFX_report_event_generic_battle
+
+	fire_only_once = yes
+	mean_time_to_happen = {
+		days = 2
+	}
+	trigger = {
+		tag = event_target:WTT_current_china_leader
+		is_puppet = no
+		any_other_country = {
+			owns_state = 617
+			NOT = {
+				has_war_with = event_target:WTT_current_china_leader
+			}
+		}
+		has_global_flag = SIK_three_areas_revolution
+	}
+	option = {
+		ai_chance = { factor = 90 }
+		name = Sinkiang.50.a
+		random_other_country = {
+			limit = {
+				OR = {
+					has_country_leader = {
+						character = CHI_zhang_zhizhong
+					}
+					has_country_leader = {
+						character = SIK_sheng_shicai ruling_only = yes
+					}
+				}
+			}
+			country_event = { id = Sinkiang.51 days = 10 }
+			country_event = { id = Sinkiang.52 days = 20 }
+		}
+		add_manpower = -30000
+		custom_effect_tooltip = Sinkiang_50_tt
+	}
+	option = {
+		ai_chance = { factor = 10 }
+		name = Sinkiang.50.b
+	}
+}
+country_event = {
+	id = Sinkiang.51
+	title = Sinkiang.51.t
+	desc = Sinkiang.51.d
+	picture = GFX_report_event_chinese_army_training
+
+	is_triggered_only = yes
+	option = {
+		name = Sinkiang.51.a
+		#ROOT = {
+		#	hidden_effect = { load_oob = CHI_Support_SIK }
+		#}
+		FROM = {
+			send_equipment = { target = ROOT type = infantry_equipment amount = 500 }
+		}
+		random_owned_controlled_state = {
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+				type = arms_factory
+				level = 1
+				instant_build = yes
+			}
+		}
+	}
+}
+country_event = {
+	id = Sinkiang.52
+	title = Sinkiang.51.t
+	desc = Sinkiang.51.d
+	picture = GFX_report_event_chinese_army_training
+
+	is_triggered_only = yes
+	option = {
+		name = Sinkiang.51.a
+		add_ideas = SIK_Reorganization
+		#ROOT = {
+		#	hidden_effect = { load_oob = CHI_Support_SIK_2 }
+		#}
+		FROM = {
+			send_equipment = { target = ROOT type = infantry_equipment amount = 500 }
+		}
+	}
+}
+# Soviet military adviser
+country_event = {
+	id = Sinkiang.53
+	title = Sinkiang.53.t
+	desc = Sinkiang.53.d
+	picture = GFX_report_event_soviet_soldiers
+
+	fire_only_once = yes
+	mean_time_to_happen = {
+		days = 2
+	}
+	trigger = {
+		tag = SOV
+		is_puppet = no
+		SIK = {
+			has_civil_war = yes
+		}
+		has_global_flag = SIK_three_areas_revolution
+	}
+	option = {
+		ai_chance = { factor = 90 }
+		name = Sinkiang.53.a
+		random_other_country = {
+			limit = {
+				original_tag = SIK
+				has_civil_war = yes
+				owns_state = 1051
+			}
+			country_event = { id = Sinkiang.54 days = 5 }
+		}
+		add_manpower = -5000
+		custom_effect_tooltip = Sinkiang_50_tt
+		hidden_effect = {
+			random_other_country = {
+				limit = {
+					original_tag = SIK
+					has_civil_war = yes
+					owns_state = 1051
+				}
+				country_event = { id = Sinkiang.55 days = 60 }
+			}
+		}
+	}
+	option = {
+		ai_chance = { factor = 10 }
+		name = Sinkiang.53.b
+		hidden_effect = {
+			random_other_country = {
+				limit = {
+					original_tag = SIK
+					has_civil_war = yes
+					owns_state = 1051
+				}
+				country_event = { id = Sinkiang.55 days = 120 }
+			}
+		}
+	}
+}
+country_event = {
+	id = Sinkiang.54
+	title = Sinkiang.54.t
+	desc = Sinkiang.54.d
+	picture = GFX_report_event_soviet_soldiers
+
+	is_triggered_only = yes
+	option = {
+		name = Sinkiang.54.a
+		hidden_effect = { load_oob = ETR_Military_adviser_959 }
+		FROM = {
+			send_equipment = { target = ROOT type = infantry_equipment amount = 1000 }
+		}
+		random_owned_controlled_state = {
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+				type = arms_factory
+				level = 1
+				instant_build = yes
+			}
+		}
+	}
+}
+# Replace Tore with Qasim?
+country_event = {
+	id = Sinkiang.55
+	title = Sinkiang.55.t
+	desc = Sinkiang.55.d
+	picture = GFX_report_event_generic_rally2
+
+	is_triggered_only = yes
+	option = {
+		ai_chance = { factor = 80 }
+		name = Sinkiang.55.a
+		set_politics = {
+			ruling_party = communism
+			elections_allowed = yes
+		}
+		create_country_leader = {
+			name = "Ehmetjan Qasimi"
+			desc = "POLITICS_EHMETJAN_QASIMI_DESC"
+			picture = "Portrait_Sinkiang_Ehmetjan_Qasimi.dds"
+			expire = "1965.1.1"
+			ideology = marxism
+			traits = { indomitable_perseverance }
+		}
+		#set_cosmetic_tag = ERR
+		add_popularity = {
+			ideology = communism
+			popularity = 0.3
+		}
+	}
+	option = {
+		ai_chance = { factor = 15 }
+		name = Sinkiang.55.b
+		add_popularity = {
+			ideology = communism
+			popularity = 0.1
+		}
+		add_ideas = communist_influence
+	}
+	option = {
+		ai_chance = { factor = 5 }
+		name = Sinkiang.55.c
+		if = {
+			limit = {
+				has_unit_leader = 2890
+			}
+			if = {
+				limit = {
+					has_unit_leader = 2890
+				}
+				remove_unit_leader = 2890
+			}
+		}
+		if = {
+			limit = {
+				has_unit_leader = 2891
+			}
+			if = {
+				limit = {
+					has_unit_leader = 2891
+				}
+				remove_unit_leader = 2891
+			}
+		}
+		if = {
+			limit = {
+				has_unit_leader = 2892
+			}
+			if = {
+				limit = {
+					has_unit_leader = 2892
+				}
+				remove_unit_leader = 2892
+			}
+		}
+		if = {
+			limit = {
+				has_unit_leader = 2893
+			}
+			if = {
+				limit = {
+					has_unit_leader = 2893
+				}
+				remove_unit_leader = 2893
+			}
+		}
+		if = {
+			limit = {
+				has_unit_leader = 2894
+			}
+			if = {
+				limit = {
+					has_unit_leader = 2894
+				}
+				remove_unit_leader = 2894
+			}
+		}
+		add_popularity = {
+			ideology = communism
+			popularity = -0.2
+		}
+		add_popularity = {
+			ideology = fascism
+			popularity = 0.1
+		}
+		add_opinion_modifier = {
+			target = SOV
+			modifier = hostile_status
+		}
+		SOV = {
+			add_opinion_modifier = {
+				target = ROOT
+				modifier = hostile_status
+			}
+		}
+		add_opinion_modifier = {
+			target = PRC
+			modifier = hostile_status
+		}
+		PRC = {
+			add_opinion_modifier = {
+				target = ROOT
+				modifier = hostile_status
+			}
+		}
+	}
+}
+# Government Reorganization
+country_event = {
+	id = Sinkiang.56
+	title = Sinkiang.56.t
+	desc = Sinkiang.56.d
+	picture = GFX_report_event_leader_ehmetjan_qasimi
+
+	fire_only_once = yes
+
+	trigger = {
+		OR = {
+			original_tag = SIK
+			tag = SIK
+		}
+		has_global_flag = SIK_three_areas_revolution
+		has_government = communism
+	}
+
+	mean_time_to_happen = {
+		days = 45
+	}
+	option = {
+		ai_chance = { factor = 70  }
+		name = Sinkiang.56.a
+	}
+	option = {
+		ai_chance = { factor = 30 modifier = { factor = 0 is_historical_focus_on = yes } }
+		name = Sinkiang.56.b
+		retire_country_leader = yes
+		create_country_leader = {
+			name = "Abdulkerim Abbas"
+			desc = "POLITICS_ABDULKERIM_ABBAS_DESC"
+			picture = "Portrait_Sinkiang_Abdulkerim_Abbas.dds"
+			expire = "1965.1.1"
+			ideology = stalinism
+			traits = { indomitable_perseverance cornered_fox }
+		}
+	}
+}
+# Establish national army
+country_event = {
+	id = Sinkiang.57
+	title = Sinkiang.57.t
+	desc = Sinkiang.57.d
+	picture = GFX_report_event_generic_battle
+
+	fire_only_once = yes
+
+	trigger = {
+		OR = {
+			original_tag = SIK
+			tag = SIK
+		}
+		has_global_flag = SIK_three_areas_revolution
+		has_government = communism
+	}
+
+	mean_time_to_happen = {
+		days = 5
+	}
+	option = {
+		name = Sinkiang.57.a
+		if = {
+			limit = {
+				has_unit_leader = 2900
+			}
+			remove_unit_leader = 2900
+		}
+	}
+}
+# SIK Join anti Japanese front
+country_event = {
+	id = Sinkiang.60
+	title = Sinkiang.60.t
+	desc = Sinkiang.60.d
+	picture = GFX_report_event_chinese_army_training
+
+	is_triggered_only = yes
+	option = {		
+		name = Sinkiang.60.a
+		ai_chance = { factor = 99 }
+		SIK = {
+			add_to_war = { targeted_alliance = ROOT enemy = JAP }
+		}
+		if = {
+			limit = {
+				is_faction_leader = yes				
+			}
+			ROOT = {
+				add_to_faction = SIK
+			}
+		}
+	}
+	option = {
+		ai_chance = { factor = 0 }
+		name = Sinkiang.60.b
+		FROM = { country_event = { id = Sinkiang.61 hours = 5 } }
+	}
+}
+country_event = {
+	id = Sinkiang.61
+	title = Sinkiang.61.t
+	desc = Sinkiang.61.d
+	picture = GFX_report_event_chinese_soldiers_02
+
+	is_triggered_only = yes
+	option = {
+		name = Sinkiang.61.a
+	}
+}
+# SIK want join comintern
+country_event = {
+	id = Sinkiang.62
+	title = Sinkiang.62.t
+	desc = Sinkiang.62.d
+	picture = GFX_report_event_chinese_army_training
+
+	is_triggered_only = yes
+	option = {
+		ai_chance = { factor = 90 }
+		name = Sinkiang.62.a
+		SOV = {
+			add_to_faction = FROM
+		}
+	}
+	option = {
+		ai_chance = { factor = 10 }
+		name = Sinkiang.62.b
+		FROM = { country_event = { id = Sinkiang.63 hours = 5 } }
+	}
+}
+country_event = {
+	id = Sinkiang.63
+	title = Sinkiang.63.t
+	desc = Sinkiang.63.d
+	picture = GFX_report_event_chinese_soldiers_02
+
+	is_triggered_only = yes
+	option = {
+		name = Sinkiang.63.a
+	}
+}
+# SIK want join PRC
+country_event = {
+	id = Sinkiang.64
+	title = Sinkiang.64.t
+	desc = Sinkiang.64.d
+	picture = GFX_report_event_chinese_army_training
+
+	is_triggered_only = yes
+	option = {
+		ai_chance = { factor = 70 }
+		name = Sinkiang.64.a
+		FROM = { country_event = { id = Sinkiang.65 hours = 5 } }
+	}
+	option = {
+		ai_chance = { factor = 30 }
+		name = Sinkiang.64.b
+		FROM = { country_event = { id = Sinkiang.66 hours = 5 } }
+	}
+}
+country_event = {
+	id = Sinkiang.65
+	title = Sinkiang.65.t
+	desc = Sinkiang.65.d
+	picture = GFX_report_event_chinese_japanese_handshake
+
+	is_triggered_only = yes
+	option = {
+		name = Sinkiang.65.a
+		FROM = { annex_country = { target = ROOT transfer_troops = yes } }
+	}
+}
+country_event = {
+	id = Sinkiang.66
+	title = Sinkiang.66.t
+	desc = Sinkiang.66.d
+	picture = GFX_report_event_chinese_japanese_handshake
+
+	is_triggered_only = yes
+	option = {
+		name = Sinkiang.66.a
+		FROM = { set_autonomy = { target = ROOT autonomy_state = autonomy_integrated_puppet } }
+	}
+}
+# SIK puppet neighbors
+country_event = {
+	id = Sinkiang.67
+	title = Sinkiang.67.t
+	desc = Sinkiang.67.d
+	picture = GFX_report_event_chinese_officers
+
+	is_triggered_only = yes
+	option = {
+		ai_chance = { factor = 45 }
+		name = Sinkiang.67.a
+		start_civil_war = {
+			ruling_party = neutrality
+			ideology = communism
+			size = 0.55
+		}
+		#hidden_effect = {
+		#	random_other_country = {
+		#		limit = {
+		#			original_tag = XSM
+		#			has_government = communism
+		#		}
+		#		#set_equipment_fraction = 0.7
+		#		#set_stability = 0.7
+		#	}
+		#}
+		#set_equipment_fraction = 0.7
+		#set_stability = 0.7
+	}
+	option = {
+		ai_chance = { factor = 45 }
+		name = Sinkiang.67.b
+		FROM = { country_event = { id = Sinkiang.69 hours = 5 } }
+	}
+	option = {
+		ai_chance = { factor = 10 }
+		name = Sinkiang.67.c
+		custom_effect_tooltip = GAME_OVER_TT
+		FROM = { country_event = { id = Sinkiang.68 hours = 5 } }
+	}
+}
+country_event = {
+	id = Sinkiang.68
+	title = Sinkiang.68.t
+	desc = Sinkiang.68.d
+	picture = GFX_report_event_chinese_japanese_handshake
+
+	is_triggered_only = yes
+	option = {
+		name = Sinkiang.68.a
+		every_state = {
+			limit = {
+				OR = {
+					is_owned_by = FROM
+					is_core_of = FROM
+				}
+			}
+			add_core_of = ROOT
+		}
+		ROOT = { annex_country = { target = FROM transfer_troops = yes } }		
+	}
+}
+country_event = {
+	id = Sinkiang.69
+	title = Sinkiang.69.t
+	desc = Sinkiang.69.d
+	picture = GFX_report_event_chinese_soldiers_01
+
+	is_triggered_only = yes
+	option = {
+		name = Sinkiang.69.a
+		ROOT = { set_autonomy = { target = FROM autonomy_state = autonomy_integrated_puppet } }
+		every_state = {
+			limit = {
+				OR = {
+					is_owned_by = FROM
+					is_core_of = FROM
+				}
+			}
+			add_core_of = ROOT
+		}
+	}
+}
+# Integration communist party
+country_event = {
+	id = Sinkiang.70
+	title = Sinkiang.70.t
+	desc = Sinkiang.70.d
+	picture = GFX_report_event_chinese_officers
+
+	is_triggered_only = yes
+	option = {
+		ai_chance = { factor = 40 }
+		name = Sinkiang.70.a
+		FROM = { country_event = { id = Sinkiang.73 hours = 5 } }
+	}
+	#option = {
+	#	ai_chance = { factor = 0 }
+	#	name = Sinkiang.70.b
+	#	FROM = { country_event = { id = Sinkiang.71 hours = 5 } }
+	#}
+	option = {
+		ai_chance = { factor = 60 }
+		name = Sinkiang.70.c
+		FROM = { country_event = { id = Sinkiang.72 hours = 5 } }
+	}
+}
+country_event = {
+	id = Sinkiang.71
+	title = Sinkiang.71.t
+	desc = Sinkiang.71.d
+	picture = GFX_report_event_chinese_japanese_handshake
+
+	is_triggered_only = yes
+	option = {
+		name = Sinkiang.71.a
+		ROOT = { set_autonomy = { target = FROM autonomy_state = autonomy_integrated_puppet } }
+	}
+}
+country_event = {
+	id = Sinkiang.72
+	title = Sinkiang.72.t
+	desc = Sinkiang.72.d
+	picture = GFX_report_event_chinese_japanese_handshake
+
+	is_triggered_only = yes
+	option = {
+		name = Sinkiang.72.a
+		ROOT = { annex_country = { target = FROM transfer_troops = yes } }
+	}
+}
+country_event = {
+	id = Sinkiang.73
+	title = Sinkiang.73.t
+	desc = Sinkiang.73.d
+	picture = GFX_report_event_chinese_soldiers_02
+
+	is_triggered_only = yes
+	option = {
+		name = Sinkiang.73.a
+		ROOT = { create_wargoal = { type = annex_everything target = FROM } }
+	}
+}
+# SIK join USSR
+country_event = {
+	id = Sinkiang.74
+	title = Sinkiang.74.t
+	desc = Sinkiang.74.d
+	picture = GFX_report_event_chinese_officers
+
+	is_triggered_only = yes
+	option = {
+		ai_chance = { factor = 100 }
+		name = Sinkiang.74.a
+		FROM = { country_event = { id = Sinkiang.75 hours = 5 } }
+	}
+	option = {
+		ai_chance = { factor = 0 }
+		name = Sinkiang.74.b
+		FROM = { country_event = { id = Sinkiang.76 hours = 5 } }
+	}
+	option = {
+		ai_chance = { factor = 0 }
+		name = Sinkiang.74.c
+		FROM = { country_event = { id = Sinkiang.77 hours = 5 } }
+	}
+}
+country_event = {
+	id = Sinkiang.75
+	title = Sinkiang.75.t
+	desc = Sinkiang.75.d
+	picture = GFX_report_event_chinese_japanese_handshake
+
+	is_triggered_only = yes
+	option = {
+		name = Sinkiang.75.a
+		every_unit_leader = {
+			set_nationality = FROM
+		}
+		FROM = { annex_country = { target = ROOT transfer_troops = yes } }
+		event_target:WTT_current_china_leader = {
+			add_opinion_modifier = {
+				target = SOV
+				modifier = A_country_support_separatism
+			}
+		}
+	}
+}
+country_event = {
+	id = Sinkiang.76
+	title = Sinkiang.76.t
+	desc = Sinkiang.76.d
+	picture = GFX_report_event_chinese_japanese_handshake
+
+	is_triggered_only = yes
+	option = {
+		name = Sinkiang.76.a
+		FROM = { set_autonomy = { target = ROOT autonomy_state = autonomy_integrated_puppet } }
+		event_target:WTT_current_china_leader = {
+			add_opinion_modifier = {
+				target = SOV
+				modifier = A_country_support_separatism
+			}
+		}
+	}
+}
+country_event = {
+	id = Sinkiang.77
+	title = Sinkiang.77.t
+	desc = Sinkiang.77.d
+	picture = GFX_report_event_chinese_japanese_handshake
+
+	is_triggered_only = yes
+	option = {
+		name = Sinkiang.77.a
+		FROM = { set_autonomy = { target = ROOT autonomy_state = autonomy_dominion } }
+		event_target:WTT_current_china_leader = {
+			add_opinion_modifier = {
+				target = SOV
+				modifier = Nations_estrangement
+			}
+		}
+	}
+}
+# The king of sinkiang
+country_event = {
+	id = Sinkiang.78
+	title = Sinkiang.78.t
+	desc = Sinkiang.78.d
+	picture = GFX_report_event_the_king_of_sinkiang_sheng_shicai
+	immediate = {
+		diplomatic_relation = {
+			country = SOV
+			relation = military_access
+			active = no
+		}
+		SOV = {
+			diplomatic_relation = {
+				country = ROOT
+				relation = military_access
+				active = no
+			}
+		}
+	}
+	is_triggered_only = yes
+	option = {
+		
+		name = Sinkiang.78.a
+		add_ideas = SIK_Sinkiang_King #keep current structure
+		#set_party_name = {
+		#    ideology = neutrality
+		#    long_name = "People's Anti-Imperialism Association"
+		#    name = "PAIA"
+		#}
+		if = {
+			limit = {
+				has_idea = SIK_Support_idea
+			}
+			remove_ideas = SIK_Support_idea
+		}
+		if = {
+			limit = {
+				has_idea = SIK_Weakened_ussr_influence
+			}
+			remove_ideas = SIK_Weakened_ussr_influence
+		}
+		if = {
+			limit = {
+				has_idea = SIK_Soviet_supports_armed_groups
+			}
+			remove_ideas = SIK_Soviet_supports_armed_groups
+		}
+	}
+	option = {
+		name = Sinkiang.78.b #own identity
+		hidden_effect = {
+			set_cosmetic_tag = SIK_KOS
+		}
+		custom_effect_tooltip = a_unique_flag_will_be_adopted_tt
+		add_ideas = SIK_Sinkiang_King
+		if = {
+			limit = {
+				has_idea = SIK_Support_idea
+			}
+			remove_ideas = SIK_Support_idea
+		}
+		if = {
+			limit = {
+				has_idea = SIK_Weakened_ussr_influence
+			}
+			remove_ideas = SIK_Weakened_ussr_influence
+		}
+		if = {
+			limit = {
+				has_idea = SIK_Soviet_supports_armed_groups
+			}
+			remove_ideas = SIK_Soviet_supports_armed_groups
+		}
+	}
+	option = {
+		name = Sinkiang.78.c
+		trigger = {
+			NOT = {
+				has_war_with = event_target:WTT_current_china_leader #join Kuomintang, so not necessarily the chinese leader, thus use event_target:WTT_current_china_leader
+			}
+		}
+		ai_chance = {
+			factor = 100
+		}
+		custom_effect_tooltip = a_kuomintang_affiliated_warlord_flag_will_be_adopted_tt
+		hidden_effect = {
+			set_cosmetic_tag = SIK_KMT
+		}
+		set_party_name = {
+		    ideology = neutrality
+		    long_name = "Kuomintang"
+		    name = "KMT"
+		}
+		add_ideas = SIK_Sinkiang_King
+		if = {
+			limit = {
+				has_idea = SIK_Support_idea
+			}
+			remove_ideas = SIK_Support_idea
+		}
+		if = {
+			limit = {
+				has_idea = SIK_Weakened_ussr_influence
+			}
+			remove_ideas = SIK_Weakened_ussr_influence
+		}
+		if = {
+			limit = {
+				has_idea = SIK_Soviet_supports_armed_groups
+			}
+			remove_ideas = SIK_Soviet_supports_armed_groups
+		}
+	}
+}
+# Join PRC?
+country_event = {
+	id = Sinkiang.79
+	title = Sinkiang.79.t
+	desc = Sinkiang.79.d
+	picture = GFX_report_event_sinkiang_join_PRC
+	fire_only_once = yes
+
+	trigger = {
+		OR = {
+			original_tag = SIK
+			tag = SIK
+		}
+		is_subject = no
+		has_civil_war = no
+		is_neighbor_of = PRC
+		NOT = {
+			has_idea = SIK_Support_idea
+			has_idea = SIK_Weakened_ussr_influence
+			has_idea = SIK_Soviet_supports_armed_groups
+		}
+		has_global_flag = SIK_Rebel_win_three_areas_revolution
+	}
+
+	mean_time_to_happen = {
+		days = 15
+	}
+
+	option = {
+		ai_chance = { factor = 60 }
+		name = Sinkiang.79.a
+		PRC = { country_event = { id = Sinkiang.80 hours = 8 } }
+	}
+	option = {
+		ai_chance = { factor = 30 }
+		name = Sinkiang.79.b
+		PRC = { country_event = { id = Sinkiang.81 hours = 8 } }
+	}
+	option = {
+		ai_chance = { factor = 10 }
+		name = Sinkiang.79.c
+		PRC = { country_event = { id = Sinkiang.82 hours = 8 } }
+		add_opinion_modifier = {
+			target = PRC
+			modifier = Nations_estrangement
+		}
+	}
+}
+country_event = {
+	id = Sinkiang.80
+	title = Sinkiang.80.t
+	desc = Sinkiang.80.d
+	picture = GFX_report_event_sinkiang_join_PRC
+
+	is_triggered_only = yes
+	option = {
+		ai_chance = { factor = 90 }
+		name = Sinkiang.80.a
+		annex_country = { target = FROM transfer_troops = yes }
+		event_target:WTT_current_china_leader = { country_event = { id = Sinkiang.84 hours = 8 } }
+		hidden_effect = {
+			#news_event = { hours = 6 id = news.1040 }
+		}
+	}
+	option = {
+		ai_chance = { factor = 10 }
+		name = Sinkiang.80.b
+		set_autonomy = { target = FROM autonomy_state = autonomy_integrated_puppet }
+		event_target:WTT_current_china_leader = { country_event = { id = Sinkiang.84 hours = 8 } }
+		hidden_effect = {
+			#news_event = { hours = 6 id = news.1040 }
+		}
+	}
+}
+country_event = {
+	id = Sinkiang.81
+	title = Sinkiang.81.t
+	desc = Sinkiang.81.d
+	picture = GFX_report_event_sinkiang_join_PRC
+
+	is_triggered_only = yes
+	option = {
+		ai_chance = { factor = 90 }
+		name = Sinkiang.81.a
+		set_autonomy = { target = FROM autonomy_state = autonomy_integrated_puppet }
+		event_target:WTT_current_china_leader = { country_event = { id = Sinkiang.84 hours = 8 } }
+		hidden_effect = {
+			#news_event = { hours = 6 id = news.1040 }
+		}
+	}
+	option = {
+		ai_chance = { factor = 10 }
+		name = Sinkiang.81.b
+		FROM = { country_event = { id = Sinkiang.83 hours = 8 } }
+	}
+}
+country_event = {
+	id = Sinkiang.82
+	title = Sinkiang.82.t
+	desc = Sinkiang.82.d
+	picture = GFX_report_event_chinese_soldiers_02
+
+	is_triggered_only = yes
+	option = {
+		name = Sinkiang.82.a
+		add_opinion_modifier = {
+			target = FROM
+			modifier = Nations_estrangement
+		}
+	}
+}
+country_event = {
+	id = Sinkiang.83
+	title = Sinkiang.83.t
+	desc = Sinkiang.83.d
+	picture = GFX_report_event_chinese_soldiers_02
+
+	is_triggered_only = yes
+	option = {
+		name = Sinkiang.83.a
+	}
+}
+country_event = {
+	id = Sinkiang.84
+	title = Sinkiang.84.t
+	desc = Sinkiang.84.d
+	picture = GFX_report_event_chinese_soldiers_02
+
+	is_triggered_only = yes
+	option = {
+		name = Sinkiang.84.a
+	}
+}
+# Join China?
+country_event = {
+	id = Sinkiang.85
+	title = Sinkiang.85.t
+	desc = Sinkiang.85.d
+	picture = GFX_report_event_chinese_officers
+	fire_only_once = yes
+
+	trigger = {
+		OR = {
+			original_tag = SIK
+			tag = SIK
+		}
+		country_exists = event_target:WTT_current_china_leader
+		NOT = {
+			has_completed_focus = SIK_Negotiate_with_nanjing
+		}
+		is_subject = no
+		has_civil_war = no
+		NOT = {
+			has_idea = SIK_Support_idea
+			has_idea = SIK_Weakened_ussr_influence
+			has_idea = SIK_Soviet_supports_armed_groups
+		}
+		has_global_flag = SIK_Government_win_three_areas_revolution
+		NOT = { has_cosmetic_tag = SIK_Ili_Council }
+	}
+
+	mean_time_to_happen = {
+		days = 15
+	}
+
+	option = {
+		ai_chance = {
+			factor = 30
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
+		}
+		name = Sinkiang.85.a
+		
+		event_target:WTT_current_china_leader = { country_event = { id = Sinkiang.86 hours = 8 } }
+		custom_effect_tooltip = if_approved_tt
+		custom_effect_tooltip = GAME_OVER_TT
+		effect_tooltip = {
+			event_target:WTT_current_china_leader = {
+				annex_country = { target = ROOT transfer_troops = yes }
+			}
+		}
+		custom_effect_tooltip = if_they_refuse_red
+		event_target:WTT_current_china_leader = {
+			custom_effect_tooltip = ROOT_become_a_regional_army_of_THIS_tt
+		}
+	}
+	option = {
+		ai_chance = {
+			factor = 60		
+		}
+		name = Sinkiang.85.b
+		event_target:WTT_current_china_leader = { country_event = { id = Sinkiang.87 hours = 8 } }
+		custom_effect_tooltip = if_approved_tt
+		effect_tooltip = {
+			set_cosmetic_tag = SIK_KMT_puppet #MODDED			
+		}
+		event_target:WTT_current_china_leader = {
+			custom_effect_tooltip = ROOT_become_a_provincial_government_of_THIS_tt
+		}
+	}
+	option = {
+		ai_chance = {
+			factor = 10
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
+		}
+		name = Sinkiang.85.c
+	}
+}
+country_event = { #to chi
+	id = Sinkiang.86
+	title = Sinkiang.86.t
+	desc = Sinkiang.86.d
+	picture = GFX_report_event_generic_sign_treaty1
+
+	is_triggered_only = yes
+	option = {
+		ai_chance = { factor = 90 }
+		name = Sinkiang.86.a
+		annex_country = { target = FROM transfer_troops = yes }
+	}
+	option = {
+		ai_chance = { factor = 0 }
+		name = Sinkiang.86.b
+		FROM = {
+			set_cosmetic_tag = SIK_KMT
+		}
+		FROM_become_a_regional_army_of_THIS = yes
+		#set_autonomy = { target = FROM autonomy_state = autonomy_rcm_national_revolutionary_army }
+	}
+}
+country_event = { #to chi
+	id = Sinkiang.87
+	title = Sinkiang.87.t
+	desc = Sinkiang.87.d
+	picture = GFX_report_event_generic_sign_treaty1
+
+	is_triggered_only = yes
+	option = {
+		ai_chance = { factor = 60 }
+		name = Sinkiang.87.a
+		FROM = {
+			set_cosmetic_tag = SIK_KMT_puppet #MODDED
+		}
+		FROM_become_a_provincial_government_of_THIS = yes
+	}
+	option = {
+		ai_chance = { factor = 40 } #china will do the unit xibei to 'nex you instead
+		name = Sinkiang.87.b
+		FROM = { country_event = { id = Sinkiang.88 hours = 8 } }
+		add_opinion_modifier = {
+			target = FROM
+			modifier = Nations_estrangement
+		}
+	}
+}
+country_event = {
+	id = Sinkiang.88
+	title = Sinkiang.88.t
+	desc = Sinkiang.88.d
+	picture = GFX_report_event_chinese_soldiers_02
+
+	is_triggered_only = yes
+	option = {
+		name = Sinkiang.88.a
+		add_opinion_modifier = {
+			target = FROM
+			modifier = Nations_estrangement
+		}
+	}
+}
+# SIK Keep the rule
+country_event = {
+	id = Sinkiang.97
+	title = Sinkiang.97.t
+	desc = Sinkiang.97.d
+	picture = GFX_report_event_generic_conference
+
+	trigger = {
+		tag = SIK
+		focus_progress = { focus = SIK_Keep_the_rule progress > 0.0 }
+		NOT = {
+			has_completed_focus = SIK_Keep_the_rule
+		}
+	}
+
+	mean_time_to_happen = {
+		days = 5
+	}
+
+	option = {
+		name = Sinkiang.97.a
+		ai_chance = {
+			factor = 0
+		}
+		random_list = {
+			80 = {
+				
+				country_event = { id = Sinkiang.98 hours = 9 }
+			}
+			20 = {
+				country_event = { id = Sinkiang.99 hours = 9 }
+			}
+		}
+	}
+	option = {
+		name = Sinkiang.97.b
+		add_stability = -0.05
+		country_event = { id = Sinkiang.98 hours = 9 }
+	}
+}
+country_event = {
+	id = Sinkiang.98
+	title = Sinkiang.98.t
+	desc = Sinkiang.98.d
+	picture = GFX_report_event_usa_election_generic
+
+	is_triggered_only = yes
+
+	option = {
+		name = Sinkiang.98.a
+		add_political_power = 10
+	}
+}
+country_event = {
+	id = Sinkiang.99
+	title = Sinkiang.99.t
+	desc = Sinkiang.99.d
+	picture = GFX_report_event_generic_riot
+
+	is_triggered_only = yes
+
+	option = {
+		name = Sinkiang.99.a
+		kill_country_leader = yes
+		if = {
+			limit = {
+				has_unit_leader = 2897
+			}
+			remove_unit_leader = 2897
+		}
+		
+		set_politics = {
+			ruling_party = neutrality
+			elections_allowed = no
+		}
+		set_party_name = {
+			ideology = communism
+			long_name = SIK_Xinjiang_defend_peace_and_democracy_alliance_long
+			name = SIK_Xinjiang_defend_peace_and_democracy_alliance
+		}
+		set_party_name = { #led by bughra in first ETR
+			ideology = fascism
+			long_name = SIK_committee_for_national_revolution_long
+			name = SIK_committee_for_national_revolution
+		}
+		#set_party_name = {
+		#	ideology = fascism
+		#	long_name = SIK_Yining_Liberation_Organization_long
+		#	name = SIK_Yining_Liberation_Organization
+		#}
+		set_party_name = {
+			ideology = neutrality
+			long_name = SIK_China_nationalist_party
+			name = SIK_Kuomintang
+		}
+		set_party_name = {
+			ideology = democratic
+			long_name = SIK_Democratic_alliance
+			name = SIK_Democratic_alliance
+		}
+		remove_ideas = SIK_Autocracy		
+		start_civil_war = {
+			ruling_party = neutrality
+			ideology = fascism
+			size = 0.5
+		}
+		#create_country_leader = {
+		#	name = Masud_Sabri
+		#	desc = "POLITICS_MASUD_SABRI_DESC"
+		#	picture = "Portrait_Sinkiang_Masud_Sabri.dds"
+		#	expire = "1965.1.1"
+		#	ideology = despotism
+		#	traits = {
+		#	}
+		#}
+		retire_country_leader = yes
+		SIK_masud_sabri = {
+			add_country_leader_role = {
+				promote_leader = yes
+				country_leader = {
+					expire = "1965.1.1"
+					ideology = despotism
+					traits = { }            
+				} 
+			} 
+			SIK_masud_sabri = {
+				add_country_leader_role = {
+					promote_leader = yes
+					country_leader = {
+						expire = "1965.1.1"
+						ideology = conservatism
+						traits = { }            
+					} 
+				} 
+			}  
+		}  
+		create_country_leader = {
+			name = "Abdulkerim Abbas"
+			desc = "POLITICS_ABDULKERIM_ABBAS_DESC"
+			picture = "Portrait_Sinkiang_Abdulkerim_Abbas.dds"
+			expire = "1965.1.1"
+			ideology = stalinism
+			traits = {
+				indomitable_perseverance
+			}
+		}
+		create_country_leader = {
+			name = "Muhammad Amin Bughra"
+			desc = "POLITICS_SHENG_SHICAI_DESC"
+			picture = "Portrait_Sinkiang_Amin.dds"
+			expire = "1970.1.7"
+			ideology = fascism_ideology
+			traits = {
+				#
+			}
+		}
+		#create_country_leader = {
+		#	name = Masud_Sabri
+		#	desc = "POLITICS_MASUD_SABRI_DESC"
+		#	picture = "Portrait_Sinkiang_Masud_Sabri.dds"
+		#	expire = "1965.1.1"
+		#	ideology = conservatism
+		#	traits = {
+		#	}
+		#}
+		set_cosmetic_tag = SIK_KMT
+		hidden_effect = {
+			random_other_country = {
+				limit = {
+					original_tag = SIK
+					has_government = fascism
+				}
+				#set_equipment_fraction = 0.5
+				#set_stability = 0.7
+				create_country_leader = {
+					name = "Abdulkerim Abbas"
+					desc = "POLITICS_ABDULKERIM_ABBAS_DESC"
+					picture = "Portrait_Sinkiang_Abdulkerim_Abbas.dds"
+					expire = "1965.1.1"
+					ideology = stalinism
+					traits = {
+						indomitable_perseverance
+					}
+				}
+
+				create_country_leader = {
+					name = "Elihan Tore"
+					desc = "POLITICS_ELIHAN_TORE_DESC"
+					picture = "Portrait_Sinkiang_Elihan_Tore.dds"
+					expire = "1965.1.1"
+					ideology = despotism
+					traits = {
+					}
+				}			
+				set_cosmetic_tag = ETR
+				add_popularity = {
+					ideology = neutrality
+					popularity = 0.5
+				}
+				set_politics = {
+					ruling_party = neutrality
+					elections_allowed = no
+				}
+			}
+		}
+		#set_equipment_fraction = 0.5
+		#set_stability = 0.7
+	}
+}
+# Sinkiang Peace
+country_event = {
+	id = Sinkiang.100
+	title = Sinkiang.100.t
+	desc = Sinkiang.100.d
+	picture = GFX_report_event_generic_research_lab
+	fire_only_once = yes
+	is_triggered_only = yes
+	#trigger = {
+	#	tag = SIK
+	#	has_civil_war = no
+	#	NOT = {
+	#		has_idea = SIK_Support_idea
+	#		has_idea = SIK_Weakened_ussr_influence
+	#		has_idea = SIK_Soviet_supports_armed_groups
+	#	}
+	#	NOT = {
+	#		has_global_flag = SIK_three_areas_revolution
+	#	}
+	#}
+
+	#mean_time_to_happen = {
+	#	days = 10
+	#}
+
+	option = {
+		name = Sinkiang.100.a
+		add_stability = 0.1
+	}
+}
+# Win the civil war (Government)
+country_event = {
+	id = Sinkiang.101
+	title = Sinkiang.101.t
+	desc = Sinkiang.101.d
+	picture = GFX_report_event_end_three_areas_revolution
+	fire_only_once = yes
+
+	trigger = {
+		OR = {
+			original_tag = SIK
+			tag = SIK
+		}
+		has_global_flag = SIK_three_areas_revolution
+		has_government = neutrality
+		has_completed_focus = SIK_Keep_the_rule
+		has_civil_war = no
+		NOT = {
+			any_other_country = {
+				exists = yes
+				original_tag = SIK
+			}
+		}
+	}
+	mean_time_to_happen = {
+		days = 2
+	}
+	option = {
+		name = Sinkiang.101.a
+		if = {
+		    limit = {
+			    is_subject = no
+			}
+			country_event = Sinkiang.78
+		}
+		#if = {
+		#    limit = {
+		#	    #is_ai = yes
+		#		is_subject = yes
+		#		has_country_leader = {
+		#			name = CHI_zhang_zhizhong ruling_only = yes
+		#		}
+		#	}
+		#	country_event = Sinkiang.120 
+		#}
+		#if = {
+		#	limit = {
+		#		has_idea = SIK_Neutral
+		#	}
+		#	remove_ideas = SIK_Neutral
+		#}
+		clr_global_flag = SIK_three_areas_revolution
+		#create_country_leader = {
+		#	name = "Yulbars Khan"
+		#	desc = "POLITICS_YULBARS_KHAN_DESC"
+		#	picture = "Portrait_Sinkiang_Yulbars_Khan.dds"
+		#	expire = "1965.1.1"
+		#	ideology = despotism
+		#	traits = { anti_communist }
+		#}
+		hidden_effect = {
+			#news_event = { hours = 6 id = news.1037 }
+		}
+		set_global_flag = SIK_Government_win_three_areas_revolution
+	}
+}
+# Win the civil war (Rebel army)
+country_event = {
+	id = Sinkiang.102
+	title = Sinkiang.102.t
+	desc = Sinkiang.102.d
+	picture = GFX_report_event_end_three_areas_revolution_2
+	fire_only_once = yes
+
+	trigger = {
+		has_country_flag = I_am_turkestan
+		OR = {
+			original_tag = SIK
+			tag = SIK
+		}
+		has_global_flag = SIK_three_areas_revolution
+		has_government = communism
+		has_civil_war = no
+	}
+	mean_time_to_happen = {
+		days = 2
+	}
+	option = {
+		name = Sinkiang.102.a
+		if = {
+			limit = {
+				has_idea = SIK_Neutral
+			}
+			remove_ideas = SIK_Neutral
+		}
+		set_cosmetic_tag = RSK
+		clr_global_flag = SIK_three_areas_revolution
+		create_country_leader = {
+			name = "Ospan Batyr"
+			desc = "POLITICS_OSPAN_BATYR_DESC"
+			picture = "Portrait_Sinkiang_Ospan_Batyr.dds"
+			expire = "1965.1.1"
+			ideology = despotism
+			traits = { spirit_of_genghis  anti_communist }
+		}
+		hidden_effect = {
+			#news_event = { hours = 6 id = news.1038 }
+		}
+		set_global_flag = SIK_Rebel_win_three_areas_revolution
+	}
+}
+# Win the civil war (Eastern turkistan)
+country_event = {
+	id = Sinkiang.103
+	title = Sinkiang.103.t
+	desc = Sinkiang.103.d
+	picture = GFX_report_event_end_three_areas_revolution_3
+	fire_only_once = yes
+
+	trigger = {
+		OR = {
+			original_tag = SIK
+			tag = SIK
+		}
+		is_subject = no
+		has_global_flag = SIK_three_areas_revolution
+		##has_government = fascism
+		has_country_leader = { name = "Elihan Tore" ruling_only = yes }
+		has_civil_war = no
+	}
+	mean_time_to_happen = {
+		days = 2
+	}
+	option = {
+		name = Sinkiang.103.a
+		#if = {
+		#	limit = {
+		#		has_idea = SIK_Neutral
+		#	}
+		#	remove_ideas = SIK_Neutral
+		#}
+		#if = {
+			#	limit = {
+				#		has_idea = Chinese_Warlord
+				#	}
+			#	remove_ideas = Chinese_Warlord
+			#}
+		clr_global_flag = SIK_three_areas_revolution
+		#create_country_leader = {
+		#	name = "Ospan Batyr"
+		#	desc = "POLITICS_OSPAN_BATYR_DESC"
+		#	picture = "Portrait_Sinkiang_Ospan_Batyr.dds"
+		#	expire = "1965.1.1"
+		#	ideology = despotism
+		#	traits = { spirit_of_genghis  anti_communist }
+		#}
+		event_target:WTT_current_china_leader = {
+			add_ai_strategy = {
+				type = conquer
+				id = "SIK"
+				value = 400
+			}
+		}
+		SOV = {
+			add_ai_strategy = {
+				type = conquer
+				id = "SIK"
+				value = 200
+			}
+		}
+		XSM = {
+			add_ai_strategy = {
+				type = conquer
+				id = "SIK"
+				value = 400
+			}
+		}
+		if = {
+			limit = {
+				has_unit_leader = 2890
+			}
+			if = {
+				limit = {
+					has_unit_leader = 2890
+				}
+				remove_unit_leader = 2890
+			}
+		}
+		if = {
+			limit = {
+				has_unit_leader = 2891
+			}
+			if = {
+				limit = {
+					has_unit_leader = 2891
+				}
+				remove_unit_leader = 2891
+			}
+		}
+		#if = {
+		#	limit = {
+		#		has_unit_leader = 2892
+		#	}
+		#	if = {
+		#		limit = {
+		#			has_unit_leader = 2892
+		#		}
+		#		remove_unit_leader = 2892
+		#	}
+		#}
+		#if = {
+		#	limit = {
+		#		has_unit_leader = 2893
+		#	}
+		#	if = {
+		#		limit = {
+		#			has_unit_leader = 2893
+		#		}
+		#		remove_unit_leader = 2893
+		#	}
+		#}
+		#if = {
+		#	limit = {
+		#		has_unit_leader = 2894
+		#	}
+		#	if = {
+		#		limit = {
+		#			has_unit_leader = 2894
+		#		}
+		#		remove_unit_leader = 2894
+		#	}
+		#}
+		#if = {
+		#	limit = {
+		#		has_unit_leader = 2895
+		#	}
+		#	if = {
+		#		limit = {
+		#			has_unit_leader = 2895
+		#		}
+		#		remove_unit_leader = 2895
+		#	}
+		#}
+		#hidden_effect = {
+		#	news_event = { hours = 6 id = news.1039 }
+		#}
+		country_event = {
+			days = 2 id = Sinkiang.104
+		}
+		set_global_flag = SIK_Eastern_turkistan
+	}
+}
+# Eastern turkistan government
+country_event = {
+	id = Sinkiang.104
+	title = Sinkiang.104.t
+	desc = Sinkiang.104.d
+	picture = GFX_report_event_generic_conference
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	immediate = {
+		hidden_effect = {
+			SIK = {
+				set_party_name = { ideology = communism long_name = ETR_Turkestan_communist_party_long name = ETR_Turkestan_communist_party }
+				set_party_name = { ideology = fascism long_name = ETR_Turkestan_First_Party_long name = ETR_Turkestan_First_Party }
+				set_party_name = { ideology = neutrality long_name = ETR_Turkestan_nationalist_party_long name = ETR_Turkestan_nationalist_party }
+				set_party_name = { ideology = democratic long_name = ETR_Turkestan_Democratic_alliance_long name = ETR_Turkestan_Democratic_alliance }
+			}
+			SIK = {
+				create_country_leader = {
+					name = "East Turkestan Council"
+					picture = "Portrait_Eastern_turkistan_council.dds"
+					expire = "1965.1.1"
+					ideology = conservatism
+					traits = { }
+				}
+				create_country_leader = {
+					name = "East Turkestan Council"
+					picture = "Portrait_Eastern_turkistan_council.dds"
+					expire = "1965.1.1"
+					ideology = fascism_ideology
+					traits = { }
+				}
+				create_country_leader = {
+					name = "East Turkestan Council"
+					picture = "Portrait_Eastern_turkistan_council.dds"
+					expire = "1965.1.1"
+					ideology = centrism
+					traits = { }
+				}
+				create_country_leader = {
+					name = "East Turkestan Council"
+					picture = "Portrait_Eastern_turkistan_council.dds"
+					expire = "1965.1.1"
+					ideology = leninism
+					traits = { }
+				}
+			}
+		}
+	}
+
+	option = {
+		ai_chance = { factor = 25 }
+		name = Sinkiang.104.a
+		create_country_leader = {
+			name = "Ospan Batyr"
+			desc = "POLITICS_OSPAN_BATYR_DESC"
+			picture = "Portrait_Sinkiang_Ospan_Batyr.dds"
+			expire = "1965.1.1"
+			ideology = despotism
+			traits = { spirit_of_genghis  anti_communist }
+		}
+		set_politics = {
+			ruling_party = neutrality
+			elections_allowed = no
+		}
+		add_popularity = {
+			ideology = neutrality
+			popularity = 0.3
+		}
+	}
+	option = { #invite back bughra
+		ai_chance = { factor = 25 }
+		name = Sinkiang.104.b
+		set_party_name = { ideology = fascism long_name = SIK_committee_for_national_revolution_long name = SIK_committee_for_national_revolution }
+		create_country_leader = {
+			name = "Muhammad Amin Bughra"
+			desc = "POLITICS_SHENG_SHICAI_DESC"
+			picture = "Portrait_Sinkiang_Amin.dds"
+			expire = "1970.1.7"
+			ideology = fascism_ideology
+			traits = {
+				#
+			}
+		}
+		set_politics = {
+			ruling_party = fascism
+			elections_allowed = no
+		}	
+		add_popularity = {
+			ideology = fascism
+			popularity = 0.3
+		}
+	}
+	option = { #invite back "Mahmut Muhiti"
+		ai_chance = { factor = 25 }
+		name = Sinkiang.104.f
+		
+		set_party_name = { ideology = fascism long_name = SIK_Association_for_Advancement_of_East_Turkestani_Independence_long name = SIK_Association_for_Advancement_of_East_Turkestani_Independence }
+		create_country_leader = {
+			name = "Mahmut Muhiti"
+			desc = "POLITICS_MAHMUT_DESC"
+			picture = "Portrait_Sinkiang_Mahmut_Muhiti.dds"
+			expire = "1965.1.1"
+			ideology = fascism_ideology
+			traits = {
+				#
+			}
+		}
+		set_politics = {
+			ruling_party = fascism
+			elections_allowed = no
+		}
+		add_popularity = {
+			ideology = fascism
+			popularity = 0.3
+		}
+	}
+	option = {
+		ai_chance = { factor = 25 }
+		name = Sinkiang.104.c
+		set_politics = {
+			ruling_party = democratic
+			elections_allowed = yes
+		}
+		add_popularity = {
+			ideology = democratic
+			popularity = 0.3
+		}
+	}
+	option = {
+		ai_chance = { factor = 25 }
+		name = Sinkiang.104.e
+		create_country_leader = {
+			name = "Ehmetjan Qasimi"
+			desc = "POLITICS_EHMETJAN_QASIMI_DESC"
+			picture = "Portrait_Sinkiang_Ehmetjan_Qasimi.dds"
+			expire = "1965.1.1"
+			ideology = marxism
+			traits = { indomitable_perseverance }
+		}
+		set_politics = {
+			ruling_party = communism
+			elections_allowed = no
+		}
+		add_popularity = {
+			ideology = communism
+			popularity = 0.3
+		}
+		
+	}
+}
+
+# China and Eastern turkistan
+country_event = {
+	id = Sinkiang.105
+	title = Sinkiang.105.t
+	desc = Sinkiang.105.d
+	picture = GFX_report_event_chinese_officers
+	fire_only_once = yes
+
+	trigger = {
+		tag = event_target:WTT_current_china_leader
+		NOT = {
+			has_war_with = JAP
+		}
+		any_other_country = {
+			owns_state = 617
+			NOT = {
+				has_war_with = event_target:WTT_current_china_leader
+			}
+		}
+		has_global_flag = SIK_Eastern_turkistan
+	}
+
+	mean_time_to_happen = {
+		days = 10
+	}
+
+	option = {
+		ai_chance = { factor = 90 }
+		name = Sinkiang.105.a
+		every_other_country = {
+			limit = {
+				owns_state = 617
+			}
+			country_event = { id = Sinkiang.106 hours = 9 }
+		}
+	}
+	option = {
+		ai_chance = { factor = 10 }
+		name = Sinkiang.105.b
+		every_other_country = {
+			limit = {
+				owns_state = 617
+			}
+			country_event = { id = Sinkiang.109 hours = 9 }
+		}
+	}
+}
+country_event = {
+	id = Sinkiang.106
+	title = Sinkiang.106.t
+	desc = Sinkiang.106.d
+	picture = GFX_report_event_chinese_officers
+
+	is_triggered_only = yes
+	option = {
+		ai_chance = { factor = 90 }
+		name = Sinkiang.106.a
+		FROM = { country_event = { id = Sinkiang.107 hours = 8 } }
+		diplomatic_relation = {
+			country = event_target:WTT_current_china_leader
+			relation = non_aggression_pact
+			active = no
+		}
+	}
+	option = {
+		ai_chance = { factor = 10 }
+		name = Sinkiang.106.b
+		FROM = { country_event = { id = Sinkiang.108 hours = 8 } }
+	}
+}
+country_event = {
+	id = Sinkiang.107
+	title = Sinkiang.107.t
+	desc = Sinkiang.107.d
+	picture = GFX_report_event_chinese_soldiers_running
+
+	is_triggered_only = yes
+	option = {
+		name = Sinkiang.107.a
+		if = {
+			limit = {
+				XSM = {
+					is_subject = no
+					exists = yes
+					NOT = {
+						has_war_with = event_target:WTT_current_china_leader
+						has_war_together_with = event_target:WTT_current_china_leader
+					}
+				}
+			}
+			XSM = {
+				country_event = { id = Sinkiang.110 days = 0 }
+				create_wargoal = { type = annex_everything target = FROM }
+			}
+		}
+		if = {
+			limit = {
+				XSM = {
+					OR = {
+						exists = no
+						is_subject = yes
+						has_war_with = event_target:WTT_current_china_leader
+					}
+				}
+			}
+			create_wargoal = { type = annex_everything target = FROM }
+		}
+	}
+}
+country_event = {
+	id = Sinkiang.108
+	title = Sinkiang.108.t
+	desc = Sinkiang.108.d
+	picture = GFX_report_event_japanese_chinese_surrender
+
+	is_triggered_only = yes
+	option = {
+		ai_chance = { factor = 90 }
+		name = Sinkiang.108.a
+		annex_country = { target = FROM transfer_troops = yes }
+	}
+	option = {
+		ai_chance = { factor = 10 }
+		name = Sinkiang.108.b
+		ROOT = { set_autonomy = { target = FROM autonomy_state = autonomy_integrated_puppet } }
+	}
+}
+country_event = {
+	id = Sinkiang.109
+	title = Sinkiang.109.t
+	desc = Sinkiang.109.d
+	picture = GFX_report_event_hitler_handshake
+
+	is_triggered_only = yes
+	option = {
+		name = Sinkiang.109.a
+		add_opinion_modifier = {
+			target = FROM
+			modifier = Nations_friendly
+		}
+		FROM = {
+			add_opinion_modifier = {
+				target = ROOT
+				modifier = Nations_friendly
+			}
+		}
+	}
+}
+country_event = {
+	id = Sinkiang.110
+	title = Sinkiang.110.t
+	desc = Sinkiang.110.d
+	picture = GFX_report_event_chinese_soldiers_running
+
+	is_triggered_only = yes
+	option = {
+		name = Sinkiang.110.a
+	}
+}
+# Soviet and Eastern turkistan
+country_event = {
+	id = Sinkiang.111
+	title = Sinkiang.111.t
+	desc = Sinkiang.111.d
+	picture = GFX_report_event_soviet_in_riga
+	fire_only_once = yes
+
+	trigger = {
+		tag = SOV
+		any_other_country = {
+			owns_state = 617
+			NOT = {
+				has_war_with = SOV
+			}
+		}
+		has_global_flag = SIK_Eastern_turkistan
+	}
+
+	mean_time_to_happen = {
+		days = 15
+	}
+
+	option = {
+		ai_chance = { factor = 20 }
+		name = Sinkiang.111.a
+	}
+	option = {
+		ai_chance = {
+			factor = 70
+			modifier = {
+				factor = 0
+				SIK = {
+					is_ai = no
+				}
+			}
+		}
+		name = Sinkiang.111.b
+		every_other_country = {
+			limit = {
+				owns_state = 617
+			}
+			country_event = { id = Sinkiang.112 hours = 9 }
+		}
+	}
+	option = {
+		ai_chance = { factor = 10 }
+		name = Sinkiang.111.c
+		every_other_country = {
+			limit = {
+				owns_state = 617
+			}
+			country_event = { id = Sinkiang.113 hours = 9 }
+		}
+	}
+}
+country_event = {
+	id = Sinkiang.112
+	title = Sinkiang.112.t
+	desc = Sinkiang.112.d
+	picture = GFX_report_event_soviet_army_greeted
+
+	is_triggered_only = yes
+	option = {
+		name = Sinkiang.112.a
+		FROM = { create_wargoal = { type = annex_everything target = ROOT } }
+		diplomatic_relation = {
+			country = SOV
+			relation = non_aggression_pact
+			active = no
+		}
+	}
+}
+country_event = {
+	id = Sinkiang.113
+	title = Sinkiang.113.t
+	desc = Sinkiang.113.d
+	picture = GFX_report_event_hitler_handshake
+
+	is_triggered_only = yes
+	option = {
+		name = Sinkiang.113.a
+		add_opinion_modifier = {
+			target = FROM
+			modifier = Nations_friendly
+		}
+		FROM = {
+			add_opinion_modifier = {
+				target = ROOT
+				modifier = Nations_friendly
+			}
+		}
+	}
+}
+#sinkiang talk with soviet (to SIK self)
+country_event = {
+	id = Sinkiang.114
+	title = Sinkiang.114.t
+	desc = Sinkiang.114.d
+	picture = GFX_report_event_bul_dimitrov_with_stalin
+
+	is_triggered_only = yes
+	option = {
+		name = Sinkiang.114.a
+		custom_effect_tooltip = their_willingness_based_on_their_opinion_of_us_tt
+		custom_effect_tooltip = if_we_are_in_civil_war_with_soviet_backed_militia_they_will_almost_never_accept_tt
+		custom_effect_tooltip = if_they_accept_green
+		effect_tooltip = {
+			SOV = {
+				add_to_faction = ROOT
+			}
+			add_opinion_modifier = {
+				target = SOV
+				modifier = Nations_friendly
+			}
+			reverse_add_opinion_modifier = {
+				target = SOV
+				modifier = Nations_friendly
+			}
+			add_opinion_modifier = {
+				target = event_target:WTT_current_china_leader
+				modifier = hostile_status
+			}
+			reverse_add_opinion_modifier = {
+				target = event_target:WTT_current_china_leader
+				modifier = hostile_status
+			}
+			remove_ideas = SIK_Soviet_supports_armed_groups
+			add_ideas = SIK_Support_idea
+			if = {
+				limit = {
+					has_civil_war = yes
+					any_enemy_country = {
+						original_tag = ROOT
+						has_government = communism
+					}
+				}
+				random_enemy_country = {
+					limit = {
+						original_tag = ROOT
+						has_government = communism
+					}
+					ROOT = {
+						annex_country = {
+							target = PREV transfer_troops = yes
+						}
+					}
+				}				
+			}
+			add_popularity = {
+				ideology = communism
+				popularity = 0.35
+			}
+			set_politics = {
+				ruling_party = communism
+				elections_allowed = no
+			}
+			drop_cosmetic_tag = yes
+		}
+		custom_effect_tooltip = if_they_refuse_red
+		effect_tooltip = {
+			event_target:WTT_current_china_leader = {
+				country_event = Sinkiang.119				
+			}
+			if = {
+				limit = {
+					event_target:WTT_current_china_leader = {
+						is_neighbor_of = ROOT
+					}
+				}
+				event_target:WTT_current_china_leader = {
+					annex_country = {
+						target = ROOT
+						transfer_troops = yes
+					}
+				}
+			}
+			else = {
+				set_cosmetic_tag = SIK_KMT_puppet
+				#create_country_leader = {
+				#	name = CHI_zhang_zhizhong
+				#	desc = "POLITICS_ZHANG_ZHIZHONG_DESC"
+				#	picture = "Portrait_Zhang_Zhizhong.dds"
+				#	expire = "1965.1.1"
+				#	ideology = despotism
+				#	traits = {
+				#	}
+				#}
+				event_target:WTT_current_china_leader = { 
+					CHI_zhang_zhizhong = { set_nationality = SIK } 
+				    CHI_tao_Zhiyue = { set_nationality = SIK } 
+				}
+				retire_character = SIK_sheng_shicai
+				retire_country_leader = yes
+				CHI_zhang_zhizhong = { 
+					add_country_leader_role = {
+						promote_leader = yes
+						country_leader = {
+							expire = "1965.1.1"
+							ideology = despotism
+							traits = {
+							}
+						} 
+					}
+				}
+				if = {
+					limit = {
+						NOT = {
+							country_exists = HMI
+						}
+					}
+					HMI_yulbars_khan = {
+						retire = no
+						set_nationality = SIK
+					}
+				}			
+		      
+				#if = {
+				#	limit = {
+				#		has_character = SIK_sheng_shiqi
+				#	}
+				#	retire_character = SIK_sheng_shiqi
+				#}
+				#retire_character = SIK_SIK_sheng_shiji
+				#retire_character = SIK_jiang_deyu
+				#if = {
+				#	limit = {
+				#		has_character = SIK_Ishaq_Beg_munonov
+				#	}
+				#	retire_character = SIK_Ishaq_Beg_munonov
+				#}
+				event_target:WTT_current_china_leader = {
+					custom_effect_tooltip = ROOT_become_a_NSA_provincial_government_of_THIS_tt
+				}
+			}
+		}
+	}
+}
+#soviet choose
+country_event = {
+	id = Sinkiang.115
+	title = Sinkiang.115.t
+	desc = Sinkiang.115.d
+	picture = GFX_report_event_the_king_of_sinkiang_sheng_shicai
+	fire_only_once = yes
+	mean_time_to_happen = {
+		days = 2
+	}
+	trigger = {
+		tag = SOV
+		SIK = {
+			focus_progress = {
+				focus = SIK_reapprochement_with_the_soviet_union
+				progress > 0.6
+			}
+		}
+	}
+	option = { #no thanks, tell chiang too #historical
+		name = Sinkiang.115.a
+		ai_chance = {
+			base = 100
+			modifier = {
+				add = -10
+				check_variable = { SIK.num_battalions > 150 }
+			}
+			modifier = {
+				add = -20
+				check_variable = { SIK.num_battalions > 250 }
+			}
+			modifier = {
+				add = -30
+				check_variable = { SIK.num_battalions > 350 }
+			}
+			modifier = {
+				add = -40
+				check_variable = { SIK.num_battalions > 450 }
+			}
+			modifier = {
+				add = 500
+				has_civil_war = yes
+			}
+		}
+			
+		custom_effect_tooltip = THIS_IS_HISTORICAL_TT
+		custom_effect_tooltip = shengs_government_will_collapse_tt
+		SIK = {
+			country_event = Sinkiang.117
+		}
+		
+	}
+	option = { #yeah sure #not historical
+		name = Sinkiang.115.b
+		ai_chance = {
+			base = 10
+			modifier = {
+				add = 10
+				check_variable = { SIK.num_battalions > 150 }
+			}
+			modifier = {
+				add = 20
+				check_variable = { SIK.num_battalions > 250 }
+			}
+			modifier = {
+				add = 30
+				check_variable = { SIK.num_battalions > 350 }
+			}
+			modifier = {
+				add = 40
+				check_variable = { SIK.num_battalions > 450 }
+			}
+			modifier = {
+				factor = 0.1
+				has_civil_war = yes
+			}
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
+		}
+		
+		effect_tooltip = {
+			event_target:WTT_current_china_leader = {
+				country_event = Sinkiang.118
+				add_opinion_modifier = { target = ROOT modifier = hostile_status }
+				reverse_add_opinion_modifier = { target = ROOT modifier = hostile_status }
+			}			
+		}
+		SIK = {
+			country_event = Sinkiang.116
+			effect_tooltip = {
+				SOV = {
+					add_to_faction = ROOT
+				}
+				add_opinion_modifier = {
+					target = SOV
+					modifier = Nations_friendly
+				}
+				reverse_add_opinion_modifier = {
+					target = SOV
+					modifier = Nations_friendly
+				}
+				add_opinion_modifier = {
+					target = event_target:WTT_current_china_leader
+					modifier = hostile_status
+				}
+				reverse_add_opinion_modifier = {
+					target = event_target:WTT_current_china_leader
+					modifier = hostile_status
+				}
+				remove_ideas = SIK_Soviet_supports_armed_groups
+				add_ideas = SIK_Support_idea
+				if = {
+					limit = {
+						has_civil_war = yes
+						any_enemy_country = {
+							original_tag = ROOT
+							has_government = communism
+						}
+					}
+					random_enemy_country = {
+						limit = {
+							original_tag = ROOT
+							has_government = communism
+						}
+						ROOT = {
+							annex_country = {
+								target = PREV transfer_troops = yes
+							}
+						}
+					}				
+				}
+				add_popularity = {
+					ideology = communism
+					popularity = 0.35
+				}
+				set_politics = {
+					ruling_party = communism
+					elections_allowed = no
+				}
+				drop_cosmetic_tag = yes
+			}
+		}
+	}
+}
+#soviet choose yes
+country_event = {
+	id = Sinkiang.116
+	title = Sinkiang.116.t
+	desc = Sinkiang.116.d
+	picture = GFX_report_event_hitler_handshake
+	is_triggered_only = yes
+	option = {
+		name = Sinkiang.116.a
+		event_target:WTT_current_china_leader = {
+			country_event = Sinkiang.118
+		}
+		SOV = {
+			add_to_faction = ROOT
+		}
+		add_opinion_modifier = {
+			target = SOV
+			modifier = Nations_friendly
+		}
+		reverse_add_opinion_modifier = {
+			target = SOV
+			modifier = Nations_friendly
+		}
+		add_opinion_modifier = {
+			target = event_target:WTT_current_china_leader
+			modifier = hostile_status
+		}
+		reverse_add_opinion_modifier = {
+			target = event_target:WTT_current_china_leader
+			modifier = hostile_status
+		}
+		remove_ideas = SIK_Soviet_supports_armed_groups
+		add_ideas = SIK_Support_idea
+		if = {
+			limit = {
+				has_civil_war = yes
+				any_enemy_country = {
+					original_tag = ROOT
+					has_government = communism
+				}
+			}
+			random_enemy_country = {
+				limit = {
+					original_tag = ROOT
+					has_government = communism
+				}
+				ROOT = {
+					annex_country = {
+						target = PREV transfer_troops = yes
+					}
+				}
+			}				
+		}
+		add_popularity = {
+			ideology = communism
+			popularity = 0.35
+		}
+		set_politics = {
+			ruling_party = communism
+			elections_allowed = no
+		}
+		drop_cosmetic_tag = yes
+	}
+}
+#soviet choose no
+country_event = {
+	id = Sinkiang.117
+	title = Sinkiang.117.t
+	desc = Sinkiang.117.d
+	picture = GFX_report_event_stalin_01
+	is_triggered_only = yes
+	immediate = {
+		hidden_effect = {			
+			every_enemy_country = {
+				limit = {
+					NOT = {
+						is_faction_leader = yes
+					}
+					OR = {
+						is_in_faction = no #too mean
+						is_in_faction_with = SOV
+					}
+				}
+				set_country_flag = enemy_countries_of_SIK
+			}
+		}
+	}
+	option = {
+		name = Sinkiang.117.a
+		hidden_effect = {
+			get_current_government_type = yes
+		}
+		event_target:WTT_current_china_leader = {
+			country_event = Sinkiang.119			
+		}
+		effect_tooltip = {
+			SOV = {
+				add_to_faction = SIK
+			}
+			set_cosmetic_tag = SIK_KMT_puppet
+			#create_country_leader = {
+			#	name = CHI_zhang_zhizhong
+			#	desc = "POLITICS_ZHANG_ZHIZHONG_DESC"
+			#	picture = "Portrait_Zhang_Zhizhong.dds"
+			#	expire = "1965.1.1"
+			#	ideology = despotism
+			#	traits = {
+			#	}
+			#}
+			event_target:WTT_current_china_leader = { 
+				CHI_zhang_zhizhong = { set_nationality = SIK } 
+			    CHI_tao_Zhiyue = { set_nationality = SIK } 
+			}
+			retire_character = SIK_sheng_shicai
+			retire_country_leader = yes
+			CHI_zhang_zhizhong = { 
+				add_country_leader_role = {
+					promote_leader = yes
+					country_leader = {
+						expire = "1965.1.1"
+						ideology = despotism
+						traits = {
+						}
+					} 
+				}
+			}
+			if = {
+				limit = {
+					NOT = {
+						country_exists = HMI
+					}
+				}
+				HMI_yulbars_khan = {
+					retire = no
+					set_nationality = SIK
+				}
+			}
+			
+			#if = {
+			#	limit = {
+			#		has_character = SIK_sheng_shiqi
+			#	}
+			#	retire_character = SIK_sheng_shiqi
+			#}
+			#retire_character = SIK_SIK_sheng_shiji
+			#retire_character = SIK_jiang_deyu
+			#if = {
+			#	limit = {
+			#		has_character = SIK_Ishaq_Beg_munonov
+			#	}
+			#	retire_character = SIK_Ishaq_Beg_munonov
+			#}
+			event_target:WTT_current_china_leader = {
+				custom_effect_tooltip = ROOT_become_a_NSA_provincial_government_of_THIS_tt
+			}
+		}		
+	}
+}
+#soviet choose yes to CHI (FROM SIK)
+country_event = {
+	id = Sinkiang.118
+	title = Sinkiang.118.t
+	desc = Sinkiang.118.d
+	picture = GFX_report_event_stalin_01
+	is_triggered_only = yes
+	option = {
+		name = Sinkiang.118.a
+		effect_tooltip = {
+			SOV = {
+				add_to_faction = SIK
+			}
+			add_opinion_modifier = {
+				target = SOV
+				modifier = hostile_status
+			}
+			reverse_add_opinion_modifier = {
+				target = SOV
+				modifier = hostile_status
+			}
+		}
+	}
+}
+#soviet choose no to CHI (FROM SIK)
+country_event = {
+	id = Sinkiang.119
+	title = Sinkiang.119.t
+	desc = Sinkiang.119.d
+	picture = GFX_report_event_the_king_of_sinkiang_sheng_shicai
+	is_triggered_only = yes
+	option = {
+		name = Sinkiang.119.a
+		FROM_become_a_NSA_provincial_government_of_THIS = yes
+		FROM = {
+			hidden_effect = {
+				restore_previous_government_type = yes
+				every_neighbor_country = {
+					limit = {
+						has_country_flag = enemy_countries_of_SIK
+					}
+					ROOT = {
+						add_to_war = {
+							targeted_alliance = SIK
+							enemy = PREV
+						}
+					}
+				}
+			}
+			set_cosmetic_tag = SIK_KMT_puppet
+			SIK = { 
+				retire_character = SIK_sheng_shicai 
+			#    if = {
+			#		limit = {
+			#			has_character = SIK_sheng_shiqi
+			#		}
+			#		retire_character = SIK_sheng_shiqi
+			#	}
+			#	retire_character = SIK_SIK_sheng_shiji
+			#	retire_character = SIK_jiang_deyu
+			#	if = {
+			#		limit = {
+			#			has_character = SIK_Ishaq_Beg_munonov
+			#		}
+			#		retire_character = SIK_Ishaq_Beg_munonov
+			#	}
+			}
+			hidden_effect = { 
+			    SIK = {
+				    retire_country_leader = yes
+				}
+			}
+			#create_country_leader = {
+			#	name = CHI_zhang_zhizhong
+			#	desc = "POLITICS_ZHANG_ZHIZHONG_DESC"
+			#	picture = "Portrait_Zhang_Zhizhong.dds"
+			#	expire = "1965.1.1"
+			#	ideology = despotism
+			#	traits = {
+			#	}
+			#}
+		    event_target:WTT_current_china_leader = { 
+				CHI_zhang_zhizhong = { set_nationality = SIK } 
+			    CHI_tao_Zhiyue = { set_nationality = SIK } 
+			}
+			retire_character = SIK_sheng_shicai
+			retire_country_leader = yes
+			CHI_zhang_zhizhong = { 
+				add_country_leader_role = {
+					promote_leader = yes
+					country_leader = {
+						expire = "1965.1.1"
+						ideology = despotism
+						traits = {
+						}
+					} 
+				}
+			}
+			if = {
+				limit = {
+					NOT = {
+						country_exists = HMI
+					}
+				}
+				HMI_yulbars_khan = {
+					retire = no
+					set_nationality = SIK 
+				}
+			}
+		}		
+	}
+}
+
+# Join China after the civil war #TODO LOC
+country_event = {
+	id = Sinkiang.120
+	title = Sinkiang.120.t
+	desc = Sinkiang.120.d
+	picture = GFX_report_event_chinese_officers
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 100
+				is_historical_focus_on = yes
+			}
+		}
+		name = Sinkiang.120.a
+		
+		event_target:WTT_current_china_leader = { country_event = { id = Sinkiang.121 hours = 8 } }
+		#custom_effect_tooltip = if_approved_tt
+		if = { 
+		    limit = {
+			    event_target:WTT_current_china_leader = { is_ai = no }
+			}  
+		    custom_effect_tooltip = GAME_OVER_TT
+		}
+		effect_tooltip = {
+			if = { 
+		        limit = {
+			        event_target:WTT_current_china_leader = { is_ai = yes }
+			    }  
+		    }
+			event_target:WTT_current_china_leader = {
+				change_tag_from = FROM
+				annex_country = { target = ROOT transfer_troops = yes }
+			}
+			event_target:WTT_current_china_leader = { change_tag_from = ROOT }
+		}
+	}
+	option = {
+		trigger = {
+			is_ai = no
+		}
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
+		}
+		name = Sinkiang.120.b
+	}
+}
+
+country_event = { #to chi #TODO LOC
+	id = Sinkiang.121 
+	title = Sinkiang.121.t
+	desc = Sinkiang.121.d
+	picture = GFX_report_event_generic_sign_treaty1
+
+	is_triggered_only = yes
+	option = {
+		ai_chance = { factor = 100 }
+		name = Sinkiang.121.a
+		#custom_effect_tooltip = THIS_IS_HISTORICAL_TT
+		#every_state = {
+		#    limit = {
+		#	    is_core_of = FROM
+		#	    is_owned_by = FROM
+		#	}
+		 #   add_dynamic_modifier = { modifier = sik_united_government_modifier } 
+		#}
+		every_state = {
+		    limit = {
+			    is_core_of = FROM
+			}
+			remove_core_of = FROM
+			#cancel_resistance = yes
+			#set_compliance = 20
+		}
+		
+		FROM = {
+		    #CHI_zhang_zhizhong = { set_nationality = ROOT }
+			every_unit_leader = {
+		    #    limit = {
+			#	    has_id = 2999
+			#		has_id = 3000
+			#	}
+				set_nationality = ROOT
+	        }
+		}
+		annex_country = { target = FROM transfer_troops = yes }
+		if = { 
+		    limit = {
+			    FROM = { is_ai = no }
+			    ROOT = { is_ai = yes }
+			}
+			change_tag_from = FROM
+		}
+		set_global_flag = kmt_ruling_in_sik_flag
+		unlock_decision_category_tooltip = SIK_coring_cat
+	}
+	#option = {
+	#	ai_chance = { factor = 0 }
+	#	name = Sinkiang.121.b
+	#}
+}
+
+country_event = { #to warlords and ccp #TODO LOC
+	id = Sinkiang.122 
+	title = Sinkiang.122.t
+	desc = Sinkiang.122.d
+	picture = GFX_report_event_generic_sign_treaty1
+
+	is_triggered_only = yes
+	option = {
+		ai_chance = { factor = 100 }
+		name = Sinkiang.122.a
+		trigger = {
+			NOT = { has_government = communism }
+		}
+		effect_tooltip = {
+			every_state = {
+		        limit = {
+			        is_core_of = SIK
+			        is_owned_by = SIK
+			    }
+		        add_dynamic_modifier = { modifier = sik_united_government_modifier } 
+				remove_core_of = SIK
+		    }
+		    FROM = { annex_country = { target = SIK transfer_troops = yes } }
+		}
+	}
+	option = {
+		ai_chance = { factor = 100 }
+		name = Sinkiang.122.b
+		trigger = {
+			has_government = communism 
+		}
+		effect_tooltip = {
+			every_state = {
+		        limit = {
+			        is_core_of = SIK
+			        is_owned_by = SIK
+			    }
+		        add_dynamic_modifier = { modifier = sik_united_government_modifier } 
+				remove_core_of = SIK
+		    }
+		    FROM = { annex_country = { target = SIK transfer_troops = yes } }
+		}
+	}
+}
+
+country_event = { #if etr and sik both gone, give core directly #TO DO LOC
+	id = Sinkiang.123
+	title = Sinkiang.123.t
+	desc = Sinkiang.123.d
+	picture = GFX_report_event_generic_sign_treaty1
+	is_triggered_only = yes #unused
+	trigger = {
+		tag = event_target:WTT_current_china_leader
+		NOT = {
+			any_other_country = {
+				original_tag = SIK
+				exists = yes
+			}
+		}
+        has_global_flag = kmt_ruling_in_sik_flag
+    }
+	fire_only_once = yes 
+	option = {
+		ai_chance = { factor = 100 }
+		name = Sinkiang.123.a
+		every_state = {
+		    limit = {
+			    OR = {
+					region = 145
+					region = 252
+				}
+			}
+		    add_core_of = ROOT
+		}
+	}
+}
+
+country_event = { #replace zhang zhizhong
+	id = Sinkiang.124
+	title = Sinkiang.124.t
+	desc = Sinkiang.124.d
+	picture = GFX_report_event_generic_sign_treaty1
+	is_triggered_only = yes
+	option = {
+		ai_chance = { factor = 100 }
+		name = Sinkiang.124.a
+		retire_country_leader = yes
+		SIK_masud_sabri = {
+			add_country_leader_role = {
+				promote_leader = yes
+				country_leader = {
+					expire = "1965.1.1"
+					ideology = despotism
+					traits = { }            
+				} 
+			} 
+		}     
+		hidden_effect = {
+            country_event = {
+				id = Sinkiang.125 days = 610
+			}
+		}
+	}
+}
+
+country_event = { #Burhan Shahidi
+	id = Sinkiang.125
+	title = Sinkiang.125.t
+	desc = Sinkiang.125.d
+	picture = GFX_report_event_generic_sign_treaty1
+	is_triggered_only = yes 
+	option = {
+		ai_chance = { factor = 100 }
+		name = Sinkiang.125.a
+		retire_country_leader = yes
+		create_country_leader = {
+			name = "Burhan Shahidi"
+			desc = ""
+			picture = "Portrait_Sinkiang_Burhan_Shahidi.dds"
+			expire = "1965.1.1"
+			ideology = despotism
+			traits = {
+			}
+		}
+	}
+}
+
+country_event = { #SIK's ultimatum to krs and atm
+	id = Sinkiang.126
+	title = Sinkiang.126.t
+	desc = {
+		text = Sinkiang.126.d
+		trigger = {
+			NOT = {
+				original_tag = KRS
+			}
+		}
+	}
+	desc = {
+		text = Sinkiang.126.d_krs
+		trigger = {
+			original_tag = KRS
+		}
+	}
+	picture = GFX_report_event_chinese_soldiers_02
+	is_triggered_only = yes 
+	option = {
+		name = Sinkiang.126.a
+		ai_chance = { 
+		    factor = 100
+		    modifier = {
+			    factor = 100
+				is_historical_focus_on = yes
+			}
+		}
+		if = {
+			limit = {
+				has_character = SIK_Manchukezhabu
+			}
+			retire_character = SIK_Manchukezhabu
+		}
+		custom_effect_tooltip = THIS_IS_HISTORICAL_TT
+		FROM = {
+			country_event = {
+				id = Sinkiang.127 hours = 12
+			}
+		}
+		effect_tooltip = {
+			FROM = {
+                annex_country = { target = ROOT transfer_troops = no }
+			}	
+		}
+		custom_effect_tooltip = GAME_OVER_TT
+	}
+
+	option = {
+		name = Sinkiang.126.b
+		ai_chance = { 
+		    factor = 15
+		    modifier = {
+			    factor = 0
+				is_historical_focus_on = yes
+			}
+		}
+		add_war_support = 0.1
+		if = {
+			limit = {
+				has_character = SIK_Manchukezhabu
+			}
+			retire_character = SIK_Manchukezhabu
+		    SIK_wu_jingbin = {
+				add_country_leader_role = {
+					promote_leader = yes
+					country_leader = {
+						expire = "1965.1.1"
+						ideology = despotism
+						traits = {
+						}
+					} 
+				} 
+				add_country_leader_role = {
+					promote_leader = yes
+					country_leader = {
+						expire = "1965.1.1"
+						ideology = marxism
+						traits = {
+						}
+					} 
+				}
+				add_country_leader_role = {
+					promote_leader = yes
+					country_leader = {
+						expire = "1965.1.1"
+						ideology = n_socialism_ideology
+						traits = {
+						}
+					} 
+				}
+				add_country_leader_role = {
+					promote_leader = yes
+					country_leader = {
+						expire = "1965.1.1"
+						ideology = sanmin_military_rule
+						traits = {
+					   }
+					} 
+				}	
+				add_country_leader_role = {
+					promote_leader = yes
+					country_leader = {
+						expire = "1965.1.1"
+						ideology = conservatism
+						traits = {
+						}
+					} 
+				}			
+			}
+		}
+		hidden_effect = {
+			if = {
+				limit = {
+					has_character = SIK_wu_jingbin
+					has_government = neutrality
+				}
+				create_country_leader = {
+					name = "None"
+					desc = ""
+					picture = "gfx/leaders/leader_unknown.dds"
+					expire = "1965.1.1"
+					ideology = marxism
+					traits = {
+						#
+					}
+				}
+				create_country_leader = {
+					name = "None"
+					desc = ""
+					picture = "gfx/leaders/leader_unknown.dds"
+					expire = "1965.1.1"
+					ideology = n_socialism_ideology
+					traits = {
+						#
+					}
+				}
+				create_country_leader = {
+					name = "None"
+					desc = ""
+					picture = "gfx/leaders/leader_unknown.dds"
+					expire = "1965.1.1"
+					ideology = conservatism
+					traits = {
+						#
+					}
+				}
+				create_country_leader = {
+					name = "None"
+					desc = ""
+					picture = "gfx/leaders/leader_unknown.dds"
+					expire = "1965.1.1"
+					ideology = fascism_ideology
+					traits = {
+						#
+					}
+				}
+			}
+			if = {
+				limit = {
+					has_character = SIK_wu_jingbin
+					has_government = communism
+				}
+				create_country_leader = {
+					name = "None"
+					desc = ""
+					picture = "gfx/leaders/leader_unknown.dds"
+					expire = "1965.1.1"
+					ideology = despotism
+					traits = {
+						#
+					}
+				}
+				create_country_leader = {
+					name = "None"
+					desc = ""
+					picture = "gfx/leaders/leader_unknown.dds"
+					expire = "1965.1.1"
+					ideology = n_socialism_ideology
+					traits = {
+						#
+					}
+				}
+				create_country_leader = {
+					name = "None"
+					desc = ""
+					picture = "gfx/leaders/leader_unknown.dds"
+					expire = "1965.1.1"
+					ideology = conservatism
+					traits = {
+						#
+					}
+				}
+				create_country_leader = {
+					name = "None"
+					desc = ""
+					picture = "gfx/leaders/leader_unknown.dds"
+					expire = "1965.1.1"
+					ideology = fascism_ideology
+					traits = {
+						#
+					}
+				}
+			}
+			if = {
+				limit = {
+					has_character = SIK_wu_jingbin
+					has_government = democratic
+				}
+				create_country_leader = {
+					name = "None"
+					desc = ""
+					picture = "gfx/leaders/leader_unknown.dds"
+					expire = "1965.1.1"
+					ideology = despotism
+					traits = {
+						#
+					}
+				}
+				create_country_leader = {
+					name = "None"
+					desc = ""
+					picture = "gfx/leaders/leader_unknown.dds"
+					expire = "1965.1.1"
+					ideology = n_socialism_ideology
+					traits = {
+						#
+					}
+				}
+				create_country_leader = {
+					name = "None"
+					desc = ""
+					picture = "gfx/leaders/leader_unknown.dds"
+					expire = "1965.1.1"
+					ideology = marxism
+					traits = {
+						#
+					}
+				}
+				create_country_leader = {
+					name = "None"
+					desc = ""
+					picture = "gfx/leaders/leader_unknown.dds"
+					expire = "1965.1.1"
+					ideology = fascism_ideology
+					traits = {
+						#
+					}
+				}
+			}
+			if = {
+				limit = {
+					has_character = SIK_wu_jingbin
+					has_government = n_socialism
+				}
+				create_country_leader = {
+					name = "None"
+					desc = ""
+					picture = "gfx/leaders/leader_unknown.dds"
+					expire = "1965.1.1"
+					ideology = despotism
+					traits = {
+						#
+					}
+				}
+				create_country_leader = {
+					name = "None"
+					desc = ""
+					picture = "gfx/leaders/leader_unknown.dds"
+					expire = "1965.1.1"
+					ideology = conservatism
+					traits = {
+						#
+					}
+				}
+				create_country_leader = {
+					name = "None"
+					desc = ""
+					picture = "gfx/leaders/leader_unknown.dds"
+					expire = "1965.1.1"
+					ideology = marxism
+					traits = {
+						#
+					}
+				}
+				create_country_leader = {
+					name = "None"
+					desc = ""
+					picture = "gfx/leaders/leader_unknown.dds"
+					expire = "1965.1.1"
+					ideology = fascism_ideology
+					traits = {
+						#
+					}
+				}
+			}
+			if = {
+				limit = {
+					has_character = SIK_wu_jingbin
+					has_government = fascism
+				}
+				create_country_leader = {
+					name = "None"
+					desc = ""
+					picture = "gfx/leaders/leader_unknown.dds"
+					expire = "1965.1.1"
+					ideology = despotism
+					traits = {
+						#
+					}
+				}
+				create_country_leader = {
+					name = "None"
+					desc = ""
+					picture = "gfx/leaders/leader_unknown.dds"
+					expire = "1965.1.1"
+					ideology = conservatism
+					traits = {
+						#
+					}
+				}
+				create_country_leader = {
+					name = "None"
+					desc = ""
+					picture = "gfx/leaders/leader_unknown.dds"
+					expire = "1965.1.1"
+					ideology = marxism
+					traits = {
+						#
+					}
+				}
+				create_country_leader = {
+					name = "None"
+					desc = ""
+					picture = "gfx/leaders/leader_unknown.dds"
+					expire = "1965.1.1"
+					ideology = n_socialism_ideology
+					traits = {
+						#
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				is_subject_of = FROM
+			}
+			set_autonomy = {
+				target = ROOT
+				autonomy_state = autonomy_free
+			}
+		}
+		FROM = {
+			country_event = {
+				id = Sinkiang.128 hours = 12
+			}
+		}
+		effect_tooltip = {
+			FROM = {
+                create_wargoal = {
+					target = KRS
+					type = annex_everything
+				}
+			}	
+		}
+	}
+}
+
+country_event = { #krs or atm accepts ultimatum to sik
+	id = Sinkiang.127
+	title = Sinkiang.127.t
+	desc = Sinkiang.127.d
+	picture = GFX_report_event_generic_sign_treaty1
+	is_triggered_only = yes 
+	option = {
+		name = Sinkiang.127.a
+		ai_chance = { 
+			factor = 100 
+		}
+		annex_country = { target = FROM transfer_troops = no }
+	}
+}
+
+country_event = { #krs or atm accepts ultimatum to sik
+	id = Sinkiang.128
+	title = Sinkiang.128.t
+	desc = Sinkiang.128.d
+	picture = GFX_report_event_chinese_soldiers_02
+	is_triggered_only = yes 
+	option = {
+		name = Sinkiang.128.a
+		ai_chance = { 
+			factor = 100 
+		}
+		create_wargoal = {
+			target = FROM
+			type = annex_everything
+		}
+	}
+}
+
+#etr reinforcments
+
+#resist Sheng
+add_namespace = SIK_resist_sheng
+#moderate approach
+country_event = {
+	id = SIK_resist_sheng.1
+	title = SIK_resist_sheng.1.t
+	desc = SIK_resist_sheng.1.d
+	picture = GFX_report_event_end_three_areas_revolution_2
+
+
+	is_triggered_only = yes
+	option = {
+		name = SIK_resist_sheng.1.a
+		effect_tooltip = {
+			set_politics = {
+				ruling_party = neutrality
+				elections_allowed = no
+			}
+			retire_country_leader = yes
+			#create_country_leader = { #already created
+			#	name = "Ospan Batyr"
+			#	desc = "POLITICS_OSPAN_BATYR_DESC"
+			#	picture = "Portrait_Sinkiang_Ospan_Batyr.dds"
+			#	expire = "1965.1.1"
+			#	ideology = despotism
+			#	traits = { spirit_of_genghis  anti_communist }
+			#}
+			if = {
+				limit = {
+					has_unit_leader = 2897
+				}
+				remove_unit_leader = 2897
+			}
+			#set_cosmetic_tag = ETR
+			set_cosmetic_tag = SIK_KMT
+			custom_effect_tooltip = new_parties_and_leaders_will_emerge_tt
+			hidden_effect = {
+				set_party_name = {
+					ideology = communism
+					long_name = SIK_Xinjiang_defend_peace_and_democracy_alliance_long
+					name = SIK_Xinjiang_defend_peace_and_democracy_alliance
+				}
+				set_party_name = {
+					ideology = fascism
+					long_name = SIK_committee_for_national_revolution_long
+					name = SIK_committee_for_national_revolution
+				}
+				set_party_name = {
+					ideology = neutrality
+					long_name = SIK_China_nationalist_party
+					name = SIK_Kuomintang
+				}
+				set_party_name = {
+					ideology = democratic
+					long_name = SIK_Democratic_alliance_long
+					name = SIK_Democratic_alliance
+				}
+				create_country_leader = {
+					name = "Abdulkerim Abbas"
+					desc = "POLITICS_ABDULKERIM_ABBAS_DESC"
+					picture = "Portrait_Sinkiang_Abdulkerim_Abbas.dds"
+					expire = "1965.1.1"
+					ideology = marxism
+					traits = { indomitable_perseverance }
+				}
+				create_country_leader = {
+					name = "Muhammad Amin Bughra"
+					desc = "POLITICS_SHENG_SHICAI_DESC"
+					picture = "Portrait_Sinkiang_Amin.dds"
+					expire = "1970.1.7"
+					ideology = fascism_ideology
+					traits = {
+						#
+					}
+				}
+				#create_country_leader = {
+				#	name = "Elihan Tore"
+				#	desc = "POLITICS_ELIHAN_TORE_DESC"
+				#	picture = "Portrait_Sinkiang_Elihan_Tore.dds"
+				#	expire = "1965.1.1"
+				#	ideology = rexism
+				#	traits = { inexperienced_imperialist  warmonger }
+				#}
+				SIK_masud_sabri = {
+					add_country_leader_role = {
+						promote_leader = yes
+						country_leader = {
+							expire = "1965.1.1"
+							ideology = conservatism
+							traits = { }            
+						} 
+					} 
+				}    
+				#create_country_leader = {
+				#	name = Masud_Sabri
+				#	desc = "POLITICS_MASUD_SABRI_DESC"
+				#	picture = "Portrait_Sinkiang_Masud_Sabri.dds"
+				#	expire = "1965.1.1"
+				#	ideology = conservatism
+				#	traits = {
+				#	}
+				#}
+			}
+			remove_ideas = SIK_Autocracy
+		}
+	}
+}
+#mission failed
+country_event = {
+	id = SIK_resist_sheng.2
+	title = SIK_resist_sheng.2.t
+	desc = SIK_resist_sheng.2.d
+	picture = GFX_report_event_the_king_of_sinkiang_sheng_shicai
+
+	is_triggered_only = yes
+	option = {
+		name = SIK_resist_sheng.2.a
+
+	}
+}
+
+add_namespace = SIK_kyrgyz_brigade
+#creation
+country_event = {
+	id = SIK_kyrgyz_brigade.1
+	title = SIK_kyrgyz_brigade.1.t
+	desc = SIK_kyrgyz_brigade.1.d
+	picture = GFX_report_event_soviet_soldiers
+	is_triggered_only = no
+	fire_only_once = yes
+	trigger = {
+		tag = SIK
+		has_civil_war = no
+		has_country_leader = { character = SIK_sheng_shicai ruling_only = yes }
+		has_war_with = TNG
+		controls_state = 617
+	}
+	option = {
+		name = SIK_kyrgyz_brigade.1.a
+		custom_effect_tooltip = THIS_IS_HISTORICAL_TT
+		ai_chance = {
+			factor = 100
+		}
+		set_country_flag = kyrgyz_brigade_flag
+		if = {
+			limit = {
+				NOT = {
+					has_template = "K'êêrhk'êtzu Lü"
+				}
+			}
+		    division_template = {
+	            name = "K'êêrhk'êtzu Lü" #柯爾克孜旅  https://zh.wikipedia.org/zh-tw/%E4%BC%8A%E6%96%AF%E5%93%88%E5%85%8B%E4%BC%AF%E5%85%8B%C2%B7%E7%A9%86%E5%8A%AA%E8%AF%BA%E5%A4%AB
+	            division_names_group = SIK_INF_02
+	            template_counter = 0
+	            #is_locked = yes
+             	#force_allow_recruiting = no
+	            regiments = {
+		            infantry = { x = 0 y = 0 }
+		            infantry = { x = 0 y = 1 }
+		            infantry = { x = 1 y = 0 }
+		            infantry = { x = 1 y = 1 }
+	            }
+            }
+		}
+		617 = {
+			create_unit = { division = "name = \"K'êêrhk'êtzu Lü\" division_template = \"K'êêrhk'êtzu Lü\" start_experience_factor = 0.7 start_manpower_factor = 0.1 start_equipment_factor = 0.1"  owner = ROOT }
+		}
+		add_equipment_to_stockpile = {
+			type = infantry_equipment
+			amount = 370
+		}
+		effect_tooltip = {
+			create_corps_commander = {
+				name = "Ishaq Beg Munonov"
+				portrait_path = "gfx/leaders/SIK/Ishaq_Beg_Munonov.dds"
+				traits = {  }
+				skill = 2
+				attack_skill = 2
+				defense_skill = 2
+				planning_skill = 1
+				logistics_skill = 2
+			}
+		}
+	}
+
+	option = {
+		name = SIK_kyrgyz_brigade.1.b
+		ai_chance = {
+			factor = 0
+		}
+		add_stability = 0.05
+		#if = {
+		#	limit = {
+		#		has_template = "K'êêrhk'êtzu Lü"
+		#	}
+		#   delete_unit_template_and_units = {
+		#		division_template = "K'êêrhk'êtzu Lü"
+		#		disband = yes #will refund equipment and manpower
+		#	}
+		#}
+	}
+}
+
+country_event = {
+	id = SIK_kyrgyz_brigade.2
+	title = SIK_kyrgyz_brigade.2.t
+	desc = SIK_kyrgyz_brigade.2.d
+	picture = GFX_report_event_three_areas_revolution
+	is_triggered_only = no
+	fire_only_once = yes
+	trigger = {
+		tag = SIK
+		has_country_leader = { character = SIK_sheng_shicai ruling_only = yes }
+		has_idea = SIK_Soviet_supports_armed_groups
+		SOV = {
+			any_enemy_country = {
+				is_major = yes
+			}
+		}
+		has_country_flag = kyrgyz_brigade_flag
+	}
+	option = {
+		name = SIK_kyrgyz_brigade.2.a
+		retire_character = SIK_Ishaq_Beg_munonov
+		add_manpower = -200
+		#if = {
+		#	limit = {
+		#		has_template = "K'êêrhk'êtzu Lü"
+		#	}
+		#    delete_unit_template_and_units = {
+		#		division_template = "K'êêrhk'êtzu Lü"
+		#		disband = yes #will refund equipment and manpower
+		#	}
+		#}
+	}
+}
+
+add_namespace = SIK_murder_case
+country_event = {
+	id = SIK_murder_case.1
+	title = SIK_murder_case.1.t
+	desc = SIK_murder_case.1.d
+	picture = GFX_report_event_murder_case_of_qiu_family
+	is_triggered_only = no
+	fire_only_once = yes
+	trigger = {
+		OR = {
+			NOT = {
+				country_exists = SIK
+			}
+			NOT = {
+				SIK = {
+					has_character = SIK_qiu_zongjun
+				}
+			}
+		}
+        283 = {
+			is_owned_and_controlled_by = ROOT
+		}
+		OR = {
+			AND = {
+				country_exists = event_target:WTT_current_china_leader
+			    NOT = {
+					has_government = communism
+				}
+			}
+			NOT = {
+				country_exists = event_target:WTT_current_china_leader
+			}
+		}
+		NOT = {
+			event_target:WTT_current_china_leader = {
+				has_war_with = JAP 
+			}
+		}
+		event_target:WTT_current_china_leader = {
+			has_war_with = event_target:WTT_communist_china
+		}
+	}
+    mean_time_to_happen = {
+		days = 365
+	}
+
+	option = {
+		name = SIK_murder_case.1.a
+		add_stability = -0.02
+		hidden_effect = {
+			every_other_country = {
+				limit = {
+                    is_literally_china = yes
+				}
+				country_event = SIK_murder_case.2
+			}
+		}
+	}
+}
+
+country_event = {
+	id = SIK_murder_case.2
+	title = SIK_murder_case.2.t
+	desc = SIK_murder_case.2.d
+	picture = GFX_report_event_murder_case_of_qiu_family
+	is_triggered_only = yes
+
+	option = {
+		name = SIK_murder_case.2.a
+	}
+}
+
+add_namespace = SIK_generals
+country_event = {
+	id = SIK_generals.1
+	title = SIK_generals.1.t
+	desc = SIK_generals.SIK_generals.1.desc
+	picture = GFX_report_event_end_three_areas_revolution_2
+	is_triggered_only = no
+    fire_only_once = yes
+	trigger = {
+		original_tag = SIK
+		owns_state = 617
+		OR = {
+			has_character = SIK_sheng_shiqi
+			has_character = SIK_sheng_shiji
+			has_character = SIK_jiang_deyu
+			has_character = SIK_Ishaq_Beg_munonov
+			has_character = SIK_hoja_niyaz
+			has_character = SIK_qiu_zongjun
+			has_character = SIK_Manchukezhabu
+			has_character = SIK_liu_zhengxin
+			has_character = SIK_liu_pin
+			has_character = SIK_shariphan_zhenishkhanuly_kogedaev
+		}
+		NOT = {
+			OR = {
+                has_character = SIK_sheng_shicai
+				has_country_leader = {
+					character = SIK_sheng_shicai ruling_only = yes
+				}
+			}
+		}
+	}
+
+	option = {
+		name = SIK_generals.1.a
+		#we dont need them
+	    ai_chance = {
+			factor = 100
+		}
+		custom_effect_tooltip = THIS_IS_HISTORICAL_TT
+		if = {
+			limit = {
+				has_character = SIK_sheng_shiqi
+			}
+			retire_character = SIK_sheng_shiqi
+		}
+		if = {
+			limit = {
+				has_character = SIK_sheng_shiji
+			}
+			retire_character = SIK_sheng_shiji
+		}
+		if = {
+			limit = {
+				has_character = SIK_jiang_deyu
+			}
+			retire_character = SIK_jiang_deyu
+		}
+		if = {
+			limit = {
+				has_character = SIK_qiu_zongjun
+			}
+			retire_character = SIK_qiu_zongjun
+		}
+		if = {
+			limit = {
+				has_character = SIK_liu_zhengxin
+			}
+			retire_character = SIK_liu_zhengxin
+		}
+		if = {
+			limit = {
+				has_character = SIK_liu_pin
+			}
+			retire_character = SIK_liu_pin
+		}
+		if = {
+			limit = {
+				has_character = SIK_Ishaq_Beg_munonov
+			}
+			retire_character = SIK_Ishaq_Beg_munonov
+		}
+		if = {
+			limit = {
+				has_character = SIK_hoja_niyaz
+			}
+			retire_character = SIK_hoja_niyaz
+		}
+		if = {
+			limit = {
+				has_character = SIK_Manchukezhabu
+			}
+			retire_character = SIK_Manchukezhabu
+		}
+		if = {
+			limit = {
+				has_character = SIK_shariphan_zhenishkhanuly_kogedaev
+			}
+			retire_character = SIK_shariphan_zhenishkhanuly_kogedaev
+		}
+		add_stability = -0.05
+		add_political_power = 100
+	}
+
+	option = {
+		name = SIK_generals.1.b
+		#dismiss all han generals
+	    ai_chance = {
+			factor = 0
+		}
+		if = {
+			limit = {
+				has_character = SIK_sheng_shiqi
+			}
+			retire_character = SIK_sheng_shiqi
+		}
+		if = {
+			limit = {
+				has_character = SIK_sheng_shiji
+			}
+			retire_character = SIK_sheng_shiji
+		}
+		if = {
+			limit = {
+				has_character = SIK_jiang_deyu
+			}
+			retire_character = SIK_jiang_deyu
+		}
+		if = {
+			limit = {
+				has_character = SIK_qiu_zongjun
+			}
+			retire_character = SIK_qiu_zongjun
+		}
+		if = {
+			limit = {
+				has_character = SIK_liu_zhengxin
+			}
+			retire_character = SIK_liu_zhengxin
+		}
+		if = {
+			limit = {
+				has_character = SIK_liu_pin
+			}
+			retire_character = SIK_liu_pin
+		}
+		add_stability = -0.1
+		add_political_power = -100
+	}
+
+	option = {
+		name = SIK_generals.1.c
+		#dismiss all non han generals
+	    ai_chance = {
+			factor = 0
+		}
+		if = {
+			limit = {
+				has_character = SIK_Ishaq_Beg_munonov
+			}
+			retire_character = SIK_Ishaq_Beg_munonov
+		}
+		if = {
+			limit = {
+				has_character = SIK_hoja_niyaz
+			}
+			retire_character = SIK_hoja_niyaz
+		}
+		if = {
+			limit = {
+				has_character = SIK_Manchukezhabu
+			}
+			retire_character = SIK_Manchukezhabu
+		}
+		if = {
+			limit = {
+				has_character = SIK_shariphan_zhenishkhanuly_kogedaev
+			}
+			retire_character = SIK_shariphan_zhenishkhanuly_kogedaev
+		}
+		add_stability = -0.05
+		add_political_power = -75
+	}
+
+	option = {
+		name = SIK_generals.1.d
+		#keep em all
+	    ai_chance = {
+			factor = 0
+		}
+		add_stability = -0.1
+		add_political_power = -120
+	}
+}

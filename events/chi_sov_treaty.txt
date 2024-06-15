@@ -1,0 +1,535 @@
+add_namespace = chi_sov_treaty
+
+country_event = {#sov yes or no?
+	id = chi_sov_treaty.1
+	title = chi_sov_treaty.1t
+	desc = chi_sov_treaty.1d
+	#picture = GFX_report_event_german_speech
+	
+    fire_only_once = yes
+	
+	trigger = {
+	tag = SOV
+	has_government = communism
+	SOV = {
+				any_controlled_state = {
+                    NOT = {
+						state = 745
+					}
+					is_MAN_state_for_takeover = yes
+				}
+	}
+	OR = {
+		has_global_flag = had_august_storm_flag
+		has_global_flag = august_storm
+		has_global_flag = august_storm_player
+		has_global_flag = august_storm_event
+		has_global_flag = CHI_no_longer_united_flag
+	}
+	NOT = { has_war_with = event_target:WTT_current_china_leader }
+	event_target:WTT_current_china_leader = {
+	exists = yes
+	is_subject = no
+	NOT = { has_global_flag = roc_in_taiwan_flag }
+	}
+	or = {
+	NOT = { has_war_with = JAP }
+	has_global_flag = JAP_defeated
+	and = {
+	controls_state = 328
+	controls_state = 1005
+	controls_state = 716
+	controls_state = 745
+	}
+	}
+	}
+	
+	immediate = {
+	hidden_effect = {
+	
+	add_political_power = 150
+			#add_manpower = 500000
+			#add_equipment_to_stockpile = { type = infantry_equipment amount = 1000 producer = MEN }
+			add_equipment_to_stockpile = { type = infantry_equipment amount = 20000 producer = MAN }
+			add_equipment_to_stockpile = { type = infantry_equipment amount = 20000 producer = JAP }
+			#add_equipment_to_stockpile = { type = support_equipment amount = 100 producer = MEN }
+			add_equipment_to_stockpile = { type = support_equipment amount = 2500 producer = MAN }
+			add_equipment_to_stockpile = { type = support_equipment amount = 2500 producer = JAP }
+	
+	set_global_flag = RECOVER_of_MAN
+set_global_flag = sov_conquer_man
+set_province_name = { id = 11771 name = "shenyang"}
+set_province_name = { id = 4572 name = "changchun"}
+716 = { 
+					set_state_name = liaoning
+					
+				}
+745 = { 
+					set_state_name = dalian
+					
+				}
+	}
+	}
+	
+	option = {
+		ai_chance = { factor = 100 }
+		name = chi_sov_treaty.1.1
+		event_target:WTT_current_china_leader = {
+                                         country_event = { id = chi_sov_treaty.2 hours = 6 }
+                                }
+		custom_effect_tooltip = if_they_accept_tt						
+		effect_tooltip = {		
+			MON = { remove_ideas = mon_weibeichengren }
+			every_state = {
+				limit = {
+OR = {
+					         is_owned_by = TAN
+					         is_owned_by = MON
+}
+					        
+					
+				}
+                remove_core_of = event_target:WTT_current_china_leader
+				remove_claim_by = event_target:WTT_current_china_leader
+			}
+		SOV = { transfer_state = 745 }
+		745 = { add_claim_by = SOV }
+		716 = { add_claim_by = SOV }
+		
+		diplomatic_relation = {
+	       country = event_target:WTT_current_china_leader
+	       relation = non_aggression_pact
+	       active = yes
+        }
+		}						
+
+	}
+
+	option = {
+		ai_chance = { factor = 0 }
+		name = chi_sov_treaty.1.2
+		
+		add_war_support = -0.1
+        add_stability = -0.1
+        add_political_power = -250
+		every_state = {
+		limit = {
+		has_state_flag = manzhou
+		}
+		add_claim_by = ROOT
+		}
+		
+		if = {
+		limit = {
+		any_other_country = {
+		OR = {
+		tag = USA
+		tag = ENG
+		tag = FRA
+		}
+		is_democratic_type = yes
+		is_faction_leader = yes
+		is_subject = no
+		is_major = yes
+		}
+		}
+		custom_effect_tooltip = sov_reject_return_dongbei.1
+		hidden_effect = {
+			every_other_country = {
+				limit = {
+				    OR = {		
+					TAG = event_target:WTT_current_china_leader
+            TAG = CHI
+					is_in_faction_with = event_target:WTT_current_china_leader					
+					}
+					NOT = { tag = event_target:WTT_communist_china }
+					NOT = { tag = PRC }
+				}
+				set_country_flag = member_of_CHI
+			}
+			event_target:WTT_current_china_leader = { dismantle_faction = yes }
+		}
+		random_other_country = {
+		limit = {
+		OR = {
+		tag = USA
+		tag = ENG
+		tag = FRA
+		}
+		is_democratic_type = yes
+		is_faction_leader = yes
+		is_subject = no
+		is_major = yes
+		}
+		save_global_event_target_as = leader_of_ally
+		create_wargoal = { target = SOV  type = topple_government }
+		}
+		hidden_effect = {
+		every_other_country = {
+				limit = {
+					has_country_flag = member_of_CHI
+				}
+				event_target:leader_of_ally = {
+					add_to_faction = PREV
+				}
+			}
+	    }
+		effect_tooltip = {
+		random_other_country = {
+		limit = {
+		OR = {
+		tag = USA
+		tag = ENG
+		tag = FRA
+		}
+		is_democratic_type = yes
+		is_faction_leader = yes
+		is_subject = no
+		is_major = yes
+		}
+		add_to_faction = event_target:WTT_current_china_leader
+		}
+		}
+		hidden_effect = {
+	    event_target:WTT_current_china_leader = {		
+		add_ai_strategy = {#guo
+	type = prepare_for_war
+	id = SOV
+	value = 9999
+        }
+		add_ai_strategy = {#guo
+	type = conquer
+	id = SOV
+	value = 9999
+        }
+		add_ai_strategy = {
+		                                         type = antagonize
+		                                         id = SOV
+		                                         value = 9999
+	                                                }
+													add_ai_strategy = {
+		                                         type = declare_war
+		                                         id = SOV
+		                                         value = 9999
+	                                                }
+		}
+		
+		
+                                every_other_country = {
+							limit = {
+							is_democratic_type = yes
+								OR = {
+									tag = USA
+                                                                                                                                                tag = ENG
+                                                                                                                                                #tag = FRA
+									is_in_faction_with = USA
+                                                                                                                                                
+								}
+							}
+                                           add_ai_strategy = {
+		                                         type = antagonize
+		                                         id = SOV
+		                                         value = 9999
+	                                                }
+													add_ai_strategy = {
+		                                         type = declare_war
+		                                         id = SOV
+		                                         value = 9999
+	                                                }
+													add_ai_strategy = {
+		                                         type = alliance
+		                                         id = CHI
+		                                         value = 9999
+	                                                }
+													add_ai_strategy = {
+		                                         type = protect
+		                                         id = CHI
+		                                         value = 9999
+	                                                }
+													add_ai_strategy = {#guo
+	type = prepare_for_war
+	id = SOV
+	value = 9999
+        }
+		add_ai_strategy = {#guo
+	type = conquer
+	id = SOV
+	value = 9999
+        }
+													add_ai_strategy = {
+		                                         type = support
+		                                         id = CHI
+		                                         value = 9999
+	                                                }
+                                           
+                               }
+        }
+		
+		}
+
+    }
+}
+
+country_event = {#chi yes or no?
+	id = chi_sov_treaty.2 
+	title = chi_sov_treaty.2t
+	desc = chi_sov_treaty.2d
+	#picture = GFX_report_event_german_speech	              
+	
+    fire_only_once = yes
+                
+    is_triggered_only = yes
+	
+	
+	option = {
+		ai_chance = { factor = 100 }
+		name = chi_sov_treaty.2.1		                                			
+			effect_tooltip = {		
+			MON = { remove_ideas = mon_weibeichengren }
+			every_state = {
+				limit = {
+OR = {
+					         is_owned_by = TAN
+					         is_owned_by = MON
+}
+					        
+					
+				}
+                                                                remove_core_of = event_target:WTT_current_china_leader
+				remove_claim_by = event_target:WTT_current_china_leader
+			}
+			SOV = { transfer_state = 745 }
+		745 = { add_claim_by = SOV }
+		716 = { add_claim_by = SOV }
+		
+		diplomatic_relation = {
+	       country = SOV
+	       relation = non_aggression_pact
+	       active = yes
+        }
+			}
+
+
+		SOV = {
+                                         country_event = { id = chi_sov_treaty.3 hours = 6 }
+                                }
+
+	}
+
+	option = {
+		ai_chance = { factor = 0 }
+		name = chi_sov_treaty.2.2
+		custom_effect_tooltip = sov_dongbei_angry.1
+		create_wargoal = { target = SOV type = take_core_state }
+		add_political_power = -150
+		add_stability = -0.1
+		add_war_support = 0.1
+		
+		SOV = {
+                                         country_event = { id = chi_sov_treaty.4 hours = 6 }
+										 add_to_faction = event_target:WTT_communist_china
+										 add_ai_strategy = {
+		type = alliance
+		id = PRC
+		value = 50000
+	}
+                                }
+								hidden_effect = {
+								PRC = {
+								add_ai_strategy = {
+		type = alliance
+		id = SOV
+		value = 50000
+	}
+								}
+								}
+
+    }
+}
+
+country_event = {#sov help kmt or help prc?
+	id = chi_sov_treaty.3 
+	title = chi_sov_treaty.3t
+	desc = chi_sov_treaty.3d
+	#picture = GFX_report_event_german_speech	              
+	
+    fire_only_once = yes
+                
+    is_triggered_only = yes
+	
+	
+	option = {
+		ai_chance = { factor = 100 }
+		trigger = {
+		OR = {
+		event_target:WTT_communist_china = {
+		exists = yes
+		}
+		PRC = {
+		exists = yes
+		}
+		}
+		}
+		name = chi_sov_treaty.3.1
+		MON = { remove_ideas = mon_weibeichengren }
+		every_state = {
+				limit = {
+OR = {
+					         is_core_of = TAN
+					         is_core_of = MON
+}
+					        
+					
+				}
+                                                                remove_core_of = event_target:WTT_current_china_leader
+				remove_claim_by = event_target:WTT_current_china_leader
+		}
+		diplomatic_relation = {
+	       country = event_target:WTT_current_china_leader
+	       relation = non_aggression_pact
+	       active = yes
+        }
+		transfer_state = 745
+		745 = { add_claim_by = SOV }
+		716 = { add_claim_by = SOV }
+		effect_tooltip = {
+		give_military_access = event_target:WTT_communist_china
+		}
+		
+		event_target:WTT_communist_china = { country_event = { id = chi_sov_treaty.5 days = 2 } }
+		
+		effect_tooltip = {
+		event_target:WTT_communist_china = { unlock_national_focus = PRC_request_northeast_china }
+		}
+		
+		hidden_effect = {
+		news_event = { id = news.1026 days = 1 }
+		745 = { add_compliance = 100 }
+		}
+
+	}
+
+	option = {
+		ai_chance = {
+		base = 0
+		}
+		name = chi_sov_treaty.3.2
+		MON = { remove_ideas = mon_weibeichengren }
+		every_state = {
+				limit = {
+OR = {
+					         is_core_of = TAN
+					         is_core_of = MON
+}
+					        
+					
+				}
+                                                                remove_core_of = event_target:WTT_current_china_leader
+				remove_claim_by = event_target:WTT_current_china_leader
+		}
+		custom_effect_tooltip = sov_give_chi_dongbei
+		diplomatic_relation = {
+	       country = event_target:WTT_current_china_leader
+	       relation = non_aggression_pact
+	       active = yes
+        }
+		transfer_state = 745
+		745 = { add_claim_by = SOV }
+		716 = { add_claim_by = SOV }
+		set_global_flag = sov_retreat_dongbei_but_kmt
+		give_military_access = event_target:WTT_current_china_leader
+		hidden_effect = {
+		news_event = { id = news.1026 days = 1 }
+		country_event = { id = hidden_eevv.8 days = 30 } #防止归还不发生
+		745 = { add_compliance = 100 }
+		event_target:WTT_current_china_leader = {
+		add_ai_strategy = {
+		                                         type = befriend
+		                                         id = SOV
+		                                         value = 999
+	                                                }
+													add_ai_strategy = {
+		                                         type = alliance
+		                                         id = SOV
+		                                         value = 999
+	                                                }
+		}
+		}
+
+	}
+}
+
+country_event = {#sov no
+	id = chi_sov_treaty.4 
+	title = chi_sov_treaty.4t
+	desc = chi_sov_treaty.4d
+	#picture = GFX_report_event_german_speech	              
+	
+    fire_only_once = yes
+                
+    is_triggered_only = yes
+	
+	
+	option = {
+		ai_chance = { factor = 100 }
+		name = chi_sov_treaty.4.1
+		add_ai_strategy = {#guo
+	type = antagonize
+	id = FROM
+	value = 1000
+        }
+		add_ai_strategy = {#guo
+	type = prepare_for_war
+	id = FROM
+	value = 500
+        }
+		add_ai_strategy = {#guo
+	type = conquer
+	id = FROM
+	value = 500
+        }
+		add_ai_strategy = {#guo
+	type = declare_war
+	id = FROM
+	value = 500
+        }
+		set_global_flag = sov_retreat_dongbei_be_reject
+		every_state = {
+		limit = {
+		has_state_flag = manzhou
+		}
+		add_claim_by = ROOT
+		if = {
+		limit = { is_controlled_by = root }
+		transfer_state_to = root
+		}
+		}
+		#create_wargoal = { target = event_target:WTT_current_china_leader  type = annex_everything }
+		
+
+	}
+
+	 
+}	
+
+country_event = {#prc great
+	id = chi_sov_treaty.5 
+	title = chi_sov_treaty.5t
+	desc = chi_sov_treaty.5d
+	#picture = GFX_report_event_german_speech	              
+	
+    fire_only_once = yes
+                
+    is_triggered_only = yes
+	
+	
+	option = {
+		ai_chance = { factor = 100 }
+		name = chi_sov_treaty.5.1
+		SOV = { give_military_access = ROOT }
+		effect_tooltip = {
+		unlock_national_focus = PRC_request_northeast_china
+		}
+		set_global_flag = sov_retreat_dongbei_but_prc
+	}
+}

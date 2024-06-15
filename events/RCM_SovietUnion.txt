@@ -1,0 +1,2860 @@
+﻿########################################################CHINA REWORKED
+add_namespace = rcmsoviet
+
+# Demand Peace China
+# Xi'an Incident
+country_event = {
+	id = rcmsoviet.18
+	title = rcmsoviet.18.t
+	desc = rcmsoviet.18.d
+	picture = GFX_report_event_xian_zhang_yang
+
+	is_triggered_only = yes
+
+
+
+
+
+	fire_only_once = yes
+
+	#mean_time_to_happen = {
+	#	days = 10
+	#}
+	immediate = {
+		hidden_effect = {
+			NEA = {
+				drop_cosmetic_tag = yes
+			}
+			set_global_flag = xian_incident_flag
+			CHI = {
+				white_peace = PRC			    
+			}
+			####
+			1030 = {
+				set_demilitarized_zone = no
+				clr_state_flag = I_choose_this_state_to_DMZ
+			}
+			1053 = {
+				set_demilitarized_zone = no
+				clr_state_flag = I_choose_this_state_to_DMZ
+			}
+
+			####
+			CHI = {
+				end_puppet = NEA
+			}
+			
+			PRC = {
+				add_opinion_modifier = {
+					target = NEA modifier = tacit_agreement
+				}
+				reverse_add_opinion_modifier = {
+					target = NEA modifier = tacit_agreement
+				}
+			}
+		}
+	}
+
+	# Enter negotiations with Communist China
+	option = {
+		name = rcmsoviet.18.a
+		ai_chance = {
+			base = 20
+			modifier = {
+				add = -20
+				has_game_rule = {
+					rule = NEA_AI_BEHAVIOR
+					option = NEVER_CONCEDE
+				}
+			}
+		}
+		custom_effect_tooltip = THIS_IS_HISTORICAL_TT
+		PRC = { country_event = { id = rcmsoviet.19 days = 1 } }
+		PRC = { dismantle_faction = yes }
+	}
+
+	# Refuse to negotiate
+	option = {
+		name = rcmsoviet.18.b
+		NEA = { country_event = { id = rcmsoviet.20 days = 1 } }
+		ai_chance = {
+			base = 0
+			modifier = {
+				add = 20
+				has_game_rule = {
+					rule = NEA_AI_BEHAVIOR
+					option = NEVER_CONCEDE
+				}
+			}
+			#modifier = {
+			#	add = 300
+			#	NEA = { has_war_with = CHI }
+			#}
+		}
+		custom_effect_tooltip = CHI_usa_civil_war_warning_fire_now_tt
+		effect_tooltip = {
+			if = {
+				limit = {
+					SHD = {
+						is_subject_of = ROOT
+					}
+				}
+				end_puppet = SHD
+			}	
+			CHI = {
+				declare_war_on = {
+					target = PRC
+					type = annex_everything
+				}
+			}
+			CHI = {
+				declare_war_on = {
+					target = NEA
+					type = annex_everything
+				}
+			}
+		}
+		set_global_flag = CHI_no_national_front_flag
+		#custom_effect_tooltip = CHI_no_united_front
+	}
+}
+
+# Xi'an Incident - Communist China
+country_event = {
+	id = rcmsoviet.19
+	title = rcmsoviet.19.t
+	desc = rcmsoviet.19.d
+	picture = GFX_report_event_japanese_chinese_surrender
+
+	is_triggered_only = yes
+
+	# Agree to a truce only otp
+	option = {
+		name = rcmsoviet.19.a
+		ai_chance = { factor = 100 }
+		#custom_effect_tooltip = chinese_sov_rep_dissolves
+		#hidden_effect = {
+			#set_cosmetic_tag = PRC_SGN
+		#}
+		
+		
+		hidden_effect = {#GUO
+			if = {
+				limit = {
+				not = { has_global_flag = Secret_Northwest_Alliance }
+				}
+				news_event = {
+					id = efm_news.1014
+				}
+			}
+			NEA = {
+				drop_cosmetic_tag = yes
+			}
+		}
+		if = {#GUO
+				limit = {
+					has_war_with = NEA
+				}
+				NEA = {
+					white_peace = PRC
+				}
+			}
+		if = {#GUO
+		limit = { has_war_with = SHX
+		not = { has_global_flag = Secret_Northwest_Alliance }
+		}
+		white_peace = SHX
+		set_truce = { target = SHX days = 365 }
+		}
+		if = {#GUO
+		limit = { has_global_flag = Secret_Northwest_Alliance }
+		unlock_decision_tooltip = opposition_clashes_with_CHI
+		}
+		
+		set_global_flag = CHI_unite_PRC
+		remove_opinion_modifier = { target = CHI modifier = hostile_status }
+		CHI = {
+			remove_opinion_modifier = { target = PRC modifier = hostile_status }
+		}
+		set_global_flag = second_unite_bypass
+		CHI = { unlock_national_focus = CHI_Truce_of_the_Civil_War }
+		CHI = {
+			white_peace = PRC
+		    diplomatic_relation = {
+                country = PRC
+                relation = non_aggression_pact
+            }
+		}
+		every_country = {
+			limit = {
+                is_in_faction_with = CHI
+				NOT = { tag = CHI }
+            }
+			white_peace = PRC
+			white_peace = GXC
+			white_peace = GUD
+        }
+		every_country = {
+			limit = {
+                is_in_faction_with = PRC
+				NOT = { tag = PRC }
+            }
+			white_peace = CHI
+            diplomatic_relation = {
+                country = CHI
+                relation = non_aggression_pact
+            }
+		}
+		NEA = {
+			country_event = { id = rcmsoviet.21 days = 1 }
+		}
+	}
+}
+
+# Xi'an Incident - Kuomintang Refuses (to NEA)
+country_event = {
+	id = rcmsoviet.20
+	title = rcmsoviet.20.t
+	desc = rcmsoviet.20.d
+	picture = GFX_report_event_chiang_speech
+
+	is_triggered_only = yes
+	immediate = {
+		clr_global_flag = chiang_in_xian
+	}
+	option = {
+		name = rcmsoviet.20.a
+		hidden_effect = {
+			CHI = {
+				set_country_flag = im_civ_war_exception
+				#country_event = { hours = 6 id = rcmchina.314 }
+			}
+			#country_event = { hours = 5 id = nea.3 }
+		}
+		CHI = {	
+			start_civil_war = {
+				ideology = neutrality size = 0.25
+				#states = { 603 602 600 595 751 596 1035 1032 613 1015 751 749 606 597 1028 }
+				states = { 607 620 1043 }
+				keep_unit_leaders_trigger = {
+					NOT = {
+						has_id = 2030
+						has_id = 2031
+						has_id = 3010
+					}
+				}
+			}
+			kill_country_leader = yes
+			#create_country_leader = {
+			#	name = "He Yingqin"
+			#	desc = ""
+			#	picture = "Portrait_CHI_He_Yingqin.dds"
+			#	expire = "1965.1.1"
+			#	ideology = sanmin_political_tutelage
+			#	traits = {
+			#		army_chief_organizational_3
+			#	}
+			#}
+			CHI_he_yingqin = { 
+				add_country_leader_role = {
+					promote_leader = yes
+					country_leader = {
+						expire = "1965.1.1"
+						ideology = sanmin_political_tutelage
+						traits = {
+							#army_chief_organizational_3
+							generallissimo
+						}
+					} 
+				}
+				add_trait = {
+					ideology = sanmin_political_tutelage
+					trait = generallissimo #army_chief_organizational_3
+				}
+			}
+			#create_country_leader = {
+			#	name = "Chen Guofu"
+			#	desc = ""
+			#	picture = "Portrait_Chen_Guofu.dds"
+			#	expire = "1965.1.1"
+			#	ideology = sanmin_military_rule
+			#	traits = {
+			#	}
+			#}
+			retire_ideology_leader = fascism
+			chen_guofu = {
+				add_country_leader_role = {
+					promote_leader = yes
+					country_leader = {
+						expire = "1965.1.1"
+						ideology = sanmin_military_rule
+						traits = {
+						}
+					} 
+				}
+			}
+			set_country_flag = he_yingqin_in_charge
+			set_global_flag = purged_by_yang_hucheng
+			hidden_effect = {
+				add_ideas = CHI_he_yingqin
+				remove_ideas = CHI_he_yingqin
+			}
+			add_popularity = {
+				ideology = neutrality
+				popularity = 0.40
+			}
+			effect_tooltip = {
+				remove_ideas = chiang
+			}
+			effect_tooltip = {
+				remove_unit_leader = 2030
+				remove_unit_leader = 2031
+				remove_unit_leader = 3010
+			}
+			custom_effect_tooltip = remove_military_high_command
+			show_ideas_tooltip = CHI_wei_lihuang
+			custom_effect_tooltip = remove_military_high_command
+			show_ideas_tooltip = CHI_jiang_dingwen
+			custom_effect_tooltip = remove_chief_of_army
+			show_ideas_tooltip = CHI_chen_cheng
+
+			hidden_effect = {
+				news_event = { id = efm_news.1016 }
+				remove_ideas = CHI_wei_lihuang
+				remove_ideas = CHI_jiang_dingwen
+				remove_ideas = CHI_chen_cheng
+				remove_ideas = chiang
+				remove_ideas = chiang1
+				remove_ideas = chiang2
+				remove_ideas = chiang3
+				remove_ideas = chiang_better
+			}
+		}
+		country_event = {
+			id = rcmchina.338
+		}
+		hidden_effect = {
+			random_other_country = {
+				limit = {
+					original_tag = CHI
+					NOT = {
+						tag = CHI
+					}
+				}
+				NEA = {
+					annex_country = {
+						target = PREV
+						transfer_troops = yes
+					}
+				}
+			}
+			CHI = {
+				end_puppet = NEA
+				end_puppet = NEA
+			}
+			declare_war_on = {
+				target = CHI
+				type = annex_everything
+			}
+			NEA = {
+				add_to_war = {
+					targeted_alliance = PRC
+					enemy = CHI
+				}
+			}
+			#set_country_flag = yang_hucheng_in_charge
+		}
+		hidden_effect = {
+			CHI = {
+				country_event = { hours = 6 id = rcmchina.315 }
+			}
+			set_global_flag = CHI_xian_refused
+		}
+		PRC = {
+			add_to_war = {
+				targeted_alliance = NEA
+				enemy = CHI
+			}
+		}
+
+	}
+}
+
+# Xi'an Incident - Truce (to NEA)
+country_event = {
+	id = rcmsoviet.21
+	title = rcmsoviet.21.t
+	desc = rcmsoviet.21.d
+	picture = GFX_report_event_chinese_japanese_handshake
+
+	is_triggered_only = yes
+	immediate = {
+		clr_global_flag = chiang_in_xian
+	}
+	option = { #concede
+		name = rcmsoviet.21.a
+		trigger = {
+			tag = NEA
+			NOT = {
+				has_global_flag = Secret_Northwest_Alliance
+			}
+		}
+		ai_chance = {
+			base = 100
+			modifier = {
+				add = -25
+				NOT = {
+					has_game_rule = {
+						rule = NEA_AI_BEHAVIOR
+						option = HISTORICAL
+					}
+				}
+				OR = {
+					is_historical_focus_on = no
+					has_game_rule = {
+						rule = NEA_AI_BEHAVIOR
+						option = AHISTORICAL
+					}
+				}
+			}
+			modifier = {
+				factor = 0
+				has_global_flag = Secret_Northwest_Alliance
+			}
+			modifier = {
+				factor = 0
+				has_game_rule = {
+					rule = NEA_AI_BEHAVIOR
+					option = NEVER_CONCEDE
+				}
+			}
+			modifier = {
+				add = 100
+				has_game_rule = {
+					rule = NEA_AI_BEHAVIOR
+					option = ALWAYS_CONCEDE
+				}
+			}
+		}
+		custom_effect_tooltip = THIS_IS_HISTORICAL_TT
+		effect_tooltip = {
+			PRC = { remove_opinion_modifier = { target = CHI modifier = hostile_status } }
+			CHI = { remove_opinion_modifier = { target = PRC modifier = hostile_status } }
+		}
+		every_unit_leader = {
+			limit = {
+				NOT = {
+					OR = {
+						has_id = 2504
+						has_id = 3001
+					}
+				}
+			}
+			set_nationality = CHI
+		}
+		CHI = {
+			annex_country = {
+				target = NEA
+				transfer_troops = yes
+			}
+		}
+		hidden_effect = {
+			CHI = {
+				country_event = { hours = 6 id = rcmchina.313 }
+			}
+		}
+		custom_effect_tooltip = GAME_OVER_TT
+	}
+	option = { #backstab
+		name = rcmsoviet.21.b
+		trigger = {
+			tag = NEA
+		}		
+		ai_chance = {
+			base = 0
+			modifier = {
+				add = 25
+				NOT = {
+					has_game_rule = {
+						rule = NEA_AI_BEHAVIOR
+						option = HISTORICAL
+					}
+				}
+				OR = {
+					is_historical_focus_on = no
+					has_game_rule = {
+						rule = NEA_AI_BEHAVIOR
+						option = AHISTORICAL
+					}
+				}
+			}
+			modifier = {
+				add = 100
+				has_global_flag = Secret_Northwest_Alliance
+			}
+			modifier = {
+				add = 100
+				has_game_rule = {
+					rule = NEA_AI_BEHAVIOR
+					option = NEVER_CONCEDE
+				}
+			}
+			modifier = {
+				factor = 0
+				has_game_rule = {
+					rule = NEA_AI_BEHAVIOR
+					option = ALWAYS_CONCEDE
+				}
+			}
+		}
+		if = {
+			limit = {
+				is_historical_focus_on = no
+			}
+			custom_effect_tooltip = THEY_MIGHT_STILL_PROCEED_WITH_THE_COUP_tt
+		}
+		clr_global_flag = CHI_unite_PRC
+		hidden_effect = {
+			CHI = {
+				set_country_flag = im_civ_war_exception
+				country_event = { hours = 6 id = rcmchina.314 }
+			}
+			#country_event = { hours = 5 id = nea.3 }
+		}
+		#create_country_leader = {
+		#	name = "Yang Hucheng"
+		#	desc = ""
+		#	picture = "Portrait_NWA_Yang_Hucheng.dds"
+		#	expire = "1938.1.20"
+		#	ideology = despotism
+		#}
+		NEA_yang_hucheng = {
+			add_country_leader_role = {
+				promote_leader = yes
+				country_leader = {
+					expire = "1965.1.1"
+					ideology = despotism
+					traits = {#guo
+					emergency_powers
+					hawk
+					education_reformer
+					}
+				} 
+			} 
+		}
+		hidden_effect = {
+			#create_country_leader = {
+			#	name = "Yang Hucheng"
+			#	desc = ""
+			#	picture = "Portrait_NWA_Yang_Hucheng.dds"
+			#	expire = "1938.1.20"
+			#	ideology = marxism
+			#}
+			#create_country_leader = {
+			#	name = "Yang Hucheng"
+			#	desc = ""
+			#	picture = "Portrait_NWA_Yang_Hucheng.dds"
+			#	expire = "1938.1.20"
+			#	ideology = fascism_ideology
+			#}
+			#create_country_leader = {
+			#	name = "Yang Hucheng"
+			#	desc = ""
+			#	picture = "Portrait_NWA_Yang_Hucheng.dds"
+			#	expire = "1938.1.20"
+			#	ideology = n_socialism_ideology
+			#}
+			#create_country_leader = {
+			#	name = "Yang Hucheng"
+			#	desc = ""
+			#	picture = "Portrait_NWA_Yang_Hucheng.dds"
+			#	expire = "1938.1.20"
+			#	ideology = liberalism
+			#}
+			NEA_yang_hucheng = {
+				add_country_leader_role = {
+					promote_leader = yes
+					country_leader = {
+						expire = "1965.1.1"
+						ideology = marxism
+						traits = {#guo
+					emergency_powers
+					hawk
+					education_reformer
+					}
+					} 
+				}
+				add_country_leader_role = {
+					promote_leader = yes
+					country_leader = {
+						expire = "1965.1.1"
+						ideology = n_socialism_ideology
+						traits = {#guo
+					emergency_powers
+					hawk
+					education_reformer
+					}
+					} 
+				}
+				add_country_leader_role = {
+					promote_leader = yes
+					country_leader = {
+						expire = "1965.1.1"
+						ideology = fascism_ideology
+						traits = {#guo
+					emergency_powers
+					hawk
+					education_reformer
+					}
+					} 
+				}	
+				add_country_leader_role = {
+					promote_leader = yes
+					country_leader = {
+						expire = "1965.1.1"
+						ideology = liberalism
+						traits = {#guo
+					emergency_powers
+					hawk
+					education_reformer
+					}
+					} 
+				}				
+			}
+		}
+		CHI = {
+			start_civil_war = {
+				ideology = neutrality size = 0.15
+				#states = { 603 602 600 595 751 596 1035 1032 613 1015 751 749 606 597 1028 }
+				states = { 607 620 1043 756 }
+				keep_unit_leaders_trigger = {
+					NOT = {
+						has_id = 2030
+						has_id = 2031
+						has_id = 3010
+					}
+				}
+			}
+			kill_country_leader = yes
+			CHI_he_yingqin = { 
+				add_country_leader_role = {
+					promote_leader = yes
+					country_leader = {
+						expire = "1965.1.1"
+						ideology = sanmin_political_tutelage
+						traits = {
+							#army_chief_organizational_3
+							generallissimo
+						}
+					} 
+				}
+				add_trait = {
+					ideology = sanmin_political_tutelage
+					trait = generallissimo #army_chief_organizational_3
+				}
+			}
+			#create_country_leader = {
+			#	name = "Chen Guofu"
+			#	desc = ""
+			#	picture = "Portrait_Chen_Guofu.dds"
+			#	expire = "1965.1.1"
+			#	ideology = sanmin_military_rule
+			#	traits = {
+			#	}
+			#}
+			retire_ideology_leader = fascism
+			chen_guofu = {
+				add_country_leader_role = {
+					promote_leader = yes
+					country_leader = {
+						expire = "1965.1.1"
+						ideology = sanmin_military_rule
+						traits = {
+						}
+					} 
+				}
+			}
+			set_country_flag = he_yingqin_in_charge
+			set_global_flag = purged_by_yang_hucheng
+			hidden_effect = {
+				add_ideas = CHI_he_yingqin
+				remove_ideas = CHI_he_yingqin
+			}
+			end_puppet = SHD
+			add_popularity = {
+				ideology = neutrality
+				popularity = 0.40
+			}
+			effect_tooltip = {
+				remove_ideas = chiang
+			}
+			effect_tooltip = {
+				remove_unit_leader = 2030
+				remove_unit_leader = 2031
+				remove_unit_leader = 3010
+			}
+			custom_effect_tooltip = remove_military_high_command
+			show_ideas_tooltip = CHI_wei_lihuang
+			custom_effect_tooltip = remove_military_high_command
+			show_ideas_tooltip = CHI_jiang_dingwen
+			custom_effect_tooltip = remove_chief_of_army
+			show_ideas_tooltip = CHI_chen_cheng
+			hidden_effect = {
+				remove_ideas = CHI_wei_lihuang
+				remove_ideas = CHI_jiang_dingwen
+				remove_ideas = CHI_chen_cheng
+				remove_ideas = chiang
+				remove_ideas = chiang1
+				remove_ideas = chiang2
+				remove_ideas = chiang3
+				remove_ideas = chiang_better
+			}
+		}
+		country_event = {
+			id = rcmchina.338
+		}
+		hidden_effect = {
+			random_other_country = {
+				limit = {
+					original_tag = CHI
+					NOT = {
+						tag = CHI
+					}
+				}
+				NEA = {
+					annex_country = {
+						target = PREV
+						transfer_troops = yes
+					}
+				}
+			}
+			CHI = {
+				end_puppet = NEA
+			}
+			declare_war_on = {
+				target = CHI
+				type = annex_everything
+			}
+			set_country_flag = yang_hucheng_in_charge
+		}
+
+		add_opinion_modifier = {
+			target = JAP modifier = hostile_status
+		}
+		reverse_add_opinion_modifier = {
+			target = JAP modifier = hostile_status
+		}
+		add_opinion_modifier = {
+			target = PRC modifier = offered_support
+		}
+		reverse_add_opinion_modifier = {
+			target = PRC modifier = offered_support
+		}
+		add_opinion_modifier = {
+			target = PRC modifier = tacit_agreement
+		}
+		reverse_add_opinion_modifier = {
+			target = PRC modifier = tacit_agreement
+		}
+		add_opinion_modifier = {
+			target = GXC modifier = offered_support
+		}
+		reverse_add_opinion_modifier = {
+			target = GXC modifier = offered_support
+		}
+		add_opinion_modifier = {
+			target = GUD modifier = offered_support
+		}
+		reverse_add_opinion_modifier = {
+			target = GUD modifier = offered_support
+		}
+		add_opinion_modifier = {
+			target = SIC modifier = offered_support
+		}
+		reverse_add_opinion_modifier = {
+			target = SIC modifier = offered_support
+		}
+		add_opinion_modifier = {
+			target = SHC modifier = offered_support
+		}
+		reverse_add_opinion_modifier = {
+			target = SHC modifier = offered_support
+		}
+		#add_opinion_modifier = {
+		#	target = SHD modifier = offered_support
+		#}
+		#reverse_add_opinion_modifier = {
+		#	target = SHD modifier = offered_support
+		#}
+	}
+	#option = {
+	#	name = rcmsoviet.21.c
+	#	trigger = {
+	##		TAG = PRC
+	#	}
+	#}
+	#option = {
+	#	name = rcmsoviet.21.e
+	#	trigger = {
+	#		TAG = CHI
+	#	}
+	#}
+}
+
+# Xi'an Incident - Communists Refuse
+country_event = {
+	id = rcmsoviet.22
+	title = rcmsoviet.22.t
+	desc = rcmsoviet.22.d
+	picture = GFX_report_event_chinese_officers
+
+	is_triggered_only = yes
+
+	option = {
+		name = rcmsoviet.22.a
+	}
+}
+country_event = {
+	id = rcmsoviet.1000
+	title = rcmsoviet.1000.t
+	desc = rcmsoviet.1000.d
+	picture = GFX_report_event_japanese_pow
+
+	fire_only_once = yes
+	mean_time_to_happen = {
+		days = 15
+	}
+	trigger = {
+		tag = SOV
+		owns_state = 219
+		has_war_with = event_target:WTT_current_china_leader
+		
+		if = {#guo
+			limit = { JAP = { is_subject = no } }
+			NOT = {
+				has_war_with = JAP
+			}
+		}
+		else = { always = yes }
+		
+		OR = {
+			612 = { is_controlled_by = event_target:WTT_current_china_leader }
+			715 = { is_controlled_by = event_target:WTT_current_china_leader }
+			716 = { is_controlled_by = event_target:WTT_current_china_leader }
+		}
+	}
+	option = {
+		name = rcmsoviet.1000.a
+		ai_chance = { factor = 100 }#guo
+		event_target:WTT_current_china_leader = {
+			country_event = { days = 5 id = rcmchina.227 }
+		}
+		hidden_effect = {
+			set_global_flag = retreat_from_CHI
+		}
+	}
+
+	option = {
+		name = rcmsoviet.1000.b
+		ai_chance = { factor = 0 }
+		hidden_effect = {
+			set_global_flag = retreat_from_CHI
+		}
+	}
+}
+# SOV demand peace from china2
+country_event = {
+	id = rcmsoviet.1001
+	title = rcmsoviet.1001.t
+	desc = rcmsoviet.1001.d
+	picture = GFX_report_event_japanese_pow2
+
+	fire_only_once = yes
+	trigger = {
+		tag = SOV
+		owns_state = 219
+		has_war_with = event_target:WTT_current_china_leader
+		
+		if = {#guo
+			limit = { JAP = { is_subject = no } }
+			NOT = {
+				has_war_with = JAP
+			}
+		}
+		else = { always = yes }
+		
+		AND = {
+			761 = { is_controlled_by = event_target:WTT_current_china_leader }
+			1008 = { is_controlled_by = event_target:WTT_current_china_leader }
+			608 = { is_controlled_by = event_target:WTT_current_china_leader }
+		}
+		OR = {
+			330 = { is_controlled_by = event_target:WTT_current_china_leader }
+			657 = { is_controlled_by = event_target:WTT_current_china_leader }
+			408 = { is_controlled_by = event_target:WTT_current_china_leader }
+		}
+	}
+	mean_time_to_happen = {
+		days = 2
+	}
+	option = {
+		name = rcmsoviet.1001.a
+		ai_chance = { factor = 100 }
+		event_target:WTT_current_china_leader = {
+			country_event = { days = 5 id = rcmchina.226 }
+		}
+		hidden_effect = {
+			set_global_flag = retreat_from_CHI
+		}
+	}
+}
+#jap sov pact
+country_event = {
+	id = rcmsoviet.1003
+	title = rcmsoviet.1003.t
+	desc = rcmsoviet.1003.d
+	picture = GFX_report_event_soviet_japanese_pact
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = { #accept
+		name = rcmsoviet.1003.a
+		ai_chance = {
+			base = 70
+			modifier = {
+				factor = 100
+				is_historical_focus_on = yes
+			}
+		}
+		JAP = {
+			add_ideas = jap_sov_pact
+			add_opinion_modifier = { target = SOV modifier = jap_sov_pact_opinion }
+			add_opinion_modifier = { target = SOV modifier = jap_sov_pact_opinion_trade }
+			set_global_flag = jap_sov_pact_flag
+			diplomatic_relation = {
+				country = SOV
+				relation = non_aggression_pact
+				active = yes
+			}
+		}
+		add_opinion_modifier = { target = JAP modifier = jap_sov_pact_opinion }
+		hidden_effect = { JAP = { country_event = { days = 2 id = rcmsoviet.1004 } } }
+		custom_effect_tooltip = prc_cant_contact_northeast_tt
+		#guoeffect_tooltip = {
+        #guo    event_target:WTT_communist_china = {
+		#guo		every_core_state = {
+		#guo			limit = {
+		#guo				is_MAN_state_for_liberation = yes
+		#guo			}
+		#guo			remove_core_of = event_target:WTT_communist_china
+		#guo		}
+		#guo	}
+		#guo}
+		event_target:WTT_communist_china = {
+			country_event = { days = 2 id = rcmsoviet.10044 } 
+		} 
+	}
+
+	option = { #refuse
+		name = rcmsoviet.1003.b
+		ai_chance = {
+			base = 30
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
+		}
+		JAP = { country_event = { days = 2 id = rcmsoviet.1005 } }
+	}
+}
+country_event = {
+	id = rcmsoviet.1004
+	title = rcmsoviet.1004.t
+	desc = rcmsoviet.1004.d
+	picture = GFX_report_event_generic_sign_treaty2
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = { #accept
+		name = rcmsoviet.1004.a
+	}
+}
+
+country_event = {
+	id = rcmsoviet.10044
+	title = rcmsoviet.10044.t
+	desc = rcmsoviet.10044.d
+	picture = GFX_report_event_generic_sign_treaty2
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = { #accept
+		name = rcmsoviet.10044.a
+		effect_tooltip = {
+			JAP = {
+				add_ideas = jap_sov_pact
+				add_opinion_modifier = { target = SOV modifier = jap_sov_pact_opinion }
+				add_opinion_modifier = { target = SOV modifier = jap_sov_pact_opinion_trade }
+				set_global_flag = jap_sov_pact_flag
+				diplomatic_relation = {
+					country = SOV
+					relation = non_aggression_pact
+					active = yes
+				}
+			}
+		}
+	    custom_effect_tooltip = prc_cant_contact_northeast_tt
+		every_state = {
+			limit = {
+				has_state_flag = commie_ridden_states
+				is_MAN_state_for_liberation = yes
+			}
+			set_border_war = no
+		    clr_state_flag = commie_ridden_states
+		}
+		every_state = { #guo
+				limit = {
+					is_MAN_state_for_liberation = yes
+					has_dynamic_modifier = { modifier = PRC_dongbeikanglian_genjudi scope = JAP }
+				}
+				clr_state_flag = PRC_dongbeikanglian_genjudi
+			    remove_dynamic_modifier = { modifier = PRC_dongbeikanglian_genjudi scope = JAP }
+		}
+		#guoevery_core_state = {
+		#guo	limit = {
+		#guo		is_MAN_state_for_liberation = yes
+		#guo	}
+		#guo	remove_core_of = ROOT
+		#guo}
+	}
+}
+
+country_event = {
+	id = rcmsoviet.1005
+	title = rcmsoviet.1005.t
+	desc = rcmsoviet.1005.d
+	picture = GFX_report_event_soviet_purge_trial
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = { #refuse
+		name = rcmsoviet.1005.a
+	}
+}
+country_event = { #drop pact with jap
+	id = rcmsoviet.1006
+	hidden = yes
+	fire_only_once = yes
+	trigger = {
+		tag = JAP
+		has_global_flag = jap_sov_pact_flag
+		NOT = { has_idea = jap_sov_pact }
+	}
+	mean_time_to_happen = {
+		days = 2
+	}
+	immediate = {
+		SOV = { remove_opinion_modifier = { target = JAP modifier = jap_sov_pact_opinion } }
+		remove_opinion_modifier = { target = SOV modifier = jap_sov_pact_opinion }
+		SOV = { remove_opinion_modifier = { target = JAP modifier = jap_sov_pact_opinion_trade } }
+		remove_opinion_modifier = { target = SOV modifier = jap_sov_pact_opinion_trade }
+		diplomatic_relation = {
+			country = SOV
+			relation = non_aggression_pact
+			active = no
+		}
+	}
+	option = {
+	}
+}
+
+country_event = { #renew the pact 1
+	id = rcmsoviet.1007
+	hidden = yes
+	trigger = {
+		tag = JAP
+		has_idea = jap_sov_pact
+		NOT = { has_global_flag = renew_pact }
+	}
+	mean_time_to_happen = {
+		days = 180
+	}
+	immediate = {
+		diplomatic_relation = {
+			country = SOV
+			relation = non_aggression_pact
+			active = no
+		}
+		diplomatic_relation = {
+			country = SOV
+			relation = non_aggression_pact
+			active = yes
+		}
+		set_global_flag = renew_pact
+	}
+	option = {
+	}
+}
+country_event = { #renew the pact 2
+	id = rcmsoviet.1008
+	hidden = yes
+	trigger = {
+		tag = JAP
+		has_idea = jap_sov_pact
+		has_global_flag = renew_pact
+	}
+	mean_time_to_happen = {
+		days = 180
+	}
+	immediate = {
+		diplomatic_relation = {
+			country = SOV
+			relation = non_aggression_pact
+			active = no
+		}
+		diplomatic_relation = {
+			country = SOV
+			relation = non_aggression_pact
+			active = yes
+		}
+		clr_global_flag = renew_pact
+	}
+	option = {
+	}
+}
+
+
+###################################################################
+# Japan Demands Withdrawal of SOV
+country_event = {
+	id = rcmsoviet.1009
+	title = rcmsoviet.1009.t
+	desc = rcmsoviet.1009.d
+	picture = GFX_report_event_japanese_officers
+	is_triggered_only = yes
+	option = { # Agree
+		name = rcmsoviet.1009.a
+		ai_chance = {
+			factor = 100#GUO
+		}
+		set_global_flag = CHI_SOV_ties_severed
+		JAP = {
+			country_event = { hours = 6 id = rcmjapan.81 }
+		}
+		CHI = {
+			country_event = { hours = 6 id = rcmchina.263 }
+			custom_effect_tooltip = remove_soviet_advisors
+		}
+	}
+	option = { # Refuse
+		name = rcmsoviet.1009.b
+		ai_chance = {
+			factor = 0
+		}
+		JAP = {
+			country_event = { hours = 6 id = rcmjapan.82 }
+		}
+	}
+}
+
+# SOV - Chinese Relations Poor, Mission Recalled
+country_event = {
+	id = rcmsoviet.1010
+	title = rcmsoviet.1010.t
+	desc = rcmsoviet.1010.d
+	picture = GFX_report_event_chinese_army_training
+	fire_only_once = yes
+	trigger = {
+		tag = SOV
+		CHI = {
+			OR = {
+				has_idea = CHI_pavel_zhigarev
+				has_idea = CHI_gregory_thor
+				has_idea = CHI_petr_anisimov
+				has_idea = CHI_pavel_rychagov
+			}
+		}
+		has_opinion = { target = CHI value < -40 }
+	}
+	mean_time_to_happen = {
+		days = 2
+	}
+	immediate = {
+		set_global_flag = CHI_SOV_ties_severed
+		CHI = { set_global_flag = SOV_recalled_advisors }
+	}
+	option = {
+		name = rcmsoviet.1010.a
+		CHI = {
+			country_event = { id = rcmchina.264 }
+		}
+	}
+}
+
+# SOV at war with China, Advisors Detained
+country_event = {
+	id = rcmsoviet.1011
+	title = rcmsoviet.1011.t
+	desc = rcmsoviet.1011.d
+	picture = GFX_report_event_german_detained_china
+	fire_only_once = yes
+	trigger = {
+		tag = SOV
+		CHI = {
+			OR = {
+				has_idea = CHI_pavel_zhigarev
+				has_idea = CHI_gregory_thor
+				has_idea = CHI_petr_anisimov
+				has_idea = CHI_pavel_rychagov
+			}
+		}
+		has_war_with = CHI
+	}
+	mean_time_to_happen = {
+		days = 2
+	}
+	immediate = {
+		CHI = { remove_ideas = CHI_pavel_zhigarev }
+		CHI = { remove_ideas = CHI_gregory_thor }
+		CHI = { remove_ideas = CHI_petr_anisimov }
+		CHI = { remove_ideas = CHI_pavel_rychagov }
+		set_global_flag = CHI_SOV_ties_severed
+	}
+	option = {
+		name = rcmsoviet.1011.a
+		CHI = {
+			country_event = { id = rcmchina.265 }
+		}
+	}
+}
+
+# SOV Agrees to Withdraw SOV advisors
+country_event = {
+	id = rcmjapan.81
+	title = rcmjapan.81.t
+	desc = rcmjapan.81.d
+	picture = GFX_report_event_german_detained_china
+
+	is_triggered_only = yes
+
+	option = {
+		name = rcmjapan.81.a
+	}
+}
+# SOV Refuses to Withdraw SOV advisors
+country_event = {
+	id = rcmjapan.82
+	title = rcmjapan.82.t
+	desc = rcmjapan.82.d
+	picture = GFX_report_event_german_advisors_remain
+
+	is_triggered_only = yes
+
+	option = {
+		name = rcmjapan.82.a
+	}
+	#option = { # Withdraw from the Anti-Comintern Pact
+	#	name = rcmjapan.82.b
+	#}
+}
+
+# SOV Withdraws Advisors
+country_event = {
+	id = rcmchina.263
+	title = rcmchina.263.t
+	desc = rcmchina.263.d
+	picture = GFX_report_event_chinese_army_training
+	is_triggered_only = yes
+	fire_only_once = yes#guo
+	immediate = {
+		hidden_effect = {
+			set_global_flag = SOV_recalled_advisors
+			remove_ideas = CHI_sov_pact
+			CHI = { remove_ideas = CHI_pavel_zhigarev }
+			CHI = { remove_ideas = CHI_gregory_thor }
+			CHI = { remove_ideas = CHI_petr_anisimov }
+			CHI = { remove_ideas = CHI_pavel_rychagov }
+		}
+	}
+	option = {
+		name = rcmchina.263.a
+		ai_chance = { factor = 100 }
+		custom_effect_tooltip = remove_soviet_advisors
+	}
+}
+# Chinese - SOV Relations Poor, Mission Recalled
+country_event = {
+	id = rcmchina.264
+	title = rcmchina.264.t
+	desc = rcmchina.264.d
+	picture = GFX_report_event_chinese_soldiers
+	is_triggered_only = yes
+	option = {
+		name = rcmchina.264.a
+	}
+}
+# China is at war with OV, Advisors Detained
+country_event = {
+	id = rcmchina.265
+	title = rcmchina.265.t
+	desc = rcmchina.265.d
+	picture = GFX_report_event_german_detained_china
+	is_triggered_only = yes
+	option = {
+		name = rcmchina.265.a
+	}
+}
+#############################################################
+#Volunteer to CHINA START
+country_event = {
+	id = rcmsoviet.1012
+	title = rcmsoviet.1012.t
+	desc = rcmsoviet.1012.d
+	picture = GFX_report_event_soviet_purge_trial
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = { #refuse
+		name = rcmsoviet.1012.a
+	}
+}
+country_event = {
+	id = rcmsoviet.1013
+	title = rcmsoviet.1013.t
+	desc = rcmsoviet.1013.d
+	picture = GFX_report_event_soviet_purge_trial
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = { #refuse
+		name = rcmsoviet.1013.a
+		event_target:WTT_current_china_leader = {
+			set_global_flag = second_term_sov_advisor
+			if = {
+				limit = {
+					has_idea = CHI_pavel_zhigarev
+				}
+				remove_ideas = CHI_pavel_zhigarev
+				hidden_effect = {
+					add_ideas = CHI_pavel_zhigarev
+					remove_ideas = CHI_pavel_zhigarev
+				}
+				add_ideas = CHI_gregory_thor
+			}
+			if = {
+				limit = {
+					NOT = {
+						has_idea = CHI_pavel_zhigarev
+					}
+				}
+				custom_effect_tooltip = remove_foreign_advisor
+				show_ideas_tooltip = CHI_pavel_zhigarev
+				hidden_effect = {
+					add_ideas = CHI_pavel_zhigarev
+					remove_ideas = CHI_pavel_zhigarev
+					add_ideas = CHI_pavel_zhigarev
+					remove_ideas = CHI_pavel_zhigarev
+				}
+				custom_effect_tooltip = available_foreign_advisor
+				show_ideas_tooltip = CHI_gregory_thor
+			}
+		}
+		hidden_effect = {
+			event_target:WTT_current_china_leader = { country_event = { id = rcmsoviet.1016 } }
+		}
+	}
+}
+country_event = {
+	id = rcmsoviet.1014
+	title = rcmsoviet.1014.t
+	desc = rcmsoviet.1014.d
+	picture = GFX_report_event_soviet_purge_trial
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = { #refuse
+		name = rcmsoviet.1014.a
+		event_target:WTT_current_china_leader = {
+			set_global_flag = third_term_sov_advisor
+			if = {
+				limit = {
+					has_idea = CHI_gregory_thor
+				}
+				remove_ideas = CHI_gregory_thor
+				hidden_effect = {
+					add_ideas = CHI_gregory_thor
+					remove_ideas = CHI_gregory_thor
+				}
+				add_ideas = CHI_petr_anisimov
+			}
+			if = {
+				limit = {
+					NOT = {
+						has_idea = CHI_gregory_thor
+					}
+				}
+				custom_effect_tooltip = remove_foreign_advisor
+				show_ideas_tooltip = CHI_gregory_thor
+				hidden_effect = {
+					#add_ideas = CHI_gregory_thor
+					remove_ideas = CHI_gregory_thor
+					#add_ideas = CHI_gregory_thor
+					remove_ideas = CHI_gregory_thor
+				}
+				custom_effect_tooltip = available_foreign_advisor
+				show_ideas_tooltip = CHI_petr_anisimov
+			}
+		}
+		hidden_effect = {
+			event_target:WTT_current_china_leader = { country_event = { id = rcmsoviet.1017 } }
+		}
+	}
+}
+country_event = {
+	id = rcmsoviet.1015
+	title = rcmsoviet.1015.t
+	desc = rcmsoviet.1015.d
+	picture = GFX_report_event_soviet_purge_trial
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		name = rcmsoviet.1015.a
+		event_target:WTT_current_china_leader = {
+			set_global_flag = fourth_term_sov_advisor
+			if = {
+				limit = {
+					has_idea = CHI_petr_anisimov
+				}
+				remove_ideas = CHI_petr_anisimov
+				hidden_effect = {
+					add_ideas = CHI_petr_anisimov
+					remove_ideas = CHI_petr_anisimov
+				}
+				add_ideas = CHI_pavel_rychagov
+			}
+			if = {
+				limit = {
+					NOT = {
+						has_idea = CHI_petr_anisimov
+					}
+				}
+				custom_effect_tooltip = remove_foreign_advisor
+				show_ideas_tooltip = CHI_petr_anisimov
+				hidden_effect = {
+					#add_ideas = CHI_petr_anisimov
+					remove_ideas = CHI_petr_anisimov
+					#add_ideas = CHI_petr_anisimov
+					remove_ideas = CHI_petr_anisimov
+				}
+				custom_effect_tooltip = available_foreign_advisor
+				show_ideas_tooltip = CHI_pavel_rychagov
+			}
+		}
+		hidden_effect = {
+			event_target:WTT_current_china_leader = { country_event = { id = rcmsoviet.1018 } }
+		}
+	}
+}
+#####
+country_event = {
+	id = rcmsoviet.1016
+	title = rcmsoviet.1016.t
+	desc = rcmsoviet.1016.d
+	picture = GFX_report_event_soviet_purge_trial
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = { #new soviet advisors
+		name = rcmsoviet.1016.a
+		effect_tooltip = {
+			if = {
+				limit = {
+					has_idea = CHI_gregory_thor
+				}
+				remove_ideas = CHI_pavel_zhigarev
+				add_ideas = CHI_gregory_thor
+			}
+			if = {
+				limit = {
+					NOT = {
+						has_idea = CHI_gregory_thor
+					}
+				}
+				custom_effect_tooltip = remove_foreign_advisor
+				show_ideas_tooltip = CHI_pavel_zhigarev
+				custom_effect_tooltip = available_foreign_advisor
+				show_ideas_tooltip = CHI_gregory_thor
+			}
+		}
+	}
+}
+country_event = {
+	id = rcmsoviet.1017
+	title = rcmsoviet.1017.t
+	desc = rcmsoviet.1017.d
+	picture = GFX_report_event_soviet_purge_trial
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = { #new soviet advisors
+		name = rcmsoviet.1017.a
+		effect_tooltip = {
+			if = {
+				limit = {
+					has_idea = CHI_petr_anisimov
+				}
+				remove_ideas = CHI_gregory_thor
+				add_ideas = CHI_petr_anisimov
+			}
+			if = {
+				limit = {
+					NOT = {
+						has_idea = CHI_petr_anisimov
+					}
+				}
+				custom_effect_tooltip = remove_foreign_advisor
+				show_ideas_tooltip = CHI_gregory_thor
+				custom_effect_tooltip = available_foreign_advisor
+				show_ideas_tooltip = CHI_petr_anisimov
+			}
+		}
+	}
+}
+
+
+country_event = {
+	id = rcmsoviet.1018
+	title = rcmsoviet.1018.t
+	desc = rcmsoviet.1018.d
+	picture = GFX_report_event_soviet_purge_trial
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = { #new soviet advisors
+		name = rcmsoviet.1018.a
+		effect_tooltip = {
+			if = {
+				limit = {
+					has_idea = CHI_pavel_rychagov
+				}
+				remove_ideas = CHI_petr_anisimov
+				add_ideas = CHI_pavel_rychagov
+			}
+			if = {
+				limit = {
+					NOT = {
+						has_idea = CHI_pavel_rychagov
+					}
+				}
+				custom_effect_tooltip = remove_foreign_advisor
+				show_ideas_tooltip = CHI_petr_anisimov
+				custom_effect_tooltip = available_foreign_advisor
+				show_ideas_tooltip = CHI_pavel_rychagov
+			}
+		}
+	}
+}
+
+#chi sov pact
+country_event = {
+	id = rcmsoviet.1023
+	title = rcmsoviet.1023.t
+	desc = rcmsoviet.1023.d
+	picture = GFX_report_event_soviet_chianese_pact
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = { #accept
+		name = rcmsoviet.1023.a
+		ai_chance = {
+			base = 90
+			modifier = {
+				factor = 100
+				is_historical_focus_on = yes
+			}
+		}
+		FROM = {
+			if = {
+				limit = {
+					tag = event_target:WTT_communist_china
+				}
+				add_timed_idea = { days = 1200 idea = PRC_sov_pact }
+			}
+			else = {
+				add_timed_idea = { days = 1200 idea = CHI_sov_pact }
+			}
+			add_opinion_modifier = { target = SOV modifier = CHI_sov_pact_opinion }
+			add_opinion_modifier = { target = SOV modifier = CHI_sov_pact_opinion_trade }
+			set_country_flag = CHI_sov_pact_flag
+			diplomatic_relation = {
+				country = SOV
+				relation = non_aggression_pact
+				active = yes
+			}
+			if = {
+				limit = {
+					has_dlc = "Arms Against Tyranny"
+				}
+				add_equipment_subsidy = {
+					cic = 2000
+					equipment_type = infantry_equipment
+					#equipment_type = support_equipment
+					#equipment_type = artillery_equipment
+					seller_tags = { SOV }
+				}
+			}
+		}
+		add_opinion_modifier = { target = FROM modifier = CHI_sov_pact_opinion }
+		hidden_effect = { FROM = { country_event = { days = 2 id = rcmsoviet.1024 } } }
+	}
+
+	option = { #refuse
+		name = rcmsoviet.1023.b
+		ai_chance = {
+			base = 10
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
+		}
+		FROM = { country_event = { days = 2 id = rcmsoviet.1025 } }
+	}
+}
+country_event = {
+	id = rcmsoviet.1024
+	title = rcmsoviet.1024.t
+	desc = rcmsoviet.1024.d
+	picture = GFX_report_event_generic_sign_treaty2
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = { #accept
+		name = rcmsoviet.1024.a
+		effect_tooltip = {
+			if = {
+				limit = {
+					tag = event_target:WTT_communist_china
+				}
+				add_timed_idea = { days = 1200 idea = PRC_sov_pact }
+			}
+			else = {
+				add_timed_idea = { days = 1200 idea = CHI_sov_pact }
+			}
+			add_opinion_modifier = { target = SOV modifier = CHI_sov_pact_opinion }
+			add_opinion_modifier = { target = SOV modifier = CHI_sov_pact_opinion_trade }
+			set_country_flag = CHI_sov_pact_flag
+			diplomatic_relation = {
+				country = SOV
+				relation = non_aggression_pact
+				active = yes
+			}
+			if = {
+				limit = {
+					has_dlc = "Arms Against Tyranny"
+				}
+				add_equipment_subsidy = {
+					cic = 2000
+					equipment_type = infantry_equipment
+					#equipment_type = support_equipment
+					#equipment_type = artillery_equipment
+					seller_tags = { SOV }
+				}
+			}
+			SOV = {
+				add_opinion_modifier = { target = FROM modifier = CHI_sov_pact_opinion }
+			}
+		}
+	}
+}
+country_event = {
+	id = rcmsoviet.1025
+	title = rcmsoviet.1025.t
+	desc = rcmsoviet.1025.d
+	picture = GFX_report_event_soviet_purge_trial
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = { #refuse
+		name = rcmsoviet.1025.a
+	}
+}
+country_event = { #drop pact with chi
+	id = rcmsoviet.1026
+	hidden = yes
+	fire_only_once = yes
+	trigger = {
+		has_country_flag = CHI_sov_pact_flag
+		NOT = { has_idea = CHI_sov_pact }
+		NOT = { has_idea = PRC_sov_pact }
+	}
+	immediate = {
+		SOV = { remove_opinion_modifier = { target = ROOT modifier = CHI_sov_pact_opinion } }
+		remove_opinion_modifier = { target = SOV modifier = CHI_sov_pact_opinion }
+		SOV = { remove_opinion_modifier = { target = ROOT modifier = CHI_sov_pact_opinion_trade } }
+		remove_opinion_modifier = { target = SOV modifier = CHI_sov_pact_opinion_trade }
+		diplomatic_relation = {
+			country = SOV
+			relation = non_aggression_pact
+			active = no
+		}
+	}
+	option = {
+	}
+}
+
+country_event = { #renew the pact 1
+	id = rcmsoviet.1027
+	hidden = yes
+	trigger = {
+		has_country_flag = CHI_sov_pact_flag
+		OR = {
+			has_idea = CHI_sov_pact
+			has_idea = PRC_sov_pact
+		}
+		NOT = { has_country_flag = renew_pact_sino_soviet }
+	}
+	mean_time_to_happen = {
+		days = 180
+	}
+	immediate = {
+		diplomatic_relation = {
+			country = SOV
+			relation = non_aggression_pact
+			active = no
+		}
+		diplomatic_relation = {
+			country = SOV
+			relation = non_aggression_pact
+			active = yes
+		}
+		set_country_flag = renew_pact_sino_soviet
+	}
+	option = {
+	}
+}
+country_event = { #renew the pact 2
+	id = rcmsoviet.1028
+	hidden = yes
+	trigger = {
+		#tag = CHI
+		OR = {
+			has_idea = CHI_sov_pact
+			has_idea = PRC_sov_pact
+		}
+		has_country_flag = renew_pact_sino_soviet
+	}
+	mean_time_to_happen = {
+		days = 180
+	}
+	immediate = {
+		diplomatic_relation = {
+			country = SOV
+			relation = non_aggression_pact
+			active = no
+		}
+		diplomatic_relation = {
+			country = SOV
+			relation = non_aggression_pact
+			active = yes
+		}
+		clr_country_flag = renew_pact_sino_soviet
+	}
+	option = {
+	}
+}
+
+#Soviet Joins Allies?
+country_event = {
+	id = rcmsoviet.23
+	title = rcmsoviet.23.t
+	desc = rcmsoviet.23.d
+	picture = GFX_report_event_stalin_01
+	is_triggered_only = yes
+
+	option = { #accept
+		name = rcmsoviet.23.a
+		ai_chance = {
+			factor = 100
+		}
+		FROM = {
+			country_event = rcmsoviet.24
+			
+		}
+		effect_tooltip = {
+			FROM = {
+				dismantle_faction = yes
+				create_faction = allies_soviet_bloc
+				add_ideas = RCM_Comintern_moribund
+			}
+			diplomatic_relation = {#guo
+	country = FROM
+	relation = non_aggression_pact
+	active = yes
+}
+		}
+	}
+	#option = { #refuse
+	#	name = rcmsoviet.23.b
+	#	ai_chance = {
+	#		factor = 0
+	#	}
+	#	FROM = {
+	#		country_event = rcmsoviet.25
+	#	}
+	#}
+}
+#yes
+country_event = {
+	id = rcmsoviet.24
+	title = rcmsoviet.24.t
+	desc = rcmsoviet.24.d
+	picture = GFX_report_event_hitler_handshake
+	is_triggered_only = yes
+
+	option = { #accept
+		name = rcmsoviet.24.a
+		hidden_effect = {
+			every_country = {
+				limit = {
+					is_in_faction_with = ROOT
+				}
+				set_country_flag = former_comintern_member
+			}
+		}
+		dismantle_faction = yes
+		create_faction = allies_soviet_bloc
+		add_ideas = RCM_Comintern_moribund
+		
+		diplomatic_relation = {#guo
+	country = FROM
+	relation = non_aggression_pact
+	active = yes
+}
+add_ai_strategy = {
+		                                         type = befriend
+		                                         id = FROM
+		                                         value = 100
+	                                                }
+                                           add_ai_strategy = {
+		                                         type = support
+		                                         id = FROM
+		                                         value = 1
+	                                                }
+                                            add_ai_strategy = { #help you in other ways
+		              type = send_lend_lease_desire
+		              id = FROM
+		              value = 1
+	                             }
+FROM = {
+diplomatic_relation = {#guo
+	country = ROOT
+	relation = non_aggression_pact
+	active = yes
+}
+add_ai_strategy = {
+		                                         type = befriend
+		                                         id = ROOT
+		                                         value = 100
+	                                                }
+                                           add_ai_strategy = {
+		                                         type = support
+		                                         id = ROOT
+		                                         value = 1000
+	                                                }
+                                            add_ai_strategy = { #help you in other ways
+		              type = send_lend_lease_desire
+		              id = ROOT
+		              value = 1000
+	                             }
+}
+news_event = { id = zizhinews.34 days = 1 }
+		
+		hidden_effect = {
+			every_country = {
+				limit = {
+					has_country_flag = former_comintern_member
+				}
+				ROOT = {
+					add_to_faction = PREV
+				}
+			}
+			news_event = {
+				id = RCM_news.1
+			}
+		}
+	}
+}
+#no
+country_event = {
+	id = rcmsoviet.25
+	title = rcmsoviet.25.t
+	desc = rcmsoviet.25.d
+	picture = GFX_report_event_communist_leader
+	is_triggered_only = yes
+
+	option = { #accept
+		name = rcmsoviet.25.a
+	}
+}
+
+#Peace with Japan? to SOV
+country_event = {
+	id = rcmsoviet.26
+	title = rcmsoviet.26.t
+	desc = rcmsoviet.26.d
+	picture = GFX_report_event_japanese_chinese_surrender
+	is_triggered_only = yes
+
+	option = { #accept
+		name = rcmsoviet.26.a
+		ai_chance = {
+			factor = 100
+		}
+		FROM = {
+			country_event = rcmsoviet.27
+		}
+		custom_effect_tooltip = if_they_accept_green
+		effect_tooltip = {
+			JAP = {
+				every_owned_state = {
+					limit = {
+						is_controlled_by = ROOT
+						NOT = { state = 526 }
+					}
+					ROOT = {
+						transfer_state = PREV
+					}
+				}
+			    add_timed_idea = { idea = JAP_demilitarisation days = 2190 }
+			}
+			white_peace = JAP
+			if = {
+				limit = {
+					tag = SOV
+				}
+				if = {
+					limit = {
+						JAP = {
+							owns_state = 655 #South Sakhalin
+						}
+					}
+					transfer_state = 655
+				}
+			}
+			if = {
+				limit = {
+					tag = SOV
+				}
+				if = {
+					limit = {
+						controls_state = 537 #South Sakhalin
+					}
+					transfer_state = 537
+				}
+			}
+			if = {
+				limit = { #the one who dropped nukes get to puppet Japan
+					count_triggers = {
+						amount = 2
+						has_country_flag = I_drop_first_nuke
+						has_country_flag = I_drop_second_nuke
+						has_country_flag = I_drop_third_nuke
+					}
+				}
+				if = {
+					limit = {
+						has_dlc = "Man the Guns"
+					}
+					set_autonomy = {
+						target = JAP
+						autonomy_state = autonomy_supervised_state
+					}
+				}
+				else = {
+					puppet = JAP
+				}
+				add_timed_idea = { idea = JAP_demilitarisation days = 2190 }
+                custom_effect_tooltip = disband_all_troops_tt
+				every_state = {
+					JAP = {
+						delete_unit = {
+							state = PREV
+							disband = yes 
+						}
+					}	
+				}	
+				if = {
+					limit = {
+						has_government = democratic
+					}
+					JAP = {
+						set_cosmetic_tag = OCC_JAP
+						set_party_name = {
+							ideology = democratic
+							name = OCC_JAP_party_democratic
+							long_name = OCC_JAP_party_democratic_long
+						}
+					}
+				}
+				if = {
+					limit = {
+						tag = USA
+					}						
+					JAP = {							
+						create_country_leader = {
+							name = USA_douglas_macarthur
+							desc = "POLITICS_Douglas_MacArthur_DESC"
+							picture = "Portrait_Douglas_macarthur.dds"
+							expire = "1989.1.1"
+							ideology = conservatism
+							traits = {
+								refounder_of_japan
+							}
+						}
+					}
+				}
+			    if = {
+					limit = {
+						JAP = { owns_state = 526 }
+					}
+					transfer_state = 526
+				}
+			}
+			#	if = {
+			#		limit = {
+			#			any_enemy_country = {
+			#				original_tag = ROOT
+			#				OR = {
+			#					is_subject_of = JAP
+			#					is_subject_of = MAN
+			#				}
+			#			} 
+			#		}
+			#		random_enemy_country = {
+			#			limit = {
+			#				original_tag = ROOT
+			#				OR = {
+			#					is_subject_of = JAP
+			#					is_subject_of = MAN
+			#				}
+			#			}
+			#			ROOT = {
+			#				annex_country = {
+			#					target = PREV transfer_troops = no
+			#				}
+			#			}
+			#		}
+			#	}
+			
+		}
+	}
+	option = { #nah
+		name = rcmsoviet.26.b
+		ai_chance = {
+			factor = 0
+		}
+	}
+}
+
+#Peace with Soviet? to JAP
+country_event = {
+	id = rcmsoviet.27
+	title = rcmsoviet.27.t
+	desc = rcmsoviet.27.d
+	picture = GFX_report_event_japanese_chinese_surrender
+	is_triggered_only = yes
+
+	option = { #accept
+		name = rcmsoviet.27.a
+		ai_chance = {
+			factor = 100
+		}
+		#custom_effect_tooltip = disband_all_troops_tt 
+		every_owned_state = {
+			teleport_armies = { 
+				to_state = 282
+				limit = {
+					tag = JAP
+					# trigger will be checked for owner of armies and will only teleport if true. scope if the owner of the army and prev is the scope that calls teleport_armies
+				} 
+			}
+		}
+		for_each_scope_loop = {
+			array = global.big_china
+			tooltip = big_china_tt
+			#teleport_armies = { 
+			#	to_state = 282
+			#	limit = {
+			#		tag = JAP
+			#		# trigger will be checked for owner of armies and will only teleport if true. scope if the owner of the army and prev is the scope that calls teleport_armies
+			#	} 
+			#}
+			ROOT = {
+				delete_unit = {
+				    state = PREV
+				    disband = yes 
+			    }
+			}
+		}
+	    add_timed_idea = { idea = JAP_demilitarisation days = 2190 }
+		FROM = {
+			country_event = rcmsoviet.28			
+		}
+		for_each_scope_loop = {
+			array = this.subjects
+			tooltip = subjects_tt
+			every_owned_state = {
+				limit = {
+					CONTROLLER = {
+						OR = {
+							tag = FROM
+							is_ally_with = FROM
+						}
+					}
+				}
+				CONTROLLER = {
+					transfer_state = PREV
+				}			
+			}
+		}
+		every_owned_state = {
+			limit = {
+				CONTROLLER = {
+					OR = {
+						tag = FROM
+						is_ally_with = FROM
+					}
+				}
+			}
+			CONTROLLER = {
+				transfer_state = PREV
+			}			
+		}
+		#SOVIET
+		if = {
+			limit = {
+				FROM = {
+					tag = SOV
+				}
+			}
+			FROM = {
+				if = {
+					limit = {
+						JAP = {
+							owns_state = 555
+						}
+					}
+					transfer_state = 555
+				}
+				if = {
+					limit = {
+						JAP = {
+							owns_state = 537
+						}
+					}
+					transfer_state = 537
+				}
+				if = {
+					limit = {
+						JAP = {
+							owns_state = 745
+						}
+					}
+					transfer_state = 745
+				}
+				if = {
+					limit = {
+						controls_state = 328
+						controls_state = 716
+					}
+					annex_country = {
+						target = MAN transfer_troops = yes
+					}
+					annex_country = {
+						target = ECA transfer_troops = yes
+					}
+					annex_country = {
+						target = NSG transfer_troops = yes
+					}
+					annex_country = {
+						target = SCG transfer_troops = yes
+					}
+					annex_country = {
+						target = EHB transfer_troops = yes
+					}
+				}
+			}
+			
+		}
+		#USA
+		if = {
+			limit = {
+				FROM = {
+					is_in_faction_with = USA
+					USA = {
+						has_war_with = JAP
+					}
+				}
+			}
+			USA = {
+				if = {
+					limit = {
+						NOT = {
+							owns_state = 647
+						}
+					}
+					transfer_state = 647
+				}
+				if = {
+					limit = {
+						NOT = {
+							owns_state = 684
+						}
+					}
+					transfer_state = 684
+				}
+				if = {
+					limit = {
+						NOT = {
+							owns_state = 633
+						}
+					}
+					transfer_state = 633
+				}
+				if = {
+					limit = {
+						NOT = {
+							owns_state = 646
+						}
+					}
+					transfer_state = 646
+				}
+				if = {
+					limit = {
+						NOT = {
+							owns_state = 645
+						}
+					}
+					transfer_state = 645
+				}
+				if = {
+					limit = {
+						NOT = {
+							owns_state = 648
+						}
+					}
+					transfer_state = 648
+				}
+			}
+		}
+		white_peace = FROM
+		hidden_effect = {
+			every_enemy_country = {
+				limit = {
+					is_puppet = no
+					is_in_faction_with = FROM
+				}
+				white_peace = ROOT
+			}	
+		}
+		random_other_country = { #whoever nuked japan
+			limit = {
+				count_triggers = {
+					amount = 2
+					has_country_flag = I_drop_first_nuke
+					has_country_flag = I_drop_second_nuke
+					has_country_flag = I_drop_third_nuke
+				}
+			}
+			if = {
+				limit = {
+					NOT = {
+						owns_state = 526
+					}
+				}
+				transfer_state = 526
+			}
+			every_state = {
+				JAP = {
+					delete_unit = {
+						state = PREV
+						disband = yes 
+					}
+				}	
+			}	
+			if = {
+				limit = {
+					has_dlc = "Man the Guns"
+				}
+				if = {
+					limit = {
+						has_dlc = "Man the Guns"
+					}
+					set_autonomy = {
+						target = JAP
+						autonomy_state = autonomy_supervised_state
+					}
+				}
+				else = {
+					puppet = JAP
+				}
+				if = {
+					limit = {
+						has_government = democratic
+					}
+					JAP = {
+						set_cosmetic_tag = OCC_JAP
+						set_party_name = {
+							ideology = democratic
+							name = OCC_JAP_party_democratic
+							long_name = OCC_JAP_party_democratic_long
+						}
+					}
+				}
+				if = {
+					limit = {
+						tag = USA
+					}						
+					JAP = {							
+						create_country_leader = {
+							name = USA_douglas_macarthur
+							desc = "POLITICS_Douglas_MacArthur_DESC"
+							picture = "Portrait_Douglas_macarthur.dds"
+							expire = "1989.1.1"
+							ideology = conservatism
+							traits = {
+								refounder_of_japan
+							}
+						}
+					}
+				}
+			}
+			country_event = rcmsoviet.28
+		    white_peace = event_target:WTT_communist_china #1.11
+		}
+		#if = {
+		#	limit = {
+		#		ROOT = {
+		#			tag = SOV
+		#		}
+		#	}
+		#	FROM = {
+		#		if = {
+		#			limit = {
+		#				any_enemy_country = {
+		#					original_tag = ROOT
+		#					OR = {
+		#						is_subject_of = JAP
+		#						is_subject_of = MAN
+		#					}
+		#				} 
+		#			}
+		#			random_enemy_country = {
+		#				limit = {
+		#					original_tag = ROOT
+		#					OR = {
+		#						is_subject_of = JAP
+		#						is_subject_of = MAN
+		#					}
+		#				}
+		#				ROOT = {
+		#					annex_country = {
+		#						target = PREV transfer_troops = no
+		#					}
+		#				}
+		#			}
+		#		}
+		#		if = {
+		#			limit = {
+		#				controls_state = 537 #South Sakhalin
+		#			}
+		#			transfer_state = 537
+		#		}
+		#	}
+		#}		
+	}
+	option = { #refuse
+		name = rcmsoviet.27.b
+		ai_chance = {
+			factor = 0
+		}
+		FROM = {
+			country_event = rcmsoviet.29
+		}
+	}
+}
+country_event = {
+	id = rcmsoviet.28
+	title = rcmsoviet.28.t
+	desc = rcmsoviet.28.d
+	picture = GFX_report_event_japan_europe_pact
+	is_triggered_only = yes
+
+	option = { #accept
+		name = rcmsoviet.28.a
+	}
+}
+country_event = {
+	id = rcmsoviet.29
+	title = rcmsoviet.29.t
+	desc = rcmsoviet.29.d
+	picture = GFX_report_event_communist_leader
+	is_triggered_only = yes
+
+	option = { #refuse
+		name = rcmsoviet.29.a
+	}
+}
+
+#WAR ON RUSSIA
+country_event = {
+	id = rcmsoviet.30
+	title = rcmsoviet.30.t
+	desc = rcmsoviet.30.d
+	picture = GFX_report_event_soviet_invasion_map
+	is_triggered_only = yes
+	trigger = {		
+		NOT = {
+			OR = {
+				capital_scope = {
+					is_on_continent = asia
+				}
+				tag = FIN
+				tag = SWE
+				tag = DEN
+				tag = CAN
+				tag = MON
+				tag = ECA
+				tag = SIK
+				tag = TAN
+				tag = ICE
+				tag = CAN
+				tag = EST
+				tag = LAT
+				tag = LIT
+				tag = POL
+			}
+		}
+	}
+	option = { #accept
+		name = rcmsoviet.30.a
+		add_ideas = RCM_general_frost
+	}
+}
+
+#cede Petsamo
+country_event = {
+	id = rcmsoviet.31
+	title = rcmsoviet.31.t
+	desc = rcmsoviet.31.d
+	picture = GFX_report_event_soviet_invasion_map
+	#is_triggered_only = yes
+	fire_only_once = yes
+	trigger = {		
+		has_global_flag = had_yalta_conference
+		tag = SOV
+		FIN = {
+			NOT = {
+				has_war_with = SOV
+			}
+			is_puppet = no	
+		}
+		722 = {
+			is_owned_and_controlled_by = FIN
+		}
+		213 = {
+			is_owned_and_controlled_by = SOV
+		}
+		is_major = yes
+		num_of_controlled_states > 50
+		num_of_factories > 200
+	}
+	mean_time_to_happen = {
+		days = 5
+	}
+	option = { #accept
+		name = rcmsoviet.31.a
+		FIN = {
+			country_event = rcmsoviet.32
+		}		
+	}
+	option = { #accept
+		name = rcmsoviet.31.b
+		ai_chance = {
+			factor = 0
+		}
+	}
+}
+#FIN decide cede Petsamo or not
+country_event = {
+	id = rcmsoviet.32
+	title = rcmsoviet.32.t
+	desc = rcmsoviet.32.d
+	picture = GFX_report_event_soviet_invasion_map
+	is_triggered_only = yes
+	option = { #accept
+		name = rcmsoviet.32.a
+		ai_chance = {
+			factor = 4
+		}
+		effect_tooltip = {
+			FROM = {
+				transfer_state = 722
+				add_state_core = 722
+			}
+		}
+		FROM = {
+			country_event = rcmsoviet.34
+		}		
+	}
+	option = { #reject
+		name = rcmsoviet.32.b
+		ai_chance = {
+			factor = 3
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
+		}
+		FROM = {
+			country_event = rcmsoviet.33
+		}
+		custom_effect_tooltip = MAN_may_lead_to_war_with_from_tt
+	}
+}
+#fin reject
+country_event = {
+	id = rcmsoviet.33
+	title = rcmsoviet.33.t
+	desc = rcmsoviet.33.d
+	picture = GFX_report_event_soviet_invasion_map
+	is_triggered_only = yes
+	option = { #punish
+		name = rcmsoviet.33.a
+		ai_chance = {
+			factor = 4
+		}
+		declare_war_on = {
+			type = take_state_focus
+			target = FROM
+			generator = { 722 }
+		}
+		FROM = {
+			country_event = rcmsoviet.35
+		}		
+	}
+	option = { #ignore
+		name = rcmsoviet.33.b
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
+		}
+		FROM = {
+			country_event = rcmsoviet.36
+		}
+	}
+}
+#finaccept
+country_event = {
+	id = rcmsoviet.34
+	title = rcmsoviet.34.t
+	desc = rcmsoviet.34.d
+	picture = GFX_report_event_soviet_invasion_map
+	is_triggered_only = yes
+	option = { #accept
+		name = rcmsoviet.34.a
+		transfer_state = 722
+		add_state_core = 722
+	}
+}
+#fin got notified war
+country_event = {
+	id = rcmsoviet.35
+	title = rcmsoviet.35.t
+	desc = rcmsoviet.35.d
+	picture = GFX_report_event_soviet_invasion_map
+	is_triggered_only = yes
+	option = { #accept
+		name = rcmsoviet.35.a
+	}
+}
+#fin SOV is a pussy
+country_event = {
+	id = rcmsoviet.36
+	title = rcmsoviet.36.t
+	desc = rcmsoviet.36.d
+	picture = GFX_report_event_soviet_invasion_map
+	is_triggered_only = yes
+	option = { #accept
+		name = rcmsoviet.36.a
+	}
+}
+#UNHOLY ALLIANCE 2, for Yonai path
+country_event = {
+	id = rcmsoviet.88
+	title = rcmsoviet.88.t
+	desc = rcmsoviet.88.d
+	picture = GFX_report_event_molotov_ribbentrop_stalin_pact
+
+	immediate = {log = "[GetDateText]: [Root.GetName]: event rcmsoviet.88"}
+
+	fire_only_once = yes
+	trigger = {
+		GER = {
+			has_completed_focus = GER_mol_rib_pact
+		}
+		tag = SOV
+		has_government = communism
+		is_neighbor_of = GER 
+		NOT = {
+			has_war_with = GER
+		}
+		JAP = {
+			has_completed_focus = JAP_focus_war_effort_on_china_focus
+		}
+	}
+	mean_time_to_happen = {
+		days = 80
+	}
+	option = {
+		name = rcmsoviet.88.a
+		ai_chance = {
+			factor = 100
+		}
+		if = {
+			limit = { is_faction_leader = yes }
+			custom_effect_tooltip = ger_sov_buddies_tooltip_2
+		}
+		#custom_effect_tooltip = ger_sov_buddies_tooltip
+		add_ideas = soviet_german_friendship
+		GER = {
+			add_opinion_modifier = { target = SOV modifier = ger_sov_alliance_focus }
+			add_ideas = soviet_german_friendship
+			country_event = rcmsoviet.89
+		}
+	}
+	option = {
+		name = rcmsoviet.88.b
+		ai_chance = {
+			factor = 0
+		}
+	}
+}
+country_event = {
+	id = rcmsoviet.89
+	title = rcmsoviet.89.t
+	desc = rcmsoviet.89.d
+	picture = GFX_report_event_molotov_ribbentrop_stalin_pact
+
+	is_triggered_only = yes
+	
+	option = {
+		name = rcmsoviet.89.a
+		dismantle_faction = yes
+		add_stability = -0.05
+		set_global_flag = unholy_alliance_flag
+		every_other_country = {
+			limit = {
+				OR = {
+					AND = {
+						NOT = { tag = SOV }
+						has_government = communism 
+						NOT = {
+							is_in_faction_with = SOV
+						}
+					}
+					has_government = democratic 
+				}
+			}
+			add_opinion_modifier = { target = GER modifier = unholy_alliance }
+		}
+		GER = {
+			add_stability = -0.1
+		}
+		SOV = {
+			every_other_country = {
+				limit = {
+					is_in_faction_with = ROOT
+				}
+				set_country_flag = former_comintern_member_flag
+			}
+			every_other_country = {
+				limit = {
+					is_in_faction_with = GER
+				}
+				set_country_flag = former_axis_member_flag
+			}
+			if = {
+				limit = {
+					is_faction_leader = yes
+				}
+				dismantle_faction = yes
+			}
+			if = {
+				limit = {
+					is_in_faction  = yes
+				}
+				remove_from_faction = SOV
+			}
+			
+			create_faction = "the_moscow_Berlin_axis"
+			add_to_faction = GER
+			every_other_country = {
+				limit = {
+					OR = {
+						has_country_flag = former_axis_member_flag
+						has_country_flag = former_comintern_member_flag
+					}
+				}
+				ROOT = {
+					add_to_faction = PREV
+				}
+			}
+			add_named_threat = { threat = 10 name = rcmsoviet.89.t }
+			every_other_country = {
+				limit = {
+					NOT = {
+						is_in_faction_with = SOV
+					}
+					has_government = communism 
+				}
+				add_opinion_modifier = { target = SOV modifier = medium_decrease }
+			}
+			every_other_country = {
+				limit = {
+					has_government = democratic 
+				}
+				add_opinion_modifier = { target = GER modifier = unholy_alliance }
+			}
+		}
+		hidden_effect = { 
+			# Britain can rally democracies
+			ENG = {
+				country_event = { days = 3 id = britain.11 }
+			}
+			# US drops communism/fascism
+			USA = {
+				country_event = { id = usa.14 }
+				country_event = { id = usa.24 }
+			}
+		}
+	}
+	
+	option = {
+		name = rcmsoviet.89.b
+		ai_chance = { factor = 0 }
+		SOV = {
+			country_event = rcmsoviet.90
+			effect_tooltip = {
+				remove_ideas = soviet_german_friendship
+				create_wargoal = {
+					type = puppet_wargoal_focus
+					target = GER
+				}
+			}
+		}
+		remove_opinion_modifier = { target = SOV modifier = ger_sov_alliance_focus }
+		remove_ideas = soviet_german_friendship
+	}
+}
+
+country_event = {
+	id = rcmsoviet.90
+	title = rcmsoviet.90.t
+	desc = rcmsoviet.90.d
+	picture = GFX_report_event_stalin_02
+
+	is_triggered_only = yes
+	
+	option = {
+		name = rcmsoviet.90.a
+		remove_ideas = soviet_german_friendship
+		create_wargoal = {
+			type = take_state_focus
+			target = GER
+		}
+	}
+}
+
+country_event = { #MODDED
+	id = rcmsoviet.46
+	title = soviet.46.t
+	desc = soviet.46.d
+	picture = GFX_report_event_soldiers_marching
+
+	is_triggered_only = yes
+
+	trigger = {
+		#always = no #MODDED
+	}
+
+	immediate = {
+	}
+
+	option = {
+		name = soviet.46.a
+		add_dynamic_modifier = {
+			modifier = RCM_great_patriotic_war
+		}
+		#custom_effect_tooltip = soviet.46.a_tt
+	}
+}
+
+country_event = {
+	id = rcmsoviet.47
+	title = rcmsoviet.47.t
+	desc = rcmsoviet.47.d
+	picture = GFX_report_event_soldiers_marching
+
+	immediate = {log = "[GetDateText]: [Root.GetName]: event rcmsoviet.47"}
+
+	fire_only_once = yes
+	trigger = {
+		tag = SOV
+		is_in_faction_with = GER
+		JAP = {
+			has_completed_focus = JAP_focus_war_effort_on_china_focus
+			has_idea = jap_sov_pact
+		}
+		#is_justifying_wargoal_against = JAP
+		has_global_flag = unholy_alliance_flag
+		NOT = {
+			is_in_faction_with = JAP
+		}
+		JAP = {
+			NOT = {
+				has_completed_focus = JAP_second_konoe_cabinet_focus
+			}
+		}
+	}
+	option = {
+		name = rcmsoviet.47.a
+		ai_chance = {
+			factor = 1
+		}
+		JAP = {
+			country_event = rcmsoviet.48
+		}
+	}
+	option = {
+		name = rcmsoviet.47.b
+		ai_chance = {
+			factor = 0
+		}
+	}
+}
+country_event = {
+	id = rcmsoviet.48
+	title = rcmsoviet.48.t
+	desc = rcmsoviet.48.d
+	picture = GFX_report_event_soldiers_marching
+	is_triggered_only = yes
+	option = {
+		name = rcmsoviet.48.a
+		remove_ideas = jap_sov_pact
+	}
+}

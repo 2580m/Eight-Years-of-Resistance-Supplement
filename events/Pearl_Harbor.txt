@@ -1,0 +1,659 @@
+﻿###珍珠港事件###
+
+add_namespace = pearl
+
+#珍珠港事件(US)
+news_event = {#guo
+    id = pearl.1
+
+    title = pearl.1.t
+
+    picture = pearl_harbor_us_event
+
+    desc = pearl.1.d
+	
+    major = yes
+
+    is_triggered_only = yes
+    immediate = {
+	hidden_effect = {
+		
+	JAP = {
+	
+	        if = {
+			limit = {
+			PHI = { is_subject_of = USA }
+			}
+			declare_war_on = {
+					type = take_state_focus
+					target = PHI
+					generator = {
+					}
+				}
+				if = {
+				limit = {
+				PHI = { is_ai = yes }
+				}
+				division_template = {
+		name = "南洋派遣军"
+		regiments = {
+		            infantry = { x = 0 y = 0 }
+					infantry = { x = 0 y = 1 }
+					infantry = { x = 0 y = 2 }
+					infantry = { x = 0 y = 3 }
+                    infantry = { x = 0 y = 4 }
+					
+					infantry = { x = 1 y = 0 }
+					infantry = { x = 1 y = 1 }
+					infantry = { x = 1 y = 2 }
+					infantry = { x = 1 y = 3 }
+                    infantry = { x = 1 y = 4 }
+					
+					infantry = { x = 2 y = 0 }
+					infantry = { x = 2 y = 1 }
+					
+		artillery_brigade = { x = 3 y = 0 }
+		artillery_brigade = { x = 3 y = 1 }
+		artillery_brigade = { x = 3 y = 2 }
+		}
+		support = {
+		logistics_company = { x = 0 y = 0 } 
+		engineer = { x = 0 y = 1 }
+		artillery = { x = 0 y = 2 } 
+		anti_tank = { x = 0 y = 3 } 
+		anti_air = { x = 0 y = 4 }
+		}
+	            }
+				set_province_controller = 12213
+				set_province_controller = 10241
+				set_province_controller = 4101
+				623 = {
+		        create_unit = {
+				division = "name = \"南洋派遣军\" division_template = \"南洋派遣军\" start_experience_factor = 0.85 " 
+				owner = JAP
+				count = 5
+			    }
+				}
+				set_province_controller = 12253
+		set_province_controller = 1415
+		set_province_controller = 10280
+		       623 = {
+		create_unit = {
+				division = "name = \"南洋派遣军\" division_template = \"南洋派遣军\" start_experience_factor = 0.85 " 
+				owner = JAP
+				count = 5
+			}
+		        }
+				}
+			}
+			
+	declare_war_on = {
+							type = take_state_focus
+							target = USA
+							generator = {
+							}
+						}	
+						
+		if = {
+			limit = {
+			NOT = { has_war_with = ENG }
+			NOT = { is_in_faction_with = ENG }
+			NOT = { ENG = { is_in_faction_with = GER } }
+			NOT = { ENG = { is_subject_of = GER } } 
+			NOT = { ENG = { is_in_faction_with = ITA } }
+			NOT = { ENG = { is_subject_of = ITA } } 
+			NOT = { ENG = { is_in_faction_with = SOV } }
+			NOT = { ENG = { is_subject_of = SOV } }
+			}
+			declare_war_on = {
+							type = take_state_focus
+							target = ENG
+							generator = {
+							}
+						}
+						
+						ENG = {
+						add_ai_strategy = {
+		type = alliance
+		id = USA
+		value = 2000
+	}
+						}
+						USA = {
+						add_ai_strategy = {
+		type = alliance
+		id = ENG
+		value = 2000
+	}
+						}
+						
+						if = {
+			            limit = {
+						AST = { is_in_faction_with = ENG }
+						}
+						declare_war_on = {
+							type = take_state_focus
+							target = AST
+							generator = {
+							}
+						}
+						}
+						
+						if = {
+			            limit = {
+						NZL = { is_in_faction_with = ENG }
+						}
+						declare_war_on = {
+							type = take_state_focus
+							target = NZL
+							generator = {
+							}
+						}
+						}
+			}
+			
+			if = {
+			limit = {
+			NOT = { has_war_with = HOL }
+			NOT = { is_in_faction_with = HOL }
+			NOT = { HOL = { is_in_faction_with = GER } }
+			NOT = { HOL = { is_subject_of = GER } } 
+			NOT = { HOL = { is_in_faction_with = ITA } }
+			NOT = { HOL = { is_subject_of = ITA } } 
+			NOT = { HOL = { is_in_faction_with = SOV } }
+			NOT = { HOL = { is_subject_of = SOV } }
+			}
+			declare_war_on = {
+							type = take_state_focus
+							target = HOL
+							generator = {
+							}
+						}
+			}
+			
+			if = {
+			limit = {    
+			NOT = { has_war_with = INS }
+			NOT = { is_in_faction_with = INS }
+			NOT = { INS = { is_in_faction_with = GER } }
+			NOT = { INS = { is_subject_of = GER } } 
+			NOT = { INS = { is_in_faction_with = ITA } }
+			NOT = { INS = { is_subject_of = ITA } } 
+			NOT = { INS = { is_in_faction_with = SOV } }
+			NOT = { INS = { is_subject_of = SOV } }
+			
+			
+			}
+			declare_war_on = {
+							type = take_state_focus
+							target = INS
+							generator = {
+							}
+						}
+			}
+			
+			if = {
+			limit = {    
+			NOT = { has_war_with = PHI }
+			NOT = { is_in_faction_with = PHI }
+			NOT = { PHI = { is_in_faction_with = GER } }
+			NOT = { PHI = { is_subject_of = GER } } 
+			NOT = { PHI = { is_in_faction_with = ITA } }
+			NOT = { PHI = { is_subject_of = ITA } } 
+			NOT = { PHI = { is_in_faction_with = SOV } }
+			NOT = { PHI = { is_subject_of = SOV } }
+			
+			}
+			declare_war_on = {
+							type = take_state_focus
+							target = PHI
+							generator = {
+							}
+						}
+			}
+			
+			if = {
+			limit = {    
+			NOT = { has_war_with = RAJ }
+			NOT = { is_in_faction_with = RAJ }
+			NOT = { RAJ = { is_in_faction_with = GER } }
+			NOT = { RAJ = { is_subject_of = GER } } 
+			NOT = { RAJ = { is_in_faction_with = ITA } }
+			NOT = { RAJ = { is_subject_of = ITA } } 
+			NOT = { RAJ = { is_in_faction_with = SOV } }
+			NOT = { RAJ = { is_subject_of = SOV } }
+			}
+			declare_war_on = {
+							type = take_state_focus
+							target = RAJ
+							generator = {
+							}
+						}
+			}
+			
+			if = {
+			limit = { 
+			NOT = { has_war_with = BUR }
+			NOT = { is_in_faction_with = BUR }
+			NOT = { BUR = { is_in_faction_with = GER } }
+			NOT = { BUR = { is_subject_of = GER } } 
+			NOT = { BUR = { is_in_faction_with = ITA } }
+			NOT = { BUR = { is_subject_of = ITA } } 
+			NOT = { BUR = { is_in_faction_with = SOV } }
+			NOT = { BUR = { is_subject_of = SOV } }
+			}
+			declare_war_on = {
+							type = take_state_focus
+							target = BUR
+							generator = {
+							}
+						}
+			}
+			
+			if = {
+			limit = {    
+			NOT = { has_war_with = MAL }
+			NOT = { is_in_faction_with = MAL }
+			NOT = { MAL = { is_in_faction_with = GER } }
+			NOT = { MAL = { is_subject_of = GER } } 
+			NOT = { MAL = { is_in_faction_with = ITA } }
+			NOT = { MAL = { is_subject_of = ITA } } 
+			NOT = { MAL = { is_in_faction_with = SOV } }
+			NOT = { MAL = { is_subject_of = SOV } }
+
+			
+			}
+			declare_war_on = {
+							type = take_state_focus
+							target = MAL
+							generator = {
+							}
+						}
+			}
+			
+			if = {
+			limit = {    
+			NOT = { has_war_with = AST }
+			NOT = { is_in_faction_with = AST }
+			NOT = { AST = { is_in_faction_with = GER } }
+			NOT = { AST = { is_subject_of = GER } } 
+			NOT = { AST = { is_in_faction_with = ITA } }
+			NOT = { AST = { is_subject_of = ITA } } 
+			NOT = { AST = { is_in_faction_with = SOV } }
+			NOT = { AST = { is_subject_of = SOV } }
+
+			NOT = { AST = { is_subject_of = ENG } }
+			}
+			declare_war_on = {
+							type = take_state_focus
+							target = AST
+							generator = {
+							}
+						}
+			}
+			
+			if = {
+			limit = {    
+			NOT = { has_war_with = NZL }
+			NOT = { is_in_faction_with = NZL }
+			NOT = { NZL = { is_in_faction_with = GER } }
+			NOT = { NZL = { is_subject_of = GER } } 
+			NOT = { NZL = { is_in_faction_with = ITA } }
+			NOT = { NZL = { is_subject_of = ITA } } 
+			NOT = { NZL = { is_in_faction_with = SOV } }
+			NOT = { NZL = { is_subject_of = SOV } } 
+
+			NOT = { NZL = { is_subject_of = ENG } }
+			}
+			declare_war_on = {
+							type = take_state_focus
+							target = NZL
+							generator = {
+							}
+						}
+			}
+	}
+	
+	
+	
+	}
+	
+	
+	
+	}
+    option = {
+        name = pearl.1.option1
+        trigger = {
+			TAG = USA
+		}
+		hidden_effect = {
+	
+		if = {
+		limit = {
+		has_war_together_with = ENG
+		NOT = { has_war_with = ENG }
+		is_ai = yes
+		has_government = ENG
+		ENG = {
+		is_ai = yes
+		is_faction_leader = yes
+		}
+		}
+		ENG = { add_to_faction = USA }
+		}
+		
+		}
+		
+		effect_tooltip = {
+		
+		declare_war_on = { target = JAP type = topple_government }
+		
+		629 = {
+		damage_building = { type = air_base damage = 3 } damage_building = { type = infrastructure damage = 1 } damage_building = { type = naval_base damage = 2 } 
+		}
+		
+		USA = {
+		destroy_ships = {
+                type = ship_hull_heavy
+
+                count = 8
+            }
+			destroy_ships = {
+                type = ship_hull_cruiser
+
+                count = 3
+            }
+			destroy_ships = {
+                type = ship_hull_light
+
+                count = 3
+            }
+			add_manpower = -2335
+		}
+		
+		}
+			
+            add_ideas = the_day_of_infamy
+
+            set_country_flag = pearl_harbor_attacked
+			
+			if = {
+			limit = { is_ai = no }
+			add_timed_idea = {#guo
+                                                           idea = usa_pearl_harbour_afterwinds
+                                                            days = 120
+                                }
+			}
+
+            effect_tooltip = {
+
+			JAP = {
+		  destroy_ships = {
+                type = ship_hull_submarine
+
+                count = 5
+            }
+			add_manpower = -65
+		    }
+		   
+		   }
+        
+    }
+	option = {
+		name = pearl.1.option2
+		trigger = {
+			is_subject_of = JAP
+		}
+		
+		effect_tooltip = {
+		
+		629 = {
+		damage_building = { type = air_base damage = 3 } damage_building = { type = infrastructure damage = 1 } damage_building = { type = naval_base damage = 2 } 
+		}
+		
+		USA = {
+		destroy_ships = {
+                type = ship_hull_heavy
+
+                count = 8
+            }
+			destroy_ships = {
+                type = ship_hull_cruiser
+
+                count = 3
+            }
+			destroy_ships = {
+                type = ship_hull_light
+
+                count = 3
+            }
+			add_manpower = -2335
+		}
+		JAP = {
+		    destroy_ships = {
+                type = ship_hull_submarine
+
+                count = 5
+            }
+			add_manpower = -65
+		}
+		
+		}
+	}
+	option = {
+		name = pearl.1.option2
+		trigger = {
+			tag = JAP
+		}
+		hidden_effect = {
+		JAP = {
+		  destroy_ships = {
+                type = ship_hull_submarine
+
+                count = 5
+            }
+			add_manpower = -65
+		   }
+		}
+		
+		effect_tooltip = {
+		
+		629 = {
+		damage_building = { type = air_base damage = 3 } damage_building = { type = infrastructure damage = 1 } damage_building = { type = naval_base damage = 2 } 
+		}
+		
+		USA = {
+		destroy_ships = {
+                type = ship_hull_heavy
+
+                count = 8
+            }
+			destroy_ships = {
+                type = ship_hull_cruiser
+
+                count = 3
+            }
+			destroy_ships = {
+                type = ship_hull_light
+
+                count = 3
+            }
+			add_manpower = -2335
+		}
+		JAP = {
+		    destroy_ships = {
+                type = ship_hull_submarine
+
+                count = 5
+            }
+			add_manpower = -65
+		}
+		
+		}
+	}
+	option = {
+		name = pearl.1.option3
+		trigger = {
+		OR = {
+		has_war_with = JAP
+		has_war_with = GER
+		}
+		NOT = { TAG = USA }
+		}
+		effect_tooltip = {
+		
+		629 = {
+		damage_building = { type = air_base damage = 3 } damage_building = { type = infrastructure damage = 1 } damage_building = { type = naval_base damage = 2 } 
+		}
+		
+		USA = {
+		destroy_ships = {
+                type = ship_hull_heavy
+
+                count = 8
+            }
+			destroy_ships = {
+                type = ship_hull_cruiser
+
+                count = 3
+            }
+			destroy_ships = {
+                type = ship_hull_light
+
+                count = 3
+            }
+			add_manpower = -2335
+		}
+		JAP = {
+		    destroy_ships = {
+                type = ship_hull_submarine
+
+                count = 5
+            }
+			add_manpower = -65
+		}
+		
+		}
+		
+		if = {
+		limit = {
+		OR = {
+            TAG = event_target:WTT_current_china_leader
+            TAG = CHI
+            }
+		}
+		unlock_decision_tooltip = chi_declare_war_jap_annouance
+		if = {
+		limit = {
+		has_global_flag = tripartite_pact
+		}
+		unlock_decision_tooltip = chi_declare_war_ger_ita_annouance
+		}
+		}
+	}
+	option = {
+		name = pearl.1.option4
+		trigger = {
+		NOT = {
+		TAG = USA
+		is_in_faction_with = JAP
+		has_war_with = JAP
+		has_war_with = GER
+		}
+		}
+		effect_tooltip = {
+		
+		629 = {
+		damage_building = { type = air_base damage = 3 } damage_building = { type = infrastructure damage = 1 } damage_building = { type = naval_base damage = 2 } 
+		}
+		
+		USA = {
+		destroy_ships = {
+                type = ship_hull_heavy
+
+                count = 8
+            }
+			destroy_ships = {
+                type = ship_hull_cruiser
+
+                count = 3
+            }
+			destroy_ships = {
+                type = ship_hull_light
+
+                count = 3
+            }
+			add_manpower = -2335
+		}
+		JAP = {
+		    destroy_ships = {
+                type = ship_hull_submarine
+
+                count = 5
+            }
+			add_manpower = -65
+		}
+		
+		}
+	}
+}
+
+
+#珍珠港事件(JAP)
+news_event = {
+    id = pearl.2
+
+    title = pearl.2.t
+
+    picture = pearl_harbor_jap_event
+
+    desc = pearl.2.d
+
+    is_triggered_only = yes
+	
+	major = no
+
+    option = {
+        name = pearl.2.option1
+           
+        #effect_tooltip = {
+		
+			629 = {
+		damage_building = { type = air_base damage = 3 } damage_building = { type = infrastructure damage = 1 } damage_building = { type = naval_base damage = 2 } 
+		}
+		
+		USA = {
+		destroy_ships = {
+                type = ship_hull_heavy
+
+                count = 8
+            }
+			destroy_ships = {
+                type = ship_hull_cruiser
+
+                count = 3
+            }
+			destroy_ships = {
+                type = ship_hull_light
+
+                count = 3
+            }
+			add_manpower = -2335
+		}
+		
+		JAP = {
+		destroy_ships = {
+                type = ship_hull_submarine
+
+                count = 5
+            }
+			add_manpower = -65
+		}
+		
+		#}
+			add_war_support = 0.1
+			add_political_power = 150
+        navy_experience = 75
+		air_experience = 75
+    }
+}

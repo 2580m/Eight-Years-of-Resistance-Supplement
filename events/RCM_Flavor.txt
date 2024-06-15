@@ -1,0 +1,1261 @@
+﻿###################
+###FLAVOR EVENTS###
+###################
+
+add_namespace = rcmflavor
+
+#Death of Lin Sen (ROC)
+country_event = {
+	id = rcmflavor.1
+	title = rcmflavor.1.t
+	desc = rcmflavor.1.d
+	picture = GFX_report_event_lin_sen
+ 
+	is_triggered_only = no
+	fire_only_once = yes
+	
+	trigger = {
+		tag = CHI
+		date > 1943.8.1
+	}
+	option = {
+		name = rcmflavor.1.a
+		retire_character = CHI_lin_sen
+		custom_effect_tooltip = remove_political_advisor
+		show_ideas_tooltip = CHI_lin_sen		
+		set_country_flag = lin_sen_dead
+	}
+}
+
+#Death of Saionji Kinmochi (JAP)
+country_event = {
+	id = rcmflavor.2
+	title = rcmflavor.2.t
+	desc = rcmflavor.2.d
+	picture = GFX_report_event_last_genro
+ 
+	is_triggered_only = no
+	fire_only_once = yes
+	
+	trigger = {
+		tag = JAP
+		date > 1940.11.24
+	}
+	option = {
+		name = rcmflavor.2.a
+		retire_character = saionji_kinmochi
+		custom_effect_tooltip = remove_political_advisor
+		show_ideas_tooltip = saionji_kinmochi
+		set_country_flag = saionji_kinmochi_dead
+	}
+}
+
+#Death of Isoroku Yamamoto (JAP)
+country_event = {
+	id = rcmflavor.3
+	title = rcmflavor.3.t
+	desc = rcmflavor.3.d
+	picture = GFX_report_event_yamamoto
+
+	is_triggered_only = yes
+		
+	option = {
+		name = rcmflavor.3.a
+		effect_tooltip = {
+			JAP = {
+				retire_character = isoroku_yamamoto
+			}
+		}		
+	}
+}
+
+add_namespace = CHI_chiang_paili_dead
+country_event = {
+    id = CHI_chiang_paili_dead.1
+    title = CHI_chiang_paili_dead.1.t
+    desc = CHI_chiang_paili_dead.1.d
+    picture = GFX_report_event_chiang_paili_death
+
+	is_triggered_only = yes 
+	fire_only_once = yes
+	
+	trigger = {
+		tag = CHI
+		date > 1938.11.4
+	}
+	option = {
+        name = CHI_chiang_paili_dead.1.a
+		retire_character = CHI_chiang_paili
+		custom_effect_tooltip = remove_theorist
+		show_ideas_tooltip = CHI_chiang_paili
+        set_global_flag = chiang_baili_dead
+    }
+}
+
+#find leader of China
+country_event = {
+    id = CHI_chiang_paili_dead.2
+	hidden = yes
+    is_triggered_only = yes
+    fire_only_once = yes
+    option = {
+		event_target:WTT_current_china_leader = {
+			country_event = CHI_chiang_paili_dead.1
+		}
+    }
+}
+
+add_namespace = prc_zuo_quan
+
+country_event = { #guo
+	id = prc_zuo_quan.99
+	title = prc_zuo_quan.99.t
+	desc = prc_zuo_quan.99.desc
+	hidden = yes
+	
+	trigger = {
+	tag = PRC
+		has_war_with = JAP
+		#is_in_faction_with = SHX
+		615 = {
+		is_controlled_by_jap_or_its_puppet = yes #Central Shansi
+		has_state_flag = commie_ridden_states
+		}
+		date > 1942.5.1
+		if = {
+		limit = {
+		is_ai = no
+		}
+		prc_zuo_quan = {
+		is_army_leader = yes
+		has_trait = wounded
+		}
+		}
+	}
+	
+	fire_only_once = yes
+	
+	immediate = {
+	prc_zuo_quan = { unit_leader_event = prc_zuo_quan.2 }
+	JAP = {
+	country_event = prc_zuo_quan.1
+	}
+	}
+	
+	option = {
+	}
+}
+
+unit_leader_event = { #guo
+	id = prc_zuo_quan.2
+	title = prc_zuo_quan.2.t
+	desc = prc_zuo_quan.2.desc
+	picture = GFX_report_event_zuo_quan
+ 
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	trigger = {
+		
+	}
+	
+	immediate = {
+	
+	}
+
+	option = {
+		name = prc_zuo_quan.2.a
+		retire_character = prc_zuo_quan
+		
+		add_war_support = -0.05
+		add_political_power = -50
+		#army_experience = -25
+		
+		set_country_flag = zuo_quan_dead	
+	}
+}
+
+add_namespace = kanin_kotohito_retired
+country_event = {
+	id = kanin_kotohito_retired.1
+	title = kanin_kotohito_retired.1.t
+	desc = kanin_kotohito_retired.1.d
+	picture = GFX_report_event_prince
+ 
+	is_triggered_only = no
+	fire_only_once = yes
+	
+	trigger = {
+		tag = JAP
+		date > 1940.10.3
+	}
+	option = {
+		name = kanin_kotohito_retired.1.a
+		retire_character = kanin_kotohito
+		custom_effect_tooltip = remove_chief_of_army
+		show_ideas_tooltip = kanin_kotohito
+		set_country_flag = kanin_kotohito_retired
+	}
+}
+
+add_namespace = fushimi_hiroyasu_retired
+country_event = {
+	id = fushimi_hiroyasu_retired.1
+	title = fushimi_hiroyasu_retired.1.t
+	desc = fushimi_hiroyasu_retired.1.d
+	picture = GFX_report_event_fushimi_hiroyasu
+ 
+	is_triggered_only = no
+	fire_only_once = yes
+	
+	trigger = {
+		tag = JAP
+		date > 1941.4.9
+	}
+	option = {
+		name = fushimi_hiroyasu_retired.1.a
+		retire_character = fushimi_hiroyasu
+		custom_effect_tooltip = remove_chief_of_navy
+		show_ideas_tooltip = fushimi_hiroyasu
+		set_country_flag = fushimi_hiroyasu_retired
+	}
+}
+
+add_namespace = song_zheyuan_dead
+country_event = {
+	id = song_zheyuan_dead.1
+	title = song_zheyuan_dead.1.t
+	desc = song_zheyuan_dead.1.d
+	picture = GFX_report_event_song_zheyuan
+ 
+	is_triggered_only = yes
+	#fire_only_once = yes
+
+	option = {
+		trigger = { 
+		    OR = { 
+			    #NOT = { has_global_flag = hpc_pro_jap } 
+				tag = HPC
+				has_character = HPC_song_zheyuan
+				AND = {
+					NOT = {
+						has_character = HPC_song_zheyuan
+					}
+					is_ally_with = HPC 
+				}
+			}
+		}
+		name = song_zheyuan_dead.1.a
+		if = {
+			limit = {
+				has_character = HPC_song_zheyuan	
+			}
+		    retire_character = HPC_song_zheyuan	
+		}
+		else = {
+			effect_tooltip = {
+				random_other_country = {
+					limit = {
+						has_character = HPC_song_zheyuan	
+					}
+					retire_character = HPC_song_zheyuan	
+				}
+			}
+		}
+		if = {
+			limit = {
+				tag = HPC
+				NOT = {
+					has_global_flag = hpc_pro_jap
+				    is_ally_with = JAP
+				}
+			    has_government = neutrality
+			}
+			set_country_flag = shi_yousan_flag
+			HPC_zhang_zizhong = {
+				add_country_leader_role = {
+					country_leader = {
+						expire = "1965.1.1"
+						ideology = despotism
+						traits = {
+						}
+					}
+					promote_leader = yes
+				}   
+			} 
+		}
+		if = {
+			limit = {
+				tag = HPC
+				has_global_flag = hpc_pro_jap
+			    has_government = neutrality
+			}
+			set_country_flag = shi_yousan_flag
+			HPC_shi_yousan = {
+				add_country_leader_role = {
+					country_leader = {
+						expire = "1965.1.1"
+						ideology = despotism
+						traits = {
+						}
+					}
+					promote_leader = yes
+				}   
+			} 
+		    add_country_leader_trait = {
+				ideology = despotism
+				trait = anti_communist
+			}
+		}
+		if = {
+			limit = {
+				tag = HPC
+				has_global_flag = hpc_pro_jap
+			    has_government = fascism
+			}
+			set_country_flag = shi_yousan_flag
+			HPC_shi_yousan = {
+				add_country_leader_role = {
+					country_leader = {
+						expire = "1965.1.1"
+						ideology = fascism_ideology
+						traits = {
+						}
+					}
+					promote_leader = yes
+				}   
+			} 
+			add_country_leader_trait = {
+				ideology = fascism_ideology
+				trait = anti_communist
+			}
+		}
+		#set_country_flag = song_zheyuan_dead	
+	}
+	option = {
+		trigger = { 
+		    NOT = {
+				tag = HPC
+			}
+			OR = {
+				has_global_flag = hpc_pro_jap 
+				has_war_with = HPC
+		    }
+		}
+		name = song_zheyuan_dead.1.b
+		if = {
+			limit = {
+				has_character = HPC_song_zheyuan	
+			}
+		    retire_character = HPC_song_zheyuan	
+		}
+		else = {
+			effect_tooltip = {
+				random_other_country = {
+					limit = {
+						has_character = HPC_song_zheyuan	
+					}
+					retire_character = HPC_song_zheyuan	
+				}
+			}
+		}
+	}
+}
+
+add_namespace = wang_jingwei_dead
+country_event = {
+	id = wang_jingwei_dead.1
+	title = wang_jingwei_dead.1.t
+	desc = wang_jingwei_dead.1.d
+	picture = GFX_report_event_wang_jingwei
+    trigger = {
+	    is_rrc = yes
+		not = { tag = event_target:WTT_current_china_leader }
+	    date > 1944.11.1
+		
+		OR = { #GUO
+	    has_country_leader = {
+			name = "Wang Jingwei"
+	    } 
+		has_country_leader = {
+			name = "汪精卫"
+	    } 
+		}
+	}
+	is_triggered_only = no
+	fire_only_once = yes
+
+	option = {
+		name = wang_jingwei_dead.1.a
+		kill_country_leader = yes
+		set_country_flag = wang_jingwei_dead
+		set_global_flag = wang_jingwei_dead_zz
+		retire_character = CHI_wangjingwei_zz
+	    create_country_leader = {
+				name = Chen_Gongbo
+				desc = "POLITICS_WANG_JINGWEI_DESC"
+				picture = "gfx/leaders/CHI/Portrait_CHI_Chen_Gongbo.dds"
+				expire = "1965.1.1"
+				ideology = collaborationism
+				traits = { qiangtoucao eager_collaborator wushinuli #guo
+			}
+		}
+	    hidden_effect = {
+			every_other_country = {
+				limit = {
+					is_literally_china = yes
+					NOT = {
+						is_ally_with = JAP
+					}
+				}
+			    country_event = wang_jingwei_dead.2
+		    }
+	    }
+	}
+}
+
+country_event = {
+	id = wang_jingwei_dead.2
+	title = wang_jingwei_dead.2.t
+	desc = wang_jingwei_dead.2.d
+	picture = GFX_report_event_wang_jingwei
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		name = wang_jingwei_dead.2.a
+	}
+}
+
+add_namespace = zhu_peide_dead
+country_event = {
+	id = zhu_peide_dead.1
+	title = zhu_peide_dead.1.t
+	desc = zhu_peide_dead.1.d
+	picture = GFX_report_event_zhu_peide
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		name = zhu_peide_dead.1.a
+		retire_character = CHI_zhu_peide	
+		custom_effect_tooltip = remove_chief_of_army
+		show_ideas_tooltip = CHI_zhu_peide		
+		set_country_flag = zhu_peide_dead	
+	}
+}
+add_namespace = hu_hanmin_dead
+country_event = {
+	id = hu_hanmin_dead.1
+	title = hu_hanmin_dead.1.t
+	desc = hu_hanmin_dead.1.d
+	picture = GFX_report_event_hu_hanmin_death
+	is_triggered_only = yes
+
+	option = {
+		name = hu_hanmin_dead.1.a
+		ai_chance = {
+			factor = 100
+		}
+		every_other_country = {
+			limit = {
+				is_literally_china = yes
+				NOT = {
+					is_ally_with = JAP
+				}
+			}
+			country_event = hu_hanmin_dead.2
+		}
+		set_global_flag = the_death_of_hu_hanmin
+		hidden_effect = {
+            if = {
+				limit = {
+					GUD = {
+						exists = yes
+						NOT = {
+							has_war_with = ROOT
+							is_in_faction_with = ROOT
+							tag = event_target:WTT_current_china_leader
+						}
+						is_subject = no
+						is_neighbor_of = ROOT
+					}
+				}
+				country_event = {
+					id = gud.19 days = 3
+				}
+			}
+		}
+	}
+}
+
+country_event = {
+	id = hu_hanmin_dead.2
+	title = hu_hanmin_dead.2.t
+	desc = hu_hanmin_dead.2.d
+	picture = GFX_report_event_hu_hanmin_death
+	is_triggered_only = yes
+
+	option = {
+		name = hu_hanmin_dead.2.a
+		ai_chance = {
+			factor = 100
+		}
+		trigger ={ 
+		    OR = {
+			    tag = GXC 
+				tag = GUD
+			}
+		}
+		#if = {
+		#    limit = {
+		#		#has_completed_focus = GXC_Southwest_two_agencies
+		#		tag = GUD
+		#		is_subject = no
+		#	}
+		#    activate_mission = CHI_liangguang_incident
+		#}	
+	    #if = {
+		#    limit = {
+		#		#GUD = { has_completed_focus = GXC_Southwest_two_agencies }
+		#		tag = GXC
+		#	}
+		#    effect_tooltip = {
+		#	    GUD = { activate_mission = CHI_liangguang_incident }
+		#	}
+		#}
+	}
+	
+	option = {
+		name = hu_hanmin_dead.2.b
+		ai_chance = {
+			factor = 100
+		}
+		trigger ={ 
+		    NOT = {
+			    tag = GXC 
+				tag = GUD
+			}
+		}	
+	}
+}
+
+add_namespace = gelegdorjiin_demid_dead
+country_event = {
+	id = gelegdorjiin_demid_dead.1
+	title = gelegdorjiin_demid_dead.1.t
+	desc = gelegdorjiin_demid_dead.1.d
+	picture = GFX_report_event_gelegdorjiin_demid_dead
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		name = gelegdorjiin_demid_dead.1.a
+		retire_character = MON_gelegdorjiin_demid
+		custom_effect_tooltip = remove_chief_of_army
+		show_ideas_tooltip = MON_gelegdorjiin_demid	
+		set_country_flag = gelegdorjiin_demid_dead	
+	}
+}
+
+########################
+###UNIT LEADER EVENTS###
+########################
+
+add_namespace = zhao_dengyu_dead
+unit_leader_event = {
+	id = zhao_dengyu_dead.1
+	title = killed_in_action.1.t
+	desc = killed_in_action.1.d
+	
+	is_triggered_only = yes
+
+	option = {
+		name = salute
+		retire_character = HPC_zhao_dengyu
+	}	
+}
+
+add_namespace = zhang_zizhong_dead
+unit_leader_event = {
+	id = zhang_zizhong_dead.1
+	title = killed_in_action.1.t
+	desc = killed_in_action.1.d
+	
+	is_triggered_only = yes
+
+	option = {
+		name = salute
+		retire_character = HPC_zhang_zizhong
+	}	
+}
+
+add_namespace = dai_anlan_dead
+unit_leader_event = {
+	id = dai_anlan_dead.1
+	title = killed_in_action.1.t
+	desc = killed_in_action.1.d
+	
+	is_triggered_only = yes
+
+	option = {
+		name = salute
+		retire_character = CHI_dai_anlan
+	}	
+}
+
+add_namespace = zhang_lingfu_dead
+unit_leader_event = {
+	id = zhang_lingfu_dead.1
+	title = killed_in_action.1.t
+	desc = killed_in_action.1.d
+	
+	is_triggered_only = yes
+
+	option = {
+		name = salute
+		retire_character = CHI_zhang_lingfu
+	}	
+}
+
+add_namespace = liu_kan_dead
+unit_leader_event = {
+	id = liu_kan_dead.1
+	title = killed_in_action.1.t
+	desc = killed_in_action.1.d
+	
+	is_triggered_only = yes
+
+	option = {
+		name = salute
+		retire_character = CHI_liu_kan
+	}	
+}
+
+add_namespace = huang_baitao_dead
+unit_leader_event = {
+	id = huang_baitao_dead.1
+	title = killed_in_action.1.t
+	desc = killed_in_action.1.d
+	
+	is_triggered_only = yes
+
+	option = {
+		name = salute
+		retire_character = CHI_huangbaitao #guo
+	}	
+}
+
+add_namespace = qiu_qingquan_dead
+unit_leader_event = {
+	id = qiu_qingquan_dead.1
+	title = killed_in_action.1.t
+	desc = killed_in_action.1.d
+	
+	is_triggered_only = yes
+
+	option = {
+		name = salute
+		retire_character = CHI_qiu_qingquan
+	}	
+}
+
+add_namespace = lin_biao_wounded
+unit_leader_event = {
+	id = lin_biao_wounded.1
+	title = lin_biao_wounded.1.t
+	desc = lin_biao_wounded.1.d
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	trigger = { always = no } #guo
+	
+	option = {
+		name = lin_biao_wounded.1.a
+		custom_effect_tooltip = THIS_IS_HISTORICAL_TT
+		trigger = { 
+		    SOV = {
+                exists = yes
+				has_government = communism			
+                NOT = { has_war_with = event_target:WTT_communist_china }
+		    }
+		}		
+		PRC = {
+			set_country_flag = lin_biao_in_soviet
+		}		
+	    hidden_effect = {
+		    PRC_lin_biao = { 
+			    unit_leader_event = {
+				    id = lin_biao_returned.1
+				    days = 365
+			    }
+		    }
+	    }
+		ai_chance = {
+			factor = 99
+		}		
+	}
+	option = {
+		name = lin_biao_wounded.1.b
+		PRC_lin_biao = {
+			add_timed_unit_leader_trait = {
+				trait = wounded
+				days = 180
+			}
+			add_skill_level = -1
+			add_attack = -1
+			add_defense = -1
+			add_planning = -1			
+		}
+		ai_chance = {
+			factor = 1
+		}		
+	}	
+}
+
+add_namespace = lin_biao_returned
+unit_leader_event = {
+	id = lin_biao_returned.1
+	title = lin_biao_returned.1.t
+	desc = lin_biao_returned.1.d
+	
+	is_triggered_only = yes
+	
+	trigger = { always = no } #guo
+	
+	option = {
+		name = lin_biao_returned.1.a
+		PRC = {
+			clr_country_flag = lin_biao_in_soviet
+			set_country_flag = lin_biao_returned
+		}		
+	}
+}
+
+add_namespace = zuo_quan_dead
+unit_leader_event = {
+	id = zuo_quan_dead.1
+	title = killed_in_action.1.t
+	desc = killed_in_action.1.d
+	
+	is_triggered_only = yes
+	
+	trigger = { always = no } #guo
+
+	option = {
+		name = salute
+		retire_character = prc_zuo_quan	
+	}	
+}
+
+add_namespace = peng_xuefeng_dead
+unit_leader_event = {
+	id = peng_xuefeng_dead.1
+	title = killed_in_action.1.t
+	desc = killed_in_action.1.d
+	
+	is_triggered_only = yes
+
+	option = {
+		name = salute
+		retire_character = PRC_peng_xuefeng		
+	}	
+}
+
+add_namespace = zhu_rui_dead
+unit_leader_event = {
+	id = zhu_rui_dead.1
+	title = killed_in_action.1.t
+	desc = killed_in_action.1.d
+	
+	is_triggered_only = yes
+	
+	trigger = { always = no } #guo
+
+	option = {
+		name = salute
+		retire_character = PRC_zhu_rui
+	}	
+}
+
+add_namespace =li_fuying_retreated
+unit_leader_event = {
+	id = li_fuying_retreated.1
+	title = li_fuying_retreated.1.t
+	desc = li_fuying_retreated.1.d
+	
+	is_triggered_only = yes
+
+	option = {
+		name = li_fuying_retreated.1.a
+		retire_character = SHX_li_fuying
+		custom_effect_tooltip = THIS_IS_HISTORICAL_TT
+		ai_chance = {
+			factor = 99
+		}
+	    hidden_effect = {
+		    event_target:WTT_current_china_leader = { 
+			    country_event = {
+				    id = li_fuying_executed.1
+				    hours = 3
+			    }
+		    }
+	    }		
+	}
+	option = {
+		name = li_fuying_retreated.1.b
+		add_war_support = -0.1
+		SHX_li_fuying = {
+			add_timed_unit_leader_trait = {
+				trait = demoted
+				days = 90
+			}
+		}
+		if = {
+			limit = { SHX_li_fuying = { is_field_marshal = yes } }
+			SHX_li_fuying = { demote_leader = yes }
+		}	
+		ai_chance = {
+			factor = 1
+		}			
+	}	
+}
+
+add_namespace = li_fuying_executed
+country_event = {
+	id = li_fuying_executed.1
+	title = li_fuying_executed.1.t
+	desc = li_fuying_executed.1.d
+	picture = GFX_report_event_li_fuying_executed_news
+	
+	is_triggered_only = yes
+
+	option = {
+		name = li_fuying_executed.1.a		
+		effect_tooltip = {
+			SHX = {
+				retire_character = SHX_li_fuying	
+			}
+		}		
+	}	
+}
+
+add_namespace = pang_bingxun_surrendered
+unit_leader_event = {
+	id = pang_bingxun_surrendered.1
+	title = pang_bingxun_surrendered.1.t
+	desc = pang_bingxun_surrendered.1.d
+	picture = GFX_report_event_pang_bingxun
+ 
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		name = pang_bingxun_surrendered.1.a			
+	    hidden_effect = {
+		    EHB = {
+			    country_event = {
+				    id = pang_bingxun_surrendered.2
+				    hours = 3
+			    }
+		    }
+	    }
+		CHI_pang_bingxun = {
+			set_nationality = EHB
+		}		
+	}
+}
+
+country_event = {
+	id = pang_bingxun_surrendered.2
+	title = pang_bingxun_surrendered.2.t
+	desc = pang_bingxun_surrendered.2.d
+	picture = GFX_report_event_pang_bingxun
+ 
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		name = pang_bingxun_surrendered.2.a	
+		effect_tooltip = {
+			event_target:WTT_current_china_leader = {
+				CHI_pang_bingxun = {
+					set_nationality = EHB
+				}	
+			}
+		}
+		CHI_pang_bingxun = {
+		    add_timed_unit_leader_trait = {
+			    trait = reassigned
+				    days = 365
+			}	
+		}					
+	}
+}
+
+add_namespace = toshinari_maeda_dead
+unit_leader_event = {
+	id = toshinari_maeda_dead.1
+	title = killed_in_action.1.t
+	desc = killed_in_action.1.d
+	
+	is_triggered_only = yes
+
+	option = {
+		name = salute
+		retire_character = toshinari_maeda #前田 利為
+	}	
+}
+
+add_namespace = osamu_tsukada_dead
+unit_leader_event = {
+	id = osamu_tsukada_dead.1
+	title = killed_in_action.1.t
+	desc = killed_in_action.1.d
+	
+	is_triggered_only = yes
+
+	option = {
+		name = salute
+		retire_character = osamu_tsukada #塚田 攻
+	}	
+}
+
+add_namespace = mitsuru_ushijima_dead
+unit_leader_event = {
+	id = mitsuru_ushijima_dead.1
+	title = killed_in_action.1.t
+	desc = killed_in_action.1.d
+	
+	is_triggered_only = yes
+
+	option = {
+		name = salute
+		retire_character = mitsuru_ushijima #牛島 満
+	}	
+}
+
+add_namespace = sosaku_suzuki_dead
+unit_leader_event = {
+	id = sosaku_suzuki_dead.1
+	title = killed_in_action.1.t
+	desc = killed_in_action.1.d
+	
+	#picture = GFX_report_event_generic_funeral
+
+	is_triggered_only = yes
+
+	option = {
+		name = salute
+		retire_character = sosaku_suzuki #鈴木 宗作
+	}	
+}
+
+add_namespace = tadamichi_kuribayashi_dead
+unit_leader_event = {
+	id = tadamichi_kuribayashi_dead.1
+	title = killed_in_action.1.t
+	desc = killed_in_action.1.d
+	
+	is_triggered_only = yes
+
+	option = {
+		name = salute
+		retire_character = tadamichi_kuribayashi #栗林 忠道
+	}	
+}
+
+add_namespace = tojo_and_matsuoka_return_to_japan
+country_event = {
+	id = tojo_and_matsuoka_return_to_japan.1
+	title = tojo_and_matsuoka_return_to_japan.1.t
+	picture = GFX_report_event_Fumimaro_konoe_2
+	desc = tojo_and_matsuoka_return_to_japan.1.d
+
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = sayonara
+		set_country_flag = hideki_tojo_return_to_japan
+		retire_character = MAN_hideki_tojo #東條 英機
+		set_country_flag = yosuke_matsuoka_return_to_japan
+		retire_character = MAN_yosuke_matsuoka #松岡 洋右		
+	}	
+}
+
+add_namespace = nobusuke_kishi_return_to_japan
+country_event = {
+	id = nobusuke_kishi_return_to_japan.1
+	title = nobusuke_kishi_return_to_japan.1.t
+	picture = GFX_report_event_tojo
+	desc = nobusuke_kishi_return_to_japan.1.d
+
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = sayonara
+		set_country_flag = nobusuke_kishi_return_to_japan		
+		retire_character = MAN_nobusuke_kishi #岸 信介
+	}	
+}
+
+add_namespace = chen_mingern_graduated
+country_event = {
+	id = chen_mingern_graduated.1
+	title = chen_mingern_graduated.1.t
+	picture = GFX_report_event_chinese_soldiers_02
+	desc = chen_mingern_graduated.1.d
+	fire_only_once = yes
+	is_triggered_only = no
+	trigger = {
+		has_character = CHI_chen_mingren
+		date > 1938.3.1
+	}
+	
+	option = {
+		name = chen_mingern_graduated.1.a
+		set_global_flag = chen_mingern_graduated
+		effect_tooltip = {
+            add_corps_commander_role = {
+				character = CHI_chen_mingren
+				traits={ NRA_Major_General career_officer }
+			    skill=2
+			    attack_skill=2
+			    defense_skill=3
+			    planning_skill=1
+			    logistics_skill=1
+				legacy_id =-1 
+			}	
+		}
+	}	
+}
+
+add_namespace = li_mi_promoted
+country_event = {
+	id = li_mi_promoted.1
+	title = li_mi_promoted.1.t
+	picture = GFX_report_event_chinese_soldiers_02
+	desc = li_mi_promoted.1.d
+	fire_only_once = yes
+	is_triggered_only = no
+	trigger = {
+		has_character = CHI_li_mi
+		has_defensive_war_with = JAP
+		date > 1940.6.18
+	}
+	
+	option = {
+		name = li_mi_promoted.1.a
+		set_global_flag = li_mi_promoted_flag
+		effect_tooltip = {
+            add_corps_commander_role = {
+				character = CHI_li_mi
+				traits={ NRA_Major_General extra_specialized_skill }
+			    skill=2
+			    attack_skill=2
+			    defense_skill=3
+			    planning_skill=2
+			    logistics_skill=1
+				legacy_id =-1 
+			}	
+		}
+	}	
+}
+
+add_namespace = generals_join_rrc
+country_event = { #sun dianying
+	id = generals_join_rrc.1
+	title = generals_join_rrc.1.t
+	desc = generals_join_rrc.1.d
+	picture = GFX_report_event_chinese_soldiers_city_ruin
+	is_triggered_only = no
+	trigger = {
+		has_character = RRC_Sun_Dianying
+		has_war_with = JAP
+		any_neighbor_country = {
+			is_rrc = yes
+			has_war_with = ROOT
+		}
+		RRC_Sun_Dianying = {
+			is_assigned = no
+			is_field_marshal = no
+		}
+		event_target:WTT_current_china_leader = {
+			surrender_progress > 0.35
+		}
+	    OR = {
+			JAP = {
+				has_war_with = USA
+			}
+			JAP = {
+				has_war_with = ENG
+			}
+		}
+	}
+	fire_only_once = yes
+
+	option = {
+		name = generals_join_rrc.1.a			
+	    #set_global_flag = sun_dianying_in_rrc_flag
+		random_enemy_country = {
+			limit = {
+				is_rrc = yes
+			}
+            country_event = generals_join_rrc.2
+		}
+		effect_tooltip = {
+			ROOT = {
+				RRC_Sun_Dianying = {
+					set_nationality = EHB
+				}
+			}
+		}
+	    add_war_support = -0.01
+	}
+}
+
+country_event = { #sun dianying to rrc (ehb)
+	id = generals_join_rrc.2
+	title = generals_join_rrc.2.t
+	desc = generals_join_rrc.2.d
+	picture = GFX_report_event_chinese_soldiers_city_ruin
+	is_triggered_only = yes
+
+	option = {
+		name = generals_join_rrc.2.a			
+	    set_global_flag = sun_dianying_in_rrc_flag
+		FROM = {
+			RRC_Sun_Dianying = {
+				set_nationality = ROOT
+			}
+		}
+	    add_war_support = 0.01
+	}
+}
+
+country_event = { #wu huawen
+	id = generals_join_rrc.3
+	title = generals_join_rrc.3.t
+	desc = generals_join_rrc.3.d
+	picture = GFX_report_event_chinese_soldiers_city_ruin
+	is_triggered_only = no
+	trigger = {
+		has_character = RRC_Wu_Huawen
+		has_war_with = JAP
+		any_neighbor_country = {
+			is_rrc = yes
+			has_war_with = ROOT
+		}
+		RRC_Wu_Huawen = {
+			#is_assigned = no
+			is_field_marshal = no
+		}
+		event_target:WTT_current_china_leader = {
+			surrender_progress > 0.35
+		}
+	    OR = {
+			JAP = {
+				has_war_with = USA
+			}
+			JAP = {
+				has_war_with = ENG
+			}
+		}
+		597 = {
+			is_controlled_by_jap_or_its_puppet = yes
+		}
+		1028 = {
+			is_controlled_by_jap_or_its_puppet = yes
+		}
+		743 = {
+			is_controlled_by_jap_or_its_puppet = yes
+		}
+	}
+	fire_only_once = yes
+
+	option = {
+		name = generals_join_rrc.3.a			
+	    #let him go
+		ai_chance = { 
+		    factor = 100
+		}	
+		custom_effect_tooltip = THIS_IS_HISTORICAL_TT
+		random_enemy_country = {
+			limit = {
+				is_rrc = yes
+			}
+            country_event = generals_join_rrc.4
+		}
+		effect_tooltip = {
+			ROOT = {
+				RRC_Wu_Huawen = {
+					set_nationality = EHB
+				}
+			}
+		}  
+	}
+
+	option = {
+		name = generals_join_rrc.3.b			
+	    #keep him
+		ai_chance = { 
+		    factor = 1
+		}	
+		add_political_power = -50
+	}
+}
+
+country_event = { #wu huawen to rrc (ehb)
+	id = generals_join_rrc.4
+	title = generals_join_rrc.4.t
+	desc = generals_join_rrc.4.d
+	picture = GFX_report_event_chinese_soldiers_city_ruin
+	is_triggered_only = yes
+
+	option = {
+		name = generals_join_rrc.2.a			
+	    set_global_flag = wu_huawen_in_rrc_flag
+		FROM = {
+			RRC_Wu_Huawen = {
+				set_nationality = ROOT
+			}
+		}
+	    add_war_support = 0.01
+	}
+}
+
+add_namespace = liao_lei_died
+country_event = {
+	id = liao_lei_died.1
+	title = liao_lei_died.1.t
+	picture = GFX_report_event_guangxi_army
+	desc = liao_lei_died.1.d
+	fire_only_once = yes
+	is_triggered_only = no
+	trigger = {
+		has_character = GXC_liao_lei
+		date > 1939.10.1
+		any_owned_state = {
+			OR = {
+				state = 606
+				state = 749
+			}
+		}
+	}
+	
+	option = {
+		name = liao_lei_died.1.a
+		set_global_flag = liao_lei_died
+		retire_character = GXC_liao_lei
+		if = {
+			limit = {
+				tag = GXC
+			}
+			custom_effect_tooltip = unlock_GXC_anti_communist_in_anhui_focus_tt
+		}
+	}	
+}
