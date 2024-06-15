@@ -1,0 +1,20 @@
+scripted_gui = {
+	xchinese_propaganda_campaigns_ui = {
+		context_type = decision_category
+		window_name = "xchinese_propaganda_campaigns_ui_window"
+		properties = {
+			propaganda_poster_xchinese_left = {
+				image = "[GetxchinesePropagandaLeftSlotAge]"
+				frame = X_xchinese_poster_left_icon_frame
+			}
+			propaganda_poster_xchinese_center = {
+				image = "[GetxchinesePropagandaCenterSlotAge]"
+				frame = X_xchinese_poster_center_icon_frame
+			}
+			propaganda_poster_xchinese_right = {
+				image = "[GetxchinesePropagandaRightSlotAge]"
+				frame = X_xchinese_poster_right_icon_frame
+			}
+		}
+	}
+}
