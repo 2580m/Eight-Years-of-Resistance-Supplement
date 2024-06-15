@@ -1,0 +1,1426 @@
+focus_tree = {
+	id = japan_puppet_focus
+	country = {
+		factor = 0
+		modifier = {
+			add = 500
+			OR = {
+				tag = RFM
+				tag = EHB
+			}
+			has_dlc = "Waking the Tiger"
+		}
+	}
+	continuous_focus_position = { x = 350 y = 1080 }
+	default = no
+	focus = {
+		id = JPG_seek_japanese_support
+		icon = GFX_goal_reorg_JAP
+		cost = 10.00
+		x = 7
+		y = 0
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+
+			JAP = {
+				has_opinion = {
+					target = ROOT
+					value > 9
+				}
+			}
+			NOT = {
+				has_war_with = JAP
+			}
+		}
+		bypass = {
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+		completion_reward = {
+			add_political_power = 150
+			add_stability = 0.05
+			add_war_support = 0.05
+			if = {
+				limit = {
+					amount_taken_ideas = {
+					    amount < 2
+					    slots = {
+					        foreign_advisor
+					    }
+					}
+				}
+				#add_ideas = generic_jap_advisor
+				#doesnt work
+			}
+		}
+	}
+	
+	#### political branch ####
+	
+	focus = {
+		id = JPG_power_consolidation
+		icon = GFX_focus_generic_self_management
+		cost = 10
+		x = -5
+		y = 1
+		prerequisite = { focus = JPG_seek_japanese_support }
+		relative_position_id = JPG_seek_japanese_support
+		ai_will_do = {
+			factor = 1
+		}
+		
+		available_if_capitulated = no
+		
+		completion_reward = {
+			add_political_power = 150
+		}
+	}
+	
+	focus = {
+		id = JPG_public_works
+		icon = GFX_goal_generic_construct_infrastructure
+		cost = 10.00
+		relative_position_id = JPG_power_consolidation
+		prerequisite = { 
+			focus = JPG_power_consolidation
+		}
+		x = 1
+		y = 1
+		ai_will_do = {
+			factor = 1
+		}
+		available_if_capitulated = no
+		completion_reward = {
+			add_political_power = 20
+			add_ideas = CHI_public_works
+		}
+	}
+	
+	focus = {
+		id = JPG_ban_communism
+		icon = GFX_focus_ger_bulwark_against_bolshevism
+		cost = 5.00
+		relative_position_id = JPG_power_consolidation
+		prerequisite = { 
+			focus = JPG_power_consolidation
+		}
+		x = -1
+		y = 1
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+			NOT = {
+				OR = {
+					has_government = communism
+					OVERLORD = { has_government = communism }
+				}
+			}
+		}
+		#bypass = { OVERLORD = { has_government = communism } }
+		available_if_capitulated = no
+		completion_reward = {
+			add_political_power = 50
+			add_popularity = {
+				ideology = communism
+				popularity = -0.2
+			}
+			add_ideas = communism_banned
+		}
+	}
+	
+	focus = {
+		id = JPG_expand_propaganda_machines
+		icon = GFX_goal_generic_propaganda
+		cost = 10
+		relative_position_id = JPG_power_consolidation
+		prerequisite = { 
+			focus = JPG_power_consolidation
+		}
+		x = 0
+		y = 2
+		ai_will_do = {
+			factor = 1
+		}
+		available_if_capitulated = no
+		completion_reward = {
+			add_ideas = JPG_expanded_propaganda_machines
+		}
+	}
+	
+	focus = {
+		id = JPG_arms_confiscation
+		icon = GFX_focus_secret_rearmament
+		cost = 10
+		relative_position_id = JPG_expand_propaganda_machines
+		prerequisite = { 
+			focus = JPG_expand_propaganda_machines
+		}
+		x = 0
+		y = 1
+		ai_will_do = {
+			factor = 1
+		}
+		available_if_capitulated = no
+		completion_reward = {
+			add_ideas = JPG_arms_confiscation
+		}
+	}
+	
+	focus = {
+		id = JPG_personal_leadership
+		icon = GFX_goal_generic_political_pressure
+		cost = 10.00
+		relative_position_id = JPG_arms_confiscation
+		prerequisite = { 
+			focus = JPG_arms_confiscation
+		}
+		x = 0
+		y = 1
+		ai_will_do = {
+			factor = 1
+		}
+		available_if_capitulated = no
+		completion_reward = {
+			add_ideas = WRL_authoritarianism
+			
+			add_autonomy_ratio = {
+				value = 0.05#GUO
+				localization = JPG_reorganization_of_the_regime
+			}
+		}
+	}
+	
+	#### military branch ####
+	
+	focus = {
+		id = JPG_army_expansion
+		icon = GFX_COOP_army_guy
+		cost = 10.00
+		relative_position_id = JPG_seek_japanese_support
+		prerequisite = { 
+			focus = JPG_seek_japanese_support
+		}
+		x = 0
+		y = 1
+		ai_will_do = {
+			factor = 1
+		}
+		available_if_capitulated = no
+		completion_reward = {
+			add_war_support = 0.05
+			army_experience = 20
+			if = {
+				limit = {
+					OR = {
+						has_idea = disarmed_nation
+						has_idea = volunteer_only
+					}
+				}
+				add_ideas = limited_conscription
+			}
+		}
+	}
+
+	focus = {
+		id = JPG_bicycle_battalions
+		icon = GFX_goal_generic_axis_build_infantry
+		cost = 10
+		relative_position_id = JPG_army_expansion
+		prerequisite = {
+			focus = JPG_army_expansion
+		}
+		x = 0
+		y = 1
+		relative_position_id = JPG_army_expansion
+		completion_reward = {
+			set_global_flag = MAN_bicycle_battalions_focus_flag  
+			set_technology = {
+				bicycle_infantry = 1
+			}
+		}
+	}
+
+	focus = {
+		id = JPG_labor_reform
+		icon = GFX_goal_generic_construction2
+		cost = 10.00
+		relative_position_id = JPG_power_consolidation
+		prerequisite = { 
+			focus = JPG_power_consolidation
+		}
+		prerequisite = { focus = JPG_army_expansion }
+		relative_position_id = JPG_army_expansion
+		x = -2
+		y = 1
+		ai_will_do = {
+			factor = 1
+		}
+		available_if_capitulated = no
+		completion_reward = {
+			add_ideas = CHI_labor_reform
+		}
+	}
+	
+	focus = {
+		id = JPG_hire_japanese_military_advisors
+		icon = GFX_focus_generic_japanese_imperial_glory
+		cost = 10.00
+		
+		prerequisite = { 
+			focus = JPG_army_expansion
+		}
+		x = 4
+		y = 1
+		relative_position_id = JPG_army_expansion
+		ai_will_do = {
+			factor = 1
+		}
+		available_if_capitulated = no
+		completion_reward = {
+			army_experience = 50
+			add_ideas = JPG_jap_mil_advisors
+		}
+	}
+	
+	focus = {
+		id = JPG_the_benefit_of_collaboration
+		icon = GFX_goal_generic_dangerous_deal
+		cost = 10.00
+		relative_position_id = JPG_labor_reform
+		prerequisite = { 
+			focus = JPG_labor_reform
+		}
+		prerequisite = { focus = JPG_expand_propaganda_machines }
+		relative_position_id = JPG_expand_propaganda_machines
+		x = 2
+		y = 1
+		ai_will_do = {
+			factor = 1
+		}
+		available_if_capitulated = no
+		completion_reward = {
+			add_ideas = JPG_benefits_of_collaboration_idea
+			
+			add_autonomy_ratio = {
+				value = 0.05#GUO
+				localization = JPG_reorganization_of_the_regime
+			}
+		}
+	}
+	
+	focus = {
+		id = JPG_war_taxes
+		icon = GFX_goal_generic_consumer_goods
+		cost = 10.00
+		
+		prerequisite = { 
+			focus = JPG_the_benefit_of_collaboration
+		}
+		available = {
+			OR = {
+				has_war = yes
+				OR = {
+					has_idea = war_economy
+					has_idea = tot_economic_mobilisation
+				}
+			}
+		}
+		x = 2
+		y = 0
+		relative_position_id = JPG_personal_leadership
+		ai_will_do = {
+			factor = 1
+		}
+		cancel_if_invalid = yes
+		available_if_capitulated = no
+		completion_reward = {
+			add_ideas = CHI_war_taxes
+		}
+	}
+	
+	focus = {
+		id = JPG_rapid_mobilization
+		icon = GFX_focus_generic_little_entente
+		cost = 10.00
+		relative_position_id = JPG_the_benefit_of_collaboration
+		prerequisite = { 
+			focus = JPG_the_benefit_of_collaboration
+		}
+		prerequisite = { focus = JPG_rural_militias	}
+		relative_position_id = JPG_war_taxes
+		x = 3
+		y = 0
+		ai_will_do = {
+			factor = 1
+		}
+		available_if_capitulated = no
+		completion_reward = {
+			add_ideas = JPG_rapid_mobilisation
+		}
+	}
+	
+	focus = {
+		id = JPG_local_arms_workshops
+		icon = GFX_goal_generic_production
+		cost = 10.00
+		relative_position_id = JPG_labor_reform
+		prerequisite = { 
+			focus = JPG_labor_reform
+		}
+		x = 0
+		y = 1
+		ai_will_do = {
+			factor = 1
+		}
+		available_if_capitulated = no
+		completion_reward = {
+			add_ideas = JPG_local_arms_workshops_idea
+		}
+	}
+
+	focus = {                                                #### industrial branch ####
+		id = JPG_local_arms_production                        
+		icon = GFX_goal_generic_construct_mil_factory
+		cost = 10.00
+		relative_position_id = JPG_industrial_investment
+		prerequisite = { 
+			focus = JPG_industrial_investment
+		}
+		prerequisite = { focus = JPG_army_expansion }
+		relative_position_id = JPG_army_expansion
+		x = 2
+		y = 1
+		ai_will_do = {
+			factor = 4
+		}
+		available_if_capitulated = no
+		complete_tooltip = {
+			
+		}
+		completion_reward = {
+			one_random_arms_factory = yes
+		}
+	}                                                        #### industrial branch ####
+	
+	focus = {
+		id = JPG_rural_militias
+		icon = GFX_goal_generic_military_sphere
+		cost = 10.00
+		
+		prerequisite = { 
+			focus = JPG_local_arms_production
+		}
+		x = -1
+		y = 1
+		relative_position_id = JPG_local_arms_production
+		ai_will_do = {
+			factor = 1
+		}
+		available_if_capitulated = no
+		completion_reward = {
+			add_ideas = JPG_rural_militias
+		}
+	}
+	
+	focus = {
+		id = JPG_take_what_we_can_take
+		icon = GFX_focus_generic_combined_arms
+		cost = 10.00
+		relative_position_id = JPG_rural_militias
+		prerequisite = { 
+			focus = JPG_rural_militias
+		}
+		x = 0
+		y = 1
+		completion_reward = {
+			set_country_flag = JPG_allow_weapon_scavenging
+			unlock_decision_tooltip = JPG_weapon_scavenging
+			custom_effect_tooltip = JPG_only_show_up_in_war_time_tt
+		}
+	}
+	
+	focus = {
+		id = JPG_small_arms_development
+		icon = GFX_goal_generic_small_arms
+		cost = 10.00
+		#relative_position_id = JPG_hire_japanese_military_advisors
+		prerequisite = { 
+			focus = JPG_hire_japanese_military_advisors
+		}
+		prerequisite = { focus = JPG_local_arms_production }
+		relative_position_id = JPG_local_arms_production
+		x = 1
+		y = 1
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 1
+				uses = 1
+				category = infantry_weapons
+			}
+		}
+	}
+	
+	focus = {
+		id = JPG_modernise_support_equipment
+		icon = GFX_goal_generic_army_artillery2
+		cost = 10.00
+		ai_will_do = {
+			factor = 1
+		}
+		prerequisite = { focus = JPG_small_arms_development }
+		relative_position_id = JPG_small_arms_development
+		x = 0
+		y = 1
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 1
+				uses = 1
+				category = artillery
+				category = support_tech
+			}
+		}
+	}
+	
+	focus = {
+		id = JPG_armoured_vehicle_experiment
+		icon = GFX_goal_generic_army_tanks
+		cost = 10.00
+		relative_position_id = JPG_modernise_support_equipment
+		prerequisite = { 
+			focus = JPG_modernise_support_equipment
+		}
+		x = 0
+		y = 1
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 1
+				uses = 1
+				category = armor
+			}
+		}
+	}
+	
+	#### industrial branch ####
+	
+	focus = {
+		id = JPG_industrial_investment
+		icon = GFX_goal_generic_construct_civ_factory
+		cost = 10.00
+		relative_position_id = JPG_seek_japanese_support
+		prerequisite = {
+			focus = JPG_seek_japanese_support
+		}
+		x = 5
+		y = 1
+		ai_will_do = {
+			factor = 4
+		}
+		available_if_capitulated = no
+		complete_tooltip = {
+			random_state = {
+				limit = {
+					has_state_flag = JPG_industrial_investment_IC
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					is_fully_controlled_by = ROOT
+					free_building_slots = {
+						building = industrial_complex
+						size > 0
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+				set_state_flag = JPG_industrial_investment_IC
+			}
+		}
+	}
+		
+	focus = {
+		id = JPG_long_term_economic_planning
+		icon = GFX_focus_generic_industry_3
+		cost = 10.00
+		relative_position_id = JPG_industrial_investment
+		prerequisite = { 
+			focus = JPG_industrial_investment
+		}
+		x = 1
+		y = 1
+		ai_will_do = {
+			factor = 4
+		}
+		available_if_capitulated = no
+		completion_reward = {
+			add_ideas = CHI_long_term_economic_planning
+		}
+	}
+	
+	focus = {
+		id = JPG_improve_infrastructure
+		icon = GFX_goal_generic_construct_civilian
+		cost = 5
+		prerequisite = { focus = JPG_long_term_economic_planning }
+		relative_position_id = JPG_long_term_economic_planning
+		x = 0
+		y = 2
+		ai_will_do = {
+			factor = 4
+		}
+		available_if_capitulated = no
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					infrastructure < 4
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					air_base < 10
+				}
+				add_building_construction = {
+					type = air_base
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = JPG_public_education_reform
+		icon = GFX_focus_generic_military_academy
+		cost = 10.00
+		relative_position_id = JPG_long_term_economic_planning
+		prerequisite = { 
+			focus = JPG_long_term_economic_planning
+		}
+		x = -1
+		y = 1
+		ai_will_do = {
+			factor = 10
+		}
+		available_if_capitulated = no
+		completion_reward = {
+			add_research_slot = 1
+			
+			add_autonomy_ratio = {
+				value = 0.05#GUO
+				localization = JPG_reorganization_of_the_regime
+			}
+		}
+	}
+	
+	focus = {
+		id = JPG_Faction_Research_jap
+		icon = GFX_goal_tfv_generic_tech_sharing
+		cost = 10.00
+		relative_position_id = JPG_public_education_reform
+		prerequisite = { 
+			focus = JPG_public_education_reform
+		}
+		x = 0
+		y = 2
+		available = {
+			OR = {
+				is_in_faction_with = SOV
+				is_in_faction_with = JAP
+				is_in_faction_with = GER
+				is_in_faction_with = USA
+				is_in_faction_with = ENG
+			}
+		}
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			if = {
+				limit = {
+					has_dlc = "Together for Victory"
+				}
+				if = {
+					limit = {
+						is_in_faction_with = SOV
+					}
+					SOV = {
+						add_to_tech_sharing_group = comintern_research
+					}
+					add_to_tech_sharing_group = comintern_research
+				}
+				else_if = {
+					limit = {
+						is_in_faction_with = JAP
+						NOT = {
+							is_in_faction_with = GER
+						}
+					}
+					JAP = {
+						add_to_tech_sharing_group = japanese_research
+					}
+					add_to_tech_sharing_group = japanese_research
+				}
+				else_if = {
+					limit = {
+						is_in_faction_with = GER
+					}
+					GER = {
+						add_to_tech_sharing_group = axis_research
+					}
+					add_to_tech_sharing_group = axis_research
+				}
+				else_if = {
+					limit = {
+						is_in_faction_with = USA
+					}
+					USA = {
+						add_to_tech_sharing_group = us_research
+					}
+					add_to_tech_sharing_group = us_research
+				}
+				else_if = {
+					limit = {
+						is_in_faction_with = ENG
+					}
+					ENG = {
+						add_to_tech_sharing_group = commonwealth_research
+					}
+					add_to_tech_sharing_group = commonwealth_research
+					else = {
+						custom_effect_tooltip = CHI_Faction_Research_tt
+					}
+				}
+			}
+			if = {
+				limit = {
+					NOT = {
+						has_dlc = "Together for Victory"
+					}
+				}
+				add_tech_bonus = {
+					name = faction_bonus
+					bonus = 0.5
+					uses = 1
+					category = naval_equipment
+				}
+				add_tech_bonus = {
+					name = faction_bonus
+					bonus = 0.5
+					uses = 1
+					category = medium_air
+				}
+				add_tech_bonus = {
+					name = faction_bonus
+					bonus = 0.5
+					uses = 1
+					category = light_air
+				}
+			}
+		}
+	}
+	
+	#### reorganise ####
+	
+	focus = {
+		id = JPG_reorganization_of_the_regime
+		icon = GFX_focus_reorganized_china
+		cost = 10.00
+		relative_position_id = JPG_rapid_mobilization
+		prerequisite = {
+			focus = JPG_rapid_mobilization
+		}
+		prerequisite = {
+			focus = JPG_Faction_Research_jap
+		}
+		prerequisite = {
+			focus = JPG_personal_leadership
+		}
+		x = 5
+		y = 1
+		relative_position_id = JPG_personal_leadership
+		allow_branch = {
+			NOT = {
+				has_government = n_socialism
+				JAP = {
+					has_completed_focus = JAP_socialism_with_militarism_characteristics_focus
+				}
+				OR = {
+					has_government = communism
+					OVERLORD = { has_government = communism }
+				}
+				OR = {
+					has_government = democratic
+					OVERLORD = { has_government = democratic }
+				}
+			}
+		}
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 1
+				JAP = {
+					is_ai = no
+				}
+			}
+		}
+		available = {
+			not_affacted_by_illegal_regime_JPG = yes
+			else = {
+				is_legit_china = yes
+			}
+		}
+		available_if_capitulated = no
+		completion_reward = {
+			add_autonomy_ratio = {
+				value = 0.35#GUO
+				localization = JPG_reorganization_of_the_regime
+			}
+			#swap_ideas = {
+			#	add_idea = JPG_illegal_regime_3
+			#	remove_idea = JPG_illegal_regime_2
+			#}
+			hidden_effect = {
+				event_target:WTT_current_china_leader = {
+					if = {	limit = { NOT = { tag = ROOT } }
+						set_variable = { global.previous_china_leader = THIS }
+					}
+				}
+				clear_global_event_target = WTT_current_china_leader
+			}
+			custom_effect_tooltip = will_become_the_recognized_leader_of_china
+			set_party_name = {
+				ideology = democratic
+				name = CHI_democratic_party
+				long_name = CHI_democratic_party_long
+			}
+			set_party_name = {
+				ideology = neutrality
+				name = CHI_neutrality_party
+				long_name = CHI_neutrality_party_long
+			}
+			set_party_name = {
+				ideology = n_socialism
+				name = CHI_n_socialism_party
+				long_name = CHI_n_socialism_party_long
+			}
+			set_party_name = {
+				ideology = communism
+				name = PRC_communism_party
+				long_name = PRC_communism_party_long
+			}
+			save_global_event_target_as = WTT_current_china_leader
+			
+			set_cosmetic_tag = CHI_wang
+			remove_country_leader_trait = wushinuli
+			
+			if = { 
+				limit = { OR = { has_government = communism has_government = n_socialism }  }
+				load_focus_tree = { tree = warlord_generic_communist keep_completed = yes }
+				else = { load_focus_tree = { tree = warlord_generic_nationalist keep_completed = yes } }
+			}
+			custom_effect_tooltip = warn_focus_change_tt
+		}
+	}
+
+	focus = {
+		id = JPG_reorganization_of_the_regime_CACNL
+		icon = GFX_goal_chinese_republic
+		cost = 10.00
+		relative_position_id = JPG_rapid_mobilization
+		prerequisite = {
+			focus = JPG_rapid_mobilization
+		}
+		prerequisite = {
+			focus = JPG_Faction_Research_jap
+		}
+		prerequisite = {
+			focus = JPG_personal_leadership
+		}
+		allow_branch = {
+			has_government = n_socialism
+			JAP = {
+				has_completed_focus = JAP_socialism_with_militarism_characteristics_focus
+			}
+		}
+		x = 5
+		y = 1
+		relative_position_id = JPG_personal_leadership
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 1
+				JAP = {
+					is_ai = no
+				}
+			}
+		}
+		available = {
+			not_affacted_by_illegal_regime_JPG = yes
+			if = {
+				limit = {
+					NOT = {
+						tag = event_target:WTT_current_china_leader
+					}
+				}
+				OR = { 
+					has_country_flag = im_rrc_now
+					tag = event_target:EYW_jap_chi
+				}
+				NOT = {
+					country_exists = event_target:WTT_current_china_leader
+				}
+			}
+			else = {
+				is_legit_china = yes
+			}
+		}
+		available_if_capitulated = no
+		completion_reward = {
+			add_autonomy_ratio = {
+				value = 0.35#GUO
+				localization = JPG_reorganization_of_the_regime
+			}
+			#swap_ideas = {
+			#	add_idea = JPG_illegal_regime_3
+			#	remove_idea = JPG_illegal_regime_2
+			#}
+			hidden_effect = {
+				event_target:WTT_current_china_leader = {
+					if = {	limit = { NOT = { tag = ROOT } }
+						set_variable = { global.previous_china_leader = THIS }
+					}
+				}
+				clear_global_event_target = WTT_current_china_leader
+			}
+			custom_effect_tooltip = will_become_the_recognized_leader_of_china
+			set_party_name = {
+				ideology = democratic
+				name = CHI_democratic_party
+				long_name = CHI_democratic_party_long
+			}
+			set_party_name = {
+				ideology = neutrality
+				name = CHI_neutrality_party
+				long_name = CHI_neutrality_party_long
+			}
+			set_party_name = {
+				ideology = n_socialism
+				name = CHI_n_socialism_party
+				long_name = CHI_n_socialism_party_long
+			}
+			set_party_name = {
+				ideology = communism
+				name = PRC_communism_party
+				long_name = PRC_communism_party_long
+			}
+			save_global_event_target_as = WTT_current_china_leader
+			
+			set_cosmetic_tag = zhonghuaminguo_puppet_of_japan#guo
+			remove_country_leader_trait = wushinuli
+			
+			if = { 
+				limit = { OR = { has_government = communism has_government = n_socialism }  }
+				load_focus_tree = { tree = warlord_generic_communist keep_completed = yes }
+				else = { load_focus_tree = { tree = warlord_generic_nationalist keep_completed = yes } }
+			}
+			custom_effect_tooltip = warn_focus_change_tt
+		}
+	}
+
+	focus = {
+		id = JPG_reorganization_of_the_regime_CPC
+		icon = GFX_focus_chi_one_china_policy
+		cost = 10.00
+		relative_position_id = JPG_rapid_mobilization
+		prerequisite = {
+			focus = JPG_rapid_mobilization
+		}
+		prerequisite = {
+			focus = JPG_Faction_Research_jap
+		}
+		prerequisite = {
+			focus = JPG_personal_leadership
+		}
+		allow_branch = {
+			OR = {
+				has_government = communism
+				OVERLORD = { has_government = communism }
+			}
+		}
+		x = 5
+		y = 1
+		relative_position_id = JPG_personal_leadership
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 1
+				JAP = {
+					is_ai = no
+				}
+			}
+		}
+		available = {
+			not_affacted_by_illegal_regime_JPG = yes
+			if = {
+				limit = {
+					NOT = {
+						tag = event_target:WTT_current_china_leader
+					}
+				}
+				OR = { 
+					has_country_flag = im_rrc_now
+					tag = event_target:EYW_jap_chi
+				}
+				NOT = {
+					country_exists = event_target:WTT_current_china_leader
+				}
+			}
+			else = {
+				is_legit_china = yes
+			}
+		}
+		available_if_capitulated = no
+		completion_reward = {
+			add_autonomy_ratio = {
+				value = 0.35#GUO
+				localization = JPG_reorganization_of_the_regime
+			}
+			#swap_ideas = {
+			#	add_idea = JPG_illegal_regime_3
+			#	remove_idea = JPG_illegal_regime_2
+			#}
+			hidden_effect = {
+				event_target:WTT_current_china_leader = {
+					if = {	limit = { NOT = { tag = ROOT } }
+						set_variable = { global.previous_china_leader = THIS }
+					}
+				}
+				clear_global_event_target = WTT_current_china_leader
+			}
+			custom_effect_tooltip = will_become_the_recognized_leader_of_china
+			set_party_name = {
+				ideology = democratic
+				name = CHI_democratic_party
+				long_name = CHI_democratic_party_long
+			}
+			set_party_name = {
+				ideology = neutrality
+				name = CHI_neutrality_party
+				long_name = CHI_neutrality_party_long
+			}
+			set_party_name = {
+				ideology = n_socialism
+				name = CHI_n_socialism_party
+				long_name = CHI_n_socialism_party_long
+			}
+			set_party_name = {
+				ideology = communism
+				name = PRC_communism_party
+				long_name = PRC_communism_party_long
+			}
+			save_global_event_target_as = WTT_current_china_leader
+			if = { 
+				limit = { OR = { has_government = communism has_government = n_socialism }  }
+				load_focus_tree = { tree = warlord_generic_communist keep_completed = yes }
+				else = { load_focus_tree = { tree = warlord_generic_nationalist keep_completed = yes } }
+			}
+			custom_effect_tooltip = warn_focus_change_tt
+		}
+	}
+
+	focus = {
+		id = JAPCHI_zhixianjiuguo
+		icon = GFX_goal_empire_restored
+		cost = 10.00
+		allow_branch = {
+			has_dlc = "Waking the Tiger"
+		}
+		x = 30
+		y = 2
+		ai_will_do = {
+			factor = 0
+		}
+		available = {
+		}
+		bypass = {
+		}
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		completion_reward = {
+		    add_ideas = japchi_zhixianjiuguo
+			set_global_flag = MAN_assertiveness_focus_flag  
+			MAN_low_legitimacy_level_down = yes
+			if = {
+				limit = {
+					has_dlc = "Together for Victory"
+				}
+				add_autonomy_ratio = {
+					value = 0.15
+					localization = MAN_assertiveness
+				}
+				else = {
+					add_political_power = 150
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = JAPCHI_ribenzhuangbei
+		icon = GFX_goal_generic_intelligence_exchange
+		relative_position_id = JAPCHI_zhixianjiuguo
+		cost = 10.00
+		prerequisite = {
+			focus = JAPCHI_zhixianjiuguo
+		}
+		x = 0
+		y = 4
+		ai_will_do = {
+			factor = 5
+		}
+		available = {
+			neutrality > 0.40
+		}
+		completion_reward = {
+			add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = 8000
+				producer = JAP
+			}
+			set_global_flag = MAN_reform_the_civil_service_focus_flag  
+			add_political_power = 150
+			add_stability = -0.1
+		}
+	}
+
+	focus = {
+		id = JAPCHI_duoquejungongchang
+		icon = GFX_goal_generic_construct_mil_factory
+		relative_position_id = JAPCHI_ribenzhuangbei
+		cost = 10.00
+		prerequisite = {
+			focus = JAPCHI_ribenzhuangbei
+		}
+		x = 0
+		y = 4
+		ai_will_do = {
+			factor = 6
+		}
+		available = {
+			neutrality > 0.45
+		}
+		complete_tooltip = {
+			unlock_decision_tooltip = MAN_fund_underground_gun_shops
+			every_owned_state = {
+				limit = {
+					has_state_flag = MAN_local_arms_procurement_AF
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+		completion_reward = {
+			set_global_flag = MAN_local_arms_procurement_focus_flag  
+			unlock_decision_tooltip = MAN_fund_underground_gun_shops
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = ROOT
+					is_fully_controlled_by = ROOT
+					free_building_slots = {
+						building = arms_factory
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+				set_state_flag = MAN_local_arms_procurement_AF
+			}
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = ROOT
+					is_fully_controlled_by = ROOT
+					free_building_slots = {
+						building = arms_factory
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+				set_state_flag = MAN_local_arms_procurement_AF
+			}
+		}
+	}
+
+	focus = {
+		id = JAPCHI_duli
+		icon = GFX_goal_generic_territory_or_war
+		relative_position_id = JAPCHI_duoquejungongchang
+		cost = 10.00
+		prerequisite = {
+			focus = JAPCHI_duoquejungongchang
+		}
+		x = 0
+		y = 4
+		ai_will_do = {
+			factor = 100
+			modifier = {
+				strength_ratio = {
+					tag = JAP
+					ratio < 0.3
+				}
+				factor = 0
+			}
+		}
+		available = {
+			neutrality > 0.50
+			date > 1940.1.1  #判断，40年1月后才可以完成此国策
+		}
+		bypass = {
+			is_subject = no
+		}
+		will_lead_to_war_with = JAP
+		completion_reward = {
+
+				create_country_leader = {
+					name="夏文运"
+					desc=EHB_xiawenyun_desc
+					picture = "gfx/leaders/EHB/xiawenyun_EHB.png"
+					ideology = despotism
+					traits = { head_of_intelligence }
+					}
+
+		add_ideas = man_rangribenguizigunchuqu
+			JAP = {
+				end_puppet = ROOT
+			}
+					set_autonomy = {
+						target = ROOT
+						autonomy_state = autonomy_free
+					}
+			if = {
+				limit = {
+					is_in_faction_with = JAP
+				}
+				leave_faction = yes
+			}
+				white_peace = CHI	#与CHI白和
+				
+				
+				declare_war_on = {
+					target = JAP
+					type = puppet_wargoal_focus
+				}
+				CHI = { add_to_faction = EHB}   ##EHB加入CHI领导的统一战线
+				every_country = {					#中华统一战线的所有国家和EHB签订90天的停战协议
+					limit = {
+						is_in_faction_with = CHI
+					}
+					set_truce = {
+						target = EHB
+						days = 90
+					}
+				}
+
+                ROOT = {
+					add_to_war = { 		#加入到中国——日本之战
+						targeted_alliance = CHI 
+						enemy = JAP
+						hostility_reason = asked_to_join
+					}
+
+
+
+				set_cosmetic_tag = EHB_qiyi
+
+
+
+
+
+
+
+			set_politics = { ruling_party = neutrality elections_allowed = no }
+
+
+					set_popularities = {
+						fascism = 0
+						communism = 0
+						neutrality = 100
+						democratic = 0
+					}
+
+
+
+				set_party_name = {
+					ideology = neutrality
+					long_name = "中华民国光复委员会"
+					name = "中华民国光复委员会"
+				}
+
+
+
+
+
+
+
+
+
+
+               }
+
+
+
+
+		
+							
+
+	
+		}
+	}
+
+	focus = {
+		id = JPG_reorganization_of_the_regime_DEM
+		icon = GFX_focus_lighthouse_of_democracy
+		cost = 10.00
+		relative_position_id = JPG_rapid_mobilization
+		prerequisite = {
+			focus = JPG_rapid_mobilization
+		}
+		prerequisite = {
+			focus = JPG_Faction_Research_jap
+		}
+		prerequisite = {
+			focus = JPG_personal_leadership
+		}
+		allow_branch = {
+			OR = {
+				has_government = democratic
+				OVERLORD = { has_government = democratic }
+			}
+		}
+		x = 5
+		y = 1
+		relative_position_id = JPG_personal_leadership
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 1
+				JAP = {
+					is_ai = no
+				}
+			}
+		}
+		available = {
+			not_affacted_by_illegal_regime_JPG = yes
+			if = {
+				limit = {
+					NOT = {
+						tag = event_target:WTT_current_china_leader
+					}
+				}
+				OR = { 
+					has_country_flag = im_rrc_now
+					tag = event_target:EYW_jap_chi
+				}
+				NOT = {
+					country_exists = event_target:WTT_current_china_leader
+				}
+			}
+			else = {
+				is_legit_china = yes
+			}
+		}
+		available_if_capitulated = no
+		completion_reward = {
+			add_autonomy_ratio = {
+				value = 0.35#GUO
+				localization = JPG_reorganization_of_the_regime
+			}
+			#swap_ideas = {
+			#	add_idea = JPG_illegal_regime_3
+			#	remove_idea = JPG_illegal_regime_2
+			#}
+			hidden_effect = {
+				event_target:WTT_current_china_leader = {
+					if = {	limit = { NOT = { tag = ROOT } }
+						set_variable = { global.previous_china_leader = THIS }
+					}
+				}
+				clear_global_event_target = WTT_current_china_leader
+			}
+			custom_effect_tooltip = will_become_the_recognized_leader_of_china
+			set_party_name = {
+				ideology = democratic
+				name = CHI_democratic_party
+				long_name = CHI_democratic_party_long
+			}
+			set_party_name = {
+				ideology = neutrality
+				name = CHI_neutrality_party
+				long_name = CHI_neutrality_party_long
+			}
+			set_party_name = {
+				ideology = n_socialism
+				name = CHI_n_socialism_party
+				long_name = CHI_n_socialism_party_long
+			}
+			set_party_name = {
+				ideology = communism
+				name = PRC_communism_party
+				long_name = PRC_communism_party_long
+			}
+			save_global_event_target_as = WTT_current_china_leader
+			
+			set_cosmetic_tag = zhonghuaminguo_puppet_of_japan#guo
+			remove_country_leader_trait = wushinuli
+			
+			if = { 
+				limit = { OR = { has_government = communism has_government = n_socialism }  }
+				load_focus_tree = { tree = warlord_generic_communist keep_completed = yes }
+				else = { load_focus_tree = { tree = warlord_generic_nationalist keep_completed = yes } }
+			}
+			custom_effect_tooltip = warn_focus_change_tt
+		}
+	}
+}

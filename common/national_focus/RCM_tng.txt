@@ -1,0 +1,3585 @@
+focus_tree = {
+	id = RCM_tng
+	country = {
+		factor = 0
+		modifier = {
+			add = 100
+			tag = TNG
+		}
+	}
+	
+	default = no
+	
+	continuous_focus_position = { x = 20 y = 1100 }
+	
+	focus = {
+		id = TNG_create_currency
+		icon = GFX_focus_mex_privatisation
+		cost = 7.15
+		x = 3
+		y = 0
+		ai_will_do = {
+			factor = 2
+		}
+		completion_reward = {
+			RCM_increase_inflation_level = yes
+			add_ideas = TNG_currency
+		}
+        available = {
+
+		}
+	}
+	focus = { 
+		id = TNG_office_of_khotan
+		icon = GFX_focus_generic_improve_the_administration
+		cost = 5.00 
+		x = 20
+		y = 0
+		ai_will_do = {
+		    factor = 25
+		}
+		completion_reward = {
+			#custom_effect_tooltip = THIS_IS_HISTORICAL_TT
+			add_political_power = 120 
+		}
+		available = {
+		}
+	}
+
+	focus = {
+		id = TNG_inner_issues
+		icon = GFX_focus_TUR_loosen_the_laws_on_secularism
+		cost = 7.15
+		prerequisite = {
+			focus = TNG_office_of_khotan
+		}
+		x = 24
+		y = 1
+		ai_will_do = {
+		    factor = 2
+		}
+		completion_reward = {
+		    add_stability = 0.05
+		}
+
+		available = {
+			#if = {
+			#	limit = {
+			#		is_ai = yes
+			#	}
+			#	hidden_trigger = {
+            #       date > 1937.1.1
+			#	} 
+			#}
+		}
+	}
+
+	focus = {
+		id = TNG_ignore_uyghurs
+		icon = GFX_focus_eng_move_to_secure_the_dominions
+		cost = 7.15 
+		prerequisite = {
+			focus = TNG_inner_issues
+		}
+		mutually_exclusive = { 	
+			focus = TNG_placate_uyghurs
+		}
+		x = 23
+		y = 2
+		ai_will_do = {
+		    factor = 2
+		}
+		completion_reward = {
+			custom_effect_tooltip = THIS_IS_HISTORICAL_TT
+			add_war_support = -0.05
+			add_political_power = 100
+		}
+		available = {
+		}
+	}
+
+	focus = {
+		id = TNG_hui_han_advantage
+		icon = GFX_goal_generic_demand_territory
+		cost = 7.15 
+		prerequisite = {
+			focus = TNG_push_sinicization
+		}
+		x = 23
+		y = 4
+		ai_will_do = {
+		    factor = 10
+		}
+		completion_reward = {
+			if = {
+				limit = {
+					NOT = {
+						1048 = {
+							is_core_of = ROOT
+						}
+					}
+				}
+			    add_state_core = 1048
+			}
+			add_stability = 0.1
+		}
+		available = {
+			NOT = {
+				has_idea = TNG_push_sinicization
+			}
+		}
+	}
+
+	focus = {
+		id = TNG_push_sinicization
+		icon = GFX_focus_generic_treaty
+		cost = 7.15
+		prerequisite = {
+			focus = TNG_ignore_uyghurs
+		}
+		x = 23
+		y = 3
+		ai_will_do = {
+		    factor = 10
+		}
+		completion_reward = {
+            add_timed_idea = {
+				idea = TNG_push_sinicization
+				days = 365
+			}
+			custom_effect_tooltip = the_conflict_debuff_goes_away_by_time_tt
+		}
+		available = {
+		}
+	}
+
+	focus = {
+		id = TNG_placate_uyghurs
+		icon = GFX_focus_rule_out_extremists
+		cost = 7.15
+		prerequisite = {
+			focus = TNG_inner_issues
+		}
+		mutually_exclusive = { 	
+			focus = TNG_ignore_uyghurs 
+		}
+		x = 25
+		y = 2
+		ai_will_do = {
+		    factor = 2
+			modifier = {
+				is_historical_focus_on = yes
+				factor = 0
+			}
+		}
+		completion_reward = {
+			add_political_power = -50
+			#add_stability = 0.05
+			if = {
+				limit = {
+					has_idea = TNG_Conflict_1
+				}
+				swap_ideas = {
+					remove_idea = TNG_Conflict_1
+					add_idea = TNG_Conflict_2
+				}
+			}
+			if = {
+				limit = {
+					NOT = {
+						1048 = {
+							is_core_of = ROOT
+						}
+					}
+				}
+			    add_state_core = 1048
+			}
+		}
+		available = {
+		}
+	}
+
+	focus = {
+		id = TNG_muslim_unity
+		icon = GFX_goal_generic_national_unity
+		cost = 7.15
+		prerequisite = {
+			focus = TNG_placate_uyghurs
+		}
+		x = 25
+		y = 3
+		ai_will_do = {
+		    factor = 10
+		}
+		completion_reward = {
+			add_war_support = 0.05
+			if = {
+				limit = {
+					has_idea = TNG_Conflict_1
+				}
+				remove_ideas = TNG_Conflict_1
+			}
+			if = {
+				limit = {
+					has_idea = TNG_Conflict_2
+				}
+				remove_ideas = TNG_Conflict_2
+			}
+		}
+		available = {
+			
+		}
+	}
+
+	focus = {
+		id = TNG_share_regime
+		icon = GFX_focus_generic_self_management
+		cost = 7.15 
+		prerequisite = {
+			focus = TNG_muslim_unity
+		}
+		x = 25
+		y = 4
+		ai_will_do = {
+		    factor = 10
+		}
+		completion_reward = {
+			add_political_power = -50
+			add_ideas = TNG_Conflict_3
+		}
+		available = {
+		}
+	}
+	
+    focus = {
+		id = TNG_invest_education
+		icon = GFX_focus_research2
+		cost = 10.00
+		prerequisite = { 
+			focus = TNG_hui_han_advantage 
+			focus = TNG_share_regime
+	 	}
+		x = 24
+		y = 5
+		ai_will_do = {
+			factor = 10
+		}
+		available_if_capitulated = yes
+		completion_reward = {
+			add_research_slot = 1
+		}
+	}
+
+	focus = {
+		id = TNG_foreign_relations
+		icon = GFX_goal_generic_intelligence_exchange
+		cost = 7.86
+		prerequisite = {
+			focus = TNG_office_of_khotan
+		}
+		x = 16
+		y = 1
+		ai_will_do = {
+		    factor = 25
+		}
+		completion_reward = {
+			add_timed_idea = {
+				idea = CHI_diplomatic_effort_idea
+				days = 365
+			}
+		}
+		available = {
+		}
+	}
+
+    focus = {
+		id = TNG_agreement_with_provincal_government
+		icon = GFX_focus_hol_the_foundations_of_defense #GFX_COOP_sinkiang_offer
+		cost = 10.00 
+		prerequisite = {
+			focus = TNG_foreign_relations
+		}
+		x = 18
+		y = 2
+		ai_will_do = {
+		    factor = 10
+		}
+		completion_reward = {
+			SIK = {
+				country_event = {
+					id = tng.21 hours = 12
+				}
+			}
+			custom_effect_tooltip = if_approved_tt
+			effect_tooltip = {
+				add_timed_idea = {
+					idea = SIK_tng_truce_agreement_tng days = 1095
+				}
+				remove_opinion_modifier = {
+					target = SIK
+					modifier = hostile_status
+				}
+				SIK = {
+					add_timed_idea = {
+						idea = SIK_tng_truce_agreement days = 1095
+					}
+					remove_opinion_modifier = {
+						target = ROOT
+						modifier = hostile_status
+					}
+				}
+			}
+		}
+		available = {
+			SIK = {
+				exists = yes
+				is_subject = no
+				NOT = {
+					has_border_war_with = ROOT
+					has_war_with = ROOT
+				}
+			}
+			NOT = {
+				is_in_faction_with = KHR
+			}
+		}
+		bypass = {
+			OR = {
+				has_war_with = SIK
+				NOT = {
+					country_exists = SIK
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = TNG_kashgar_issue
+		icon = GFX_goal_generic_position_armies
+		cost = 5.00 
+		#prerequisite = {
+		#	focus = TNG_agreement_with_provincal_government
+		#}
+		x = 6
+		y = 5
+		ai_will_do = {
+		    factor = 10
+		}
+    	completion_reward = {
+			add_political_power = 100
+		}
+		available = {
+			always = no
+		}
+		bypass = {
+			OR = {
+                NOT = {
+					country_exists = KHR
+				}
+				has_war_with = KHR
+				KHR = {
+					has_war_with = SIK
+				}
+				event_target:WTT_current_china_leader = {
+					has_defensive_war_with = JAP 
+				}
+			}
+		}
+	}
+
+	#focus = {
+	#	id = TNG_ally_with_kashgar
+	#	icon = GFX_focus_war_sinkiang
+	#	cost = 5.00 
+	#	prerequisite = {
+	#		focus = TNG_kashgar_issue
+	#	}
+	#	x = 12
+	#	y = 6
+	#	ai_will_do = {
+	#	    factor = 10
+	#	}
+	#	completion_reward = {
+	#	}
+	#	available = {
+	#		always = no
+	#		NOT = {
+	#			owns_state = 619
+	#			has_war_with = KHR
+	#		}
+	#	}
+	#	will_lead_to_war_with = SIK
+	#}
+
+	#focus = {
+	#	id = TNG_help_sik
+	#	icon = GFX_COOP_sinkiang_offer
+	#	cost = 5.00 
+	#	prerequisite = {
+	#		focus = TNG_kashgar_issue
+	#	}
+	#	x = 14
+	#	y = 6
+	#	ai_will_do = {
+	#	    factor = 10
+	#	}
+	#	completion_reward = {
+    #
+	#	}
+	#	available = {
+	#		always = no
+	#		NOT = {
+	#			owns_state = 619
+	#			has_war_with = KHR
+	#		}
+	#	}
+	#	will_lead_to_war_with = KHR
+	#}
+	
+	focus = {
+		id = TNG_befriend_nanking
+		icon = GFX_focus_chi_cooperation_with_the_nationalists
+		cost = 5
+		prerequisite = {
+			focus = TNG_foreign_relations
+		}
+		x = 14
+		y = 2
+		ai_will_do = {
+		    factor = 30
+		}
+		completion_reward = {
+			country_event = tng.20
+			effect_tooltip = {
+				if = {
+					limit = {
+						has_idea = TNG_8th_division
+					}
+					remove_ideas = TNG_8th_division
+				}
+			}
+			set_country_flag = cooperation_with_nationalist_flag
+			#custom_effect_tooltip = CHI_cooperation_with_the_nationalists_effect_tooltip
+			event_target:WTT_current_china_leader = { add_opinion_modifier = { modifier = RCM_cooperation_with_the_nationalists_positive target = ROOT } }
+			PRC = { add_opinion_modifier = { modifier = RCM_cooperation_with_the_nationalists_negative target = ROOT } }
+			add_opinion_modifier = { modifier = RCM_cooperation_with_the_nationalists_negative target = PRC }
+		}
+		available = {
+		    OR = {
+				is_subject = no
+				is_subject_of = event_target:WTT_current_china_leader
+			}
+			event_target:WTT_current_china_leader = {
+				exists = yes
+				is_subject = no
+				NOT = {
+					has_war_with = ROOT
+				}
+				#has_opinion = {
+				#	target = ROOT
+				#	value > -1
+				#}
+			}
+		}
+	}
+
+	focus = {
+		id = TNG_befriend_ma_cliques
+		icon = GFX_COOP_northwest_mediation
+		cost = 7.15
+		prerequisite = {
+			focus = TNG_befriend_nanking
+		}
+		x = 15
+		y = 3
+		ai_will_do = {
+		    factor = 10
+		}
+		completion_reward = {
+			every_neighbor_country = {
+				limit = {
+					OR = {
+						tag = XSM
+						tag = GSM 
+						#tag = NXM
+					}
+					has_government = ROOT
+					has_opinion = {
+					    target = ROOT
+					    value > -1
+				    }
+					NOT = {
+						has_war_with = ROOT
+						has_border_war_with = ROOT
+					}
+				}
+				#country_event = 
+				add_opinion_modifier = {
+					target = ROOT
+					modifier = Nations_friendly
+				}
+				ROOT = {
+					add_opinion_modifier = {
+						target = PREV
+						modifier = Nations_friendly
+					}
+				}
+			}
+			hidden_effect = {
+				if = {
+					limit = {
+						XSM = {
+							is_neighbor_of = ROOT
+							has_government = ROOT
+							has_opinion = {
+								target = ROOT
+								value > -1
+							}
+							NOT = {
+								has_war_with = ROOT
+								has_border_war_with = ROOT
+							}
+						}
+						
+					}
+					activate_mission = TNG_XSM_trade
+				}
+				if = {
+					limit = {
+						GSM = {
+							is_neighbor_of = ROOT
+							has_government = ROOT
+							has_opinion = {
+								target = ROOT
+								value > -1
+							}
+							NOT = {
+								has_war_with = ROOT
+								has_border_war_with = ROOT
+							}
+						}
+					}
+					activate_mission = TNG_GSM_trade
+				}
+				#if = {
+				#	limit = {
+				#		NXM = {
+				#			is_neighbor_of = ROOT
+				#		}
+				#		has_government = ROOT
+				#		has_opinion = {
+				#			target = ROOT
+				#			value > -1
+				#		}
+				#		NOT = {
+				#			has_war_with = ROOT
+				#			has_border_war_with = ROOT
+				#		}
+				#	}
+				#	activate_mission = TNG_NXM_trade
+				#}
+			}
+			custom_effect_tooltip = can_trade_with_neighbor_ma_cliques_tt
+		}
+		available = {
+		    has_completed_focus = TNG_camel_trading
+			OR = {
+				any_neighbor_country = {
+					OR = {
+						tag = XSM
+						tag = GSM
+						#tag = NXM
+					}
+                    has_government = ROOT
+					NOT = {
+						has_war_with = ROOT
+						has_border_war_with = ROOT
+					}
+					has_opinion = {
+					    target = ROOT
+					    value > -1
+				    }
+				}
+			}
+		}
+	}
+
+    #focus = {
+	#	id = TNG_ally_with_xsm
+	#	icon = GFX_COOP_northwest_mediation
+	#	cost = 7.15
+	#	prerequisite = {
+	#		focus = TNG_befriend_ma_cliques
+	#	}
+	#	x = 15
+	#	y = 4
+	#	ai_will_do = {
+	#	    factor = 10
+	#	}
+	#	completion_reward = {
+	#		every_neighbor_country = {
+	#			limit = {
+	#				OR = {
+	#					tag = XSM
+	#					tag = GSM 
+	#					#tag = NXM
+	#				}
+	#				has_government = ROOT
+	#				has_border_war = no
+	#				has_war = no
+	#				has_opinion = {
+	#				    target = ROOT
+	#				    value > 39
+	#			    }
+	#			}
+	#			#country_event = 
+	#			
+	#		}
+	#		custom_effect_tooltip = ma_help_tng_tt
+	#	}
+	#	available = {
+	#		OR = {
+	#			any_neighbor_country = {
+	#				OR = {
+	#					tag = XSM
+	#					tag = GSM
+	#					#tag = NXM
+	#				}
+    #               has_government = ROOT
+	#				has_border_war = no
+	#				has_war = no
+	#				has_opinion = {
+	#				    target = ROOT
+	#				    value > 39
+	#			    }
+	#			}
+	#		}
+	#	}
+	#}
+
+	focus = {
+		id = TNG_join_the_war
+		icon = GFX_focus_attack_japan
+		cost = 7.15
+		prerequisite = {
+			focus = TNG_befriend_nanking
+		}
+		x = 13
+		y = 3
+		ai_will_do = {
+		    factor = 10
+		}
+		completion_reward = {
+            event_target:WTT_current_china_leader = {
+				country_event = rcmchina.106
+				add_to_faction = ROOT
+				add_to_war = {
+					targeted_alliance = TNG
+					enemy = JAP
+				}	
+			}
+		}
+		available = {
+			is_subject = no
+			is_in_faction = no
+			OR = {
+			    has_war = no
+				has_defensive_war_with = JAP
+			}
+			event_target:WTT_current_china_leader = {
+				is_faction_leader = yes
+				has_defensive_war_with = JAP
+				NOT = {
+					has_war_with = ROOT
+				}
+			}
+		}
+		bypass = {
+            OR = {
+				is_subject_of = event_target:WTT_current_china_leader
+				AND = {
+					is_in_faction = yes
+				    has_war_with = JAP
+				}
+			}    
+		}
+
+		#will_lead_to_war_with = JAP
+	}
+	
+	focus = {
+		id = TNG_befriend_soviet
+		icon = GFX_focus_chi_mission_to_the_soviet_union
+		cost = 10.00 
+		prerequisite = {
+			focus = TNG_agreement_with_provincal_government
+		}
+		mutually_exclusive = { 	
+			focus = TNG_befriend_uk
+		}
+		x = 17
+		y = 3
+		ai_will_do = {
+		    factor = 25
+		}
+		completion_reward = {
+			add_opinion_modifier = {
+				target = SOV
+				modifier = Nations_friendly
+			}
+			SOV = {
+				add_opinion_modifier = {
+					target = ROOT
+					modifier = Nations_friendly
+				}
+			}
+			add_timed_idea = { idea = communist_influence_weak days = 365 }
+		}
+		available = {
+		    #has_completed_focus = TNG_agreement_with_provincal_government
+			NOT = {
+				has_global_flag = TNG_help_KHR_flag
+				has_war_with = SIK
+			}
+			SOV = {
+				exists = yes
+				is_subject = no
+				NOT = {
+					has_war_with = ROOT
+				}
+				has_opinion = {
+					target = ROOT
+					value > 49
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = TNG_soviet_aid
+		icon = GFX_goal_generic_soviet_construction
+		cost = 10.00 
+		prerequisite = {
+			focus = TNG_befriend_soviet
+		}
+		x = 17
+		y = 4
+		ai_will_do = {
+		    factor = 10
+		}
+		completion_reward = {
+			add_offsite_building = {
+				type = arms_factory
+				level = 2
+			}
+			add_tech_bonus = {
+				name = TNG_soviet_aid
+				bonus = 1
+				uses = 1
+				category = industry
+			}
+		}
+		available = {
+		    SOV = {
+				exists = yes
+				is_subject = no
+				NOT = {
+					has_war_with = ROOT
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = TNG_send_ma_hushan_to_ussr
+		icon = GFX_focus_SOV_builder_of_the_red_army
+		cost = 10.00 
+		prerequisite = {
+			focus = TNG_soviet_aid
+		}
+		x = 17
+		y = 5
+		ai_will_do = {
+		    factor = 10
+		}
+		completion_reward = {
+			add_stability = -0.05
+			retire_character = TNG_ma_hushan
+			TNG_ma_yanliang = {
+				add_country_leader_role = {
+			        promote_leader = yes
+				    country_leader = {
+				        expire = "1965.1.1"
+				        ideology = despotism
+				        traits = { }            
+			        } 
+			    } 
+			}
+			add_popularity = { ideology = communism popularity = 0.05 }
+			#create_country_leader = {
+		    #    name = "New 36th Division Command"
+			#    desc = "POLITICS_N36_DESC"
+			#    picture = "gfx/leaders/TNG/Portrait_N36D_Officers.dds"
+			#    expire = "1965.1.1"
+			#    ideology = despotism
+			#    traits = { }
+		    #}
+            custom_effect_tooltip = available_political_advisor
+			show_ideas_tooltip = TNG_ge_jiyun
+		}
+		available = {
+		    has_completed_focus = TNG_decrease_ma_hushans_influence
+			SOV = {
+				exists = yes
+				is_subject = no
+				NOT = {
+					has_war_with = ROOT
+				}
+			}
+		}
+	}
+
+    focus = {
+		id = TNG_trade_with_ussr
+		icon = GFX_goal_generic_trade
+		cost = 7.15
+		prerequisite = {
+			focus = TNG_send_ma_hushan_to_ussr
+		}
+		x = 16
+		y = 6
+		ai_will_do = {
+		    factor = 10
+		}
+		completion_reward = {
+			#activate_mission = TNG_SOV_trade
+			custom_effect_tooltip = unlock_sov_trade_tt
+			hidden_effect = {
+				activate_mission = TNG_SOV_trade
+			}
+			custom_effect_tooltip = can_focus_on_trade_tt
+		}
+		available = {
+		    has_completed_focus = TNG_camel_trading
+			SOV = {
+				exists = yes
+				is_subject = no
+				NOT = {
+					has_war_with = ROOT
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = TNG_ma_zhongying_return
+		icon = GFX_Focus_Ma_Zhongying
+		cost = 10.00 
+		prerequisite = {
+			focus = TNG_send_ma_hushan_to_ussr
+			focus = TNG_anti_sheng_war
+		}
+		x = 18
+		y = 6
+		ai_will_do = {
+		    factor = 10
+		}
+		completion_reward = {
+			SOV = { 
+				country_event = { id = tng.2 hours = 12 }
+			}
+		}
+		available = {
+		    OR = {
+				is_subject = no
+				is_subject_of = SOV
+			}
+			OR = {
+				has_completed_focus = TNG_send_ma_hushan_to_ussr
+				617 = {
+					is_owned_and_controlled_by = ROOT
+				} 
+			}
+			SOV = {
+				exists = yes
+				#is_subject = no
+				NOT = {
+					has_war_with = ROOT
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = TNG_northwest_revolutionary_government
+		icon = GFX_focus_focus_fra_revolution_utmost
+		cost = 10.00 
+		prerequisite = {
+			focus = TNG_ma_zhongying_return
+		}
+		prerequisite = {
+			focus = TNG_send_ma_hushan_to_ussr
+		}
+		x = 17
+		y = 7
+		ai_will_do = {
+		    factor = 10
+		}
+		completion_reward = {
+			set_politics = {
+				ruling_party = communism
+				elections_allowed = no
+			}
+			hidden_effect = {
+                retire_country_leader = yes
+				retire_country_leader = yes
+			}
+			TNG_ma_zhongying = {
+				add_country_leader_role = {
+					promote_leader = yes
+					country_leader = {
+						expire = "1965.1.1"
+						ideology = marxism
+						traits = {
+						}
+					} 
+				}
+				add_country_leader_trait = youngster_commander
+			}
+			drop_cosmetic_tag = yes
+		    set_cosmetic_tag = SIK_CPC
+		}
+		available = {
+		    has_country_leader = {
+				character = TNG_ma_zhongying ruling_only = yes
+			}
+			communism > 0.4
+		}
+	}
+
+	focus = {
+		id = TNG_integrate_sinkiang
+		icon = GFX_goal_generic_military_deal
+		cost = 10.00 
+		prerequisite = {
+			focus = TNG_northwest_revolutionary_government
+		}
+		x = 16
+		y = 8
+		ai_will_do = {
+		    factor = 10
+		}
+		available = {
+			any_other_country = {
+				exists = yes
+				OR = {
+				    original_tag = SIK
+					original_tag = KHR
+					original_tag = HMI
+					original_tag = KRS
+					original_tag = ATM
+				}
+			}
+		}
+		completion_reward = {
+			add_war_support = 0.05
+			if = {   
+			    limit = {
+				    country_exists = KHR
+				    NOT = {
+						KHR = {
+							has_war_with = ROOT
+						}
+					}
+				} 
+				create_wargoal = {
+				    type = annex_everything
+				    target = KHR
+			    }
+			}
+			if = {   
+			    limit = {
+				    country_exists = HMI
+				    NOT = {
+						HMI = {
+							has_war_with = ROOT
+						}
+					}
+				} 
+				
+				create_wargoal = {
+				    type = annex_everything
+				    target = HMI
+			    }
+			}
+			if = {   
+			    limit = {
+				    country_exists = KRS
+				    NOT = {
+						KRS = {
+							has_war_with = ROOT
+						}
+					}
+				} 
+				
+				create_wargoal = {
+				    type = annex_everything
+				    target = KRS
+			    }
+			}
+			if = {   
+			    limit = {
+				    country_exists = ATM
+				    NOT = {
+						ATM = {
+							has_war_with = ROOT
+						}
+					}
+				} 
+				
+				create_wargoal = {
+				    type = annex_everything
+				    target = ATM
+			    }
+			}
+			if = {   
+			    limit = {
+				    country_exists = SIK
+					NOT = {
+						SIK = {
+							has_war_with = ROOT
+						}
+					}
+				} 
+				create_wargoal = {
+				    type = annex_everything
+				    target = SIK
+			    }
+			}
+			if = {   
+			    limit = {
+				    any_neighbor_country = {
+						original_tag = SIK
+						NOT = {
+							tag = SIK
+							has_war_with = ROOT
+						}
+					}
+				} 
+				create_wargoal = {
+				    type = annex_everything
+				    target = PREV
+			    }
+			}
+		}
+		bypass = {
+			OR = {
+			    all_other_country = {
+					OR = {
+				        original_tag = SIK
+						original_tag = KHR
+					    original_tag = HMI
+						original_tag = KRS
+					    original_tag = ATM
+				    }
+					exists = no
+			    }
+				all_other_country = {
+					OR = {
+				        original_tag = SIK
+						original_tag = KHR
+					    original_tag = HMI
+						original_tag = KRS
+					    original_tag = ATM
+				    }
+					has_war_with = ROOT
+			    }
+			}
+		}
+		will_lead_to_war_with = SIK
+		will_lead_to_war_with = KHR
+		will_lead_to_war_with = HMI
+        will_lead_to_war_with = KRS
+		will_lead_to_war_with = ATM
+	}
+
+    focus = {
+		id = TNG_contact_ccp
+		icon = GFX_focus_chi_cooperation_with_the_communists
+		cost = 10.00 
+		prerequisite = {
+			focus = TNG_northwest_revolutionary_government
+		}
+		x = 16
+		y = 9
+		ai_will_do = {
+		    factor = 10
+		}
+		available = {
+			event_target:WTT_communist_china = {
+				exists = yes
+				is_subject = no
+				NOT = {
+					has_war_with = ROOT
+				}
+			}
+		}
+		completion_reward = {
+			PRC = {
+				add_opinion_modifier = {
+					target = ROOT
+					modifier = RCM_cooperation_with_the_communists_positive
+				}
+			}
+			event_target:WTT_current_china_leader = {
+				add_opinion_modifier = {
+					target = ROOT
+					modifier = RCM_cooperation_with_the_communists_negative
+				}
+			}
+			custom_effect_tooltip = blank_line
+			set_party_name = {
+				ideology = communism
+				name = PRC_communism_party
+				long_name = PRC_communism_party_long
+			} 
+			add_popularity = { ideology = communism popularity = 0.1 }
+			add_timed_idea = {
+				idea = communist_influence days = 240
+			}
+		}
+		bypass = {
+			OR = {
+                NOT = {
+					country_exists = event_target:WTT_communist_china
+				}
+			    has_war_with = event_target:WTT_communist_china
+			    event_target:WTT_communist_china = {
+					is_subject = yes
+				}
+			}
+		}
+	}
+
+    focus = {
+		id = TNG_land_redistribution
+		icon = GFX_focus_generic_concessions
+		prerequisite = { focus = TNG_contact_ccp }
+		x = 15
+		y = 10
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 4
+		}
+
+		available = {
+			communism > 0.3
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		completion_reward = {
+			every_owned_state = {
+				limit = {
+					is_controlled_by = ROOT
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+		}
+	}
+
+    focus = {
+		id = TNG_communist_reform
+		icon = GFX_focus_generic_soviet_politics
+		prerequisite = { focus = TNG_contact_ccp }
+		x = 17
+		y = 10
+	
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+			communism > 0.2	
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		completion_reward = {
+			if = {
+				limit = {
+					has_idea = PRC_government_corruption
+				}
+				remove_ideas = PRC_government_corruption
+			}
+			fractured_administration_level_down = yes
+		}
+	}
+
+    focus = {
+		id = TNG_liberate_china
+		icon = GFX_focus_attack_china
+		cost = 10.00 
+		prerequisite = {
+			focus = TNG_Struggle_party_central_committee
+		}
+		x = 16
+		y = 12
+		ai_will_do = {
+		    factor = 10
+		}
+		available = {
+			any_other_country = {
+				exists = yes
+				OR = {
+					is_warlord = yes
+					tag = event_target:WTT_current_china_leader
+					#tag = event_target:WTT_communist_china
+				}
+				NOT = {
+					has_war_with = ROOT
+				}
+			}
+		}
+		completion_reward = {
+			add_war_support = 0.05
+			create_wargoal = {
+				type = annex_everything
+				target = event_target:WTT_current_china_leader
+			}
+			#create_wargoal = {
+			#	type = annex_everything
+			#	target = event_target:WTT_communist_china
+			#}
+			custom_effect_tooltip = declare_war_on_all_warlords_tt
+			hidden_effect = {
+				every_country = {
+					limit = {
+						NOT = { has_country_flag = im_kmt_in_burma }
+						OR = {
+							AND = {
+								original_tag = SIK
+								NOT = { is_in_faction_with = SOV }
+								NOT = { is_guaranteed_by = SOV }
+								#has_idea = SIK_Neutral
+							}
+							is_warlord = yes
+						}						
+						is_subject = no
+					}
+					ROOT = {
+						create_wargoal = {
+							type = annex_everything
+							target = PREV
+						}
+					}
+				}
+			}
+		}
+		bypass = {
+			NOT = {
+				any_other_country = {
+					exists = yes
+					OR = {
+						is_warlord = yes
+						tag = event_target:WTT_current_china_leader
+					    #tag = event_target:WTT_communist_china
+				    }
+				    hidden_trigger = {
+					    NOT = { has_country_flag = im_kmt_in_burma }
+					}
+				}
+			}
+		}
+		will_lead_to_war_with = CHI
+		will_lead_to_war_with = PRC
+		will_lead_to_war_with = HPC
+		#will_lead_to_war_with = MAN
+		#will_lead_to_war_with = EHB
+		#will_lead_to_war_with = ECA
+		will_lead_to_war_with = PLM
+		will_lead_to_war_with = SHX
+		will_lead_to_war_with = SUY
+		will_lead_to_war_with = SHC
+		will_lead_to_war_with = SHD
+		will_lead_to_war_with = NEA
+		will_lead_to_war_with = XIA
+		will_lead_to_war_with = GUD
+		will_lead_to_war_with = GXC
+		will_lead_to_war_with = YUN
+		will_lead_to_war_with = XIK
+		will_lead_to_war_with = SIC
+		will_lead_to_war_with = XSM
+		will_lead_to_war_with = GSM
+		will_lead_to_war_with = NXM
+	}
+
+    focus = {
+		id = TNG_new_china
+		icon = GFX_focus_chi_one_china_policy
+		cost = 10.00
+		prerequisite = {
+			focus = TNG_liberate_china
+		}
+		x = 16
+		y = 13
+		ai_will_do = {
+			factor = 1000
+		}
+		completion_reward = {
+			#set_cosmetic_tag = CHI_warlord_leader
+			#create_faction = WRL_leader_generic_faction
+			for_each_scope_loop = {
+				array = global.small_china #MODDED
+				tooltip = small_china_effect_tt
+				add_core_of = ROOT
+			}
+			effect_tooltip = {
+				for_each_scope_loop = {
+					array = global.big_china #MODDED
+					tooltip = big_china_effect_tt
+					add_claim_by = ROOT
+				}
+			}
+			hidden_effect = {
+				for_each_scope_loop = {
+					array = global.big_china #MODDED
+					tooltip = big_china_effect_tt
+					if = {
+						limit = {
+							NOT = {
+								is_core_of = ROOT
+							}
+						}
+						add_claim_by = ROOT
+					}
+				}
+			}
+			if = {
+				limit = {
+					has_government = n_socialism
+					#NOT = { neutrality > 0.5 }
+				}
+				load_focus_tree = { tree = warlord_generic_communist keep_completed = yes }
+			}
+			else = {
+				load_focus_tree = { tree = warlord_generic_nationalist keep_completed = yes }
+			}
+			#every_state = {
+			#	limit = {
+			#		has_state_flag = is_chinese_states_flag
+			#	}
+			#	add_core_of = ROOT
+			#}
+
+			custom_effect_tooltip = warn_focus_change_tt
+		}
+		available = {
+			#OR = {
+			    #1015 = { is_owned_and_controlled_by = ROOT }
+				is_legit_china = yes
+			#}
+			event_target:WTT_current_china_leader = {
+				is_subject = no
+			}
+			if = {
+				limit = {
+					is_subject = yes
+				}
+				OVERLORD = {
+					OR = {
+						tag = event_target:WTT_current_china_leader
+						has_completed_focus = CHI_cooperation_with_the_nationalists
+					}
+				}
+			}
+			#OR = {
+			#	WTT_has_politcal_support_points_30 = yes
+			#	is_legit_china = yes
+			#}
+		}		
+		bypass = {	
+				
+		}
+	}
+
+	focus = {
+		id = TNG_Struggle_party_central_committee
+		icon = GFX_goal_support_communism 
+		cost = 10.00
+		prerequisite = {
+			focus = TNG_land_redistribution
+		}
+		prerequisite = {
+			focus = TNG_communist_reform
+		}
+		x = 16
+		y = 11
+	
+		available = {
+			#MODDED
+			SOV = {
+				has_opinion = {
+					target = ROOT
+					value > 49
+				}
+			}
+			#MODDED
+			is_subject = no
+			NOT = { has_war_with = PRC }
+			NOT = { has_war_with = SOV }
+			SOV = { has_government = communism }
+		}
+		completion_reward = {
+			custom_effect_tooltip = CHI_the_yanan_incident_effect_tt
+			save_event_target_as = warlord
+			add_ideas = PRC_soviet_tribute_1
+			SOV = { country_event = { id = wtt_warlord_vs_prc.1 } }
+			custom_effect_tooltip = warn_focus_change_tt
+		}
+        bypass = {
+			OR = {
+                NOT = {
+					country_exists = SOV
+				}
+                NOT = {
+					country_exists = SOV
+				}
+				has_war_with = PRC
+			}	
+		}
+	}
+
+	focus = {
+		id = TNG_befriend_uk
+		icon = GFX_focus_chi_british_cooperation
+		cost = 10.00 
+		prerequisite = {
+			focus = TNG_agreement_with_provincal_government
+		}
+		mutually_exclusive = { 	
+			focus = TNG_befriend_soviet
+		}
+		x = 19
+		y = 3
+		ai_will_do = {
+		    factor = 25
+		}
+		completion_reward = {
+		    custom_effect_tooltip = THIS_IS_HISTORICAL_TT
+			if = {
+				limit = {
+					ENG = {
+						exists = yes
+						is_subject = no
+						NOT = {
+							has_war_with = ROOT
+						}
+						OR = {
+							has_subject = RAJ
+							is_neighbor_of = ROOT
+						}
+					}
+				}
+			    add_opinion_modifier = {
+					target = ENG
+					modifier = Nations_friendly
+				}
+				ENG = {
+					add_opinion_modifier = {
+						target = ROOT
+						modifier = Nations_friendly
+					}
+				}
+				else = {
+					add_opinion_modifier = {
+						target = RAJ
+						modifier = Nations_friendly
+					}
+					RAJ = {
+						add_opinion_modifier = {
+							target = ROOT
+							modifier = Nations_friendly
+						}
+					}
+				}
+			}
+		}
+		available = {
+		    #has_completed_focus = TNG_agreement_with_provincal_government
+			OR = {
+                ENG = {
+					exists = yes
+					is_subject = no
+					NOT = {
+						has_war_with = ROOT
+					}
+					OR = {
+						has_subject = RAJ
+						is_neighbor_of = ROOT
+					}
+					has_opinion = {
+					    target = ROOT
+					    value > 49
+				    }
+				}
+                RAJ = {
+					exists = yes
+					is_subject = no
+					NOT = {
+						has_war_with = ROOT
+					}
+					#has_opinion = {
+					#   target = ROOT
+					#    value > 49
+				    #}
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = TNG_focus_on_trade
+		icon = GFX_goal_generic_positive_trade_relations
+		cost = 7.15
+		prerequisite = {
+			focus = TNG_befriend_uk
+		}
+		x = 21
+		y = 4
+		ai_will_do = {
+		    factor = 10
+		}
+		completion_reward = {
+		    custom_effect_tooltip = unlock_indian_trade_tt
+			hidden_effect = {
+				activate_mission = TNG_RAJ_trade
+			}
+			custom_effect_tooltip = can_focus_on_trade_tt
+			#if = {
+			#	limit = {
+			#		RAJ = {
+			#			is_subject_of = EMG
+			#		}
+			#	}
+			#	activate_mission = TNG_RAJ_trade
+			#}
+			
+		}
+		available = {
+			has_completed_focus = TNG_camel_trading
+			OR = {
+                ENG = {
+					exists = yes
+					is_subject = no
+					NOT = {
+						has_war_with = ROOT
+					}
+					has_subject = RAJ
+				}
+                RAJ = {
+					exists = yes
+					is_subject = no
+					NOT = {
+						has_war_with = ROOT
+					}
+				}
+			}
+		}
+	}
+
+    focus = {
+		id = TNG_british_aid
+		icon = GFX_goal_tfv_strengthen_commonwealth_ties
+		cost = 10.00 
+		prerequisite = {
+			focus = TNG_focus_on_trade
+		}
+		x = 21
+		y = 5
+		ai_will_do = {
+		    factor = 10
+		}
+		completion_reward = {
+			add_offsite_building = {
+				type = arms_factory
+				level = 2
+			}
+			add_tech_bonus = {
+				name = TNG_british_aid
+				bonus = 1
+				uses = 1
+				category = industry
+			}
+		}
+		available = {
+		    OR = {
+                ENG = {
+					exists = yes
+					is_subject = no
+					NOT = {
+						has_war_with = ROOT
+					}
+					has_subject = RAJ
+					has_opinion = {
+					    target = ROOT
+					    value > 89
+				    }
+				}
+                RAJ = {
+					exists = yes
+					is_subject = no
+					NOT = {
+						has_war_with = ROOT
+					}
+					has_opinion = {
+					    target = ROOT
+					    value > 89
+				    }
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = TNG_demand_support
+		icon = GFX_COOP_befriend_raj
+		cost = 10.00 
+		prerequisite = {
+			focus = TNG_befriend_uk
+		}
+		x = 19
+		y = 4
+		ai_will_do = {
+		    factor = 10
+		}
+		completion_reward = {
+		    if = {
+				limit = {
+					ENG = {
+						has_subject = RAJ 
+					}
+				}
+				ENG = {
+					country_event = Sinkiang_rebel.402
+				}
+				custom_effect_tooltip = if_approved_tt
+			    custom_effect_tooltip = ENG_help_khr_tt
+				else = {
+					RAJ = {
+						country_event = Sinkiang_rebel.402
+					}
+					custom_effect_tooltip = if_approved_tt
+			        custom_effect_tooltip = RAJ_help_khr_tt
+				}
+			}
+			custom_effect_tooltip = their_willingness_based_on_their_opinion_of_us_2_tt
+		}
+		available = {
+		    NOT = {
+			    has_idea = SIK_tng_truce_agreement_tng
+		    }
+			OR = {
+                ENG = {
+					exists = yes
+					is_subject = no
+					NOT = {
+						has_war_with = ROOT
+					}
+					has_subject = RAJ
+				}
+                RAJ = {
+					exists = yes
+					is_subject = no
+					NOT = {
+						has_war_with = ROOT
+					}
+				}
+			}
+			if = {
+				limit = {
+					is_ai = yes
+				}
+				hidden_trigger = {
+                    is_historical_focus_on = no
+				}	
+			}
+		}
+		bypass = {
+		    OR = {
+				617 = {
+				    is_owned_and_controlled_by = ROOT
+			    }
+				NOT = {
+					country_exists = SIK
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = TNG_anti_sheng_war
+		icon = GFX_focus_war_sinkiang
+		cost = 10.00 
+		prerequisite = {
+			focus = TNG_demand_support
+		}
+		x = 19
+		y = 5
+		ai_will_do = {
+		    factor = 10
+		}
+		completion_reward = {
+			create_wargoal = {
+				type = annex_everything
+				target = SIK
+			}
+		}
+		available = {
+			NOT = {
+				has_idea = SIK_tng_truce_agreement_tng
+				has_war_with = SIK
+			}
+		}
+		bypass = {
+			OR = {
+				has_war_with = SIK
+				NOT = {
+					country_exists = SIK
+				}
+			}
+		}
+		will_lead_to_war_with = SIK
+	}
+ 
+    focus = {
+		id = TNG_new_provincial_government
+		icon = GFX_focus_generic_china1
+		cost = 10.00 
+		prerequisite = {
+			focus = TNG_anti_sheng_war
+		}
+		#prerequisite = {
+		#	focus = TNG_ma_zhongying_return
+		#}
+		x = 19
+		y = 7
+		ai_will_do = {
+		    factor = 10
+		}
+		completion_reward = {
+			set_capital = { state = 617 }
+			drop_cosmetic_tag = yes
+			set_cosmetic_tag = SIK_KMT
+			SIK = {
+				every_core_state = {
+					add_core_of = ROOT 
+				}
+			}
+		}
+		available = {
+		    617 = {
+			    is_owned_and_controlled_by = ROOT
+		    } 
+		}
+	}
+
+	focus = {
+		id = TNG_anti_opposition_campaigns
+		icon = GFX_focus_generic_provoke_border_clashes
+		prerequisite = { 
+			focus = TNG_new_provincial_government
+			focus = TNG_northwest_revolutionary_government
+		}
+		x = 18
+		y = 8
+		mutually_exclusive = {
+			focus = TNG_power_struggle
+		}
+		mutually_exclusive = {
+			focus = TNG_mas_conquest
+		}
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+	
+		completion_reward = {			
+			#custom_effect_tooltip = 60_to_40_opinion_tt
+			every_country = {
+				limit = {
+					is_neighbor_of = ROOT
+					OR = {
+						is_warlord = yes
+						tag = event_target:WTT_communist_china
+					}
+				}
+				add_opinion_modifier = {
+					target = ROOT
+					modifier = WRL_conflict_of_interest
+				}
+			}
+			custom_effect_tooltip = opinion_worsen_over_time_tt
+			custom_effect_tooltip = remove_insult_cd
+			set_variable = {
+				Root.insult_cd = 0
+			}
+			set_variable = {
+				Root.insult_cost = 40
+			}
+		}
+	}
+
+	focus = {
+		id = TNG_clash_with_the_central_government_focus
+		icon = GFX_focus_generic_provoke_border_clashes
+		prerequisite = { focus = TNG_anti_opposition_campaigns }
+		x = 18
+		y = 9
+		cost = 10
+
+		ai_will_do = {
+			factor = 2
+		}
+
+		available = {
+			#is_neighbor_of = event_target:WTT_current_china_leader
+			has_opinion = {
+				target = event_target:WTT_current_china_leader
+				value < -19
+			}
+			event_target:WTT_current_china_leader = {
+				has_opinion = {
+					target = ROOT
+					value < -19
+				}
+			}
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+			event_target:WTT_current_china_leader = {
+				add_opinion_modifier = {
+					target = ROOT
+					modifier = WRL_conflict_of_interest
+				}
+				custom_effect_tooltip = opinion_worsen_over_time_tt
+			}
+			custom_effect_tooltip = CHI_provoke_border_clashes_effect_tooltip
+		}
+	}
+
+	focus = {
+		id = TNG_power_struggle
+		icon = GFX_focus_last_ditch
+		prerequisite = { focus = TNG_new_provincial_government }
+		mutually_exclusive = {
+			focus = TNG_anti_opposition_campaigns
+		}
+		mutually_exclusive = {
+			focus = TNG_mas_conquest
+		}
+		allow_branch = {
+            has_dlc = "Waking the Tiger"
+		}
+		x = 20
+		y = 8
+
+		cost = 10
+
+		ai_will_do = {
+			base = 1
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes 
+			}
+		}
+
+		available = {
+			if = {
+				limit = {
+					is_ai = yes
+				}
+				hidden_trigger = {
+					always = no
+				}
+			}
+			#num_of_controlled_states > 3
+			custom_trigger_tooltip = {
+				tooltip = is_not_supporting_someone_in_political_struggle
+				NOT = {
+					any_country = {
+						ROOT = { has_country_flag = warlord_supports_@PREV }
+					}
+				}
+			}
+			is_neighbor_of = CHI
+			is_subject = no
+			NOT = { has_war_with = CHI }
+			if = {
+				limit = {
+					WTT_not_taking_over_national_leadership = no
+				}
+				WTT_not_taking_over_national_leadership = yes
+			}
+			if = {
+				limit = {
+					WTT_not_china_leader_refused_to_give_up_national_leadership = no
+				}
+				WTT_not_china_leader_refused_to_give_up_national_leadership = yes
+			}
+		}
+
+		bypass = {
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		completion_reward = {
+			custom_effect_tooltip = enable_power_struggle
+			
+			hidden_effect = {
+				WTT_setup_political_struggle = yes
+				WTT_add_ROOT_to_political_struggle = yes
+			}
+			every_controlled_state = { #MODDED
+				limit = {
+					is_core_of = ROOT
+					WTT_is_potential_political_struggle_state = yes #MODDED
+				}
+				#Add random state support for ROOT
+				WTT_random_support_chance_increase_for_ROOT_in_state = yes #MODDED
+				hidden_effect = {
+					#Save relevant event targets. Need to be done before updating state support
+					save_event_target_as = state
+					random_country = {
+						limit = {
+							PREV = { has_state_flag = majority_political_platform_@PREV }
+						}
+						save_event_target_as = majority_country
+					}
+					#Update state support
+					WTT_recalculate_state_support_for_ROOT = yes #MODDED
+					#Status events
+					WTT_fire_add_support_status_events = yes #MODDED
+					#Recalc all support
+					WTT_political_struggle_recalculate_support = yes #MODDED
+				}
+			} #MODDED
+		}
+	}
+
+	focus = {
+		id = TNG_expand_influence
+		icon = GFX_goal_generic_alliance
+		prerequisite = { focus = TNG_power_struggle }
+		x = 20
+		y = 9
+
+		cost = 10
+
+		ai_will_do = {
+			base = 1
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes 
+			}
+		}
+
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = is_not_supporting_someone_in_political_struggle
+				NOT = {
+					any_country = {
+						ROOT = { has_country_flag = warlord_supports_@PREV }
+					}
+				}
+			}
+			is_neighbor_of = CHI
+			is_subject = no
+			NOT = { has_war_with = CHI }
+			if = {
+				limit = {
+					WTT_not_taking_over_national_leadership = no
+				}
+				WTT_not_taking_over_national_leadership = yes
+			}
+			if = {
+				limit = {
+					WTT_not_china_leader_refused_to_give_up_national_leadership = no
+				}
+				WTT_not_china_leader_refused_to_give_up_national_leadership = yes
+			}
+		}
+
+		bypass = {
+            tag = event_target:WTT_current_china_leader
+		}
+
+		completion_reward = {
+			add_timed_idea = {
+				idea = SHX_Influential_clique
+				days = 365
+			}
+		}
+	}
+
+    focus = {
+		id = TNG_mas_conquest
+		icon = GFX_goal_generic_major_war
+		prerequisite = { focus = TNG_new_provincial_government }
+		mutually_exclusive = {
+			focus = TNG_power_struggle
+		}
+		mutually_exclusive = {
+			focus = TNG_anti_opposition_campaigns
+		}
+		x = 23
+		y = 8
+		cost = 10
+       
+		ai_will_do = {
+			factor = 2
+		}
+
+		available = {
+			is_subject = no
+			OR = {
+				is_in_faction = no
+				is_faction_leader = yes
+			}
+			has_country_leader = {
+				character = TNG_ma_zhongying ruling_only = yes
+			}
+		}
+
+		#bypass = {
+        #
+		#}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_timed_idea = {
+				idea = TNG_mas_conquest days = 1460
+			}
+		}
+	}
+
+	focus = {
+		id = TNG_retake_gansu
+		icon = GFX_Focus_Attack_KMT
+		prerequisite = { focus = TNG_mas_conquest }
+		x = 24
+		y = 9
+		cost = 5
+       
+		ai_will_do = {
+			factor = 2
+		}
+
+		available = {
+			is_subject = no
+			any_neighbor_country = {
+				owns_state = 756
+				NOT = {
+					has_war_with = ROOT
+				}
+			}
+		}
+
+		bypass = {
+            OR = {
+				756 = {
+		            is_owned_by = ROOT
+			    }
+				any_neighbor_country = {
+					owns_state = 756
+					has_war_with = ROOT
+				}
+			}
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+
+		completion_reward = {
+			random_neighbor_country = {
+				limit = {
+					owns_state = 756
+				}
+				ROOT = {
+					create_wargoal = {
+						type = annex_everything
+						target = PREV
+					}
+				}
+			}
+		}
+		
+		will_lead_to_war_with = GSM
+		will_lead_to_war_with = XSM
+	}
+
+    focus = {
+		id = TNG_unify_sinkiang
+		icon = GFX_focus_MON_sinkiang_coup
+		prerequisite = { focus = TNG_mas_conquest }
+		x = 22
+		y = 9
+		cost = 5
+		ai_will_do = {
+			factor = 2
+		}
+
+		available = { #GUO
+			is_subject = no
+			any_neighbor_country = {
+				OR = {
+					original_tag = SIK
+					original_tag = KHR
+					original_tag = HMI
+					original_tag = KRS
+					original_tag = ATM	
+				}
+				not = { is_subject_of = root }
+				NOT = {
+				has_war_with = root
+				}
+			}
+		}
+		completion_reward = {
+			add_war_support = 0.05
+			if = {   
+			    limit = {
+				    country_exists = KHR
+					NOT = {
+						KHR = {
+							has_war_with = ROOT
+						}
+					}
+				} 
+				create_wargoal = {
+				    type = annex_everything
+				    target = KHR
+			    }
+			}
+			if = {   
+			    limit = {
+				    country_exists = HMI
+					NOT = {
+						HMI = {
+							has_war_with = ROOT
+						}
+					}
+				} 
+				create_wargoal = {
+				    type = annex_everything
+				    target = HMI
+			    }
+			}
+			if = {   
+			    limit = {
+				    country_exists = KRS
+				    NOT = {
+						KRS = {
+							has_war_with = ROOT
+						}
+					}
+				} 
+				
+				create_wargoal = {
+				    type = annex_everything
+				    target = KRS
+			    }
+			}
+			if = {   
+			    limit = {
+				    country_exists = ATM
+				    NOT = {
+						ATM = {
+							has_war_with = ROOT
+						}
+					}
+				} 
+				
+				create_wargoal = {
+				    type = annex_everything
+				    target = ATM
+			    }
+			}
+			if = {   
+			    limit = {
+				    country_exists = SIK
+					NOT = {
+						SIK = {
+							has_war_with = ROOT
+						}
+					}
+				} 
+				create_wargoal = {
+				    type = annex_everything
+				    target = SIK
+			    }
+			}
+			if = {   
+			    limit = {
+				    any_neighbor_country = {
+						original_tag = SIK
+						NOT = {
+							tag = SIK
+							has_war_with = ROOT
+						}
+					}
+				} 
+				create_wargoal = {
+				    type = annex_everything
+				    target = PREV
+			    }
+			}
+		}
+		bypass = { #guo
+		    or = {
+			AND = {
+			NOT = {
+				country_exists = SIK
+				country_exists = KHR
+				country_exists = HMI
+				country_exists = KRS
+				country_exists = ATM
+			}
+			}
+			AND = {
+				SIK = { is_subject = yes }
+				KHR = { is_subject = yes }
+				HMI = { is_subject = yes }
+				KRS = { is_subject = yes }
+				ATM = { is_subject = yes }
+			}
+			}
+		}
+		will_lead_to_war_with = SIK
+		will_lead_to_war_with = KHR
+		will_lead_to_war_with = HMI
+		will_lead_to_war_with = KRS
+		will_lead_to_war_with = ATM
+	}
+
+    focus = {
+		id = TNG_unify_northwest
+		icon = GFX_COOP_war_on_the_northwest
+		prerequisite = { focus = TNG_retake_gansu }
+		prerequisite = { focus = TNG_unify_sinkiang }
+		x = 23
+		y = 10
+		cost = 5
+		ai_will_do = {
+			factor = 2
+		}
+
+		available = {
+			any_other_country = {
+				exists = yes
+				OR = {
+				    tag = XSM 
+					tag = NXM
+					tag = GSM
+				}
+				NOT = {
+					has_war_with = ROOT
+				}
+			}
+		}
+		completion_reward = {
+			add_war_support = 0.05
+			if = {   
+			    limit = {
+				    country_exists = XSM
+					NOT = {
+						has_war_with = XSM
+					}
+				} 
+				XSM = {
+                    every_owned_state = {
+						limit = {
+							NOT = {
+								is_core_of = ROOT
+							}
+							is_core_of = XSM 
+						}
+						add_core_of = ROOT
+					}
+				}
+				create_wargoal = {
+				    type = annex_everything
+				    target = XSM
+			    }
+			}
+			if = {   
+			    limit = {
+				    country_exists = NXM
+					NOT = {
+						has_war_with = NXM
+					}
+				} 
+				NXM = {
+                    every_owned_state = {
+						limit = {
+							NOT = {
+								is_core_of = ROOT
+							}
+							is_core_of = NXM 
+						}
+						add_core_of = ROOT
+					}
+				}
+				create_wargoal = {
+				    type = annex_everything
+				    target = NXM
+			    }
+			}
+			if = {   
+			    limit = {
+				    country_exists = GSM
+					NOT = {
+						has_war_with = GSM
+					}
+				} 
+				GSM = {
+                    every_owned_state = {
+						limit = {
+							NOT = {
+								is_core_of = ROOT
+							}
+							is_core_of = GSM
+						}
+						add_core_of = ROOT
+					}
+				}
+				create_wargoal = {
+				    type = annex_everything
+				    target = GSM
+			    }
+			}
+		}
+		bypass = {
+			OR = {
+                NOT = {
+					any_other_country = {
+					exists = yes
+						OR = {
+							original_tag = XSM
+							original_tag = NXM
+							original_tag = GSM 
+						}
+					}
+				}
+			}
+			all_other_country = {
+				exists = yes
+				OR = {
+					original_tag = XSM
+					original_tag = NXM
+					original_tag = GSM 
+				}
+				has_war_with = ROOT
+			}
+		}
+		will_lead_to_war_with = XSM
+		will_lead_to_war_with = NXM
+		will_lead_to_war_with = GSM
+	}
+
+    focus = {
+		id = TNG_unify_china
+		icon = GFX_focus_attack_china
+		prerequisite = { focus = TNG_unify_northwest }
+		x = 22
+		y = 11
+		cost = 5
+		ai_will_do = {
+			factor = 2
+		}
+
+		available = {
+			any_other_country = {
+				exists = yes
+				#is_literally_china_including_chinese_puppets = yes
+				OR = {
+					is_warlord = yes
+					tag = event_target:WTT_current_china_leader
+					tag = event_target:WTT_communist_china
+				}
+				NOT = {
+					has_war_with = ROOT
+				}
+			}
+		}
+		completion_reward = {
+			create_wargoal = {
+				type = annex_everything
+				target = event_target:WTT_current_china_leader
+			}
+			create_wargoal = {
+				type = annex_everything
+				target = event_target:WTT_communist_china
+			}
+			custom_effect_tooltip = declare_war_on_all_warlords_tt
+			hidden_effect = {
+				every_country = {
+					limit = {
+						NOT = { has_country_flag = im_kmt_in_burma }
+						OR = {
+							AND = {
+								original_tag = SIK
+								NOT = { is_in_faction_with = SOV }
+								NOT = { is_guaranteed_by = SOV }
+								#has_idea = SIK_Neutral
+							}
+							is_warlord = yes
+							#is_literally_china_including_chinese_puppets = yes 
+						}						
+						is_subject = no
+					}
+					ROOT = {
+						create_wargoal = {
+							type = annex_everything
+							target = PREV
+						}
+					}
+				}
+			}
+		}
+		
+        bypass = {
+            NOT = {
+				any_other_country = {
+					exists = yes
+					#is_literally_china_including_chinese_puppets = yes 
+					OR = {
+						is_warlord = yes
+						tag = event_target:WTT_current_china_leader
+					    tag = event_target:WTT_communist_china
+				    }
+				    hidden_trigger = {
+					    NOT = { has_country_flag = im_kmt_in_burma }
+					}
+				}
+			}
+		}
+
+		will_lead_to_war_with = CHI
+		will_lead_to_war_with = PRC
+		will_lead_to_war_with = HPC
+	    will_lead_to_war_with = MAN
+	    will_lead_to_war_with = EHB
+		will_lead_to_war_with = ECA
+		will_lead_to_war_with = PLM
+		will_lead_to_war_with = SHX
+		will_lead_to_war_with = SUY
+		will_lead_to_war_with = SHC
+		will_lead_to_war_with = SHD
+		will_lead_to_war_with = NEA
+		will_lead_to_war_with = XIA
+		will_lead_to_war_with = GUD
+		will_lead_to_war_with = GXC
+		will_lead_to_war_with = YUN
+		will_lead_to_war_with = XIK
+		will_lead_to_war_with = SIC
+	}
+
+	focus = {
+		id = TNG_from_gansu_to_caspian_sea
+		icon = GFX_focus_attack_soviet
+		prerequisite = { focus = TNG_unify_northwest }
+		x = 24
+		y = 11
+		cost = 5
+		ai_will_do = {
+			factor = 2
+		}
+
+		available = {
+			SOV = {
+				is_subject = no
+				has_government = communism
+				is_neighbor_of = ROOT
+			    NOT = {
+					has_war_with = ROOT
+					is_in_faction_with = ROOT
+				}
+			}
+		}
+		completion_reward = {
+			declare_war_on = {
+				target = SOV
+				type = annex_everything
+			}
+			activate_mission = TNG_soviet_war_mission
+			#create_wargoal = {
+			#	type = annex_everything
+			#	target = SOV
+			#}
+		}
+		
+        bypass = {
+			OR = {
+				has_war_with = SOV
+				SOV = {
+					exists = no
+				}
+				SOV = {
+					is_subject = yes 
+				}
+				SOV = {
+					NOT = {
+						has_government = communism
+					}
+				}
+			}
+		}
+
+		will_lead_to_war_with = SOV
+	}
+
+	focus = {
+		id = TNG_king_of_asia
+		icon = GFX_focus_usa_focus_on_asia
+		cost = 10.00
+		prerequisite = {
+			focus = TNG_unify_china
+		}
+		prerequisite = {
+			focus = TNG_from_gansu_to_caspian_sea
+		}
+		x = 23
+		y = 12
+		ai_will_do = {
+			factor = 1000
+		}
+		completion_reward = {
+			#set_cosmetic_tag = CHI_warlord_leader
+			#create_faction = WRL_leader_generic_faction
+			for_each_scope_loop = {
+				array = global.small_china #MODDED
+				tooltip = small_china_effect_tt
+				add_core_of = ROOT
+			}
+			effect_tooltip = {
+				for_each_scope_loop = {
+					array = global.big_china #MODDED
+					tooltip = big_china_effect_tt
+					add_claim_by = ROOT
+				}
+			}
+			hidden_effect = {
+				for_each_scope_loop = {
+					array = global.big_china #MODDED
+					tooltip = big_china_effect_tt
+					if = {
+						limit = {
+							NOT = {
+								is_core_of = ROOT
+							}
+						}
+						add_claim_by = ROOT
+					}
+				}
+			}
+			if = {
+				limit = {
+					has_government = n_socialism
+					#NOT = { neutrality > 0.5 }
+				}
+				load_focus_tree = { tree = warlord_generic_communist keep_completed = yes }
+			}
+			else = {
+				load_focus_tree = { tree = warlord_generic_nationalist keep_completed = yes }
+			}
+			#every_state = {
+			#	limit = {
+			#		has_state_flag = is_chinese_states_flag
+			#	}
+			#	add_core_of = ROOT
+			#}
+
+			custom_effect_tooltip = warn_focus_change_tt
+		}
+		available = {
+			#OR = {
+			    #1015 = { is_owned_and_controlled_by = ROOT }
+				is_legit_china = yes
+			#}
+			event_target:WTT_current_china_leader = {
+				is_subject = no
+			}
+			if = {
+				limit = {
+					is_subject = yes
+				}
+				OVERLORD = {
+					OR = {
+						tag = event_target:WTT_current_china_leader
+						has_completed_focus = CHI_cooperation_with_the_nationalists
+					}
+				}
+			}
+			#OR = {
+			#	WTT_has_politcal_support_points_30 = yes
+			#	is_legit_china = yes
+			#}
+		}		
+		bypass = {	
+				
+		}
+	}
+
+	focus = {
+		id = TNG_khotan_industry #地毯
+		icon = GFX_goal_generic_construct_civ_factory
+		cost = 10.0
+		prerequisite = {
+			focus = TNG_create_currency
+		}
+		x = 5
+		y = 1
+		ai_will_do = {
+			factor = 2
+		}
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = ROOT 
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	    available = {
+			any_owned_state = {
+				is_core_of = ROOT 
+				is_controlled_by = ROOT
+			}	    
+		}	
+	}
+	
+	focus = {
+		id = TNG_economic_reform
+		icon = GFX_focus_usa_reestablish_the_gold_standard
+		cost = 10.00
+		prerequisite = {
+			focus = TNG_tax_cut
+		}
+		x = 1
+		y = 3
+		ai_will_do = {
+			factor = 2
+		}
+		completion_reward = {
+			if = {
+				limit = {
+					has_idea = TNG_currency
+				}
+                remove_ideas = TNG_currency
+			}
+		}
+		available = {
+			has_idea = TNG_currency
+		}
+	}
+
+	focus = {
+		id = TNG_rely_on_trading
+		icon = GFX_goal_generic_neutrality_focus
+		cost = 7.15
+		prerequisite = {
+			focus = TNG_create_currency
+		}
+		x = 1
+		y = 1
+		ai_will_do = {
+			factor = 2
+		}
+		completion_reward = {
+			add_ideas = TNG_trade_focus
+			add_stability = 0.05
+		}
+		available = {
+			OR = {
+				has_completed_focus = TNG_focus_on_trade
+				has_completed_focus = TNG_trade_with_ussr
+			}
+		}
+	}
+
+	focus = {
+		id = TNG_tax_cut
+		icon = GFX_focus_generic_concessions
+		cost = 7.15
+		prerequisite = {
+			focus = TNG_rely_on_trading
+		}
+		x = 1
+		y = 2
+		ai_will_do = {
+			factor = 2
+		}
+		completion_reward = {
+			if = {
+				limit = {
+					has_idea = TNG_heavy_taxes
+				}
+				remove_ideas = TNG_heavy_taxes
+			}
+		}
+		available = {
+			has_idea = TNG_heavy_taxes
+		}
+		bypass = {
+			NOT = {
+				has_idea = TNG_heavy_taxes
+			}
+		}
+	}
+	
+	focus = {
+		id = TNG_khotan_industry_2 #作坊
+		icon = GFX_goal_generic_production 
+		cost = 7.15
+		prerequisite = {
+			focus = TNG_khotan_industry
+		}
+		x = 5
+		y = 2
+		ai_will_do = {
+			factor = 2
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				name = industrial_bonus
+				bonus = 0.75
+				uses = 1
+				category = industry
+			}
+		}
+	    available = {   
+		}	
+	}
+	
+	focus = {
+		id = TNG_produce_khotan_nephrite
+		icon = GFX_goal_generic_construction2
+		cost = 5.0
+		prerequisite = {
+			focus = TNG_khotan_industry_2
+		}
+		x = 5
+		y = 3
+		ai_will_do = {
+			factor = 2
+		}
+		completion_reward = {
+			add_tech_bonus = {
+				name = TNG_produce_khotan_nephrite
+				bonus = 0.5
+				uses = 1
+				category = excavation_tech
+			}
+			unlock_decision_tooltip = TNG_fund_mining
+		}
+	    available = {
+			OR = {
+				1049 = {
+					is_owned_and_controlled_by = ROOT
+				} 
+				1048 = {
+					is_owned_and_controlled_by = ROOT
+				} 
+				759 = {
+					is_owned_and_controlled_by = ROOT
+				} 
+			}  
+		}	
+	}
+
+	focus = {
+		id = TNG_infra
+		icon = GFX_goal_generic_construct_infrastructure
+		cost = 7.15
+		prerequisite = {
+			focus = TNG_create_currency
+		}
+		x = 3
+		y = 1
+		ai_will_do = {
+			factor = 2
+		}
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+				    state = 1049
+					is_core_of = ROOT
+					infrastructure < 5
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					NOT = {
+						state = 1049
+					}
+					is_core_of = ROOT
+					infrastructure < 5
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+		available = {
+			any_owned_state = {
+				is_core_of = ROOT
+				is_controlled_by = ROOT
+				infrastructure < 5
+			}	    
+		}	
+	}
+	
+	focus = {
+		id = TNG_khotan_arms_factory
+		icon = GFX_goal_generic_construct_mil_factory
+		cost = 10
+		prerequisite = {
+			focus = TNG_infra
+		}
+		x = 3
+		y = 2
+		ai_will_do = {
+			factor = 2
+		}
+		completion_reward = {
+			1049 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+		available = {
+			1049 = {
+				is_owned_and_controlled_by = ROOT
+			}
+		}	
+	}
+	
+	focus = {
+		id = TNG_sinkiangs_last_nra
+		icon = GFX_focus_NRA
+		cost = 7.15
+		x = 9
+		y = 0
+		ai_will_do = {
+			factor = 5
+		}
+		available = {
+			#has_global_flag = yang_left_sinkiang
+		}
+		completion_reward = {
+			army_experience = 20
+			if = {
+				limit = {
+					OR = {
+						has_idea = disarmed_nation
+						has_idea = volunteer_only
+					}
+				}
+				add_ideas = limited_conscription
+			}		
+			#add_ideas = CHI_whampoa_military_academy
+		}
+	}
+
+    focus = {
+		id = TNG_take_what_we_can_take
+		icon = GFX_focus_generic_combined_arms
+		cost = 5
+		prerequisite = { focus = TNG_sinkiangs_last_nra }
+		x = 7
+		y = 1
+		completion_reward = {
+			set_country_flag = JPG_allow_weapon_scavenging
+			unlock_decision_tooltip = JPG_weapon_scavenging
+			custom_effect_tooltip = JPG_only_show_up_in_war_time_tt
+		}
+	}
+
+	focus = {
+		id = TNG_army_staff #參謀部
+		icon = GFX_focus_generic_military_mission
+		cost = 7.15
+		prerequisite = {
+			focus = TNG_sinkiangs_last_nra
+		}
+		x = 9
+		y = 1
+		ai_will_do = {
+			factor = 2
+		}
+		completion_reward = {	
+			add_command_power = 25
+			#custom_effect_tooltip = available_chief_of_army
+			custom_effect_tooltip = available_military_high_command
+			show_ideas_tooltip = TNG_bai_zili
+		}
+	}
+	
+    focus = {
+		id = TNG_hui_conscription
+		icon = GFX_focus_generic_manpower
+		cost = 10.00
+		prerequisite = {
+			focus = TNG_army_staff
+		}
+		mutually_exclusive = { 	
+			focus = TNG_more_uyghur_conscription
+		}
+		x = 9
+		y = 2
+		ai_will_do = {
+			factor = 2
+		}
+		completion_reward = {
+			#custom_effect_tooltip = THIS_IS_HISTORICAL_TT
+            if = {
+				limit = {
+					has_idea = MON_nomadic
+				}
+				swap_ideas = {
+					remove_idea = MON_nomadic
+					add_idea = TNG_hui_conscripts
+				}
+			    else = {
+					add_ideas = TNG_hui_conscripts
+				}
+			}
+		}
+		available = {
+			has_completed_focus = TNG_hui_han_advantage
+		}
+	}
+
+	focus = {
+		id = TNG_harsh_training
+		icon = GFX_focus_generic_little_entente
+		cost = 10.00
+		prerequisite = {
+			focus = TNG_hui_conscription
+		}
+		x = 9
+		y = 3
+		ai_will_do = {
+			factor = 2
+		}
+		completion_reward = {
+			add_doctrine_cost_reduction = {
+				name = TNG_harsh_training
+				cost_reduction = 0.5
+				uses = 1
+				category = land_doctrine
+			}
+		}
+		available = {
+
+		}
+	}
+
+	focus = {
+		id = TNG_the_best_army_in_sinkiang
+		icon = GFX_focus_chi_army_reform
+		cost = 10.00
+		prerequisite = {
+			focus = TNG_harsh_training
+		}
+		x = 9
+		y = 5
+		ai_will_do = {
+			factor = 2
+		}
+		completion_reward = {
+			if = {
+				limit = {
+					has_idea = TNG_hui_conscripts
+				}
+				swap_ideas = {
+					remove_idea = TNG_hui_conscripts
+					add_idea = TNG_hui_conscripts_2
+				}
+			    else = {
+					add_ideas = TNG_hui_conscripts_2
+				}
+			}
+		}
+		available = {
+
+		}
+	}
+
+	focus = {
+		id = TNG_military_exercises
+		icon = GFX_goal_generic_army_doctrines
+		cost = 7.15
+		prerequisite = {
+			focus = TNG_harsh_training
+			focus = TNG_recruit_more_army
+		}
+		x = 10
+		y = 4
+		ai_will_do = {
+			factor = 2
+		}
+		completion_reward = {
+			army_experience = 20
+			add_doctrine_cost_reduction = {
+				name = TNG_military_exercises
+				cost_reduction = 0.75
+				uses = 1
+				category = land_doctrine
+			}
+		}
+		available = {
+
+		}
+	}
+
+	focus = {
+		id = TNG_more_uyghur_conscription
+		icon = GFX_focus_TUR_turanist_ambition
+		cost = 10.00
+		prerequisite = {
+			focus = TNG_army_staff
+		}
+		mutually_exclusive = { 	
+			focus = TNG_hui_conscription
+		}
+		x = 11
+		y = 2
+		ai_will_do = {
+			factor = 2
+		}
+		completion_reward = {
+			if = {
+				limit = {
+					has_idea = MON_nomadic
+				}
+				swap_ideas = {
+					remove_idea = MON_nomadic
+					add_idea = TNG_uyghur_conscripts
+				}
+			    else = {
+					add_ideas = TNG_uyghur_conscripts
+				}
+			}
+		}
+		available = {
+			has_completed_focus = TNG_share_regime
+		}
+	}
+
+	focus = {
+		id = TNG_recruit_more_army
+		icon = GFX_goal_generic_allies_build_infantry
+		cost = 10.00
+		prerequisite = {
+			focus = TNG_more_uyghur_conscription
+		}
+		x = 11
+		y = 3
+		ai_will_do = {
+			factor = 2
+		}
+		completion_reward = {
+			if = {
+				limit = {
+					OR = {
+						has_idea = disarmed_nation
+						has_idea = volunteer_only
+						has_idea = limited_conscription
+					}
+				}
+				add_ideas = extensive_conscription 
+			}
+		}
+		available = {
+			NOT = {
+				has_idea = extensive_conscription 
+			}
+		}
+		bypass = {
+			OR = {
+				has_idea = extensive_conscription 
+				has_idea = service_by_requirement
+				has_idea = all_adults_serve
+				has_idea = scraping_the_barrel
+			}
+		}
+	}
+
+	focus = {
+		id = TNG_estalbish_uyghur_partisans
+		icon = GFX_focus_prc_infiltration
+		cost = 10.00
+		prerequisite = {
+			focus = TNG_recruit_more_army
+		}
+		x = 11
+		y = 5
+		ai_will_do = {
+			factor = 2
+		}
+		completion_reward = {
+			add_ideas = CHI_rural_militias
+			if = {
+				limit = {
+					NOT = {
+						has_template = "Weiwuêrh Minping"
+					}
+				}
+			    division_template = {
+					name = "Weiwuêrh Minping"			
+					division_names_group = GXC_INF_01
+					regiments = {
+						militia = { x = 0 y = 0 }
+						militia = { x = 0 y = 1 }
+					}
+					support = {
+					}
+				}
+			}	
+			custom_effect_tooltip = tng_milita_division_tt
+			hidden_effect = {
+                random_owned_controlled_state = {
+					limit = {
+						is_core_of = ROOT
+					}
+					create_unit = {
+						division = "name = \"Weiwuêrh Minping Ti 1 T'uan\" division_template = \"Weiwuêrh Minping\" start_experience_factor = 0.1 start_manpower_factor = 0.05 start_equipment_factor = 0.05"
+						owner = TNG
+					}	
+					create_unit = {
+						division = "name = \"Weiwuêrh Minping Ti 2 T'uan\" division_template = \"Weiwuêrh Minping\" start_experience_factor = 0.1 start_manpower_factor = 0.05 start_equipment_factor = 0.05"
+						owner = TNG
+					}	
+				}
+				random_owned_controlled_state = {
+					limit = {
+						is_core_of = ROOT
+					}
+					create_unit = {
+						division = "name = \"Weiwuêrh Minping Ti 3 T'uan\" division_template = \"Weiwuêrh Minping\" start_experience_factor = 0.1 start_manpower_factor = 0.05 start_equipment_factor = 0.05"
+						owner = TNG
+					}	
+					create_unit = {
+						division = "name = \"Weiwuêrh Minping Ti 4 T'uan\" division_template = \"Weiwuêrh Minping\" start_experience_factor = 0.1 start_manpower_factor = 0.05 start_equipment_factor = 0.05"
+						owner = TNG
+					}	
+				}
+				random_owned_controlled_state = {
+					limit = {
+						is_core_of = ROOT
+					}
+					create_unit = {
+						division = "name = \"Weiwuêrh Minping Ti 5 T'uan\" division_template = \"Weiwuêrh Minping\" start_experience_factor = 0.1 start_manpower_factor = 0.05 start_equipment_factor = 0.05"
+						owner = TNG
+					}	
+					create_unit = {
+						division = "name = \"Weiwuêrh Minping Ti 6 T'uan\" division_template = \"Weiwuêrh Minping\" start_experience_factor = 0.1 start_manpower_factor = 0.05 start_equipment_factor = 0.05"
+						owner = TNG
+					}	
+				}
+				add_equipment_to_stockpile = {
+					type = infantry_equipment
+					amount = 1000
+					producer = TNG
+				}
+				add_manpower = 12000
+			}
+		}
+		available = {
+			
+		}
+	}
+	
+	focus = {
+		id = TNG_cavalry_warfare
+		icon = GFX_goal_generic_cavalry
+		cost = 7.15
+		prerequisite = {
+			focus = TNG_the_best_army_in_sinkiang
+			focus = TNG_estalbish_uyghur_partisans
+		}
+		x = 10
+		y = 6
+		ai_will_do = {
+			factor = 2
+		}
+		completion_reward = {
+		    if = {
+				limit = {
+					has_idea = TNG_hui_conscripts_2
+				}
+				swap_ideas = {
+					remove_idea = TNG_hui_conscripts_2
+					add_idea = TNG_hui_conscripts_3
+				}
+				else_if = {
+					limit = {
+						has_idea = TNG_uyghur_conscripts
+					}
+					swap_ideas = {
+						remove_idea = TNG_uyghur_conscripts
+						add_idea = TNG_uyghur_conscripts_2
+					}
+					else = {
+						custom_effect_tooltip = improve_ns_tt
+					}
+				}
+			}
+		}
+		available = {
+			OR = {
+				has_idea = TNG_hui_conscripts_2
+				has_idea = TNG_uyghur_conscripts
+			}
+		}
+	}
+
+    focus = {
+		id = TNG_camel_trading
+		icon = GFX_focus_generic_camel_corps
+		cost = 7.15
+		prerequisite = {
+			focus = TNG_army_staff
+		}
+		x = 7
+		y = 2
+		ai_will_do = {
+			factor = 2
+		}
+		completion_reward = {
+		    unlock_decision_category_tooltip = TNG_trading_decision_cat
+			unlock_decision_tooltip = TNG_camelry
+		}
+	}
+
+	focus = {
+		id = TNG_commissariat
+		icon = GFX_focus_logistical_reform
+		cost = 7.15
+		prerequisite = {
+			focus = TNG_camel_trading
+		}
+		x = 7
+		y = 3
+		ai_will_do = {
+			factor = 2
+		}
+		completion_reward = {
+			custom_effect_tooltip = gain_base_supp_cond_p10_tt
+			add_to_variable = {
+				Root.supply_condition_base = 10
+			}
+            #add_to_variable = { TNG.ammunition_variable = 30 }
+		}
+	}
+
+    focus = {
+		id = TNG_law_enforcement_team #執法隊
+		icon = GFX_focus_spr_masters_of_our_own_fate
+		cost = 7.15
+		prerequisite = {
+			focus = TNG_commissariat
+		}
+		x = 7
+		y = 4
+		ai_will_do = {
+			factor = 2
+		}
+		completion_reward = {
+		    #remove/improve an army debuff here
+			if = {
+				limit = {
+					has_idea = TNG_unstable_army
+				}
+				remove_ideas = TNG_unstable_army
+			}
+		}
+	}
+
+	focus = {
+		id = TNG_support_ma_hushan #available after ma yanliang returns from the ussr
+		icon = GFX_focus_POL_beck_ribbentrop
+		cost = 5.00
+		prerequisite = {
+			focus = TNG_kashgar_issue
+		}
+		mutually_exclusive = { 	
+			focus = TNG_decrease_ma_hushans_influence
+		}
+		x = 7
+		y = 6
+		ai_will_do = {
+			factor = 2
+		}
+		completion_reward = {
+		    custom_effect_tooltip = THIS_IS_HISTORICAL_TT    
+			add_country_leader_trait = anti_communist
+			add_war_support = 0.05
+		}
+		available = {
+			has_completed_focus = TNG_befriend_uk
+		}
+	}
+
+	focus = {
+		id = TNG_house_arrest_pro_soviet_officers
+		icon = GFX_goal_generic_forceful_treaty
+		cost = 5.00
+		prerequisite = {
+			focus = TNG_support_ma_hushan
+		}
+		x = 7
+		y = 7
+		ai_will_do = {
+			factor = 2
+		}
+		completion_reward = {
+		    if = {
+				limit = {
+					has_character = TNG_ma_yanliang
+				}
+				retire_character = TNG_ma_yanliang
+			}
+			add_stability = 0.05
+			add_war_support = 0.1
+		}
+	}
+
+	focus = {
+		id = TNG_decrease_ma_hushans_influence #available after ma yanliang returns from the ussr
+		icon = GFX_focus_generic_support_the_left_right
+		cost = 5.00
+		prerequisite = {
+			focus = TNG_kashgar_issue
+		}
+		mutually_exclusive = { 	
+			focus = TNG_support_ma_hushan
+		}
+		x = 5
+		y = 6
+		ai_will_do = {
+			factor = 2
+		}
+		completion_reward = {
+			if = {
+				limit = {
+					NOT = {
+						has_country_flag = ma_yanliang_return
+					}
+				}
+				set_country_flag = ma_yanliang_return
+			    effect_tooltip = {
+					create_corps_commander = {
+						name = "Ma Yanliang"
+						portrait_path = "gfx/leaders/GXC/Portrait_GXC_Li_Jishen.dds"
+						traits = { }
+						skill = 1
+						attack_skill = 1
+						defense_skill = 2
+						planning_skill = 1
+						logistics_skill = 1
+					}
+				}
+				add_popularity = {
+					ideology = communism
+					popularity = 0.1
+				}
+			}
+			add_timed_idea = { idea = communist_influence days = 365 }
+		}
+		available = {
+            has_completed_focus = TNG_befriend_soviet
+		}
+	}
+
+	focus = {
+		id = TNG_send_more_officers_to_ussr
+		icon = GFX_focus_SOV_organization_centralization_discipline
+		cost = 5.00
+		prerequisite = {
+			focus = TNG_decrease_ma_hushans_influence
+		}
+		x = 5
+		y = 7
+		ai_will_do = {
+			factor = 2
+		}
+		completion_reward = {
+		    add_doctrine_cost_reduction = {
+				name = TNG_send_more_officers_to_ussr
+				cost_reduction = 0.5
+				uses = 1
+				category = land_doctrine
+			}
+		    custom_effect_tooltip = unlock_sov_advisor_tt
+		}
+		available = {
+			SOV = {
+				exists = yes
+				is_subject = no
+				NOT = {
+					has_war_with = ROOT
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = TNG_tungans_china
+		icon = GFX_focus_chi_one_china_policy
+		cost = 10.00
+		prerequisite = {
+			focus = TNG_clash_with_the_central_government_focus
+			focus = TNG_expand_influence
+		}
+		x = 19
+		y = 10
+		ai_will_do = {
+			factor = 1000
+		}
+		completion_reward = {
+			#set_cosmetic_tag = CHI_warlord_leader
+			#create_faction = WRL_leader_generic_faction
+			for_each_scope_loop = {
+				array = global.small_china #MODDED
+				tooltip = small_china_effect_tt
+				add_core_of = ROOT
+			}
+			effect_tooltip = {
+				for_each_scope_loop = {
+					array = global.big_china #MODDED
+					tooltip = big_china_effect_tt
+					add_claim_by = ROOT
+				}
+			}
+			hidden_effect = {
+				for_each_scope_loop = {
+					array = global.big_china #MODDED
+					tooltip = big_china_effect_tt
+					if = {
+						limit = {
+							NOT = {
+								is_core_of = ROOT
+							}
+						}
+						add_claim_by = ROOT
+					}
+				}
+			}
+			if = {
+				limit = {
+					has_government = n_socialism
+					#NOT = { neutrality > 0.5 }
+				}
+				load_focus_tree = { tree = warlord_generic_communist keep_completed = yes }
+			}
+			else = {
+				load_focus_tree = { tree = warlord_generic_nationalist keep_completed = yes }
+			}
+			#every_state = {
+			#	limit = {
+			#		has_state_flag = is_chinese_states_flag
+			#	}
+			#	add_core_of = ROOT
+			#}
+
+			custom_effect_tooltip = warn_focus_change_tt
+		}
+		available = {
+			#OR = {
+			    #1015 = { is_owned_and_controlled_by = ROOT }
+				is_legit_china = yes
+			#}
+			event_target:WTT_current_china_leader = {
+				is_subject = no
+			}
+			if = {
+				limit = {
+					is_subject = yes
+				}
+				OVERLORD = {
+					OR = {
+						tag = event_target:WTT_current_china_leader
+						has_completed_focus = CHI_cooperation_with_the_nationalists
+					}
+				}
+			}
+			#OR = {
+			#	WTT_has_politcal_support_points_30 = yes
+			#	is_legit_china = yes
+			#}
+		}		
+		bypass = {	
+				
+		}
+	}
+}

@@ -1,0 +1,8884 @@
+focus_tree = {
+	id = hon_focus
+	
+	country = {
+		factor = 0
+		
+		modifier = {
+			add = 10
+			tag = HON
+		}
+	}
+	
+	default = no
+	
+	continuous_focus_position = { x = 600 y = 3000 }
+
+	focus = {
+		id = HON_republic
+		icon = GFX_focus_hol_the_foundations_of_defense
+		
+		x = 15
+		y = 0
+		cost = 5
+		
+		ai_will_do = {
+			factor = 9999
+			modifier = {
+			factor = 0
+			is_historical_focus_on = yes
+			}
+		}	
+		
+		available_if_capitulated = yes
+		
+		available = {
+		hidden_trigger = {
+		if = {
+		limit = {
+		is_ai = yes
+		is_historical_focus_on = yes
+		}
+		always = no
+		}
+		}
+		}
+
+		completion_reward = {
+			add_political_power = 100
+			set_power_balance = {
+				id = HON_power_balance
+				left_side = default_left_side
+				right_side = default_right_side
+			}
+		}
+}
+
+
+focus = {
+		id = HON_national_party 
+		icon = GFX_goal_HON_liberal_party
+		mutually_exclusive = {focus = HON_liberal_party}
+		x = -20
+		y = 1
+		cost = 3
+		available = {
+			
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		prerequisite = { focus = HON_republic}
+		relative_position_id = HON_republic
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_stability = 0.05
+			country_event = hon_event.2 
+		}
+}
+
+focus = {
+		id = HON_liberal_party
+		icon = GFX_focus_generic_anti_fascist_diplomacy
+		mutually_exclusive = {focus = HON_national_party}
+		x = 20
+		y = 1
+		cost = 5
+		available = {
+			
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+
+		available_if_capitulated = yes
+		prerequisite = { focus = HON_republic}
+		relative_position_id = HON_republic
+		completion_reward = {
+				add_political_power = 75
+				country_event = hon_event.1
+		}
+}
+
+focus = {
+		id = HON_anti_fa
+		icon = GFX_goal_generic_forceful_treaty
+		
+		x = 0
+		y = 1
+		cost = 5
+		available = {
+			
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+
+		available_if_capitulated = yes
+		prerequisite = { focus = HON_liberal_party}
+		relative_position_id = HON_liberal_party
+		completion_reward = {
+				add_timed_idea = {idea = hon_anti_fa days = 120}
+				
+		}
+}
+
+focus = {
+		id = HON_1  
+		icon = GFX_focus_LAT_suspend_constitution_of_latvia
+		mutually_exclusive = {focus = HON_2}
+		x = 1
+		y = 1
+		cost = 7
+		available = {
+			
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		available_if_capitulated = yes
+		prerequisite = { focus = HON_anti_fa}
+		relative_position_id = HON_anti_fa
+		completion_reward = {
+				swap_ideas = {add_idea = HON_army_report_1 remove_idea = HON_army_report}
+				
+		}
+}
+
+focus = {
+		id = HON_2
+		icon = GFX_focus_POL_beck_ribbentrop
+		mutually_exclusive = {focus = HON_1}
+		x = -1
+		y = 1
+		cost = 7
+		available = {
+			
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+#		retire_ideology_leader = democratic
+#		HON_ramon_villeda_morales = { 
+#			add_country_leader_role = {
+#			country_leader = {
+#				expire = "1965.1.1"
+#				ideology = conservatism
+#	        
+#			}
+#			promote_leader = yes
+#			}
+#			}
+		available_if_capitulated = yes
+		prerequisite = { focus = HON_anti_fa}
+		relative_position_id = HON_anti_fa
+		completion_reward = {
+				swap_ideas = {add_idea = HON_army_report_2 remove_idea = HON_army_report}
+				add_timed_idea = {idea = HON_junta_inf days = 90} 
+				
+		}
+}
+
+focus = {
+		id = HON_liberal_goverment
+		icon = GFX_goal_generic_friendship_with_church
+		mutually_exclusive = {focus = HON_socialists}
+		x = -10
+		y = 3
+		cost = 2
+		available = {
+			
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		available_if_capitulated = yes
+		prerequisite = { focus = HON_liberal_party}
+		relative_position_id = HON_liberal_party
+		completion_reward = {
+		GER_bop_medium_increase_effect = yes
+		retire_ideology_leader = democratic
+		HON_ramon_villeda_morales = { 
+			add_country_leader_role = {
+			country_leader = {
+				expire = "1965.1.1"
+				ideology = conservatism
+	        
+			}
+			promote_leader = yes
+			}
+			}
+
+				
+		}
+}
+
+
+focus = {
+		id = HON_socialists 
+		icon = GFX_goal_hon_boc
+		mutually_exclusive = {focus = HON_liberal_goverment}
+		x = 10
+		y = 3
+		cost = 2
+		available = {
+			communism > 0.3
+		power_balance_value = {
+			id = HON_power_balance
+			value < -0.55
+		}
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		available_if_capitulated = yes
+		prerequisite = { focus = HON_liberal_party}
+		relative_position_id = HON_liberal_party
+		completion_reward = {
+		GER_bop_medium_decrease_effect = yes
+		retire_ideology_leader = communism
+		HON_mateo_ortega = { 
+			add_country_leader_role = {
+			country_leader = {
+				expire = "1965.1.1"
+				ideology = marxism
+	        
+			}
+			promote_leader = yes
+			}
+			}
+			set_politics = {
+			ruling_party = communism
+			elections_allowed = no
+			long_name = "Young Officers Congress"
+			name = "OFC"   
+			}
+			
+				
+		}
+}
+
+focus = {
+		id = HON_comrade_focus 
+		icon = GFX_goal_generic_communist_loyalty
+		
+		x = 0
+		y = 2
+		cost = 7
+		available = {
+			
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		available_if_capitulated = yes
+		prerequisite = { focus = HON_socialists}
+		relative_position_id = HON_socialists	
+		completion_reward = {
+			
+		
+		 add_country_leader_trait = HON_comrade
+		 
+		
+		}
+}
+
+focus = {
+		id = HON_revolation_man 
+		icon = GFX_focus_spr_masters_of_our_own_fate
+		
+		x = 1
+		y = 1
+		cost = 7
+		available = {
+			
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		available_if_capitulated = yes
+		prerequisite = { focus = HON_socialists}
+		relative_position_id = HON_socialists	
+		completion_reward = {
+			
+		
+		 add_country_leader_trait = HON_grande_com
+		 
+		
+		}
+}
+
+focus = {
+		id = HON_purges
+		icon = GFX_focus_SOV_military_purge
+		
+		x = -1
+		y = 1
+		cost = 6
+		available = {
+		has_idea = HON_national_opp
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		available_if_capitulated = yes
+		prerequisite = { focus = HON_socialists}
+		relative_position_id = HON_socialists	
+		completion_reward = {
+			
+		
+		remove_unit_leader = 6062
+		remove_ideas = HON_national_opp
+		
+		}
+}
+
+focus = {
+		id = HON_sov_invest
+		icon = GFX_goal_generic_soviet_construction
+		mutually_exclusive = {focus = HON_agarian}
+		x = 2
+		y = 1
+		cost = 7
+		available = {
+		
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		available_if_capitulated = yes
+		prerequisite = { focus = HON_revolation_man}
+		relative_position_id = HON_revolation_man
+		completion_reward = {
+			
+		add_ideas = HON_sov_invest_idea
+		
+		}
+}
+
+focus = {
+		id = HON_agarian
+		icon = GFX_focus_prc_agrarian_socialism
+		mutually_exclusive = {focus = HON_sov_invest}
+		x = 2
+		y = 0
+		cost = 7
+		available = {
+		
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		available_if_capitulated = yes
+		prerequisite = { focus = HON_revolation_man}
+		relative_position_id = HON_sov_invest
+		completion_reward = {
+			
+		add_ideas = HON_agarian_idea
+		
+		}
+}
+
+focus = {
+		id = HON_marx 
+		icon = GFX_focus_spr_unify_the_london_bureau
+		
+		x = 0
+		y = 2
+		cost = 7
+		available = {
+		
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		available_if_capitulated = yes
+		prerequisite = { focus = HON_revolation_man}
+		relative_position_id = HON_revolation_man
+		completion_reward = {
+			
+		add_stability = 0.1
+		remove_ideas = HON_just_idea
+		
+		}
+}
+
+focus = {
+		id = HON_invite_soviets
+		icon = GFX_focus_chi_mission_to_the_soviet_union
+		
+		x = 0
+		y = 1
+		cost = 7
+		available = {
+		
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		prerequisite = { focus = HON_sov_invest}
+		relative_position_id = HON_sov_invest
+		completion_reward = {
+			
+		SOV = {country_event = hon_event.4}
+		custom_effect_tooltip = HON_invite_soviets_tt
+		
+		}
+}
+
+focus = {
+		id = HON_soviet_cult 
+		icon = GFX_goal_generic_soviet_assistance
+		
+		x = -1
+		y = 1
+		cost = 7
+		available = {
+		
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		prerequisite = { focus = HON_invite_soviets}
+		prerequisite = { focus = HON_marx}
+		relative_position_id = HON_invite_soviets
+		completion_reward = {
+		
+		add_ideas = HON_soviet_cult 
+		
+		}
+}
+
+focus = {
+		id = HON_uralaz 
+		icon = GFX_cold_railway_2
+		
+		x = 0
+		y = 2
+		cost = 7
+		available = {
+		
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		prerequisite = { focus = HON_invite_soviets}
+		
+		relative_position_id = HON_invite_soviets
+		completion_reward = {
+		
+		random_owned_controlled_state = {
+				
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+				
+			}
+		
+		show_ideas_tooltip = HON_soviet_uralaz
+		
+		}
+}
+
+focus = {
+		id = HON_collectivist 
+		icon = GFX_social_welfare
+		
+		x = 0
+		y = 2
+		cost = 7
+		available = {
+		
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		prerequisite = { focus = HON_marx}
+		prerequisite = { focus = HON_invite_soviets}
+		relative_position_id = HON_marx
+		completion_reward = {
+		
+		
+		random_owned_controlled_state = {
+				
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+				
+			}
+		
+		
+		}
+}
+
+focus = {
+		id = HON_welfare  
+		icon = GFX_goal_generic_dictatorship_of_proletariat
+		
+		x = 1
+		y = 1
+		cost = 10
+		available = {
+		num_of_factories > 18
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		mutually_exclusive = {focus = HON_red_civil}
+		available_if_capitulated = yes
+		prerequisite = { focus = HON_collectivist focus = HON_uralaz focus = HON_red_research }
+		
+		relative_position_id = HON_collectivist
+		completion_reward = {
+		
+		
+		
+		random_owned_controlled_state = {
+				
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = dockyard
+					level = 2
+					instant_build = yes
+				}
+				
+			}
+		
+		random_owned_controlled_state = {
+				
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+				
+			}
+		random_owned_controlled_state = {
+				
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+				
+			}
+		random_owned_controlled_state = {
+				
+				
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+				
+			}
+		}
+}
+
+focus = {
+		id = HON_agarian_welfare  
+		icon = GFX_goal_generic_commie_investments
+		
+		x = 2
+		y = 1
+		cost = 7
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		prerequisite = { focus = HON_agarian}
+		relative_position_id = HON_agarian
+		completion_reward = {
+		add_timed_idea = {idea = HON_agarian_welfare_idea days = 360 } 
+		random_owned_controlled_state = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+				
+			}
+		}
+}
+
+focus = {
+		id = HON_collectivizim  
+		icon = GFX_focus_SOV_merge_plants
+		
+		x = 0
+		y = 1
+		cost = 7
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		prerequisite = { focus = HON_agarian}
+		relative_position_id = HON_agarian
+		completion_reward = {
+		random_owned_controlled_state = {
+				
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+				
+			}
+			add_tech_bonus = {
+				bonus = 0.5
+				uses = 1
+				category = industry
+			}
+		}
+}
+
+focus = {
+		id = HON_red_construct
+		icon = GFX_goal_generic_construction
+		
+		x = 1
+		y = 1
+		cost = 6	
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		prerequisite = { focus = HON_agarian_welfare}
+		relative_position_id = HON_agarian_welfare
+		completion_reward = {
+		add_ideas = HON_structuring
+		}
+}
+
+focus = {
+		id = HON_educ
+		icon = GFX_goal_generic_education
+		
+		x = -1
+		y = 1
+		cost = 7
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		prerequisite = { focus = HON_agarian_welfare}
+		prerequisite = { focus = HON_collectivizim}
+		
+		relative_position_id = HON_agarian_welfare
+		completion_reward = {
+		add_ideas = HON_educ_idea  
+		}
+}
+
+focus = {
+		id = HON_red_research 
+		icon = GFX_socialist_science
+		
+		x = 0
+		y = 1
+		cost = 7
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		
+		prerequisite = { focus = HON_educ}
+		
+		relative_position_id = HON_educ
+		completion_reward = {
+		add_research_slot = 1
+		}
+}
+
+focus = {
+		id = HON_resource 
+		icon = GFX_goal_generic_construction2
+		
+		x = -1
+		y = 1
+		cost = 7
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		
+		prerequisite = { focus = HON_collectivizim}
+		prerequisite = { focus = HON_agarian_welfare}
+		relative_position_id = HON_collectivizim
+		completion_reward = {
+		add_tech_bonus = {
+				bonus = 1.0
+				uses = 1
+				category = excavation_tech
+			}
+		312 = {	add_resource = {
+					type = steel
+					amount = 15
+				}
+		}
+			312 = {	add_resource = {
+					type = tungsten
+					amount = 7
+				}
+		}
+		}
+}
+
+focus = {
+		id = HON_red_civil 
+		icon = GFX_goal_generic_construct_civ_factory
+		
+		x = 0
+		y = 1
+		cost = 7
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		mutually_exclusive = {focus = HON_welfare}
+		prerequisite = { focus = HON_collectivist focus = HON_uralaz}
+		prerequisite = { focus = HON_red_research} 
+		relative_position_id = HON_red_research
+		completion_reward = {
+		random_owned_controlled_state = {
+				
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+				
+			}
+		}
+}
+
+focus = {
+		id = HON_army_reform_red  
+		icon = GFX_goal_generic_army_hat_and_medal
+		
+		x = -1
+		y = 1
+		cost = 15
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		
+		prerequisite = { focus = HON_purges}
+		relative_position_id = HON_purges
+		completion_reward = {
+		add_ideas = HON_army_red_idea
+		}
+}
+
+focus = {
+		id = HON_doctrine_effort_red 
+		icon = GFX_focus_generic_military_academy
+		
+		x = -1
+		y = 1
+		cost = 5
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		
+		prerequisite = { focus = HON_army_reform_red}
+		relative_position_id = HON_army_reform_red
+		completion_reward = {
+			add_doctrine_cost_reduction = {
+				cost_reduction = 0.5
+				uses = 2 
+				category = cat_mass_assault
+			}
+		}
+}
+
+focus = {
+		id = HON_women_in_arms 
+		icon = GFX_focus_generic_women_in_military
+		
+		x = 1
+		y = 1
+		cost = 7
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		
+		prerequisite = { focus = HON_army_reform_red}
+		relative_position_id = HON_army_reform_red
+		completion_reward = {
+			add_ideas = HON_women_arms
+		}
+}
+
+focus = {
+		id = HON_red_path 
+		icon = GFX_hol_communist_electoral_success
+		
+		x = 0
+		y = 2
+		cost = 7
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		mutually_exclusive = {focus = HON_sov_commanders}
+		prerequisite = { focus = HON_women_in_arms}
+		relative_position_id = HON_women_in_arms
+		completion_reward = {
+		every_country = {
+		limit = {has_government = communism NOT = {tag = SOV}}
+		add_opinion_modifier = {
+				target = HON
+				modifier = medium_increase
+			}	
+		}
+		
+		SOV = {add_opinion_modifier = {
+				target = HON
+				modifier = medium_decrease
+			}	
+		}
+		
+		add_ideas = HON_path 
+		
+		}
+}
+
+focus = {
+		id = HON_sov_commanders
+		icon = GFX_focus_SOV_zinovyevists
+		
+		x = 0
+		y = 2
+		cost = 7
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		mutually_exclusive = {focus = HON_red_path}
+		prerequisite = { focus = HON_doctrine_effort_red}
+		relative_position_id = HON_doctrine_effort_red
+		completion_reward = {
+		
+		
+		
+		SOV = {
+		country_event = hon_event.6
+		custom_effect_tooltip = HON_sov_commanders_tt 
+		add_opinion_modifier = {
+				target = HON
+				modifier = medium_increase
+			}	
+		}
+		
+		
+		
+		}
+}
+
+focus = {
+		id = HON_join_comintern 
+		icon = GFX_focus_SOV_socialism_in_one_country
+		
+		x = -1
+		y = 1
+		cost = 5
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		
+		prerequisite = { focus = HON_sov_commanders}
+		relative_position_id = HON_sov_commanders
+		completion_reward = {
+		
+		
+		
+		SOV = {
+		country_event = hon_event.8
+			
+		}
+		
+		
+		
+		}
+}
+
+focus = {
+		id = HON_red_faction 
+		icon = GFX_goal_generic_demand_territory
+		
+		x = 1
+		y = 1
+		cost = 4
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		
+		prerequisite = { focus = HON_red_path}
+		relative_position_id = HON_red_path
+		completion_reward = {
+		
+		set_rule = {
+        can_create_factions = yes
+		}
+		
+		create_faction = "Central American Revolution"
+		
+		}
+}
+
+focus = {
+		id = HON_els  
+		icon = GFX_goal_generic_occupy_states_ongoing_war
+		
+		x = -1
+		y = 1
+		cost = 5
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		
+		prerequisite = { focus = HON_sov_commanders focus = HON_red_path}
+		relative_position_id = HON_red_path
+		completion_reward = {
+		
+		create_wargoal = {
+			type = annex_everything
+			target = ELS
+		}
+		
+		}
+}
+
+focus = {
+		id = HON_red_attack_1  
+		icon = GFX_goal_generic_major_war
+		
+		x = -1
+		y = 1
+		cost = 5
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		
+		prerequisite = { focus = HON_els}
+		relative_position_id = HON_els
+		completion_reward = {
+		
+		create_wargoal = {
+			type = annex_everything
+			target = NIC
+		}
+		create_wargoal = {
+			type = annex_everything
+			target = GUA
+		}
+		}
+}
+focus = {
+		id = HON_red_attack_2 
+		icon = GFX_goal_generic_attack_allies
+		
+		x = 1
+		y = 1
+		cost = 5
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		
+		prerequisite = { focus = HON_els}
+		relative_position_id = HON_els
+		completion_reward = {
+		
+		create_wargoal = {
+			type = annex_everything
+			target = COS
+		}
+		create_wargoal = {
+			type = annex_everything
+			target = PAN
+		}
+		}
+}
+
+
+
+focus = {
+		id = HON_national_equipments 
+		icon = GFX_focus_ETH_freedom_at_gunpoint
+		
+		x = 3
+		y = 1
+		cost = 5
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		mutually_exclusive = {focus = HON_price_equipments}
+		prerequisite = { focus = HON_army_focus}
+		relative_position_id = HON_army_focus
+		completion_reward = {
+		add_tech_bonus = {
+				bonus = 1.5
+				uses = 1
+				category = infantry_weapons
+			}
+		}
+}
+
+focus = {
+		id = HON_price_equipments
+		icon = GFX_focus_generic_combined_arms
+		
+		x = -3
+		y = 1
+		cost = 5
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		mutually_exclusive = {focus = HON_national_equipments}
+		prerequisite = { focus = HON_army_focus}
+		relative_position_id = HON_army_focus
+		completion_reward = {
+		add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = 1000
+				producer = USA
+			}
+		}
+}
+
+focus = {
+		id = HON_factory_plant 
+		icon = GFX_goal_generic_construct_mil_factory
+		
+		x = 1
+		y = 1
+		cost = 5
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		
+		prerequisite = { focus = HON_national_equipments}
+		relative_position_id = HON_national_equipments
+		completion_reward = {
+		random_owned_controlled_state = {
+				
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+				
+			}
+		}
+}
+
+focus = {
+		id = HON_artilery 
+		icon = GFX_goal_generic_army_artillery2
+		
+		x = -1
+		y = 1
+		cost = 5
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		
+		prerequisite = { focus = HON_national_equipments}
+		relative_position_id = HON_national_equipments
+		completion_reward = {
+		add_tech_bonus = {
+				bonus = 1.5
+				uses = 1
+				category = artillery
+				category = cat_anti_tank
+				category = cat_anti_air
+			}
+		}
+}
+
+focus = {
+		id = HON_pruch_eq_2 
+		icon = GFX_goal_generic_gun_purchase
+		
+		x = -1
+		y = 1
+		cost = 5
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		
+		prerequisite = { focus = HON_price_equipments}
+		relative_position_id = HON_price_equipments
+		completion_reward = {
+		add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = 850
+				producer = USA
+			}
+			add_equipment_to_stockpile = {
+				type = artillery_equipment
+				amount = 350
+				producer = USA
+			}
+			
+		}
+}
+
+focus = {
+		id = HON_pruch_eq_3 
+		icon = GFX_goal_generic_army_motorized
+		
+		x = 1
+		y = 1
+		cost = 5
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		
+		prerequisite = { focus = HON_price_equipments}
+		relative_position_id = HON_price_equipments
+		completion_reward = {
+		add_equipment_to_stockpile = {
+				type = motorized_equipment
+				amount = 450
+				producer = USA
+			}
+			
+			
+		}
+}
+
+focus = {
+		id = HON_motorize
+		icon = GFX_focus_generic_truck
+		
+		x = 3
+		y = 1
+		cost = 5
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		
+		prerequisite = { focus = HON_price_equipments focus = HON_national_equipments}
+		relative_position_id = HON_price_equipments
+		completion_reward = {
+		add_tech_bonus = {
+				bonus = 1.0
+				uses = 1
+				category = motorized_equipment
+				
+			}
+			
+			
+		}
+}
+
+focus = {
+		id = HON_fort 
+		icon = GFX_goal_generic_city_chain_forts
+		
+		x = 1
+		y = 1
+		cost = 5
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		
+		prerequisite = { focus = HON_motorize }
+		relative_position_id = HON_motorize
+		completion_reward = {
+		add_ideas = HON_fortify
+			
+			
+		}
+}
+
+focus = {
+		id = HON_attack_tech
+		icon = GFX_goal_generic_military_sphere
+		
+		x = -1
+		y = 1
+		cost = 5
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			 
+		}	
+		
+		available_if_capitulated = yes
+		
+		
+		prerequisite = { focus = HON_motorize }
+		relative_position_id = HON_motorize
+		completion_reward = {
+		add_ideas = HON_attack_tech_idea 
+			
+			
+		}
+}
+
+focus = {
+		id = HON_technich
+		icon = GFX_goal_generic_production2
+		
+		x = 65
+		y = 0
+		cost = 5
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		
+		#prerequisite = { focus = }
+		#relative_position_id = 
+		completion_reward = {
+		add_ideas = HON_technich_idea
+			
+			
+		}
+}
+
+focus = {
+		id = HON_army_focus
+		icon = GFX_goal_NIC_national_guard
+		
+		x = -10
+		y = 1
+		cost = 5
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		
+		prerequisite = { focus = HON_technich}
+		relative_position_id = HON_technich
+		completion_reward = {
+		army_experience = 15
+		add_doctrine_cost_reduction = {
+				cost_reduction = 0.5
+				uses = 2
+				category = land_doctrine
+			}
+		}
+}
+
+focus = {
+		id = HON_edu_1
+		icon = GFX_goal_generic_scientific_exchange
+		
+		x = 0
+		y = 1
+		cost = 7
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		
+		prerequisite = { focus = HON_technich }
+		relative_position_id = HON_technich
+		completion_reward = {
+		add_research_slot = 1
+			
+			
+		}
+}
+
+focus = {
+		id = HON_ind
+		icon = GFX_goal_generic_construct_civ_factory
+		
+		x = 1
+		y = 1
+		cost = 7
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		mutually_exclusive = {focus = HON_arms}
+		prerequisite = { focus = HON_edu_1 }
+		relative_position_id = HON_edu_1
+		completion_reward = {
+		random_owned_controlled_state = {
+				
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+				
+			}
+			swap_ideas = {add_idea = HON_technich_idea_1 remove_idea = HON_technich_idea}
+			
+		}
+}
+
+focus = {
+		id = HON_arms  
+		icon = GFX_focus_generic_steel
+		
+		x = -1
+		y = 1
+		cost = 7
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		mutually_exclusive = {focus = HON_ind}
+		prerequisite = { focus = HON_edu_1 }
+		relative_position_id = HON_edu_1
+		completion_reward = {
+		random_owned_controlled_state = {
+				
+				add_extra_state_shared_building_slots = 1
+				add_resource = {
+					type = steel
+					amount = 12
+    	}
+				
+			}
+			swap_ideas = {add_idea = HON_technich_idea_2 remove_idea = HON_technich_idea}
+			
+		}
+}
+
+focus = {
+		id = HON_new_ind_model 
+		icon = GFX_focus_generic_torpedo_production
+		
+		x = -3
+		y = 1
+		cost = 7
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		
+		prerequisite = { focus = HON_edu_1 }
+		relative_position_id = HON_edu_1
+		completion_reward = {
+		
+		show_ideas_tooltip = HON_juan_manuel_galvez
+		add_ideas = HON_new_ind 
+		
+		}
+}
+
+focus = {
+		id = HON_5_year_plan
+		icon = GFX_focus_generic_the_giant_wakes
+		
+		x = 3
+		y = 1
+		cost = 7      
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		
+		prerequisite = { focus = HON_edu_1 }
+		relative_position_id = HON_edu_1
+		completion_reward = {
+		add_timed_idea = {idea = HON_5_year days = 1825}
+		}
+}
+
+focus = {
+		id = HON_civ_2 
+		icon = GFX_goal_generic_design_equipment_standards
+		
+		x = 1
+		y = 1
+		cost = 7
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		
+		prerequisite = { focus = HON_arms focus = HON_ind }
+		relative_position_id = HON_arms
+		completion_reward = {
+		
+		add_research_slot = 1
+		
+		show_ideas_tooltip = HON_julio_lozano_diaz
+		
+		}
+}
+
+focus = {
+		id = HON_navy 
+		icon = GFX_focus_generic_refit_civilian_ships
+		
+		x = 6
+		y = 1
+		cost = 5
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		
+		prerequisite = { focus = HON_technich }
+		relative_position_id = HON_technich
+		completion_reward = {
+		
+		
+		random_owned_controlled_state = {
+				
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = dockyard
+					level = 2
+					instant_build = yes
+				}
+				
+			}
+		
+		
+		}
+}
+
+focus = {
+		id = HON_air  
+		icon = GFX_goal_generic_air_fighter
+		
+		x = 10
+		y = 1
+		cost = 5
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		
+		prerequisite = { focus = HON_technich }
+		relative_position_id = HON_technich
+		completion_reward = {
+		
+		air_experience = 25
+		
+		random_owned_controlled_state = {
+				
+				add_building_construction = {
+						type = air_base
+						level = 5
+						instant_build = yes
+					}
+				
+			}
+			add_doctrine_cost_reduction = {
+				cost_reduction = 0.75
+				uses = 1
+				category = air_doctrine
+			}
+		
+		
+		}
+}
+
+focus = {
+		id = HON_submarine 
+		icon = GFX_goal_generic_submarine
+		
+		x = 0
+		y = 2
+		cost = 5
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		
+		prerequisite = { focus = HON_navy }
+		relative_position_id = HON_navy
+		completion_reward = {
+		
+		add_tech_bonus = {
+				bonus = 1.0 
+				uses = 1
+				category = ss_tech
+				category = cat_torpedoes
+			}
+		
+		
+		}
+}
+
+focus = {
+		id = HON_marine 
+		icon = GFX_goal_generic_marines2
+		
+		x = 2
+		y = 1
+		cost = 5
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		
+		prerequisite = { focus = HON_submarine }
+		relative_position_id = HON_submarine
+		completion_reward = {
+		
+		add_tech_bonus = {
+				bonus = 1.0 
+				uses = 1
+				category = marine_tech
+			}
+		
+		
+		}
+}
+
+focus = {
+		id = HON_big_ship 
+		icon = GFX_goal_generic_navy_cruiser
+		
+		x = -2
+		y = 1
+		cost = 7
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		
+		prerequisite = { focus = HON_submarine }
+		relative_position_id = HON_submarine
+		completion_reward = {
+		
+		random_owned_controlled_state = {
+				
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = dockyard
+					level = 2
+					instant_build = yes
+				}
+				
+			}
+		
+		add_tech_bonus = {
+				bonus = 1.0 
+				uses = 1
+				category = dd_tech
+			}
+		
+		}
+}
+
+focus = {
+		id = HON_naval_1
+		icon = GFX_focus_generic_navy_battleship2
+		
+		x = 0
+		y = 1
+		cost = 7
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		
+		prerequisite = { focus = HON_submarine }
+		relative_position_id = HON_submarine
+		completion_reward = {
+		
+		random_owned_controlled_state = {
+				
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = dockyard
+					level = 2
+					instant_build = yes
+				}
+				
+			}
+		
+		add_tech_bonus = {
+				bonus = 1.0 
+				uses = 1
+				category = naval_equipment
+			}
+		add_doctrine_cost_reduction = {
+				cost_reduction = 0.5
+				uses = 1
+				category = naval_doctrine
+			}
+		}
+}
+
+focus = {
+		id = HON_naval_air
+		icon = GFX_goal_generic_air_naval_bomber_new
+		
+		x = 2
+		y = 1
+		cost = 5
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		
+		prerequisite = { focus = HON_navy focus = HON_air }
+		relative_position_id = HON_navy
+		completion_reward = {
+		
+		add_tech_bonus = {
+				bonus = 1.5
+				uses = 1
+				category = naval_air
+			}
+		
+		}
+}
+
+focus = {
+		id = HON_fighter 
+		icon = GFX_focus_jap_zero
+		
+		x = 1
+		y = 1
+		cost = 5
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		
+		prerequisite = { focus = HON_air }
+		relative_position_id = HON_air
+		completion_reward = {
+		
+		add_tech_bonus = {
+				bonus = 1.5
+				uses = 1
+				category = light_air
+			}
+		
+		}
+}
+
+focus = {
+		id = HON_carrier_effort
+		icon = GFX_goal_generic_navy_carrier
+		
+		x = 0
+		y = 1
+		cost = 7
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		
+		prerequisite = { focus = HON_naval_air }
+		relative_position_id = HON_naval_air
+		completion_reward = {
+		
+		random_owned_controlled_state = {
+				
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = dockyard
+					level = 2
+					instant_build = yes
+				}
+				
+			}
+		
+		add_tech_bonus = {
+				bonus = 1.0 
+				uses = 1
+				category = cv_tech
+			}
+		
+		}
+}
+
+focus = {
+		id = HON_bomber
+		icon = GFX_goal_generic_air_strategic_bomber_new
+		
+		x = 0
+		y = 2
+		cost = 5
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		
+		prerequisite = { focus = HON_air }
+		relative_position_id = HON_air
+		completion_reward = {
+		
+		add_tech_bonus = {
+				bonus = 1.5
+				uses = 1
+				category = medium_air
+			}
+		
+		}
+}
+
+focus = {
+		id = HON_bomber_heavy
+		icon = GFX_goal_generic_air_bomber_new
+		
+		x = 2
+		y = 2
+		cost = 5
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		
+		prerequisite = { focus = HON_air }
+		relative_position_id = HON_air
+		completion_reward = {
+		
+		add_tech_bonus = {
+				bonus = 1.5
+				uses = 1
+				category = heavy_air
+			}
+		
+		}
+}
+
+focus = {
+		id = HON_air_doc 
+		icon = GFX_focus_generic_armored_air_support
+		
+		x = 0
+		y = 2
+		cost = 5
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		
+		prerequisite = { focus = HON_fighter }
+		relative_position_id = HON_fighter
+		completion_reward = {
+		
+		add_doctrine_cost_reduction = {
+				cost_reduction = 0.75
+				uses = 2
+				category = air_doctrine
+			}
+		
+		}
+}
+
+focus = {
+		id = HON_naval_doctrine_effort   	
+		icon = GFX_focus_hol_prepare_the_inundation_lines
+		
+		x = 0
+		y = 1
+		cost = 5
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		
+		prerequisite = { focus = HON_naval_1 }
+		relative_position_id = HON_naval_1
+		completion_reward = {
+		
+		add_doctrine_cost_reduction = {
+				cost_reduction = 0.75
+				uses = 3
+				category = naval_doctrine
+			}
+		
+		}
+}
+
+focus = {
+		id = HON_fate_mil   	
+		icon = GFX_focus_generic_military_dictatorship
+		
+		x = 5
+		y = 1
+		cost = 5
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		mutually_exclusive = {focus = HON_junta_democracy}
+		prerequisite = { focus = HON_liberal_goverment }
+		relative_position_id = HON_liberal_goverment
+		completion_reward = {
+		
+		add_ideas = HON_junta_fate
+		
+		}
+}
+
+focus = {
+		id = HON_junta_democracy    	
+		icon = GFX_focus_generic_little_entente
+		
+		x = -5
+		y = 1
+		cost = 5
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		mutually_exclusive = {focus = HON_fate_mil}
+		prerequisite = { focus = HON_liberal_goverment }
+		relative_position_id = HON_liberal_goverment
+		completion_reward = {
+		remove_ideas = HON_national_opp
+		add_ideas = HON_junta_democracy_idea
+		
+		}
+}
+
+focus = {
+		id = HON_entente 	
+		icon = GFX_focus_mex_restore_the_army_of_christ 
+		
+		x = 0
+		y = 2
+		cost = 7
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		
+		prerequisite = { focus = HON_fate_mil focus = HON_junta_democracy }
+		relative_position_id = HON_liberal_goverment
+		completion_reward = {
+		
+		add_ideas = HON_cat_arms
+		
+		}
+}
+
+focus = {
+		id = HON_america_claims	 
+		icon = GFX_focus_mex_redeem_aztlan
+		
+		x = 0
+		y = 1
+		cost = 5
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		
+		prerequisite = { focus = HON_entente }
+		relative_position_id = HON_entente
+		completion_reward = {
+		add_political_power = 75
+		every_country = {
+		limit = {OR = {tag = MEX tag = SPR tag = SPA tag = GUA tag = ELS tag = NIC tag = COS tag = PAN tag = COL tag = VEN}}
+		add_opinion_modifier = {
+			target = HON  
+			modifier = large_increase
+		}
+		}
+		}
+}
+
+focus = {
+		id = HON_curch
+		icon = GFX_focus_por_concordat
+		
+		x = 2
+		y = 1
+		cost = 7
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		
+		prerequisite = { focus = HON_entente }
+		relative_position_id = HON_entente
+		completion_reward = {
+		swap_ideas = {add_idea = HON_cat_arms_1 remove_idea = HON_cat_arms}
+		}
+}
+
+focus = {
+		id = HON_werke 
+		icon = GFX_focus_generic_the_giant_wakes
+		
+		x = -2
+		y = 1
+		cost = 7
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		
+		prerequisite = { focus = HON_entente }
+		relative_position_id = HON_entente
+		completion_reward = {
+		
+		
+			random_owned_controlled_state = {
+				
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+				
+			}
+			random_owned_controlled_state = {
+				
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+				
+			}
+		}
+}
+
+focus = {
+		id = HON_alliance 
+		icon = GFX_focus_ETH_the_emperor_stays
+		
+		x = 0
+		y = 1
+		cost = 5
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		
+		prerequisite = { focus = HON_america_claims }
+		relative_position_id = HON_america_claims
+		completion_reward = {
+		
+		create_faction = "Central American Defense Council"
+		add_political_power = 35
+		}
+}
+
+focus = {
+		id = HON_unite_america 
+		icon = GFX_focus_generic_home_defense
+		
+		x = 1
+		y = 1
+		cost = 5
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		mutually_exclusive = {focus = HON_little_entente}
+		prerequisite = { focus = HON_alliance }
+		relative_position_id = HON_alliance
+		completion_reward = {
+		GUA = {country_event = hon_event.9}
+		ELS = {country_event = hon_event.9}
+		NIC = {country_event = hon_event.9}
+		COS = {country_event = hon_event.9}
+		}
+}
+
+focus = {
+		id = HON_little_entente
+		icon = GFX_goal_generic_improve_relations
+		
+		x = -1
+		y = 1
+		cost = 5
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		mutually_exclusive = {focus = HON_unite_america}
+		prerequisite = { focus = HON_alliance }
+		relative_position_id = HON_alliance
+		completion_reward = {
+		GUA = {country_event = hon_event.10}
+		ELS = {country_event = hon_event.10}
+		NIC = {country_event = hon_event.10}
+		COS = {country_event = hon_event.10}
+		}
+}
+
+focus = {
+		id = HON_preparing 
+		icon = GFX_focus_bra_voice_of_brasil
+		
+		x = 1
+		y = 1
+		cost = 7
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		
+		prerequisite = { focus = HON_little_entente focus = HON_unite_america }
+		relative_position_id = HON_little_entente
+		completion_reward = {
+		add_ideas = HON_americans
+		GUA = {if = {limit = {is_ally_with = HON}
+		add_ideas = HON_americans
+		}
+		}
+		ELS = {if = {limit = {is_ally_with = HON}
+		add_ideas = HON_americans
+		}
+		}
+		NIC = {if = {limit = {is_ally_with = HON}
+		add_ideas = HON_americans
+		}
+		}
+		COS = {if = {limit = {is_ally_with = HON}
+		add_ideas = HON_americans
+		}
+		}
+		}
+}
+
+focus = {
+		id = HON_reunion 
+		icon = GFX_focus_generic_provoke_border_clashes
+		
+		x = 1
+		y = 3
+		cost = 7
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		mutually_exclusive = {focus = HON_after}
+		prerequisite = {  focus = HON_unite_america }
+		relative_position_id = HON_unite_america
+		completion_reward = {
+		set_cosmetic_tag = USC_UNIFIED
+		GUA = {if = {limit = {is_ally_with = HON}
+		country_event = hon_event.11
+		}
+		}
+		ELS = {if = {limit = {is_ally_with = HON}
+		country_event = hon_event.11
+		}
+		}
+		NIC = {if = {limit = {is_ally_with = HON}
+		country_event = hon_event.11
+		
+		}
+		}
+		COS = {if = {limit = {is_ally_with = HON}
+		country_event = hon_event.11
+		
+		}
+		}
+		hidden_effect = {HON = {annex_country = {
+    target = ELS
+    transfer_troops = yes
+}
+}}
+		}
+}
+
+focus = {
+		id = HON_after 
+		icon = GFX_focus_generic_balkan_diplomacy
+		
+		x = -1
+		y = 3
+		cost = 7
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		mutually_exclusive = {focus = HON_reunion}
+		prerequisite = {  focus = HON_little_entente }
+		relative_position_id = HON_little_entente
+		completion_reward = {
+		every_core_state = { add_dynamic_modifier = {modifier = HON_after_dark}
+		NIC = {if = {limit = {is_ally_with = HON}
+		every_core_state = { add_dynamic_modifier = {modifier = HON_after_dark}
+				}
+			}
+		}
+		ELS = {if = {limit = {is_ally_with = HON}
+		every_core_state = { add_dynamic_modifier = {modifier = HON_after_dark}
+				}
+			}
+		}
+		GUA = {if = {limit = {is_ally_with = HON}
+		every_core_state = { add_dynamic_modifier = {modifier = HON_after_dark}
+				}
+			}
+		}
+		COS = {if = {limit = {is_ally_with = HON}
+		every_core_state = { add_dynamic_modifier = {modifier = HON_after_dark}
+				}
+			}
+		}
+}
+}
+}
+
+
+	
+	focus = {
+		id = HON_public_elect
+		icon = GFX_goal_support_democracy 
+		
+		x = 3
+		y = 1
+		cost = 5
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		mutually_exclusive = {focus = HON_no_elect}
+		
+		prerequisite = {  focus = HON_fate_mil }
+		relative_position_id = HON_fate_mil
+		completion_reward = {
+		add_stability = 0.05
+		add_political_power = 50
+		}
+	
+	}
+	
+	focus = {
+		id = HON_cartel_wars
+		icon = GFX_focus_mex_caudillo_private_armies
+		
+		x = 1
+		y = 1
+		cost = 7
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		
+		prerequisite = {  focus = HON_fate_mil }
+		relative_position_id = HON_fate_mil
+		completion_reward = {
+		custom_effect_tooltip = HON_cartel_tt
+		add_ideas = HON_police 
+		}
+	
+	}
+	
+	focus = {
+		id = HON_agency 
+		icon = GFX_focus_generic_secret_service_agency
+		
+		x = 0
+		y = 1
+		cost = 7
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		
+		prerequisite = {  focus = HON_cartel_wars }
+		relative_position_id = HON_cartel_wars
+		completion_reward = {
+		if = {limit = {has_intelligence_agency = no}
+		
+		create_intelligence_agency = {
+		name = "Agencia de inteligencia"
+		icon = GFX_intelligence_agency_logo_agency
+		}
+		
+		}
+		swap_ideas = {add_idea = HON_police_1 remove_idea = HON_police}
+		}
+	
+	}
+	
+	focus = {
+		id = HON_papa
+		icon = GFX_focus_generic_pope
+		
+		x = -3
+		y = 1
+		cost = 7
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		prerequisite = {  focus = HON_curch}
+		prerequisite = {  focus = HON_liberalize}
+		relative_position_id = HON_agency
+		completion_reward = {
+		swap_ideas = {add_idea = HON_cat_arms_2 remove_idea = HON_cat_arms_1}
+		
+		
+		}
+	
+	}
+	
+	focus = {
+		id = HON_liberalize
+		icon = GFX_focus_generic_treaty
+		
+		x = -1
+		y = 1
+		cost = 7
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		prerequisite = {  focus = HON_fate_mil}
+	
+		relative_position_id = HON_fate_mil
+		completion_reward = {
+		add_ideas = free_trade
+		
+		
+		}
+	
+	}
+	
+	focus = {
+		id = HON_no_elect 
+		icon = GFX_goal_generic_forceful_treaty
+		
+		x = 5
+		y = 1
+		cost = 6
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		prerequisite = {  focus = HON_fate_mil}
+		mutually_exclusive = {focus = HON_public_elect}
+		relative_position_id = HON_fate_mil
+		completion_reward = {
+		remove_ideas = HON_national_opp
+add_ideas = HON_article
+		set_party_name = {
+    ideology = democratic
+    long_name = "Partido Liberal de Honduras"
+    name = "HLB"
+}
+		add_popularity = {
+		ideology = democratic
+		popularity = -0.1
+		}
+		
+		}
+	
+	}
+	
+	focus = {
+		id = HON_democratic_war 
+		icon = GFX_goal_generic_propaganda
+		
+		x = 0
+		y = 2
+		cost = 4
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		prerequisite = {  focus = HON_agency}
+		
+		relative_position_id = HON_agency
+		completion_reward = {
+
+		add_stability = 0.05
+		
+		}
+	
+	}
+	
+	focus = {
+		id = HON_army_fate
+		icon = GFX_focus_generic_court
+		
+		x = -3
+		y = 1
+		cost = 5
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		prerequisite = {  focus = HON_democratic_war}
+		
+		relative_position_id = HON_democratic_war
+		completion_reward = {
+		add_political_power = 100
+		add_stability = 0.1
+		remove_unit_leader = 99999
+		
+		}
+	
+	}
+	
+	focus = {
+		id = HON_justice
+		icon = GFX_focus_SWI_neutrality_on_the_move
+		
+		x = -1
+		y = 1
+		cost = 6
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		mutually_exclusive = {focus = HON_justice_2}
+		prerequisite = {  focus = HON_democratic_war}
+		
+		relative_position_id = HON_democratic_war
+		completion_reward = {
+		
+		swap_ideas = {add_idea = HON_just_idea_2 remove_idea = HON_just_idea}
+		
+		}
+	
+	}
+
+	focus = {
+		id = HON_justice_2
+		icon = GFX_goal_generic_neutrality_focus
+		
+		x = 1 
+		y = 1
+		cost = 6
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		mutually_exclusive = {focus = HON_justice}
+		prerequisite = {  focus = HON_democratic_war}
+		
+		relative_position_id = HON_democratic_war
+		completion_reward = {
+		
+		swap_ideas = {add_idea = HON_just_idea_1 remove_idea = HON_just_idea}
+		
+		}
+	
+	}
+	
+	
+	focus = {
+		id = HON_cabinate 
+		icon = GFX_focus_POL_sanation_left
+		
+		x = 3
+		y = 1
+		cost = 6
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		prerequisite = {  focus = HON_democratic_war}
+		
+		relative_position_id = HON_democratic_war
+		completion_reward = {
+		
+		swap_ideas = {add_idea = HON_junta_fate_1 remove_idea = HON_junta_fate}
+		
+		}
+	
+	}
+
+	focus = {
+		id = HON_reformist
+		icon = GFX_focus_SWI_establish_pro_helvetia
+		
+		x = 0
+		y = 1
+		cost = 7
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		prerequisite = {  focus = HON_public_elect}
+		
+		relative_position_id = HON_public_elect
+		completion_reward = {
+		
+		
+		add_country_leader_trait = HON_reformist_leader
+		
+		}
+	
+	}
+	
+	focus = {
+		id = HON_war_eco 
+		icon = GFX_goal_generic_military_sphere
+		
+		x = 0
+		y = 1
+		cost = 5
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		prerequisite = {  focus = HON_no_elect}
+		
+		relative_position_id = HON_no_elect
+		completion_reward = {
+		
+		add_ideas = HON_recud_idea 
+		
+		
+		}
+	
+	}
+	
+	focus = {
+		id = HON_war_eco_2 
+		icon = GFX_goal_generic_construct_mil_factory
+		
+		x = 0
+		y = 1
+		cost = 5
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		prerequisite = {  focus = HON_war_eco focus = HON_reformist}
+		
+		relative_position_id = HON_war_eco
+		completion_reward = {
+		
+		add_ideas = war_economy
+		
+		
+		}
+	
+	}
+	
+	
+	focus = {
+		id = HON_war_supp
+		icon = GFX_focus_ITA_banda_carita
+		
+		x = -2
+		y = 1
+		cost = 5
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		prerequisite = {  focus = HON_war_eco focus = HON_reformist}
+		
+		relative_position_id = HON_war_eco
+		completion_reward = {
+		
+		add_war_support = 0.05
+		add_manpower = 16000
+		
+		}
+	
+	}
+
+	focus = {
+		id = HON_consule
+		icon = GFX_focus_POL_complete_april_constitution
+		
+		x = 0
+		y = 1
+		cost = 5
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		prerequisite = {  focus = HON_junta_democracy }
+		
+		relative_position_id = HON_junta_democracy
+		completion_reward = {
+		
+		remove_ideas = HON_just_idea
+		
+		}
+	
+	}
+	
+	focus = {
+		id = HON_population 
+		icon = GFX_focus_generic_population_growth
+		
+		x = 0
+		y = 1
+		cost = 5
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		prerequisite = {  focus = HON_consule }
+		
+		relative_position_id = HON_consule
+		completion_reward = {
+		
+		add_ideas = HON_population_idea 
+		
+		}
+	
+	}
+	
+	focus = {
+		id = HON_fund 
+		icon = GFX_focus_SWI_issue_war_bonds
+		
+		x = -2
+		y = 1
+		cost = 7
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		prerequisite = {  focus = HON_consule }
+		
+		relative_position_id = HON_consule
+		completion_reward = {
+		
+		add_ideas = HON_fund_idea
+		
+		}
+	
+	}
+	
+	focus = {
+		id = HON_tech
+		icon = GFX_goal_generic_warfighting_technology
+		
+		x = 0
+		y = 1
+		cost = 7
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		prerequisite = {  focus = HON_liberalize }
+		
+		relative_position_id = HON_liberalize
+		completion_reward = {
+		
+		add_research_slot = 1
+		add_ideas = HON_production_academy
+		}
+	
+	}
+
+	focus = {
+		id = HON_air_factory 
+		icon = GFX_goal_mielec_aircraft_factory
+		
+		x = -3
+		y = 1
+		cost = 7
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		prerequisite = {  focus = HON_fund }
+		
+		relative_position_id = HON_fund
+		completion_reward = {
+		
+		add_tech_bonus = {
+				bonus = 1.0 
+				uses = 1
+				category = light_air
+				category = medium_air
+				category = heavy_air
+			}
+			
+			random_owned_controlled_state = {
+				
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+				
+			}
+		
+		}
+	
+	}
+	
+	focus = {
+		id = HON_under_factories
+		icon = GFX_goal_generic_munitions_factories
+		
+		x = 3
+		y = 1
+		cost = 7
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		prerequisite = {  focus = HON_fund }
+		
+		relative_position_id = HON_fund
+		completion_reward = {
+		
+		312 = {
+			remove_building = {
+				type = industrial_complex
+				level = 1
+			}
+			remove_building = {
+				type = arms_factory
+				level = 1
+			}
+		}
+		add_offsite_building = { type = arms_factory level = 2 }
+		add_offsite_building = { type = industrial_complex level = 2 }
+		}
+	
+	}
+	
+	focus = {
+		id = HON_organized_arms 
+		icon = GFX_focus_generic_little_entente
+		
+		x = 1
+		y = 1
+		cost = 7
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		mutually_exclusive = {focus = HON_unorganized_arms }
+		prerequisite = {  focus = HON_under_factories }
+		
+		relative_position_id = HON_under_factories
+		completion_reward = {
+		add_ideas = HON_army_train
+		add_doctrine_cost_reduction = {
+			cost_reduction = 0.75
+			uses = 2
+			category = land_doctrine
+		}
+		
+		}
+	
+	}
+	
+	focus = {
+		id = HON_unorganized_arms 
+		icon = GFX_focus_generic_army_modernizations
+		
+		x = -1
+		y = 1
+		cost = 7
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		mutually_exclusive = {focus = HON_organized_arms }
+		prerequisite = {  focus = HON_under_factories }
+		
+		relative_position_id = HON_under_factories
+		completion_reward = {
+		
+		add_ideas = HON_army_growth
+		
+		}
+	
+	}
+	
+	focus = {
+		id = HON_fort_focus  
+		icon = GFX_goal_generic_fortification
+		
+		x = 0
+		y = 1
+		cost = 7
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		prerequisite = {  focus = HON_fund }
+		
+		relative_position_id = HON_fund
+		completion_reward = {
+		random_owned_controlled_state = {
+				
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+				
+			}
+		312 = {
+		add_building_construction = {
+				type = bunker
+				level = 3
+				province = 8017
+				instant_build = yes
+			}
+		add_building_construction = {
+				type = bunker
+				level = 3
+				province = 2031
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				level = 3
+				province = 12865
+				instant_build = yes
+			}
+		}
+		}
+	}
+	
+	focus = {
+		id = HON_junta_council 
+		icon = GFX_focus_POL_sanation_right 
+		
+		x = -3
+		y = 1
+		cost = 7
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		prerequisite = {  focus = HON_air_factory }
+		
+		relative_position_id = HON_air_factory
+		completion_reward = {
+		
+		add_ideas = HON_military_council_idea
+		
+		}
+	}
+	
+	focus = {
+		id = HON_social_stability   
+		icon = GFX_goal_generic_foreign_diplomacy
+		
+		x = 2
+		y = 1
+		cost = 7
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		mutually_exclusive = {focus = HON_coup}
+		prerequisite = {  focus = HON_air_factory }
+		
+		relative_position_id = HON_air_factory
+		completion_reward = {
+		add_stability = 0.1
+		set_cosmetic_tag = HON_social_republic  
+		
+		}
+	}	
+	
+	focus = {
+		id = HON_coup 
+		icon = GFX_focus_bra_national_security_law
+		
+		x = -1
+		y = 1
+		cost = 5
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			 
+		}	
+		
+		available_if_capitulated = yes
+		
+		prerequisite = {  focus = HON_air_factory }
+		mutually_exclusive = {focus = HON_social_stability}
+		relative_position_id = HON_air_factory
+		completion_reward = {
+		
+		add_stability = -0.05
+		
+		
+		
+		
+		set_politics = {
+			ruling_party = neutrality
+			elections_allowed = no
+			
+			
+			}
+		
+		add_country_leader_role = {
+			character = HON_williams_calderon
+			promote_leader = yes
+			country_leader = {
+			ideology = centrism 
+			
+			
+				}
+			}
+		add_country_leader_trait = HON_savior_trait
+		
+		 
+		
+		}
+	}	
+	
+	focus = {
+		id = HON_protected_democracy 
+		icon = GFX_goal_generic_death_of_bolshevism
+		
+		x = 1
+		y = 1
+		cost = 5
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	 
+		
+		available_if_capitulated = yes
+		
+		prerequisite = {  focus = HON_coup }
+		
+		relative_position_id = HON_coup
+		completion_reward = {
+		
+		add_war_support = 0.1
+		add_popularity = {
+		ideology = communism
+		popularity = -0.25
+		}
+		}
+	}	
+	
+	focus = {
+		id = HON_coupers
+		icon = GFX_goal_cuba_batista_coup
+		
+		x = -1
+		y = 1
+		cost = 7
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		prerequisite = {  focus = HON_coup }
+		
+		relative_position_id = HON_coup
+		completion_reward = {
+		
+		army_experience = 25
+		add_doctrine_cost_reduction = {
+			cost_reduction = 0.5
+			uses = 2
+			category = land_doctrine
+		}
+		}
+		}
+
+		focus = {
+		id = HON_public_trust 
+		icon = GFX_goal_generic_election_rigged
+		
+		x = 0
+		y = 1
+		cost = 7
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		prerequisite = {  focus = HON_social_stability }
+		
+		relative_position_id = HON_social_stability
+		completion_reward = {
+		add_stability = 0.1
+		add_war_support = 0.1
+			}
+		}
+		
+		focus = {
+		id = HON_free_trade  
+		icon = GFX_goal_generic_trade
+		
+		x = -1
+		y = 1
+		cost = 8
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		prerequisite = {  focus = HON_public_trust }
+		
+		relative_position_id = HON_public_trust
+		completion_reward = {
+		
+		add_offsite_building = { type = industrial_complex level = 2 }
+		
+		add_ideas = free_trade
+		
+			}
+		}
+		
+		focus = {
+		id = HON_nation_arms
+		icon = GFX_focus_generic_national_security
+		
+		x = 1
+		y = 1
+		cost = 7
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		prerequisite = {  focus = HON_public_trust }
+		
+		relative_position_id = HON_public_trust
+		completion_reward = {
+		
+		add_ideas = HON_national_secure_idea
+		
+		
+		
+			}
+		}
+		
+		focus = {
+		id = HON_production
+		icon = GFX_goal_generic_barrack_industry 
+		
+		x = 0
+		y = 2
+		cost = 7
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		prerequisite = {  focus = HON_junta_council}
+		
+		relative_position_id = HON_junta_council
+		completion_reward = {
+		
+		add_ideas = HON_production_idea
+		
+		
+		
+			}
+		}
+		
+		
+		
+		focus = {
+		id = HON_claim_panama
+		icon = GFX_goal_generic_forceful_treaty
+		
+		x = 1
+		y = 1
+		cost = 4
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		prerequisite = {  focus = HON_great_scheme}
+		
+		relative_position_id = HON_great_scheme
+		completion_reward = {
+		
+		add_state_claim = 304
+		add_state_claim = 685
+		
+		
+			}
+		}
+		
+		focus = {
+		id = HON_demand_panama 
+		icon = GFX_focus_generic_the_suez
+		
+		x = 0
+		y = 1
+		cost = 4
+		available = {
+		controls_state = 304
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		prerequisite = {  focus = HON_claim_panama}
+		
+		relative_position_id = HON_claim_panama
+		completion_reward = {
+		
+		USA = {country_event = hon_event.12}
+		
+			}
+		}
+		
+		focus = {
+		id = HON_cuba_pact 
+		icon = GFX_goal_cuba_carribean_anti_imperialism
+		
+		x = -1
+		y = 1
+		cost = 4
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		prerequisite = {  focus = HON_great_scheme}
+		
+		relative_position_id = HON_great_scheme
+		completion_reward = {
+		every_country = {
+		
+		limit = {OR = {tag = CUB tag = HAI tag = DOM}}
+		diplomatic_relation = {
+		country = ROOT
+		relation = non_aggression_pact
+		active = yes
+		}
+		}
+		
+		}
+		
+		
+		}
+		
+		focus = {
+		id = HON_mare_nostrum 
+		icon = GFX_goal_VEN_focus_on_caribbean
+		
+		x = -1
+		y = 1
+		cost = 10
+		available = {
+		has_war_support > 0.65
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		prerequisite = {  focus = HON_cuba_pact}
+		
+		relative_position_id = HON_cuba_pact
+		completion_reward = {
+		add_tech_bonus = { 
+				
+				ahead_reduction = 2
+				bonus = 1.0
+				uses = 1
+				technology = marines
+				technology = marines2
+				technology = marines3
+			}
+		add_tech_bonus = { 
+				ahead_reduction = 2
+				bonus = 1.0
+				uses = 1
+				technology = amphibious_tank_chassis
+			}
+			add_tech_bonus = { 
+				ahead_reduction = 2
+				bonus = 1.0
+				uses = 1
+				category = heavy_air
+			}
+			add_tech_bonus = { 
+				bonus = 1.0
+				uses = 1
+				technology = ship_hull_super_heavy
+			}
+		
+			}
+		}
+		
+		focus = {
+		id = HON_attack_mexico 
+		icon = GFX_focus_attack_mexico
+		
+		x = 0
+		y = 2
+		cost = 5
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		prerequisite = {  focus = HON_mare_nostrum}
+		
+		relative_position_id = HON_mare_nostrum
+		completion_reward = {
+		
+		create_wargoal = {
+			type = annex_everything
+			target = MEX
+		}
+		
+			}
+		}
+		
+		focus = {
+		id = HON_march_of  
+		icon = GFX_goal_PRU_peruvian_libertad
+		
+		x = 1
+		y = 2
+		cost = 7
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		prerequisite = {  focus = HON_cuba_pact}
+		
+		relative_position_id = HON_cuba_pact
+		completion_reward = {
+		
+		add_ideas = HON_giant_idea 
+		
+			}
+		}
+		
+		focus = {
+		id = HON_attack_america
+		icon = GFX_goal_USA_over_there
+		
+		x = 1
+		y = 1
+		cost = 5
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		prerequisite = {  focus = HON_march_of focus = HON_attack_mexico}
+		
+		relative_position_id = HON_attack_mexico
+		completion_reward = {
+		
+		create_wargoal = {
+			type = annex_everything
+			target = USA
+		}
+		
+			}
+		}
+		
+		focus = {
+		id = HON_attack_col
+		icon = GFX_goal_COL_political_effort
+		
+		x = 1
+		y = 1
+		cost = 7
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		prerequisite = {  focus = HON_march_of }
+		
+		relative_position_id = HON_march_of
+		completion_reward = {
+		
+		
+		
+		every_country = {
+		limit = {OR = {tag = VEN tag = COL tag = ECU}}
+		every_core_state = {add_claim_by = HON}
+		
+		}
+		
+			}
+		}
+		
+		focus = {
+		id = HON_german_support
+		icon = GFX_focus_chi_mission_to_germany
+		
+		x = -10
+		y = 5
+		cost = 7
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		prerequisite = { focus = HON_spr_leaks }
+		mutually_exclusive = {focus = HON_natural_goverment}
+		mutually_exclusive = {focus = HON_usa_support}
+		relative_position_id = HON_national_party
+		completion_reward = {
+		add_popularity = {
+			ideology = neutrality
+			popularity = 0.15
+		}
+		add_popularity = {
+			ideology = fascism
+			popularity = 0.15
+		}
+		GER = {country_event = hon_event.14 } 
+		
+			}
+		}
+		
+		focus = {
+		id = HON_usa_support 
+		icon = GFX_goal_MAN_support_aikawa
+		
+		x = 10
+		y = 5
+		cost = 7
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		mutually_exclusive = {focus = HON_natural_goverment}
+		mutually_exclusive = {focus = HON_german_support}
+		prerequisite = { focus = HON_denationalisation }
+		
+		relative_position_id = HON_national_party
+		completion_reward = {
+		
+		USA = {country_event = hon_event.16 } 
+		
+			}
+		}
+		
+		focus = {
+		id = HON_natural_goverment
+		icon = GFX_goal_HON_carias_legacy 
+		
+		x = 0
+		y = 5
+		cost = 7
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		mutually_exclusive = {focus = HON_usa_support}
+		mutually_exclusive = {focus = HON_german_support}
+		prerequisite = {focus = HON_new_day focus = HON_purge_army}
+		
+		relative_position_id = HON_national_party
+		completion_reward = {
+		add_country_leader_trait = HON_coup_war_trait
+		add_stability = 0.05
+		
+			}
+		}
+
+		focus = {
+		id = HON_industry_focus
+		icon = GFX_goal_generic_construction 
+		
+		x = 0
+		y = 1
+		cost = 3
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		prerequisite = {focus = HON_national_party}
+		
+		relative_position_id = HON_national_party
+		completion_reward = {
+		add_tech_bonus = {
+			bonus = 0.5
+			uses = 1
+			category = industry
+		}
+		
+			}
+		}
+		
+		focus = {
+		id = HON_computer
+		icon = GFX_goal_generic_production2
+		
+		x = -2
+		y = 1
+		cost = 3
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		prerequisite = {focus = HON_national_party}
+		
+		relative_position_id = HON_national_party
+		completion_reward = {
+		add_tech_bonus = {
+			bonus = 0.5
+			uses = 1
+			category = electronics
+			
+		}
+		
+			}
+		}
+		
+		focus = {
+		id = HON_banana_republic 
+		icon = GFX_goal_HON_bannans_empire
+		
+		x = 2
+		y = 1
+		cost = 4
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		prerequisite = {focus = HON_national_party}
+		
+		relative_position_id = HON_national_party
+		completion_reward = {
+		
+		add_ideas = HON_banana_rep_idea
+		
+		add_popularity = {
+			ideology = fascism
+			popularity = 0.05
+		}
+		
+			}
+		}
+
+	focus = {
+		id = HON_banana_ind  
+		icon = GFX_focus_POL_warsaw_main_station
+		
+		x = 0
+		y = 1
+		cost = 4
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		prerequisite = {focus = HON_industry_focus}
+		
+		relative_position_id = HON_industry_focus
+		completion_reward = {
+		
+		random_owned_controlled_state = {
+				
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+		
+			}
+		}
+		
+		
+		focus = {
+		id = HON_it_exp 
+		icon = GFX_focus_generic_land_reclamation
+		
+		x = 0
+		y = 1
+		cost = 4
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		prerequisite = {focus = HON_computer}
+		
+		relative_position_id = HON_computer
+		completion_reward = {
+		
+		add_ideas = HON_national_prodcution
+		
+			}
+		}
+		
+		focus = {
+		id = HON_favelas 
+		icon = GFX_forced_urbanization
+		
+		x = 0
+		y = 1
+		cost = 3
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		prerequisite = {focus = HON_banana_republic}
+		
+		relative_position_id = HON_banana_republic
+		completion_reward = {
+		
+		add_ideas = HON_favela_idea
+		
+			}
+		}
+		
+		focus = {
+		id = HON_favelas_attacked 
+		icon = GFX_goal_generic_revolt
+		
+		x = 2	
+		y = 1
+		cost = 3
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		prerequisite = {focus = HON_banana_republic}
+		
+		relative_position_id = HON_banana_republic
+		completion_reward = {
+		add_war_support = 0.1
+		add_manpower = -500
+		
+			}
+		}
+		
+		
+	focus = {
+		id = HON_mobil_army
+		icon = GFX_goal_MON_separate_army_and_politics
+		
+		x = 0
+		y = 1
+		cost = 3
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		
+		prerequisite = {focus = HON_it_exp focus = HON_favelas focus = HON_banana_ind}
+		relative_position_id = HON_banana_ind
+		completion_reward = {
+		
+		add_ideas = HON_move_army_idea 
+		add_war_support = 0.05
+		
+			}
+		}
+		
+		focus = {
+		id = HON_new_day
+		icon = GFX_goal_generic_espionage
+		
+		x = -1
+		y = 1
+		cost = 5
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		mutually_exclusive = { focus = HON_spr_leaks }
+		
+		prerequisite = {focus = HON_mobil_army}
+		relative_position_id = HON_mobil_army
+		completion_reward = {
+		
+		add_stability = 0.1 
+		add_ideas = HON_nationals_banned_idea 
+			}
+		}
+		
+		focus = {
+		id = HON_purge_army
+		icon = GFX_goal_extensive_conscription_fascism
+		
+		x = 1
+		y = 1
+		cost = 5
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		mutually_exclusive = {focus = HON_denationalisation}
+		
+		prerequisite = {focus = HON_mobil_army}
+		relative_position_id = HON_mobil_army
+		completion_reward = {
+		
+		add_ideas = HON_national_officers_idea 
+		
+			}
+		}
+		
+		focus = {
+		id = HON_denationalisation
+		icon = GFX_goal_generic_denazification
+		
+		x = 1
+		y = 2
+		cost = 2
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		mutually_exclusive = {focus = HON_purge_army}
+		prerequisite = {focus = HON_mobil_army}
+		prerequisite = {focus = HON_favelas_attacked}
+		relative_position_id = HON_favelas_attacked
+		completion_reward = {
+		add_political_power = 25
+		add_popularity = {
+				ideology = fascism
+				popularity = -0.05
+			}
+		
+			}
+		}
+		
+		focus = {
+		id = HON_spr_volunters
+		icon = GFX_goal_generic_spanish_civil_war_soldier
+		
+		x = -2
+		y = 1
+		cost = 5
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		
+		
+		prerequisite = {focus = HON_computer}
+		relative_position_id = HON_computer
+		completion_reward = {
+		add_ideas = HON_volunteers 
+		
+			}
+		}
+		
+		focus = {
+		id = HON_spr_leaks
+		icon = GFX_goal_infantry_flames
+		
+		x = -1
+		y = 2
+		cost = 3
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		mutually_exclusive = { focus = HON_new_day }
+		prerequisite = {focus = HON_mobil_army}
+		prerequisite = {focus = HON_spr_volunters}
+		relative_position_id = HON_spr_volunters
+		completion_reward = {
+		add_manpower = 750
+		add_political_power = 35
+		add_popularity = {
+				ideology = fascism
+				popularity = 0.1
+			}
+			}
+		}
+		
+		focus = {
+		id = HON_form_mil
+		icon = GFX_goal_HON_savior_coup
+		
+		x = 0
+		y = 1
+		cost = 7
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		
+		
+		prerequisite = {focus = HON_natural_goverment}
+		relative_position_id = HON_natural_goverment
+		completion_reward = {
+		swap_ideas = {remove_idea = HON_just_idea add_idea = HON_just_idea_mil1}
+			}
+		}
+		
+		focus = {
+		id = HON_housing
+		icon = GFX_goal_HON_housing
+		
+		x = -2
+		y = 1
+		cost = 7
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		
+		
+		prerequisite = {focus = HON_natural_goverment}
+		relative_position_id = HON_natural_goverment
+		completion_reward = {
+		add_ideas = HON_house_idea
+			}
+		}
+		
+		
+		focus = {
+		id = HON_purges_in_army 
+		icon = GFX_goal_PRU_exile_flores
+		
+		x = 2
+		y = 1
+		cost = 7
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		
+		
+		prerequisite = {focus = HON_natural_goverment}
+		relative_position_id = HON_natural_goverment
+		completion_reward = {
+		remove_ideas = HON_move_army_idea
+		add_political_power = 55
+			}
+		}
+		
+		focus = {
+		id = HON_infra_effort
+		icon = GFX_goal_generic_construct_infrastructure
+		
+		x = -2
+		y = 1
+		cost = 6
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		
+		
+		prerequisite = {focus = HON_housing}
+		relative_position_id = HON_housing
+		completion_reward = {
+		random_owned_controlled_state = {
+		add_extra_state_shared_building_slots = 1
+		add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+		}
+			}
+		}
+		
+		focus = {
+		id = HON_experience_effort
+		icon = GFX_focus_SWI_guisans_coup
+		
+		x = 2
+		y = 1
+		cost = 6
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		
+		
+		prerequisite = {focus = HON_purges_in_army}
+		relative_position_id = HON_purges_in_army
+		completion_reward = {
+		army_experience = 25
+		air_experience = 25 
+		navy_experience = 25
+			}
+		}
+		
+		focus = {
+		id = HON_peace_at_home
+		icon = GFX_focus_generic_africa_liberation
+		
+		x = 0
+		y = 1
+		cost = 7
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		mutually_exclusive = {focus = HON_new_age}
+		
+		prerequisite = {focus = HON_housing}
+		relative_position_id = HON_housing
+		completion_reward = {
+		
+		add_stability = 0.15
+		
+			}
+		}
+		
+		focus = {
+		id = HON_new_age
+		icon = GFX_focus_ETH_the_one_true_heir_of_solomon
+		
+		x = 0
+		y = 1
+		cost = 7
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		mutually_exclusive = {focus = HON_peace_at_home}
+		
+		prerequisite = {focus = HON_purges_in_army}
+		relative_position_id = HON_purges_in_army
+		completion_reward = {
+		
+		add_ideas = HON_new_age_idea 
+		
+			}
+		}
+		
+		focus = {
+		id = HON_nations
+		icon = GFX_focus_generic_league_of_nations
+		
+		x = 0
+		y = 1
+		cost = 7
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		
+		
+		prerequisite = {focus = HON_peace_at_home}
+		relative_position_id = HON_peace_at_home
+		completion_reward = {
+		
+		send_embargo = ITA
+		
+		add_political_power = 55
+		add_stability = 0.05
+		custom_effect_tooltip = HON_league_of_nations_tt
+		
+			}
+		}
+		
+		focus = {
+		id = HON_support_italy
+		icon = GFX_focus_ITA_culto_del_duce
+		
+		x = 0
+		y = 1
+		cost = 7
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		
+		
+		prerequisite = {focus = HON_new_age}
+		relative_position_id = HON_new_age
+		completion_reward = {
+		add_war_support = 0.1
+		news_event = hon_event.18
+	
+		ITA = {add_opinion_modifier = {
+			target = HON
+			modifier = large_increase
+			}
+		}
+			}
+		}
+		
+		focus = {
+		id = HON_invite_italy 
+		icon = GFX_focus_generic_italy_first
+		
+		x = 3
+		y = 1
+		cost = 7
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		
+		
+		prerequisite = {focus = HON_support_italy}
+		relative_position_id = HON_support_italy
+		completion_reward = {
+		ITA = {country_event = hon_event.19} 
+		unlock_decision_tooltip = HON_italian_guns
+		unlock_decision_tooltip = HON_italian_art
+		unlock_decision_tooltip = HON_italian_support_eq
+			}
+		}
+		
+		focus = {
+		id = HON_italian_air
+		icon = GFX_focus_generic_copy_plane_designs
+		
+		x = 1
+		y = 1
+		cost = 7
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		
+		
+		prerequisite = {focus = HON_invite_italy}
+		relative_position_id = HON_invite_italy
+		completion_reward = {
+		show_ideas_tooltip = HON_macchi 
+			}
+		}
+		
+		focus = {
+		id = HON_italian_submarines 
+		icon = GFX_focus_generic_midget_submarines
+		
+		x = -1
+		y = 1
+		cost = 7
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		
+		
+		prerequisite = {focus = HON_invite_italy}
+		relative_position_id = HON_invite_italy
+		completion_reward = {
+		add_ideas = HON_ita_submarines_idea 
+			}
+		}
+		
+		focus = {
+		id = HON_arms_factories
+		icon = GFX_goal_generic_construct_mil_factory
+		
+		x = 0
+		y = 1
+		cost = 7
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		
+		
+		prerequisite = {focus = HON_support_italy}
+		relative_position_id = HON_support_italy
+		completion_reward = {
+		random_owned_controlled_state = {
+				
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+				
+			}
+			}
+		}
+		
+		focus = {
+		id = HON_fortify_2 
+		icon = GFX_goal_generic_fortify_aa
+		
+		x = 0
+		y = 1
+		cost = 7
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		
+		
+		prerequisite = {focus = HON_nations}
+		relative_position_id = HON_nations
+		completion_reward = {
+		312 = {
+		add_building_construction = {
+				type = bunker
+				level = 3
+				province = 8017
+				instant_build = yes
+			}
+		add_building_construction = {
+				type = bunker
+				level = 3
+				province = 2031
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				level = 3
+				province = 12865
+				instant_build = yes
+			}
+		}
+			}
+		}
+		
+		focus = {
+		id = HON_defence_budget
+		icon = GFX_focus_SWI_issue_war_bonds
+		
+		x = -3
+		y = 1
+		cost = 7
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		
+		
+		prerequisite = {focus = HON_nations focus = HON_inventor_legacy}
+		relative_position_id = HON_nations
+		completion_reward = {
+		add_ideas = HON_arm_idea
+			}
+		}
+		
+		focus = {
+		id = HON_conscription_focus 
+		icon = GFX_goal_JAP_army_expansion
+		
+		x = 1
+		y = 1
+		cost = 7
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		
+		
+		prerequisite = {focus = HON_defence_budget}
+		relative_position_id = HON_defence_budget
+		completion_reward = {
+		add_ideas = HON_conscription_idea 
+			}
+		}
+		
+		focus = {
+		id = HON_mil_focus  
+		icon = GFX_focus_generic_railway_gun
+		
+		x = -1
+		y = 1
+		cost = 7
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		
+		
+		prerequisite = {focus = HON_defence_budget}
+		relative_position_id = HON_defence_budget
+		completion_reward = {
+		swap_ideas = {add_idea = HON_arm_idea1 remove_idea = HON_arm_idea}
+			}
+		}
+		
+		focus = {
+		id = HON_national_security  
+		icon = GFX_focus_generic_national_security
+		
+		x = 0
+		y = 1
+		cost = 7
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		
+		
+		prerequisite = {focus = HON_fortify_2}
+		relative_position_id = HON_fortify_2
+		completion_reward = {
+		add_ideas = HON_national_security_idea
+			}
+		}
+		
+		focus = {
+		id = HON_agresive_focus 
+		icon = GFX_goal_war_infrastructure
+		
+		x = 0
+		y = 1
+		cost = 7
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		
+		
+		prerequisite = {focus = HON_arms_factories}
+		relative_position_id = HON_arms_factories
+		completion_reward = {
+		add_ideas = HON_war_inf_idea 
+		add_equipment_to_stockpile = {
+			type = train_equipment
+			amount = 15
+			producer = ITA
+			}
+			}
+		}
+		
+		focus = {
+		id = HON_social_stability_fate 
+		icon = GFX_goal_war_infrastructure
+		
+		x = 0
+		y = 1
+		cost = 7
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		
+		
+		prerequisite = {focus = HON_usa_support}
+		relative_position_id = HON_usa_support
+		completion_reward = {
+		
+		add_political_power = 150
+		add_war_support = 0.05
+#		add_country_leader_role = {
+#			character = HON_RTR_agencies
+#			promote_leader = yes
+#			country_leader = {
+#			ideology = anarchism
+#			
+#			
+#				}
+#			}
+			}
+		}
+		
+		focus = {
+		id = HON_agencies 
+		icon = GFX_goal_LIT_intelligence_agency
+		
+		x = 1
+		y = 1
+		cost = 7
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		
+		
+		prerequisite = {focus = HON_social_stability_fate}
+		relative_position_id = HON_social_stability_fate
+		completion_reward = {
+		show_ideas_tooltip = HON_ancap_agency
+			}
+		}
+		
+		focus = {
+		id = HON_soothe_state
+		icon = GFX_goal_generic_destroy_government
+		
+		x = -1
+		y = 1
+		cost = 7
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		
+		
+		prerequisite = {focus = HON_social_stability_fate}
+		relative_position_id = HON_social_stability_fate
+		completion_reward = {
+		
+		
+		remove_ideas = HON_just_idea
+		
+			}
+		}
+		
+		focus = {
+		id = HON_align_army 
+		icon = GFX_goal_IRE_offense_against_the_state_act
+		
+		x = 1
+		y = 1
+		cost = 7
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		
+		
+		prerequisite = {focus = HON_soothe_state focus = HON_agencies}
+		
+		relative_position_id = HON_soothe_state
+		completion_reward = {
+		add_popularity = {
+			ideology = neutrality
+			popularity = 0.25
+		}
+		
+		remove_ideas = HON_move_army_idea
+		
+			}
+		}
+		
+		focus = {
+		id = HON_handle_generals
+		icon = GFX_focus_ITA_banda_carita
+		
+		x = -1
+		y = 1
+		cost = 7
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		
+		
+		prerequisite = {focus = HON_align_army}
+		
+		relative_position_id = HON_align_army
+		completion_reward = {
+		
+		remove_unit_leader = 6062
+		remove_unit_leader = 99999
+		add_war_support = 0.1
+			}
+		}
+		
+		focus = {
+		id = HON_popular_front
+		icon = GFX_focus_por_workers_of_iberia
+		
+		x = 1
+		y = 1
+		cost = 7
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		
+		
+		prerequisite = {focus = HON_align_army}
+		
+		relative_position_id = HON_align_army
+		completion_reward = {
+		
+		add_ideas = HON_advisor_idea_ancap
+		
+			}
+		}
+		
+		focus = {
+		id = HON_coffe_trade
+		icon = GFX_focus_generic_coffee
+		
+		x = 1
+		y = 1
+		cost = 7
+		available = {
+		has_idea = HON_ancap_agency
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		
+		
+		
+		prerequisite = {focus = HON_agencies}
+		relative_position_id = HON_agencies
+		completion_reward = {
+		GER_bop_medium_increase_effect = yes
+		add_ideas = HON_coffe_trade
+		
+			}
+		}
+		
+		focus = {
+		id = HON_expand_banana_trade
+		icon = GFX_goal_HON_bannans_empire
+		
+		x = 1
+		y = 1
+		cost = 7
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		
+		
+	
+		prerequisite = {focus = HON_coffe_trade}
+		relative_position_id = HON_coffe_trade
+		completion_reward = { 
+		
+		swap_ideas = {add_idea = HON_coffe_trade1 remove_idea = HON_coffe_trade }
+		
+			}
+		}
+		
+		focus = {
+		id = HON_anarchism_rises
+		icon = GFX_focus_ITA_corpo_volontari_della_liberta
+		
+		x = -1
+		y = 1
+		cost = 7
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		
+		
+	  
+		prerequisite = {focus = HON_soothe_state}
+		relative_position_id = HON_soothe_state
+		completion_reward = {
+		add_stability = -0.1
+		GER_bop_medium_decrease_effect = yes
+		add_popularity = {
+			ideology = neutrality
+			popularity = 0.1
+		}
+		add_ideas = HON_anarch_rise_idea
+			}
+		} 
+		
+		focus = {
+		id = HON_anarchism_rises2
+		icon = GFX_focus_ITA_peasants_rise 
+		
+		x = -1
+		y = 1
+		cost = 7
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		
+		
+	    prerequisite = {focus = HON_anarchism_rises}
+		
+		relative_position_id = HON_anarchism_rises
+		completion_reward = {
+		add_stability = -0.1
+		add_war_support = 0.1
+		swap_ideas = {add_idea = HON_anarch_rise_idea2 remove_idea = HON_anarch_rise_idea}
+			}
+		} 
+		
+		focus = {
+		id = HON_anarchist_goverment 
+		icon = GFX_focus_spr_masters_of_our_own_fate
+		
+		x = 0 
+		y = 2
+		cost = 5
+		available = {
+		neutrality > 0.5
+		has_stability < 0.05
+		power_balance_value = {
+			id = HON_power_balance
+			value < -0.15
+		}
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		mutually_exclusive = {focus = HON_ancap_goverment}
+		
+	     
+		prerequisite = {focus = HON_anarchism_rises}
+		relative_position_id = HON_anarchism_rises
+		completion_reward = {
+		add_popularity = {
+			ideology = neutrality
+			popularity = 0.25
+		}
+		set_politics = {
+			ruling_party = neutrality
+			elections_allowed = no
+			long_name = "Insurgency Government"
+			name = "IG"
+			}
+		add_country_leader_role = {
+			character = HON_anarchists
+			promote_leader = yes
+			country_leader = {
+			ideology = anarchism
+				} 
+			}
+		set_cosmetic_tag = HON_anarchist
+			}
+		} 
+		
+		focus = {
+		id = HON_ancap_goverment
+		icon = GFX_goal_HON_ancap_globalists
+		
+		x = 0
+		y = 2
+		cost = 7
+		available = {
+		
+		power_balance_value = {
+			id = HON_power_balance
+			value > 0.75
+		}
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		mutually_exclusive = {focus = HON_anarchist_goverment}
+		
+		prerequisite = {focus = HON_coffe_trade}
+		relative_position_id = HON_coffe_trade
+		completion_reward = {
+		add_popularity = {
+			ideology = fascism
+			popularity = 0.15
+		}
+		add_popularity = {
+			ideology = neutrality
+			popularity = 0.35
+		}
+		set_politics = {
+			ruling_party = fascism
+			 
+			}
+		
+		 HON_samuel_zemurray = { 
+			
+			add_country_leader_trait = nationalist_symbol
+			}
+			
+			}
+		}
+		
+		focus = {
+		id = HON_collectivist_market 
+		icon = GFX_goal_generic_national_unity
+		
+		x = -1
+		y = 1
+		cost = 7
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		
+		
+		prerequisite = {focus = HON_anarchist_goverment}
+		relative_position_id = HON_anarchist_goverment
+		completion_reward = {
+		
+		add_ideas = HON_collectivized_society
+		add_ideas = closed_economy
+			}
+		}
+		
+		focus = {
+		id = HON_individual_armament
+		icon = GFX_goal_ARM_wilson
+		
+		x = 0
+		y = 1
+		cost = 7
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		
+		
+		prerequisite = {focus = HON_collectivist_market}
+		relative_position_id = HON_collectivist_market
+		completion_reward = {
+		
+		add_ideas = HON_individual_armament_idea
+		
+		}
+	}
+	
+	focus = {
+		id = HON_organized_armament 
+		icon = GFX_goal_polish_wartime_industry
+		
+		x = 0
+		y = 1
+		cost = 7
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		
+		
+		prerequisite = {focus = HON_individual_armament}
+		relative_position_id = HON_individual_armament
+		completion_reward = {
+		
+		swap_ideas = {add_idea = HON_individual_armament_idea1 remove_idea = HON_individual_armament_idea}
+		
+		}
+	}
+	
+	
+	
+	
+	
+	focus = {
+		id = HON_anarch_in_world  
+		icon = GFX_focus_spr_anarchism_knows_no_borders
+		
+		x = 1
+		y = 3
+		cost = 7
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		
+		
+		prerequisite = {focus = HON_anarchist_goverment}
+		relative_position_id = HON_anarchist_goverment
+		completion_reward = {
+		
+		
+		set_cosmetic_tag = HON_global_defense_council_neutrality 
+		add_ideas = HON_warlord_idea
+		}
+	}
+	
+	focus = {
+		id = HON_trade_area 
+		icon = GFX_goal_HON_ancap_chained_world
+		
+		x = -1
+		y = 3
+		cost = 7
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		
+		
+		prerequisite = {focus = HON_ancap_goverment}
+		relative_position_id = HON_ancap_goverment
+		completion_reward = {
+		add_ideas = HON_coperatist_society 
+		add_political_power = 150
+		set_politics = {
+			ruling_party = neutrality
+			elections_allowed = no
+			long_name = "Association of Companies"
+			name = "AC"   
+			}
+		
+		add_country_leader_role = {
+			character = HON_RTR_agencies
+			promote_leader = yes
+			country_leader = {
+			ideology = anarchism
+			
+			
+				}
+			}
+			set_cosmetic_tag = HON_ancap
+		
+		}
+	}
+	
+	focus = {
+		id = HON_free_trade_ancap
+		icon = GFX_goal_trade_pact
+		
+		x = 1
+		y = 1
+		cost = 7
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		
+		
+		prerequisite = {focus = HON_ancap_goverment}
+		relative_position_id = HON_ancap_goverment
+		completion_reward = {
+		
+		random_owned_controlled_state = {
+				
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+				
+			}
+		
+		add_ideas = free_trade
+		
+		}
+	}
+	 
+	focus = {
+		id = HON_customize_everything
+		icon = GFX_goal_generic_economics_reform
+		
+		x = 0
+		y = 1
+		cost = 7
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		
+		
+		prerequisite = {focus = HON_free_trade_ancap}
+		relative_position_id = HON_free_trade_ancap
+		completion_reward = {
+		
+		add_ideas = HON_customization_idea
+		
+		}
+	}
+	
+	focus = {
+		id = HON_volunteer_comp
+		icon = GFX_goal_generic_banking_legislation
+		
+		x = 0
+		y = 1
+		cost = 7
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		
+		
+		prerequisite = {focus = HON_customize_everything}
+		relative_position_id = HON_customize_everything
+		completion_reward = {
+		  
+		swap_ideas = {add_idea = HON_customization_idea1 remove_idea = HON_customization_idea}
+		
+		}
+	}
+	
+	
+	
+	focus = {
+		id = HON_liberate_peoples 
+		icon = GFX_focus_SWI_establish_pro_helvetia
+		
+		x = 2
+		y = 1
+		cost = 7
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		
+		
+		prerequisite = {focus = HON_anarchist_goverment focus = HON_ancap_goverment}
+		relative_position_id = HON_anarchist_goverment
+		completion_reward = {
+		
+		custom_effect_tooltip = SPR_global_defense_council_tt_2
+		custom_effect_tooltip = SPR_plant_the_seeds_of_revolution_tt
+			division_template = {#guo
+				name = "Anarchist Militia"
+				priority = 1
+				is_locked = yes
+				regiments = {
+					infantry = { x = 0 y = 0 }
+					infantry = { x = 0 y = 1 }
+					infantry = { x = 0 y = 2 }
+					
+					infantry = { x = 1 y = 0 }
+					infantry = { x = 1 y = 1 }
+				}
+			}
+		  
+		GUA = {every_core_state = {add_core_of = HON}}
+		ELS = {every_core_state = {add_core_of = HON}}
+		NIC = {every_core_state = {add_core_of = HON}}
+		COS = {every_core_state = {add_core_of = HON}}
+		PAN = {every_core_state = {add_core_of = HON}}
+		}
+	}
+	
+	focus = {
+		id = HON_people_generals
+		icon = GFX_focus_spr_torchbearers_of_tomorrow
+		
+		x = -1
+		y = 1
+		cost = 7
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		
+		
+		prerequisite = {focus = HON_organized_armament}
+		prerequisite = {focus = HON_anarch_in_world}
+		relative_position_id = HON_anarch_in_world
+		completion_reward = {
+		
+		create_corps_commander = {
+		name = "Anarchist People's Movement"
+		picture = GFX_portrait_HON_ANCAP
+		traits = { trickster brilliant_strategist }
+		skill = 1
+		attack_skill = 3
+		defense_skill = 2
+		planning_skill = 1
+		logistics_skill = 4
+	}
+		create_corps_commander = {
+		name = "Juan Ramón Morales Pineda"
+		picture = GFX_portrait_HON_ANCAP
+		traits = { trickster brilliant_strategist }
+		skill = 1
+		attack_skill = 3
+		defense_skill = 2
+		planning_skill = 1
+		logistics_skill = 4
+	}
+	create_corps_commander = {
+		name = "Daniel Caraballo Padrón"
+		picture = GFX_portrait_HON_ANCAP
+		traits = { trickster brilliant_strategist }
+		skill = 1
+		attack_skill = 3
+		defense_skill = 2
+		planning_skill = 1
+		logistics_skill = 4
+	}
+		}
+	}
+	
+	
+	
+	focus = {
+		id = HON_production_focus
+		icon = GFX_goal_generic_arms_export
+		
+		x = 1
+		y = 1
+		cost = 7
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		
+		
+		prerequisite = {focus = HON_trade_area}
+		prerequisite = {focus = HON_volunteer_comp}
+		relative_position_id = HON_trade_area
+		completion_reward = {
+		  
+		add_ideas = HON_production_front_idea
+		
+		}
+	}
+	
+	
+	
+	focus = {
+		id = HON_anarchist_attack 
+		icon = GFX_goal_generic_secret_weapon
+		
+		x = 0
+		y = 3
+		cost = 5
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		
+		
+		prerequisite = {focus = HON_liberate_peoples}
+		relative_position_id = HON_liberate_peoples
+		completion_reward = {
+		  
+		create_wargoal = {
+			type = annex_everything
+			target = ELS
+		}
+		create_wargoal = {
+			type = annex_everything
+			target = GUA
+		}
+		
+		}
+	}
+	
+	focus = {
+		id = HON_anarchist_attack2
+		icon = GFX_goal_generic_more_territorial_claims
+		
+		x = 0
+		y = 1
+		cost = 5
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		
+		
+		prerequisite = {focus = HON_anarchist_attack}
+		relative_position_id = HON_anarchist_attack
+		completion_reward = {
+		  
+		
+		create_wargoal = {
+			type = annex_everything
+			target = NIC
+		}
+		create_wargoal = {
+			type = annex_everything
+			target = COS
+		}
+		create_wargoal = {
+			type = annex_everything
+			target = PAN
+		}
+		}
+	}
+	
+	focus = {
+		id = HON_zemuray_factories 
+		icon = GFX_goal_HON_zemurray 
+		
+		x = 4
+		y = 1
+		cost = 7
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		
+		
+		prerequisite = {focus = HON_ancap_goverment}
+		relative_position_id = HON_ancap_goverment
+		completion_reward = {
+		random_owned_controlled_state = {
+				
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+				
+			}
+			random_owned_controlled_state = {
+				
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+				
+			}
+	
+		}
+	}
+	
+	focus = { 
+		id = HON_zemuray_air
+		icon = GFX_goal_generic_air_heavy_fighter2_new
+		
+		x = -1
+		y = 1
+		cost = 10
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		
+		
+		prerequisite = {focus = HON_zemuray_factories}
+		relative_position_id = HON_zemuray_factories
+		completion_reward = {
+		add_tech_bonus = {
+			bonus = 1.5
+			uses = 2
+			category = light_air
+			category = medium_air
+			category = heavy_air
+		}
+			random_owned_controlled_state = {
+				
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+				
+			}
+	
+		}
+	}
+	
+	focus = { 
+		id = HON_anarch_core
+		icon = GFX_focus_generic_annex_country_2
+		
+		x = -4
+		y = 1
+		cost = 10
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		
+		
+		prerequisite = {focus = HON_anarchist_goverment}
+		relative_position_id = HON_anarchist_goverment
+		completion_reward = {
+		
+		MEX = {every_core_state = {add_core_of = HON}}
+		COL = {every_core_state = {add_core_of = HON}}
+		VEN = {every_core_state = {add_core_of = HON}}
+	
+		}
+	}
+	
+	focus = { 
+		id = HON_disorganized_arms
+		icon = GFX_goal_generic_army_professionalism
+		
+		x = -1
+		y = 1
+		cost = 10
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		
+		
+		prerequisite = {focus = HON_anarch_core}
+		relative_position_id = HON_anarch_core
+		completion_reward = {
+		
+		add_ideas = HON_disorganized_arms_idea
+	
+		}
+	}
+	
+	focus = { 
+		id = HON_anarhist_production
+		icon = GFX_focus_POL_riot_of_37
+		
+		x = 1
+		y = 1
+		cost = 10
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		
+		
+		prerequisite = {focus = HON_anarch_core}
+		relative_position_id = HON_anarch_core
+		completion_reward = {
+		
+		add_ideas = HON_anarhist_production_idea
+	
+		}
+	}
+	
+	focus = { 
+		id = HON_zemuray_tank 
+		icon = GFX_focus_SOV_the_glory_of_the_red_army_alternative 
+		
+		x = 1
+		y = 1
+		cost = 10
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		
+		
+		prerequisite = {focus = HON_zemuray_factories}
+		relative_position_id = HON_zemuray_factories
+		completion_reward = {
+		
+		
+		add_tech_bonus = {
+		
+			bonus = 1.0
+			uses = 2
+			technology = improved_medium_tank_chassis 
+			technology = advanced_medium_tank_chassis 
+			technology = basic_heavy_tank_chassis 
+			technology = improved_heavy_tank_chassis 			
+		}
+			random_owned_controlled_state = {
+				
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+				
+			}
+	
+		}
+	}
+	
+	focus = {
+		id = HON_invite_king
+		icon = GFX_goal_HON_juan 
+		
+		x = -10
+		y = 1
+		cost = 7
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		mutually_exclusive = {focus = HON_banana_republic_fascist}
+		mutually_exclusive = {focus = HON_nationalist_honduras}
+		
+		prerequisite = {focus = HON_german_support}
+		relative_position_id = HON_german_support
+		completion_reward = {
+		 add_popularity = {
+			ideology = neutrality
+			popularity = 0.25
+		}
+		set_politics = {
+			ruling_party = neutrality
+			elections_allowed = no
+			long_name = "House of Bourbon-Anjou"
+			name = "HBA"   
+			}
+		
+		add_country_leader_role = {
+			character = HON_juan_i
+			promote_leader = yes
+			country_leader = {
+			ideology = centrism 
+			
+			
+				}
+			}
+	
+		}
+	}
+	
+	focus = {
+		id = HON_banana_republic_fascist
+		icon = GFX_goal_HON_zemurray 
+		
+		x = 1
+		y = 1
+		cost = 7
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		mutually_exclusive = {focus = HON_nationalist_honduras}
+		mutually_exclusive = {focus = HON_invite_king}
+		
+		prerequisite = {focus = HON_german_support}
+		relative_position_id = HON_german_support
+		completion_reward = {
+		  GER_bop_medium_increase_effect = yes
+		set_politics = {
+			ruling_party = fascism
+			 
+			}
+		
+		 HON_samuel_zemurray = { 
+			
+			add_country_leader_trait = nationalist_symbol
+			}
+	
+		}
+	}
+	
+	focus = {
+		id = HON_nationalist_honduras
+		icon = GFX_goal_HON_claimant
+		
+		x = -1
+		y = 1
+		cost = 7
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		mutually_exclusive = {focus = HON_banana_republic_fascist}
+		mutually_exclusive = {focus = HON_invite_king}
+		
+		prerequisite = {focus = HON_german_support}
+		relative_position_id = HON_german_support
+		completion_reward = {
+		  
+		set_politics = {
+			ruling_party = fascism
+			elections_allowed = no
+			long_name = "Young Officers Congress"
+			name = "OFC"   
+			}
+		
+		add_country_leader_role = {
+			character = HON_army_council
+			promote_leader = yes
+			country_leader = {
+			ideology = fascism_ideology
+			
+			
+				}
+			}
+			
+	
+		}
+	}
+	
+	focus = {
+		id = HON_nationalist_honduras1 
+		icon = GFX_goal_LIT_kings_party
+		
+		x = 1
+		y = 1
+		cost = 7
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		
+		
+		prerequisite = {focus = HON_nationalist_honduras focus = HON_banana_republic_fascist}
+		relative_position_id = HON_nationalist_honduras
+		completion_reward = {
+		 add_popularity = {
+			ideology = fascism
+			popularity = 0.2
+		}
+		add_ideas = HON_cabinet_idea
+	
+		}
+	}
+	
+	focus = {
+		id = HON_social_reform 
+		icon = GFX_goal_emergency_powers
+		
+		x = -1
+		y = 1
+		cost = 7
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		
+		
+		prerequisite = {focus = HON_nationalist_honduras }
+		relative_position_id = HON_nationalist_honduras
+		completion_reward = {
+		  
+		add_stability = 0.1
+	
+		}
+	}
+	
+	focus = {
+		id = HON_deal_with_army 
+		icon = GFX_goal_italy_restructure_the_divisions
+		
+		x = 1
+		y = 1
+		cost = 7
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		
+		
+		prerequisite = {focus = HON_banana_republic_fascist }
+		relative_position_id = HON_banana_republic_fascist
+		completion_reward = {
+		  
+		swap_ideas = {add_idea = HON_move_army_idea2 remove_idea = HON_move_army_idea} 
+	
+		}
+	}
+	
+	focus = {
+		id = HON_inventor_legacy
+		icon = GFX_goal_italy_besagliari
+		
+		x = 0
+		y = 1
+		cost = 7
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		
+		
+		prerequisite = {focus = HON_deal_with_army }
+		relative_position_id = HON_deal_with_army
+		completion_reward = {
+		  
+		add_war_support = 0.1
+	
+		}
+	}
+	
+	focus = {
+		id = HON_autarky
+		icon = GFX_goal_italy_autarky
+		
+		x = 0
+		y = 1
+		cost = 7
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		
+		
+		prerequisite = {focus = HON_inventor_legacy }
+		relative_position_id = HON_inventor_legacy
+		completion_reward = {
+		  
+		add_ideas = HON_autarky_idea
+	
+		}
+	}
+	
+	focus = {
+		id = HON_war_effort
+		icon = GFX_goal_FRA_la_cagoule_coup
+		
+		x = 0
+		y = 1
+		cost = 7
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		
+		
+		prerequisite = {focus = HON_autarky }
+		relative_position_id = HON_autarky
+		completion_reward = {
+		  
+		add_ideas = HON_home_defence
+	
+		}
+	}
+	
+	focus = {
+		id = HON_align_army_2 
+		icon = GFX_goal_FRA_militarist_society
+		
+		x = 2
+		y = 1
+		cost = 7
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		
+		
+		prerequisite = {focus = HON_deal_with_army  focus = HON_social_reform}
+		relative_position_id = HON_social_reform
+		completion_reward = {
+		  army_experience = 25
+		if = {
+		limit = {has_idea = HON_move_army_idea}
+		remove_ideas = HON_move_army_idea
+		}
+	if = {
+		limit = {has_idea = HON_move_army_idea2}
+		remove_ideas = HON_move_army_idea2
+		}
+		}
+	}
+	
+	focus = {
+		id = HON_root_communism
+		icon = GFX_goal_FRA_root_out_communism
+		
+		x = 0
+		y = 2
+		cost = 7
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		
+		
+		prerequisite = {focus = HON_align_army_2}
+		relative_position_id = HON_align_army_2
+		completion_reward = {
+		remove_ideas = HON_just_idea
+		add_popularity = {
+			ideology = fascism
+			popularity = 0.1
+		}
+		}
+	}
+	
+	focus = {
+		id = HON_invite_world
+		icon = GFX_goal_ita_preventive_intervention
+		
+		x = 0
+		y = 1
+		cost = 7
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		
+		
+		prerequisite = {focus = HON_root_communism} 
+		relative_position_id = HON_root_communism
+		completion_reward = {
+		add_political_power = 150
+		add_war_support = 0.1
+		}
+	}
+	
+	focus = {
+		id = HON_interest
+		icon = GFX_goal_staff_the_cabinet_with_civilians
+		
+		x = 0
+		y = 1
+		cost = 7
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		
+		
+		prerequisite = {focus = HON_social_reform} 
+		relative_position_id = HON_social_reform
+		completion_reward = {
+		
+		add_ideas = HON_interest_idea
+		
+		}
+	}
+	
+	focus = {
+		id = HON_nationalist_propaganda
+		icon = GFX_focus_generic_fascist_propaganda
+		
+		x = 0
+		y = 1
+		cost = 7
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		
+		
+		prerequisite = {focus = HON_interest} 
+		relative_position_id = HON_interest
+		completion_reward = {
+		
+		add_ideas = HON_axis_idea
+		
+		}
+	}
+	
+	focus = {
+		id = HON_milise
+		icon = GFX_focus_ITA_generic_fascist_workers
+		
+		x = 0
+		y = 1
+		cost = 7
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		
+		
+		prerequisite = {focus = HON_nationalist_propaganda} 
+		relative_position_id = HON_nationalist_propaganda
+		completion_reward = {
+		
+		add_ideas = HON_milise_idea
+		
+		}
+	}
+	
+	focus = {
+		id = HON_the_steel_pact 
+		icon = GFX_focus_chi_mission_to_germany
+		
+		x = 5
+		y = 1
+		cost = 5
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		mutually_exclusive = {focus = HON_spanish_guard}
+		mutually_exclusive = {focus = HON_neutrality_effort}
+		
+		prerequisite = {focus = HON_invite_world focus = HON_defence_budget} 
+		relative_position_id = HON_invite_world
+		completion_reward = {
+		
+		GER = {country_event = hon_event.24}
+		
+		}
+	}
+	
+	focus = {
+		id = HON_neutrality_effort
+		icon = GFX_goal_generic_neutrality_focus
+		
+		x = 0
+		y = 1
+		cost = 7
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		mutually_exclusive = {focus = HON_spanish_guard}
+		mutually_exclusive = {focus = HON_the_steel_pact}
+		
+		prerequisite = {focus = HON_invite_world} 
+		relative_position_id = HON_invite_world
+		completion_reward = {
+		
+		add_ideas = HON_neut_idea
+		
+		}
+	}
+	
+	focus = {
+		id = HON_spanish_guard
+		icon = GFX_goal_SPR_una_grande_y_libre
+		
+		x = -5
+		y = 1
+		cost = 5
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		mutually_exclusive = {focus = HON_neutrality_effort}
+		mutually_exclusive = {focus = HON_the_steel_pact}
+		prerequisite = {focus = HON_invite_world focus = HON_rebuild_new_spain} 
+		
+		relative_position_id = HON_invite_world
+		completion_reward = {
+		
+		add_ideas = HON_juan_i_idea 
+		
+		}
+	}
+	
+	focus = {
+		id = HON_spanin_alliance
+		icon = GFX_goal_generic_demand_territory
+		
+		x = -3
+		y = 1
+		cost = 5
+		available = {
+		OR = {SPA = {has_civil_war = no country_exists = SPA}
+		SPB = {has_civil_war = no country_exists = SPB}
+		}
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		
+		prerequisite = {focus = HON_spanish_guard} 
+		relative_position_id = HON_spanish_guard
+		completion_reward = {
+		
+		add_political_power = 150
+		
+		SPA = {add_opinion_modifier = {
+			target = HON
+			modifier = large_increase
+			}
+		}
+		SPB = {add_opinion_modifier = {
+			target = HON
+			modifier = large_increase
+			}
+		}
+		}
+	}
+	
+	focus = {
+		id = HON_spanin_alliance_2
+		icon = GFX_goal_spr_cement_franco_rule
+		
+		x = -1
+		y = 2
+		cost = 5
+		available = {
+		OR = {country_exists = SPB
+		country_exists = SPA
+		}
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		mutually_exclusive = {focus = HON_king_house}
+		
+		prerequisite = {focus = HON_spanin_alliance} 
+		relative_position_id = HON_spanin_alliance
+		completion_reward = {
+		
+		if = {limit = {country_exists = SPB}
+		SPB = {country_event = hon_event.23}
+		}
+		if = {limit = {country_exists = SPA}
+		SPA = {country_event = hon_event.23}
+		}
+		}
+	}
+	
+	focus = {
+		id = HON_king_house 
+		icon = GFX_goal_spr_king_juan_iii
+		
+		x = 1
+		y = 2
+		cost = 5
+		available = {
+		country_exists = SPB
+		
+		has_country_leader = {
+			character = HON_juan_i
+			ruling_only = yes
+		}
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		mutually_exclusive = {focus = HON_spanin_alliance_2}
+		
+		prerequisite = {focus = HON_spanin_alliance} 
+		relative_position_id = HON_spanin_alliance
+		completion_reward = {
+		
+		SPB = {country_event = hon_event.21}
+		
+		}
+	}
+	
+	focus = {
+		id = HON_portugal_infulance
+		icon = GFX_goal_cuba_attack_nationalist_spain
+		
+		x = -1
+		y = 1
+		cost = 5
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		
+		
+		prerequisite = {focus = HON_king_house focus = HON_spanin_alliance_2} 
+		relative_position_id = HON_king_house
+		completion_reward = {
+		
+		create_wargoal = {
+			type = annex_everything
+			target = POR
+			}
+		
+		}
+	}
+	
+	
+	
+	focus = {
+		id = HON_reclaim_old_empire
+		icon = GFX_goal_mexico_a_union_of_unions
+		
+		x = 0
+		y = 1
+		cost = 5	
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		
+		
+		prerequisite = {focus = HON_spanish_guard} 
+		relative_position_id = HON_spanish_guard
+		completion_reward = {
+		
+		add_war_support = 0.05
+		every_country = {
+		limit = {OR = {tag = NIC tag = GUA tag = ELS tag = COS tag = PAN }}
+		every_core_state = {add_claim_by = HON}
+		
+		}
+		}
+	}
+	
+	focus = {
+		id = HON_great_scheme 
+		icon = GFX_goal_HON_claimant_2
+		
+		x = 0
+		y = 2
+		cost = 5
+		available = {
+		num_of_controlled_states > 1
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		prerequisite = {  focus = HON_reclaim_old_empire}
+		
+		relative_position_id = HON_reclaim_old_empire
+		completion_reward = {
+		
+		
+		add_war_support = 0.1
+		add_manpower = 25000
+		random_owned_controlled_state = {
+				
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+				
+			}
+		
+			}
+		}
+		
+	focus = {
+		id = HON_spa_navy
+		icon = GFX_focus_generic_refit_civilian_ships
+		
+		x = 1
+		y = 1
+		cost = 5
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		
+		
+		prerequisite = {focus = HON_reclaim_old_empire} 
+		relative_position_id = HON_reclaim_old_empire
+		completion_reward = {
+		add_tech_bonus = {
+			bonus = 1.0
+			uses = 1
+			category = dd_tech
+			category = cl_tech
+		}
+		random_owned_controlled_state = {
+				
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = dockyard
+					level = 2
+					instant_build = yes
+				}
+				
+			}
+		
+		}
+	}
+	
+	focus = {
+		id = HON_diplomacy_game
+		icon = GFX_goal_generic_forceful_treaty
+		
+		x = 2
+		y = 2
+		cost = 5
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		
+		
+		prerequisite = {focus = HON_allied_exports} 
+		relative_position_id = HON_neutrality_effort
+		completion_reward = {
+		
+		swap_ideas = {add_idea = HON_neut_idea2 remove_idea = HON_neut_idea}
+		
+		}
+	}
+	
+	focus = { 
+		id = HON_defend_home
+		icon = GFX_goal_defensive_position2
+		
+		x = -2
+		y = 1
+		cost = 5
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		
+		
+		prerequisite = {focus = HON_diplomacy_game} 
+		relative_position_id = HON_diplomacy_game
+		completion_reward = {
+		
+		
+		diplomatic_relation = {
+			country = GUA
+			relation = guarantee
+			active = yes
+		}
+		diplomatic_relation = {
+			country = ELS
+			relation = guarantee
+			active = yes
+		}
+		
+		diplomatic_relation = {
+			country = NIC
+			relation = guarantee
+			active = yes
+		}
+		
+		diplomatic_relation = {
+			country = COS
+			relation = guarantee
+			active = yes
+		}
+		diplomatic_relation = {
+			country = PAN
+			relation = guarantee
+			active = yes
+		}
+		}
+	}
+	
+	focus = { 
+		id = HON_honduras_arms_glory 
+		icon = GFX_goal_NIC_national_guard
+		
+		x = 0
+		y = 1
+		cost = 7
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		
+		
+		prerequisite = {focus = HON_diplomacy_game} 
+		relative_position_id = HON_diplomacy_game
+		completion_reward = {
+		
+		add_timed_idea = {idea = HON_guard_idea days = 360 }
+		
+		}
+	}
+	
+	focus = { 
+		id = HON_japan_war 
+		icon = GFX_focus_JAP_formosa_base
+		
+		x = 2
+		y = 1
+		cost = 5
+		available = {
+		JAP = {has_war_with = CHI}
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		
+		
+		prerequisite = {focus = HON_diplomacy_game focus = HON_german_tanks} 
+		relative_position_id = HON_diplomacy_game
+		completion_reward = {
+		
+		every_country = {
+		
+		limit = {OR = {tag = JAP tag = CHI}}
+		diplomatic_relation = {
+		country = ROOT
+		relation = non_aggression_pact
+		active = yes
+		}
+		}
+		
+		}
+	}
+	
+	focus = { 
+		id = HON_war_economy 
+		icon = GFX_focus_generic_treaty
+		
+		x = -2
+		y = 1
+		cost = 5
+		available = {
+		threat > 0.5
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		
+		
+		prerequisite = {focus = HON_neutrality_effort} 
+		relative_position_id = HON_neutrality_effort
+		completion_reward = {
+		
+		add_ideas = war_economy
+		
+		}
+	}
+	
+	focus = { 
+		id = HON_war_production 
+		icon = GFX_focus_ETH_freedom_at_gunpoint
+		
+		x = 0
+		y = 2
+		cost = 5
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		
+		
+		prerequisite = {focus = HON_war_economy} 
+		relative_position_id = HON_war_economy
+		completion_reward = {
+		
+		add_timed_idea = {idea = HON_war_production_idea days = 180}  
+		
+		}
+	}
+	
+	focus = { 
+		id = HON_allied_exports
+		icon = GFX_focus_GRE_reevaluating_the_drachma
+		
+		x = 0
+		y = 1
+		cost = 5
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		
+		
+		prerequisite = {focus = HON_neutrality_effort} 
+		relative_position_id = HON_neutrality_effort
+		completion_reward = {
+		
+		add_ideas = HON_allied_exports_idea
+		
+		}
+	}
+	
+	focus = { 
+		id = HON_contient_defence 
+		icon = GFX_focus_ITA_mare_nostrum
+		
+		x = 1
+		y = 1
+		cost = 7
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		
+		
+		prerequisite = {focus = HON_allied_exports} 
+		relative_position_id = HON_war_economy
+		completion_reward = {
+		custom_effect_tooltip = HON_inf_tt show_ideas_tooltip = HON_surrender_idea
+		unlock_decision_tooltip = HON_attack_pan_decision
+		unlock_decision_tooltip = HON_attack_gua_decision
+		unlock_decision_tooltip = HON_attack_els_decision
+		unlock_decision_tooltip = HON_attack_nic_decision
+		unlock_decision_tooltip = HON_attack_cos_decision
+		}
+	}
+	
+	focus = { 
+		id = HON_join_alliance
+		icon = GFX_focus_chi_british_cooperation
+		
+		x = 0
+		y = 2
+		cost = 5
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		mutually_exclusive = {focus = HON_neutrality_effort_2}
+		mutually_exclusive = {focus = HON_honduras_first}
+		prerequisite = {focus = HON_contient_defence} 
+		relative_position_id = HON_contient_defence
+		completion_reward = {
+		ENG = {country_event = hon_event.24}
+		}
+	}
+	
+	focus = { 
+		id = HON_neutrality_effort_2 
+		icon = GFX_goal_generic_defence
+		
+		x = 1
+		y = 2
+		cost = 5
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		mutually_exclusive = {focus = HON_join_alliance}
+		mutually_exclusive = {focus = HON_honduras_first}
+		
+		prerequisite = {focus = HON_diplomacy_game} 
+		relative_position_id = HON_diplomacy_game
+		completion_reward = {
+		add_stability = 0.15
+	
+		}
+	}
+	
+	focus = { 
+		id = HON_steel_mines
+		icon = GFX_goal_BEL_steel
+		
+		x = 2
+		y = 1
+		cost = 5
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		
+		
+		prerequisite = {focus = HON_the_steel_pact} 
+		relative_position_id = HON_the_steel_pact
+		completion_reward = {
+		
+		add_resource = {
+			type = steel
+			amount = 16
+			state = 312
+		}
+		}
+	}
+	
+	focus = { 
+		id = HON_german_tanks
+		icon = GFX_focus_generic_study_foreign_tanks
+		
+		x = -1
+		y = 1
+		cost = 5
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		
+		
+		prerequisite = {focus = HON_steel_mines} 
+		relative_position_id = HON_steel_mines
+		completion_reward = {
+		
+		show_ideas_tooltip = henschel_HON
+		
+		}
+	}
+	
+	focus = { 
+		id = HON_german_equipments_infantry 
+		icon = GFX_goal_generic_gun_purchase
+		
+		x = 1
+		y = 1
+		cost = 5
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		
+		
+		prerequisite = {focus = HON_steel_mines} 
+		relative_position_id = HON_steel_mines
+		completion_reward = {
+		
+		add_tech_bonus = {
+			bonus = 1.0
+			uses = 2
+			category = infantry_weapons
+			category = artillery
+		}
+		
+		}
+	}
+	
+	focus = { 
+		id = HON_german_equipments 
+		icon = GFX_goal_generic_combined_arms_artillery_antiair_antitank 
+		
+		x = 0
+		y = 1
+		cost = 5
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		
+		
+		prerequisite = {focus = HON_german_tanks} 
+		relative_position_id = HON_german_tanks
+		completion_reward = {
+		
+		add_tech_bonus = {
+			bonus = 2.0
+			uses = 1
+			category = cat_anti_tank
+			category = armor
+		}
+		
+		}
+	}
+	
+	focus = { 
+		id = HON_german_doctrine
+		icon = GFX_goal_GER_pocket_liquidation
+		
+		x = 0
+		y = 1
+		cost = 5
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		
+		
+		prerequisite = {focus = HON_german_equipments_infantry} 
+		relative_position_id = HON_german_equipments_infantry
+		completion_reward = {
+		
+		add_doctrine_cost_reduction = {
+			cost_reduction = 0.75
+			uses = 2
+			category = cat_mobile_warfare
+		}
+		
+		}
+	}
+	
+	focus = { 
+		id = HON_base_of_germany 
+		icon = GFX_goal_GER_european_reich
+		
+		x = -2
+		y = 1
+		cost = 5
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		
+		
+		prerequisite = {focus = HON_the_steel_pact} 
+		relative_position_id = HON_the_steel_pact
+		completion_reward = {
+		
+		312 = {
+		add_building_construction = {
+				type = bunker
+				level = 2
+				province = 8017
+				instant_build = yes
+			}
+		add_building_construction = {
+				type = bunker
+				level = 2
+				province = 2031
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = bunker
+				level = 2
+				province = 12865
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = naval_base 
+				level = 3
+				province = 8017
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = coastal_bunker
+				level = 2
+				province = 8017
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = air_base	
+				level = 3
+				instant_build = yes
+			}
+		}
+		
+		}
+	}
+	
+	focus = { 
+		id = HON_german_invest
+		icon = GFX_goal_generic_construct_mil_factory
+		
+		x = 0
+		y = 1
+		cost = 5
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		
+		
+		prerequisite = {focus = HON_the_steel_pact} 
+		relative_position_id = HON_the_steel_pact
+		completion_reward = {
+		
+		random_owned_controlled_state = {
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			
+			}
+		
+		}
+	}
+	
+	focus = { 
+		id = HON_honduras_first
+		icon = GFX_focus_POL_support_global_falangism
+		
+		x = 0
+		y = 3
+		cost = 5
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		mutually_exclusive = {focus = HON_neutrality_effort_2}
+		mutually_exclusive = {focus = HON_join_alliance}
+		
+		prerequisite = {focus = HON_steel_mines} 
+		relative_position_id = HON_steel_mines
+		completion_reward = {
+		
+		add_ideas = HON_honduras_first_idea 
+		
+		}
+	}
+	
+	
+	
+	focus = { 
+		id = HON_carlists
+		icon = GFX_focus_spa_no_compromise_on_carlist_ideals 
+		
+		x = 0
+		y = 1
+		cost = 7
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		
+		
+		prerequisite = {focus = HON_invite_king} 
+		relative_position_id = HON_invite_king
+		completion_reward = {
+		add_popularity = {
+			ideology = neutrality
+			popularity = 0.1
+		}
+		add_ideas = HON_carlist_ideals
+		
+		}
+	}
+	
+	focus = { 
+		id = HON_spanish_dictatority
+		icon = GFX_focus_spa_caudillo_of_spain
+		
+		x = -1
+		y = 1
+		cost = 7
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		
+		
+		prerequisite = {focus = HON_carlists} 
+		relative_position_id = HON_carlists
+		completion_reward = {
+		add_popularity = {
+			ideology = neutrality
+			popularity = 0.25
+		}
+		
+		add_country_leader_trait = HON_spanish_dicdator_trait
+		
+		}
+	}
+	
+	focus = { 
+		id = HON_king_guards 
+		icon = GFX_focus_ETH_amedeos_feast_of_maskal
+		
+		x = -1
+		y = 1
+		cost = 5
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+	
+		
+		prerequisite = {focus = HON_spanish_dictatority} 
+		relative_position_id = HON_spanish_dictatority
+		completion_reward = {
+		remove_ideas = HON_just_idea
+	division_template = {
+				name = "King Guards" 	
+				division_names_group = FRA_ARM_01
+
+				regiments = {
+					   infantry = { x = 0 y = 0 }		
+					   infantry = { x = 0 y = 1 }	
+					   infantry = { x = 0 y = 2 }
+					   infantry = { x = 1 y = 0 }		
+					   infantry = { x = 1 y = 1 }		
+					   infantry = { x = 1 y = 2 }			
+					 
+					    
+				}
+				support = {
+					   		
+					artillery = { x = 0 y = 0 }
+					
+				}
+			}
+			HON = {
+				capital_scope = {
+					create_unit = {
+						division = "name = \"King Guards\" division_template = \"King Guards\" start_experience_factor = 0.8 "  
+						owner = ROOT
+					}
+					create_unit = {
+						division = "name = \"King Guards\" division_template = \"King Guards\" start_experience_factor = 1.0 "  
+						owner = ROOT
+					}
+					
+				}
+			}
+		
+		}
+	}
+	
+	focus = { 
+		id = HON_people_side
+		icon = GFX_goal_democracy_people
+		
+		x = 1
+		y = 1
+		cost = 7
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		
+		
+		prerequisite = {focus = HON_carlists} 
+		relative_position_id = HON_carlists
+		completion_reward = {
+	
+		add_stability = 0.1
+		remove_ideas = HON_move_army_idea
+		}
+	}
+	
+	focus = { 
+		id = HON_foregin_side 
+		icon = GFX_goal_PRU_peru_ecuador_war12
+		
+		x = 1
+		y = 1
+		cost = 5
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		
+		
+		
+		prerequisite = {focus = HON_people_side focus = HON_spanish_dictatority} 
+		relative_position_id = HON_spanish_dictatority
+		completion_reward = {
+		
+		add_war_support = 0.05
+		add_state_claim = 314
+		add_state_claim = 313
+		add_state_claim = 317
+		}
+	}
+	
+	focus = { 
+		id = HON_king_guards_attacked
+		icon = GFX_goal_generic_national_unity
+		
+		x = -1
+		y = 1
+		cost = 7
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		
+		
+		prerequisite = {focus = HON_king_guards} 
+		relative_position_id = HON_king_guards
+		completion_reward = {
+		
+		GUA = {every_core_state = {add_core_of = HON}}
+		ELS = {every_core_state = {add_core_of = HON}}
+		NIC = {every_core_state = {add_core_of = HON}}
+		COS = {every_core_state = {add_core_of = HON}}
+		PAN = {every_core_state = {add_core_of = HON}}
+		
+		}
+	}
+	
+	focus = { 
+		id = HON_the_king_army
+		icon = GFX_goal_generic_army_doctrines
+		
+		x = 1
+		y = 1
+		cost = 5
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		
+		
+		prerequisite = {focus = HON_king_guards} 
+		relative_position_id = HON_king_guards
+		completion_reward = {
+		
+		add_doctrine_cost_reduction = {
+			cost_reduction = 0.5
+			uses = 2
+			category = land_doctrine
+		}
+		
+		}
+	}
+	
+	focus = { 
+		id = HON_glory_king_army
+		icon = GFX_focus_spr_no_pasaran
+		
+		x = 2
+		y = 1
+		cost = 7
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		
+		
+		prerequisite = {focus = HON_the_king_army} 
+		
+		relative_position_id = HON_king_guards_attacked
+		completion_reward = {
+		
+		add_ideas = HON_carlist_army_idea 
+		
+		}
+	}
+	
+	focus = { 
+		id = HON_spain_industry
+		icon = GFX_goal_generic_construct_civ_factory
+		
+		x = 0
+		y = 1
+		cost = 7
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		
+		
+		prerequisite = {focus = HON_the_king_army focus = HON_king_guards_attacked} 
+		
+		relative_position_id = HON_king_guards_attacked
+		completion_reward = {
+		
+		random_owned_controlled_state = {
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			
+			}
+			random_owned_controlled_state = {
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			
+			}
+		
+		}
+	}
+	
+	focus = { 
+		id = HON_support_second_crist 
+		icon = GFX_goal_mexico_a_new_dawn
+		
+		x = 4
+		y = 1
+		cost = 7
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		
+		
+		prerequisite = {focus = HON_invite_king} 
+		
+		relative_position_id = HON_invite_king
+		completion_reward = {
+		
+		MEX = {add_stability = -0.1
+		country_event = hon_event.25
+		}
+		
+		
+		
+		}
+	}
+	
+	focus = { 
+		id = HON_support_second_crist_2
+		icon = GFX_focus_mex_soldaderas
+		
+		x = 1
+		y = 1
+		cost = 7
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		
+		
+		prerequisite = {focus = HON_support_second_crist} 
+		
+		relative_position_id = HON_support_second_crist
+		completion_reward = {
+		if ={
+		limit = {MEX = {has_idea = HON_mex_second_crist}}
+		MEX = {
+		swap_ideas = {add_idea = HON_mex_second_crist1 remove_idea =HON_mex_second_crist}
+		}
+		}
+		
+		if ={
+		limit = {MEX = {has_idea = HON_mex_second_crist1}}
+		MEX = {
+		swap_ideas = {add_idea = HON_mex_second_crist2 remove_idea =HON_mex_second_crist1}
+		}
+		}
+		}
+	}
+	
+	focus = { 
+		id = HON_support_second_crist_3
+		icon = GFX_goal_generic_friendship_with_church
+		
+		x = -1
+		y = 1
+		cost = 7
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		
+		
+		prerequisite = {focus = HON_support_second_crist} 
+		
+		relative_position_id = HON_support_second_crist
+		completion_reward = {
+		if ={
+		limit = {MEX = {has_idea = HON_mex_second_crist}}
+		MEX = {
+		swap_ideas = {add_idea = HON_mex_second_crist1 remove_idea =HON_mex_second_crist}
+		}
+		}
+		
+		if ={
+		limit = {MEX = {has_idea = HON_mex_second_crist1}}
+		MEX = {
+		swap_ideas = {add_idea = HON_mex_second_crist2 remove_idea =HON_mex_second_crist1}
+		}
+		}
+		}
+	}
+	
+	focus = { 
+		id = HON_core_with_mex 
+		icon = GFX_goal_MEX_march_southwards
+		
+		x = 0
+		y = 2
+		cost = 7
+		available = {
+		MEX = {has_idea = HON_mex_second_crist2 }
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		
+		
+		prerequisite = {focus = HON_support_second_crist} 
+		
+		relative_position_id = HON_support_second_crist
+		completion_reward = {
+		MEX = {every_core_state = {add_core_of = HON}}
+		}
+	}
+	
+	focus = { 
+		id = HON_attack_guatemala
+		icon = GFX_goal_generic_military_deal
+		
+		x = 1
+		y = 1
+		cost = 7
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		
+		
+		prerequisite = {focus = HON_people_side} 
+		
+		relative_position_id = HON_people_side
+		completion_reward = {
+		add_timed_idea = {idea = HON_carlist_idea_2 days = 70 }
+		create_wargoal = {
+			type = annex_everything
+			target = GUA
+			}
+			
+		}
+	}
+	
+	focus = { 
+		id = HON_attack_elsalvador  
+		icon = GFX_goal_generic_dangerous_deal
+		
+		x = 1
+		y = 1
+		cost = 7
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		
+		prerequisite = {focus = HON_foregin_side} 
+		prerequisite = {focus = HON_attack_guatemala}
+		relative_position_id = HON_foregin_side
+		
+		completion_reward = {
+		add_timed_idea = {idea = HON_carlist_idea_1 days = 70 }
+		create_wargoal = {
+			type = annex_everything
+			target = ELS
+			}
+			
+		}
+	}
+	
+	focus = { 
+		id = HON_attack_mexico_2 
+		icon = GFX_goal_mexico_mexico_first
+		
+		x = 1
+		y = 1
+		cost = 7
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		
+		prerequisite = {focus = HON_core_with_mex} 
+		
+		relative_position_id = HON_attack_guatemala
+		
+		
+		completion_reward = {
+		add_timed_idea = {idea = HON_carlist_idea_5  days = 70 }
+		create_wargoal = {
+			type = annex_everything
+			target = MEX
+			}
+			
+		}
+	}
+	
+	focus = { 
+		id = HON_attack_nic 
+		icon = GFX_goal_generic_attack_nicaragua
+		
+		x = 0
+		y = 1
+		cost = 7
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		 
+		 
+		prerequisite = {focus = HON_attack_elsalvador}
+		relative_position_id = HON_attack_elsalvador
+	
+		completion_reward = {
+		add_timed_idea = {idea = HON_carlist_idea_3 days = 70 }
+		add_timed_idea = {idea = HON_carlist_idea_4 days = 70	 }
+		create_wargoal = {
+			type = annex_everything
+			target = NIC
+			}
+			create_wargoal = {
+			type = annex_everything
+			target = COS
+			}
+		}
+	}
+	
+	focus = { 
+		id = HON_rebuild_new_spain
+		icon = GFX_focus_spr_war_of_independence
+		
+		x = 1
+		y = 2
+		cost = 7
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		 
+		 
+		prerequisite = {focus = HON_core_with_mex}
+		relative_position_id = HON_core_with_mex
+	
+		completion_reward = {
+		add_war_support = 0.15
+		set_cosmetic_tag = HON_new_spain
+		
+		}
+	}
+	
+	focus = { 
+		id = HON_reorganize_troops 
+		icon = GFX_focus_ETH_peacekeeping_forces
+		
+		x = 3 
+		y = 1
+		cost = 5
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		 
+		
+		prerequisite = {focus = HON_motorize}
+		relative_position_id = HON_motorize
+	
+		completion_reward = {
+		swap_ideas = {add_idea = HON_army_idea_1 remove_idea = HON_army_idea}
+		
+		country_lock_all_division_template = no
+		custom_effect_tooltip = HON_army_tt
+		}
+	}
+	
+	focus = { 
+		id = HON_support_focus
+		icon = GFX_focus_secret_rearmament
+		
+		x = 1
+		y = 1
+		cost = 5
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		 
+		
+		prerequisite = {focus = HON_reorganize_troops}
+		relative_position_id = HON_reorganize_troops
+	
+		completion_reward = {
+	
+		add_tech_bonus = {
+		bonus = 1.0
+		uses = 2
+		category = support_tech
+	}
+	
+		
+		}
+	}
+	
+	
+	
+	focus = { 
+		id = HON_mobilize_army
+		icon = GFX_focus_generic_horse_studs
+		
+		x = 0
+		y = 2
+		cost = 5
+		available = {
+		has_completed_focus = HON_reorganize_troops
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		 
+		
+		prerequisite = {focus = HON_motorize}
+		relative_position_id = HON_motorize
+	
+		completion_reward = {
+	
+		swap_ideas = {add_idea = HON_army_idea_2  remove_idea = HON_army_idea_1}
+	
+		
+		}
+	}
+	
+	focus = { 
+		id = HON_new_tactics 
+		icon = GFX_focus_ETH_scavenging_tactics
+		
+		x = 0
+		y = 1
+		cost = 5
+		available = {
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		 
+		
+		prerequisite = {focus = HON_mobilize_army}
+		relative_position_id = HON_mobilize_army
+	
+		completion_reward = {
+	
+		swap_ideas = {add_idea = HON_army_idea_3  remove_idea = HON_army_idea_2}
+	
+		
+		}
+	}
+	
+	focus = { 
+		id = HON_new_army
+		icon = GFX_focus_ETH_the_lion_stands_firm
+		
+		x = -1
+		y = 1
+		cost = 5
+		available = {
+		has_completed_focus = HON_new_tactics
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		 
+		
+		
+		prerequisite = {focus = HON_reorganize_troops}
+		relative_position_id = HON_reorganize_troops
+	
+		completion_reward = {
+	
+		swap_ideas = {add_idea = HON_army_idea_4  remove_idea = HON_army_idea_3}
+	
+		
+		}
+	}
+	
+	focus = { 
+		id = HON_tank_effort
+		icon = GFX_focus_generic_army_tanks2
+		
+		x = -3
+		y = 1
+		cost = 5
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		 
+		
+		
+		prerequisite = {focus = HON_motorize}
+		relative_position_id = HON_motorize
+	
+		completion_reward = {
+	
+		add_tech_bonus = {
+		bonus = 0.75
+		uses = 1
+		technology = armor_tech_1
+		technology = armor_tech_2
+		technology = armor_tech_3
+		technology = armor_tech_4
+	}
+	add_tech_bonus = {
+		bonus = 0.75
+		uses = 1
+		technology = engine_tech_1
+		technology = engine_tech_2
+		technology = engine_tech_3
+		technology = engine_tech_4
+	}
+		
+		}
+	}
+	
+	focus = { 
+		id = HON_armorization 
+		icon = GFX_goal_generic_armored_car_offensive
+		
+		x = 1
+		y = 1
+		cost = 7
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		 
+		
+		prerequisite = {focus = HON_tank_effort}
+		relative_position_id = HON_tank_effort
+	
+		completion_reward = {
+	
+		add_tech_bonus = {
+		bonus = 1.0
+		uses = 2
+		category = armor
+	}
+	
+		
+		}
+	}
+	
+	focus = { 
+		id = HON_antitank
+		icon = GFX_goal_generic_army_artillery
+		
+		x = -1
+		y = 1
+		cost = 7
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		 
+		
+		
+		prerequisite = {focus = HON_tank_effort}
+		relative_position_id = HON_tank_effort
+	
+		completion_reward = {
+	
+		add_tech_bonus = {
+		bonus = 1.0
+		uses = 2
+		technology = antitank3
+		technology = antitank2 
+		technology = antitank1 
+		
+	}
+	
+		
+		}
+	}
+	
+	focus = { 
+		id = HON_factory_plant_2
+		icon = GFX_focus_generic_industry_3
+		
+		x = -1
+		y = 1
+		cost = 5
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		 
+		
+		
+		prerequisite = {focus = HON_5_year_plan}
+		relative_position_id = HON_5_year_plan
+	
+		completion_reward = {
+	
+		
+		random_owned_controlled_state = {
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			
+			}
+		
+		}
+	}
+	
+	focus = { 
+		id = HON_factory_plant_3
+		icon = GFX_focus_ITA_northern_industry
+		
+		x = 1
+		y = 1
+		cost = 5
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		 
+		
+		
+		prerequisite = {focus = HON_5_year_plan}
+		relative_position_id = HON_5_year_plan
+	
+		completion_reward = {
+	
+		
+		random_owned_controlled_state = {
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			
+			}
+		
+		}
+	}
+	
+	focus = { 
+		id = HON_arms_factories_2
+		icon = GFX_focus_SWI_issue_war_bonds
+		
+		x = 1
+		y = 1
+		cost = 5
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		 
+		
+		
+		prerequisite = {focus = HON_new_ind_model}
+		relative_position_id = HON_new_ind_model
+	
+		completion_reward = {
+	
+		
+		random_owned_controlled_state = {
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			
+			}
+		
+		}
+	}
+	
+	focus = { 
+		id = HON_arms_factories_3
+		icon = GFX_focus_mex_privatisation
+		
+		x = -1
+		y = 1
+		cost = 7
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		 
+		
+		
+		prerequisite = {focus = HON_new_ind_model}
+		relative_position_id = HON_new_ind_model
+	
+		completion_reward = {
+	random_owned_controlled_state = {
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			
+			}
+		
+		random_owned_controlled_state = {
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			
+			}
+		
+		}
+	}
+	
+	focus = { 
+		id = HON_azaltan
+		icon = GFX_focus_mex_redeem_aztlan
+		
+		x = 0
+		y = 1
+		cost = 7
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		 
+		
+		
+		prerequisite = {focus = HON_attack_mexico_2}
+		relative_position_id = HON_attack_mexico_2
+	
+		completion_reward = {
+	
+		add_state_core = 375
+		add_state_core = 376
+		add_state_core = 377
+		add_state_core = 378
+		add_state_core = 379
+		
+		}
+	}
+	
+	focus = { 
+		id = HON_autarky_focus_2
+		icon = GFX_goal_italy_autarky
+		
+		x = -2
+		y = 1
+		cost = 7
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		 
+		prerequisite = {focus = HON_support_italy}
+		
+		prerequisite = {focus = HON_nations}
+		relative_position_id = HON_support_italy
+	
+		completion_reward = {
+	
+		add_ideas = HON_autarky_idea
+		
+		}
+	}
+	
+	focus = { 
+		id = HON_industrial_program 
+		icon = GFX_focus_spa_the_spanish_miracle
+		
+		x = 0
+		y = 1
+		cost = 7
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		 
+		
+		
+		prerequisite = {focus = HON_autarky_focus_2}
+		relative_position_id = HON_autarky_focus_2
+	
+		completion_reward = {
+	
+		random_owned_controlled_state = {
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			
+			}
+			
+			random_owned_controlled_state = {
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			
+			}
+		
+		}
+	}
+	
+	focus = { 
+		id = HON_devalue 
+		icon = GFX_focus_ITA_devaluate_the_lire
+		
+		x = -1
+		y = 2
+		cost = 7
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		 mutually_exclusive = { focus = HON_public_works }
+		
+		
+		prerequisite = {focus = HON_autarky_focus_2}
+		relative_position_id = HON_autarky_focus_2
+	
+		completion_reward = {
+	
+		add_ideas = HON_devalue_idea
+		
+		}
+	}
+	
+	focus = { 
+		id = HON_public_works
+		icon = GFX_goal_generic_business_bills
+		
+		x = 1
+		y = 2
+		cost = 7
+		available = {
+		
+		}
+		ai_will_do = {
+			factor = 10
+			
+			
+		}	
+		
+		available_if_capitulated = yes
+		
+		 mutually_exclusive = { focus = HON_devalue }
+		
+		
+		prerequisite = {focus = HON_autarky_focus_2}
+		relative_position_id = HON_autarky_focus_2
+	
+		completion_reward = {
+	
+		swap_ideas = {add_idea = HON_national_prodcution1 remove_idea = HON_national_prodcution}
+		
+		}
+	}
+	
+}

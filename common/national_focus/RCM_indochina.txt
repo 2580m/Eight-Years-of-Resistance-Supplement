@@ -1,0 +1,2380 @@
+focus_tree = {
+	id = Indochina
+	country = {
+		factor = 0
+		modifier = {
+			add = 10
+			tag = FIC
+		}
+	}
+	continuous_focus_position = { x = 50 y = 1200 }
+	default = no
+
+	focus = {
+		id = FIC_colonial_loan
+		icon = GFX_focus_government_bailout
+		cost = 10
+		x = 2
+		y = 0
+		completion_reward = {
+			add_political_power = 25
+			add_ideas = FIC_colonial_loan_idea
+			CHI_hyper_inflation_level_down = yes
+		}
+
+	}
+	focus = {
+		id = FIC_strengthen_military_intel
+		icon = GFX_goal_counter_intellegence
+		cost = 10
+		x = 15
+		y = 0
+		completion_reward = {
+			add_ideas = fic_strengthened_mil_intel
+			add_political_power = 50
+			add_popularity = {
+				ideology = democratic
+				popularity = -0.02
+			}
+			add_popularity = {
+				ideology = n_socialism
+				popularity = -0.02
+			}
+			add_popularity = {
+				ideology = communism
+				popularity = -0.02
+			}
+			add_popularity = {
+				ideology = neutrality
+				popularity = 0.02
+			}
+		}
+
+	}
+	focus = {
+		id = FIC_colonial_reforms
+		icon = GFX_focus_generic_self_management
+		cost = 10
+		x = 30
+		y = 0
+		ai_will_do = {
+			factor = 10
+		}
+		available = {
+			has_idea = FIC_strikes
+			NOT = {
+				has_country_leader = {
+					ruling_only = yes
+					character = FIC_Rene_Robin
+				}
+			}
+		}
+		completion_reward = {
+			add_political_power = 50
+			swap_ideas = {
+				remove_idea = FIC_strikes
+				add_idea = FIC_strikes_1
+			}
+			add_timed_idea = { idea = fic_colonial_reforms days = 1095 }
+		}
+
+	}
+	focus = {
+		id = FIC_help_peasants
+		icon = GFX_focus_feed_the_peasants
+		cost = 10
+		prerequisite = {
+			focus = FIC_colonial_loan
+		}
+		x = 0
+		y = 1
+		relative_position_id = FIC_colonial_loan
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = FIC_economic_crisis
+				add_idea = FIC_economic_crisis_1
+			}
+			swap_ideas = {
+				remove_idea = FIC_colonial_loan_idea
+				add_idea = FIC_colonial_loan_1
+			}
+		}
+
+	}
+	focus = {
+		id = FIC_hydraulic_works
+		icon = GFX_goal_generic_construction
+		cost = 10
+		prerequisite = {
+			focus = FIC_help_peasants
+		}
+		x = 0
+		y = 1
+		relative_position_id = FIC_help_peasants
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = FIC_economic_crisis_1
+				add_idea = FIC_economic_crisis_2
+			}
+			swap_ideas = {
+				remove_idea = FIC_colonial_loan_1
+				add_idea = FIC_colonial_loan_2
+			}
+		}
+
+	}
+
+	focus = {
+		id = FIC_opium_monopolies
+		icon = GFX_focus_opium
+		cost = 10
+		prerequisite = {
+			focus = FIC_help_peasants
+		}
+		x = -2
+		y = 1
+		relative_position_id = FIC_help_peasants
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = FIC_opium_profits
+				add_idea = FIC_opium_profits_1
+			}
+		}
+	}
+	focus = {
+		id = FIC_transindochinese_railway
+		icon = GFX_goal_generic_construct_infrastructure
+		cost = 10
+		prerequisite = {
+			focus = FIC_hydraulic_works
+		}
+		x = 0
+		y = 1
+		relative_position_id = FIC_hydraulic_works
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = FIC_colonial_loan_2
+				add_idea = FIC_colonial_loan_3
+			}
+			unlock_decision_tooltip = FIC_transindochinese_railway_dec
+		}
+
+	}
+	focus = {
+		id = FIC_small_scale_industrialisation
+		icon = GFX_goal_generic_construct_civ_factory
+		cost = 10
+		prerequisite = {
+			focus = FIC_transindochinese_railway
+		}
+		x = -1
+		y = 1
+		relative_position_id = FIC_transindochinese_railway
+		completion_reward = {
+			if = {
+				limit = {
+					has_idea = FIC_colonial_loan_3
+				}
+				swap_ideas = {
+					remove_idea = FIC_colonial_loan_3
+					add_idea = FIC_colonial_loan_4
+				}
+			}
+			if = {
+				limit = {
+					has_idea = FIC_colonial_loan_4
+				}
+				swap_ideas = {
+					remove_idea = FIC_colonial_loan_4
+					add_idea = FIC_colonial_loan_5
+				}
+			}
+			swap_ideas = {
+				remove_idea = FIC_economic_crisis_2
+				add_idea = FIC_economic_crisis_3
+			}
+			random_owned_controlled_state = {
+				prioritize = { 286  989  979 }
+				limit = {
+					is_fully_controlled_by = ROOT
+					free_building_slots = {
+						building = industrial_complex
+						size > 0
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+
+	}
+	focus = {
+		id = FIC_develop_hanoi_arsenal
+		icon = GFX_goal_generic_construct_mil_factory
+		cost = 10
+		prerequisite = {
+			focus = FIC_transindochinese_railway
+		}
+		x = 1
+		y = 1
+		relative_position_id = FIC_transindochinese_railway
+		completion_reward = {
+			if = {
+				limit = {
+					has_idea = FIC_colonial_loan_3
+				}
+				swap_ideas = {
+					remove_idea = FIC_colonial_loan_3
+					add_idea = FIC_colonial_loan_4
+				}
+			}
+			if = {
+				limit = {
+					has_idea = FIC_colonial_loan_4
+				}
+				swap_ideas = {
+					remove_idea = FIC_colonial_loan_4
+					add_idea = FIC_colonial_loan_5
+				}
+			}
+			random_owned_controlled_state = {
+				prioritize = { 988 }
+				limit = {
+					is_fully_controlled_by = ROOT
+					free_building_slots = {
+						building = arms_factory
+						size > 0
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+
+	}
+	focus = {
+		id = FIC_exploit_resources
+		icon = GFX_goal_generic_construction2
+		cost = 10
+		prerequisite = {
+			focus = FIC_small_scale_industrialisation
+		}
+		prerequisite = {
+			focus = FIC_develop_hanoi_arsenal
+		}
+		x = 1
+		y = 1
+		relative_position_id = FIC_small_scale_industrialisation
+		completion_reward = {
+			remove_ideas = FIC_economic_crisis_3
+			add_ideas = fic_resource_effort
+			if = {
+				limit = {
+					has_dlc = "Waking the Tiger"
+				}
+				unlock_decision_category_tooltip = prospect_for_resources
+			}
+		}
+
+	}
+	focus = {
+		id = FIC_payback_colonial_loan
+		icon = GFX_draft_focus
+		cost = 10
+		prerequisite = {
+			focus = FIC_exploit_resources
+		}
+		x = 0
+		y = 1
+		relative_position_id = FIC_exploit_resources
+		completion_reward = {
+			remove_ideas = FIC_colonial_loan_5
+			add_timed_idea = {
+				idea = FIC_colonial_loan_6
+				days = 300
+			}
+		}
+
+	}
+	focus = {
+		id = FIC_support_french_war_effort
+		icon = GFX_focus_chi_reach_out_to_france
+		cost = 5
+		prerequisite = {
+			focus = FIC_payback_colonial_loan
+		}
+		x = 0
+		y = 1
+		relative_position_id = FIC_payback_colonial_loan
+		available = {
+			is_subject_of = FRA
+			FRA = {
+				has_war = yes
+			}
+		}
+		completion_reward = {
+			if = {
+				limit = {
+					has_completed_focus = FIC_rely_on_white_conscription
+				}
+				add_ideas = fic_support_war_nomp
+			}
+			else = {
+				add_ideas = fic_support_war
+			}
+			FRA = {
+				add_ideas = fic_indochinese_manpower
+			}
+		}
+
+	}
+	focus = {
+		id = FIC_reduce_illiteracy
+		icon = GFX_goal_generic_propaganda
+		cost = 10
+		prerequisite = {
+			focus = FIC_help_peasants
+		}
+		x = 2
+		y = 0
+		relative_position_id = FIC_hydraulic_works
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = FIC_iliterate_population
+				add_idea = FIC_iliterate_population_1
+			}
+			add_popularity = {
+				ideology = democratic
+				popularity = 0.02
+			}
+			add_popularity = {
+				ideology = n_socialism
+				popularity = 0.02
+			}
+			add_popularity = {
+				ideology = communism
+				popularity = 0.02
+			}
+			add_political_power = -50
+		}
+
+	}
+	focus = {
+		id = FIC_increase_mil_spending
+		icon = GFX_goal_generic_build_tank
+		cost = 10
+		prerequisite = {
+			focus = FIC_strengthen_military_intel
+		}
+		x = 0
+		y = 1
+		relative_position_id = FIC_strengthen_military_intel
+		completion_reward = {
+			add_political_power = -25
+			if = {
+				limit = {
+					has_idea = civilian_economy
+				}
+				add_ideas = low_economic_mobilisation
+			}
+			else = {
+				if = {
+					limit = {
+						has_idea = low_economic_mobilisation
+					}
+					add_ideas = partial_economic_mobilisation
+				}
+			}
+		}
+
+	}
+	focus = {
+		id = FIC_defence_of_indochina
+		icon = GFX_goal_generic_military_sphere
+		cost = 10
+		prerequisite = {
+			focus = FIC_increase_mil_spending
+		}
+		x = 0
+		y = 1
+		relative_position_id = FIC_increase_mil_spending
+		completion_reward = {
+			army_experience = 10
+			add_political_power = 25
+		}
+
+	}
+	focus = {
+		id = FIC_translate_military_textbooks
+		icon = GFX_constitution_focus
+		cost = 10
+		prerequisite = {
+			focus = FIC_increase_mil_spending
+		}
+		x = -5
+		y = 0
+		relative_position_id = FIC_defence_of_indochina
+		completion_reward = {
+			army_experience = 10
+			add_ideas = fic_vietnamese_textbooks
+		}
+	}
+	focus = {
+		id = FIC_expand_hanoi_univ
+		icon = GFX_focus_research
+		cost = 10
+		prerequisite = {
+			focus = FIC_translate_military_textbooks
+		}
+		prerequisite = {
+			focus = FIC_reduce_illiteracy
+		}
+		x = 3
+		y = 1
+		relative_position_id = FIC_reduce_illiteracy
+		completion_reward = {
+			add_research_slot = 1
+			add_popularity = {
+				ideology = democratic
+				popularity = 0.02
+			}
+			add_popularity = {
+				ideology = n_socialism
+				popularity = 0.02
+			}
+			add_popularity = {
+				ideology = communism
+				popularity = 0.02
+			}
+			add_political_power = -50
+		}
+
+	}
+	
+	focus = {
+		id = FIC_french_indigenous_schools
+		icon = GFX_goal_generic_scientific_exchange
+		cost = 10
+		prerequisite = {
+			focus = FIC_expand_hanoi_univ
+		}
+		x = 0
+		y = 1
+		relative_position_id = FIC_expand_hanoi_univ
+
+		available = {
+		num_of_factories > 5
+		}
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = FIC_iliterate_population_1
+				add_idea = FIC_iliterate_population_2
+			}
+			add_popularity = {
+				ideology = democratic
+				popularity = 0.02
+			}
+			add_popularity = {
+				ideology = n_socialism
+				popularity = 0.02
+			}
+			add_popularity = {
+				ideology = communism
+				popularity = 0.02
+			}
+			add_political_power = 25
+		}
+
+	}
+	focus = {
+		id = FIC_modern_school_system
+		icon = GFX_focus_research2
+		cost = 10
+		prerequisite = {
+			focus = FIC_french_indigenous_schools
+		}
+		x = 0
+		y = 1
+		relative_position_id = FIC_french_indigenous_schools
+		available = {
+			num_of_factories > 30
+		}
+		completion_reward = {
+			add_research_slot = 1
+			remove_ideas = FIC_iliterate_population_2
+			add_political_power = -100
+			add_popularity = {
+				ideology = democratic
+				popularity = 0.02
+			}
+			add_popularity = {
+				ideology = n_socialism
+				popularity = 0.02
+			}
+			add_popularity = {
+				ideology = communism
+				popularity = 0.02
+			}
+		}
+
+	}
+
+
+
+	focus = {
+		id = FIC_expand_saigon_nav_arsenal
+		icon = GFX_goal_generic_build_navy
+		cost = 10
+		prerequisite = {
+			focus = FIC_defence_of_indochina
+		}
+		x = -4
+		y = 1
+		relative_position_id = FIC_defence_of_indochina
+		completion_reward = {
+			navy_experience = 10
+			286 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = dockyard
+					level = 1
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = naval_base
+					province = 4401
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = FIC_guangzhouwan_navalbase
+		icon = GFX_goal_generic_navy_cruiser
+		cost = 10
+		prerequisite = {
+			focus = FIC_expand_saigon_nav_arsenal
+		}
+		x = -2
+		y = 1
+		relative_position_id = FIC_expand_saigon_nav_arsenal
+		available = {
+			controls_state = 728
+		}
+		completion_reward = {
+			728 = {
+				add_building_construction = {
+					type = coastal_bunker
+					level = 1
+					province = 11981
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = naval_base
+					level = 2
+					province = 11981
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			unlock_decision_category_tooltip = FIC_guangzhouwan_development
+		}
+	}
+	focus = {
+		id = FIC_request_convoys
+		icon = GFX_focus_generic_destroyer
+		cost = 10
+		prerequisite = {
+			focus = FIC_expand_saigon_nav_arsenal
+		}
+		x = 0
+		y = 1
+		relative_position_id = FIC_expand_saigon_nav_arsenal
+		completion_reward = {
+			add_equipment_to_stockpile = {
+				type = convoy_1
+				amount = 25
+				producer = FRA
+			}
+		}
+
+	}
+	focus = {
+		id = FIC_navy_reorganization
+		icon = GFX_goal_generic_occupy_states_coastal
+		cost = 10
+		prerequisite = {
+			focus = FIC_request_convoys
+		}
+		x = 0
+		y = 1
+		relative_position_id = FIC_request_convoys
+		completion_reward = {
+			add_doctrine_cost_reduction = {
+				name = naval_doc_bonus
+				cost_reduction = 0.5
+				uses = 2
+				category = naval_doctrine
+			   }
+		}
+
+	}
+	focus = {
+		id = FIC_army_expansion
+		icon = GFX_focus_chi_army_reform
+		cost = 10
+		prerequisite = {
+			focus = FIC_defence_of_indochina
+		}
+		x = 0
+		y = 1
+		relative_position_id = FIC_defence_of_indochina
+		completion_reward = {
+			add_manpower = 30000
+		}
+	}
+	focus = {
+		id = FIC_rely_on_white_conscription
+		icon = GFX_focus_generic_commonwealth_build_infantry
+		cost = 10
+		prerequisite = {
+			focus = FIC_army_expansion
+		}
+		mutually_exclusive = {
+			focus = FIC_train_indigenous_officers
+		}
+		x = -2
+		y = 1
+		relative_position_id = FIC_army_expansion
+		completion_reward = {
+			add_political_power = -100
+			add_stability = -0.1
+			add_war_support = -0.1
+			swap_ideas = {
+				remove_idea = FIC_native_recruitment
+				add_idea = FIC_no_native_recruitment
+			}
+		}
+	}
+	focus = {
+		id = FIC_expand_garde_indigene
+		icon = GFX_goal_generic_more_territorial_claims
+		cost = 10
+		prerequisite = {
+			focus = FIC_rely_on_white_conscription
+		}
+		x = 0
+		y = 1
+		relative_position_id = FIC_rely_on_white_conscription
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = FIC_no_native_recruitment
+				add_idea = FIC_no_native_recruitment_1
+			}
+		}
+	}
+	focus = {
+		id = FIC_foreign_legion_reinforcement
+		icon = GFX_goal_generic_special_forces
+		cost = 10
+		prerequisite = {
+			focus = FIC_expand_garde_indigene
+		}
+		x = 0
+		y = 1
+		relative_position_id = FIC_expand_garde_indigene
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = FIC_no_native_recruitment_1
+				add_idea = FIC_no_native_recruitment_2
+			}
+			add_tech_bonus = {
+				name = special_forces_bonus
+				bonus = 1
+				uses = 2
+				category = mountaineers_tech
+				category = marine_tech
+				category = para_tech
+			}
+		}
+	}
+	focus = {
+		id = FIC_train_indigenous_officers
+		icon = GFX_focus_generic_military_academy
+		cost = 10
+		prerequisite = {
+			focus = FIC_army_expansion
+		}
+		mutually_exclusive = {
+			focus = FIC_rely_on_white_conscription
+		}
+		ai_will_do = {
+			factor = 5
+		}
+		x = 2
+		y = 1
+		relative_position_id = FIC_army_expansion
+		completion_reward = {
+			custom_effect_tooltip = THIS_IS_HISTORICAL_TT
+			add_political_power = 50
+			swap_ideas = {
+				remove_idea = FIC_native_recruitment
+				add_idea = FIC_native_recruitment_1
+			}
+		}
+	}
+	focus = {
+		id = FIC_better_autochthon_management
+		icon = GFX_focus_generic_military_mission
+		cost = 10
+		prerequisite = {
+			focus = FIC_train_indigenous_officers
+		}
+		available = {
+			OR = {
+				has_global_flag = fic_sia_warend
+				date > 1942.1.1
+			}
+		}
+		x = 0
+		y = 1
+		relative_position_id = FIC_train_indigenous_officers
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = FIC_native_recruitment_1
+				add_idea = FIC_native_recruitment_2
+			}
+		}
+	}
+	focus = {
+		id = FIC_incorporate_laotian_soldiers
+		icon = GFX_focus_RAJ_indian_gurkhas
+		cost = 10
+		prerequisite = {
+			focus = FIC_better_autochthon_management
+		}
+		available = {
+			OR = {
+				has_completed_focus = FIC_ally_local_leaders
+				has_completed_focus = FIC_support_laotian_renovation_movement
+			}
+			any_owned_state = {
+				is_controlled_by = ROOT
+				is_core_of = LAO
+			}
+		}
+		x = 0
+		y = 1
+		relative_position_id = FIC_better_autochthon_management
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = FIC_native_recruitment_2
+				add_idea = FIC_native_recruitment_3
+			}
+		}
+	}
+	focus = {
+		id = FIC_request_tanks
+		icon = GFX_goal_generic_army_tanks
+		cost = 10
+		prerequisite = {
+			focus = FIC_army_expansion
+		}
+		x = 0
+		y = 2
+		relative_position_id = FIC_army_expansion
+		completion_reward = {
+			add_equipment_to_stockpile = {
+				type = gw_tank_equipment
+				amount = 200
+				producer = FRA
+			}
+		}
+
+	}
+	focus = {
+		id = FIC_new_rifles
+		icon = GFX_goal_generic_small_arms
+		cost = 10
+		prerequisite = {
+			focus = FIC_request_tanks
+		}
+		x = 0
+		y = 1
+		relative_position_id = FIC_request_tanks
+		completion_reward = {
+			add_tech_bonus = {
+				name = infantry_equipment
+				bonus = 1
+				uses = 2
+				category = infantry_weapons
+			}
+		}
+
+	}
+	focus = {
+		id = FIC_expand_tan_son_nhat_airport
+		icon = GFX_goal_generic_build_airforce
+		cost = 10
+		prerequisite = {
+			focus = FIC_defence_of_indochina
+		}
+		x = 4
+		y = 1
+		relative_position_id = FIC_defence_of_indochina
+		completion_reward = {
+			286 = {
+				add_building_construction = {
+					type = air_base
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+
+	}
+	focus = {
+		id = FIC_request_planes
+		icon = GFX_goal_generic_air_fighter2
+		cost = 10
+		prerequisite = {
+			focus = FIC_expand_tan_son_nhat_airport
+		}
+		x = 0
+		y = 1
+		relative_position_id = FIC_expand_tan_son_nhat_airport
+		completion_reward = {
+			if = {
+				limit = {
+					has_dlc = "By Blood Alone"
+				}
+				add_equipment_to_stockpile = {
+					type = small_plane_airframe_0
+					amount = 40
+					producer = FRA
+					variant_name = "D.510"
+				}
+				add_equipment_to_stockpile = {
+					type = medium_plane_airframe_0
+					amount = 10
+					producer = FRA
+					variant_name = "Amiot 143"
+				}
+				add_equipment_to_stockpile = {
+					type = small_plane_naval_bomber_airframe_0
+					amount = 10
+					producer = FRA
+					variant_name = "Latécoère 296"
+				}
+			    else = {
+					add_equipment_to_stockpile = {
+						type = fighter_equipment_0
+						amount = 40
+						producer = FRA
+					}
+					add_equipment_to_stockpile = {
+						type = tac_bomber_equipment_0
+						amount = 10
+						producer = FRA
+					}
+					add_equipment_to_stockpile = {
+						type = nav_bomber_equipment_1
+						amount = 10
+						producer = FRA
+					}
+				} 
+			}
+		}
+	}
+	focus = {
+		id = FIC_local_pilot_formation
+		icon = GFX_goal_generic_air_production
+		cost = 10
+		prerequisite = {
+			focus = FIC_expand_tan_son_nhat_airport
+		}
+		x = 2
+		y = 1
+		relative_position_id = FIC_expand_tan_son_nhat_airport
+		completion_reward = {
+			air_experience = 25
+			add_ideas = fic_local_pilot_formation
+			unlock_decision_tooltip = FIC_aircraft_production_factory
+		}
+	}
+	focus = {
+		id = FIC_air_reorganization
+		icon = GFX_goal_generic_air_doctrine
+		cost = 10
+		prerequisite = {
+			focus = FIC_request_planes
+		}
+		x = 0
+		y = 1
+		relative_position_id = FIC_request_planes
+		completion_reward = {
+			air_experience = 10
+			add_doctrine_cost_reduction = {
+				name = air_doc_bonus
+				cost_reduction = 0.5
+				uses = 2
+				category = air_doctrine
+			   }
+		}
+	}
+	focus = {
+		id = FIC_ship_blueprint
+		icon = GFX_focus_generic_destroyer
+		cost = 10
+		prerequisite = {
+			focus = FIC_navy_reorganization
+		}
+		prerequisite = {
+			focus = FIC_modern_school_system
+		}
+		x = 0
+		y = 1
+		relative_position_id = FIC_navy_reorganization
+		completion_reward = {
+			learn_naval_designs = yes
+		}
+		bypass = {
+			custom_trigger_tooltip = {
+				tooltip = already_learned_naval_design
+				NOT = {
+					has_idea = no_proper_equipment_design
+					has_idea = no_proper_equipment_design_no_armor
+					has_idea = no_proper_equipment_design_no_air
+					has_idea = no_proper_equipment_design_naval
+				}
+			}
+		}
+
+	}
+	focus = {
+		id = FIC_tank_blueprint
+		icon = GFX_focus_generic_tank_production
+		cost = 10
+		prerequisite = {
+			focus = FIC_new_rifles
+		}
+		prerequisite = {
+			focus = FIC_modern_school_system
+		}
+		x = 0
+		y = 1
+		relative_position_id = FIC_new_rifles
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			learn_tank_designs = yes
+		}
+		bypass = {
+			custom_trigger_tooltip = {
+				tooltip = already_learned_armor_design
+				NOT = {
+					has_idea = no_proper_equipment_design
+					has_idea = no_proper_equipment_design_no_naval
+					has_idea = no_proper_equipment_design_no_air
+					has_idea = no_proper_equipment_design_armor
+				}
+			}
+		}
+
+	}
+	focus = {
+		id = FIC_aircraft_blueprint
+		icon = GFX_goal_generic_air_bomber
+		cost = 10
+		prerequisite = {
+			focus = FIC_air_reorganization
+		}
+		prerequisite = {
+			focus = FIC_modern_school_system
+		}
+		x = 0
+		y = 1
+		relative_position_id = FIC_air_reorganization
+		completion_reward = {
+			learn_air_designs = yes
+		}
+		bypass = {
+			custom_trigger_tooltip = {
+				tooltip = already_learned_air_design
+				NOT = {
+					has_idea = no_proper_equipment_design
+					has_idea = no_proper_equipment_design_no_armor
+					has_idea = no_proper_equipment_design_no_naval
+					has_idea = no_proper_equipment_design_air
+				}
+			}
+		}
+
+	}
+	focus = {
+		id = FIC_end_repressions
+		icon = GFX_goal_tripartite_pact
+		cost = 10
+		prerequisite = {
+			focus = FIC_colonial_reforms
+		}
+		x = 0
+		y = 1
+		relative_position_id = FIC_colonial_reforms
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = FIC_strikes_1
+				add_idea = FIC_strikes_2
+			}
+			swap_ideas = {
+				remove_idea = fic_repression
+				add_idea = fic_repression_1
+			}
+			add_popularity = {
+				ideology = neutrality
+				popularity = -0.05
+			}
+		}
+
+	}
+	focus = {
+		id = FIC_improve_workers_condition
+		icon = GFX_goal_generic_consumer_goods
+		cost = 10
+		prerequisite = {
+			focus = FIC_end_repressions
+		}
+		x = 0
+		y = 1
+		relative_position_id = FIC_end_repressions
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = FIC_strikes_2
+				add_idea = FIC_strikes_3
+			}
+			add_ideas = fic_better_working_conditions
+		}
+
+	}
+	focus = {
+		id = FIC_individual_freedoms
+		icon = GFX_goal_support_democracy
+		cost = 10
+		prerequisite = {
+			focus = FIC_improve_workers_condition
+		}
+		x = 0
+		y = 1
+		relative_position_id = FIC_improve_workers_condition
+		completion_reward = {
+			remove_ideas = fic_repression_1
+			add_political_power = 50
+		}
+
+	}
+	focus = {
+		id = FIC_allow_syndicates
+		icon = GFX_goal_befriend_soviet
+		cost = 10
+		prerequisite = {
+			focus = FIC_individual_freedoms
+		}
+		x = 0
+		y = 1
+		relative_position_id = FIC_individual_freedoms
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = fic_better_working_conditions
+				add_idea = fic_better_working_conditions_1
+			}
+			remove_ideas = FIC_strikes_3
+		}
+
+	}
+	focus = {
+		id = FIC_indochina_fights_on
+		icon = GFX_focus_war_of_liberation
+
+		cost = 2
+		prerequisite = {
+			focus = FIC_allow_syndicates
+		}
+		mutually_exclusive = {
+			focus = FIC_at_the_helm_of_indochina
+		}
+		x = -4
+		y = 1
+		relative_position_id = FIC_allow_syndicates
+		available = {
+			has_country_leader = {
+				ruling_only = yes
+				character = FIC_georges_catroux_hq
+			}
+			has_government = democratic
+		}
+		completion_reward = {
+			army_experience = 25
+			add_political_power = 50
+			
+			set_rule = { #guo
+				can_join_factions = yes
+				can_create_factions = yes
+			}
+			if = {
+				limit = {
+					USA = {
+						is_democratic_type = yes
+						is_faction_leader = yes
+						has_capitulated = no
+						NOT = { has_war_with = ROOT }
+					}
+					NOT = {
+						any_other_country = {
+							is_in_faction_with = USA
+							has_war_with = ROOT
+						}
+					}
+				}
+				USA = { country_event = { hours = 0 id = generic.2 } }
+			}
+			else_if = {
+				limit = {
+					ENG = {
+						is_democratic_type = yes
+						is_faction_leader = yes
+						has_capitulated = no
+						NOT = { has_war_with = ROOT }
+					}
+					NOT = {
+						any_other_country = {
+							is_in_faction_with = ENG
+							has_war_with = ROOT
+						}
+					}
+				}
+				ENG = { country_event = { hours = 0 id = generic.2 } }
+			}
+			else_if = {
+				limit = {
+					FRA = {
+						is_democratic_type = yes
+						is_faction_leader = yes
+						has_capitulated = no
+						NOT = { has_war_with = ROOT }
+					}
+					NOT = {
+						any_other_country = {
+							is_in_faction_with = FRA
+							has_war_with = ROOT
+						}
+					}
+				}
+				FRA = { country_event = { hours = 0 id = generic.2 } }
+			}
+			else = {
+				get_best_alliance_match_democratic_effect = yes
+				var:best_leader = {
+					country_event = generic.2
+				}
+			}
+		}
+
+	}
+	
+	focus = {
+		id = FIC_saigon_conferences
+		icon = GFX_goal_generic_navy_doctrines_tactics
+		cost = 8
+		prerequisite = {
+			focus = FIC_indochina_fights_on
+		}
+		x = -4
+		y = 1
+		relative_position_id = FIC_indochina_fights_on
+		available = {
+			OR = {
+				is_in_faction_with = FRA
+				is_in_faction_with = ENG
+			}	
+			has_country_leader = {
+				ruling_only = yes
+				character = FIC_georges_catroux_hq
+			}
+			has_government = democratic
+		}
+		completion_reward = {
+			add_political_power = 50
+			unlock_decision_category_tooltip = fic_organize_defence
+		}
+	}
+	focus = {
+		id = FIC_support_china
+		icon = GFX_focus_MON_KMT_ties
+		cost = 10
+		prerequisite = {
+			focus = FIC_indochina_fights_on
+		}
+		x = -2
+		y = 1
+		relative_position_id = FIC_indochina_fights_on
+		available = {
+			has_country_leader = {
+				ruling_only = yes
+				character = FIC_georges_catroux_hq
+			}
+			has_government = democratic
+			CHI = {
+				exists = yes
+				has_war_with = JAP
+			}
+		}
+		completion_reward = {
+			CHI = {
+				add_offsite_building = {
+					type = industrial_complex
+					level = 1
+				}
+				add_offsite_building = {
+					type = arms_factory
+					level = 1
+				}
+			}
+			random_owned_controlled_state = {
+				prioritize = { 988 }
+				limit = {
+					is_fully_controlled_by = ROOT
+					free_building_slots = {
+						building = arms_factory
+						size > 0
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = FIC_ally_local_leaders
+		icon = GFX_focus_RAJ_lions_of_the_great_war
+		cost = 10
+		prerequisite = {
+			focus = FIC_indochina_fights_on
+		}
+		x = 0
+		y = 1
+		relative_position_id = FIC_indochina_fights_on
+		available = {
+			has_war_with = JAP
+			has_country_leader = {
+				ruling_only = yes
+				character = FIC_georges_catroux_hq
+			}
+			has_government = democratic
+		}
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = FIC_colonial_government
+				add_idea = FIC_colonial_government4
+			}
+			add_political_power = -100
+			add_popularity = {
+				ideology = communism
+				popularity = 0.1
+			}
+			create_corps_commander = {
+				name = "Võ Nguyên Giáp"
+				picture = "Portrait_Indochina_Vo_Nguyen_Giap.dds"
+				traits = { media_personality infantry_officer brilliant_strategist }
+				skill = 3
+				attack_skill = 3
+				defense_skill = 3
+				planning_skill = 2
+				logistics_skill = 3
+			}
+			add_ideas = fic_local_leaders_coop
+		}
+	}
+	focus = {
+		id = FIC_finance_guerilleros
+		icon = GFX_focus_prc_infiltration
+		cost = 10
+		prerequisite = {
+			focus = FIC_ally_local_leaders
+		}
+		available = {
+			has_war_with = JAP
+			has_country_leader = {
+				ruling_only = yes
+				character = FIC_georges_catroux_hq
+			}
+			has_government = democratic
+		}
+		x = 0
+		y = 1
+		relative_position_id = FIC_ally_local_leaders
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = fic_local_leaders_coop
+				add_idea = fic_guerrilleros
+			}
+		}
+	}
+
+	focus = {
+		id = FIC_cooperate_with_britain
+		icon = GFX_focus_chi_british_cooperation
+		cost = 10
+		prerequisite = {
+			focus = FIC_indochina_fights_on
+		}
+		x = 2
+		y = 1
+		relative_position_id = FIC_indochina_fights_on
+		available = {
+			has_country_leader = {
+				ruling_only = yes
+				character = FIC_georges_catroux_hq
+			}
+			has_government = democratic
+			ENG = {
+				exists = yes
+				is_in_faction_with = FIC
+			}
+		}
+		completion_reward = {
+			if = {
+				limit = {
+					has_dlc = "By Blood Alone"
+				}
+				add_equipment_to_stockpile = {
+					type = small_plane_airframe_0
+					amount = 25
+					producer = ENG
+					variant_name = "Hawker Fury"
+				}
+				add_equipment_to_stockpile = {
+					type = medium_plane_airframe_0
+					amount = 10
+					producer = ENG
+					variant_name = "Handley Page Heyford"
+				}
+			    else = {
+					add_equipment_to_stockpile = { type = fighter_equipment_0 amount = 25 producer = ENG }
+			        add_equipment_to_stockpile = { type = tac_bomber_equipment_0 amount = 10 producer = ENG }
+				} 
+			}
+			add_equipment_to_stockpile = { type = infantry_equipment_1 amount = 1000 producer = ENG }
+			add_equipment_to_stockpile = { type = artillery_equipment_1 amount = 250 producer = ENG }
+			add_equipment_to_stockpile = { type = support_equipment amount = 200 producer = ENG }
+		}
+	}
+
+	focus = {
+		id = FIC_at_the_helm_of_indochina
+		icon = GFX_goal_support_fascism
+		cost = 2
+		prerequisite = {
+			focus = FIC_allow_syndicates
+		}
+		mutually_exclusive = {
+			focus = FIC_indochina_fights_on
+		}
+		ai_will_do = {
+			factor = 10
+		}
+		available = {
+			has_country_leader = { ruling_only = yes character = FIC_Jean_Decoux }
+			has_government = fascism
+		}
+		x = 4
+		y = 1
+		relative_position_id = FIC_allow_syndicates
+		completion_reward = {
+			custom_effect_tooltip = THIS_IS_HISTORICAL_TT
+			add_ideas = fic_admiral_authority
+		}
+	}
+	focus = {
+		id = FIC_defend_against_siam
+		icon = GFX_focus_generic_provoke_border_clashes
+		cost = 2
+		prerequisite = {
+			focus = FIC_indochina_fights_on
+			focus = FIC_at_the_helm_of_indochina
+		}
+		x = 4
+		y = 1
+		relative_position_id = FIC_indochina_fights_on
+		ai_will_do = {
+			factor = 10
+		}
+		available = {
+			has_war_with = SIA
+		}
+		completion_reward = {
+			add_ideas = fic_defend_vs_siam
+		}
+
+	}
+	focus = {
+		id = FIC_ask_senegalese_troops
+		icon = GFX_goal_generic_axis_build_infantry
+		cost = 10
+		prerequisite = {
+			focus = FIC_at_the_helm_of_indochina
+		}
+		x = -2
+		y = 1
+		relative_position_id = FIC_at_the_helm_of_indochina
+		available = {
+			has_country_leader = { ruling_only = yes character = FIC_Jean_Decoux }
+			has_government = fascism
+			268 = {
+				controller = {
+					OR = { tag = FRA original_tag = FRA }
+					has_government = fascism
+				}
+			}
+			#any_country = {
+			#	OR = { tag = FRA original_tag = FRA }
+			#	has_government = fascism
+			#	controls_state = 268
+			#}
+		}
+
+		completion_reward = {
+			custom_effect_tooltip = fic_sen_brigades
+			hidden_effect = { load_oob = "FIC_Sen_Brigades" }
+		}
+	}
+	
+	focus = {
+		id = FIC_support_laotian_renovation_movement
+		icon = GFX_goal_tfv_saf_support_ossebrandwag
+		cost = 10
+		prerequisite = {
+			focus = FIC_at_the_helm_of_indochina
+		}
+		x = 2
+		y = 1
+		relative_position_id = FIC_at_the_helm_of_indochina
+
+		available = {
+			any_owned_state = {
+				is_controlled_by = ROOT
+				is_core_of = LAO
+			}
+			has_country_leader = { ruling_only = yes character = FIC_Jean_Decoux }
+			has_government = fascism
+		}
+
+		completion_reward = {
+			add_political_power = 25
+			custom_effect_tooltip = unify_laos
+			hidden_effect = {
+				CHP = {
+					remove_state_core = 980
+					remove_state_core = 980
+				}
+				LAO = {
+					add_state_core = 980
+					add_state_core = 984
+					drop_cosmetic_tag = yes
+				}
+			}
+			SIA = {
+				add_stability = -0.05
+			}
+			980 = {
+				damage_building = {
+					type = infrastructure
+					damage = 1
+				}
+			}
+			981 = {
+				damage_building = {
+					type = infrastructure
+					damage = 1
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = FIC_ask_transfer_of_new_caledonia
+		icon = GFX_focus_eng_move_to_secure_the_dominions
+		cost = 10
+		prerequisite = {
+			focus = FIC_at_the_helm_of_indochina
+		}
+		x = 4
+		y = 1
+		relative_position_id = FIC_at_the_helm_of_indochina
+
+		available = {
+			OR = {
+				635 = {
+					controller = {
+						OR = { tag = FRA original_tag = FRA }
+						has_government = fascism
+					}
+				}
+				635 = {
+					controller = {
+						OR = {
+							tag = JAP 
+							is_in_faction_with = JAP
+							is_subject_of = JAP
+						}
+					}
+				}
+			}
+			has_country_leader = { ruling_only = yes character = FIC_Jean_Decoux }
+			has_government = fascism
+		}
+		
+		bypass = {
+			controls_state = 635
+		}
+
+		completion_reward = {
+			custom_effect_tooltip = fic_demand_nc_tooltip
+			if = {
+				limit = {
+					635 = {
+						controller = {
+							OR = { tag = FRA original_tag = FRA }
+							has_government = fascism
+						}
+					}
+				}
+				PREV = {
+					country_event = { id = rcmindochina.17 days = 1 }
+				}
+			}
+			if = {
+				limit = {
+					635 = {
+						controller = {
+							OR = { 
+								tag = JAP 
+								is_in_faction_with = JAP
+								is_subject_of = JAP
+							}
+						}
+					}
+				}
+				PREV = {
+					country_event = { id = rcmindochina.20 days = 1 }
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = FIC_revolution_nationale
+		icon = GFX_goal_generic_attack_allies
+		cost = 10
+		prerequisite = {
+			focus = FIC_at_the_helm_of_indochina
+		}
+		x = 0
+		y = 1
+		relative_position_id = FIC_at_the_helm_of_indochina
+
+		available = {
+			has_country_leader = { ruling_only = yes character = FIC_Jean_Decoux }
+			has_government = fascism
+		}
+
+		completion_reward = {
+			add_stability = 0.05
+			add_political_power = 25
+			add_popularity = {
+				ideology = fascism
+				popularity = 0.05
+			}
+		}
+	}
+	
+	focus = {
+		id = FIC_prepare_defence_againstjap
+		icon = GFX_focus_attack_japan
+		cost = 10
+		prerequisite = {
+			focus = FIC_revolution_nationale
+		}
+		x = -1
+		y = 1
+		relative_position_id = FIC_revolution_nationale
+
+		available = {
+			has_country_leader = { ruling_only = yes character = FIC_Jean_Decoux }
+			has_government = fascism
+		}
+
+		completion_reward = {
+			670 = {
+				add_building_construction = {
+					type = bunker
+					level = 1
+					province = 12398
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = bunker
+					level = 1
+					province = 12433
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = bunker
+					level = 1
+					province = 4613
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = bunker
+					level = 1
+					province = 7218
+					instant_build = yes
+				}
+			}
+			988 = {
+				add_building_construction = {
+					type = bunker
+					level = 1
+					province = 4529
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = bunker
+					level = 1
+					province = 12319
+					instant_build = yes
+				}
+			}
+			670 = {
+				add_building_construction = {
+					type = air_base
+					level = 1
+					instant_build = yes
+				}			
+			}
+		}
+	}
+	
+	focus = {
+		id = FIC_rally_freefrance
+		icon = GFX_focus_CZE_german_puppet
+		cost = 2
+		prerequisite = {
+			focus = FIC_prepare_defence_againstjap
+		}
+		x = -1
+		y = 1
+		relative_position_id = FIC_prepare_defence_againstjap
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				#guo date < 1945.1.1
+				is_historical_focus_on = yes
+			}
+		}
+		
+		bypass = {
+			has_war_with = JAP
+		}
+
+		available = {
+			FRA = {
+				has_war_with = JAP
+				OR = {
+					controls_state = 16
+					controls_state = 21
+					controls_state = 459
+				}
+			}
+		}
+
+		completion_reward = {
+			if = {
+				limit = {
+					is_in_faction = yes
+					NOT = {
+						is_in_faction_with = FRA
+					}
+				}
+				leave_faction = yes
+			}
+			declare_war_on = {
+				target = JAP
+				type = puppet_wargoal_focus
+			}
+			FRA = {
+				puppet = ROOT
+			}
+			set_politics = {
+				ruling_party = neutrality
+			}
+			add_popularity = {
+				ideology = neutrality
+				popularity = 0.8
+			}
+			create_country_leader = {
+				name = "FIC_Eugene_Mordant"
+				desc = "POLITICS_EUGENE_MORDANT"
+				picture = "Portrait_Indochina_Eugene_Mordant.dds"
+				expire = "1953.3.1"
+				ideology = oligarchism
+			}	
+			hidden_effect = {
+				transfer_state = 286
+				transfer_state = 670
+				transfer_state = 988
+				transfer_state = 741
+				transfer_state = 986
+				transfer_state = 987
+				transfer_state = 979
+				transfer_state = 982				
+			}
+		}
+	}
+	
+	focus = {
+		id = FIC_plan_for_a_usinvasion
+		icon = GFX_focus_generic_coastal_fort
+		cost = 10
+		prerequisite = {
+			focus = FIC_revolution_nationale
+		}
+		x = 1
+		y = 1
+		relative_position_id = FIC_revolution_nationale
+
+		available = {
+			has_country_leader = { ruling_only = yes character = FIC_Jean_Decoux }
+			has_government = fascism
+		}
+
+		completion_reward = {
+			add_ideas = fic_berenger_plan_alt
+		}
+	}
+	
+	focus = {
+		id = FIC_fortify_chinese_border
+		icon = GFX_focus_national_defense
+		cost = 10
+		prerequisite = {
+			focus = FIC_plan_for_a_usinvasion
+		}
+		x = 1
+		y = 1
+		relative_position_id = FIC_plan_for_a_usinvasion
+
+		available = {
+			has_country_leader = { ruling_only = yes character = FIC_Jean_Decoux }
+			has_government = fascism
+		}
+
+		completion_reward = {
+			986 = {
+				add_building_construction = {
+					type = bunker
+					level = 1
+					province = 12008
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = bunker
+					level = 1
+					province = 7518
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = bunker
+					level = 1
+					province = 12065
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = bunker
+					level = 1
+					province = 9948
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = bunker
+					level = 1
+					province = 7093
+					instant_build = yes
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = FIC_strengthen_general_security
+		icon = GFX_focus_MEN_espionage
+		cost = 10
+		prerequisite = {
+			focus = FIC_revolution_nationale
+		}
+		x = 0
+		y = 2
+		relative_position_id = FIC_revolution_nationale
+
+		available = {
+			has_country_leader = { ruling_only = yes character = FIC_Jean_Decoux }
+			has_government = fascism
+		}
+
+		completion_reward = {
+			add_political_power = 25
+			add_ideas = fic_repression_2
+		}
+	}
+	focus = {
+		id = FIC_dirigisme
+		icon = GFX_focus_generic_industry_2
+		cost = 10
+		prerequisite = {
+			focus = FIC_strengthen_general_security
+		}
+		x = -3
+		y = 1
+		relative_position_id = FIC_strengthen_general_security
+
+		available = {
+			has_country_leader = { ruling_only = yes character = FIC_Jean_Decoux }
+			has_government = fascism
+		}
+
+		completion_reward = {
+			random_owned_controlled_state = {
+				prioritize = { 286 988 979 978 }
+				limit = {
+					is_fully_controlled_by = ROOT
+					free_building_slots = {
+						building = industrial_complex
+						size > 0
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+			add_ideas = fic_dirigisme
+		}
+	}
+	
+	focus = {
+		id = FIC_public_works
+		icon = GFX_goal_generic_construct_civilian
+		cost = 10
+		prerequisite = {
+			focus = FIC_dirigisme
+		}
+		x = 0
+		y = 1
+		relative_position_id = FIC_dirigisme
+
+		available = {
+			has_country_leader = { ruling_only = yes character = FIC_Jean_Decoux }
+			has_government = fascism
+		}
+
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = fic_dirigisme
+				add_idea = fic_public_works
+			}
+			670 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			741 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			986 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			989 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			978 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			984 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			985 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = FIC_build_schools
+		icon = GFX_focus_generic_university
+		cost = 10
+		prerequisite = {
+			focus = FIC_public_works
+		}
+		x = -1
+		y = 1
+		relative_position_id = FIC_public_works
+
+		available = {
+			has_country_leader = { ruling_only = yes character = FIC_Jean_Decoux }
+			has_government = fascism
+		}
+
+		completion_reward = {
+			add_political_power = 25
+			add_ideas = fic_more_literacy
+		}
+	}
+	
+	focus = {
+		id = FIC_intensify_heveaculture
+		icon = GFX_focus_generic_rubber
+		cost = 10
+		prerequisite = {
+			focus = FIC_public_works
+		}
+		x = 1
+		y = 1
+		relative_position_id = FIC_public_works
+
+		available = {
+			has_country_leader = { ruling_only = yes character = FIC_Jean_Decoux }
+			has_government = fascism
+		}
+
+		completion_reward = {
+			add_ideas = fic_heveaculture
+			add_resource = {
+				type = rubber
+				amount = 15
+				state = 286
+			}
+			add_resource = {
+				type = rubber
+				amount = 5
+				state = 741
+			}
+			add_resource = {
+				type = rubber
+				amount = 8
+				state = 989
+			}
+			add_resource = {
+				type = rubber
+				amount = 5
+				state = 978
+			}
+			add_resource = {
+				type = rubber
+				amount = 15
+				state = 979
+			}
+			add_resource = {
+				type = rubber
+				amount = 10
+				state = 982
+			}
+		}
+	}
+	
+	focus = {
+		id = FIC_urbanism_in_dalat
+		icon = GFX_focus_airbas_expansion
+		cost = 10
+		prerequisite = {
+			focus = FIC_build_schools
+		}
+		prerequisite = {
+			focus = FIC_intensify_heveaculture
+		}
+		x = 0
+		y = 2
+		relative_position_id = FIC_public_works
+
+		available = {
+			has_country_leader = { ruling_only = yes character = FIC_Jean_Decoux }
+			has_government = fascism
+		}
+
+		completion_reward = {
+			add_political_power = 50
+			978 = {
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			set_capital = { state = 978 }
+		}
+	}
+
+	
+	focus = {
+		id = FIC_purge_dissidents
+		icon = GFX_goal_generic_military_deal
+		cost = 10
+		prerequisite = {
+			focus = FIC_strengthen_general_security
+		}
+		x = 3
+		y = 1
+		relative_position_id = FIC_strengthen_general_security
+		available = {
+			has_country_leader = { ruling_only = yes character = FIC_Jean_Decoux }
+			has_government = fascism
+		}
+
+		completion_reward = {
+			add_political_power = -50
+			add_stability = 0.05
+			add_war_support = -0.05
+			add_popularity = {
+				ideology = neutrality
+				popularity = -0.1
+			}
+		}
+	}
+
+	focus = {
+		id = FIC_encourage_local_patriotisms
+		icon = GFX_focus_generic_support_the_left_right
+		cost = 10
+		prerequisite = {
+			focus = FIC_purge_dissidents
+		}
+		x = 0
+		y = 1
+		relative_position_id = FIC_purge_dissidents
+		available = {
+			has_country_leader = { ruling_only = yes character = FIC_Jean_Decoux }
+			has_government = fascism
+		}
+
+		completion_reward = {
+			add_war_support = 0.05
+			add_political_power = -50
+			add_ideas = fic_local_patriotisms
+		}
+
+	}
+	focus = {
+		id = FIC_youth_organisations
+		icon = GFX_focus_generic_little_entente
+		cost = 10
+		prerequisite = {
+			focus = FIC_encourage_local_patriotisms
+		}
+		x = 0
+		y = 1
+		relative_position_id = FIC_encourage_local_patriotisms
+		available = {
+			has_country_leader = { ruling_only = yes character = FIC_Jean_Decoux }
+			has_government = fascism
+		}
+
+		completion_reward = {
+			add_ideas = fic_organize_youth
+			add_manpower = 10000
+		}
+
+	}
+	
+	focus = {
+		id = FIC_create_french_legion
+		icon = GFX_focus_generic_strike_at_democracy1
+		cost = 10
+		prerequisite = {
+			focus = FIC_youth_organisations
+		}
+		x = 0
+		y = 1
+		relative_position_id = FIC_youth_organisations
+		available = {
+			has_country_leader = { ruling_only = yes character = FIC_Jean_Decoux }
+			has_government = fascism
+		}
+
+		completion_reward = {
+			add_political_power = 25
+			add_popularity = {
+				ideology = fascism
+				popularity = 0.05
+			}			
+		}
+
+	}
+	
+	focus = {
+		id = FIC_naval_officers_primacy
+		icon = GFX_focus_generic_military_mission
+		cost = 10
+		prerequisite = {
+			focus = FIC_strengthen_general_security
+		}
+		x = 0
+		y = 1
+		relative_position_id = FIC_strengthen_general_security
+		available = {
+			has_country_leader = { ruling_only = yes character = FIC_Jean_Decoux }
+			has_government = fascism
+		}
+
+		completion_reward = {
+			add_popularity = {
+				ideology = fascism
+				popularity = 0.05
+			}			
+			add_political_power = 25
+			add_ideas = naval_primacy
+		}
+
+	}
+	
+	focus = {
+		id = FIC_indigenous_civil_servants
+		icon = GFX_focus_generic_treaty
+		cost = 10
+		prerequisite = {
+			focus = FIC_naval_officers_primacy
+		}
+		x = 0
+		y = 1
+		relative_position_id = FIC_naval_officers_primacy
+		available = {
+			has_country_leader = { ruling_only = yes character = FIC_Jean_Decoux }
+			has_government = fascism
+		}
+
+		completion_reward = {
+			add_ideas = fic_ind_servants
+		}
+
+	}
+	
+	focus = {
+		id = FIC_indochinese_federal_council
+		icon = GFX_focus_generic_self_management
+		cost = 10
+		prerequisite = {
+			focus = FIC_indigenous_civil_servants
+		}
+		x = 0
+		y = 1
+		relative_position_id = FIC_indigenous_civil_servants
+		available = {
+			has_country_leader = { ruling_only = yes character = FIC_Jean_Decoux }
+			has_government = fascism
+		}
+
+		completion_reward = {
+			add_political_power = -50
+			add_ideas = fic_ifc
+		}
+	}
+	
+	focus = {
+		id = FIC_appointed_federal_council
+		icon = GFX_focus_usa_voter_registration_act
+		cost = 10
+		prerequisite = {
+			focus = FIC_indochinese_federal_council
+		}
+		mutually_exclusive = { focus = FIC_elected_federal_council }
+		x = 1
+		y = 1
+		relative_position_id = FIC_indochinese_federal_council
+		available = {
+			has_country_leader = { ruling_only = yes character = FIC_Jean_Decoux }
+			has_government = fascism
+		}
+
+		completion_reward = {
+			add_political_power = 75
+		}
+	}
+	
+	focus = {
+		id = FIC_elected_federal_council
+		icon = GFX_focus_generic_the_giant_wakes
+		cost = 10
+		prerequisite = {
+			focus = FIC_indochinese_federal_council
+		}
+		mutually_exclusive = { focus = FIC_appointed_federal_council }
+		x = -1
+		y = 1
+		relative_position_id = FIC_indochinese_federal_council
+		available = {
+			has_country_leader = { ruling_only = yes character = FIC_Jean_Decoux }
+			has_government = fascism
+		}
+
+		completion_reward = {
+			add_political_power = -100
+			add_popularity = {
+				ideology = democratic
+				popularity = 0.1
+			}
+			country_event = { id = rcmindochina.31 days = 1 } #elections			
+		}
+	}
+	
+	focus = {
+		id = FIC_expand_federal_council
+		icon = GFX_assembly_const_focus
+		cost = 10
+		prerequisite = {
+			focus = FIC_appointed_federal_council
+			focus = FIC_elected_federal_council
+		}
+		x = 0
+		y = 2
+		relative_position_id = FIC_indochinese_federal_council
+		available = {
+			has_country_leader = { ruling_only = yes character = FIC_Jean_Decoux }
+			has_government = fascism
+		}
+
+		completion_reward = {
+			custom_effect_tooltip = fic_expand_fc_tt
+			if = {
+				limit = {
+					has_completed_focus = FIC_appointed_federal_council
+				}
+				swap_ideas = {
+					remove_idea = fic_ifc
+					add_idea = fic_gfc
+				}
+			}
+			
+			if = {
+				limit = {
+					has_completed_focus = FIC_elected_federal_council
+				}
+				swap_ideas = {
+					remove_idea = fic_ifc
+					add_idea = fic_gfc_demo
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = FIC_seul_maitre_abord
+		icon = GFX_COOP_officers
+		cost = 10
+		prerequisite = {
+			focus = FIC_expand_federal_council
+		}
+		x = 0
+		y = 1
+		relative_position_id = FIC_expand_federal_council
+		available = {
+			has_country_leader = { ruling_only = yes character = FIC_Jean_Decoux }
+			has_government = fascism
+		}
+
+		completion_reward = {
+			add_political_power = 100
+			swap_ideas = {
+				remove_idea = fic_admiral_authority
+				add_idea = fic_admiral_authority2
+			}
+			add_popularity = {
+				ideology = fascism
+				popularity = 0.1
+			}			
+		}
+	}
+	
+	focus = {
+		id = FIC_federalisation_effort
+		icon = GFX_goal_generic_national_unity
+		cost = 10
+		prerequisite = {
+			focus = FIC_seul_maitre_abord
+		}
+		x = 0
+		y = 1
+		relative_position_id = FIC_seul_maitre_abord
+		available = {
+			has_country_leader = { ruling_only = yes character = FIC_Jean_Decoux }
+			has_government = fascism
+		}
+
+		completion_reward = {
+			unlock_decision_category_tooltip = fic_federalization
+		}
+	}
+	
+}

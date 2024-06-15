@@ -1,0 +1,1498 @@
+﻿#CHINA SHARED
+#Taiwanese Industry
+shared_focus = { ###
+	id = CHI_taiwanese_industry
+	icon = GFX_goal_generic_consumer_goods
+	x = -1
+	y = 1
+	cost = 10
+	search_filters = {
+		FOCUS_FILTER_INDUSTRY
+	}
+	allow_branch = {
+		CHI = { has_completed_focus = CHI_the_fall_of_mainland }
+		
+		CHI = { NOT = { has_completed_focus = CHI_return_to_mainland } }#GUO
+		
+		#has_global_flag = fall_on_mainland
+	}
+	relative_position_id = CHI_the_fall_of_mainland
+	prerequisite = { focus = CHI_the_fall_of_mainland }
+	ai_will_do = { factor = 100 }
+	completion_reward = { #guo
+		if = {
+			limit = {
+				has_stability < 0.5
+			}
+	        add_stability = 0.1
+		}
+		if = {
+			limit = {
+				has_idea = CHI_nine_power_treaty
+			}
+			remove_ideas = CHI_nine_power_treaty
+		}
+		if = {
+			limit = {
+				OR = {
+					has_idea = free_trade
+					has_idea = export_focus
+				}
+			}
+			add_ideas = limited_exports
+		}
+		
+		one_random_arms_factory = yes #guo
+		one_random_industrial_complex = yes
+		one_random_arms_factory = yes
+		one_random_industrial_complex = yes
+		524 = { add_extra_state_shared_building_slots = 5 }
+	}
+	bypass = { #guo
+		
+	}
+}
+
+shared_focus = { ###
+	id = CHI_taiwanese_industry_2
+	icon = GFX_goal_generic_construct_civ_factory
+	x = -3
+	y = 3
+	cost = 14.3
+	search_filters = {
+		FOCUS_FILTER_INDUSTRY
+	}
+	relative_position_id = CHI_the_fall_of_mainland
+	prerequisite = { focus = CHI_new_taiwan_dollar }
+	ai_will_do = { factor = 100 }
+	completion_reward = {
+		CHI_hyper_inflation_level_down = yes
+		524 = {
+			set_state_category = city
+			if = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 2
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = industrial_complex
+					level = 3
+					instant_build = yes
+				}
+				set_state_flag = build_1
+			}
+			if = {
+				limit = {
+					free_building_slots = {
+						building = arms_factory
+						size > 0
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+				set_state_flag = build_2
+			}
+		}
+	}
+}
+
+#New Taiwan Dollar
+shared_focus = { ###
+	id = CHI_new_taiwan_dollar
+	icon = GFX_focus_government_bailout
+	x = -1
+	y = 1
+	cost = 10
+	search_filters = {
+		FOCUS_FILTER_STABILITY
+	}
+	relative_position_id = CHI_taiwanese_industry
+	prerequisite = { focus = CHI_taiwanese_industry  }
+	ai_will_do = { factor = 100 }
+	completion_reward = {
+		CHI_hyper_inflation_level_down = yes
+		add_ideas = NTD_idea
+	}
+}
+#The Reform of KMT
+shared_focus = { ###
+	id = CHI_the_reform_of_kmt
+	icon = GFX_focus_generic_self_management
+	cost = 10
+	search_filters = {
+		FOCUS_FILTER_POLITICAL
+	}
+	x = 1
+	y = 1
+	relative_position_id = CHI_new_taiwan_dollar
+	prerequisite = { focus = CHI_new_taiwan_dollar focus = CHI_the_375_arable_rent_reduction_act }
+	ai_will_do = { factor = 100 }
+	completion_reward = {
+	    remove_ideas = CBIS_kmt_indoctrination
+		add_ideas = chi_neiwubu
+		add_political_power = 300
+		add_stability = 0.15
+	}
+}
+#USA Aid
+shared_focus = { ###
+	id = CHI_usa_aid
+	icon = GFX_focus_chi_mission_to_the_us
+	x = 0
+	y = 2
+	cost = 10
+	search_filters = {
+		FOCUS_FILTER_INDUSTRY
+	}
+	relative_position_id = CHI_new_taiwan_dollar
+	prerequisite = { focus = CHI_new_taiwan_dollar  }
+	ai_will_do = { factor = 100 }
+	completion_reward = {
+		524 ={
+			if = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 0
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+			set_state_flag = Building_3
+		}
+		add_offsite_building = { type = industrial_complex level = 2 }
+		add_offsite_building = { type = arms_factory level = 2 }
+	}
+	available = {
+		USA = {
+			exists = yes
+			is_subject = no
+			NOT = {
+				has_government = communism
+				has_war_with = ROOT
+			}
+		}
+	}
+}
+#A Possibly Ally?
+shared_focus = { ###
+	id = CHI_a_possibly_ally
+	icon = GFX_focus_hol_the_foundations_of_defense
+	x = 0
+	y = 1
+	cost = 10
+	relative_position_id = CHI_usa_aid
+	search_filters = {
+		FOCUS_FILTER_POLITICAL
+	}
+	prerequisite = { focus = CHI_usa_aid  }
+	completion_reward = {
+	    add_ideas = chi_meiguoyuanzhu
+		USA = { country_event = { id = rcm_roc_in_tw.3 } }
+		custom_effect_tooltip = if_approved_tt
+		effect_tooltip = {
+			USA = {
+				give_guarantee = ROOT
+			}
+		}
+	}
+	available = {
+		has_idea = STAG_idea
+		USA = {
+			exists = yes
+			is_subject = no
+			NOT = {
+				has_government = communism
+				has_war_with = ROOT
+			}
+		}
+	}
+	bypass = {#guo
+	#	OR = {
+	#		is_guaranteed_by = USA
+	#		is_in_faction_with = USA
+	#	}
+	}
+}
+
+#The 37.5% Arable Rent Reduction Act
+shared_focus = { ###
+	id = CHI_the_375_arable_rent_reduction_act
+	icon = GFX_draft_focus
+	prerequisite = { focus = CHI_taiwanese_industry  }
+	
+	cost = 10
+	search_filters = {
+		FOCUS_FILTER_STABILITY
+	}
+	x = 1
+	y = 1
+	relative_position_id = CHI_taiwanese_industry
+	available = {
+		controls_state = 524
+	}
+	ai_will_do = { factor = 100 }
+	completion_reward = {
+		524 ={
+			add_extra_state_shared_building_slots = 10
+		}
+		add_stability = 0.05
+		add_political_power = 100
+	}
+}
+#Sale of Public Farm Lands To Farmers
+shared_focus = { ###
+	id = CHI_sale_of_public_farm_lands_to_farmers
+	icon = GFX_focus_institutional_reform
+	x = 0
+	y = 2
+	cost = 10
+	search_filters = {
+		FOCUS_FILTER_STABILITY
+	}
+	available = {
+		controls_state = 524
+	}
+	relative_position_id = CHI_the_375_arable_rent_reduction_act
+	prerequisite = { focus = CHI_the_375_arable_rent_reduction_act  }
+	completion_reward = {
+	add_ideas = chi_chenchenggaige
+		524 ={
+			add_extra_state_shared_building_slots = -3
+		}
+		#add_stability = 0.10
+		add_war_support = 0.10
+	}
+}
+shared_focus = { ###
+	id = CHI_Land_to_the_Tillers_focus
+	icon = GFX_focus_peasant_growth
+	x = 0
+	y = 1
+	cost = 10
+	search_filters = {
+		FOCUS_FILTER_STABILITY
+	}
+	relative_position_id = CHI_sale_of_public_farm_lands_to_farmers
+	prerequisite = { focus = CHI_sale_of_public_farm_lands_to_farmers  }
+	completion_reward = {
+		add_ideas = agrarian_reform_idea
+	}
+}
+shared_focus = { ###
+	id = CHI_375_executive_headquarters
+	icon = GFX_goal_generic_army_doctrines
+	
+	cost = 10.00
+    prerequisite = { focus = CHI_the_fall_of_mainland }
+	allow_branch = {
+		CHI = { has_completed_focus = CHI_the_fall_of_mainland }
+		
+		CHI = { NOT = { has_completed_focus = CHI_return_to_mainland } }#GUO
+		
+		#has_global_flag = fall_on_mainland
+	}
+	x = 2#GUO
+	y = 1		
+	relative_position_id = CHI_the_fall_of_mainland
+	ai_will_do = { factor = 0 }
+	search_filters = {
+		FOCUS_FILTER_WAR_SUPPORT
+	}
+	available = {
+		country_exists = event_target:WTT_communist_china
+	}
+	completion_reward = {
+		add_ideas = chi_375_battle_plan
+	}
+	bypass = {
+		NOT = {
+			country_exists = event_target:WTT_communist_china
+		}
+	}
+}
+
+#Counterattack The Mainland
+shared_focus = { ###
+	id = CHI_counterattack_the_mainland
+	icon = GFX_focus_chinese_red_soldier
+	
+	cost = 5.00
+	prerequisite = { focus = CHI_375_executive_headquarters }
+	x = 2#GUO
+	y = 2#GUO
+	relative_position_id = CHI_the_fall_of_mainland
+	ai_will_do = { factor = 0 }
+	search_filters = {
+		FOCUS_FILTER_WAR_SUPPORT
+	}
+	available = {
+		is_subject = no
+		has_army_manpower = {
+			size > 500000 
+		}
+	}
+	bypass = {
+		OR = { 
+			has_annex_war_goal = event_target:WTT_communist_china
+			has_war_with = event_target:WTT_communist_china
+			event_target:WTT_communist_china = { exists = no }
+		}
+	}
+	completion_reward = {
+		create_wargoal = { 
+			type = liberate_wargoal 
+			target = event_target:WTT_communist_china
+		}
+		add_named_threat = {
+			threat = 10
+			name = kmt_guoguangjihua_mission
+		}
+		set_global_flag = chi_guoguangjihua
+		activate_mission = kmt_guoguangjihua_mission
+		add_timed_idea = { idea = chi_guoguangjihua days = 420 }#guo
+		event_target:WTT_communist_china = { add_timed_idea = { idea = chi_diwucongzui days = 240 } }#guo
+		every_other_country = {
+		limit = { is_in_faction_with = event_target:WTT_communist_china not = { tag = event_target:WTT_communist_china } }
+		    diplomatic_relation = {
+				country = event_target:WTT_communist_china
+				relation = guarantee
+				active = no
+            }
+		add_ideas = chi_zhongguoneizhan
+		add_ai_strategy = { type = protect id = PRC value = -5000 }
+		}
+		add_war_support = 0.1#guo
+		custom_effect_tooltip = gain_base_supp_cond_p10_tt
+			add_to_variable = {
+		    var = This.supply_condition
+			value = 10 #MODDED
+		    }
+		    add_to_variable = {
+			var = This.supply_condition_base
+			value = 10 #MODDED
+		    }
+	}
+	will_lead_to_war_with = PRC
+}
+shared_focus = { #guo
+	id = CHI_return_to_mainland
+	icon = GFX_focus_yi_dang_zhi_guo
+	
+	cost = 1.00
+	prerequisite = { focus = CHI_counterattack_the_mainland }
+	x = 0
+	y = 1
+	relative_position_id = CHI_counterattack_the_mainland
+	ai_will_do = { factor = 999 }
+	select_effect = {
+		set_country_flag = CHI_return_to_mainland_be_selected
+	}
+	available = {
+		is_subject = no
+		NOT = {
+			country_exists = event_target:WTT_communist_china
+		}
+		has_war = no
+		num_of_controlled_states > 20
+	}
+	bypass = {
+		
+	}
+	completion_reward = {
+		country_event = PRC_linyuying.4
+		add_political_power = 300
+		add_stability = 0.15
+		add_war_support = 0.15
+		
+		hidden_effect = { country_event = super.38 }
+	}
+}
+	
+
+#Reorganization Our Armed Forces
+shared_focus = { ###
+	id = CHI_reorganization_our_armed_forces
+	icon = GFX_focus_chi_whampoa_military_academy
+	prerequisite = { focus = CHI_the_fall_of_mainland }
+	x = 5#GUO
+	y = 1
+	allow_branch = {
+		CHI = { has_completed_focus = CHI_the_fall_of_mainland }
+		
+		CHI = { NOT = { has_completed_focus = CHI_return_to_mainland } }#GUO
+		
+		#has_global_flag = fall_on_mainland
+	}
+	cost = 10
+	relative_position_id = CHI_the_fall_of_mainland
+	search_filters = {
+		FOCUS_FILTER_WAR_SUPPORT
+	}
+	completion_reward = {
+		add_war_support = 0.1
+		unlock_decision_category_tooltip = Foreign_Sup_category
+	}
+}
+#Republic of China Army
+shared_focus = { ###
+	id = CHI_republic_of_china_army
+	icon = GFX_focus_NRA
+	x = -1
+	y = 1
+	cost = 10
+	relative_position_id = CHI_reorganization_our_armed_forces
+	search_filters = {
+		FOCUS_FILTER_WAR_SUPPORT
+	}
+	available = { #has_army_manpower = { size > 300000 } 
+    }
+	prerequisite = { focus = CHI_reorganization_our_armed_forces  }
+	completion_reward = {
+		if = {
+			limit = {
+				has_idea = CHI_civil_war_debuff
+			}
+			remove_ideas = CHI_civil_war_debuff
+		}
+		if = {
+			limit = {
+				has_idea = CHI_civil_war_debuff_2
+			}
+			remove_ideas = CHI_civil_war_debuff_2
+		}
+		if = {
+			limit = {
+				has_idea = CHI_civil_war_debuff_3
+			}
+			remove_ideas = CHI_civil_war_debuff_3
+		}
+		if = {
+			limit = {
+				has_idea = CHI_civil_war_debuff_4
+			}
+			remove_ideas = CHI_civil_war_debuff_4
+		}
+		if = {
+			limit = {
+				has_idea = CHI_civil_war_debuff_5
+			}
+			remove_ideas = CHI_civil_war_debuff_5
+		}
+		add_war_support = 0.05
+		#add_doctrine_cost_reduction = {
+		#	name = land_doc_bonus
+		#	cost_reduction = 0.5
+		#	uses = 1
+		#	category = land_doctrine
+		#}
+		army_experience = 25
+		if = {
+			limit = {
+				USA = {
+					exists = yes
+					is_subject = no
+					NOT = {
+						has_government = communism
+						has_war_with = ROOT
+					}
+				}
+			}
+            add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = 15000
+				producer = USA
+			} 
+		}                           
+	}
+}
+#Republic of China Navy
+shared_focus = { ###
+	id = CHI_republic_of_china_navy
+	icon = GFX_CHI_Chinese_National_Navy
+	x = 1
+	y = 1
+	cost = 10
+	search_filters = {
+		FOCUS_FILTER_WAR_SUPPORT
+	}
+	relative_position_id = CHI_reorganization_our_armed_forces
+	prerequisite = { focus = CHI_reorganization_our_armed_forces  }
+	ai_will_do = { factor = 100 }
+	completion_reward = {
+	        remove_ideas = CHI_navy_reorganized
+			add_ideas = chi_guojunhaijun
+		#create_equipment_variant = {
+		#	allow_without_tech = yes
+		#	name = "Kagaro Class (Yukikaze) "
+		#	type = ship_hull_light_3
+		#	name_group = CHI_DD_HISTORICAL
+		#	parent_version = 0
+		#	modules = {
+		#		fixed_ship_battery_slot = ship_light_battery_2
+		#		fixed_ship_anti_air_slot = ship_anti_air_2
+		#		fixed_ship_fire_control_system_slot = ship_sonar_2
+		#		fixed_ship_radar_slot = ship_radar_3
+		#		fixed_ship_engine_slot = light_ship_engine_2
+		#		fixed_ship_torpedo_slot = ship_torpedo_4
+		#		front_1_custom_slot = ship_light_battery_2
+		#		mid_1_custom_slot = ship_torpedo_4
+		#		rear_1_custom_slot = ship_depth_charge_3
+		#	}
+		#}
+		#create_equipment_variant = {
+		#	allow_without_tech = yes
+		#	name = "Arethusa class"
+		#	type = ship_hull_cruiser_1
+		#	name_group = CHI_CL_HISTORICAL
+		#	parent_version = 0
+		#	modules = {
+		#		fixed_ship_battery_slot = ship_light_medium_battery_2
+		#		fixed_ship_anti_air_slot = ship_anti_air_3
+		#		fixed_ship_fire_control_system_slot = ship_sonar_2
+		#		fixed_ship_engine_slot = cruiser_ship_engine_2
+		#		fixed_ship_armor_slot = ship_armor_cruiser_2
+		#		fixed_ship_secondaries_slot = empty
+		#		mid_1_custom_slot = ship_light_medium_battery_2
+		#		mid_2_custom_slot = ship_torpedo_1
+		#		fixed_ship_radar_slot = ship_radar_3
+		#		rear_1_custom_slot = ship_light_medium_battery_2
+		#	}
+		#}
+		#custom_effect_tooltip = CHI_rocn_oob_tt
+		#hidden_effect = { load_oob = ROCN1950 }
+		navy_experience = 35
+		add_doctrine_cost_reduction = {
+			name = CHI_republic_of_china_navy
+			cost_reduction = 0.5
+			uses = 1
+			category = naval_doctrine
+		}
+		if = {
+			limit = {
+				not = { has_tech = transport }
+			}
+			set_technology = {
+				transport = 1
+			}                  
+		}
+		add_equipment_to_stockpile = {
+			type = convoy
+			amount = 150
+		}
+	}
+}
+
+#Republic of China Air Force
+shared_focus = { ###
+	id = CHI_republic_of_china_air_force
+	icon = GFX_CHI_Chinese_National_Air_Force
+	x = 0
+	y = 2
+	cost = 10
+	search_filters = {
+		FOCUS_FILTER_WAR_SUPPORT
+	}
+	relative_position_id = CHI_reorganization_our_armed_forces 
+
+	prerequisite = { focus = CHI_reorganization_our_armed_forces  }
+	
+	completion_reward = {
+	    add_ideas = chi_guojunkongjun
+		remove_ideas = CHI_air_reorganisation
+		air_experience = 50
+		add_equipment_to_stockpile = {
+			type = small_plane_airframe
+			amount = 250
+			producer = USA
+		}
+		#if = {
+		#	limit = {
+		#		USA = {
+		#			has_tech = advanced_small_airframe
+		#		}
+		#	}
+		#    add_equipment_to_stockpile = {
+		#		type = small_plane_airframe_3
+		#		amount = 478
+		#		producer = USA
+		#		#variant_name = "Hawker Fury"
+		#	}
+		#	else = {
+		#		add_equipment_to_stockpile = {
+		#			type = small_plane_airframe
+		##			amount = 300
+		#			producer = USA
+		#		}
+		#	}
+		#}
+		
+		#USA = { 
+		#    send_equipment = {
+		#		target = CHI
+		#		type = small_plane_airframe
+		#		amount = 478
+		#	}       
+		#}
+	}
+	available = {
+		USA = {
+			exists = yes
+			is_subject = no
+			NOT = {
+				has_government = communism
+				has_war_with = ROOT
+			}
+		}
+		#USA = { 
+		#   send_equipment = {
+		#		target = CHI
+		#		type = small_plane_airframe
+		#		amount = 478
+		#	}       
+		#}
+	}
+}
+#Receive USN Destroyers
+shared_focus = { ###
+	id = CHI_receive_usn_destroyers
+	icon = GFX_focus_generic_destroyer
+	
+	cost = 10
+	search_filters = {
+		FOCUS_FILTER_WAR_SUPPORT
+	}
+	x = 1
+	y = 1
+	relative_position_id = CHI_republic_of_china_navy
+	prerequisite = { focus = CHI_republic_of_china_navy  }
+	completion_reward = {
+	        add_ideas = chi_hangmu
+		create_equipment_variant = {
+			allow_without_tech = yes
+			name = "Cannon Class"
+			type = ship_hull_light_4
+			name_group = DD_HISTORICAL
+			parent_version = 0
+			modules = {
+				fixed_ship_battery_slot = ship_light_battery_1
+				fixed_ship_anti_air_slot = ship_anti_air_4
+				fixed_ship_fire_control_system_slot = ship_sonar_2
+				fixed_ship_radar_slot = ship_radar_4
+				fixed_ship_engine_slot = light_ship_engine_3
+				fixed_ship_torpedo_slot = ship_torpedo_1
+				front_1_custom_slot = ship_depth_charge_4
+				mid_1_custom_slot = ship_light_battery_1
+				mid_2_custom_slot = ship_light_battery_1
+				rear_1_custom_slot = ship_depth_charge_2
+			}
+		}
+		custom_effect_tooltip = CHI_usn_dd_oob_tt
+		hidden_effect = {
+		    load_oob = USNDD
+	    }
+	}
+	available = {
+		USA = {
+			exists = yes
+			is_subject = no
+			NOT = {
+				has_government = communism
+				has_war_with = ROOT
+			}
+		}
+	}
+}
+
+
+shared_focus = { ###
+	id = CHI_old_tsingtao_cooperation_company                               
+	icon = GFX_goal_generic_construct_civ_factory
+	prerequisite = { focus = CHI_cult_of_chiang_kai_shek }
+	allow_branch = { has_completed_focus = CHI_cult_of_chiang_kai_shek }
+	available = {
+		country_exists = GER
+		NOT = { has_war_with = GER }
+		owns_state = 597 #Shandong
+	}
+	x = -1
+	y = 1
+	bypass = {
+		NOT = {
+			country_exists = GER
+			NOT = { has_war_with = GER }
+			owns_state = 597 #Shandong
+		}
+	}
+	relative_position_id = CHI_cult_of_chiang_kai_shek
+	cost = 20
+	completion_reward = {
+		CHI = {
+			country_event = { days = 5 id = RCM_old_china.1006 }
+		}
+	}
+}
+
+shared_focus = { ###
+	id = CHI_old_antiair_protection_german                              
+	icon = GFX_goal_generic_construct_military
+	prerequisite = { focus = CHI_old_tsingtao_cooperation_company }
+	available = {
+		owns_state = 597 #Shandong
+	}
+	x = 1
+	y = 1
+	relative_position_id = CHI_old_tsingtao_cooperation_company
+	cost = 10
+	completion_reward = {
+		597 = {
+			add_building_construction = {
+				type = anti_air_building
+				level = 5
+				instant_build = yes
+			}
+			add_building_construction = {
+				type = radar_station
+				level = 1
+				instant_build = yes
+			}
+		}
+	}
+}
+
+shared_focus = { ###
+	id = CHI_old_refinery_technology_german                              
+	icon = GFX_goal_generic_oil_refinery
+	prerequisite = { focus = CHI_old_antiair_protection_german }
+	available = {
+		owns_state = 743 #Shandong
+	}
+	x = 1
+	y = 1
+	relative_position_id = CHI_old_antiair_protection_german
+	cost = 10
+	completion_reward = {
+		add_tech_bonus = {
+			name = synth_bonus
+			bonus = 0.5
+			uses = 1
+			category = synth_resources
+		}
+		743 = {
+			add_building_construction = {
+				type = synthetic_refinery
+				level = 1
+				instant_build = yes
+			}
+		}
+	}
+}
+
+shared_focus = { ###
+	id = CHI_old_sino_luftwaffe                               
+	icon = GFX_goal_generic_build_airforce
+	prerequisite = { focus = CHI_old_tsingtao_cooperation_company }
+	available = {
+		country_exists = GER
+		NOT = { has_war_with = GER }
+	}
+	x = -1
+	y = 1
+	relative_position_id = CHI_old_tsingtao_cooperation_company
+	cost = 10
+	completion_reward = {
+		add_doctrine_cost_reduction = {
+			name = air_doc_bonus
+			cost_reduction = 0.5
+			uses = 2
+			category = air_doctrine
+		}
+		add_tech_bonus = {
+			name = CAS_bonus
+			bonus = 0.5
+			uses = 3
+			category = light_fighter
+			category = tactical_bomber
+			category = cas_bomber
+		}
+		hidden_effect = {
+			news_event = { hours = 6 id = news.1001}
+		}
+	}
+}
+shared_focus = { ###
+	id = CHI_old_electronics_research_german
+	icon = GFX_goal_generic_radar
+	prerequisite = { focus = CHI_old_tsingtao_cooperation_company }
+	x = 0
+	y = 2
+	relative_position_id = CHI_old_tsingtao_cooperation_company
+	cost = 10
+	completion_reward = {
+		add_tech_bonus = {
+			name = radar_focus
+			bonus = 0.5
+			uses = 3
+			category = radar_tech
+			category = electronics
+		}
+	}
+	ai_will_do = {
+		factor = 1
+		modifier = {
+			factor = 0.25
+			always = yes
+		}
+	}
+}
+
+shared_focus = { ###
+	id = CHI_old_found_wanhu_flugmaschinenfabrik
+	icon = GFX_goal_generic_air_fighter
+	prerequisite = { focus = CHI_old_refinery_technology_german }
+	prerequisite = { focus = CHI_old_electronics_research_german }
+	x = -2
+	y = 1
+	relative_position_id = CHI_old_refinery_technology_german
+	cost = 10
+	completion_reward = {
+		add_ideas = wanhu_flugmaschinenfabrik
+		hidden_effect = {
+			CHI = { country_event = { days = 120 id = china.1021 } }
+		}
+	}
+}
+
+
+shared_focus = { ###
+	id = CHI_old_demand_indochina_passage                            
+	icon = GFX_VIN_vnqdd_army
+	prerequisite = { focus = CHI_cult_of_chiang_kai_shek }
+	allow_branch = { has_completed_focus = CHI_cult_of_chiang_kai_shek }
+	x = 1
+	y = 1
+	relative_position_id = CHI_cult_of_chiang_kai_shek
+	available = {
+		is_puppet = no
+		#NOT = { has_war_with = GER }
+		has_global_flag = fall_of_france
+		OR = {
+			is_neighbor_of = VIN
+			is_neighbor_of = LAO
+			is_neighbor_of = CAM
+			is_neighbor_of = FIC
+		}
+	}
+	bypass = {
+	}
+	
+	cost = 10
+	completion_reward = {
+		set_global_flag = indochina_flag
+		every_other_country = {
+			limit = {
+				OR = {
+					VIN = { is_subject_of = PREV }
+					LAO = { is_subject_of = PREV }
+					CAM = { is_subject_of = PREV }
+					FIC = { is_subject_of = PREV }
+				}
+			}
+			country_event = RCM_old_france.1000
+		}
+		VIN = {
+			if = {
+				limit = {
+					is_subject = no
+					exists = yes
+				}
+				country_event = RCM_old_china.1024
+			}
+		}
+		LAO = {
+			if = {
+				limit = {
+					is_subject = no
+					exists = yes
+				}
+				country_event = RCM_old_china.1024
+			}
+		}
+		CAM = {
+			if = {
+				limit = {
+					is_subject = no
+					exists = yes
+				}
+				country_event = RCM_old_china.1024
+			}
+		}
+		FIC = {
+			if = {
+				limit = {
+					is_subject = no
+					exists = yes
+				}
+				country_event = RCM_old_china.1024
+			}
+		}
+		
+	}
+}
+shared_focus = { ###
+	id = CHI_pressure_burma_focus                         
+	icon = GFX_focus_smiling_buddha
+	prerequisite = { focus = CHI_old_demand_indochina_passage focus = CHI_old_persuade_siam}
+	available = {
+		is_puppet = no
+		BUR = {
+			any_neighbor_country = {
+				OR = {
+					tag = ROOT
+					is_subject_of = ROOT 
+				}
+			}
+		}
+	}
+	relative_position_id = CHI_old_demand_indochina_passage
+	bypass = {
+		992 = {
+			controller = {
+				OR = {
+					tag = ROOT
+					is_subject_of = ROOT
+				}
+			}
+		}
+		993 = {
+			controller = {
+				OR = {
+					tag = ROOT
+					is_subject_of = ROOT
+				}
+			}
+		}
+		640 = {
+			controller = {
+				OR = {
+					tag = ROOT
+					is_subject_of = ROOT
+				}
+			}
+		}
+		1024 = {#guo
+			controller = {
+				OR = {
+					tag = ROOT
+					is_subject_of = ROOT
+				}
+			}
+		}
+		288 = {
+			controller = {
+				OR = {
+					tag = ROOT
+					is_subject_of = ROOT
+				}
+			}
+		}
+	}
+	x = 1
+	y = 1
+	cost = 10
+	#will_lead_to_war_with = RAJ
+	will_lead_to_war_with = BUR
+	will_lead_to_war_with = ENG
+	completion_reward = {
+		set_global_flag = burma_flag
+		every_other_country = {
+			limit = {
+				BUR = { is_subject_of = PREV }
+			}
+			country_event = RCM_old_france.1002
+		}
+		BUR = {
+			if = {
+				limit = {
+					is_subject = no
+					exists = yes
+				}
+				country_event = RCM_old_china.1024
+			}
+		}
+	}
+}
+shared_focus = { ###
+	id = CHI_old_form_indian_liberation_army                        
+	icon = GFX_focus_azad_hind
+	prerequisite = { focus = CHI_pressure_burma_focus }
+	available = {
+		is_puppet = no
+		has_war_with = RAJ
+		430 = {
+			controller = {
+				OR = {
+					tag = ROOT
+					is_subject_of = ROOT
+				}				
+			}
+		}
+		is_neighbor_of = RAJ
+	}
+	relative_position_id = CHI_pressure_burma_focus 
+	bypass = {
+		NOT = { country_exists = RAJ }
+	}
+	x = 0
+	y = 2
+	cost = 10
+	will_lead_to_war_with = RAJ
+	#will_lead_to_war_with = BUR
+	completion_reward = {
+	
+		CHI = { country_event = { id = RCM_old_china.1022 } }
+	}
+}
+
+shared_focus = { ###
+	id = CHI_old_persuade_siam                  
+	icon = GFX_goal_tripartite_pact
+	prerequisite = { focus = CHI_cult_of_chiang_kai_shek }
+	allow_branch = { has_completed_focus = CHI_cult_of_chiang_kai_shek }
+	available = {
+		is_puppet = no
+		SIA = {
+			any_neighbor_country = {
+				OR = {
+					tag = ROOT
+					is_subject_of = ROOT
+				}
+			}
+		}
+		#is_neighbor_of = SIA
+	}
+	bypass = {
+		OR = {
+			NOT = { country_exists = SIA }
+			SIA = {
+				is_puppet = yes
+			}
+		}
+	}
+	x = 3
+	y = 1
+	relative_position_id = CHI_cult_of_chiang_kai_shek
+	cost = 10
+	completion_reward = {
+		CHI = { country_event = { id = RCM_old_china.1023 } }
+	}
+}
+shared_focus = { ###
+	id = CHI_subvert_malaya              
+	icon = GFX_COOP_secret_agents
+	prerequisite = { focus = CHI_old_persuade_siam  focus = CHI_old_demand_indochina_passage}
+	available = {
+		is_puppet = no
+		if = {
+			limit = {
+				country_exists = SST
+			}
+			SST = { fascism > 0.15 }
+		}
+		if = {
+			limit = {
+				country_exists = SST
+			}
+			SAR = { fascism > 0.15 }
+		}
+		if = {
+			limit = {
+				country_exists = SST
+			}
+			BOR = { fascism > 0.15 }
+		}
+		if = {
+			limit = {
+				country_exists = SST
+			}
+			MAL = { fascism > 0.15 }
+		}
+		
+	}
+	bypass = {
+		NOT = {
+			SST = { exists = yes }
+			SAR = { exists = yes }
+			BOR = { exists = yes }
+			MAL = { exists = yes }
+		}
+	}
+	x = 1
+	relative_position_id = CHI_old_persuade_siam
+	y = 1
+	cost = 10
+	completion_reward = {
+		set_global_flag = malaya_flag
+		every_other_country = {
+			limit = {
+				OR = {
+					MAL = { is_subject_of = PREV }
+					SST = { is_subject_of = PREV }
+					BOR = { is_subject_of = PREV }
+					SAR = { is_subject_of = PREV }
+				}
+			}
+			country_event = RCM_old_france.1001
+		}
+		MAL = {
+			if = {
+				limit = {
+					is_subject = no
+					exists = yes
+				}
+				country_event = RCM_old_china.1024
+			}
+		}
+		SST = {
+			if = {
+				limit = {
+					is_subject = no
+					exists = yes
+				}
+				country_event = RCM_old_china.1024
+			}
+		}
+		BOR = {
+			if = {
+				limit = {
+					is_subject = no
+					exists = yes
+				}
+				country_event = RCM_old_china.1024
+			}
+		}
+		SAR = {
+			if = {
+				limit = {
+					is_subject = no
+					exists = yes
+				}
+				country_event = RCM_old_china.1024
+			}
+		}
+	}
+}
+shared_focus = { ###
+	id = CHI_old_reunion_with_singapore             
+	icon = GFX_goal_generic_major_alliance
+	prerequisite = { focus = CHI_subvert_malaya }
+	#prerequisite = { focus = CHI_Concession_or_cede }
+	available = {
+		is_puppet = no
+		336 = {
+			controller = {
+				OR = {
+					tag = ROOT
+					is_subject_of = ROOT
+				}
+			}
+		}		
+		1056 = {
+			controller = {
+				OR = {
+					tag = ROOT
+					is_subject_of = ROOT
+				}
+			}
+		}
+		1057 = {
+			controller = {
+				OR = {
+					tag = ROOT
+					is_subject_of = ROOT
+				}
+			}
+		}
+		1058 = {
+			controller = {
+				OR = {
+					tag = ROOT
+					is_subject_of = ROOT
+				}
+			}
+		}
+		333 = {
+			controller = {
+				OR = {
+					tag = ROOT
+					is_subject_of = ROOT
+				}
+			}
+		}
+		970 = {
+			controller = {
+				OR = {
+					tag = ROOT
+					is_subject_of = ROOT
+				}
+			}
+		}
+		971 = {
+			controller = {
+				OR = {
+					tag = ROOT
+					is_subject_of = ROOT
+				}
+			}
+		}
+		972 = {
+			controller = {
+				OR = {
+					tag = ROOT
+					is_subject_of = ROOT
+				}
+			}
+		}
+		336 = {
+			controller = {
+				OR = {
+					tag = ROOT
+					is_subject_of = ROOT
+				}
+			}
+		}
+		
+		#guo
+		1059 = {
+			controller = {
+				OR = {
+					tag = ROOT
+					is_subject_of = ROOT
+				}
+			}
+		}
+		1060 = {
+			controller = {
+				OR = {
+					tag = ROOT
+					is_subject_of = ROOT
+				}
+			}
+		}
+		1061 = {
+			controller = {
+				OR = {
+					tag = ROOT
+					is_subject_of = ROOT
+				}
+			}
+		}
+	}
+	bypass = {
+		336 = { is_owned_and_controlled_by = SST }
+		1056 = { is_owned_and_controlled_by = SST }
+		1057 = { is_owned_and_controlled_by = SST }
+		1058 = { is_owned_and_controlled_by = SST }
+		333 = { is_owned_and_controlled_by = SST }
+		970 = { is_owned_and_controlled_by = SST }
+		971 = { is_owned_and_controlled_by = SST }
+		972 = { is_owned_and_controlled_by = SST }
+		
+		#guo
+		1059 = { is_owned_and_controlled_by = SST }
+		1060 = { is_owned_and_controlled_by = SST }
+		1061 = { is_owned_and_controlled_by = SST }
+	}
+	x = 0
+	relative_position_id = CHI_subvert_malaya 
+	y = 1
+	cost = 10
+	completion_reward = {
+		every_other_country = {
+			limit = {
+				OR = {
+					tag = BOR
+					tag = MAL
+					tag = SAR
+				}
+				is_subject_of = ROOT
+			}
+			country_event = RCM_old_france.1005
+		}
+		SST = {
+			add_state_core = 336
+			add_state_core = 1056
+			add_state_core = 1057
+			add_state_core = 1058
+			add_state_core = 333
+			add_state_core = 970
+			add_state_core = 971
+			add_state_core = 972
+
+            #guo
+			add_state_core = 1059
+			add_state_core = 1060
+			add_state_core = 1061
+		}
+		every_state = {
+			limit = {
+				OR = {
+					state = 336
+					state = 1056
+					state = 1057
+					state = 1058
+					state = 333
+					state = 970
+					state = 971
+					state = 972	
+					
+					#guo
+					state = 1059
+					state = 1060
+					state = 1061
+				}
+				NOT = {
+					is_owned_by = BOR
+					is_owned_by = MAL
+					is_owned_by = SAR
+				}				
+			}
+			custom_effect_tooltip = transfer_to_sst_tt
+			hidden_effect = {
+				SST = {
+					transfer_state = PREV
+				}
+			}
+		}
+		add_state_core = 336
+		transfer_state = 336
+		SST = {
+			set_cosmetic_tag = SST_MAL_CHI
+		}
+		#country_event = RCM_old_france.1001
+		hidden_effect = {
+			news_event = { hours = 6 id = RCM_old_news.1014 }
+		}
+	}
+}
+shared_focus = { ###
+	id = CHI_old_cooperate_with_sukarno_focus            
+	icon = GFX_focus_generic_diplomatic_treaty
+	prerequisite = { focus = CHI_old_reunion_with_singapore }
+	prerequisite = { focus = CHI_old_question_of_the_philipines }
+	available = {
+		is_puppet = no
+		#INS = {
+		#	fascism > 0.45
+		#}
+	}
+	bypass = {
+		INS = {
+			OR = {
+				is_subject_of = ROOT
+				exists = no
+			}
+		}
+	}
+	x = 1
+	relative_position_id = CHI_old_reunion_with_singapore 
+	y = 1
+	cost = 10
+	completion_reward = {
+		set_global_flag = indonesia_flag
+		every_other_country = {
+			limit = {
+				INS = { is_subject_of = PREV }
+			}
+			country_event = RCM_old_france.1004
+		}
+		INS = {
+			if = {
+				limit = {
+					is_subject = no
+					exists = yes
+				}
+				country_event = RCM_old_china.1024
+			}
+		}
+	}
+}
+shared_focus = { ###
+	id = CHI_old_question_of_the_philipines             
+	icon = GFX_goal_generic_territory_or_war
+	prerequisite = { focus = CHI_Concession_or_cede }
+	relative_position_id = CHI_old_reunion_with_singapore
+	allow_branch = { has_completed_focus = CHI_cult_of_chiang_kai_shek }
+	#prerequisite = { focus = CHI_Concession_or_cede }
+	available = {
+		is_puppet = no
+		#PHI = {
+		#	fascism > 0.35
+		#}
+	}
+	bypass = {
+		PHI = {
+			OR = {
+				is_subject_of = ROOT
+				exists = no
+			}
+		}
+	}
+	x = 2	
+	y = 0
+	cost = 10
+	completion_reward = {
+		set_global_flag = philippines_flag
+		every_other_country = {
+			limit = {
+				"PHI" = { is_subject_of = PREV }
+			}
+			country_event = RCM_old_france.1003
+		}
+		"PHI" = {
+			if = {
+				limit = {
+					is_subject = no
+					exists = yes
+				}
+				country_event = RCM_old_china.1024
+			}
+		}
+	}
+}
+shared_focus = { ###
+	id = CHI_old_asia_liberation_manifesto       
+	icon = GFX_goal_generic_propaganda
+	prerequisite = { focus = CHI_old_found_wanhu_flugmaschinenfabrik }
+	prerequisite = { focus = CHI_old_form_indian_liberation_army }
+	prerequisite = { focus = CHI_old_cooperate_with_sukarno_focus }
+	available = {
+		is_puppet = no
+	}
+	x = 0
+	y = 1
+	relative_position_id = CHI_old_form_indian_liberation_army
+	cost = 10
+	completion_reward = {
+		add_ideas = asia_liberator
+		
+		hidden_effect = {
+			news_event = { hours = 6 id = RCM_old_news.1015 }
+		}
+	}
+}

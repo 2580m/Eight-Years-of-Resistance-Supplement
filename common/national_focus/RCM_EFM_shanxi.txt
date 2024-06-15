@@ -1,0 +1,5679 @@
+focus_tree = {
+	id = RCM_EFM_shanxi
+	country = {
+		factor = 0
+		modifier = {
+			add = 100
+			tag = SHX
+		}
+	}
+	
+	#TO DO
+	
+	default = no
+	
+	continuous_focus_position = { x = 20 y = 1200 }
+	
+	focus = {
+		id = SHX_Three_eggs
+		icon = GFX_Focus_Three_Flag_With_Jap 
+		cost = 10
+		mutually_exclusive = {
+			focus = SHX_Support_north_china_buffer_state_strategy
+			#focus = SHX_Political_work_committee
+		}
+		x = 24
+		y = 0
+			ai_will_do = {
+				factor = 10
+			}
+		completion_reward = {
+			custom_effect_tooltip = THIS_IS_HISTORICAL_TT
+			#add_political_power = 150
+			add_country_leader_trait = {
+				#ideology = despotism
+				trait = xishan_doctrine
+			}
+			
+			hidden_effect = { #guo
+			    add_country_leader_trait = {
+				ideology = despotism
+				trait = xishan_doctrine
+			    }
+				add_country_leader_trait = {
+				ideology = n_socialism_ideology
+				trait = xishan_doctrine
+			    }
+				add_country_leader_trait = {
+				ideology = conservatism
+				trait = xishan_doctrine
+			    }
+				add_country_leader_trait = {
+				ideology = fascism_ideology
+				trait = xishan_doctrine
+			    }
+				add_country_leader_trait = {
+				ideology = marxism
+				trait = xishan_doctrine
+			    }
+			}
+			
+			add_timed_idea = {
+				idea = CHI_diplomatic_effort_idea
+				days = 365
+			}
+			#add_opinion_modifier = {
+			#	target = JAP
+			#	modifier = Nations_estrangement
+			#}
+			#add_ai_strategy = {
+			#	type = antagonize
+			#	    id = JAP
+			#	   value = 200
+			#}
+		}
+		available = {
+			NOT = { is_subject_of = JAP }
+		}
+
+		#bypass = {
+		#	has_war_with = JAP
+		#}
+	}
+	focus = {
+		id = SHX_Formed_the_air_force
+		icon = GFX_goal_generic_build_airforce
+		cost = 10.00
+		x = 37
+		y = 0
+			ai_will_do = {
+					factor = 1
+				}
+		available = {
+			has_deployed_air_force_size = {
+				size > 0
+			}
+		}
+		completion_reward = {
+			add_doctrine_cost_reduction = {
+			    name = SHX_Formed_the_air_force
+			    cost_reduction = 0.5
+				uses = 1
+			    category = air_doctrine
+			}
+		}
+
+	}
+	focus = {
+		id = SHX_Support_north_china_buffer_state_strategy
+		icon = GFX_Focus_SHX_Pact_With_Jap
+		cost = 17.15
+		mutually_exclusive = {
+			focus = SHX_Three_eggs
+			#focus = SHX_Political_work_committee
+		}
+		x = 32
+		y = 0
+		ai_will_do = {
+			factor = 5
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
+		}
+		completion_reward = {
+			#custom_effect_tooltip = opposition_allowed_staying_out_tt
+			add_stability = -0.2
+			add_war_support = -0.2
+			#add_political_power = 70
+			JAP = {
+				country_event = {
+					id = EFM_Shanxi.14
+				}
+			}
+			custom_effect_tooltip = if_they_accept_green
+			custom_effect_tooltip = opposition_allowed_independence_tt
+			effect_tooltip = {
+				add_opinion_modifier = {
+					target = JAP
+					modifier = Nations_friendly
+				}
+				JAP = {
+					add_opinion_modifier = {
+						target = ROOT
+						modifier = Nations_friendly
+					}
+				    give_guarantee = ROOT
+				}	
+			}
+			#if = {
+			#	limit = {
+			#		has_dlc = "Waking the Tiger"
+			#	}
+			#	unlock_decision_category_tooltip = CHI_seek_japanese_support
+			#}
+			#if = {
+			#	limit = {
+			#		OR = {
+			#			owns_state = 621
+			#			owns_state = 746
+			#		}
+			#	}
+			#	country_event = {
+			#		id = EFM_Shanxi.81
+			#		days = 5
+			#	}
+			#}
+			custom_effect_tooltip = if_they_refuse_red
+			effect_tooltip = {
+				uncomplete_national_focus = {
+					focus = SHX_Support_north_china_buffer_state_strategy
+				}
+			}		
+		}
+		available = {
+			OR = {
+				is_subject = no
+				is_subject_of = JAP
+			}
+			NOT = {
+				any_enemy_country = {
+					OR = {
+						tag = JAP
+						is_subject_of = JAP
+					}
+				}
+			}
+			JAP = {
+				exists = yes
+				is_subject = no
+				NOT = {
+					has_government = communism 
+				}
+				NOT = {
+					has_government = n_socialism
+				}
+				#has_opinion = {
+				#	target = ROOT
+				#	value > 49
+				#}
+			}
+			NOT = {
+				has_country_flag = shx_japan_refused_flag
+			}
+		}
+	}
+	focus = {
+		id = SHX_Model_warlord
+		icon = GFX_focus_generic_little_entente
+		cost = 10.00
+		x = 7
+		y = 0
+			ai_will_do = {
+					factor = 2
+					modifier = {
+							factor = 0
+							date < 1936.3.1
+						}
+			}
+		completion_reward = {
+			#add_ideas = SHX_Model_warlord
+			add_stability = 0.05
+			if = {
+				limit = {
+					NOT = {
+						has_government = communism
+					}
+				}
+			    unlock_decision_category_tooltip = SHX_Model_warlord
+			}
+		}
+		available = {
+			#owns_state = 615
+			#controls_state = 615
+		}
+
+	}
+	#focus = {
+	#	id = SHX_Political_work_committee
+	#	icon = GFX_focus_generic_self_management
+	#	cost = 10.00
+	#	mutually_exclusive = {
+	#		focus = SHX_Three_eggs
+	#		focus = SHX_Support_north_china_buffer_state_strategy
+	#	}
+	#	x = 20
+	#	y = 0
+	#		ai_will_do = {
+	#				factor = 2
+	#				modifier = {
+	#						factor = 0
+	#						is_historical_focus_on = yes
+	#					}
+	#			}
+	#		completion_reward = {
+	#				country_event = {
+	#						id = EFM_Shanxi.71
+	#					}
+	#				set_country_flag = SHX_General_fu_zuoyi_leaves_shanxi_clique
+	#			}
+	#		available = {
+	#				is_subject = no
+	#				NOT = {
+	#						has_country_flag = SHX_General_fu_zuoyi_leaves_shanxi_clique
+	#					}
+	#				#NOT = {
+	#				#		MEN = {
+	#				#				focus_progress = {
+	#				#						focus = MEN_Bailingmiao_riot
+	#				#						progress > 0.0
+	#				#					}
+	#				#			}
+	#				#	}
+	#			}
+    #
+	#}
+	focus = {
+		id = SHX_Develop_shanxi_economy
+		icon = GFX_focus_mex_privatisation
+		cost = 10.00
+		prerequisite = {
+			focus = SHX_Model_warlord
+		}
+		x = 2
+		y = 1
+			ai_will_do = {
+					factor = 1
+				}
+			completion_reward = {
+					random_owned_controlled_state = {
+						add_extra_state_shared_building_slots = 1
+						add_building_construction = {
+							type = industrial_complex
+							level = 1
+							instant_build = yes
+						}
+					}
+					#add_tech_bonus = {
+					#		name = industrial_bonus
+					#		bonus = 0.5
+					#		uses = 1
+					#		category = industry
+					#	}
+			}
+			available = {
+				any_owned_state = {
+					is_controlled_by = ROOT
+					is_core_of = ROOT
+				}
+			}
+
+	}
+	focus = {
+		id = SHX_Road_development
+		icon = GFX_goal_generic_construct_civilian
+		cost = 6.00
+		prerequisite = {
+			focus = SHX_Develop_shanxi_economy
+		}
+		x = 1
+		y = 2
+			ai_will_do = {
+					factor = 1
+				}
+			completion_reward = {
+					random_owned_controlled_state = {
+							add_building_construction = {
+									type = infrastructure
+									level = 1
+									instant_build = yes
+								}
+						}
+					random_owned_controlled_state = {
+							add_building_construction = {
+									type = infrastructure
+									level = 1
+									instant_build = yes
+								}
+					}
+			}
+		bypass = {
+			custom_trigger_tooltip = {
+				tooltip = infrastructure_effort_tt
+				all_owned_state = {
+					free_building_slots = {
+						building = infrastructure
+						size < 1
+					}
+				}
+			}
+		}
+		available = {
+			any_owned_state = {
+				is_controlled_by = ROOT
+				is_core_of = ROOT
+				free_building_slots = {
+					building = infrastructure
+					size > 0
+				}
+			}
+		}
+	}
+	focus = {
+		id = SHX_Transport_network
+		icon = GFX_goal_generic_construct_infrastructure
+		cost = 5.00
+		prerequisite = {
+			focus = SHX_Develop_shanxi_economy
+		}
+		x = 3
+		y = 2
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_timed_idea = {
+				idea = SIK_railway_idea
+				days = 730
+			}
+		}
+	}
+	focus = {
+		id = SHX_Shanxi_science
+		icon = GFX_focus_research
+		cost = 5.00
+		prerequisite = {
+			focus = SHX_Road_development
+			focus = SHX_Transport_network
+		}
+		x = 1
+		y = 3
+			ai_will_do = {
+					factor = 2
+				}
+			completion_reward = {
+					add_research_slot = 1
+				}
+
+	}
+	focus = {
+		id = SHX_Recommend_electronic_technology
+		icon = GFX_goal_generic_production2
+		cost = 10.00
+		prerequisite = {
+			focus = SHX_Shanxi_science
+		}
+		x = 1
+		y = 4
+			ai_will_do = {
+					factor = 1
+				}
+			completion_reward = {
+					add_tech_bonus = {
+							name = SHX_Recommend_electronic_technology
+							bonus = 0.5
+							uses = 1
+							category = computing_tech
+						}
+					add_tech_bonus = {
+							name = SHX_Recommend_electronic_technology
+							bonus = 0.5
+							uses = 1
+							category = radar_tech
+						}
+				}
+
+	}
+	focus = {
+		id = SHX_Industrial_reform
+		icon = GFX_goal_generic_construction2
+		cost = 10.00
+		prerequisite = {
+			focus = SHX_Transport_network
+		}
+		x = 3
+		y = 3
+			ai_will_do = {
+					factor = 1
+				}
+		completion_reward = {
+			add_tech_bonus = {
+				name = SHX_Industrial_reform
+				bonus = 0.5
+				uses = 2
+				category = industry
+			}
+		}
+	}
+	focus = {
+		id = SHX_Support_industries
+		icon = GFX_goal_generic_construct_civ_factory
+		cost = 10.00
+		prerequisite = {
+			focus = SHX_Industrial_reform
+		}
+		x = 3
+		y = 4
+			ai_will_do = {
+					factor = 2
+				}
+		available = {
+			any_owned_state = {
+				is_controlled_by = ROOT
+			    is_core_of = ROOT
+			}
+		}
+		completion_reward = {
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = SHX_Prosperous_shanxi
+		icon = GFX_focus_SOV_merge_plants
+		cost = 10.00
+		prerequisite = {
+			focus = SHX_industrialization_iii
+		}
+		x = 4
+		y = 8
+		ai_will_do = {
+			factor = 5
+		}
+		completion_reward = {
+			add_ideas = SHX_Good_economy
+		}
+		available = {
+			#num_of_factories > 25
+		}
+	}
+	focus = {
+		id = SHX_Expand_the_taiyuan_arsenal 
+		icon = GFX_focus_generic_reorient_production
+		cost = 10.00
+		prerequisite = {
+			focus = SHX_Model_warlord
+		}
+		x = 7
+		y = 1
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_political_power = 100
+			#custom_effect_tooltip = available_industrial_concern
+			#show_ideas_tooltip = northwest_industrial_company
+			unlock_decision_category_tooltip = SHX_NW_industrial
+			if = {
+				limit = {
+					has_dlc = "Arms Against Tyranny"
+				}
+				every_military_industrial_organization = {
+					limit = {
+						OR = {
+							is_military_industrial_organization = northwest_industrial_company_mio
+							is_military_industrial_organization = northwest_industrial_company_artillery_mio
+							is_military_industrial_organization = northwest_industrial_company_support_mio 
+						}
+					}
+					#complete_mio_trait = BUL_mio_trait_prussia_of_the_balkans
+					add_mio_funds = 300
+				}
+			}
+		}
+		available = {
+			has_idea = northwest_industrial_company
+		}
+
+	}
+	focus = {
+		id = SHX_Expand_factory_scale
+		icon = GFX_goal_generic_construct_mil_factory
+		cost = 10.00
+		prerequisite = {
+			focus = SHX_Expand_the_taiyuan_arsenal
+		}
+		x = 6
+		y = 2
+		ai_will_do = {
+			factor = 2
+		}
+		available = {
+			has_idea = northwest_industrial_company
+		}
+		completion_reward = {
+			#custom_effect_tooltip = available_designer
+			#show_ideas_tooltip = northwest_arsenal
+			random_owned_controlled_state = {
+				limit = {
+					state = 615
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = SHX_Develop_heavy_industry
+		icon = GFX_focus_generic_tank_production
+		cost = 10.00
+		#prerequisite = {
+		#	focus = SHX_Industrial_reform
+		#}
+		prerequisite = {
+			focus = SHX_Munitions_production_plan
+		}
+		x = 5
+		y = 4
+		ai_will_do = {
+			factor = 2
+		}
+		available = {
+			any_owned_state = {
+				is_controlled_by = ROOT
+			    is_core_of = ROOT
+			}
+		}
+		completion_reward = {
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+			if = {
+				limit = {
+					NOT = {
+						has_tech = motorised_infantry
+					}
+				}
+				add_tech_bonus = {
+					name = SHX_Develop_heavy_industry
+					bonus = 0.5
+				    technology = motorised_infantry
+			    }
+			}
+		}
+	}
+	focus = {
+		id = SHX_Munitions_production_plan
+		icon = GFX_goal_generic_build_tank
+		cost = 10.00
+		prerequisite = {
+			focus = SHX_Expand_factory_scale
+		}
+		x = 6
+		y = 3
+		available = {
+			#any_owned_state = {
+			#	is_controlled_by = ROOT
+			#    is_core_of = ROOT
+			#}
+			has_idea = northwest_industrial_company
+		}	
+		ai_will_do = {
+			factor = 2
+		}
+		completion_reward = {
+			random_owned_controlled_state = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = SHX_Artillery_department
+		icon = GFX_goal_generic_army_artillery2
+		cost = 10.00
+		prerequisite = {
+			focus = SHX_Expand_the_taiyuan_arsenal
+		}
+		x = 8
+		y = 2
+			ai_will_do = {
+					factor = 1
+				}
+		completion_reward = {
+			add_tech_bonus = {
+				name = SHX_Artillery_department
+				bonus = 0.5
+				uses = 2
+				category = artillery
+			}
+		}
+		available = {
+			has_idea = northwest_industrial_company
+		}
+
+	}
+	focus = {
+		id = SHX_Improve_production_efficiency
+		icon =GFX_goal_generic_production
+		cost = 10.00
+		prerequisite = {
+			focus = SHX_Artillery_department
+		}
+		x = 8
+		y = 3
+			ai_will_do = {
+					factor = 1
+				}
+			completion_reward = {
+					#if = {
+					#		limit = {
+					#			has_idea = SHX_Taiyuan_arsenal
+					#		}
+					#		swap_ideas = {
+					#				remove_idea = SHX_Taiyuan_arsenal
+					#				add_idea = SHX_Taiyuan_arsenal_2
+					#		}
+					#}
+					#else = {
+					#		add_ideas = SHX_Taiyuan_arsenal_2
+					#}
+				set_country_flag = JPG_allow_weapon_scavenging
+				unlock_decision_tooltip = JPG_weapon_scavenging
+				custom_effect_tooltip = JPG_only_show_up_in_war_time_tt
+			}
+			available = {
+				has_idea = northwest_industrial_company
+				#owns_state = 615
+			    #controls_state = 615
+			}
+
+	}
+	focus = {
+		id = SHX_Development_of_a_new_generation_of_armaments
+		icon = GFX_focus_focus_fra_maquis
+		cost = 10.00
+		prerequisite = {
+			focus = SHX_Munitions_production_plan
+			focus = SHX_Improve_production_efficiency
+		}
+		x = 7
+		y = 4
+			ai_will_do = {
+					factor = 2
+				}
+			completion_reward = {
+				add_tech_bonus = {
+					name = SHX_Development_of_a_new_generation_of_armaments
+					bonus = 0.5
+					uses = 2
+					category = infantry_weapons
+				}
+				add_tech_bonus = {
+					name = SHX_Development_of_a_new_generation_of_armaments
+					bonus = 0.5
+					uses = 1
+					category = support_tech
+				}
+				#add_tech_bonus = {
+				#	name = SHX_Development_of_a_new_generation_of_armaments
+				#	bonus = 0.5
+				#	uses = 1
+				#	category = artillery
+				#}
+			}
+	}
+	focus = {
+		id = SHX_Experience_of_the_central_plains_war
+		icon = GFX_Focus_Lesson_Of_The_Central_Plains_War
+		cost = 10.00
+		prerequisite = {
+			focus = SHX_Model_warlord
+		}
+		x = 12
+		y = 1
+		ai_will_do = {
+			factor = 5
+		}
+		completion_reward = {
+			army_experience = 15
+			add_doctrine_cost_reduction = {
+				name = SHX_Experience_of_the_central_plains_war
+				cost_reduction = 0.2
+				uses = 1
+				category = land_doctrine
+			}
+			unlock_decision_tooltip = SHX_army_reform		
+		}
+	}
+	focus = {
+		id = SHX_military_academy
+		icon =  GFX_focus_generic_military_academy
+		cost = 10
+		prerequisite = {
+			focus = SHX_Experience_of_the_central_plains_war
+		}
+		mutually_exclusive = {
+			focus = SHX_Preparation_for_war
+		}
+		x = 11
+		y = 2
+		ai_will_do = {
+			factor = 2
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
+		}
+		completion_reward = {
+		    army_experience = 35
+		}
+
+	}
+	
+	focus = {
+		id = SHX_Focus_on_offense
+		icon = GFX_focus_generic_manpower
+		cost = 10
+		prerequisite = {
+			focus = SHX_military_academy
+		}
+		x = 11
+		y = 3
+			ai_will_do = {
+				factor = 2
+			    modifier = {
+					factor = 0
+					is_historical_focus_on = yes
+				}
+			}
+			completion_reward = {
+				add_ideas = SHX_Strengthen_the_attack
+			}
+
+	}
+	focus = {
+		id = SHX_Focus_on_defense
+		icon = GFX_goal_generic_defence
+		cost = 7.15
+		prerequisite = {
+			focus = SHX_Preparation_for_war
+		}
+		
+		x = 13
+		y = 3
+			ai_will_do = {
+			    factor = 2
+					    #modifier = {
+						#	factor = 0
+						#	is_historical_focus_on = yes
+						#}
+			}
+			completion_reward = {
+				add_ideas = SHX_Strengthen_defense
+			}
+
+	}
+	focus = {
+		id = SHX_Practical_experience
+		icon = GFX_focus_generic_air_defense
+		cost = 7.15
+		prerequisite = {
+			focus = SHX_Focus_on_offense
+			focus = SHX_Focus_on_defense
+		}
+		x = 12
+		y = 4
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+            add_doctrine_cost_reduction = {
+				name = SHX_Practical_experience
+				cost_reduction = 0.5
+				uses = 1
+				category = land_doctrine
+			}	
+			unlock_decision_tooltip = SHX_lfx_on
+			unlock_decision_tooltip = SHX_lfx_off
+			#add_ideas = SHX_Practical_experience						
+		}
+	}
+	focus = {
+		id = SHX_Offensive_operations
+		icon = GFX_focus_chi_army_reform
+		cost = 10.00
+		prerequisite = {
+			focus = SHX_Focus_on_offense
+		}
+		prerequisite = {
+			focus = SHX_Practical_experience
+		}
+		x = 11
+		y = 5
+			ai_will_do = {
+					factor = 2
+				}
+			completion_reward = {
+				swap_ideas = {
+					remove_idea = SHX_Strengthen_the_attack
+					add_idea = SHX_Strengthen_the_attack_2
+				}
+			}
+
+	}
+	focus = {
+		id = SHX_Elastic_defence
+		icon = GFX_goal_fortify_the_westwall
+		cost = 7.15
+		prerequisite = {
+			focus = SHX_Focus_on_defense
+		}
+		prerequisite = {
+			focus = SHX_Practical_experience
+		}
+		x = 13
+		y = 5
+			ai_will_do = {
+					factor = 2
+				}
+			completion_reward = {
+					swap_ideas = {
+							remove_idea = SHX_Strengthen_defense
+							add_idea = SHX_Strengthen_defense_2
+						}
+				}
+
+	}
+	#focus = {
+	#	id = SHX_Defend_the_homeland
+	#	icon = GFX_goal_generic_political_pressure
+	#	cost = 10.00
+	#	prerequisite = {
+	#		focus = SHX_Offensive_operations
+	#		focus = SHX_Elastic_defence
+	#	}
+	#	x = 12
+	#	y = 6
+	#		ai_will_do = {
+	#				factor = 5
+	#			}
+	#		completion_reward = {
+	#				add_ideas = SHX_Defend_the_homeland
+	#				add_war_support = 0.05
+	#			}
+    #
+	#}
+	focus = {
+		id = SHX_Assault_tactics
+		icon = GFX_goal_generic_position_armies 
+		cost = 7.15
+		prerequisite = {
+			focus = SHX_Offensive_operations
+			focus = SHX_Elastic_defence
+			#focus = SHX_Defend_the_homeland
+		}
+		#mutually_exclusive = {
+		#	focus = SHX_Remote_strike
+		#}
+		x = 12
+		y = 6
+			ai_will_do = {
+					factor = 2
+				}
+		completion_reward = {
+			add_tech_bonus = {
+				name = SHX_Assault_tactics
+				bonus = 0.25
+				uses = 1
+				category = land_doctrine
+			}
+		}
+
+	}
+	focus = {
+		id = SHX_Preparation_for_war
+		icon = GFX_COOP_army_guy
+		cost = 7.15
+		prerequisite = {
+			focus = SHX_Experience_of_the_central_plains_war
+		}
+		mutually_exclusive = {
+			focus = SHX_military_academy
+		}
+		x = 13
+		y = 2
+		ai_will_do = {
+			factor = 10
+					
+		}
+		completion_reward = {
+			custom_effect_tooltip = THIS_IS_HISTORICAL_TT	
+				    #add_ideas = SHX_Emergency_mobilization
+					#add_war_support = 0.05
+					#set_rule = {
+					#		can_send_volunteers = yes
+					#}
+					add_war_support = 0.05
+					#army_experience = 20
+					if = {
+						limit = {
+							OR = {
+								has_idea = disarmed_nation
+								has_idea = volunteer_only
+							}
+						}
+						add_ideas = limited_conscription
+					}
+			
+		}
+		available = {
+			#OR = {
+				#threat > 0.05
+				#has_war = yes
+			#}
+			#NOT = {
+			#	is_subject_of = JAP
+			#}
+		}
+		#bypass = {
+		#	#is_subject_of = JAP
+		#}
+
+	}
+	focus = {
+		id = SHX_To_preserve_ones_strength
+		icon = GFX_goal_generic_small_arms
+		cost = 7.15
+		prerequisite = {
+			focus = SHX_Shanxi_defense
+		}
+		x = 17
+		y = 3
+		ai_will_do = {
+			factor = 2
+			modifier = {
+				factor = 0
+				has_war = no
+			}
+		}
+		completion_reward = {
+			add_ideas = SHX_Save_strength
+		}
+		available = {
+			has_war_with = JAP	
+		}
+		available_if_capitulated = yes
+	}
+	focus = {
+		id = SHX_Shanxi_defense #to do
+		icon = GFX_goal_generic_fortify_city
+		cost = 5.00
+		prerequisite = {
+			focus = SHX_Second_theater
+		}
+		x = 19
+		y = 2
+			ai_will_do = {
+					factor = 5
+					modifier = {
+							factor = 0
+							has_war = no
+							threat < 0.3
+					}
+			}
+		completion_reward = {
+			615 = {
+				add_building_construction = {
+					type = bunker
+					level = 1
+					province = 1203
+				    instant_build = yes
+				}
+				add_building_construction = {
+					type = bunker
+					level = 1
+					province = 12344
+					instant_build = yes
+				}		
+				add_building_construction = {
+					type = bunker
+					level = 1
+					province = 4469
+					instant_build = yes
+				}
+			}
+		}
+		available = {
+			controls_state = 615
+		}
+		bypass = {
+			NOT = {
+				controls_state = 615
+			}
+		}
+	}
+	focus = {
+		id = SHX_Second_theater
+		icon = GFX_focus_attack_japan
+		cost = 7.15
+		prerequisite = {
+			focus = SHX_Three_eggs
+		}
+		x = 20
+		y = 1
+			ai_will_do = {
+					factor = 5
+			}
+		completion_reward = {
+			#add_ideas = SHX_Second_theater
+			add_war_support = 0.1
+			#add_country_leader_trait = {
+			#	#ideology = despotism
+			#	trait = xishan_doctrine
+			#}
+			unlock_decision_category_tooltip = SHX_secure_regime
+		}
+		available = {
+			OR = {
+				is_subject = no
+				is_subject_of = event_target:WTT_current_china_leader
+			}
+			has_war_with = JAP
+			event_target:WTT_current_china_leader = {
+				is_subject = no
+				has_war_with = JAP
+				NOT = {
+					has_war_with = ROOT
+				}
+			}	
+		}
+	}
+	focus = {
+		id = SHX_move_capital
+		icon = GFX_focus_spr_torchbearers_of_tomorrow
+		cost = 4
+		prerequisite = {
+			focus = SHX_Shanxi_defense
+		}
+		x = 19
+		y = 3
+		ai_will_do = {
+			factor = 5
+		}
+		completion_reward = {
+			add_ideas = SHX_never_surrender_in_war
+			if = {
+				limit = {
+					NOT = {
+						has_country_flag = SHX_move_captial_flag
+					}
+				}
+			    add_victory_points = {
+					province = 1531
+					value = 2
+				}
+			}
+			if = {
+				limit = {
+					NOT = {
+						has_country_flag = SHX_move_captial_flag
+					}
+				}
+				set_country_flag = SHX_move_captial_flag
+			}
+			set_capital = { state = 1027 }
+			1027 = {
+				add_building_construction = {
+					type = bunker
+					level = 1
+					province = 1531
+					instant_build = yes
+				}
+			}
+		}
+		available = {
+			has_war_with = JAP	
+			#OR = {
+				NOT = {
+					controls_state = 615
+					#has_full_control_of_state = 615
+				}
+				#NOT = {
+				#	controls_state = 1013
+				#}
+			#}
+			controls_province = 1531
+			1027 = {
+			    is_owned_by = ROOT
+				#is_capital = no 
+			}
+		}
+        bypass = {
+			num_of_controlled_states < 2
+			1027 = {
+			    is_owned_by = ROOT
+				is_capital = yes
+			}
+		}
+	}
+	focus = {
+		id = SHX_truce_with_japan
+		icon = GFX_focus_CZE_german_puppet
+		cost = 7.15
+		prerequisite = {
+			focus = SHX_move_capital
+		}
+		prerequisite = {
+			focus = SHX_To_preserve_ones_strength
+		}
+		mutually_exclusive = {
+			focus = SHX_keep_fighting
+		}
+		x = 15
+		y = 4
+		ai_will_do = {
+			factor = 5
+		}
+		completion_reward = {
+			custom_effect_tooltip = THIS_IS_HISTORICAL_TT
+			JAP = {
+				country_event = {
+					id = shx.11 hours = 12
+				}
+			}
+			custom_effect_tooltip = if_approved_tt
+			effect_tooltip = {
+				add_ideas = SHX_shanxi_japan_pact
+				every_enemy_country = {
+					limit = {
+						OR = {
+							tag = JAP
+							AND = {
+								is_subject_of = JAP
+								is_literally_china_including_chinese_puppets = yes 
+							}
+						}
+					}
+					add_ideas = SHX_shanxi_japan_pact_JAP
+				}
+			    #615 = { 
+			    #	add_dynamic_modifier = { modifier = anti_partisan_area }
+			    #	set_state_flag = we_will_help_the_legit_government
+			    #}
+				#custom_effect_tooltip = anti_communist_area_tt
+			}
+			unlock_decision_category_tooltip = SHX_deal_with_japan
+		}
+		available = {
+			has_war_with = JAP	
+			OR = {
+				casualties_k > 150
+                NOT = {
+					controls_state = 615
+				}
+			}
+			if = {
+				limit = {
+					has_any_power_balance = yes
+				}
+			    is_power_balance_in_range = {
+					id = SHX_yan_ccp_balance
+					range < shx_ccp_high_range
+				}
+			}
+			NOT = {
+				has_government = communism
+				is_faction_leader = yes
+			    has_country_flag = cancel_truce_with_japan_flag
+			    OR = {
+					621 = {
+						is_owned_and_controlled_by = ROOT
+					}
+					746 = {
+						is_owned_and_controlled_by = ROOT
+					}
+				}
+			}
+		}
+		available_if_capitulated = yes
+	}
+	focus = {
+		id = SHX_keep_fighting
+		icon = GFX_focus_AST_war_japan
+		cost = 7.15
+		mutually_exclusive = {
+			focus = SHX_truce_with_japan
+		}
+		prerequisite = {
+			focus = SHX_move_capital
+		}
+		prerequisite = {
+			focus = SHX_To_preserve_ones_strength
+		}
+		x = 18
+		y = 4
+		ai_will_do = {
+			factor = 2
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
+		}
+		completion_reward = {
+			add_war_support = 0.1
+		}
+		available = {
+			has_war_with = JAP		
+		}
+	} 
+
+	focus = {
+		id = SHX_request_central_support
+		icon = GFX_goal_tripartite_pact
+		cost = 7.15
+		prerequisite = {
+			focus = SHX_keep_fighting
+		}
+		x = 18
+		y = 5
+		ai_will_do = {
+			factor = 5
+		}
+		completion_reward = {
+			add_offsite_building = {
+				type = arms_factory
+				level = 2
+			}
+		}
+		available = {
+			#has_war_with = JAP	
+			NOT = {
+				has_government = communism
+			}
+			any_enemy_country = {
+				OR = {
+					is_major = yes
+					has_government = communism
+				}
+				has_war_with = event_target:WTT_current_china_leader
+			}
+			event_target:WTT_current_china_leader = {
+				#has_government = ROOT
+				is_subject = no
+				NOT = {
+					has_war_with = ROOT
+				}
+			}
+		}
+	} 
+
+	focus = {
+		id = SHX_anti_communist_cooperation
+		icon = GFX_focus_chi_collaboration_with_the_japanese
+		cost = 7.15
+		prerequisite = {
+			focus = SHX_truce_with_japan
+		}
+		x = 15
+		y = 5
+		ai_will_do = {
+			factor = 5
+		}
+		completion_reward = {
+			#transfer_state = 615
+			#set_capital = { state = 615 }
+			#event_target:WTT_communist_china = {
+				#country_event = 
+			#}
+			add_manpower = 25000
+			add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = 2000
+				producer = JAP
+			}
+			custom_effect_tooltip = gain_base_supp_cond_p10_tt
+			add_to_variable = {
+				Root.supply_condition_base = 10
+			}
+		}
+		available = {
+            NOT = {
+				has_government = communism  
+			}
+			has_war_with = JAP
+			event_target:WTT_communist_china = {
+				exists = yes
+			}
+		    is_power_balance_in_range = {
+				id = SHX_yan_ccp_balance
+				range < shx_ccp_middle_range
+			}
+		}
+		bypass = {
+			#OR = {
+			#	615 = {
+			#		is_owned_and_controlled_by = ROOT
+			#	}	
+			#}
+			NOT = {
+				has_war_with = JAP
+			}
+		}
+		available_if_capitulated = yes
+	}
+
+	focus = {
+		id = SHX_japanese_troops_in_shanxi
+		icon = GFX_Focus_KR_Japanese_Instructors
+		cost = 7.15
+		prerequisite = {
+			focus = SHX_anti_communist_cooperation
+		}
+		x = 14
+		y = 6
+		ai_will_do = {
+			factor = 5
+		}
+		completion_reward = {
+			if = {
+				limit = {
+					NOT = {
+						has_template = "Shanhsi Paoan Tsungtui"
+					}
+				}
+			    division_template = {
+					name = "Shanhsi Paoan Tsungtui"			
+					division_names_group = SHX_INF_02
+					regiments = {
+						infantry = { x = 0 y = 0 }
+						infantry = { x = 0 y = 1 }
+						infantry = { x = 1 y = 0 }
+						infantry = { x = 1 y = 1 }
+						infantry = { x = 2 y = 0 }
+						infantry = { x = 2 y = 1 }
+						infantry = { x = 3 y = 0 }
+					}
+					support = {
+						artillery = { x = 0 y = 0 }
+					}
+				}
+			}
+			random_owned_controlled_state = {
+				create_unit = {
+					division = "name = \"Shanhsi Paoan Tsungtui\" division_template = \"Shanhsi Paoan Tsungtui\" start_experience_factor = 0.4 start_manpower_factor = 0.05 start_equipment_factor = 0.05"
+					owner = SHX
+				}	
+			}
+            add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = 690
+				producer = JAP
+			} 
+			add_equipment_to_stockpile = {
+				type = artillery_equipment
+				amount = 10
+				producer = JAP
+			} 
+		}
+		available = {
+            NOT = {
+				has_war_with = JAP
+				has_government = communism
+			}
+			country_exists = event_target:WTT_communist_china
+		}
+	}
+
+    focus = {
+		id = SHX_provincial_defense_army
+		icon = GFX_Focus_Befriend_Five_Colors_Flag
+		cost = 7.15
+		prerequisite = {
+			focus = SHX_anti_communist_cooperation
+		}
+		x = 16
+		y = 6
+		ai_will_do = {
+			factor = 5
+		}
+		completion_reward = {
+			if = {
+				limit = {
+					NOT = {
+						has_template = "Shanhsi Shêngfangchün"
+					}
+				}
+			    division_template = {
+					name = "Shanhsi Shêngfangchün"			
+					division_names_group = SHX_INF_02
+					regiments = {
+						infantry = { x = 0 y = 0 }
+						infantry = { x = 0 y = 1 }
+						infantry = { x = 1 y = 0 }
+						infantry = { x = 1 y = 1 }
+						infantry = { x = 2 y = 0 }
+						infantry = { x = 2 y = 1 }
+						infantry = { x = 3 y = 0 }
+						infantry = { x = 3 y = 1 }
+						infantry = { x = 4 y = 0 }
+						infantry = { x = 4 y = 1 }
+					}
+				}
+			}	
+			random_owned_controlled_state = {
+				create_unit = {
+					division = "name = \"Shêngfang Ti 1 Chün\" division_template = \"Shanhsi Shêngfangchün\" start_experience_factor = 0.1 start_manpower_factor = 0.05 start_equipment_factor = 0.05"
+					owner = SHX
+				}	
+			}
+			random_owned_controlled_state = {
+				create_unit = {
+					division = "name = \"Shêngfang Ti 2 Chün\" division_template = \"Shanhsi Shêngfangchün\" start_experience_factor = 0.1 start_manpower_factor = 0.05 start_equipment_factor = 0.05"
+					owner = SHX
+				}	
+			}
+			random_owned_controlled_state = {
+				create_unit = {
+					division = "name = \"Shêngfang Ti 3 Chün\" division_template = \"Shanhsi Shêngfangchün\" start_experience_factor = 0.1 start_manpower_factor = 0.05 start_equipment_factor = 0.05"
+					owner = SHX
+				}	
+			}
+			random_owned_controlled_state = {
+				create_unit = {
+					division = "name = \"Shêngfang Ti 4 Chün\" division_template = \"Shanhsi Shêngfangchün\" start_experience_factor = 0.1 start_manpower_factor = 0.05 start_equipment_factor = 0.05"
+					owner = SHX
+				}	
+			}
+			random_owned_controlled_state = {
+				create_unit = {
+					division = "name = \"Shêngfang Ti 5 Chün\" division_template = \"Shanhsi Shêngfangchün\" start_experience_factor = 0.1 start_manpower_factor = 0.05 start_equipment_factor = 0.05"
+					owner = SHX
+				}	
+			}
+            add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = 4900
+				producer = SHX
+			} 
+		}
+		available = {
+            NOT = {
+				has_war_with = JAP
+				has_government = communism
+			    country_exists = EHB
+			}
+			#country_exists = event_target:WTT_communist_china
+		}
+	}
+
+	focus = {
+		id = SHX_civil_war_in_shanxi
+		icon = GFX_Goal_Attack_CCP
+		cost = 7.15
+		prerequisite = {
+			focus = SHX_provincial_defense_army
+			focus = SHX_request_central_support
+		}
+		x = 17
+		y = 7
+		ai_will_do = {
+			factor = 5
+		}
+		will_lead_to_war_with = PRC
+		completion_reward = {
+			unlock_decision_category_tooltip = SHX_civil_war_cat
+			declare_war_on = {
+				type = annex_everything
+				target = event_target:WTT_communist_china
+			}
+			activate_mission = SHX_mopping_up_mission
+		}
+		available = {
+            has_global_flag = CHI_no_longer_united_flag
+			event_target:WTT_communist_china = {
+				exists = yes
+				is_neighbor_of = ROOT
+				NOT = {
+					is_ally_with = ROOT
+					has_war_with = ROOT
+				}
+				any_owned_state = {
+					custom_trigger_tooltip = {
+						tooltip = is_in_strat_143
+						region = 143
+					}
+					is_core_of = ROOT
+				}
+				focus_progress = {
+					focus = PRC_War_of_Liberation
+					progress < 0.01
+				}
+			}
+			is_in_faction = no
+			is_subject = no
+		}
+		bypass = {
+			OR = {
+				event_target:WTT_communist_china = {
+					exists = no
+				}
+				event_target:WTT_communist_china = {
+					has_war_with = ROOT
+				}
+				any_allied_country = {
+					has_war_with = event_target:WTT_communist_china
+				}
+				event_target:WTT_communist_china = {
+					focus_progress = {
+						focus = PRC_War_of_Liberation
+						progress > 0.01
+					}
+				}		
+				all_core_state = {
+                    custom_trigger_tooltip = {
+						tooltip = is_in_strat_143
+						region = 143
+					}
+					NOT = {
+						is_owned_by = event_target:WTT_communist_china
+					}
+				}
+				is_in_faction = yes
+			    is_subject = yes	
+				tag = event_target:WTT_current_china_leader
+				tag = event_target:WTT_communist_china
+			}
+		}
+	}
+
+	focus = {
+		id = SHX_offensive_to_ccp
+		icon = GFX_goal_generic_occupy_states_ongoing_war
+		cost = 7.15
+		mutually_exclusive = {
+			focus = SHX_shanxi_defense_ccw
+		}
+		prerequisite = {
+			focus = SHX_civil_war_in_shanxi
+		}
+		x = 15
+		y = 8
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_timed_idea = {
+				idea = SHX_offensive_to_ccp days = 365
+			}
+		}
+		available = {
+            NOT = {
+				has_global_flag = SHX_lost_shangdang_flag
+			}
+			OR = {
+				has_war_with = event_target:WTT_communist_china
+				any_enemy_country = {
+					is_major = yes
+					is_neighbor_of = ROOT
+					NOT = {
+						has_government = ROOT
+					}
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = SHX_king_of_north_china
+		icon = GFX_focus_generic_monarchy_1
+		cost = 7.15
+		prerequisite = {
+			focus = SHX_offensive_to_ccp
+		}
+		x = 15
+		y = 9
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			event_target:WTT_current_china_leader = {
+				country_event = {
+					id = shx.21 hours = 12
+				}
+			}
+		}
+		available = {
+            NOT = {
+				SUY = {
+					exists = yes
+				}
+				tag = event_target:WTT_current_china_leader
+				has_war_with = event_target:WTT_current_china_leader
+			}
+			608 = {
+				is_controlled_by = event_target:WTT_current_china_leader
+			}
+		}
+	}
+
+	focus = {
+		id = SHX_shanxi_defense_ccw
+		icon = GFX_focus_ger_bulwark_against_bolshevism
+		cost = 7.15
+		mutually_exclusive = {
+			focus = SHX_offensive_to_ccp
+		}
+		prerequisite = {
+			focus = SHX_civil_war_in_shanxi
+		}
+		x = 17
+		y = 8
+		ai_will_do = {
+			factor = 10
+		}
+		will_lead_to_war_with = PRC
+		completion_reward = {
+			custom_effect_tooltip = THIS_IS_HISTORICAL_TT
+			if = {
+				limit = {
+					has_full_control_of_state = 615
+				}
+				615 = {
+					add_building_construction = {
+						type = bunker
+						level = 2
+						province = 12344
+						instant_build = yes
+					}	
+					add_building_construction = {
+						type = bunker
+						level = 1
+						province = 1203
+						instant_build = yes
+					}	
+					add_building_construction = {
+						type = bunker
+						level = 1
+						province = 1519
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = bunker
+						level = 1
+						province = 4175
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = bunker
+						level = 1
+						province = 12078
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = bunker
+						level = 1
+						province = 4538
+						instant_build = yes
+					}
+				}
+				else_if = {
+					limit = {
+						controls_state = 615
+					}
+					615 = {
+						add_building_construction = {
+							type = bunker
+							level = 2
+							province = 12344
+							instant_build = yes
+						}
+					}
+				}
+			}
+			if = {
+				limit = {
+					1013 = {
+						is_owned_and_controlled_by = ROOT
+					}
+				}
+				1013 = {
+					add_building_construction = {
+						type = bunker
+						level = 2
+						province = 12432
+						instant_build = yes
+					}	
+				}
+			}	
+		}
+		available = {
+			OR = {
+				615 = {
+				    is_owned_and_controlled_by = ROOT
+			    }
+				1013 = {
+				    is_owned_and_controlled_by = ROOT
+			    }
+			}
+			any_neighbor_country = {
+				OR = {
+					tag = event_target:WTT_communist_china
+				    AND = {
+						is_major = yes
+						NOT = {
+							has_government = ROOT
+						}
+					}
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = SHX_taiyuan_campaign
+		icon = GFX_goal_generic_war_with_comintern
+		cost = 7.15
+		prerequisite = {
+			focus = SHX_shanxi_defense_ccw
+		}
+		x = 17
+		y = 9
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			add_timed_idea = {
+				idea = SHX_last_stand days = 365
+			}
+		}
+		available = {
+            OR = {
+				has_war_with = event_target:WTT_communist_china
+				any_enemy_country = {
+					is_major = yes
+				}
+			}
+			615 = {
+				is_owned_and_controlled_by = ROOT
+			}
+			num_of_controlled_states < 3
+		}
+	}
+
+	#focus = {
+	#	id = SHX_fu_zuoyi_stays
+	#	icon = GFX_focus_generic_land_reclamation
+	#	cost = 7.15
+	#	x = 16
+	#	y = 7
+	#	ai_will_do = {
+	#		factor = 0
+	#	}
+	#	completion_reward = {
+	#			
+	#	}
+	#	available = {
+    #       NOT = {
+	#			country_exists = SUY
+	#		}
+	#	    OR = {
+	#			ECA = {
+	#				has_completed_focus = MEN_suiyuan_offensive
+	#			}
+	#			ECA = {
+	#				exists = no
+	#			}
+	#		}
+	#		if = {
+	#			limit = {
+	#				ECA = {
+	#					has_completed_focus = MEN_suiyuan_offensive
+	#				}
+	#			    has_global_flag = shx_plm_won_suiyuan
+	#				has_global_flag = shx_won_suiyuan
+	#			}
+	#			OR = {
+	#				has_global_flag = fu_is_dead_flag
+	#				has_global_flag = fu_stay_shx_flag
+	#			}
+	#			any_owned_state = {
+	#				OR = {
+	#					state = 621
+	#					state = 746
+	#					state = 1014
+	#				}
+	#				is_controlled_by = ROOT
+	#			}
+	#		    else = {
+	#				has_character = SHX_fu_zuoyi
+	#				OR = {
+	#					any_owned_state = {
+	#						OR = {
+	#							state = 621
+	#							state = 746
+	#							state = 1014
+	#						}
+	#						is_controlled_by = ROOT
+	#					}
+	#				}
+	#			}
+	#		}
+	#	}
+	#}
+	#focus = {
+	#	id = SHX_Suiyuan_defense
+	#	icon = GFX_goal_generic_construct_military
+	#	cost = 5.00
+	#	prerequisite = {
+	#		focus = SHX_Political_work_committee
+	#	}
+	#	x = 18
+	#	y = 1
+	#	ai_will_do = {
+	#		factor = 2
+	#	}
+	#	completion_reward = {
+	#		621 = {
+	#			set_building_level = {
+	#				type = bunker
+	#			    level = 1
+	#				province = {
+	#					all_provinces = yes
+	#					limit_to_border = yes
+	#					level < 1
+	#				}
+	#			}
+	#		}
+	#	}
+	#	available = {
+	#		has_full_control_of_state = 621
+	#	}
+	#	cancel = {
+	#		NOT = { has_full_control_of_state = 621 }
+	#	}
+    #
+	#}
+	#focus = {
+	#	id = SHX_Control_suiyuan
+	#	icon = GFX_focus_generic_provoke_border_clashes
+	#	cost = 10.00
+	#	prerequisite = {
+	#		focus = SHX_Political_work_committee
+	#	}
+	#	x = 20
+	#	y = 1
+	#		ai_will_do = {
+	#				factor = 2
+	#			}
+	#		completion_reward = {
+	#				hidden_effect = {
+	#						621 = {
+	#								set_state_flag = EFM_war_target_state
+	#								owner = {
+	#										country_event = {
+	#												id = EFM_Independent_border_war.0
+	#											}
+	#									}
+	#							}
+	#					}
+	#				#start_border_war = {
+					#		change_state_after_war = no
+					#		attacker = {
+					#				state = 746
+					#				num_provinces = 5
+					#				on_win = EFM_Independent_border_war.1
+					#				on_lose = EFM_Independent_border_war.2
+					#				on_cancel = EFM_Independent_border_war.3
+					#			}
+					#		defender = {
+					#				state = 621
+					#				num_provinces = 5
+					#				on_win = EFM_Independent_border_war.1
+					#				on_lose = EFM_Independent_border_war.2
+					#				on_cancel = EFM_Independent_border_war.3
+					#			}
+					#	}
+					#set_border_war_data = {
+					#		attacker = 746
+					#		defender = 621
+					#		#attacker_modifier = 0.5
+					#		#defender_modifier = 0.0
+					#		combat_width = 120
+	#				#	}
+	#			}
+	#		available = {
+	#				is_subject = no
+	#				owns_state = 746
+	#				NOT = {
+	#						owns_state = 621
+	#					}
+	#			}
+	#		bypass = {
+	#				OR = {
+	#						any_other_country = {
+	#								owns_state = 621
+	#								has_war_with = ROOT
+	#							}
+	#						any_other_country = {
+	#								owns_state = 621
+	#								is_subject_of = ROOT
+	#							}
+	#						any_other_country = {
+	#								owns_state = 621
+	#								is_in_faction_with = ROOT
+	#							}
+	#						owns_state = 621
+	#					}
+	#			}
+    #
+	#}
+	#focus = {
+	#	id = SHX_Limited_cooperation
+	#	icon = GFX_goal_tripartite_pact
+	#	cost = 10.00
+	#	prerequisite = {
+			#focus = SHX_Suiyuan_defense
+			#focus = SHX_Control_suiyuan
+		    #focus = SHX_Contact_the_communist
+	#	}
+	#	mutually_exclusive = {
+	#		focus = SHX_United_front
+	#	}
+	#	x = 19
+	#	y = 2
+	#		ai_will_do = {
+	#				factor = 5
+	#			}
+	#		completion_reward = {
+	#				custom_effect_tooltip = THIS_IS_HISTORICAL_TT
+	#				add_ideas = SHX_Limited_cooperation
+	#				add_timed_idea = { idea = communist_influence days = 180 }
+	#				add_opinion_modifier = {
+	#						target = PRC
+	#						modifier = Nations_friendly
+	#					}
+	#				PRC = {
+	#						add_opinion_modifier = {
+	#								target = ROOT
+	#								modifier = Nations_friendly
+	#							}
+	#					}
+	#					hidden_effect = {
+	#						if = {
+	#								limit = {
+	#										#has_completed_focus = SHX_Political_work_committee
+	#										event_target:WTT_current_china_leader = {
+	#												exists = yes
+	#												is_subject = no
+	#												NOT = {
+	#														has_war_with = ROOT
+	#														is_in_faction_with = ROOT
+	#													}
+	#											}
+	#									}
+	#								event_target:WTT_current_china_leader = {
+	#										country_event = {
+	#												id = EFM_Shanxi.72
+	#											}
+	#									}
+	#								country_event = {
+	#										id = EFM_Shanxi.74
+	#										days = 30
+	#									}
+	#							}
+	#						else_if = {
+	#								limit = {
+	#										#has_completed_focus = SHX_Political_work_committee
+	#									}
+	#								event_target:shanxi_clique = {
+	#										country_event = {
+	#												id = EFM_Shanxi.72
+	#											}
+	#									}
+	#								country_event = {
+	#										id = EFM_Shanxi.74
+	#										days = 30
+	#									}
+	#							}
+	#					}
+	#			}
+	#		available = {
+	#				is_subject = no
+	#			}
+    #
+	#}
+	focus = {
+		id = SHX_Land_reform
+		icon = GFX_focus_generic_concessions
+		cost = 10.00
+		prerequisite = {
+			focus = SHX_United_front
+		}
+		prerequisite = {
+			focus = SHX_board_of_shanxi_peoples_state_owned_enterprises
+		}
+		x = 23
+		y = 3
+		ai_will_do = {
+			factor = 2
+		}
+		completion_reward = {
+			#add_stability = 0.05
+			add_ideas = SHX_Land_reform
+		}
+		available = {
+				
+		}
+
+	}
+	#focus = {
+	#	id = SHX_Against_japan
+	#	icon = GFX_focus_AST_war_japan
+	#	cost = 10.00
+	#	prerequisite = {
+	#		focus = SHX_Limited_cooperation
+	#	}
+	#	x = 19
+	#	y = 4
+	#		ai_will_do = {
+	#				factor = 5
+	#			}
+	#		completion_reward = {
+	#				add_ideas = SHX_Against_japan
+	#			}
+	#		available = {
+	#				is_subject = no
+	#			}
+    #
+	#}
+	focus = {
+		id = SHX_Contact_the_communist
+		icon = GFX_focus_prc_social_democracy
+		cost = 7.15
+		prerequisite = {
+			#focus = SHX_Political_work_committee
+			focus = SHX_Three_eggs
+		}
+		x = 22
+		y = 1
+		available_if_capitulated = yes	
+			ai_will_do = {
+					factor = 200
+					modifier = {
+							factor = 0
+							is_historical_focus_on = yes
+							date < 1937.2.1#guo
+						}
+					modifier = {
+							factor = 0
+							is_historical_focus_on = no
+							date < 1936.6.1
+						}
+				}
+		completion_reward = {
+			event_target:WTT_communist_china = {
+				country_event = {
+					id = EFM_Shanxi.1
+				}
+			}
+			custom_effect_tooltip = if_approved_tt
+			
+			effect_tooltip = {
+				event_target:WTT_communist_china = {#guo
+				country_event = {
+					id = PRC_wangruofei.1
+				}
+				}
+			}
+			
+			effect_tooltip = {
+				add_timed_idea = { idea = SHX_Cooperation_with_the_communist days = 730 }
+				if = {
+					limit = {
+						has_idea = SHX_Anti_communist
+					}
+					remove_ideas = SHX_Anti_communist
+				}
+				diplomatic_relation = {
+					country = event_target:WTT_communist_china
+					relation = non_aggression_pact
+					active = yes
+				}
+			}
+		}
+		available = {
+				event_target:WTT_communist_china = {
+					NOT = {
+						OR = {
+							has_border_war_with = ROOT
+							has_war_with = ROOT
+						}		 			
+					}
+				}
+			#guo
+		}
+		bypass = {
+			event_target:WTT_communist_china = {
+			    OR = {
+				    exists = no
+					is_subject = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = SHX_United_front
+		icon = GFX_focus_chi_united_front
+		#icon = GFX_focus_por_workers_of_iberia
+		cost = 10
+		prerequisite = {
+			focus = SHX_Contact_the_communist
+		}
+		prerequisite = {
+			focus = SHX_Second_theater
+		}
+		#mutually_exclusive = {
+		#	focus = SHX_Limited_cooperation
+		#}
+		available_if_capitulated = yes
+		x = 21
+		y = 2
+		ai_will_do = {
+			factor = 5
+		}
+		completion_reward = {
+			set_party_name = {
+				ideology = communism
+				name = PRC_communism_party
+				long_name = PRC_communism_party_long
+			}   
+			
+			#guo
+			set_global_flag = has_completed_focus_SHX_United_front
+			custom_effect_tooltip = available_political_advisor
+			show_ideas_tooltip = SHX_Bo_Yibo
+			show_unit_leaders_tooltip = SHX_Bo_Yibo
+			
+			add_ideas = SHX_Limited_cooperation
+			add_timed_idea = { idea = communist_influence days = 180 }
+			add_war_support = 0.1
+			if = {
+				limit = {
+					has_any_power_balance = no
+				}
+				set_power_balance = {
+					id = SHX_yan_ccp_balance
+					left_side = SHX_yan_side	
+					right_side = SHX_ccp_side	
+					set_value = 0.05
+				}
+			}
+			unlock_decision_category_tooltip = SHX_deal_with_the_communists
+			event_target:WTT_communist_china = {
+				country_event = {
+					id = shx_comchina.3
+				}
+			}
+			#event_target:WTT_current_china_leader = {
+			#	country_event = {
+			#		id = shx_comchina.3
+			#	}
+			#}
+		    #country_event = {
+			#	id = EFM_Shanxi.74
+			#	days = 30
+			#}
+			add_opinion_modifier = {
+				target = event_target:WTT_communist_china
+				modifier = Nations_friendly
+			}
+			event_target:WTT_communist_china = {
+				add_opinion_modifier = {
+					target = ROOT
+					modifier = Nations_friendly
+				}
+			}
+			if = {
+				limit = {
+					NOT = {
+						is_in_faction_with = event_target:WTT_communist_china
+					}
+				}
+				give_military_access = event_target:WTT_communist_china
+			}
+				#custom_effect_tooltip = available_political_advisor
+				#show_ideas_tooltip = wrl_song_qingling	
+					#swap_ideas = {
+					#		remove_idea = SHX_Cooperation_with_the_communist
+					#		add_idea = SHX_Cooperation_with_the_communist_2
+					#	}
+					#PRC = {
+					#		country_event = {
+					#				id = EFM_Shanxi.2
+					#			}
+					#	}
+					#hidden_effect = {
+					#		if = {
+					#				limit = {
+					#						#has_completed_focus = SHX_Political_work_committee
+					#						event_target:WTT_current_china_leader = {
+					#								exists = yes
+					#								is_subject = no
+					#								NOT = {
+					#										has_war_with = ROOT
+					#										is_in_faction_with = ROOT
+					#									}
+					#							}
+					#				}
+					#				event_target:WTT_current_china_leader = {
+					#						country_event = {
+					#								id = EFM_Shanxi.72
+					#							}
+					#					}
+					#				country_event = {
+					#						id = EFM_Shanxi.74
+					#						days = 14
+					#					}
+					#			}
+					#		else_if = {
+					#				event_target:shanxi_clique = {
+					#						country_event = {
+					#								id = EFM_Shanxi.72
+					#							}
+					#					}
+					#				country_event = {
+					#						id = EFM_Shanxi.74
+					#						days = 14
+					#					}
+					#			}
+					#	}
+				
+		    }
+		available = {
+			#has_country_flag = SHC_Comchina_agree_the_contact
+			NOT = {
+				has_idea = SHX_Anti_communist
+			}
+			OR = {
+				is_in_faction_with = event_target:WTT_communist_china
+				AND = {
+					has_war_together_with = event_target:WTT_communist_china
+					NOT = {
+						has_war_with = event_target:WTT_communist_china
+					}
+				}
+			}
+			is_neighbor_of = event_target:WTT_communist_china
+		}
+	}
+	focus = {
+		id = SHX_Red_army_mode_of_operation
+		icon = GFX_Focus_Shanxi_New_Army
+		cost = 10.00
+		prerequisite = {
+			#focus = SHX_Limited_cooperation
+			focus = SHX_United_front
+		}
+		x = 21
+		y = 3
+		completion_reward = {
+			#country_event = shx.5
+			event_target:WTT_communist_china = {
+				country_event = shx.5
+			}
+			add_ideas = SHX_Red_army
+			custom_effect_tooltip = a_communist_new_army_will_be_established_tt
+			custom_effect_tooltip = we_can_have_buffs_as_long_as_new_army_tt
+		}
+		available = {
+			OR = {
+				is_in_faction_with = event_target:WTT_communist_china
+				AND = {
+					has_war_together_with = event_target:WTT_communist_china
+					NOT = {
+						has_war_with = event_target:WTT_communist_china
+					}
+				}
+			}
+			any_core_state = {
+				OR = {
+					is_owned_and_controlled_by = ROOT
+					is_owned_and_controlled_by = event_target:WTT_communist_china
+				}
+				#is_in_home_area = yes
+				NOT = {
+					OR = {
+						state = 621
+						state = 746
+						state = 1019
+						state = 1020
+						state = 1014
+					}
+				}
+			}
+			#is_neighbor_of = event_target:WTT_communist_china
+		}
+
+	}
+	focus = {
+		id = SHX_Launch_coup
+		icon = GFX_Focus_CCP_Flag_Rising
+		cost = 10.00
+		prerequisite = {
+			focus = SHX_western_shanxi_incident
+		}
+		mutually_exclusive = {
+			focus = SHX_Stop_cooperation_with_comchina
+		}
+		x = 20
+		y = 5
+			ai_will_do = {
+				factor = 10
+				modifier = {
+					factor = 0
+					is_historical_focus_on = yes
+					#communism < 0.5
+				}
+			}
+		completion_reward = {
+			retire_character = SHX_yan_xishan
+			retire_character = SHX_yang_aiyuan
+			retire_character = SHX_wang_jingguo
+			#retire_character = SHX_sun_chu
+			set_politics = {
+				ruling_party = communism
+				elections_allowed = no
+			}
+			hidden_effect = {
+                retire_country_leader = yes
+				retire_country_leader = yes
+			}
+			SHX_Bo_Yibo = {
+				add_country_leader_role = {
+					promote_leader = yes
+					country_leader = {
+						expire = "1965.1.1"
+						ideology = marxism
+						traits = {
+						}
+					} 
+				}
+			}
+			set_cosmetic_tag = SHX_CPC
+			add_stability = -0.1
+			add_political_power = 120
+			set_country_flag = SHX_Building_revolutionary_base
+			event_target:WTT_communist_china = {
+                country_event = shx.7
+			}
+			#unlock_decision_tooltip = {
+			#		decision = SHX_Building_revolutionary_base
+			#}
+		}
+		available = {
+			communism > 0.35
+			if = {
+				limit = {
+					has_any_power_balance = yes
+				}
+			    is_power_balance_in_range = {
+					id = SHX_yan_ccp_balance
+					range > shx_ccp_high_range
+				}
+			}
+			NOT = {
+				#has_country_flag = SHX_Conflict_broke_out
+			    has_completed_focus = SHX_truce_with_japan
+				has_completed_focus = SHX_Prepare_for_civilwar
+			}
+		}
+	}
+	focus = {
+		id = SHX_Contact_with_comintern
+		icon = GFX_focus_generic_soviet_politics
+		cost = 10.00
+		prerequisite = {
+			focus = SHX_Ten_rules
+		}
+		x = 21
+		y = 7
+		completion_reward = {
+			if = {
+				limit = {
+					has_idea = PRC_government_corruption
+				}
+			    remove_ideas = PRC_government_corruption
+			}
+			add_political_power = 100
+		}
+		available = {	
+			has_government = communism
+			has_idea = PRC_government_corruption
+		}
+			
+        bypass = {
+            NOT = {
+				has_idea = PRC_government_corruption
+			}
+		}
+	}
+	focus = {
+		id = SHX_Form_the_northern_bureau
+		icon = GFX_focus_chi_cooperation_with_the_communists
+		cost = 10.00
+		prerequisite = {
+			focus = SHX_Contact_with_comintern
+		}
+		prerequisite = {
+			focus = SHX_Communism_land_reform
+		}
+		mutually_exclusive = {
+			focus = SHX_Struggle_party_central_committee
+		}
+		x = 19
+		y = 8
+		completion_reward = {				
+			event_target:WTT_communist_china = {
+				country_event = {
+					id = EFM_Shanxi.3
+				}
+			}
+			effect_tooltip = {
+                every_core_state = {
+					add_core_of = event_target:WTT_communist_china
+				}
+				event_target:WTT_communist_china = {
+					annex_country = { target = ROOT transfer_troops = yes }
+				}
+			}
+			if = {
+				limit = {
+					is_ai = no
+				    event_target:WTT_communist_china = {
+						is_ai = yes
+					}
+				}
+                effect_tooltip = {
+					event_target:WTT_communist_china = {
+						change_tag_from = ROOT				
+					}
+				}
+			    else = {
+					custom_effect_tooltip = GAME_OVER_TT
+				}
+			}
+			#if = {
+			#	limit = {
+			#		is_ai = yes
+			#	}
+            #    custom_effect_tooltip = GAME_OVER_TT
+			#}
+					#set_country_flag = SHX_Suiyuan_exchange_for_freedom
+					#unlock_decision_tooltip = {
+					#		decision = SHX_Suiyuan_exchange_for_freedom
+					#}
+		}
+		available = {
+			has_government = communism
+			#has_country_flag = SHC_Comchina_agree_the_agreement
+			NOT = {
+				#has_country_flag = SHX_Conflict_broke_out
+				has_war_with = event_target:WTT_communist_china
+			}
+		}
+	}
+	focus = {
+		id = SHX_Struggle_party_central_committee
+		icon = GFX_goal_support_communism 
+		cost = 10.00
+		prerequisite = {
+			focus = SHX_Contact_with_comintern
+		}
+		prerequisite = {
+			focus = SHX_Communism_land_reform
+		}
+		mutually_exclusive = {
+			focus = SHX_Form_the_northern_bureau
+		}
+		x = 21
+		y = 8
+			#completion_reward = {
+			#		SOV = {
+			#				country_event = {
+			#						id = EFM_Shanxi.7
+			#					}
+			#			}
+			#}
+		available = {
+			#MODDED
+			SOV = {
+				has_opinion = {
+					target = ROOT
+					value > 49
+				}
+			}
+			#MODDED
+			is_subject = no
+			NOT = { has_war_with = PRC }
+			NOT = { has_war_with = SOV }
+			SOV = { has_government = communism }
+		}
+		completion_reward = {
+			custom_effect_tooltip = CHI_the_yanan_incident_effect_tt
+			save_event_target_as = warlord
+			add_ideas = PRC_soviet_tribute_1
+			SOV = { country_event = { id = wtt_warlord_vs_prc.1 } }
+			custom_effect_tooltip = warn_focus_change_tt
+		}
+
+	}
+	#focus = {
+	#	id = SHX_Communist_international_science_project
+	#	icon = GFX_focus_generic_socialist_science
+	#	cost = 10.00
+	#	prerequisite = {
+	#		focus = SHX_Form_the_northern_bureau
+	#		focus = SHX_Struggle_party_central_committee
+	#	}
+	#	x = 22
+	#	y = 7
+	#		ai_will_do = {
+	#				factor = 2
+	#			}
+	#		completion_reward = {
+	#				if = {
+	#						limit = {
+	#							is_in_faction_with = SOV
+	#						}
+	#						USA = {
+	#								add_to_tech_sharing_group = Moscow_international_research_team
+	#							}
+	#						add_to_tech_sharing_group = Moscow_international_research_team
+	#					}
+	#			}
+	#		available = {
+	#				is_subject = no
+	#				is_in_faction_with = SOV
+	#			}
+    #
+	#} 
+	focus = {
+		id = SHX_rent_and_interest_reduction_movement
+		icon = GFX_goal_generic_consumer_goods
+		cost = 10.00
+		prerequisite = {
+			focus = SHX_Launch_coup
+
+		}
+		x = 19
+		y = 6
+		completion_reward = {
+			add_timed_idea = {
+				idea = SHX_rent_and_interest_reduction_movement
+				days = 730
+			}
+			#add_ideas = 
+		}
+		available = {
+			has_government = communism 
+			#is_subject_of = PRC
+			#NOT = {
+			#	has_country_flag = SHX_Conflict_broke_out
+			#}
+		}
+
+	}
+	
+	focus = {
+		id = SHX_Communism_land_reform
+		icon = GFX_focus_peasant_growth
+		cost = 10.00
+		prerequisite = {
+			focus = SHX_rent_and_interest_reduction_movement
+
+		}
+		x = 19
+		y = 7
+		completion_reward = {
+			if = {
+				limit = {
+					has_idea = SHX_Land_reform
+				}
+				swap_ideas = { remove_idea = SHX_Land_reform add_idea = SHX_Communism_land_reform }
+			}
+			else = {
+				add_ideas = SHX_Communism_land_reform
+			}
+		}
+		available = {
+			has_government = communism
+			has_idea = SHX_Land_reform
+			#is_subject_of = PRC
+			#NOT = {
+			#	has_country_flag = SHX_Conflict_broke_out
+			#}
+		}
+
+	}
+	focus = {
+		id = SHX_Stop_cooperation_with_comchina
+		icon = GFX_goal_generic_war_with_comintern
+		cost = 10.00
+		prerequisite = {
+			#focus = SHX_Political_work_committee
+			focus = SHX_western_shanxi_incident
+		}
+		mutually_exclusive = {
+			focus = SHX_Launch_coup
+		}
+		available_if_capitulated = yes
+		x = 22
+		y = 5
+			ai_will_do = {
+				factor = 10
+				modifier = {
+					factor = 150
+							
+				}
+			}
+			completion_reward = {
+				custom_effect_tooltip = THIS_IS_HISTORICAL_TT	
+				    if = {
+							limit = {
+									has_idea = SHX_Cooperation_with_the_communist
+								}
+							remove_ideas = SHX_Cooperation_with_the_communist
+						}
+					if = {
+							limit = {
+									has_idea = SHX_Cooperation_with_the_communist_2
+								}
+							remove_ideas = SHX_Cooperation_with_the_communist_2
+						}
+					if = {
+						limit = {
+							has_idea = communist_influence
+						}
+						remove_ideas = communist_influence
+					}
+					if = {
+						limit = {
+							has_idea = SHX_Red_army
+						}
+						remove_ideas = SHX_Red_army
+					}
+					if = {
+						limit = {
+							has_idea = SHX_Red_army_2
+						}
+						remove_ideas = SHX_Red_army_2
+					}
+					if = {
+						limit = {
+							has_government = communism
+						}
+						set_politics = {
+							ruling_party = neutrality
+							elections_allowed = no
+						}
+					}
+					if = {
+						limit = {
+							has_idea = SHX_Limited_cooperation
+						}
+						remove_ideas = SHX_Limited_cooperation
+					}
+					add_popularity = {
+						ideology = communism
+						popularity = -0.1
+					}
+					add_opinion_modifier = {
+						target = event_target:WTT_communist_china
+						modifier = hostile_status
+					}
+					remove_opinion_modifier = {
+						target = event_target:WTT_communist_china
+						modifier = shx_prc_unstable_al
+					}
+					if = {
+						limit = {
+							has_completed_focus = SHX_United_front
+						}
+						remove_opinion_modifier = {
+							target = event_target:WTT_communist_china
+							modifier = Nations_friendly
+						}
+						event_target:WTT_communist_china = {
+							remove_opinion_modifier = {
+								target = ROOT
+								modifier = Nations_friendly
+							}
+						}
+					}
+					add_ai_strategy = {
+						type = conquer
+						id = PRC
+						value = 200
+					}
+					event_target:WTT_communist_china = {
+						country_event = {
+							id = EFM_Shanxi.12
+							days = 1
+						}
+					}
+					#set_country_flag = SHX_Conflict_broke_out
+				}
+			available = {
+				OR = {
+					#has_completed_focus = SHX_Contact_the_communist
+					#has_completed_focus = SHX_Limited_cooperation
+					has_completed_focus = SHX_United_front
+					#communism > 0.35
+				}
+				if = {
+					limit = {
+						has_any_power_balance = yes
+					}
+				    is_power_balance_in_range = {
+						id = SHX_yan_ccp_balance
+						range < shx_yan_high_range
+					}
+				}
+				NOT = {
+					has_government = communism
+					#has_war_with = event_target:WTT_communist_china
+				}
+			}
+		#bypass = {
+			#OR = {
+			#	event_target:WTT_communist_china = {
+			#		exists = no
+			#	}
+			#}
+		#}
+	}
+	focus = {
+		id = SHX_western_shanxi_incident
+		icon = GFX_Focus_CCP_And_KMT_Buring
+		cost = 10.00
+		prerequisite = {
+			focus = SHX_Red_army_mode_of_operation
+		}
+		x = 21
+		y = 4
+		ai_will_do = {
+			factor = 2
+		}
+		completion_reward = {
+			#country_event = shx.6
+			add_popularity = {
+				ideology = communism
+				popularity = -0.25
+			}
+		}
+		available = {
+            communism < 0.15
+		}
+        
+		bypass = {
+            has_country_flag = shx_no_w_shanxi_flag
+			#OR = {
+				#has_country_flag = shx_com_w_shanxi_flag
+			#}
+		}
+	}
+	
+	focus = {
+		id = SHX_Purge_communists
+		icon = GFX_focus_SOV_the_last_purge
+		cost = 10.00
+		prerequisite = {
+			focus = SHX_Stop_cooperation_with_comchina
+		}
+		#mutually_exclusive = {
+		#	focus = SHX_Launch_coup
+		#}
+		x = 23
+		y = 6
+		ai_will_do = {
+			factor = 1500
+		}
+			completion_reward = {
+					#custom_effect_tooltip = THIS_IS_HISTORICAL_TT
+					add_popularity = {
+						ideology = communism
+						popularity = -0.9
+					}
+					add_power_balance_value = {
+						id = SHX_yan_ccp_balance
+						value = -0.5
+					}
+					if = {
+						limit = {
+							NOT = {
+								has_idea = SHX_Anti_communist
+							}
+						}
+						add_ideas = SHX_Anti_communist
+					}
+					add_political_power = 100
+					add_stability = -0.05
+					add_manpower = -10000
+					#if = {
+					#		limit = {
+					#				has_country_flag = SHX_General_fu_zuoyi_joins_shanxi_clique
+					#				NOT = {
+					#						#has_completed_focus = SHX_Political_work_committee
+					#					}
+					#			}
+					#		hidden_effect = {
+					#				country_event = {
+					#						id = EFM_Shanxi.91
+					#					}
+					#			}
+					#	}
+				}
+			available = {
+				#has_completed_focus = SHX_Red_army_mode_of_operation
+				NOT = {
+					has_government = communism
+				}
+			}
+
+	}
+	focus = {
+		id = SHX_shanxi_provincial_politics_ten_years_construction_plan 
+		icon = GFX_Focus_Shanxi_Clique 
+		cost = 10.00
+		prerequisite = {
+			#focus = SHX_Political_work_committee
+			focus = SHX_Three_eggs
+		}
+		x = 24
+		y = 1
+		available_if_capitulated = yes	
+		ai_will_do = {
+			factor = 5
+		}
+		completion_reward = {
+		    #add_political_power = 100
+			add_ideas = SHX_ten_years_plan
+		}
+		available = {
+			    
+		}
+		#bypass = {
+		#			
+		#}
+	}
+	focus = {
+		id = SHX_board_of_shanxi_peoples_state_owned_enterprises #山西人民公营事业董事会
+		icon = GFX_focus_generic_self_management
+		cost = 10.00
+		prerequisite = {
+			#focus = SHX_Political_work_committee
+			focus = SHX_shanxi_provincial_politics_ten_years_construction_plan
+		}
+		x = 24
+		y = 2
+		available_if_capitulated = yes	
+		ai_will_do = {
+			factor = 5
+		}
+		completion_reward = {
+		    add_political_power = 100
+            #random_owned_controlled_state = {
+			#	add_extra_state_shared_building_slots = 1
+			#	add_building_construction = {
+			#		type = industrial_complex
+			#		level = 1
+			#		instant_build = yes
+			#	}
+			#}
+			add_ideas = SHX_board_of_soe
+		}
+		available = { 
+		}
+		#bypass = {
+		#			
+		#}
+
+	}
+	focus = {
+		id = SHX_Contact_nationalist_government
+		icon = GFX_focus_NRA
+		cost = 5
+		prerequisite = {
+			#focus = SHX_Political_work_committee
+			focus = SHX_Three_eggs
+		}
+		x = 26
+		y = 1
+		available_if_capitulated = yes	
+		ai_will_do = {
+			factor = 200
+		}
+		completion_reward = {
+			#add_opinion_modifier = {
+			#	target = event_target:WTT_current_china_leader
+			#	modifier = Nations_friendly
+			#}
+			add_political_power = -50
+			event_target:WTT_current_china_leader = {
+				#add_opinion_modifier = {
+				#	target = ROOT
+				#	modifier = Nations_friendly
+				#}
+			    country_event = shx.8
+			}
+            custom_effect_tooltip = if_approved_tt
+			effect_tooltip = {
+				#add_ideas = SHX_central_support
+				add_manpower = 30000
+				army_experience = 25
+				give_military_access = event_target:WTT_current_china_leader
+			}
+		}
+		available = {
+			event_target:WTT_communist_china  = {
+                #OR = {
+				#	has_border_war_with = ROOT
+				#    has_war_with = ROOT
+				#}
+				is_neighbor_of = ROOT
+				NOT = {
+					has_non_aggression_pact_with = ROOT
+					is_in_faction_with = ROOT
+				}
+			}  
+			NOT = {
+				has_war_with = event_target:WTT_current_china_leader
+			}
+		}
+		bypass = {
+			OR = {
+                event_target:WTT_current_china_leader = {
+					OR = {
+						exists = no
+						is_subject = yes
+						has_war_with = ROOT
+					}
+				}
+			    event_target:WTT_communist_china = {
+					OR = {
+						exists = no
+				        NOT = {
+							is_neighbor_of = ROOT
+						}
+						has_non_aggression_pact_with = ROOT
+						is_in_faction_with = ROOT
+						#AND = {
+						#	has_completed_focus = PRC_East_conquest
+						#	NOT = {
+						#		has_border_war_with = ROOT
+						#	}
+						#}	
+					}
+				}
+			    #is_in_faction_with = event_target:WTT_communist_china
+			}
+		}
+	}
+	focus = {
+		id = SHX_Cooperation_with_chiang
+		icon = GFX_focus_chi_cooperation_with_the_nationalists
+		cost = 10
+		prerequisite = {
+			focus = SHX_Contact_nationalist_government
+		}
+		#mutually_exclusive = {
+		#	focus = SHX_Invite_democrats
+		#}
+		available_if_capitulated = yes
+		x = 26
+		y = 2
+			ai_will_do = {
+					factor = 2				
+			}
+			completion_reward = {
+					#custom_effect_tooltip = THIS_IS_HISTORICAL_TT
+					#add_war_support = 0.05
+					#event_target:WTT_current_china_leader = {
+					#		country_event = {
+					#				id = EFM_Shanxi.13
+					#			}
+					#		custom_effect_tooltip = needs_approval
+					#}
+				event_target:WTT_current_china_leader = { add_opinion_modifier = { modifier = RCM_cooperation_with_the_nationalists_positive target = ROOT } }
+				event_target:WTT_communist_china = { add_opinion_modifier = { modifier = RCM_cooperation_with_the_nationalists_negative target = ROOT } }
+				add_opinion_modifier = { modifier = RCM_cooperation_with_the_nationalists_negative target = event_target:WTT_communist_china }
+			}
+			available = {
+				OR = {
+					is_subject = no
+					is_subject_of = event_target:WTT_current_china_leader
+				}
+				communism < 0.2
+				NOT = {
+					has_war_with = event_target:WTT_current_china_leader
+				}
+				event_target:WTT_current_china_leader = {
+					exists = yes
+					is_subject = no
+				}
+			}
+			bypass = {
+				event_target:WTT_current_china_leader = {
+					OR = {
+						exists = no
+						is_subject = yes
+						has_war_with = ROOT
+					}
+				}
+			}
+
+	}
+	#focus = {
+	#	id = SHX_Invite_democrats
+	#	icon = GFX_focus_generic_the_giant_wakes
+	#	cost = 10.00
+	#	prerequisite = {
+	#		focus = SHX_Contact_nationalist_government
+	#	}
+	#	mutually_exclusive = {
+	#		focus = SHX_Cooperation_with_chiang
+	#	}
+	#	x = 27
+	#	y = 2
+	#		ai_will_do = {
+	#				factor = 2
+	#				modifier = {
+	#						factor = 0
+	#						is_historical_focus_on = yes
+	#						democratic < 0.3
+	#				}
+	#		}
+	#		completion_reward = {
+	#				add_stability = 0.05
+	#				add_ideas = SHX_Chinese_democrats
+	#				custom_effect_tooltip = available_political_advisor
+	#				custom_effect_tooltip = unlock_hu_shih_tt
+	#		}
+	#		available = {
+	#			OR = {
+	#				is_subject = no
+	#				is_subject_of = event_target:WTT_current_china_leader
+	#			}
+	#			communism < 0.2
+	#		}
+    #
+	#}
+	focus = {
+		id = SHX_Government_reform
+		icon = GFX_focus_generic_treaty
+		cost = 10
+		prerequisite = {
+			focus = SHX_Cooperation_with_chiang
+			#focus = SHX_Invite_democrats
+		}
+		x = 26
+		y = 3
+			ai_will_do = {
+					factor = 1
+					modifier = {
+							factor = 2
+							date > 1937.9.1
+						}
+				}
+			completion_reward = {
+					add_stability = 0.05
+					add_war_support = 0.05
+				}
+
+	}
+	#focus = {
+	#	id = SHX_Oppose_communism
+	#	icon = GFX_Goal_Attack_CCP
+	#	cost = 10.00
+	#	prerequisite = {
+	#		focus = SHX_Purge_communists
+			#focus = SHX_Government_reform
+	#	}
+	#	x = 23
+	#	y = 7
+	#		ai_will_do = {
+	#				factor = 5
+	#				modifier = {
+	#						factor = 0
+	#						is_historical_focus_on = yes
+	#						#date < 1937.9.1
+	#					}
+	#		    modifier = {
+	#						factor = 0
+	#						event_target:WTT_communist_china = {
+	#								is_in_faction_with = event_target:WTT_current_china_leader
+	#							}
+	#						strength_ratio = {
+	#								tag = event_target:WTT_current_china_leader
+	#								ratio < 1.0
+	#							}
+	#			}
+	#		}
+	#		completion_reward = {
+	#			create_wargoal = {
+	#				type = annex_everything
+	#				target = event_target:WTT_communist_china
+	#			}
+			    #add_ai_strategy = {
+				#			type = antagonize
+				#			id = PRC
+				#			value = 5000
+				#		}
+	#		}
+	#		available = {
+	#			is_subject = no
+	#			NOT = {
+	#				has_government = communism
+	#			}
+	#			event_target:WTT_communist_china = {
+	#				is_neighbor_of = ROOT
+	#				NOT = {
+	#					is_in_faction_with = ROOT
+	#				}
+	#			}	
+	#		}
+	#		bypass = {
+	#			OR = {
+	#				event_target:WTT_communist_china = {
+	#					exists = no
+	#				}		
+	#				has_war_with = event_target:WTT_communist_china
+	#			}
+	#		}
+	#		will_lead_to_war_with = PRC
+    #
+	#}
+	#focus = {
+	#	id = SHX_Hold_local_elections
+	#	icon = GFX_focus_generic_treaty
+	#	cost = 10.00
+	#	prerequisite = {
+	#		focus = SHX_Invite_democrats
+	#	}
+	#	x = 27
+	#	y = 4
+	#		ai_will_do = {
+	#				factor = 5
+	#			}
+	#		completion_reward = {
+	#				if = {
+	#						limit = {
+	#								NOT = {
+	#										has_government = democratic
+	#									}
+	#							}
+	#						set_politics = {
+	#								ruling_party = democratic
+	#								elections_allowed = yes
+	#							}
+	#					}
+	#				add_political_power = 150
+	#				add_stability = 0.05
+	#			}
+	#		available = {
+	#				OR = {
+	#						democratic > 0.4
+	#						has_government = democratic
+	#					}
+	#			}
+    #
+	#}
+	focus = {
+		id = SHX_Prepare_for_civilwar
+		icon = GFX_focus_last_ditch
+		cost = 10.00
+		prerequisite = {
+			focus = SHX_Government_reform
+			#focus = SHX_Hold_local_elections
+		}
+		mutually_exclusive = {
+			focus = SHX_anti_opposition_campaigns
+		}
+		x = 25
+		y = 4
+		allow_branch = {
+            has_dlc = "Waking the Tiger"
+		}
+		ai_will_do = {
+			factor = 2
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
+		}
+		completion_reward = {
+			if = {
+				limit = { 
+					has_dlc = "Waking the Tiger"
+			    }
+				custom_effect_tooltip = enable_power_struggle
+			
+			    hidden_effect = {
+				    WTT_setup_political_struggle = yes
+				    WTT_add_ROOT_to_political_struggle = yes
+			    }
+			    every_controlled_state = { #MODDED
+				    limit = {
+					    is_core_of = ROOT
+					    WTT_is_potential_political_struggle_state = yes #MODDED
+				    }
+				    #Add random state support for ROOT
+				    WTT_random_support_chance_increase_for_ROOT_in_state = yes #MODDED
+				    hidden_effect = {
+					    #Save relevant event targets. Need to be done before updating state support
+					        save_event_target_as = state
+					        random_country = {
+						        limit = {
+							        PREV = { has_state_flag = majority_political_platform_@PREV }
+						        }
+						       save_event_target_as = majority_country
+					        }
+					       #Update state support
+					       WTT_recalculate_state_support_for_ROOT = yes #MODDED
+					       #Status events
+					       WTT_fire_add_support_status_events = yes #MODDED
+					      #Recalc all support
+					      WTT_political_struggle_recalculate_support = yes #MODDED
+				    }
+			    } #MODDED			       
+		        else = { 
+			        add_political_power = 200	
+			    }  
+            }
+		}
+		available = {
+			#num_of_controlled_states > 3
+			NOT = {
+				has_government = communism
+				has_completed_focus = SHX_Launch_coup
+			}
+			communism < 0.2
+			custom_trigger_tooltip = {
+				tooltip = is_not_supporting_someone_in_political_struggle
+				NOT = {
+					any_country = {
+						ROOT = { has_country_flag = warlord_supports_@PREV }
+					}
+				}
+			}
+			is_neighbor_of = CHI
+			is_subject = no
+			NOT = { has_war_with = CHI }
+			if = {
+				limit = {
+					WTT_not_taking_over_national_leadership = no
+				}
+				WTT_not_taking_over_national_leadership = yes
+			}
+			if = {
+				limit = {
+					WTT_not_china_leader_refused_to_give_up_national_leadership = no
+				}
+				WTT_not_china_leader_refused_to_give_up_national_leadership = yes
+			}				
+	    }
+
+	}
+	focus = {
+		id = SHX_join_central
+		icon = GFX_focus_generic_china1
+		cost = 10.00
+		prerequisite = {
+			focus = SHX_Prepare_for_civilwar
+		}
+		x = 25
+		y = 5
+		ai_will_do = {
+			factor = 2
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
+		}
+		completion_reward = {
+			add_timed_idea = {
+				idea = SHX_Influential_clique
+				days = 365
+			}
+		}
+		available = {
+			#num_of_controlled_states > 3
+			NOT = {
+				has_government = communism
+				has_completed_focus = SHX_Launch_coup
+			}
+			communism < 0.2
+			custom_trigger_tooltip = {
+				tooltip = is_not_supporting_someone_in_political_struggle
+				NOT = {
+					any_country = {
+						ROOT = { has_country_flag = warlord_supports_@PREV }
+					}
+				}
+			}
+			is_neighbor_of = CHI
+			is_subject = no
+			NOT = { has_war_with = CHI }
+			if = {
+				limit = {
+					WTT_not_taking_over_national_leadership = no
+				}
+				WTT_not_taking_over_national_leadership = yes
+			}
+			if = {
+				limit = {
+					WTT_not_china_leader_refused_to_give_up_national_leadership = no
+				}
+				WTT_not_china_leader_refused_to_give_up_national_leadership = yes
+			}				
+	    }
+        bypass = {
+			tag = event_target:WTT_current_china_leader
+		}
+	}
+	focus = {
+		id = SHX_anti_opposition_campaigns
+		icon = GFX_focus_generic_provoke_border_clashes
+		cost = 10.00
+		prerequisite = {
+			focus = SHX_Government_reform
+			#focus = SHX_Hold_local_elections
+		}
+		mutually_exclusive = {
+			focus = SHX_Prepare_for_civilwar
+		}
+		x = 27
+		y = 4
+		ai_will_do = {
+			factor = 10
+			modifier = {
+				factor = 10
+				is_historical_focus_on = yes
+			}
+		}
+		completion_reward = {
+			#custom_effect_tooltip = THIS_IS_HISTORICAL_TT
+			add_war_support = 0.05
+			#add_ideas = SHX_Future_situation
+			#add_ideas = SHX_Ambition_of_shanxi
+		    #unlock_decision_tooltip = SHX_Strike_the_puppet_regime
+			set_country_flag = EFM_Increase_core_territory
+			every_country = {
+				limit = {
+					is_neighbor_of = ROOT
+					OR = {
+						is_warlord = yes
+						tag = event_target:WTT_communist_china
+					}
+				}
+				add_opinion_modifier = {
+					target = ROOT
+					modifier = WRL_conflict_of_interest
+				}
+			}
+			custom_effect_tooltip = opinion_worsen_over_time_tt
+			custom_effect_tooltip = remove_insult_cd
+			set_variable = {
+				Root.insult_cd = 0
+			}
+			set_variable = {
+				Root.insult_cost = 40
+			}
+		}
+		available = {
+			#num_of_controlled_states > 3
+			is_subject = no				
+	    }
+
+	}
+
+	focus = {
+		id = SHX_clash_with_the_central_government_focus
+		icon = GFX_focus_generic_provoke_border_clashes
+		prerequisite = { focus = SHX_anti_opposition_campaigns }
+		x = 27
+		y = 5
+		
+		cost = 10
+
+		ai_will_do = {
+			factor = 2
+		}
+
+		available = {
+			#is_neighbor_of = event_target:WTT_current_china_leader
+			has_opinion = {
+				target = event_target:WTT_current_china_leader
+				value < -19
+			}
+			event_target:WTT_current_china_leader = {
+				has_opinion = {
+					target = ROOT
+					value < -19
+				}
+			}
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+			event_target:WTT_current_china_leader = {
+				add_opinion_modifier = {
+					target = ROOT
+					modifier = WRL_conflict_of_interest
+				}
+				custom_effect_tooltip = opinion_worsen_over_time_tt
+			}
+			custom_effect_tooltip = CHI_provoke_border_clashes_effect_tooltip
+		}
+	}
+	focus = {
+		id = SHX_Lead_independent_movement
+		icon = GFX_goal_generic_demand_territory
+		cost = 10.00
+		prerequisite = {
+			focus = SHX_Support_north_china_buffer_state_strategy
+		}
+		x = 31
+		y = 1
+			ai_will_do = {
+					factor = 2
+				}
+			completion_reward = {
+				    custom_effect_tooltip = available_political_advisor
+				    custom_effect_tooltip = unlock_rensuke_tt
+				    custom_effect_tooltip = unlock_liu_tt
+				    #create_faction = "North_china_government"
+					add_opinion_modifier = {
+						target = event_target:WTT_current_china_leader
+						modifier = Nations_estrangement
+					}
+					#if = {
+					#		limit = {
+					#				HPC = {
+					#						exists = yes
+					#						is_subject = no
+					#						is_in_faction = no
+					#						NOT = {
+					#								has_war_with = ROOT
+					#							}
+					#					}
+					#			}
+					#		HPC = {
+					#				country_event = {
+					#						id = EFM_Shanxi.33
+					#					}
+					#			}
+					#	}
+					JAP = {
+						country_event = {
+							id = EFM_Shanxi.24
+						}
+					}
+					#event_target:WTT_current_china_leader = {
+					#	country_event = {
+					#		id = EFM_Shanxi.24
+					#	}
+					#}
+					if = {
+						limit = {
+							OR = {
+								AND = {
+									NOT = {
+										country_exists = SUY
+									}
+									OR = {
+										621 = {
+											is_owned_and_controlled_by = ROOT
+										}
+										746 = {
+											is_owned_and_controlled_by = ROOT
+										}
+										1019 = {
+											is_owned_and_controlled_by = ROOT
+										}
+										1020 = {
+											is_owned_and_controlled_by = ROOT
+										}
+									}
+								}
+								SUY = {
+									is_subject_of = ROOT
+								}
+							}
+						}
+						country_event = shx_jap.6
+					}
+					#unlock_decision_category_tooltip = EFM_North_china_buffer_state_strategy
+		}
+		available = {
+			OR = {
+				is_subject = no
+				is_subject_of = JAP
+			}
+			NOT = {
+				any_enemy_country = {
+					OR = {
+						tag = JAP
+						is_subject_of = JAP
+					}
+				}
+			}
+			JAP = {
+				exists = yes
+				is_subject = no
+				NOT = {
+					has_government = communism 
+				}
+				NOT = {
+					has_government = n_socialism
+				}
+				#has_opinion = {
+				#	target = ROOT
+				#	value > 49
+				#}
+			}
+		}
+	}
+    focus = {
+		id = SHX_jap_support_economy
+		icon = GFX_Focus_KR_Align_Japan
+		cost = 5.00
+		prerequisite = {
+			focus = SHX_Support_north_china_buffer_state_strategy
+		}
+		x = 33
+		y = 1
+			ai_will_do = {
+					factor = 2
+				}
+		completion_reward = {
+			add_ideas = SHX_trade_with_japan
+			#JAP = {
+			#	add_ideas = SHX_trade_with_japan_jap
+			#}
+		}
+		available = {
+			OR = {
+				is_subject = no
+				is_subject_of = JAP
+			}
+			NOT = {
+				any_enemy_country = {
+					OR = {
+						tag = JAP
+						is_subject_of = JAP
+					}
+				}
+			}
+			JAP = {
+				exists = yes
+				is_subject = no
+				NOT = {
+					has_government = communism 
+				}
+				NOT = {
+					has_government = n_socialism
+				}
+				#has_opinion = {
+				#	target = ROOT
+				#	value > 49
+				#}
+			}		
+		}
+	}
+
+	focus = {
+		id = SHX_jap_support_weapon
+		icon = GFX_focus_chi_collaboration_with_the_japanese
+		cost = 5.00
+		prerequisite = {
+			focus = SHX_jap_support_economy
+		}
+		x = 34
+		y = 2
+			ai_will_do = {
+					factor = 2
+				}
+		completion_reward = {
+			add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = 8000
+				producer = JAP
+			}
+		}
+		available = {
+			OR = {
+				is_subject = no
+				is_subject_of = JAP
+			}
+			NOT = {
+				any_enemy_country = {
+					OR = {
+						tag = JAP
+						is_subject_of = JAP
+					}
+				}
+			}
+			JAP = {
+				exists = yes
+				is_subject = no
+				NOT = {
+					has_government = communism 
+				}
+				NOT = {
+					has_government = n_socialism
+				}
+				#has_opinion = {
+				#	target = ROOT
+				#	value > 49
+				#}
+			}
+		}		
+	}
+
+	focus = {
+		id = SHX_jap_support_tech
+		icon = GFX_goal_generic_scientific_exchange
+		cost = 7.15
+		prerequisite = {
+			focus = SHX_Recommend_jap_fighter
+		}
+		x = 34
+		y = 4
+		ai_will_do = {
+			factor = 2
+		}
+		completion_reward = {
+			#if = {
+			#	limit = {
+			#		NOT = {
+			#			JAP = { is_in_tech_sharing_group = SHX_technological_cooperation_agreement } 
+			#		}
+			#	}
+			#	JAP = { add_to_tech_sharing_group = SHX_technological_cooperation_agreement	 }
+			#}
+			if = {
+				limit = {
+					has_dlc = "Together for Victory"
+				}
+			    JAP = { add_to_tech_sharing_group = SHX_technological_cooperation_agreement	 }
+			    add_to_tech_sharing_group = SHX_technological_cooperation_agreement	
+			    
+				else = {
+
+				}
+			}
+		}
+		available = {
+			OR = {
+				is_subject = no
+				is_subject_of = JAP
+			}
+			NOT = {
+				any_enemy_country = {
+					OR = {
+						tag = JAP
+						is_subject_of = JAP
+					}
+				}
+			}
+			JAP = {
+				exists = yes
+				is_subject = no
+				NOT = {
+					has_government = communism 
+				}
+				NOT = {
+					has_government = n_socialism
+				}
+				#has_opinion = {
+				#	target = ROOT
+				#	value > 49
+				#}
+			}
+		}
+	}
+
+	focus = {
+		id = SHX_Capture_suiyuan
+		icon = GFX_focus_attack_china #GFX_focus_generic_conspiracy 
+		cost = 7.15
+		prerequisite = {
+			focus = SHX_Lead_independent_movement
+		}
+		x = 28
+		y = 2
+		ai_will_do = {
+			factor = 2
+		}
+		will_lead_to_war_with = SUY
+			completion_reward = {
+				create_wargoal = {
+					type = annex_everything
+					target = SUY
+				}
+				SUY = {
+					every_owned_state = {
+						add_claim_by = ROOT
+					}
+				}	
+			}
+		available = {
+			is_subject = no
+			is_neighbor_of = SUY
+			SUY = {
+				exists = yes
+				is_subject = no
+				NOT = {
+					is_in_faction_with = ROOT
+				}
+			}
+		}
+		#bypass = {
+		#	SUY = {
+		#		OR = {
+		#			exists = no
+		#			#is_subject_of = ROOT
+		#		}
+		#	}
+		#}
+	}
+	focus = {
+		id = SHX_Capture_shaanxi
+		icon = GFX_Goal_Attack_CCP
+		cost = 7.15
+		prerequisite = {
+			focus = SHX_Lead_independent_movement
+		}
+		x = 30
+		y = 2
+		ai_will_do = {
+			factor = 2
+		}
+		#will_lead_to_war_with = PRC 
+		#will_lead_to_war_with = SHC
+		completion_reward = {
+			#create_wargoal = {
+			#		type = annex_everything
+			#		target = event_target:WTT_communist_china 
+			#}
+				
+			#	event_target:WTT_communist_china  = {
+			#		every_owned_state = {
+			#			add_claim_by = ROOT
+			#		}
+			#	}
+			if = {
+				limit = {
+					1027 = {
+						is_fully_controlled_by = ROOT
+					}
+				}
+			    1027 = {
+					add_building_construction = {
+						type = bunker
+						level = 1
+						province = 1531
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = bunker
+						level = 1
+						province = 1034
+						instant_build = yes
+					}
+				    add_building_construction = {
+						type = bunker
+						level = 1
+						province = 10367
+						instant_build = yes
+					}
+					#add_building_construction = {
+					#	type = bunker
+					#	level = 1
+					#	province = 4047
+					#	instant_build = yes
+					#}
+				}
+			    else = {
+					if = {
+						limit = {
+							615 = {
+								is_fully_controlled_by = ROOT
+							}
+						}
+						615 = {
+							add_building_construction = {
+								type = bunker
+								level = 1
+								province = 4147
+								instant_build = yes
+							}
+							add_building_construction = {
+								type = bunker
+								level = 1
+								province = 1519
+								instant_build = yes
+							}
+							add_building_construction = {
+								type = bunker
+								level = 1
+								province = 4469
+								instant_build = yes
+							}
+						}
+					}  
+				}
+			}		
+		}
+		available = {
+			is_neighbor_of = event_target:WTT_communist_china 
+			any_owned_state = {
+				is_fully_controlled_by = ROOT
+				OR = {
+					state = 1017
+                    state = 615
+				}
+				#num_owned_neighbour_states = {
+				#	owner = PRC
+				#	count > 0
+				#}
+
+			}
+			#OR = {
+				#is_neighbor_of = event_target:WTT_communist_china
+				#is_neighbor_of = SHC
+			#}
+			#if = {
+			#	limit = {
+			#		country_exists = SHC
+			#		country_exists = event_target:WTT_communist_china
+			#	}
+			#	OR = {
+			#		NOT = {
+			#			has_war_with = SHC 
+			#		}
+			#		NOT = {
+			#			has_war_with = event_target:WTT_communist_china
+			#		}
+			#	}
+			#}
+			#if = {
+			#	limit = {
+			#		country_exists = SHC
+			#		NOT = {
+			#			country_exists = event_target:WTT_communist_china
+			#		}
+			#	}
+			#	NOT = {
+			#		has_war_with = SHC 
+			#	}
+			#}
+			#if = {
+			#	limit = {
+			#		country_exists = event_target:WTT_communist_china
+			#		NOT = {
+			#			country_exists = SHC
+			#		}
+			#	}
+			#	NOT = {
+			#		has_war_with = event_target:WTT_communist_china
+			#	}
+			#}
+		}
+		bypass = {
+			NOT = {
+				country_exists = event_target:WTT_communist_china 
+				#country_exists = SHC
+			}
+		}
+	}
+	focus = {
+		id = SHX_Long_live_shanxi
+		icon = GFX_goal_generic_political_pressure
+		cost = 7.15
+		prerequisite = {
+			focus = SHX_Capture_shaanxi
+		}
+		#mutually_exclusive = {
+		#	focus = SHX_Declare_independence
+		#}
+		x = 30
+		y = 4
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 5
+				date > 1937.5.1
+			}
+		}
+		completion_reward = {
+			#country_event = {
+			#		id = EFM_Shanxi.82
+			#	}
+			add_country_leader_trait = {
+				#ideology = despotism
+				trait = xishan_doctrine
+			}
+		}
+		available = {
+			OR = {
+				has_idea_with_trait = japanese_shina_tsu
+				has_idea_with_trait = blue_shirts_ideologue
+			}
+		}
+
+	}
+	focus = {
+		id = SHX_Request_for_jap_support
+		icon = GFX_goal_anti_comintern_pact
+		cost = 10.00
+		prerequisite = {
+			focus = SHX_Lead_independent_movement
+		}
+		x = 32
+		y = 2
+			ai_will_do = {
+					factor = 2
+				}
+		completion_reward = {
+			#JAP = {
+			#		country_event = {
+			#				id = EFM_Shanxi.26
+			#			}
+			#		custom_effect_tooltip = needs_approval
+			#}
+			add_stability = 0.05
+			add_ideas = communism_banned
+		}
+		available = {
+			OR = {
+				is_subject = no
+				is_subject_of = JAP
+			}
+			NOT = {
+				any_enemy_country = {
+					OR = {
+						tag = JAP
+						is_subject_of = JAP
+					}
+				}
+			}
+			JAP = {
+				exists = yes
+				is_subject = no
+				NOT = {
+					has_government = communism 
+				}
+				NOT = {
+					has_government = n_socialism
+				}
+				#has_opinion = {
+				#	target = ROOT
+				#	value > 49
+				#}
+			}
+		}
+
+	}
+	focus = {
+		id = SHX_Establish_japanese_army
+		icon = GFX_Focus_KR_Japanese_Instructors
+		cost = 9.00
+		prerequisite = {
+			focus = SHX_Request_for_jap_support
+		}
+		prerequisite = {
+			focus = SHX_Capture_shaanxi
+		}
+		x = 31
+		y = 3
+			continue_if_invalid = yes
+			ai_will_do = {
+					factor = 5
+				}
+		    completion_reward = {
+				#add_ideas = SHX_Japanese_troops
+				custom_effect_tooltip = SHX_Establish_japanese_army_tt
+				
+				hidden_effect = {
+			        
+					division_template = {
+						name = "Jihshih Putui"			
+						division_names_group = SHX_INF_01
+						regiments = {
+							infantry = { x = 0 y = 0 }
+							infantry = { x = 0 y = 1 }
+							infantry = { x = 1 y = 0 }
+							infantry = { x = 1 y = 1 }
+							infantry = { x = 2 y = 0 }
+							infantry = { x = 2 y = 1 }
+							infantry = { x = 3 y = 0 }
+							infantry = { x = 3 y = 1 }
+						}
+						support = {
+							artillery = { x = 0 y = 0 } 
+						}
+					}
+					random_owned_controlled_state = {
+						create_unit = {
+							division = "name = \"Ti 1 Chiaotao Tsungtui\" division_template = \"Jihshih Putui\" start_experience_factor = 0.3"
+							owner = ROOT
+						}
+						create_unit = {
+							division = "name = \"Ti 2 Chiaotao Tsungtui\" division_template = \"Jihshih Putui\" start_experience_factor = 0.3"
+							owner = ROOT
+						}
+						create_unit = {
+							division = "name = \"Ti 3 Chiaotao Tsungtui\" division_template = \"Jihshih Putui\" start_experience_factor = 0.3"
+							owner = ROOT
+						}
+				    }
+			    }	
+		    }
+		available = {
+			OR = {
+				is_subject = no
+				is_subject_of = JAP
+			}
+			NOT = {
+				any_enemy_country = {
+					OR = {
+						tag = JAP
+						is_subject_of = JAP
+					}
+				}
+			}
+			JAP = {
+				exists = yes
+				is_subject = no
+				NOT = {
+					has_government = communism 
+				}
+				NOT = {
+					has_government = n_socialism
+				}
+				#has_opinion = {
+				#	target = ROOT
+				#	value > 49
+				#}
+			}
+		}
+
+		bypass = {
+			OR = {
+				any_enemy_country = {
+					OR = {
+						tag = JAP
+						is_subject_of = JAP
+					}
+				}
+				JAP = {
+					OR = {
+                        exists = no
+						is_subject = yes
+						has_government = communism
+						has_government = n_socialism
+					}	
+				}
+			}
+		}
+	}
+	focus = {
+		id = SHX_Declare_independence
+		icon = GFX_goal_generic_propaganda
+		cost = 7.15
+		prerequisite = {
+			focus = SHX_Request_for_jap_support
+		}
+		#mutually_exclusive = {
+		#	focus = SHX_Long_live_shanxi
+		#}
+		x = 32
+		y = 4
+			ai_will_do = {
+					factor = 1
+					modifier = {
+							factor = 5
+							date > 1937.5.1
+						}
+				}
+		completion_reward = {
+			add_timed_idea = {
+				idea = fascist_influence_weak days = 365
+			}
+			#country_event = {
+			#		id = EFM_Shanxi.29
+			#	}
+		}
+		available = {
+			OR = {
+				has_idea_with_trait = japanese_shina_tsu
+				has_idea_with_trait = blue_shirts_ideologue
+			}
+		}
+
+	}
+	focus = {
+		id = SHX_fascism_leadership
+		icon = GFX_focus_generic_fascist_troops
+		cost = 10.00 
+		prerequisite = {
+			focus = SHX_Long_live_shanxi
+		}
+		prerequisite = {
+			focus = SHX_Declare_independence
+		}
+		x = 31
+		y = 5
+		completion_reward = {
+			add_war_support = 0.05
+			effect_tooltip = {
+                set_politics = {
+					ruling_party = fascism
+					elections_allowed = no
+				}
+			}
+			hidden_effect = {
+                warlord_becomes_fascist = yes
+			}
+			CLIQUE_becomes_fascist = yes
+		}
+        available = {
+            fascism > 0.4
+		}
+	}
+	
+	focus = {
+		id = SHX_Shanxi_did_not_fall
+		icon = GFX_focus_jap_pacific_guardian 
+		cost = 7.15
+		prerequisite = {
+			focus = SHX_fascism_leadership
+		}
+		mutually_exclusive = {
+			focus = SHX_institute_cross_border_raids
+		}
+		x = 30
+		y = 6
+		completion_reward = {
+			add_war_support = -0.1
+			JAP = {
+				country_event = shx_jap.5
+			}
+			effect_tooltip = {
+                if = {
+					limit = {
+						JAP = {
+							is_faction_leader = yes
+						}
+					}
+					JAP = {
+						add_to_faction = ROOT
+					}
+				}
+				#JAP = {
+				#	set_autonomy = {
+				#		target = ROOT
+				#		autonomous_state = autonomy_puppet
+				#	}
+				#}
+			}
+		}
+        available = {
+			is_in_faction = no 
+			#OR = {
+				is_subject = no
+				#is_subject_of = JAP
+			#}
+			NOT = {
+				any_enemy_country = {
+					OR = {
+						tag = JAP
+						is_subject_of = JAP
+					}
+				}
+			}
+			JAP = {
+				exists = yes
+				is_faction_leader = yes
+				is_subject = no
+				NOT = {
+					has_government = communism 
+				}
+				NOT = {
+					has_government = n_socialism
+				}
+				#has_opinion = {
+				#	target = ROOT
+				#	value > 49
+				#}
+			}
+		}
+		bypass = {
+			OR = {
+				is_subject_of = JAP
+				is_in_faction_with = JAP
+				JAP = {
+					exists = yes
+					is_in_faction = no
+				}
+			}
+		}
+	}
+	
+	#focus = {
+	#	id = SHX_Ask_for_annex_mengkukuo
+	#	icon = GFX_goal_generic_forceful_treaty
+	#	cost = 10.00
+	#	prerequisite = {
+	#		focus = SHX_Declare_independence
+	#	}
+	#	x = 32
+	#	y = 5
+	#		completion_reward = {
+	#				JAP = {
+	#						country_event = {
+	#								id = EFM_Shanxi.17
+	#							}
+	#					}
+	#			}
+	#		available = {
+	#				OR = {
+	#						is_in_faction_with = JAP
+	#						is_subject_of = JAP
+	#					}
+	#				OR = {
+	#						ECA = {
+	#								is_subject_of = JAP
+	#						}
+	#					}
+	#				NOT = {
+	#						has_war_with = JAP
+	#					}
+	#			}
+	#		bypass = {
+	#				
+	#				OR = {
+	#						ECA = {
+	#								exists = no
+	#							}
+	#						ECA = {
+	#								is_subject_of = ROOT
+	#							}
+	#						has_war_with = ECA
+	#					}
+	#			}
+    #
+	#}
+	#focus = {
+	#	id = SHX_Rule_north_china
+	#	icon = GFX_focus_usa_focus_on_asia
+	#	cost = 10.00
+	#	prerequisite = {
+	#		focus = SHX_Shanxi_did_not_fall
+	#	}
+	#	x = 31
+	#	y = 6
+	#		completion_reward = {
+	#				JAP = {
+	#						country_event = {
+	#								id = EFM_Shanxi.19
+	#							}
+	#					}
+	#			}
+	#		available = {
+	#				OR = {
+	#						is_in_faction_with = JAP
+	#						is_subject_of = JAP
+	#					}
+	#				OR = {
+	#						HPC = {
+	#								exists = yes
+	#								is_subject_of = JAP
+	#							}
+	#						JAP = {
+	#								controls_state = 608
+	#								controls_state = 614
+	#							}
+	#					}
+	#			}
+    #
+	#}
+	#focus = {
+	#	id = SHX_Take_over_hebei
+	#	icon = GFX_focus_attack_china 
+	#	cost = 10.00
+	#	prerequisite = {
+	#		focus = SHX_Support_north_china_buffer_state_strategy
+	#	}
+	#	x = 32
+	#	y = 1
+	#		ai_will_do = {
+	#				factor = 5
+	#			}
+	#	will_lead_to_war_with = HPC 
+	#		completion_reward = {
+	#			create_wargoal = {
+	#				type = annex_everything
+	#				target = HPC
+	#			}
+	#			HPC = {
+	#				every_owned_state = {
+	#					add_claim_by = ROOT
+	#				}
+	#			}	
+	#		}
+	#		available = {
+	#			#is_subject = no
+	#			is_neighbor_of = HPC
+	#			HPC = {
+	#				exists = yes
+	#				is_subject = no
+	#				NOT = {
+	#					is_in_faction_with = ROOT
+	#				}
+	#			}
+	#			event_target:WTT_current_china_leader = {
+	#				OR = {
+	#					is_subject = yes
+	#					has_war = yes
+	#				}
+	#			}
+	#		}
+	#		bypass = {
+	#			HPC = {
+	#				OR = {
+	#					exists = no
+	#					is_subject_of = ROOT
+	#				}
+	#			}
+	#		}
+	#}
+	#focus = {
+	#	id = SHX_Take_over_shandong
+	#	icon = GFX_goal_generic_military_deal
+	#	cost = 10.00
+	#	prerequisite = {
+	#		focus = SHX_Take_over_hebei
+	#	}
+	#	x = 33
+	#	y = 2
+	#		ai_will_do = {
+	#				factor = 5
+	#			}
+	#	will_lead_to_war_with = SHD
+	#		completion_reward = {
+	#			create_wargoal = {
+	#				type = annex_everything
+	#				target = SHD
+	#			}
+	#			SHD = {
+	#				every_owned_state = {
+	#					add_claim_by = ROOT
+	#				}
+	#			}	
+	#		}
+	#		available = {
+	#				is_subject = no
+	#				is_neighbor_of = SHD
+	#				SHD = {
+	#						exists = yes
+	#						is_subject = no
+	#						NOT = {
+	#								is_subject_of = ROOT
+	#								is_in_faction_with = ROOT
+	#							}
+	#					}
+	#				event_target:WTT_current_china_leader = {
+	#						OR = {
+	#								is_subject = yes
+	#								has_war = yes
+	#							}
+	#					}
+	#			}
+	#		bypass = {
+	#				SHD = {
+	#						OR = {
+	#								exists = no
+	#								is_subject_of = ROOT
+	#							}
+	#					}
+	#			}
+    #
+	#}
+
+	focus = {
+		id = SHX_pro_japanese_china
+		icon = GFX_Focus_Befriend_Five_Colors_Flag
+		cost = 7.15
+		prerequisite = {
+			focus = SHX_Shanxi_did_not_fall
+		    #focus = SHX_Foreign_consultant
+		}
+		#mutually_exclusive = {
+		#	focus = SHX_Peoples_government
+		#}
+		x = 30
+		y = 7
+		ai_will_do = {
+			factor = 5
+		}
+		completion_reward = {
+			#load_focus_tree = { tree = japan_puppet_focus keep_completed = yes }
+			#every_state = {
+			#	limit = {
+			#		has_state_flag = is_chinese_states_flag
+			#	}
+			#	add_core_of = ROOT
+			#}
+			#custom_effect_tooltip = warn_focus_change_tt
+			random_neighbor_country = {
+				limit = {
+					is_subject_of = JAP
+					OR = {
+						tag = EHB
+						#tag = JNC
+						#tag = RFM
+						is_rrc = yes
+					}
+				    controls_state = 608
+				}
+				country_event = {
+					id = shx_jap.3 hours = 12
+				}
+			}
+            if = {
+				limit = {
+					event_target:WTT_current_china_leader = {
+						exists = yes
+						has_war_with = JAP
+					}
+				}
+				event_target:WTT_current_china_leader = {
+					country_event = shx_jap.4
+				}
+			}
+			effect_tooltip = {
+				if = {
+					limit = {
+						event_target:WTT_current_china_leader = {
+							exists = yes
+							has_war_with = JAP
+						}
+					}
+				    SHX = {
+                        every_unit_leader = {
+							limit = {
+								NOT = {
+									OR = {
+										is_character = SHX_yan_xishan
+										is_character = SHX_wang_jingguo
+										is_character = SHX_zhao_chengshou
+									}
+								}
+							}
+							set_nationality = event_target:WTT_current_china_leader
+						}
+					}
+				}
+				if = {
+					limit = {
+						any_neighbor_country = {
+							is_subject_of = JAP	
+							OR = {
+								tag = EHB
+								#tag = JNC
+								#tag = RFM
+								is_rrc = yes
+							}
+							controls_state = 608
+							is_ai = yes
+						}
+					}
+                    random_neighbor_country = {
+						limit = {
+							is_subject_of = JAP
+							OR = {
+								tag = EHB
+								#tag = JNC
+								#tag = RFM
+								is_rrc = yes
+							}
+							controls_state = 608
+						}
+						annex_country = { target = ROOT transfer_troops = yes }
+						change_tag_from = ROOT
+					} 
+					else_if = {
+						limit = {
+                            any_neighbor_country = {
+								is_subject_of = JAP	
+								OR = {
+									tag = EHB
+									#tag = JNC
+									#tag = RFM
+									is_rrc = yes
+								}
+								controls_state = 608
+								is_ai = no
+							}
+						}
+						random_neighbor_country = {
+							limit = {
+								is_subject_of = JAP
+								OR = {
+									tag = EHB
+									#tag = JNC
+									#tag = RFM
+									is_rrc = yes
+								}
+								controls_state = 608
+							}
+							annex_country = { target = ROOT transfer_troops = yes }
+						} 
+						custom_effect_tooltip = GAME_OVER_TT
+					}
+				}	
+				#if = {
+				#	limit = {
+				#		any_other_country = {
+				#			exists = no
+				#			is_subject_of = JAP
+				#			OR = {
+				#				tag = EHB
+				#				#tag = JNC
+				#				tag = RFM
+				#				is_rrc = yes
+				#			}
+				#		}
+				#	}
+				#	load_focus_tree = { tree = japan_puppet_focus keep_completed = yes }
+				#}
+			}
+		}
+		available = {
+			OR = {
+				is_subject_of = JAP
+				is_in_faction_with = JAP
+			}
+		    OR = {
+				any_neighbor_country = {
+					exists = yes
+					is_subject_of = JAP
+					OR = {
+						tag = EHB
+						tag = JNC
+						tag = RFM
+						is_rrc = yes
+					}
+					controls_state = 608
+				}
+			}
+		}
+	}
+
+    focus = {
+		id = SHX_institute_cross_border_raids
+		icon = GFX_focus_generic_provoke_border_clashes
+		prerequisite = { focus = SHX_fascism_leadership }
+		mutually_exclusive = {
+			focus = SHX_Shanxi_did_not_fall
+		}
+		x = 32
+		y = 6
+      
+		cost = 7.15
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+			is_subject = no
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		completion_reward = {
+			#custom_effect_tooltip = 60_to_40_opinion_tt
+			every_country = {
+				limit = {
+					is_neighbor_of = ROOT
+					OR = {
+						is_warlord = yes
+						tag = event_target:WTT_communist_china
+					}
+				}
+				add_opinion_modifier = {
+					target = ROOT
+					modifier = WRL_conflict_of_interest
+				}
+			}
+			custom_effect_tooltip = opinion_worsen_over_time_tt
+			custom_effect_tooltip = remove_insult_cd
+			set_variable = {
+				Root.insult_cd = 0
+			}
+			set_variable = {
+				Root.insult_cost = 40
+			}
+		}
+	}
+
+    focus = {
+		id = SHX_provoke_border_clashes
+		icon = GFX_focus_generic_provoke_border_clashes
+		prerequisite = { focus = SHX_institute_cross_border_raids }
+		x = 32
+		y = 7
+
+		cost = 7.15
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+			is_subject = no
+			is_neighbor_of = event_target:WTT_current_china_leader
+			has_opinion = {
+				target = event_target:WTT_current_china_leader
+				value < -19
+			}
+			event_target:WTT_current_china_leader = {
+				has_opinion = {
+					target = ROOT
+					value < -19
+				}
+			}
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		completion_reward = {
+			event_target:WTT_current_china_leader = {
+				add_opinion_modifier = {
+					target = ROOT
+					modifier = WRL_conflict_of_interest
+				}
+				custom_effect_tooltip = opinion_worsen_over_time_tt
+			}
+			custom_effect_tooltip = CHI_provoke_border_clashes_effect_tooltip
+		}
+	}
+
+	focus = {
+		id = SHX_proclaim_rival_government
+		icon = GFX_focus_chi_proclaim_rival_government
+		prerequisite = { focus = SHX_institute_cross_border_raids }
+		x = 34
+		y = 7
+
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+			is_subject = no
+			OR = {
+				WTT_is_ROOT_current_leader_of_china = yes
+				custom_trigger_tooltip = {
+					tooltip = army_stronger_at_least_half_as_strong_as_china_tt
+					strength_ratio = {
+						tag = event_target:WTT_current_china_leader
+						ratio > 0.5
+					}
+				}
+			}
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+		completion_reward = {
+			for_each_scope_loop = {
+				array = global.small_china #MODDED
+				tooltip = small_china_effect_tt
+				add_core_of = ROOT
+			}
+			effect_tooltip = {
+				for_each_scope_loop = {
+					array = global.big_china #MODDED
+					tooltip = big_china_effect_tt
+					add_claim_by = PREV
+				}
+			}
+			hidden_effect = {
+				for_each_scope_loop = {
+					array = global.big_china #MODDED
+					tooltip = big_china_effect_tt
+					if = {
+						limit = {
+							NOT = {
+								is_core_of = ROOT
+							}
+						}
+						add_claim_by = PREV
+					}
+				}
+			}
+			country_event = {
+				id = rcmchina.360
+			}
+			#start a coalition against current gov if exist
+			if = {
+				limit = {
+					has_government = communism
+				}
+				set_rule = { can_create_factions = yes }
+				create_faction = CHI_the_peoples_front
+			}
+			else_if = {
+				limit = {
+					has_government = n_socialism
+				}
+				set_rule = { can_create_factions = yes }
+				create_faction = CHI_zhi_gong_front
+			}
+			else_if = {
+				limit = {
+					has_government = fascism
+					NOT = {
+						tag = TNG
+						tag = XSM
+					}
+				}
+				set_rule = { can_create_factions = yes }
+				create_faction = CHI_concordia_sinica
+			}
+			else = {
+				set_rule = { can_create_factions = yes }
+				custom_effect_tooltip = create_generic_faction_tt
+				meta_effect = {
+					ROOT_NAME = "[Root.GetAdjective]" 
+					text = {
+						create_faction = "[ROOT_NAME] Coalition"				
+					}			
+				}
+			}
+			if = {
+				limit = {
+					country_exists = event_target:WTT_current_china_leader
+					NOT = {
+						tag = event_target:WTT_current_china_leader
+						has_war_with = event_target:WTT_current_china_leader
+					}
+				}
+				create_wargoal = {
+					target = event_target:WTT_current_china_leader
+					type = annex_everything
+					expire = 0
+				}
+			}
+			#Switch to dominant ideology or split into 2 focus
+			#set_cosmetic_tag = CHI_second_republic
+			if = {
+				limit = {
+					OR = {
+						has_government = communism
+						has_government = n_socialism
+						communism > 0.5
+						n_socialism > 0.5
+					}
+					#NOT = { neutrality > 0.5 }
+				}
+				load_focus_tree = { tree = warlord_generic_communist keep_completed = yes }
+			}
+			else = {
+				load_focus_tree = { tree = warlord_generic_nationalist keep_completed = yes }
+			}
+			custom_effect_tooltip = warn_focus_change_tt
+
+			
+		}
+	}
+
+
+	focus = {
+		id = SHX_Improve_air_tactics
+		icon = GFX_goal_generic_air_doctrine
+		cost = 10.00
+		prerequisite = {
+			focus = SHX_Formed_the_air_force
+		}
+		x = 36
+		y = 1
+		completion_reward = {
+				add_doctrine_cost_reduction = {
+				        name = SHX_Improve_air_tactics
+				        cost_reduction = 0.5
+				        uses = 1
+				        category = air_doctrine
+			    }
+					
+		}
+
+	}
+	focus = {
+		id = SHX_Building_air_bases
+		icon = GFX_goal_generic_air_production
+		cost = 10.00
+		prerequisite = {
+			focus = SHX_Formed_the_air_force
+		}
+		x = 38
+		y = 1
+			completion_reward = {
+					random_owned_controlled_state = {
+							add_building_construction = {
+									type = air_base
+									level = 2
+									instant_build = yes
+								}
+						}
+				}
+
+	}
+	focus = {
+		id = SHX_Enhance_air_superiority
+		icon = GFX_goal_generic_air_fighter
+		cost = 10.00
+		prerequisite = {
+			focus = SHX_Improve_air_tactics
+		}
+		prerequisite = {
+			focus = SHX_Building_air_bases
+		}
+		x = 36
+		y = 2
+			completion_reward = {
+					add_tech_bonus = {
+							name = SHX_Enhance_air_superiority
+							bonus = 0.5
+							uses = 1
+							category = light_air
+						}
+					add_tech_bonus = {
+							name = SHX_Enhance_air_superiority
+							bonus = 0.5
+							uses = 1
+							category = medium_air
+						}
+				}
+
+	}
+	
+	focus = {
+		id = SHX_Strengthen_the_ground_support
+		icon = GFX_focus_generic_armored_air_support
+		cost = 10.00
+		prerequisite = {
+			focus = SHX_Improve_air_tactics
+		}
+		prerequisite = {
+			focus = SHX_Building_air_bases
+		}
+		x = 38
+		y = 2
+			completion_reward = {
+					add_tech_bonus = {
+							name = Shanxi_Air_Force
+							bonus = 0.5
+							uses = 1
+							category = cas_bomber
+						}
+				}
+
+	}
+	focus = {
+		id = SHX_Strategic_bombing
+		icon = GFX_goal_generic_occupy_start_war
+		cost = 10.00
+		prerequisite = {
+			focus = SHX_Enhance_air_superiority
+			focus = SHX_Strengthen_the_ground_support
+		}
+		mutually_exclusive = {
+			focus = SHX_Tactical_bombers
+		}
+		x = 36
+		y = 3
+			completion_reward = {
+					add_tech_bonus = {
+							name = SHX_Strategic_bombing
+							bonus = 0.5
+							uses = 1
+							category = cat_strategic_bomber
+						}
+				}
+
+	}
+	focus = {
+		id = SHX_Develop_heavy_fighters
+		icon = GFX_focus_usa_escort_fighters
+		cost = 10.00
+		prerequisite = {
+			focus = SHX_Strategic_bombing
+		}
+		x = 36
+		y = 4
+			completion_reward = {
+					add_tech_bonus = {
+							name = SHX_Enhance_air_superiority
+							bonus = 0.5
+							uses = 1
+							category = medium_air
+						}
+				}
+
+	}
+	focus = {
+		id = SHX_Tactical_bombers
+		icon = GFX_goal_generic_air_bomber
+		cost = 10.00
+		prerequisite = {
+			focus = SHX_Enhance_air_superiority
+			focus = SHX_Strengthen_the_ground_support
+		}
+		mutually_exclusive = {
+			focus = SHX_Strategic_bombing
+		}
+		x = 38
+		y = 3
+			completion_reward = {
+					add_tech_bonus = {
+							name = SHX_Tactical_bombers
+							bonus = 0.5
+							uses = 1
+							category = tactical_bomber
+						}
+				}
+
+	}
+	#focus = {
+	#	id = SHX_Shanxi_air_force
+	#	icon = GFX_goal_generic_air_doctrine
+	#	cost = 10.00
+	#	prerequisite = {
+	#		focus = SHX_Strategic_bombing
+	#		focus = SHX_Tactical_bombers
+	#	}
+	#	x = 36
+	#	y = 4
+	#	completion_reward = {
+	#		add_doctrine_cost_reduction = {
+	#			name = SHX_Improve_air_tactics
+	#			cost_reduction = 0.5
+	#		    uses = 1
+	#			category = air_doctrine
+	#		}
+	#		air_experience = 25
+	#	}
+    #
+	#}
+	focus = {
+		id = SHX_Fighter_development_plan
+		icon = GFX_goal_generic_air_fighter2
+		cost = 10.00
+		prerequisite = {
+			focus = SHX_Tactical_bombers
+		}
+		x = 38
+		y = 4
+			completion_reward = {
+					add_tech_bonus = {
+							name = SHX_Enhance_air_superiority
+							bonus = 0.5
+							uses = 1
+							category = light_air
+						}
+				}
+
+	}
+	focus = {
+		id = SHX_industrialization_i
+		icon = GFX_focus_generic_industry_1
+		cost = 10.00
+		prerequisite = {
+			focus = SHX_Support_industries
+		}
+		prerequisite = {
+			focus = SHX_Develop_heavy_industry
+		}
+		x = 4
+		y = 5
+		ai_will_do = {
+			factor = 50
+			modifier = {
+				factor = 0
+				OR = {
+					has_idea = CHI_hyper_inflation_3
+					has_idea = CHI_hyper_inflation_4
+					has_idea = CHI_hyper_inflation_5
+				}
+			}
+		}
+		completion_reward = {
+			unbalanced_industry_level_down = yes
+			custom_effect_tooltip = separate_line_tt
+			RCM_increase_inflation_level = yes
+		}
+		available = {
+			has_tech = basic_machine_tools
+			OR = {
+				has_tech = concentrated_industry
+				has_tech = dispersed_industry
+			}
+			OR = {
+				AND = {
+					num_of_factories > 5
+					has_war = no
+				}
+				AND = {
+					num_of_factories > 10
+					has_defensive_war = yes
+				}
+				AND = {
+					num_of_factories > 15
+					has_offensive_war = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = SHX_industrialization_ii
+		icon = GFX_focus_generic_industry_2
+		cost = 10.00
+		prerequisite = {
+			focus = SHX_industrialization_i
+		}
+		x = 4
+		y = 6
+		completion_reward = {
+			unbalanced_industry_level_down = yes
+			custom_effect_tooltip = separate_line_tt
+			RCM_increase_inflation_level = yes
+		}
+		available = {
+			has_tech = improved_machine_tools
+			OR = {
+				has_tech = concentrated_industry2
+				has_tech = dispersed_industry2
+			}
+			OR = {
+				AND = {
+					num_of_factories > 10
+					has_war = no
+				}
+				AND = {
+					num_of_factories > 15
+					has_defensive_war = yes
+				}
+				AND = {
+					num_of_factories > 20
+					has_offensive_war = yes
+				}
+			}
+		}
+	}
+	focus = {
+		id = SHX_industrialization_iii
+		icon = GFX_focus_generic_industry_3
+		cost = 10.00
+		prerequisite = {
+			focus = SHX_industrialization_ii
+		}
+		x = 4
+		y = 7
+		ai_will_do = {
+			factor = 50
+			modifier = {
+				factor = 0
+				OR = {
+					has_idea = CHI_hyper_inflation_3
+					has_idea = CHI_hyper_inflation_4
+					has_idea = CHI_hyper_inflation_5
+				}
+			}
+		}
+		completion_reward = {
+			unbalanced_industry_level_down = yes
+			custom_effect_tooltip = separate_line_tt
+			RCM_increase_inflation_level = yes
+		}
+		available = {
+			has_tech = advanced_machine_tools
+			OR = {
+				has_tech = concentrated_industry3
+				has_tech = dispersed_industry3
+			}
+			OR = {
+				AND = {
+					num_of_factories > 20
+					has_war = no
+				}
+				AND = {
+					num_of_factories > 25
+					has_defensive_war = yes
+				}
+				AND = {
+					num_of_factories > 30
+					has_offensive_war = yes
+				}
+			}
+		}
+	}
+	
+	#focus = {
+	#	id = SHX_Remote_strike
+	#	icon = GFX_goal_poland_goal
+	#	cost = 10.00
+	#	prerequisite = {
+	#		focus = SHX_Development_of_a_new_generation_of_armaments
+	#	}
+	#	mutually_exclusive = {
+	#		focus = SHX_Assault_tactics
+	#	}
+	#	x = 7
+	#	y = 6
+	#		ai_will_do = {
+	#				factor = 1
+	#				modifier = {
+	#						factor = 0
+	#						is_historical_focus_on = yes
+	#					}
+	#			}
+	#		completion_reward = {
+	#				add_tech_bonus = {
+	#						name = SHX_Remote_strike
+	#						bonus = 0.5
+	#						uses = 1
+	#						category = cat_superior_firepower
+	#					}
+	#			}
+    #
+	#}
+	#focus = {
+	#	id = SHX_Application_firepower
+	#	icon = GFX_goal_generic_occupy_start_war
+	#	cost = 10.00
+	#	prerequisite = {
+	#		focus = SHX_Remote_strike
+	#	}
+	#	x = 7
+	#	y = 7
+	#		ai_will_do = {
+	#				factor = 1
+	#			}
+	#		completion_reward = {
+	#				add_ideas = SHX_Artillery_implantation
+	#				add_tech_bonus = {
+	#						name = SHX_Application_firepower
+	#						bonus = 0.5
+	#						uses = 1
+	#						category = cat_superior_firepower
+	#					}
+	#			}
+    #
+	#}
+	focus = {
+		id = SHX_Deep_battle
+		icon = GFX_focus_RAJ_indian_gurkhas
+		cost = 7.15
+		prerequisite = {
+			focus = SHX_Assault_tactics
+		}
+		x = 12
+		y = 7
+			ai_will_do = {
+					factor = 1
+				}
+			completion_reward = {
+				add_ideas = SHX_Guerrilla_forces
+				add_tech_bonus = {
+					name = SHX_Deep_battle
+					bonus = 0.25
+					uses = 1
+					category = land_doctrine
+				}
+		   }
+
+	}
+	#focus = {
+	#	id = SHX_Military_science
+	#	icon = GFX_focus_research
+	#	cost = 10.00
+	#	prerequisite = {
+	#		focus = SHX_Research_mobile_warfare
+	#		focus = SHX_Application_firepower
+	#		focus = SHX_Deep_battle
+	#	}
+	#	x = 7
+	#	y = 8
+	#		ai_will_do = {
+	#				factor = 5
+	#			}
+	#		completion_reward = {
+	#				add_research_slot = 1
+	#				#add_tech_bonus = {
+	#				#		name = SHX_Military_science
+	#				#		ahead_reduction = 2
+	#				#		uses = 2
+	#				#		category = rocketry
+	#				#		category = jet_technology
+	#				#}
+	#			}
+    #
+	#}
+	focus = {
+		id = SHX_Shanxi_army_group
+		icon = GFX_focus_YUG_pan_slavic_congress
+		cost = 10.00
+		prerequisite = {
+			focus = SHX_Red_army_mode_of_operation
+		}
+		x = 23
+		y = 4
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = SHX_Red_army
+				add_idea = SHX_Red_army_2
+			}
+		}
+		available = {
+			#has_government = communism	
+			#is_subject_of = PRC
+			has_idea = SHX_Red_army
+			#NOT = {
+			#	has_country_flag = SHX_Conflict_broke_out
+			#}
+		}
+
+	}
+	#focus = {
+	#	id = SHX_Peoples_government
+	#	icon = GFX_focus_prc_proclaim_the_peoples_republic
+	#	cost = 10.00
+	#	prerequisite = {
+	#		#focus = SHX_Form_the_northern_bureau
+	#		focus = SHX_Struggle_party_central_committee
+	#	}
+		#mutually_exclusive = {
+		#	focus = SHX_New_china
+		#}
+	#	x = 22
+	#	y = 8
+	#	ai_will_do = {
+	#		factor = 5
+	#	}
+	#	completion_reward = {
+	#		hidden_effect = {
+	#			drop_cosmetic_tag = yes
+	#			set_cosmetic_tag = PRC_PRC
+	#		}
+	#		load_focus_tree = { tree = warlord_generic_communist keep_completed = yes }
+	#		#set_cosmetic_tag = CHI_warlord_leader
+	#		#create_faction = WRL_leader_generic_faction
+	#		for_each_scope_loop = {
+	#			array = global.small_china #MODDED
+	#			tooltip = small_china_effect_tt
+	#			add_core_of = ROOT
+	#		}
+	#		effect_tooltip = {
+	#			for_each_scope_loop = {
+	#				array = global.big_china #MODDED
+	#				tooltip = big_china_effect_tt
+	#				add_claim_by = ROOT
+	#			}
+	#		}
+	#		hidden_effect = {
+	#			for_each_scope_loop = {
+	#				array = global.big_china #MODDED
+	#				tooltip = big_china_effect_tt
+	#				if = {
+	#					limit = {
+	#						NOT = {
+	#							is_core_of = ROOT
+	#						}
+	#					}
+	#					add_claim_by = ROOT
+	#				}
+	#			}
+	#		}
+	#		#every_state = {
+	#		#	limit = {
+	#		#		has_state_flag = is_chinese_states_flag
+	#		#	}
+	#		#	add_core_of = ROOT
+	#		#}
+    #
+	#		custom_effect_tooltip = warn_focus_change_tt
+	#	    country_event = { id = EFM_Comchina.223 }
+	#		set_country_flag = PRC_Establish_state_or_independent_government
+	#		custom_effect_tooltip = a_nation_to_be_established_tt
+	#		custom_effect_tooltip = PRC_a_new_party_tt
+	#	}
+	#	available = {
+	#		is_subject = no
+	#		#has_war_support > 0.6
+	#		OR = {
+	#			AND = {
+	#				controls_state = 1015
+	#				controls_state = 592
+	#				#controls_state = 605
+	#				controls_state = 608
+	#			}
+	#			is_legit_china = yes
+	#		}
+	#		if = {
+	#			limit = {
+	#				NOT = {
+	#					tag = event_target:WTT_current_china_leader
+	#				}
+	#			}
+	#			OR = {				
+	#				has_war_with = event_target:WTT_current_china_leader
+	#				event_target:WTT_current_china_leader = {
+	#					OR = {
+	#						num_of_controlled_states < 4
+	#						exists = no
+	#						is_puppet = yes
+	#					}
+	#				}
+	#			}
+	#		}
+	#	}
+	#}
+	#focus = {
+	#	id = SHX_Foreign_consultant
+	#	icon = GFX_Focus_KR_Japanese_Glory
+	#	cost = 10.00
+	#	prerequisite = {
+	#		focus = SHX_Shanxi_did_not_fall
+	#	}
+	#	x = 29
+	#	y = 6
+	#		completion_reward = {
+	#				add_ideas = SHX_Foreign_resident_troops
+	#			}
+	#		available = {
+	#				NOT = {
+	#						has_government = communism
+	#						has_war_with = JAP
+	#					}
+	#			}
+    #
+	#}
+	focus = {
+		id = SHX_Recommend_jap_fighter
+		icon = GFX_focus_jap_zero
+		cost = 7.15
+		prerequisite = {
+			focus = SHX_jap_support_weapon
+		}
+		x = 34
+		y = 3
+		completion_reward = {
+			add_tech_bonus = {
+				name = SHX_Enhance_air_superiority
+				bonus = 0.5
+				uses = 1
+				category = light_air
+			}
+			if = {
+				limit = {
+					NOT = {
+						has_tech = early_fighter
+				        has_dlc = "By Blood Alone"
+					}
+				}
+				set_technology = {
+					early_fighter = 1
+				}
+			}
+			if = {
+				limit = {
+					NOT = { has_tech = iw_small_airframe }
+				    has_dlc = "By Blood Alone"
+				}
+				set_technology = {
+					iw_small_airframe = 1
+				}
+			}
+			if = {
+				limit = {
+				    has_dlc = "By Blood Alone"
+				}
+				add_equipment_to_stockpile = {
+					type = small_plane_airframe
+					amount = 25
+					producer = JAP
+				}
+			}
+			if = {
+				limit = {
+				    NOT = { has_dlc = "By Blood Alone" }
+				}
+				add_equipment_to_stockpile = { type = fighter_equipment_0 amount = 25 producer = JAP }
+			}
+		}
+		available = {
+			OR = {
+				is_subject = no
+				is_subject_of = JAP
+			}
+			NOT = {
+				any_enemy_country = {
+					OR = {
+						tag = JAP
+						is_subject_of = JAP
+					}
+				}
+			}
+			JAP = {
+				exists = yes
+				is_subject = no
+				NOT = {
+					has_government = communism 
+				}
+				NOT = {
+					has_government = n_socialism
+				}
+				#has_opinion = {
+				#	target = ROOT
+				#	value > 49
+				#}
+			}
+		}
+	}
+	#focus = {
+	#	id = SHX_Unite_entire_country
+	#	icon = GFX_focus_usa_focus_on_asia
+	#	cost = 10.00
+	#	prerequisite = {
+	#		focus = SHX_Prepare_for_civilwar
+	#		focus = SHX_Prepare_for_civilwar_2
+	#	}
+	#	x = 26
+	#	y = 6
+	#		ai_will_do = {
+	#				factor = 5
+	#			}
+	#		completion_reward = {
+	#				if = {
+	#						limit = {
+	#								is_in_faction = yes
+	#								is_faction_leader = yes
+	#							}
+	#						every_other_country = {
+	#								limit = {
+	#										is_literally_china = yes
+	#										is_subject = no
+	#										is_in_faction_with = ROOT
+	#									}
+	#								ROOT = {
+	#										remove_from_faction = PREV
+	#									}
+	#							}
+	#					}
+	#				set_country_flag = EFM_Unify_entire_china
+	#				unlock_decision_category_tooltip = EFM_Negotiate_with_chinese_separatist_forces
+	#			}
+	#		available = {
+	#				is_subject = no
+	#				has_army_manpower = {
+	#						size > 299999
+	#					}
+	#			}
+    #
+	#}
+	focus = {
+		id = SHX_New_china
+		icon = GFX_focus_chi_one_china_policy
+		cost = 10.00
+		prerequisite = {
+			focus = SHX_clash_with_the_central_government_focus
+		    focus = SHX_join_central
+		}
+		#mutually_exclusive = {
+		#	focus = SHX_Peoples_government
+		#}
+		x = 26
+		y = 6
+			ai_will_do = {
+					factor = 5
+				}
+		completion_reward = {
+			load_focus_tree = { tree = warlord_generic_nationalist keep_completed = yes }
+			#set_cosmetic_tag = CHI_warlord_leader
+			#create_faction = WRL_leader_generic_faction
+			for_each_scope_loop = {
+				array = global.small_china #MODDED
+				tooltip = small_china_effect_tt
+				add_core_of = ROOT
+			}
+			effect_tooltip = {
+				for_each_scope_loop = {
+					array = global.big_china #MODDED
+					tooltip = big_china_effect_tt
+					add_claim_by = ROOT
+				}
+			}
+			hidden_effect = {
+				for_each_scope_loop = {
+					array = global.big_china #MODDED
+					tooltip = big_china_effect_tt
+					if = {
+						limit = {
+							NOT = {
+								is_core_of = ROOT
+							}
+						}
+						add_claim_by = ROOT
+					}
+				}
+			}
+			#every_state = {
+			#	limit = {
+			#		has_state_flag = is_chinese_states_flag
+			#	}
+			#	add_core_of = ROOT
+			#}
+
+			custom_effect_tooltip = warn_focus_change_tt
+		}
+		available = {
+			OR = {
+			    1015 = { is_owned_and_controlled_by = ROOT }
+				is_legit_china = yes
+			}
+			event_target:WTT_current_china_leader = {
+				is_subject = no
+			}
+			if = {
+				limit = {
+					is_subject = yes
+				}
+				OVERLORD = {
+					OR = {
+						tag = event_target:WTT_current_china_leader
+						has_completed_focus = CHI_cooperation_with_the_nationalists
+					}
+				}
+			}
+			#OR = {
+			#	WTT_has_politcal_support_points_30 = yes
+			#	is_legit_china = yes
+			#}
+		}
+
+	}
+	
+	focus = {
+		id = SHX_Ten_rules
+		icon = GFX_focus_eng_crush_the_dream
+		cost = 10.00
+		prerequisite = {
+			#focus = SHX_Land_reform
+		    focus = SHX_Launch_coup
+		}
+		x = 21
+		y = 6
+			ai_will_do = {
+					factor = 2
+				}
+			completion_reward = {
+					add_political_power = 150
+					add_war_support = 0.1
+				}
+			available = {
+					is_subject = no
+				}
+
+	}
+}
