@@ -1,0 +1,372 @@
+monument_build_trigger_back_up = {
+
+}
+
+can_use_monument_bonuses_back_up = {
+	if = {
+		limit = {
+			check_variable = { monument_id = 10000 }
+		}
+		var:bonus_target = {
+			OR = {
+				is_a_chinese_monument_country = yes
+			}
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { monument_id = 10001 }
+		}
+		var:bonus_target = {
+			OR = {
+				is_a_chinese_monument_country = yes
+			}
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { monument_id = 10002 }
+		}
+		var:bonus_target = {
+			OR = {
+				is_a_chinese_monument_country = yes
+			}
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { monument_id = 10003 }
+		}
+		var:bonus_target = {
+			OR = {
+				is_a_chinese_monument_country = yes
+			}
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { monument_id = 10004 }
+		}
+		var:bonus_target = {
+			OR = {
+				is_a_chinese_monument_country = yes
+			}
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { monument_id = 10005 }
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { monument_id = 10006 }
+		}
+		var:bonus_target = {
+			OR = {
+				is_a_chinese_monument_country = yes
+			}
+		}
+	}
+	else_if = {
+		limit = {
+			check_variable = { monument_id = 10007 }
+		}
+		var:bonus_target = {
+			OR = {
+				is_a_chinese_monument_country = yes
+			}
+		}
+	}
+    else_if = {
+		limit = {
+			check_variable = { monument_id = 10008 }
+		}
+		var:bonus_target = {
+			OR = {
+				is_a_chinese_monument_country = yes
+			}
+		}
+	}
+    else_if = {
+        limit = {
+            check_variable = { monument_id = 10009 }
+        }
+    }
+    else_if = {
+        limit = {
+            check_variable = { monument_id = 10010 }
+        }
+    }
+    else_if = {
+        limit = {
+            check_variable = { monument_id = 10011 }
+        }
+    }
+    else_if = {
+        limit = {
+            check_variable = { monument_id = 10012 }
+        }
+    }
+    else_if = {
+        limit = {
+            check_variable = { monument_id = 10013 }
+        }
+        var:bonus_target = {
+            OR = {
+                is_a_chinese_monument_country = yes
+            }
+        }
+    }
+    else_if = {
+        limit = {
+            check_variable = { monument_id = 10014 }
+        }
+        var:bonus_target = {
+            OR = {
+                is_a_chinese_monument_country = yes
+            }
+        }
+    }
+    else_if = {
+        limit = {
+            check_variable = { monument_id = 10015 }
+        }
+        var:bonus_target = {
+            OR = {
+                is_a_chinese_monument_country = yes
+            }
+        }
+    }
+    else_if = {
+        limit = {
+            check_variable = { monument_id = 10016 }
+        }
+        var:bonus_target = {
+            OR = {
+                is_a_chinese_monument_country = yes
+            }
+        }
+    }
+    else_if = {
+        limit = {
+            check_variable = { monument_id = 10017 }
+        }
+        var:bonus_target = {
+            OR = {
+                is_a_chinese_monument_country = yes
+            }
+        }
+    }
+    else_if = {
+        limit = {
+            check_variable = { monument_id = 10018 }
+        }
+        var:bonus_target = {
+            OR = {
+                is_a_chinese_monument_country = yes
+            }
+        }
+    }
+    else_if = {
+        limit = {
+            check_variable = { monument_id = 10019 }
+        }
+        var:bonus_target = {
+            OR = {
+                is_a_chinese_monument_country = yes
+            }
+        }
+    }
+    else_if = {
+        limit = {
+            check_variable = { monument_id = 10020 }
+        }
+        var:bonus_target = {
+            OR = {
+                is_a_chinese_monument_country = yes
+            }
+        }
+    }
+    else_if = {
+        limit = {
+            check_variable = { monument_id = 10021 }
+        }
+        var:bonus_target = {
+            OR = {
+                is_a_chinese_monument_country = yes
+            }
+        }
+    }
+    else_if = {
+        limit = {
+            check_variable = { monument_id = 10022 }
+        }
+        var:bonus_target = {
+            OR = {
+                is_a_chinese_monument_country = yes
+            }
+        }
+    }
+    else_if = {
+        limit = {
+            check_variable = { monument_id = 10023 }
+        }
+        var:bonus_target = {
+            OR = {
+                is_a_chinese_monument_country = yes
+            }
+        }
+    }
+    else_if = {
+        limit = {
+            check_variable = { monument_id = 10024 }
+        }
+        var:bonus_target = {
+            OR = {
+                is_a_chinese_monument_country = yes
+            }
+        }
+    }
+    else_if = {
+        limit = {
+            check_variable = { monument_id = 10025 }
+        }
+        var:bonus_target = {
+            OR = {
+                is_a_chinese_monument_country = yes
+            }
+        }
+    }
+    else_if = {
+        limit = {
+            check_variable = { monument_id = 10026 }
+        }
+        var:bonus_target = {
+            OR = {
+                is_a_chinese_monument_country = yes
+            }
+        }
+    }
+    else_if = {
+        limit = {
+            check_variable = { monument_id = 10027 }
+        }
+        var:bonus_target = {
+            original_tag = PRC
+            has_completed_focus = PRC_zhengxiehuiyi_1st
+        }
+    }
+    else_if = {
+        limit = {
+            check_variable = { monument_id = 10028 }
+        }
+        var:bonus_target = {
+            original_tag = PRC
+            has_country_flag = PRC_Establish_state_or_independent_government
+        }
+    }
+    else_if = {
+        limit = {
+            check_variable = { monument_id = 10029 }
+        }
+        var:bonus_target = {
+            OR = {
+                original_tag = JAP
+            }
+        }
+    }
+    else_if = {
+        limit = {
+            check_variable = { monument_id = 10030 }
+        }
+        var:bonus_target = {
+            OR = {
+                original_tag = JAP
+            }
+        }
+    }
+    else_if = {
+        limit = {
+            check_variable = { monument_id = 10031 }
+        }
+        var:bonus_target = {
+            OR = {
+                original_tag = JAP
+            }
+        }
+    }
+    else_if = {
+        limit = {
+            check_variable = { monument_id = 10032 }
+        }
+        var:bonus_target = {
+            OR = {
+                original_tag = JAP
+            }
+        }
+    }
+}
+
+calculate_monument_construction_cost_back_up = {
+
+}
+
+calculate_monument_construction_time_back_up = {
+#	check for variable "monument_id" for the specific monument ID
+#	add to the temp variable "monument_construction_time_temp" depending on monument ID
+#	to make specific monuments faster or slower to upgrade/build
+#	if you don't want specific time changes for a monument, do not include it in here
+#	example:
+#	if = {
+#		limit = {
+#			check_variable = { monument_id = 1 }
+#		}
+#		add_to_temp_variable = { monument_construction_time_temp = 10 }
+#	}
+#	use if else_if chains for performance reasons
+
+}
+
+monument_cannot_downgrade_back_up = {
+	OR = {
+		check_variable = { monument_id = 10005 }
+        check_variable = { monument_id = 10009 }
+        check_variable = { monument_id = 10010 }
+        check_variable = { monument_id = 10011 }
+        check_variable = { monument_id = 10012 }
+	}
+}
+
+AI_wants_to_upgrade_monument_back_up_special = {
+	OR = {
+		# check for variable "monument_id" for the specific monument ID
+		# check for monuments that are special (e.g. built via decision)
+		# AI will be more likely to build these
+		# example:
+		# check_variable = { monument_id = 1 }
+		hidden_trigger = { always = no } # as soon as you have added variable checks, you can remove this line
+	}
+}
+
+AI_wants_to_upgrade_monument_back_up_strong = {
+	OR = {
+		# check for variable "monument_id" for the specific monument ID
+		# check for monuments that are strong/have very good bonuses
+		# AI will be more likely to build these
+		# example:
+		# check_variable = { monument_id = 1 }
+		hidden_trigger = { always = no } # as soon as you have added variable checks, you can remove this line
+	}
+}
+
+AI_wants_to_upgrade_monument_back_up_weak = {
+	OR = {
+		# check for variable "monument_id" for the specific monument ID
+		# check for monuments that are weak/have not so good bonuses
+		# AI will be less likely to build these
+		# example:
+		# check_variable = { monument_id = 1 }
+		hidden_trigger = { always = no } # as soon as you have added variable checks, you can remove this line
+	}
+}

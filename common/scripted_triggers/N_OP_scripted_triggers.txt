@@ -1,0 +1,7 @@
+
+NOP_SOV_upgrade_through_national_focus = {
+	custom_trigger_tooltip = {
+		tooltip = NOP_SOV_upgrade_through_national_focus_tt
+		NOT = { has_completed_focus = SOV_the_trade_union_as_labor_organizer }
+	}
+}

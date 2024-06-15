@@ -1,0 +1,143 @@
+# usage:
+# monument_trigger_germany_won_ww2 = yes
+monument_trigger_germany_won_ww2 = {
+	if = {
+		limit = {
+			var:bonus_target = {
+				NOT = {
+					OR = {
+						AND = {
+							owns_state = 219
+							NOT = { country_exists = SOV }
+						}
+						SOV = {
+							is_subject_of = PREV
+						}
+						AND = {
+							tag = SOV
+							has_global_flag = monuments_game_rule_no_country_restriction
+						}
+					}
+				}
+			}
+		}
+		var:bonus_target = {
+			custom_trigger_tooltip = {
+				tooltip = HALLE_DES_VOLKES_OWNS_SOV
+				always = no # handled above
+			}
+		}
+	}
+	if = {
+		limit = {
+			var:bonus_target = {
+				NOT = {
+					OR = {
+						AND = {
+							owns_state = 126
+							NOT = { country_exists = ENG }
+						}
+						ENG = {
+							is_subject_of = PREV
+						}
+						AND = {
+							is_faction_leader = yes
+							ENG = {
+								is_in_faction_with = PREV
+							}
+						}
+						AND = {
+							tag = ENG
+							has_global_flag = monuments_game_rule_no_country_restriction
+						}
+					}
+				}
+			}
+		}
+		var:bonus_target = {
+			custom_trigger_tooltip = {
+				tooltip = HALLE_DES_VOLKES_OWNS_ENG
+				always = no # handled above
+			}
+		}
+	}
+	if = {
+		limit = {
+			var:bonus_target = {
+				NOT = {
+					OR = {
+						AND = {
+							owns_state = 16
+							NOT = { country_exists = FRV }
+						}
+						FRV = {
+							is_subject_of = PREV
+						}
+						AND = {
+							is_faction_leader = yes
+							FRV = {
+								is_in_faction_with = PREV
+							}
+						}
+						AND = {
+							tag = FRV
+							has_global_flag = monuments_game_rule_no_country_restriction
+						}
+					}
+				}
+			}
+		}
+		var:bonus_target = {
+			custom_trigger_tooltip = {
+				tooltip = HALLE_DES_VOLKES_OWNS_FRV
+				always = no # handled above
+			}
+		}
+	}
+}
+
+# usage:
+# monument_trigger_ussr_won_ww2 = yes
+monument_trigger_ussr_won_ww2 = {
+	OR = {
+		AND = {
+			if = {
+				limit = {
+					NOT = { has_global_flag = monuments_game_rule_no_country_restriction }
+				}
+				NOT = { country_exists = GER }
+				NOT = { country_exists = DDR }
+			}
+			else = {
+				OR = {
+					NOT = { country_exists = GER }
+					tag = GER
+				}
+				OR = {
+					NOT = { country_exists = DDR }
+					tag = DDR
+				}
+			}
+			owns_state = 64
+		}
+		AND = {
+			NOT = { country_exists = DDR }
+			GER = {
+				is_subject_of = PREV
+			}
+		}
+		AND = {
+			NOT = { country_exists = GER }
+			DDR = {
+				is_subject_of = PREV
+			}
+		}
+		AND = {
+			NOT = { country_exists = GER }
+			is_faction_leader = yes
+			DDR = {
+				is_in_faction_with = PREV
+			}
+		}
+	}
+}

@@ -1,0 +1,95 @@
+has_controls_state_prc = {
+    622 = { is_controlled_by_ROOT_or_puppet = yes }
+}
+
+has_controls_state_chi = {
+    595 = { is_controlled_by_ROOT_or_puppet = yes }
+    596 = { is_controlled_by_ROOT_or_puppet = yes }
+    597 = { is_controlled_by_ROOT_or_puppet = yes }
+    598 = { is_controlled_by_ROOT_or_puppet = yes }
+    601 = { is_controlled_by_ROOT_or_puppet = yes }
+    602 = { is_controlled_by_ROOT_or_puppet = yes }
+    603 = { is_controlled_by_ROOT_or_puppet = yes }
+    606 = { is_controlled_by_ROOT_or_puppet = yes }
+    605 = { is_controlled_by_ROOT_or_puppet = yes }
+    607 = { is_controlled_by_ROOT_or_puppet = yes }
+    608 = { is_controlled_by_ROOT_or_puppet = yes }
+    613 = { is_controlled_by_ROOT_or_puppet = yes }
+    614 = { is_controlled_by_ROOT_or_puppet = yes }
+    620 = { is_controlled_by_ROOT_or_puppet = yes }
+    743 = { is_controlled_by_ROOT_or_puppet = yes }
+    744 = { is_controlled_by_ROOT_or_puppet = yes }
+    748 = { is_controlled_by_ROOT_or_puppet = yes }
+    749 = { is_controlled_by_ROOT_or_puppet = yes }
+    750 = { is_controlled_by_ROOT_or_puppet = yes }
+    751 = { is_controlled_by_ROOT_or_puppet = yes }
+    752 = { is_controlled_by_ROOT_or_puppet = yes }
+}
+
+has_controls_state_man = {
+    328 = { is_controlled_by_ROOT_or_puppet = yes }
+    610 = { is_controlled_by_ROOT_or_puppet = yes }
+    714 = { is_controlled_by_ROOT_or_puppet = yes }
+    715 = { is_controlled_by_ROOT_or_puppet = yes }
+    716 = { is_controlled_by_ROOT_or_puppet = yes }
+    717 = { is_controlled_by_ROOT_or_puppet = yes }
+    761 = { is_controlled_by_ROOT_or_puppet = yes }
+}
+
+has_controls_state_men = {
+    611 = { is_controlled_by_ROOT_or_puppet = yes }
+    612 = { is_controlled_by_ROOT_or_puppet = yes }
+}
+
+has_controls_state_shx = {
+    615 = { is_controlled_by_ROOT_or_puppet = yes }
+    621 = { is_controlled_by_ROOT_or_puppet = yes }
+    746 = { is_controlled_by_ROOT_or_puppet = yes }
+}
+
+has_controls_state_xsm = {
+    283 = { is_controlled_by_ROOT_or_puppet = yes }
+    604 = { is_controlled_by_ROOT_or_puppet = yes }
+    616 = { is_controlled_by_ROOT_or_puppet = yes }
+    753 = { is_controlled_by_ROOT_or_puppet = yes }
+    754 = { is_controlled_by_ROOT_or_puppet = yes }
+    755 = { is_controlled_by_ROOT_or_puppet = yes }
+    756 = { is_controlled_by_ROOT_or_puppet = yes }
+}
+
+has_controls_state_sik = {
+    287 = { is_controlled_by_ROOT_or_puppet = yes }
+    617 = { is_controlled_by_ROOT_or_puppet = yes }
+    618 = { is_controlled_by_ROOT_or_puppet = yes }
+    619 = { is_controlled_by_ROOT_or_puppet = yes }
+    759 = { is_controlled_by_ROOT_or_puppet = yes }
+    760 = { is_controlled_by_ROOT_or_puppet = yes }
+}
+
+has_controls_state_tib = {
+    322 = { is_controlled_by_ROOT_or_puppet = yes }
+    757 = { is_controlled_by_ROOT_or_puppet = yes }
+    758 = { is_controlled_by_ROOT_or_puppet = yes }
+}
+
+has_controls_state_gxc = {
+    591 = { is_controlled_by_ROOT_or_puppet = yes }
+    592 = { is_controlled_by_ROOT_or_puppet = yes }
+    593 = { is_controlled_by_ROOT_or_puppet = yes }
+    594 = { is_controlled_by_ROOT_or_puppet = yes }
+    599 = { is_controlled_by_ROOT_or_puppet = yes }
+}
+
+has_controls_state_yun = {
+    325 = { is_controlled_by_ROOT_or_puppet = yes }
+    747 = { is_controlled_by_ROOT_or_puppet = yes }
+}
+
+has_controls_state_other = {
+    326 = { is_controlled_by_ROOT_or_puppet = yes }
+    524 = { is_controlled_by_ROOT_or_puppet = yes }
+    609 = { is_controlled_by_ROOT_or_puppet = yes }
+    728 = { is_controlled_by_ROOT_or_puppet = yes }
+    729 = { is_controlled_by_ROOT_or_puppet = yes }
+    745 = { is_controlled_by_ROOT_or_puppet = yes }
+}

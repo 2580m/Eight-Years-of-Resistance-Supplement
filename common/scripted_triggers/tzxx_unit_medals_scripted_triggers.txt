@@ -1,0 +1,5 @@
+#scripted triggers for Division Medals feature
+
+should_have_the_people_republic_of_China_medals_trigger = {
+	original_tag = PRC
+}

@@ -1,0 +1,1813 @@
+#	Example:
+#
+#	example_trigger = {
+#		tag = GER
+#		is_ai = no
+#	}
+#
+#
+#	In a script file:
+#
+#	trigger = {
+#		example_trigger = yes
+#	}
+#
+#	THIS FILE IS FOR TRIGGERS SPECIFICALLY FOR THE CHI TAG
+minority_rule_trigger = {
+	OR = {
+		AND = {
+			OR = {
+				check_variable = { parliament_seat_array^0 < parliament_seat_array^1 }
+				check_variable = { parliament_seat_array^0 < parliament_seat_array^2 }
+				check_variable = { parliament_seat_array^0 < parliament_seat_array^3 }
+			}
+			has_country_leader = {
+				character = PRC_zhang_guotao ruling_only = yes
+			}
+		}
+
+
+		AND = {
+			OR = {
+				check_variable = { parliament_seat_array^1 < parliament_seat_array^0 }
+				check_variable = { parliament_seat_array^1 < parliament_seat_array^2 }
+				check_variable = { parliament_seat_array^1 < parliament_seat_array^3 }
+			}
+			OR = {
+				has_country_leader = {
+					character = prc_mao_zedong ruling_only = yes
+				}
+				has_country_leader = {
+					character = prc_zhang_wentian ruling_only = yes
+				}
+			}
+		}
+
+
+		AND = {
+			OR = {
+				check_variable = { parliament_seat_array^2 < parliament_seat_array^0 }
+				check_variable = { parliament_seat_array^2 < parliament_seat_array^1 }
+				check_variable = { parliament_seat_array^2 < parliament_seat_array^3 }
+			}
+			OR = {
+				has_country_leader = {
+					character = prc_bo_gu ruling_only = yes
+				}
+				has_country_leader = {
+					character = prc_wang_ming ruling_only = yes
+				}
+			}
+		}    
+
+		AND = {
+				OR = {
+				check_variable = { parliament_seat_array^3 < parliament_seat_array^0 }
+				check_variable = { parliament_seat_array^3 < parliament_seat_array^1 }
+				check_variable = { parliament_seat_array^3 < parliament_seat_array^2 }
+			}
+			OR = {
+				has_country_leader = {
+					character = prc_peng_shuzhi ruling_only = yes
+				}
+				#has_country_leader = {
+				#	character = prc_wang_fanxi ruling_only = yes
+				#}
+				has_country_leader = {
+					character = prc_chen_duxiu ruling_only = yes
+				}
+			}
+		}
+	}
+}
+leader_is_zhang_guotao = {	
+	#has_country_leader = {
+	#	name = "Zhang Guotao" ruling_only = yes
+	#}
+	OR = {
+		has_country_leader = {
+			character = PRC_zhang_guotao ruling_only = yes
+		}
+		has_country_leader = {#guo
+			character = PRC_quanguorenda ruling_only = yes
+		}
+	}
+}
+leader_is_maoist = {#guo
+	OR = {
+		#has_country_leader = {
+		#	name = "Mao Zedong" ruling_only = yes
+		#}
+		#has_country_leader = {
+		#	name = "Zhang Wentian" ruling_only = yes
+		#}
+		has_country_leader = {
+			character = prc_mao_zedong ruling_only = yes
+		}
+		has_country_leader = {
+			character = prc_zhang_wentian ruling_only = yes
+		}
+		
+		has_country_leader = {
+			character = PRC_zhou_enlai ruling_only = yes
+		}
+		
+		has_country_leader = {#guo
+			character = PRC_quanguorenda ruling_only = yes
+		}
+		
+		hidden_trigger = {
+			has_country_leader = {
+				character = PRC_wanghongwen ruling_only = yes
+			}
+		}
+	}
+}
+leader_is_28b = {
+	OR = {
+		#has_country_leader = {
+		#	name = "Bo Gu" ruling_only = yes
+		#}
+		#has_country_leader = {
+		#	name = "Wang Ming" ruling_only = yes
+		#}
+		has_country_leader = {
+			character = prc_bo_gu ruling_only = yes
+		}
+		has_country_leader = {
+			character = prc_wang_ming ruling_only = yes
+		}
+		
+		has_country_leader = {#guo
+			character = PRC_zhou_enlai ruling_only = yes
+		}
+		has_country_leader = {#guo
+			character = PRC_quanguorenda ruling_only = yes
+		}
+	}
+}
+leader_is_trotskyist = {
+	OR = {
+		#has_country_leader = {
+		#	name = "Peng Shuzhi" ruling_only = yes
+		#}
+		#has_country_leader = {
+		#	name = "Wang Fanxi" ruling_only = yes
+		#}
+		#has_country_leader = {
+		#	name = "Chen Duxiu" ruling_only = yes
+		#}
+		has_country_leader = {
+			character = prc_peng_shuzhi ruling_only = yes
+		}
+		has_country_leader = {
+			character = prc_wang_fanxi ruling_only = yes
+		}
+		has_country_leader = {
+			character = prc_chen_duxiu ruling_only = yes
+		}
+		
+		#has_country_leader = {#guo
+		#	character = PRC_quanguorenda ruling_only = yes
+		#}
+	}
+}
+suitable_for_sik_forming = {
+	is_controlled_by_jap_or_its_puppet = yes
+	is_owned_by_jap_or_its_puppet = yes
+	controller = {
+		has_full_control_of_state = PREV
+	}
+	owner = {
+		OR = {
+			tag = JAP
+			is_rrc = yes
+		}
+	}
+}
+suitable_for_hui_hui_forming = {
+	is_controlled_by_jap_or_its_puppet = yes
+	is_owned_by_jap_or_its_puppet = yes
+	controller = {
+		has_full_control_of_state = PREV
+	}
+	owner = {
+		OR = {
+			tag = JAP
+			is_rrc = yes
+		}
+	}
+}
+is_using_generic_idea = {
+	NOT = {
+		OR = {
+			tag = GER
+			tag = ENG
+			tag = SOV
+			tag = FRA
+			tag = ITA
+			tag = JAP
+			tag = MAN
+			tag = USA
+			tag = CAN
+			tag = ROM
+			tag = YUG
+			tag = FIN
+		}
+	}
+	if = {
+		limit = {
+			has_dlc = "Waking the Tiger"
+		}
+		NOT = {
+			OR = {
+				tag = CHI
+				tag = PRC
+				is_originally_warlord = yes
+			}
+		}
+	}
+
+}
+is_northeast_china_state = {
+	OR = {
+		state = 715
+		state = 716
+		state = 1008
+		state = 328
+		state = 1007
+		state = 1011
+		state = 714
+		state = 717
+		state = 1005
+		state = 610
+		state = 745
+	    state = 761
+	}
+}
+is_south_china_state = {
+	OR = {
+		state = 325
+		state = 326
+		state = 1040
+		state = 747
+		state = 599
+		state = 1039
+		state = 1038
+		state = 592
+		state = 728
+		state = 729
+		state = 1036
+		state = 593
+		state = 1037
+		state = 603
+		state = 748
+		state = 1035
+		state = 602
+		state = 750
+		state = 600
+		state = 1032
+		state = 595
+		state = 1033
+	}
+}
+is_east_china_state = {
+	OR = {
+		state = 607
+		state = 1043
+		state = 620
+		state = 1034
+		state = 743
+		state = 1032
+		state = 606
+		state = 749
+		state = 596
+		state = 597
+		state = 1028
+		state = 1015
+		state = 598
+		state = 613
+		state = 997
+	}
+}
+
+is_north_china_state = {
+	OR = {
+		state = 608
+		state = 609
+		state = 611
+		state = 614
+		state = 621
+		state = 746
+		state = 1014
+		state = 615
+		state = 1017
+		state = 1027
+		state = 1013
+		state = 622
+		state = 616
+		state = 612
+		state = 1029
+		state = 744
+		state = 1031
+		state = 1012
+		state = 1016
+	    state = 1044
+		state = 991
+		state = 1019
+		state = 1020
+		state = 998
+	}
+}
+is_west_china_state = {
+	OR = {
+		state = 283
+		state = 756
+		state = 1053
+		state = 605
+		state = 751
+		state = 752
+		state = 753
+		state = 1041
+		state = 1042
+		state = 604
+		state = 754
+		state = 755
+		state = 1045
+		state = 1047
+		state = 617
+		state = 618
+		state = 619
+		state = 759
+		state = 760
+		state = 1045
+		state = 1048
+		state = 1052
+		state = 1054	
+	    state = 1030
+		state = 990
+		state = 1023
+	}
+}
+
+is_sinkiang_state = {
+	OR = {
+		state = 287
+		state = 617
+		state = 618
+		state = 619
+		state = 759
+		state = 1046
+		state = 1048
+		state = 1060
+		state = 1051
+		state = 1052
+		state = 1054
+		state = 990
+	}
+}
+
+is_tibet_state = {
+	OR = {
+		state = 322
+		state = 601
+		state = 757
+		state = 758
+	}
+}
+
+is_outer_mongolia_state = {
+	OR = {
+		state = 330
+		state = 817
+		state = 818
+		state = 1025
+		state = 1026
+		state = 819
+		state = 820
+		state = 1018
+		state = 1024
+	}
+}
+
+
+is_NCBSHQ_state = { #綏遠+察哈+河北
+	OR = {
+		state = 608
+		state = 609
+		state = 611
+	    state = 612
+		state = 614
+		state = 621
+		state = 746
+		state = 1012
+		state = 1013
+	    state = 1014	
+		state = 1019
+		state = 1020
+	}
+}
+
+is_NK_state = { #north korea
+	OR = {
+		state = 1004
+		state = 527
+		state = 1003
+	}
+}
+
+is_SK_state = { #south korea
+	OR = {
+		state = 525
+		state = 1002
+		state = 999
+		state = 1001
+		state = 1000
+	}
+}
+
+is_jiangnan_state = { #
+	OR = {
+		region = 164 #southeast
+		region = 248 #south china (liangguang)
+		region = 249 #southwest
+		state = 1015
+		state = 613
+		state = 596
+		state = 749
+		state = 1034
+        state = 605
+		state = 1035
+		state = 750
+		state = 602
+		state = 620
+	}
+}
+
+is_plm_autonomy_state = {
+	OR = {
+		state = 621
+		state = 746
+		state = 1014
+	}
+}
+
+is_mr1_state = {
+	OR = { #河北
+	    state = 609
+	    state = 608
+	    state = 614
+    }  
+}
+
+is_mr1_state_2 = {
+	OR = { #河南/安徽北部
+	    state = 607
+	    state = 1043
+	    
+		#state = 606
+    }  
+}
+
+is_mr2_state = {
+	OR = { #晉綏察 -> 1938/2 山西跟陝北
+	    state = 615
+	    state = 1027
+	    state = 998
+	    state = 1017
+	    state = 1013
+
+		#MR8(SUI)
+	    #state = 1020 
+	    #state = 1019
+	    #state = 621
+	    #state = 746
+	    #state = 1014
+
+	    state = 611
+	    state = 612
+	    state = 1012
+		state = 1018
+
+		#northern shaan
+		state = 1016
+		state = 991
+		state = 622
+		state = 1029
+    }  
+}
+
+is_mr3_state = {
+	OR = { #京滬杭 -> 1938/2 浙江、福建、江蘇及安徽南部
+		state = 613
+		state = 1015
+		state = 596	
+	}
+}
+
+is_mr4_state = {
+	OR = { #閩粵 -> 1938 兩廣 -> 1940年8月上旬，廣東（不包括粵西南，35集團軍之64軍駐防區）從四戰區劃出組建第七戰區，余漢謀任第七戰區長官。
+		state = 1033
+		state = 595
+			
+		AND = {
+			NOT = {
+				has_global_flag = mr_7_adjusted_flag	
+			}
+			OR = {
+				state = 592
+				state = 593
+				state = 1036
+			}
+		}
+		#state = 593
+		#state = 1036
+		#state = 592
+		state = 1037
+		state = 591
+
+		#GXC
+		state = 1039
+		state = 1038
+		state = 599
+		state = 594
+
+		state = 728
+	}
+}
+
+is_mr5_state = {
+	OR = { #魯南到蘇北 -> 1938 天津至南京浦口之華東一帶（津浦鐵路沿線） 1939 -> 安徽西部湖北北部及河南南部
+		state = 597
+		state = 1028
+		state = 743
+					
+		state = 598
+		state = 997
+
+		#1938
+		state = 606
+		state = 749
+ 
+		state = 1034 #江北
+	}
+}
+
+is_mr6_state = { #c
+	OR = { #
+	#a.1937年9月17日~1938/2，津浦路北段(未實際成立)
+	#b.1939年10月~1940/4併入第九戰區，湘江以西
+	#c.1940/7/1 鄂西、鄂中、鄂南、湘北及湘西、川東、黔東 -> 1944 湖北西部
+		
+	    state = 620
+		
+		#MR9
+		#state = 1035
+		#state = 750
+		
+		state = 605
+		state = 748
+		state = 603
+	}
+}
+
+is_mr7_state = { #a
+	OR = { 
+		#a.1937/10~1938 原屬第三戰區的蘇南、浙北和皖南東部
+		#b.1940/8 廣東（不包括粵西南，35集團軍之64軍駐防區）
+		#c.1944 廣東省（含香港）
+	    state = 613
+		state = 1015
+		state = 596
+
+		AND = {
+			has_global_flag =  mr_7_adjusted_flag
+			OR = {
+				state = 592
+				state = 593
+				state = 1036
+			}
+		}
+	}
+}
+
+is_mr7_state_2 = { #a
+	OR = { 
+		#a.1937/10~1938 原屬第三戰區的蘇南、浙北和皖南東部
+		#b.1940/8 廣東（不包括粵西南，35集團軍之64軍駐防區）
+		#c.1944 廣東省（含香港）
+	    state = 592
+		state = 593
+		state = 1036
+	}
+}
+
+is_mr8_state = { 
+	OR = { #1937/11甘肅、綏遠、寧夏及青海
+		state = 1020
+		state = 1019
+		state = 621
+		state = 746
+		state = 1014
+
+		custom_trigger_tooltip = {
+			tooltip = is_in_strat_144
+			region = 144
+		}
+		state = 283
+		state = 1053
+
+		state = 1031
+		state = 1044
+
+		custom_trigger_tooltip = {
+			tooltip = is_in_strat_200
+			region = 200
+		}
+ 
+		#新疆
+        #custom_trigger_tooltip = {
+		#	tooltip = is_in_strat_252
+		#	region = 252
+		#}
+		#custom_trigger_tooltip = {
+		#	tooltip = is_in_strat_145
+		#	region = 145
+		#}
+	}
+}
+
+is_mr9_state = {  
+	OR = { # 1938年6月，湖北南部、湖南全省南潯鐵路、江西
+		state = 1032
+		state = 600
+			
+			
+		state = 1035
+		state = 750
+		state = 602
+
+		#MR 6
+		#state = 620
+		state = 1034
+	}
+}
+
+is_mr10_state = {  
+	OR = { #陝西(南)
+		state = 1030
+		state = 744
+	}
+}
+
+has_long_march_idea = {
+	custom_trigger_tooltip = {
+		tooltip = not_affected_by_longmarch_tt
+		OR = {
+			has_idea = Long_March_1
+			has_idea = Long_March_2
+			has_idea = Long_March_3
+			has_idea = Long_March_4
+			has_idea = Long_March_5
+		}
+	}
+}
+
+is_legit_china = {
+	custom_trigger_tooltip = {
+		tooltip = is_legit_china_tt
+		OR = {
+			tag = event_target:WTT_current_china_leader			
+			AND = {
+				is_subject = no
+				is_literally_china = yes
+				NOT = {
+					country_exists = event_target:WTT_current_china_leader
+				}
+				NOT = {
+					any_of_scopes = { 
+						array = global.literally_china_countries
+						#tag = ROOT in strength_ratio causes crash in 1.13.x
+						ROOT = {
+							strength_ratio = { 
+						        tag = PREV
+						        ratio < 1
+						    } 
+						}
+					}
+				}
+			}
+		}
+		#OR = {
+		#	is_warlord = yes
+		#	tag = CHI
+		#	tag = PRC
+		#}
+		#OR = {
+		#	tag = event_target:WTT_current_china_leader
+		#	has_country_flag = im_legit_now
+		#	OR = {
+		#		owns_state = 1015
+		#		AND = {
+		#			owns_state = 605
+		#			is_faction_leader = yes
+		#		}
+		#		OR = {
+		#			1015 = {
+		#				owner = {
+		#					is_subject_of = ROOT
+		#				}
+		#			}
+		#			605 = {
+		#				owner = {
+		#					is_subject_of = ROOT
+		#				}
+		#			}
+		#		}
+		#	}
+		#	AND = {
+		#		tag = NEA
+		#		has_war_with = CHI
+		#	}
+		#}
+	}
+}
+is_independent_china_or_warlord = { #Does not include sinkiang
+	OR = {
+		has_country_flag = im_warlord_now
+		tag = CHI
+		tag = PRC
+		tag = GXC
+		tag = YUN
+		tag = SHX
+		tag = XSM
+		tag = XIK
+		tag = SIC
+		tag = GUD
+		tag = HPC
+		tag = NXM
+		tag = SHC
+		tag = GSM
+		tag = SHD
+		tag = NEA
+		tag = SHC
+		tag = EGM
+		tag = TNG
+		tag = HMI
+	    tag = KHR
+		tag = XIA
+		tag = KRS
+		tag = ATM
+		tag = SUY
+	}
+	is_subject = no
+}
+is_warlord = {
+	custom_trigger_tooltip = {
+		tooltip = is_warlord_tt
+		OR = {
+			has_country_flag = im_warlord_now
+			tag = GXC
+			tag = YUN
+			tag = SHX
+			tag = XSM
+			tag = XIK
+			tag = SIC
+			tag = GUD
+			tag = HPC
+			tag = NEA
+			tag = SHD
+			tag = NXM
+			tag = SHC
+			tag = GSM
+			tag = EGM
+			tag = HMI
+			tag = TNG
+		    tag = PLM
+		    tag = KHR
+			tag = XIA
+			tag = KRS
+		    tag = ATM
+			tag = SUY
+		}
+	}
+}
+is_warlord_for_allowed_trigger = {
+	OR = {
+		original_tag = SIK
+		original_tag = PLM
+		original_tag = GXC
+		original_tag = YUN
+		original_tag = SHX
+		original_tag = XSM
+		original_tag = XIK
+		original_tag = SIC
+		original_tag = GUD
+		original_tag = HPC
+		original_tag = NEA
+		original_tag = SHD
+		original_tag = NXM
+		original_tag = SHC
+		original_tag = GSM
+		original_tag = EGM
+		original_tag = TNG
+		original_tag = HMI
+	    original_tag = KHR
+		original_tag = XIA
+		original_tag = KRS
+		original_tag = ATM
+		original_tag = SUY
+	}
+}
+is_warlord_for_allowed_trigger = {
+	OR = {
+		original_tag = SIK
+		original_tag = PLM
+		original_tag = GXC
+		original_tag = YUN
+		original_tag = SHX
+		original_tag = XSM
+		original_tag = XIK
+		original_tag = SIC
+		original_tag = GUD
+		original_tag = HPC
+		original_tag = NEA
+		original_tag = SHD
+		original_tag = NXM
+		original_tag = SHC
+		original_tag = GSM
+		original_tag = EGM
+		original_tag = TNG
+		original_tag = HMI
+	    original_tag = KHR
+		original_tag = XIA 
+		original_tag = KRS
+		original_tag = ATM
+		original_tag = SUY
+	}
+}
+is_non_sik_warlord = {
+	custom_trigger_tooltip = {
+		tooltip = is_non_sik_warlord_tt
+		OR = {
+			has_country_flag = im_warlord_now
+			tag = GXC
+			tag = YUN
+			tag = SHX
+			tag = XSM
+			tag = XIK
+			tag = SIC
+			tag = GUD
+			tag = HPC
+			tag = NEA
+			tag = SHD
+			tag = NXM
+			tag = SHC
+			tag = GSM
+			tag = EGM
+		    tag = PLM
+			tag = XIA
+			tag = SUY
+		}
+	}
+}
+is_originally_warlord = { #Does not include sinkiang
+	OR = {
+		has_country_flag = im_warlord_now
+		original_tag = GXC
+		original_tag = YUN
+		original_tag = SHX
+		original_tag = XSM
+		original_tag = XIK
+		original_tag = SIC
+		original_tag = GUD
+		original_tag = HPC
+		original_tag = NEA
+		original_tag = SHD
+		original_tag = NXM
+		original_tag = SHC
+		original_tag = GSM
+		original_tag = EGM
+		original_tag = TNG
+		original_tag = HMI
+	    original_tag = KHR
+	    original_tag = XIA
+		original_tag = KRS
+		original_tag = ATM
+		original_tag = SUY
+		#original_tag = PLM
+	}
+}
+
+is_north_china_state_for_liberation = {
+	OR = {
+		state = 597
+		state = 1028
+		state = 615
+		state = 1017
+		state = 1027
+		state = 614
+		state = 608
+		state = 609
+		state = 611
+		state = 1013
+		state = 622
+		state = 598
+		state = 606
+		state = 1043
+		state = 607
+		state = 743
+		state = 1028
+		state = 1016
+		state = 1029
+		state = 1031
+	    state = 1014
+		state = 1020
+		#state = 991
+		state = 998
+		state = 997
+		state = 749
+    }
+}
+
+is_south_china_state_for_liberation = {
+	OR = {
+		state = 591
+		state = 602
+		state = 596
+		state = 592
+    }
+}
+
+state_should_be_transferred_to_china = {
+	custom_trigger_tooltip = {
+		tooltip = NOT_is_japan_territories_tt
+		NOT = { has_state_flag = jap_starting_land }
+	}
+	NOT = {
+		state = 329 #tannu tuva
+	}
+	NOT = {
+		state = 745 #dalian
+	}
+	NOT = {
+		is_core_of = JAP
+	}
+	is_not_a_core_of_japanese_subject = yes
+	JAP_or_its_puppet_has_full_control_over_prev_states = yes
+	is_owned_by_jap_or_its_puppet = yes
+}
+is_MAN_state_for_takeover = {
+	OR = {
+		region = 242
+		region = 243
+		region = 155
+		region = 143
+		region = 244
+	}
+}
+is_MAN_state_for_liberation = {
+	OR = {
+		state = 715
+		state = 716
+		state = 1008
+		state = 328
+		state = 1007
+		state = 714
+		state = 717
+		state = 1005
+		state = 610
+		state = 745
+		state = 1012
+		state = 612
+	    state = 1006
+		state = 1009
+		state = 1011
+		state = 1010
+        state = 761		
+	}
+}
+###
+
+infra_ava_2_tr = {
+	custom_trigger_tooltip = {
+		tooltip = infra_ava_2_tt
+		free_building_slots = {
+			building = infrastructure
+			size < 4
+		}
+		is_controlled_by_ROOT_or_puppet = yes#guo
+	}
+}
+###
+
+infra_ava_3_tr = {
+	custom_trigger_tooltip = {
+		tooltip = infra_ava_3_tt
+		free_building_slots = {
+			building = infrastructure
+			size < 3
+		}
+		is_controlled_by_ROOT_or_puppet = yes#guo
+	}
+}
+###
+
+infra_bypass_1_tr = {
+	custom_trigger_tooltip = {
+		tooltip = infra_bypass_1_tt
+		free_building_slots = {
+			building = infrastructure
+			size < 4
+		}
+		is_controlled_by_ROOT_or_puppet = yes#guo
+	}
+}
+
+###
+
+infra_bypass_2_tr = {
+	custom_trigger_tooltip = {
+		tooltip = infra_bypass_2_tt
+		free_building_slots = {
+			building = infrastructure
+			size < 2
+		}
+		is_controlled_by_ROOT_or_puppet = yes#guo
+	}
+}
+###
+
+infra_bypass_3_tr = {
+	custom_trigger_tooltip = {
+		tooltip = infra_bypass_3_tt
+		free_building_slots = {
+			building = infrastructure
+			size < 1
+		}
+		is_controlled_by_ROOT_or_puppet = yes#guo
+	}
+}
+###
+hainan_trigger = {
+	custom_trigger_tooltip = {
+		tooltip = hainan_trigger_tt
+		is_controlled_by_ROOT_or_puppet = yes#guo
+		free_building_slots = {
+			building = infrastructure
+			size < 4
+		}
+	}
+}
+alu_tung_trigger = {
+	custom_trigger_tooltip = {
+		tooltip = alu_tung_trigger_tt
+		is_controlled_by_ROOT_or_puppet = yes#guo
+		free_building_slots = {
+			building = infrastructure
+			size < 3
+		}
+	}
+}
+seven_infra_trigger = {
+	custom_trigger_tooltip = {
+		tooltip = seven_infra_trigger_tt
+		is_controlled_by_ROOT_or_puppet = yes#guo
+		free_building_slots = {
+			building = infrastructure
+			size < 4
+		}
+	}
+}
+is_not_irrelevant_states = {
+	NOT = {
+		state = 537
+		state = 555
+		state = 645									
+		state = 646
+		#state = 994
+		#state = 995
+		#state = 996
+		#state = 534
+	}
+}
+is_NOT_pacifying_backlash = {
+	custom_trigger_tooltip = {
+		tooltip = crack_down_in_process_christian_NOT_tt
+		NOT = { has_country_flag = crack_down_in_process_christian }		
+		NOT = { has_active_mission = RCM_JAP_pacify_backlash_hold_land_mission }
+		NOT = { has_decision = RCM_JAP_pacify_local_backlash_descion }
+		NOT = { has_active_mission = RCM_send_in_the_garrison_mission }
+	}
+}
+is_pacifying_backlash = {
+	custom_trigger_tooltip = {
+		tooltip = crack_down_in_process_christian_tt
+		OR = {
+			has_country_flag = crack_down_in_process_christian
+			has_active_mission = RCM_JAP_pacify_backlash_hold_land_mission
+			has_active_mission = RCM_send_in_the_garrison_mission
+			has_decision = RCM_JAP_pacify_local_backlash_descion
+		}
+	}
+}
+max_infra_trigger = {
+	custom_trigger_tooltip = {
+		tooltip = infra_bypass_3_tt
+		is_controlled_by_ROOT_or_puppet = yes#guo
+		free_building_slots = {
+			building = infrastructure
+			size < 1
+		}
+	}
+}
+
+ai_cont_foc_prc = { #this is for AI to do continue focus
+	OR = {
+		is_ai = no
+		NOT = {
+			AND = {
+				has_country_flag = j_focus_completed #10 foci completed
+				OR = {
+					has_idea = PRC_no_skilled_personnel_1
+					has_idea = PRC_no_skilled_personnel_2
+					has_idea = PRC_no_skilled_personnel_3
+					has_idea = PRC_no_skilled_personnel_4
+				}
+				has_completed_focus = PRC_Chinese_Academy_of_Sciences
+			}
+		}
+	}
+}
+
+RCM_GER_will_support = {
+	country_exists = GER
+	NOT = {
+		has_war_with = GER
+	}
+	if = {
+		limit = {
+			NOT = {
+				SOV = {
+					OR = {
+						has_war_together_with = GER
+						is_in_faction_with = GER
+						has_non_aggression_pact_with = GER
+					}
+				}
+			}
+		}
+		NOT = {
+			is_in_faction_with = SOV
+		}
+	}
+	if = {
+		limit = {
+			NOT = {
+				ENG = {
+					OR = {
+						has_war_together_with = GER
+						is_in_faction_with = GER
+						has_non_aggression_pact_with = GER
+					}
+				}
+			}
+		}
+		NOT = {
+			is_in_faction_with = ENG
+		}
+	}
+	if = {
+		limit = {
+			NOT = {
+				USA = {
+					OR = {
+						has_war_together_with = GER
+						is_in_faction_with = GER
+						has_non_aggression_pact_with = GER
+					}
+				}
+			}
+		}
+		NOT = {
+			is_in_faction_with = USA
+		}
+	}
+
+	if = {
+		limit = {
+			NOT = {
+				OR = {
+					has_government = neutrality
+					GER = {
+						has_government = ROOT
+					}
+				}
+			}
+		}
+		GER_will_support = yes
+	}
+}
+RCM_SOV_will_support = {
+	country_exists = SOV
+	NOT = {
+		has_war_with = SOV
+	}
+
+	if = {
+		limit = {
+			NOT = {
+				JAP = {
+					OR = {
+						has_war_together_with = SOV
+						is_in_faction_with = SOV
+						has_non_aggression_pact_with = SOV
+					}
+				}
+			}
+		}
+		NOT = {
+			is_in_faction_with = JAP
+		}
+	}
+	if = {
+		limit = {
+			NOT = {
+				GER = {
+					OR = {
+						has_war_together_with = SOV
+						is_in_faction_with = SOV
+						has_non_aggression_pact_with = SOV
+					}
+				}
+			}
+		}
+		NOT = {
+			is_in_faction_with = GER
+		}
+	}
+
+	if = {
+		limit = {
+			NOT = {
+				OR = {
+					has_government = neutrality
+					SOV = {
+						has_government = ROOT
+					}
+				}
+			}
+		}
+		SOV_will_support = yes
+	}
+}
+RCM_USA_UK_will_support = {
+	OR = {
+		AND = {
+			country_exists = ENG
+			NOT = {
+				has_war_with = ENG
+			}
+			if = {
+				limit = {
+					NOT = {
+						GER = {
+							OR = {
+								has_war_together_with = ENG
+								is_in_faction_with = ENG
+								has_non_aggression_pact_with = ENG
+							}
+						}
+					}
+				}
+				NOT = {
+					is_in_faction_with = GER
+				}
+			}
+			if = {
+				limit = {
+					NOT = {
+						OR = {
+							has_government = neutrality
+							ENG = {
+								has_government = ROOT
+							}
+						}
+					}
+				}
+				ENG_will_support = yes
+			}
+		}
+		AND = {
+			country_exists = USA
+			NOT = {
+				has_war_with = USA
+			}
+			if = {
+				limit = {
+					NOT = {
+						GER = {
+							OR = {
+								has_war_together_with = USA
+								is_in_faction_with = USA
+								has_non_aggression_pact_with = USA
+							}
+						}
+					}
+				}
+				NOT = {
+					is_in_faction_with = GER
+				}
+			}
+			if = {
+				limit = {
+					NOT = {
+						JAP = {
+							OR = {
+								has_war_together_with = USA
+								is_in_faction_with = USA
+								has_non_aggression_pact_with = USA
+							}
+						}
+					}
+				}
+				NOT = {
+					is_in_faction_with = JAP
+				}
+			}
+			if = {
+				limit = {
+					NOT = {
+						OR = {
+							has_government = neutrality
+							USA = {
+								has_government = ROOT
+							}
+						}
+					}
+				}
+				USA_will_support = yes
+			}
+		}
+	}
+}
+RCM_UK_will_support = {
+	country_exists = ENG
+	NOT = {
+		has_war_with = ENG
+	}
+	if = {
+		limit = {
+			NOT = {
+				GER = {
+					OR = {
+						has_war_together_with = ENG
+						is_in_faction_with = ENG
+						has_non_aggression_pact_with = ENG
+					}
+				}
+			}
+		}
+		NOT = {
+			is_in_faction_with = GER
+		}
+	}
+	if = {
+		limit = {
+			NOT = {
+				OR = {
+					has_government = neutrality
+					ENG = {
+						has_government = ROOT
+					}
+				}
+			}
+		}
+		ENG_will_support = yes
+	}
+}
+RCM_USA_will_support = {
+	country_exists = USA
+	NOT = {
+		has_war_with = USA
+	}
+	if = {
+		limit = {
+			NOT = {
+				GER = {
+					OR = {
+						has_war_together_with = USA
+						is_in_faction_with = USA
+						has_non_aggression_pact_with = USA
+					}
+				}
+			}
+		}
+		NOT = {
+			is_in_faction_with = GER
+		}
+	}
+	if = {
+		limit = {
+			NOT = {
+				JAP = {
+					OR = {
+						has_war_together_with = USA
+						is_in_faction_with = USA
+						has_non_aggression_pact_with = USA
+					}
+				}
+			}
+		}
+		NOT = {
+			is_in_faction_with = JAP
+		}
+	}
+	if = {
+		limit = {
+			NOT = {
+				OR = {
+					has_government = neutrality
+					USA = {
+						has_government = ROOT
+					}
+				}
+			}
+		}
+		USA_will_support = yes
+	}
+}
+
+
+###CHI_inch_blood
+CHI_inch_blood_up_trigger = {
+	event_target:WTT_current_china_leader = {
+		OR = {
+			AND = {
+				has_idea = CHI_inch_blood_1
+				surrender_progress > 0.07
+			}
+			AND = {
+				has_idea = CHI_inch_blood_2
+				surrender_progress > 0.14
+			}
+			AND = {
+				has_idea = CHI_inch_blood_3
+				surrender_progress > 0.21
+			}
+			AND = {
+				has_idea = CHI_inch_blood_4
+				surrender_progress > 0.28
+			}
+			AND = {
+				has_idea = CHI_inch_blood_5
+				surrender_progress > 0.35
+			}
+			AND = {
+				has_idea = CHI_inch_blood_6
+				surrender_progress > 0.42
+			}
+			AND = {
+				has_idea = CHI_inch_blood_7
+				surrender_progress > 0.49
+			}
+			AND = {
+				has_idea = CHI_inch_blood_8
+				surrender_progress > 0.56
+			}
+			AND = {
+				has_idea = CHI_inch_blood_9
+				surrender_progress > 0.63
+			}
+		}
+	}
+}
+CHI_inch_blood_up_trigger_for_AI_china = {
+	event_target:WTT_current_china_leader = {
+		OR = {
+			AND = {
+				has_idea = CHI_inch_blood_1
+				surrender_progress > 0.05
+			}
+			AND = {
+				has_idea = CHI_inch_blood_2
+				surrender_progress > 0.10
+			}
+			AND = {
+				has_idea = CHI_inch_blood_3
+				surrender_progress > 0.15
+			}
+			AND = {
+				has_idea = CHI_inch_blood_4
+				surrender_progress > 0.20
+			}
+			AND = {
+				has_idea = CHI_inch_blood_5
+				surrender_progress > 0.25
+			}
+			AND = {
+				has_idea = CHI_inch_blood_6
+				surrender_progress > 0.30
+			}
+			AND = {
+				has_idea = CHI_inch_blood_7
+				surrender_progress > 0.35
+			}
+			AND = {
+				has_idea = CHI_inch_blood_8
+				surrender_progress > 0.40
+			}
+			AND = {
+				has_idea = CHI_inch_blood_9
+				surrender_progress > 0.45
+			}
+		}
+	}
+}
+CHI_inch_blood_up_trigger_for_double_AI = {
+	event_target:WTT_current_china_leader = {
+		OR = {
+			AND = {
+				has_idea = CHI_inch_blood_1
+				surrender_progress > 0.06
+			}
+			AND = {
+				has_idea = CHI_inch_blood_2
+				surrender_progress > 0.12
+			}
+			AND = {
+				has_idea = CHI_inch_blood_3
+				surrender_progress > 0.18
+			}
+			AND = {
+				has_idea = CHI_inch_blood_4
+				surrender_progress > 0.24
+			}
+			AND = {
+				has_idea = CHI_inch_blood_5
+				surrender_progress > 0.30
+			}
+			AND = {
+				has_idea = CHI_inch_blood_6
+				surrender_progress > 0.36
+			}
+			AND = {
+				has_idea = CHI_inch_blood_7
+				surrender_progress > 0.42
+			}
+			AND = {
+				has_idea = CHI_inch_blood_8
+				surrender_progress > 0.48
+			}
+			AND = {
+				has_idea = CHI_inch_blood_9
+				surrender_progress > 0.54
+			}
+		}
+	}
+}
+unit_limiter_trigger = {
+	AND = {
+		#is_exempt_from_division_limit = no
+		surrender_progress < 0.5
+		OR = {
+			AND = {
+				tag = GER
+				has_completed_focus = GER_danzig_or_war
+				surrender_progress < 0.1
+			}
+			AND = {
+				tag = ENG
+				GER = {
+					OR = {
+						AND = {
+							NOT = { has_war_with = ENG }
+							date > 1943.1.1
+						}
+						surrender_progress > 0.5
+					}
+				}
+			}
+			AND = {
+				tag = SOV
+				date > 1943.1.1
+				has_war = no
+			}
+			AND = {
+				tag = USA
+				date > 1944.1.1
+				has_war = no
+			}
+			NOT = {
+				OR = {
+					tag = GER
+					tag = SOV
+					tag = ENG
+					tag = USA
+				}
+			}
+		}
+		NOT = {
+			OR = {
+				AND = {
+					JAP = {
+						is_ai = yes
+					}
+					is_puppet_of = JAP
+				}
+				tag = JAP
+				is_legit_china = yes
+				tag = CHI
+				tag = RAJ
+				tag = AST
+			}
+		}
+		#check_variable = {
+		#	num_divisions > num_of_military_factories
+		#}
+		check_variable = { temp_cons_infra_ratio < 2 } #4.5 is absolute maximum
+	}
+}
+
+unit_limiter_trigger_irrelevant_countries = {
+	OR = {
+		original_tag = SPR
+		AND = {
+		    capital_scope = { is_on_continent = africa }
+		    NOT = { tag = ETH }
+		}
+		tag = POR  
+		capital_scope = { is_on_continent = south_america }
+	    capital_scope = { is_on_continent = middle_east }
+		#tag = TIB
+		tag = IRE
+		tag = SWE
+	    tag = SWI
+	    tag = BHU
+	    #tag = NEP
+	    tag = LIT
+		tag = LAT
+		tag = EST
+	    tag = DEN
+	    tag = MEX
+	}
+	is_subject = no
+	has_war = no
+}
+
+unit_limiter_trigger_major_countries = {
+	OR = {
+		is_major = yes
+	    is_literally_china = yes
+	}
+}
+
+CHI_inch_blood_down_trigger = {
+	event_target:WTT_current_china_leader = {
+		OR = {
+			AND = {
+				has_idea = CHI_inch_blood_2
+				surrender_progress < 0.07
+			}
+			AND = {
+				has_idea = CHI_inch_blood_3
+				surrender_progress < 0.14
+			}
+			AND = {
+				has_idea = CHI_inch_blood_4
+				surrender_progress < 0.21
+			}
+			AND = {
+				has_idea = CHI_inch_blood_5
+				surrender_progress < 0.28
+			}
+			AND = {
+				has_idea = CHI_inch_blood_6
+				surrender_progress < 0.35
+			}
+			AND = {
+				has_idea = CHI_inch_blood_7
+				surrender_progress < 0.42
+			}
+			AND = {
+				has_idea = CHI_inch_blood_8
+				surrender_progress < 0.49
+			}
+			AND = {
+				has_idea = CHI_inch_blood_9
+				surrender_progress < 0.56
+			}
+			AND = {
+				has_idea = CHI_inch_blood_10
+				surrender_progress < 0.63
+			}
+		}
+	}
+}
+CHI_inch_blood_down_trigger_for_AI_china = {
+	event_target:WTT_current_china_leader = {
+		OR = {
+			AND = {
+				has_idea = CHI_inch_blood_2
+				surrender_progress < 0.05
+			}
+			AND = {
+				has_idea = CHI_inch_blood_3
+				surrender_progress < 0.10
+			}
+			AND = {
+				has_idea = CHI_inch_blood_4
+				surrender_progress < 0.15
+			}
+			AND = {
+				has_idea = CHI_inch_blood_5
+				surrender_progress < 0.20
+			}
+			AND = {
+				has_idea = CHI_inch_blood_6
+				surrender_progress < 0.25
+			}
+			AND = {
+				has_idea = CHI_inch_blood_7
+				surrender_progress < 0.30
+			}
+			AND = {
+				has_idea = CHI_inch_blood_8
+				surrender_progress < 0.35
+			}
+			AND = {
+				has_idea = CHI_inch_blood_9
+				surrender_progress < 0.40
+			}
+			AND = {
+				has_idea = CHI_inch_blood_10
+				surrender_progress < 0.45
+			}
+		}
+	}
+}
+CHI_inch_blood_down_trigger_for_double_AI = {
+	event_target:WTT_current_china_leader = {
+		OR = {
+			AND = {
+				has_idea = CHI_inch_blood_2
+				surrender_progress < 0.06
+			}
+			AND = {
+				has_idea = CHI_inch_blood_3
+				surrender_progress < 0.12
+			}
+			AND = {
+				has_idea = CHI_inch_blood_4
+				surrender_progress < 0.18
+			}
+			AND = {
+				has_idea = CHI_inch_blood_5
+				surrender_progress < 0.24
+			}
+			AND = {
+				has_idea = CHI_inch_blood_6
+				surrender_progress < 0.30
+			}
+			AND = {
+				has_idea = CHI_inch_blood_7
+				surrender_progress < 0.36
+			}
+			AND = {
+				has_idea = CHI_inch_blood_8
+				surrender_progress < 0.42
+			}
+			AND = {
+				has_idea = CHI_inch_blood_9
+				surrender_progress < 0.48
+			}
+			AND = {
+				has_idea = CHI_inch_blood_10
+				surrender_progress < 0.54
+			}
+		}
+	}
+}
+
+CKS_in_charge = {
+	custom_trigger_tooltip = {#guo
+		tooltip = has_country_leader_CKS_tt
+		or = { has_country_leader = { ruling_only = yes character = CHI_chiang_kai_shek } has_country_leader = { ruling_only = yes name = "蒋中正" } has_country_leader = { ruling_only = yes name = "蒋介石" }
+		AND = { tag = event_target:WTT_communist_china or = { has_country_leader = { ruling_only = no character = CHI_chiang_kai_shek } has_country_leader = { ruling_only = no name = "蒋中正" } has_country_leader = { ruling_only = no name = "蒋介石" } } }
+		}
+	}
+}
+FK_in_charge = {
+	custom_trigger_tooltip = {
+		tooltip = has_country_leader_FK_tt
+		has_country_leader = { ruling_only = yes character = fumimaro_konoe }
+	}
+}
+FK_NOT_in_charge = {
+	custom_trigger_tooltip = {
+		tooltip = has_country_NOT_leader_FK_tt
+		NOT = {
+			has_country_leader = { ruling_only = yes character = fumimaro_konoe }
+		}
+	}
+}

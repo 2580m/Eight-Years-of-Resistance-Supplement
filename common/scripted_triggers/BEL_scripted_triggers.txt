@@ -1,0 +1,15 @@
+BEL_not_controls_congo = {
+	custom_trigger_tooltip = {
+		tooltip = BEL_not_controls_congo_tt
+		NOT = {
+			295 = { controls_or_subject_of = yes }
+			888 = { controls_or_subject_of = yes }
+			889 = { controls_or_subject_of = yes }
+			890 = { controls_or_subject_of = yes }
+			538 = { controls_or_subject_of = yes }
+			718 = { controls_or_subject_of = yes }
+			768 = { controls_or_subject_of = yes }
+			769 = { controls_or_subject_of = yes }
+		}
+	}	
+}

@@ -1,0 +1,56 @@
+
+# is_diplomatic_action_valid_TOKEN can be used for diplo action validity checks. if not valid it won't appear
+# scope is target country
+# from is action initatior country
+
+# in some cases this trigger is checked for only initatior country, in that case both from & this is same
+
+is_diplomatic_action_valid_stage_coup = {#guo
+	OR = {
+		NOT = { has_dlc = "La Resistance" } # we have operation for it
+		AND = {
+			FROM = { has_completed_focus = PRC_kuodaxuanchuan }
+			OR = {
+				TAG = event_target:WTT_current_china_leader
+				TAG = CHI
+			}
+		}
+		FROM = { has_completed_focus = PRC_trotskyist_coup }
+		FROM = { has_completed_focus = SOV_the_permanent_revolution }
+		AND = {
+			FROM = { has_completed_focus = PRC_Domestic_truce_agreement }
+			is_literally_china = yes
+			not = {
+				OR = {
+					TAG = event_target:WTT_current_china_leader
+					TAG = CHI
+				}
+			}
+		}
+	}
+}
+
+is_diplomatic_action_valid_boost_party_popularity = {#guo
+	OR = {
+		NOT = { has_dlc = "La Resistance" } # we have operation for it
+		AND = {
+			FROM = { has_completed_focus = PRC_kuodaxuanchuan }
+			OR = {
+				TAG = event_target:WTT_current_china_leader
+				TAG = CHI
+			}
+		}
+		FROM = { has_completed_focus = PRC_trotskyist_coup }
+		FROM = { has_completed_focus = SOV_the_permanent_revolution }
+		AND = {
+			FROM = { has_completed_focus = PRC_Domestic_truce_agreement }
+			is_literally_china = yes
+			not = {
+				OR = {
+					TAG = event_target:WTT_current_china_leader
+					TAG = CHI
+				}
+			}
+		}
+	}
+}

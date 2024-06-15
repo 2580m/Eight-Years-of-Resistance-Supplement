@@ -1,0 +1,234 @@
+#	Example:       
+#
+#	example_trigger = {
+#		tag = GER
+#		is_ai = no
+#	}
+#
+#
+#	In a script file:
+#
+#	trigger = {
+#		exampel_trigger = yes
+#	}
+#
+#	THIS FILE IS FOR TRIGGERS SPECIFICALLY FOR THE GER TAG
+is_controlled_by_enemy = {
+    controller = { has_war_with = ROOT }
+}
+
+prc_leader_can_go_to_soviet = {
+    has_government = SOV
+	NOT = { has_war_with = SOV }
+	SOV = { is_subject = no has_civil_war = no has_capitulated = no }
+}
+
+is_safe_for_germany_now = {
+    FRA = {
+		OR = { exists = no has_capitulated = yes NOT = { has_war_with = GER } }
+	}
+	POL = {
+		OR = { exists = no has_capitulated = yes NOT = { has_war_with = GER } }
+	}
+	ITA = {
+		OR = { exists = no has_capitulated = yes NOT = { has_war_with = GER } }
+	}
+	CZE = {
+		OR = { exists = no has_capitulated = yes NOT = { has_war_with = GER } }
+	}
+	DEN = {
+		OR = { exists = no has_capitulated = yes NOT = { has_war_with = GER } }
+	}
+}
+
+is_human_player = {
+    is_ai = no
+}
+
+is_USA_OR_ally_faction_country = {
+	or = { is_in_faction_with = USA is_subject_of = USA tag = USA is_in_faction_with = ENG is_subject_of = ENG tag = ENG }
+}
+is_USA_faction_country = {
+	or = { is_in_faction_with = USA is_subject_of = USA tag = USA }
+}
+is_ally_faction_country = {
+	or = { is_in_faction_with = ENG is_subject_of = ENG tag = ENG }
+}
+
+is_soviet_faction_country = {
+	or = { is_in_faction_with = SOV is_subject_of = SOV tag = SOV }
+}
+is_china_faction_country = {
+	or = { is_in_faction_with = event_target:WTT_current_china_leader is_subject_of = event_target:WTT_current_china_leader tag = event_target:WTT_current_china_leader }
+}
+is_axis_faction_country = {
+	or = { is_in_faction_with = GER is_subject_of = GER tag = GER }
+}
+is_japan_faction_country = {
+	or = { is_in_faction_with = JAP is_subject_of = JAP tag = JAP }
+}
+
+is_controlled_by_ROOT_or_puppet = {
+	controller = {
+	    OR = {
+			tag = ROOT
+			is_subject_of = ROOT
+			is_puppet_of = ROOT
+		}
+	}
+}
+
+is_democratic_type = {
+    OR = {
+    has_government = democratic
+    has_government = n_socialism
+    }
+}
+#is_fascism_type = {
+#    OR = {
+#    has_government = fascism
+#    has_government = neutrality
+#    }
+#}
+
+THIS_controller_is_in_faction_with_ROOT = {
+    custom_trigger_tooltip = {
+		tooltip = is_controlled_by_ROOT_or_ally
+		CONTROLLER = {
+			OR = {
+				tag = ROOT
+				is_subject_of = ROOT
+				is_puppet_of = ROOT
+				is_in_faction_with = ROOT
+			}
+		}
+	}
+}
+
+is_incompetent_heavy_industry_country = {
+    or = { has_idea = incompetent_heavy_industry has_idea = agrarion_society_generic_3 has_idea = agrarion_society_generic_2 }
+}
+
+has_war_together_with_human_player = {
+    any_other_country = { is_ai = no has_war_together_with = root }
+}
+has_war_with_human_player = {
+    any_enemy_country = { is_ai = no }
+}
+has_war_with_major_human_player = {
+    any_enemy_country = { is_ai = no is_major = yes }
+}
+
+not_has_war_with_asia_country = {
+    not = { any_enemy_country = { OR = { is_major = yes is_ai = no } capital_scope = { is_on_continent = asia } } }
+}
+has_war_with_asia_country = {
+    any_enemy_country = { OR = { is_major = yes is_ai = no } capital_scope = { is_on_continent = asia } }
+}
+
+not_has_war_with_europe_country = {
+    not = { any_enemy_country = { OR = { is_major = yes is_ai = no } capital_scope = { is_on_continent = europe } } }
+}
+has_war_with_europe_country = {
+    any_enemy_country = { OR = { is_major = yes is_ai = no } capital_scope = { is_on_continent = europe } }
+}
+
+should_ally_do_dday = {
+    OR = {
+		SOV = {
+			surrender_progress < 0.05
+			has_war_together_with = root
+		}
+		SOV = {
+		    has_war_together_with = root
+			surrender_progress < 0.3
+			OR = {
+			    5 = { controller = { is_in_faction_with = SOV } }
+				91 = { controller = { is_in_faction_with = SOV } }
+				763 = { controller = { is_in_faction_with = SOV } }
+				97 = { controller = { is_in_faction_with = SOV } }
+				92 = { controller = { is_in_faction_with = SOV } }
+				79 = { controller = { is_in_faction_with = SOV } }
+				80 = { controller = { is_in_faction_with = SOV } }
+				
+				78 = { controller = { is_in_faction_with = SOV } }
+				94 = { controller = { is_in_faction_with = SOV } }
+				95 = { controller = { is_in_faction_with = SOV } }
+				
+				11 = { controller = { is_in_faction_with = SOV } }
+				189 = { controller = { is_in_faction_with = SOV } }
+				
+				206 = { controller = { is_in_faction_with = SOV } }
+				
+				204 = { controller = { is_in_faction_with = SOV } }
+				189 = { controller = { is_in_faction_with = SOV } }
+				
+				96 = { controller = { is_in_faction_with = SOV } }
+				815 = { controller = { is_in_faction_with = SOV } }
+				
+				834 = { controller = { is_in_faction_with = SOV } }
+				198 = { controller = { is_in_faction_with = SOV } }
+				
+				202 = { controller = { is_in_faction_with = SOV } }
+			}
+		}
+		date > 1944.1.1#historical timing
+		SOV = {#再不救苏联要寄了
+			surrender_progress > 0.70
+			has_war_together_with = root
+		}
+		SOV = {#再不救苏联要寄了
+			surrender_progress > 0.50
+			has_war_together_with = root
+			any_enemy_country = { is_ai = no is_major = yes }
+		}
+	}
+	date > 1942.1.1
+	surrender_progress < 0.05#自家后院要安全
+	any_enemy_country = { OR = { is_major = yes is_ai = no } capital_scope = { is_on_continent = europe } }
+}
+
+west_europe_is_dangerous = {
+    GER = {
+        or = {
+	        any_state = {
+	            or = { region = 208 region = 19 region = 5 region = 6 region = 275 region = 20 region = 7 }
+		        controller = { has_war_with = GER or = { or = { is_in_faction_with = USA is_subject_of = USA tag = USA } or = { is_in_faction_with = ENG is_subject_of = ENG tag = ENG } } }
+	        }
+		    surrender_progress > 0.05
+	    }
+	}
+}
+
+any_other_country_has_entered_germany = {
+    GER = {
+	    OR = {
+	        any_core_state = {
+	            is_owned_by = GER
+		        controller = { has_war_with = GER }
+	        }
+		    surrender_progress > 0.05
+		}
+	}
+}
+
+THIS_controller_has_war_with_ROOT = {
+	controller = { has_war_with = ROOT }
+}
+
+FRA_will_support_zz = {
+	FRA = {
+		exists = yes
+		has_capitulated = no
+		NOT = {
+			has_war_with = ROOT
+		}
+		OR = {
+			has_opinion = { target = ROOT value > -20 }
+			is_in_faction_with = ROOT
+			ROOT = {
+				is_subject_of = FRA
+			}
+		}
+	}
+}
