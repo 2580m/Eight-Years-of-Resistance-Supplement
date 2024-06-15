@@ -1,0 +1,4518 @@
+﻿characters={
+    #from id 5010 to 5014 etc, those are the generals will stay with chiang whenever a civil war happens
+	#also 2031
+	############################## POLITICAL ##############################
+	
+	CHI_chiang_kai_shek={
+		name ="蒋中正"
+		portraits={
+			civilian={
+				large="gfx/leaders/CHI/Portrait_CHI_Chiang_Kai_Shek.dds"
+			}
+			army = {
+			    large="gfx/leaders/CHI/Portrait_CHI_Chiang_Kai_Shek_army.dds"
+			}
+		}
+		allowed_civil_war = { 
+		    NOT = { has_government = communism }
+			#owns_state = 1015
+		}
+		country_leader={
+			ideology = sanmin_political_tutelage
+			desc=POLITICS_CHIANG_KAISHEK_DESC
+			traits={ stout_defender anti_communist junduiguanlian qinliqinwei }
+			expire="1965.1.1.1"
+			id=5001
+		}
+		country_leader={
+			ideology = sanmin_military_rule
+			desc=POLITICS_CHIANG_KAISHEK_DESC
+			traits={ il_duce generallissimo dictator anti_communist junduiguanlian qinliqinwei }
+			expire="1965.1.1.1"
+			id=5002
+		}
+		field_marshal={
+			traits={ harsh_leader career_officer artillery_officer old_guard inspirational_leader NRA_Generallissimo media_personality }
+			skill=3
+			attack_skill=2
+			defense_skill=2
+			planning_skill=3
+			logistics_skill=4
+			legacy_id=5010
+            desc=CHI_chiang_kai_shek_desc
+		}
+	}
+	
+	CHI_wangjingwei_zz={#guo
+		name=CHI_wangjingwei_zz
+		portraits={
+			civilian={
+			    small="GFX_idea_CHI_wangjingwei_zz"
+				large="gfx/leaders/RRC/Portrait_Wang.dds"
+			}
+		}	
+		country_leader={
+			ideology = sanmin_political_tutelage
+			traits={ emergency_powers quxianjiuguo wencaiyiyi }
+			expire="1965.1.1.1"
+			id=-1
+            desc=CHI_wangjingwei_zz_desc
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = CHI_wangjingwei_zz
+			
+			visible = {
+			    not = { has_global_flag = wang_jingwei_dead_zz }
+				#if = {
+				#limit = { tag = CHI has_global_flag = wangjingwei_defect }
+				not = { has_global_flag = wangjingwei_defect }
+				#}
+			}
+			available = {
+			    if = {
+				limit = {has_global_flag = wangjingwei_defect }
+				not = { has_global_flag = wangjingwei_defect }
+				}
+			}
+			traits = { xingzhengyuanzhang }			
+			allowed = {
+				always = yEs
+			}
+			
+			ai_will_do = {
+				factor = 999
+				modifier = {
+				    factor = 0
+					not = { has_country_leader = { ruling_only = yes name = "汪精卫" } }
+				}
+			}
+		}
+	}
+
+	CHI_huang_qixiang={#guo
+		name ="黄琪翔"
+		portraits={
+			civilian={
+				large="gfx/leaders/CHI/Portrait_CHI_Huang_Qixiang.dds"
+				small="gfx/interface/ideas/idea_qixiang_doctrine.dds"
+			}
+		}
+		country_leader={
+			ideology = n_authoritarian_socialism
+			traits={ beifashuangjie social_reformer fulizhichizhe }
+			expire="1965.1.1.1"
+			id=-1
+			desc=CHI_huang_qixiang_desc
+		}
+		advisor={
+			slot = high_command
+			idea_token = CHI_huang_qixiang
+			allowed = {
+				OR = { is_literally_china = yes TAG = SOV }
+			}
+			available = {
+				is_country_leader = no
+				if = {
+				limit = {
+				original_tag = CHI
+				is_fascism_type = yEs
+				}
+				has_global_flag = CHI_huang_qixiang_come_back
+				not = { has_war_with = event_target:WTT_communist_china has_global_flag = PRC_civil_war_started }
+				NOT = { has_completed_focus = ack_hiro_sen_focus }
+				NOT = { has_government = fascism }
+					if = {
+					limit = { JAP = { is_fascism_type = yes } }
+					NOT = { is_in_faction_with = JAP }
+					}
+				}
+			}
+			traits = { beifashuangjie }
+			cost = 200
+			ai_will_do = {
+				factor = 450
+			}
+			desc=CHI_huang_qixiang_desc
+		}
+		corps_commander={
+			traits={ brilliant_strategist media_personality war_hero career_officer artillery_officer NRA_Lieut_General hidden_sympathies }
+			skill=4
+			attack_skill=4
+			defense_skill=4
+			planning_skill=3
+			logistics_skill=3
+			legacy_id=-1
+			desc=CHI_huang_qixiang_desc
+			visible = {
+				if = {
+				limit = {
+				original_tag = CHI
+				is_fascism_type = yEs
+				}
+				has_global_flag = CHI_huang_qixiang_come_back
+				not = { has_war_with = event_target:WTT_communist_china has_global_flag = PRC_civil_war_started }
+				NOT = { has_completed_focus = ack_hiro_sen_focus }
+				NOT = { has_government = fascism }
+					if = {
+					limit = { JAP = { is_fascism_type = yes } }
+					NOT = { is_in_faction_with = JAP }
+					}
+				}
+			}
+		}
+	}
+
+	CHI_xu_fulin={
+		name ="徐福霖"
+		portraits={
+			civilian={
+				large="gfx/leaders/CHI/Portrait_CHI_Xu_Fulin.dds"
+			}
+		}
+		country_leader={
+			ideology = socialism
+			traits={ fulizhichizhe }
+			expire="1965.1.1.1"
+			id=-1
+		}
+	}
+		
+	CHI_lin_sen={
+		name =CHI_lin_sen #林森 1868年2月11日-1943年8月1日 福建省福州府閩縣，國民政府主席 1931年12月15日-1943年8月1日
+		portraits = {
+			civilian = { small="GFX_idea_CHI_lin_sen" }
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = CHI_lin_sen
+			traits = { popular_figurehead }
+			visible = {
+				OR = { #KMT only
+					tag = CHI
+					has_country_flag = cooperation_with_nationalist_flag
+				}
+				tag = event_target:WTT_current_china_leader
+				if = {
+					limit = {
+						NOT = {
+							tag = CHI
+						}
+					}
+					NOT = {
+						any_of_scopes = {
+							array = global.literally_china_including_chinese_puppets
+							tag = event_target:WTT_current_china_leader
+							NOT = {
+								tag = ROOT
+							}
+						}
+					}
+				}
+			}
+			allowed = {
+				is_literally_china = yes
+			}
+
+			available = {
+				NOT = { has_country_flag = lin_sen_dead }
+			}
+		}
+	}
+
+	sun_fo={
+		name =sun_fo #孫科 1891年10月20日—1973年9月13日 廣東省香山縣，立法院院長 1932年1月29日-1948年5月17日
+		portraits = {
+			civilian = { 
+			    small="GFX_idea_sun_fo" 
+			    large="gfx/leaders/CHI/Portrait_CHI_Sun_Fo.dds"
+			}
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = sun_fo
+			traits = { compassionate_gentleman }
+			visible = {
+				OR = { #KMT only
+					tag = CHI
+					has_country_flag = cooperation_with_nationalist_flag
+				}
+				tag = event_target:WTT_current_china_leader
+				if = {
+					limit = {
+						NOT = {
+							tag = CHI
+						}
+					}
+					NOT = {
+						any_of_scopes = {
+							array = global.literally_china_including_chinese_puppets
+							tag = event_target:WTT_current_china_leader
+							NOT = {
+								tag = ROOT
+							}
+						}
+					}
+				}
+			}
+			allowed = {
+				is_literally_china = yes
+			}
+		}
+	}
+	
+	ju_zheng={
+		name =ju_zheng #居正 1876年11月8日-1951年11月23日，湖北省黃州府廣濟縣，司法院院長 1932年5月21日-1948年7月1日
+		portraits = {
+			civilian = { small="GFX_idea_CHI_Ju_Zheng" }
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = ju_zheng
+			traits = { anti_communist_crusader }
+			visible = {
+				tag = event_target:WTT_current_china_leader
+				if = {
+					limit = {
+						NOT = {
+							tag = CHI
+						}
+					}
+					NOT = {
+						any_of_scopes = {
+							array = global.literally_china_including_chinese_puppets
+							tag = event_target:WTT_current_china_leader
+							NOT = {
+								tag = ROOT
+							}
+						}
+					}
+				}
+			}
+			allowed = {
+				is_literally_china = yes
+			}
+		}
+	}
+	
+	dai_jitao={
+		name =dai_jitao #戴季陶 1891年1月6日-1949年2月11日，四川省成都府廣漢縣，考試院院長 1928年10月8日-1948年5月20日
+		portraits = {
+			civilian = { small="GFX_idea_CHI_dai_jitao" }
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = dai_jitao
+			traits = { staunch_traditionalist }
+			visible = {
+				tag = event_target:WTT_current_china_leader
+				if = {
+					limit = {
+						NOT = {
+							tag = CHI
+						}
+					}
+					NOT = {
+						any_of_scopes = {
+							array = global.literally_china_including_chinese_puppets
+							tag = event_target:WTT_current_china_leader
+							NOT = {
+								tag = ROOT
+							}
+						}
+					}
+				}
+			}
+			allowed = {
+				is_literally_china = yes
+			}
+		}
+	}
+
+	yu_youren={
+		name =yu_youren #于右任，1879年4月11日-1964年11月10日，陝西省西安府三原縣，監察院院長 1930年11月18日-1948年6月9日
+		portraits = {
+			civilian = { small="GFX_idea_CHI_Yu_Youren" }
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = yu_youren
+			traits = { elder_statesman }
+			visible = {
+				tag = event_target:WTT_current_china_leader
+				if = {
+					limit = {
+						NOT = {
+							tag = CHI
+						}
+					}
+					NOT = {
+						any_of_scopes = {
+							array = global.literally_china_including_chinese_puppets
+							tag = event_target:WTT_current_china_leader
+							NOT = {
+								tag = ROOT
+							}
+						}
+					}
+				}
+			}
+			allowed = {
+				is_literally_china = yes
+			}
+		}
+	}
+	
+	zhang_qun={
+		name =zhang_qun #張羣 1889年5月9日—1990年12月14日 四川省華陽縣，外交部部長 1935年12月12日-1937年3月4日、行政院院長 1947年4月23日-1948年5月29日
+		portraits = {
+			civilian = { 
+				small="GFX_idea_zhang_qun" 
+				large="gfx/leaders/SIC/Portrait_Sichuan_Zhang_Qun.dds"
+			}
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = zhang_qun
+			traits = { silent_workhorse }
+			visible = {
+				tag = event_target:WTT_current_china_leader
+				if = {
+					limit = {
+						NOT = {
+							tag = CHI
+						}
+					}
+					NOT = {
+						any_of_scopes = {
+							array = global.literally_china_including_chinese_puppets
+							tag = event_target:WTT_current_china_leader
+							NOT = {
+								tag = ROOT
+							}
+						}
+					}
+				}
+			}
+			allowed = {
+				is_literally_china = yes
+			}
+		}
+	}	
+	
+	kung_hsiang_hsi={
+		name =kung_hsiang_hsi #孔祥熙 1880年9月11日—1967年8月16日 山西省太谷縣，行政院院長 1938年1月1日-1939年12月11日
+		portraits = {
+			civilian = { small="GFX_idea_kung_hsiang_hsi" }
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = kung_hsiang_hsi
+			traits = { robber_baron }
+			visible = {
+				tag = event_target:WTT_current_china_leader
+				if = {
+					limit = {
+						NOT = {
+							tag = CHI
+						}
+					}
+					NOT = {
+						any_of_scopes = {
+							array = global.literally_china_including_chinese_puppets
+							tag = event_target:WTT_current_china_leader
+							NOT = {
+								tag = ROOT
+							}
+						}
+					}
+				}
+			}
+			allowed = {
+				is_literally_china = yes
+			}
+			available = {
+				AND = {
+					NOT = { has_government = n_socialism }
+					NOT = { has_government = communism }
+				}
+			}
+			on_add = {
+			}
+
+			do_effect = {
+			}
+
+			ai_will_do = {
+				factor = 1200
+			}
+		}
+	}
+
+	CHI_t_v_soong={
+		name =CHI_t_v_soong #宋子文 1894年12月4日—1971年4月26日 廣東省文昌縣，外交部部長 1942年10月30日—1945年7月30日、行政院院長 1945年6月25日—1947年3月1日
+		portraits = {
+			civilian = { small="GFX_idea_CHI_t_v_soong" }
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = CHI_t_v_soong
+			traits = { financial_expert }
+			available = {
+				#has_completed_focus = CHI_financial_policy
+			}
+			visible = {
+				tag = event_target:WTT_current_china_leader
+				if = {
+					limit = {
+						NOT = {
+							tag = CHI
+						}
+					}
+					NOT = {
+						any_of_scopes = {
+							array = global.literally_china_including_chinese_puppets
+							tag = event_target:WTT_current_china_leader
+							NOT = {
+								tag = ROOT
+							}
+						}
+					}
+				}
+			}
+			allowed = {
+				is_literally_china = yes
+			}
+			ai_will_do = {
+				factor = 800
+				modifier = {
+					factor = 1500
+					has_completed_focus = CHI_government_bailout_focus
+				}
+			}
+		}
+	}
+
+	CHI_soong_mei_ling={
+		name =CHI_soong_mei_ling #宋美齡
+		portraits = {
+			civilian = { small="GFX_idea_CHI_soong_mei_ling" }
+		}
+		gender = female
+		advisor={
+			slot = political_advisor
+			idea_token = CHI_soong_mei_ling
+			traits = { first_lady }
+			available = {
+				has_country_leader = { ruling_only = yes character = CHI_chiang_kai_shek }
+				has_completed_focus = CHI_reinforce_new_life_movement
+			}
+			visible = {
+				OR = { #KMT only
+					tag = CHI
+					has_country_flag = cooperation_with_nationalist_flag
+				}
+				OR = {
+					AND = { #this person is loyal, only appears after old leader ded
+						tag = event_target:WTT_current_china_leader
+						NOT = {
+							any_neighbor_country = {
+								tag = var:global.previous_china_leader
+							}
+						}
+					}
+					tag = var:global.previous_china_leader
+				}
+				#tag = event_target:WTT_current_china_leader
+				if = {
+					limit = {
+						NOT = {
+							tag = CHI
+						}
+					}
+					NOT = {
+						any_of_scopes = {
+							array = global.literally_china_including_chinese_puppets
+							tag = event_target:WTT_current_china_leader
+							NOT = {
+								tag = ROOT
+							}
+						}
+					}
+				}
+			}
+			allowed = {
+				is_literally_china = yes
+			}
+		}
+	}	
+	
+    CHI_he_yingqin={
+		name="何应钦" #何應欽，1890年4月2日生於貴州省興義縣，日本陸士28期步科，1935年4月2日授一級上將，1987年10月21日於台北病逝
+		portraits={
+			army={
+				large="gfx/leaders/CHI/Portrait_CHI_He_Yingqin.dds"
+				small="GFX_idea_China_he_yingqin"
+			}
+			civilian={
+				large="gfx/leaders/CHI/Portrait_CHI_He_Yingqin.dds"
+				small="GFX_idea_China_he_yingqin"
+			}
+		}
+		
+		country_leader={
+			ideology = sanmin_political_tutelage
+			traits={ army_chief_organizational_3 anti_communist junduiguanlian }
+			expire="1965.1.1.1"
+			id=-1
+            desc=CHI_he_yingqin_desc
+		}
+		advisor={
+			slot = army_chief
+			idea_token = CHI_he_yingqin
+			available = {
+				NOT = {
+					has_country_leader = { ruling_only = yes character = CHI_he_yingqin }
+				}
+				hidden_trigger = {
+					NOT = {
+						has_country_flag = he_yingqin_in_charge
+					}
+				}
+			}
+			visible = {
+				NOT = {
+					has_country_flag = he_yingqin_in_charge
+				}
+				tag = event_target:WTT_current_china_leader
+				if = {
+					limit = {
+						NOT = {
+							tag = CHI
+						}
+					}
+					NOT = {
+						any_of_scopes = {
+							array = global.literally_china_including_chinese_puppets
+							tag = event_target:WTT_current_china_leader
+							NOT = {
+								tag = ROOT
+							}
+						}
+					}
+				}
+			}
+			allowed = {
+				is_literally_china = yes
+			}
+            traits = { army_chief_organizational_3 }	
+            cost = 200					
+			ai_will_do = {
+				factor = 20 #guo
+			}
+			desc=CHI_he_yingqin_desc
+		}
+		field_marshal={
+			traits={  career_officer infantry_officer politically_connected organizer organisational_leader NRA_General_1stRank }
+			skill=4
+			attack_skill=4
+			defense_skill=3
+			planning_skill=4
+			logistics_skill=3
+			legacy_id=5011
+            desc=CHI_he_yingqin_desc
+		}
+	}
+	
+	chen_guofu={
+		name =chen_guofu #陳果夫 1892年10月27日—1951年8月25日 浙江省湖州府烏程縣，國民黨組織部部長 1928年3月—1939年8月
+		portraits = {
+			civilian = { 
+				small="GFX_idea_CHI_chen_guofu" 
+				large="gfx/leaders/CHI/Portrait_CHI_Chen_Guofu.dds"
+			}
+		}
+		country_leader={#guo
+			ideology = sanmin_political_tutelage
+			traits={ emergency_powers party_organizer }
+			expire="1965.1.1.1"
+			id=-1
+            desc=chen_guofu_desc
+		}
+		allowed_civil_war = {
+			has_government = neutrality
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = chen_guofu
+			traits = { ideological_crusader }
+			available = {
+				if = {
+					limit = {
+						JAP = {
+							is_subject = no
+						}
+					}
+					NOT = { is_in_faction_with = JAP }
+				}
+				if = {
+					limit = {
+						tag = CHI
+					}
+					NOT = {
+						has_completed_focus = CHI_dissolve_cc
+					}
+				}				
+				OR = {
+					has_government = neutrality
+					has_government = fascism
+				}
+			}
+			visible = {
+				OR = { #KMT only
+					tag = CHI
+					has_country_flag = cooperation_with_nationalist_flag
+				}
+				OR = {
+					AND = { #this person is loyal, only appears after old leader ded
+						tag = event_target:WTT_current_china_leader
+						NOT = {
+							any_neighbor_country = {
+								tag = var:global.previous_china_leader
+							}
+						}
+					}
+					tag = var:global.previous_china_leader
+				}
+				#tag = event_target:WTT_current_china_leader
+				if = {
+					limit = {
+						NOT = {
+							tag = CHI
+						}
+					}
+					NOT = {
+						any_of_scopes = {
+							array = global.literally_china_including_chinese_puppets
+							tag = event_target:WTT_current_china_leader
+							NOT = {
+								tag = ROOT
+							}
+						}
+					}
+				}
+			}
+			allowed = {
+				is_literally_china = yes
+                #guo has_dlc = "Waking the Tiger"
+			}		
+			ai_will_do = {
+				factor = 30
+				modifier = {
+					factor = 150
+					has_completed_focus = CHI_reinforce_new_life_movement
+				}
+			}
+		}
+	}	
+
+	chen_lifu={
+		name =chen_lifu #陳立夫 1900年8月21日—2001年2月8日 浙江省湖州府烏程縣，教育部部長 1938年1月1日—1944年11月20日
+		portraits = {
+			civilian = { small="GFX_idea_chen_lifu" }
+		}
+		allowed_civil_war = {
+			has_government = neutrality
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = chen_lifu
+			traits = { backroom_backstabber }
+			available = {
+				if = {
+					limit = {
+						JAP = {
+							is_subject = no
+						}
+					}
+					NOT = { is_in_faction_with = JAP }
+				}
+				if = {
+					limit = {
+						tag = CHI
+					}
+					NOT = {
+						has_completed_focus = CHI_dissolve_cc
+					}
+				}				
+				OR = {
+					has_government = neutrality
+					has_government = fascism
+				}
+			}
+			visible = {
+				OR = { #KMT only
+					tag = CHI
+					has_country_flag = cooperation_with_nationalist_flag
+				}
+				OR = {
+					AND = { #this person is loyal, only appears after old leader ded
+						tag = event_target:WTT_current_china_leader
+						NOT = {
+							any_neighbor_country = {
+								tag = var:global.previous_china_leader
+							}
+						}
+					}
+					tag = var:global.previous_china_leader
+				}
+				#tag = event_target:WTT_current_china_leader
+				if = {
+					limit = {
+						NOT = {
+							tag = CHI
+						}
+					}
+					NOT = {
+						any_of_scopes = {
+							array = global.literally_china_including_chinese_puppets
+							tag = event_target:WTT_current_china_leader
+							NOT = {
+								tag = ROOT
+							}
+						}
+					}
+				}
+			}
+			allowed = {
+				is_literally_china = yes
+			}
+			ai_will_do = {
+				factor = 30
+				modifier = {
+					factor = 999 #guo
+					has_completed_focus = CHI_reinforce_new_life_movement
+				}
+			}
+			
+			modifier = {
+				neutrality_drift = 0.1 #0.02
+			}
+		}
+	}
+	
+	weng_wenhao={
+		name =weng_wenhao #翁文灝 1889年7月26日—1971年1月27日 浙江省鄞縣，中華民國地質學家、經濟部長部長 1938年10月8日-1947年4月23日
+		portraits = {
+			civilian = { small="GFX_idea_weng_wenhao" }
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = weng_wenhao
+			traits = { captain_of_industry }
+			visible = {
+				#tag = event_target:WTT_current_china_leader
+				if = {
+					limit = {
+						NOT = {
+							tag = CHI
+							tag = PRC
+						}
+					}
+					NOT = {
+						any_of_scopes = {
+							array = global.literally_china_including_chinese_puppets
+							tag = event_target:WTT_current_china_leader
+							NOT = {
+								tag = ROOT
+							}
+						}
+					}
+				}
+			}
+			allowed = {
+				is_literally_china = yes
+			}
+		}
+	}
+
+	CHI_wellington_koo={
+		name =CHI_wellington_koo #顧維鈞 1888年1月29日—1985年11月14日 江蘇省太倉州嘉定縣，中華民國外交家
+		portraits = {
+			civilian = { small="GFX_idea_CHI_wellington_koo" }
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = CHI_wellington_koo
+			traits = { smooth_talking_charmer }
+			visible = {
+				tag = event_target:WTT_current_china_leader
+				if = {
+					limit = {
+						NOT = {
+							tag = CHI
+						}
+					}
+					NOT = {
+						any_of_scopes = {
+							array = global.literally_china_including_chinese_puppets
+							tag = event_target:WTT_current_china_leader
+							NOT = {
+								tag = ROOT
+							}
+						}
+					}
+				}
+			}
+			allowed = {
+				is_literally_china = yes
+			}						
+			available = { NOT = { has_government = communism } }			
+		}
+	}	
+		
+	dai_li={
+		name =dai_li #戴笠 1897年5月28日—1946年3月17日 浙江省衢州府江山縣，軍統局首長
+		portraits = {
+			civilian = { 
+				small="GFX_idea_CHI_dai_li" 
+				large="gfx/leaders/CHI/Portrait_CHI_Dai_Li.dds"
+			}
+		}
+		allowed_civil_war = {
+			has_government = fascism
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = dai_li
+			traits = { head_of_intelligence prince_of_terror }
+			visible = {
+				NOT = { has_country_flag = daili_in_power }
+				OR = { #KMT only
+					tag = CHI
+					has_country_flag = cooperation_with_nationalist_flag
+				}
+				OR = {
+					AND = { #this person is loyal, only appears after old leader ded
+						tag = event_target:WTT_current_china_leader
+						NOT = {
+							any_neighbor_country = {
+								tag = var:global.previous_china_leader
+							}
+						}
+					}
+					tag = var:global.previous_china_leader
+				}
+
+				if = {
+					limit = {
+						NOT = {
+							tag = CHI
+						}
+					}
+					NOT = {
+						any_of_scopes = {
+							array = global.literally_china_including_chinese_puppets
+							tag = event_target:WTT_current_china_leader
+							NOT = {
+								tag = ROOT
+							}
+						}
+					}
+				}
+			}
+			allowed = {
+				is_literally_china = yes
+			}
+			available = {
+				if = {
+					limit = {
+						JAP = {
+							is_subject = no
+						}
+					}
+					NOT = { is_in_faction_with = JAP }
+				}
+				if = {
+					limit = {
+						tag = CHI
+					}
+					NOT = {
+						has_completed_focus = CHI_dissolve_bs
+					}
+				}
+				OR = {
+					has_government = neutrality
+					has_government = fascism
+				}
+			}
+			ai_will_do = {
+				factor = 99
+				modifier = {
+					factor = 999 #guo
+					has_completed_focus = CHI_reinforce_new_life_movement
+				}
+			}
+		}
+	}
+
+	he_zhonghan={
+		name =he_zhonghan #賀衷寒 1900年1月5日—1972年5月9日 湖南省岳陽縣，藍衣社領袖
+		portraits = {
+			civilian = { small="GFX_idea_he_zhonghan" }
+		}
+		allowed_civil_war = {
+			has_government = fascism
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = he_zhonghan
+			traits = { fascist_demagogue }
+			visible = {
+				OR = { #KMT only
+					tag = CHI
+					has_country_flag = cooperation_with_nationalist_flag
+				}
+				OR = {
+					AND = { #this person is loyal, only appears after old leader ded
+						tag = event_target:WTT_current_china_leader
+						NOT = {
+							any_neighbor_country = {
+								tag = var:global.previous_china_leader
+							}
+						}
+					}
+					tag = var:global.previous_china_leader
+				}
+				#tag = event_target:WTT_current_china_leader
+				if = {
+					limit = {
+						NOT = {
+							tag = CHI
+						}
+					}
+					NOT = {
+						any_of_scopes = { #no other is leader in case 2 leaders
+							array = global.literally_china_including_chinese_puppets
+							tag = event_target:WTT_current_china_leader
+							NOT = {
+								tag = ROOT
+							}
+						}
+					}
+				}
+			}
+			allowed = {
+				is_literally_china = yes
+			}
+			available = {
+				if = {
+					limit = {
+						JAP = {
+							is_subject = no
+						}
+					}
+					NOT = { is_in_faction_with = JAP }
+				}
+				if = {
+					limit = {
+						tag = CHI
+					}
+					NOT = {
+						has_completed_focus = CHI_dissolve_bs
+					}
+				}
+				OR = {
+					has_government = neutrality
+					has_government = fascism
+				}
+			}
+			on_add = {
+				owner = {
+				    set_country_flag = CHI_no_fascist
+				}	
+			}
+
+			do_effect = {
+				NOT = {
+					has_government = fascism
+				}
+			}
+		}
+	}
+	
+	yu_dawei={
+		name =yu_dawei #俞大維 1897年12月2日—1993年7月8日 浙江省紹興府山陰縣，中國「兵工之父」、交通部部長 1946年5月23日-1948年6月1日、1948年6月1日-1949年3月24日
+		portraits = {
+			civilian = { small="GFX_idea_yu_dawei" }
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = yu_dawei
+			traits = { war_industrialist }
+			visible = {
+				tag = event_target:WTT_current_china_leader
+				if = {
+					limit = {
+						NOT = {
+							tag = CHI
+						}
+					}
+					NOT = {
+						any_of_scopes = {
+							array = global.literally_china_including_chinese_puppets
+							tag = event_target:WTT_current_china_leader
+							NOT = {
+								tag = ROOT
+							}
+						}
+					}
+				}
+			}
+			allowed = {
+				is_literally_china = yes
+			}
+		}
+	}
+
+	chen_yibai={
+		name =chen_yibai #陳一白 1905年—1952年11月20日 江蘇省常熟縣，中國空軍無線電通訊先驅
+		portraits = {
+			civilian = { small="GFX_idea_chen_yibai" }
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = chen_yibai
+			traits = { quartermaster_general }
+			visible = {
+				#tag = event_target:WTT_current_china_leader
+				if = {
+					limit = {
+						NOT = {
+							tag = CHI
+							tag = PRC
+						}
+					}
+					NOT = {
+						any_of_scopes = {
+							array = global.literally_china_including_chinese_puppets
+							tag = event_target:WTT_current_china_leader
+							NOT = {
+								tag = ROOT
+							}
+						}
+					}
+				}
+			}
+			allowed = {
+				is_literally_china = yes
+			}
+		}
+	}	
+
+	carsun_chang={
+		name =carsun_chang #張君勱
+		portraits = {
+			civilian = { large="gfx/leaders/CHI/Portrait_CHI_Carsun_Chang.dds" }
+			civilian = { small="GFX_idea_carsun_chang" }
+		}
+		country_leader={
+			ideology = socialism
+			traits={ social_reformer }
+			expire="1965.1.1.1"
+			id=-1
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = carsun_chang
+			traits = { democratic_reformer }
+			allowed = {
+				original_tag = CHI
+			}
+			on_add = {
+				owner = {			
+				    set_country_flag = CHI_no_demo
+				}	
+			}
+			ai_will_do = {
+				factor = 0
+			}
+			do_effect = {
+				NOT = {
+					has_government = democratic
+				}
+			}
+		}
+	}
+
+	zhang_bojun={
+		name =zhang_bojun #章伯鈞
+		portraits = {
+			civilian={
+				small="gfx/interface/ideas/idea_zhang_bojun.dds"#GUO
+			}
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = zhang_bojun
+			traits = { socialist_idealist }
+			allowed = {
+				original_tag = CHI				
+			}
+			visible = {
+			    if = {
+				limit = {
+				original_tag = CHI
+				}
+				has_country_flag = zhang_bojun_available
+				}
+			}
+			available = { NOT = { has_country_flag = cdl_outlawed }}
+			on_add = {
+				owner = {			
+				    set_country_flag = CHI_no_demo
+				}	
+			}
+
+			do_effect = {
+				NOT = {
+					has_government = n_socialism
+				}
+			}
+			ai_will_do = {
+				factor = 0
+			}
+		}
+	}
+
+	zhang_dongsun={
+		name =zhang_dongsun #張東蓀
+		portraits = {
+			civilian = { small="GFX_idea_zhang_dongsun" }
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = zhang_dongsun
+			traits = { progressive_activist }
+			allowed = {
+				NOT = {
+					has_available_idea_with_traits = { idea = progressive_activist limit = 1 }
+				}
+				#original_tag = CHI
+			}
+			available = {
+			    if = {
+				limit = {
+				original_tag = CHI
+				}
+				OR = {
+					has_government = n_socialism
+					has_government = democratic
+				}
+				NOT = { has_country_flag = dongsun_to_cdl }
+				}
+			}
+			on_add = {
+			}
+
+			do_effect = {
+			}
+
+			ai_will_do = {
+				factor = 1
+			}
+		}
+	}
+
+	CHI_shen_junru={
+		name =CHI_shen_junru #沈鈞儒
+		portraits = {
+			civilian = { small="GFX_idea_CHI_shen_junru" }
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = CHI_shen_junru
+			traits = { socialist_novelist_RCM }
+			available = {
+				NOT = {
+					has_country_flag = seven_gentlemen_invited_to_other_country
+				}
+				if = {
+					limit = {
+						tag = CHI
+					}
+					has_completed_focus = CHI_invite_the_seven_gentlemen
+				}
+				else = {
+					has_completed_focus = PRC_invite_the_seven_gentlemen
+				}
+			}
+			visible = {
+				OR = {
+					tag = CHI
+					AND = {
+						NOT = {
+							tag = PRC
+						}
+						tag = event_target:WTT_communist_china
+					}
+				}
+			}
+			allowed = {
+				is_literally_china = yes
+			}
+		}
+	}
+
+	CHI_zhang_naiqi={
+		name =CHI_zhang_naiqi #章乃器
+		portraits = {
+			civilian = { small="GFX_idea_CHI_zhang_naiqi" }
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = CHI_zhang_naiqi
+			traits = { resistance_banker }
+			available = {
+				NOT = {
+					has_country_flag = seven_gentlemen_invited_to_other_country
+				}
+				if = {
+					limit = {
+						tag = CHI
+					}
+					has_completed_focus = CHI_invite_the_seven_gentlemen
+				}
+				
+				if = {
+					limit = {
+						NOT = { tag = CHI tag = PRC }
+					}
+					has_completed_focus = PRC_invite_the_seven_gentlemen
+				}
+			}
+			visible = {
+				OR = {
+					tag = CHI
+					AND = {
+						NOT = {
+							tag = PRC
+						}
+						tag = event_target:WTT_communist_china
+					}
+					tag = PRC
+				}
+			}
+			allowed = {
+				is_literally_china = yes
+			}
+		}
+	}
+
+	CHI_zou_taofen={
+		name =CHI_zou_taofen #鄒韜奮
+		portraits = {
+			civilian = { small="GFX_idea_CHI_zou_taofen" }
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = CHI_zou_taofen
+			traits = { liberal_journalist }
+			available = {
+				NOT = {
+					has_country_flag = seven_gentlemen_invited_to_other_country
+				}
+				if = {
+					limit = {
+						tag = CHI
+					}
+					has_completed_focus = CHI_invite_the_seven_gentlemen
+				}
+				else = {
+					has_completed_focus = PRC_invite_the_seven_gentlemen
+				}
+			}
+			visible = {
+				OR = {
+					tag = CHI
+					AND = {
+						NOT = {
+							tag = PRC
+						}
+						tag = event_target:WTT_communist_china
+					}
+				}
+			}
+			allowed = {
+				is_literally_china = yes
+			}
+		}
+	}
+
+	CHI_shi_liang={
+		name =CHI_shi_liang #史良
+		portraits = {
+			civilian = { small="GFX_idea_CHI_shi_liang" }
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = CHI_shi_liang
+			traits = { prominent_lawyer }
+			available = {
+				NOT = {
+					has_country_flag = seven_gentlemen_invited_to_other_country
+				}
+				if = {
+					limit = {
+						tag = CHI
+					}
+					has_completed_focus = CHI_invite_the_seven_gentlemen
+				}
+				
+				if = {
+					limit = {
+						NOT = { tag = CHI tag = PRC }
+					}
+					has_completed_focus = PRC_invite_the_seven_gentlemen
+				}
+			}
+			visible = {
+				OR = {
+					tag = CHI
+					AND = {
+						NOT = {
+							tag = PRC
+						}
+						tag = event_target:WTT_communist_china
+					}
+					tag = PRC
+				}
+			}
+			allowed = {
+				is_literally_china = yes
+			}
+		}
+	}
+
+	CHI_li_gongpu={
+		name =CHI_li_gongpu #李公朴
+		portraits = {
+			civilian = { small="GFX_idea_CHI_li_gongpu" }
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = CHI_li_gongpu
+			traits = { editor }
+			available = {
+				NOT = {
+					has_country_flag = seven_gentlemen_invited_to_other_country
+				}
+				if = {
+					limit = {
+						tag = CHI
+					}
+					has_completed_focus = CHI_invite_the_seven_gentlemen
+				}
+				else = {
+					has_completed_focus = PRC_invite_the_seven_gentlemen
+				}
+			}
+			visible = {
+				OR = {
+					tag = CHI
+					AND = {
+						NOT = {
+							tag = PRC
+						}
+						tag = event_target:WTT_communist_china
+					}
+				}
+			}
+			allowed = {
+				is_literally_china = yes
+			}
+		}
+	}
+
+	CHI_wang_zaoshi={
+		name =CHI_wang_zaoshi #王造時
+		portraits = {
+			civilian = { small="GFX_idea_CHI_wang_zaoshi" }
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = CHI_wang_zaoshi
+			traits = { ideological_crusader }
+			available = {
+				NOT = {
+					has_country_flag = seven_gentlemen_invited_to_other_country
+				}
+				NOT = {
+					has_government = neutrality
+				}
+				if = {
+					limit = {
+						tag = CHI
+					}
+					has_completed_focus = CHI_invite_the_seven_gentlemen
+				}
+				
+				if = {
+					limit = {
+						NOT = { tag = CHI tag = PRC }
+					}
+					has_completed_focus = PRC_invite_the_seven_gentlemen
+				}
+			}
+			visible = {
+				OR = {
+					tag = CHI
+					AND = {
+						NOT = {
+							tag = PRC
+						}
+						tag = event_target:WTT_communist_china
+					}
+					tag = PRC
+				}
+			}
+			allowed = {
+				is_literally_china = yes
+			}
+		}
+	}
+
+	CHI_qian_shali={
+		name =CHI_qian_shali #沙千里
+		portraits = {
+			civilian = { small="GFX_idea_CHI_qian_shali" }
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = CHI_qian_shali
+			traits = { economic_organizer }
+			available = {
+				NOT = {
+					has_country_flag = seven_gentlemen_invited_to_other_country
+				}
+				if = {
+					limit = {
+						tag = CHI
+					}
+					has_completed_focus = CHI_invite_the_seven_gentlemen
+				}
+				
+				if = {
+					limit = {
+						NOT = { tag = CHI tag = PRC }
+					}
+					has_completed_focus = PRC_invite_the_seven_gentlemen
+				}
+			}
+			visible = {
+				OR = {
+					tag = CHI
+					AND = {
+						NOT = {
+							tag = PRC
+						}
+						tag = event_target:WTT_communist_china
+					}
+					tag = PRC
+				}
+			}
+			allowed = {
+				is_literally_china = yes
+			}
+		}
+	}
+	
+	############################## ARMY ##############################	
+
+	
+
+    CHI_feng_yuxiang={
+		name=CHI_feng_yuxiang #馮玉祥，1882年11月6日生於河北省青縣，籍貫安徽巢縣，1948年9月1日於黑海因輪船失火遇難，1935年4月2日授一級上將
+		portraits={
+			army={
+				large="gfx/leaders/CHI/Portrait_CHI_Feng_Yuxiang.dds"
+			}
+		}
+		field_marshal={
+			traits={ infantry_officer old_guard media_personality harsh_leader NRA_General_1stRank inspirational_leader }
+			skill=2
+			attack_skill=2 #3
+			defense_skill=2
+			planning_skill=2
+			logistics_skill=2
+			desc=CHI_feng_yuxiang_desc
+		}
+	}
+	
+	CHI_zhu_peide={
+		name="朱培德" #朱培德，1889年10月6日生於雲南省祿豐縣，雲南講武堂1期步科，1935年4月2日授一級上將，1937年2月17日於南京病逝
+		portraits={
+			army={
+				small="GFX_idea_CHI_zhu_peide"
+			}
+		}
+		advisor={
+			slot = army_chief
+			idea_token = CHI_zhu_peide
+			visible = {
+				NOT = {
+					has_country_flag = zhu_peide_dead
+				}			
+				tag = event_target:WTT_current_china_leader
+				if = {
+					limit = {
+						NOT = {
+							tag = CHI
+						}
+					}
+					NOT = {
+						any_of_scopes = {
+							array = global.literally_china_including_chinese_puppets
+							tag = event_target:WTT_current_china_leader
+							NOT = {
+								tag = ROOT
+							}
+						}
+					}
+				}
+			}
+			available = {
+				NOT = { has_country_flag = zhu_peide_dead }
+			}
+			allowed = {
+				is_literally_china = yes
+			}
+			traits = { army_chief_drill_2 }
+            cost = 100
+            desc=CHI_zhu_peide_desc						
+		}		
+	}
+
+	CHI_tang_shengzhi={
+		name="唐生智" #唐生智，1889年10月12日生於湖南省東安縣，保定1期步科，1935年4月2日授一級上將，1970年4月6日於長沙病逝
+		portraits={
+			army={
+				small="GFX_idea_CHI_tang_shengzhi"
+			}
+		}
+		advisor={
+			slot = army_chief
+			idea_token = CHI_tang_shengzhi
+			visible = {
+				NOT = {
+					has_global_flag = fall_of_nanjing
+				}			
+				tag = event_target:WTT_current_china_leader
+				if = {
+					limit = {
+						NOT = {
+							tag = CHI
+						}
+					}
+					NOT = {
+						any_of_scopes = {
+							array = global.literally_china_including_chinese_puppets
+							tag = event_target:WTT_current_china_leader
+							NOT = {
+								tag = ROOT
+							}
+						}
+					}
+				}
+			}
+		    available = {
+				#NOT = { has_country_flag = fall_of_nanjing }
+			}			
+			allowed = {
+				is_literally_china = yes
+			}
+			traits = { army_chief_entrenchment_2 }
+            cost = 100
+            desc=CHI_tang_shengzhi_desc					
+		}		
+	}
+	
+	CHI_zhu_shaoliang={
+		name="朱绍良" #朱紹良，1891年10月28日生於福建省福州府，日本陸士28期步科，1935年4月3日二級上將，1963年12月25日於台北病逝
+		portraits={
+			army={
+				large="gfx/leaders/CHI/Portrait_CHI_Zhu_Shaoliang.dds"
+			}
+		}
+		field_marshal={
+			traits={ career_officer infantry_officer NRA_General_2ndRank }
+			skill=3
+			attack_skill=2
+			defense_skill=2
+			planning_skill=3
+			logistics_skill=3
+			legacy_id=-1
+            desc=CHI_zhu_shaoliang_desc
+		}
+	}	
+	
+	CHI_liu_zhi={
+		name="刘峙" #劉峙，1892年6月30日生於江西省吉安縣，保定2期步科，1935年4月3日授二級上將，1971年1月15日於台中病逝
+		portraits={
+			army={
+				large="gfx/leaders/CHI/Portrait_CHI_liu_zhi.dds"
+			}
+		}
+		field_marshal={
+			traits={ career_officer infantry_officer politically_connected trait_cautious NRA_General_2ndRank }
+			skill=2
+			attack_skill=2
+			defense_skill=2
+			planning_skill=2
+			logistics_skill=2
+			legacy_id = 5015
+            desc=CHI_liu_zhi_desc
+		}
+	}
+	
+	CHI_gu_zhutong={
+		name=CHI_gu_zhutong #顧祝同，1893年1月9日生於江蘇省漣水縣，保定6期步科，1935年4月3日授二級上將，1987年1月17日於台北病逝
+		portraits={
+			army={
+				large="gfx/leaders/CHI/Portrait_CHI_Gu_Zhutong.dds"
+				small="GFX_idea_CHI_gu_zhutong"
+			}
+		}
+		advisor={
+			slot = high_command 
+			idea_token = CHI_gu_zhutong
+            ledger = army
+			visible = {
+				tag = event_target:WTT_current_china_leader
+				if = {
+					limit = {
+						NOT = {
+							tag = CHI
+						}
+					}
+					NOT = {
+						any_of_scopes = {
+							array = global.literally_china_including_chinese_puppets
+							tag = event_target:WTT_current_china_leader
+							NOT = {
+								tag = ROOT
+							}
+						}
+					}
+				}
+			}
+			allowed = {
+				is_literally_china = yes
+			}
+			traits = { army_commando_2 }
+            cost = 100				
+			ai_will_do = {
+				factor = 1
+			}
+			desc=CHI_gu_zhutong_desc
+		}
+		field_marshal={
+			traits={ career_officer infantry_officer politically_connected NRA_General_2ndRank }
+			skill=3
+			attack_skill=2
+			defense_skill=2
+			planning_skill=3
+			logistics_skill=3
+			legacy_id=5014
+            desc=CHI_gu_zhutong_desc
+		}
+	}	
+
+	CHI_shang_zhen={ #guo
+		name="商震" #商震，1888年9月21日生於河北省大城縣，北洋陸軍速成學堂，1935年4月3日授二級上將，1978年5月15日於東京病逝
+		portraits={
+			army={
+				large="gfx/leaders/CHI/Portrait_CHI_Shang_Zhen.dds"
+			}
+		}
+		field_marshal={
+			traits={  career_officer infantry_officer organizer thorough_planner logistics_wizard NRA_General_2ndRank }
+			skill=4
+			attack_skill=3
+			defense_skill=3
+			planning_skill=4
+			logistics_skill=4
+			legacy_id=-1
+            desc=CHI_shang_zhen_desc
+		}
+	}	
+
+	CHI_xu_yongchang={
+		name="徐永昌" #徐永昌，1887年12月15日生於山西省崞縣，陸軍大學4期，1935年4月3日授二級上將，1959年7月12日於臺北病逝
+		portraits={
+			army={
+				small="GFX_idea_CHI_xu_yongchang"
+			}
+		}
+		advisor={
+			slot = army_chief
+			idea_token = CHI_xu_yongchan
+			visible = {
+				tag = event_target:WTT_current_china_leader
+				if = {
+					limit = {
+						NOT = {
+							tag = CHI
+						}
+					}
+					NOT = {
+						any_of_scopes = {
+							array = global.literally_china_including_chinese_puppets
+							tag = event_target:WTT_current_china_leader
+							NOT = {
+								tag = ROOT
+							}
+						}
+					}
+				}
+			}
+			allowed = {
+				is_literally_china = yes
+			}
+			traits = { army_chief_morale_2 }
+            cost = 100	
+            desc=CHI_xu_yongchang_desc				
+		}		
+	}
+	
+	CHI_jiang_dingwen={
+		name=CHI_jiang_dingwen #蔣鼎文，1893年10月28日生於浙江省諸暨縣，浙江講武堂，1935年4月3日授二級上將，1974年1月2日於台北病逝
+		portraits={
+			army={
+				large="gfx/leaders/CHI/Portrait_CHI_jiang_dingwen.dds"
+				small="GFX_idea_CHI_jiang_dingwen"
+			}
+		}
+		advisor={
+			slot = high_command 
+			idea_token = CHI_jiang_dingwen
+            ledger = army			
+			visible = {
+				tag = event_target:WTT_current_china_leader
+				if = {
+					limit = {
+						NOT = {
+							tag = CHI
+						}
+					}
+					NOT = {
+						any_of_scopes = {
+							array = global.literally_china_including_chinese_puppets
+							tag = event_target:WTT_current_china_leader
+							NOT = {
+								tag = ROOT
+							}
+						}
+					}
+				}
+			}
+			allowed = {
+				is_literally_china = yes
+			}
+			available = {
+				NOT = {
+					has_global_flag = purged_by_yang_hucheng
+				}
+			}
+			traits = { army_logistics_2 }
+            cost = 100				
+			ai_will_do = {
+				factor = 190
+			}
+			desc=CHI_jiang_dingwen_desc
+		}
+		field_marshal={
+			traits={ career_officer infantry_officer politically_connected NRA_General_2ndRank }
+			skill=2
+			attack_skill=2
+			defense_skill=2
+			planning_skill=2
+			logistics_skill=2
+			legacy_id=3010
+            desc=CHI_jiang_dingwen_desc
+		}
+	}	
+
+	CHI_cheng_qian={
+		name="程潜" #程潛，1882年3月31日生於湖南省醴陵縣，日本陸士6期炮科，1936年1月11日授二級上將，1939年5月13日晉一級上將，1968年4月5日於北京病逝
+		portraits={
+			army={
+				large="gfx/leaders/CHI/Portrait_CHI_Cheng_Qian.dds"
+				small="GFX_idea_CHI_cheng_qian"
+			}
+		}
+		advisor={
+			slot = army_chief
+			idea_token = CHI_cheng_qian				
+			visible = {
+				tag = event_target:WTT_current_china_leader
+				if = {
+					limit = {
+						NOT = {
+							tag = CHI
+						}
+					}
+					NOT = {
+						any_of_scopes = {
+							array = global.literally_china_including_chinese_puppets
+							tag = event_target:WTT_current_china_leader
+							NOT = {
+								tag = ROOT
+							}
+						}
+					}
+				}
+			    NOT = {
+				    PRC = { has_completed_focus = PRC_contact_cheng_qian_focus }
+				}
+			}
+			allowed = {
+				is_literally_china = yes
+			}
+			available = {
+				#NOT = {#GUO
+				#    PRC = { has_completed_focus = PRC_contact_cheng_qian_focus }
+				#}
+			}
+			traits = { army_chief_planning_2 }
+            cost = 100	
+			desc=CHI_cheng_qian_desc
+		}		
+		field_marshal={
+			traits={ war_hero old_guard career_officer artillery_officer NRA_General_2ndRank hidden_sympathies }
+			skill=3
+			attack_skill=3
+			defense_skill=3
+			planning_skill=4
+			logistics_skill=4
+			legacy_id=3031
+            desc=CHI_cheng_qian_desc
+		}
+	}	
+	
+	CHI_chen_cheng={
+		name =CHI_chen_cheng #陳誠，1898年1月4日生於浙江省青田縣，保定8期砲科，1935年4月4日授陸軍中將，1936年9月26日加上將銜，1939年5月2日晉二級上將，1947年2月21日晉一級上將，1965年3月5日於台北病逝
+		portraits={
+			army={
+				large="gfx/leaders/CHI/Portrait_CHI_Chen_Cheng.dds"
+				small="GFX_idea_CHI_chen_cheng"
+			}
+		}		
+		advisor={
+			slot = army_chief
+			idea_token = CHI_chen_cheng		
+			visible = {
+				tag = event_target:WTT_current_china_leader
+				if = {
+					limit = {
+						NOT = {
+							tag = CHI
+						}
+					}
+					NOT = {
+						any_of_scopes = {
+							array = global.literally_china_including_chinese_puppets
+							tag = event_target:WTT_current_china_leader
+							NOT = {
+								tag = ROOT
+							}
+						}
+					}
+				}
+			}
+			allowed = {
+				is_literally_china = yes
+			}
+			available = {
+                #is_field_marshal = yes
+                has_completed_focus = CHI_army_reorganisation_focus
+				NOT = {
+					has_global_flag = purged_by_yang_hucheng
+				}
+			}
+			traits = { army_chief_reform_3 }
+            cost = 200				
+			ai_will_do = {
+				factor = 200
+			}
+		}
+		corps_commander={ #guo
+			traits={  organizer politically_connected career_officer infantry_officer artillery_officer NRA_Lieut_General }
+			skill=4
+			attack_skill=3
+			defense_skill=3
+			planning_skill=4
+			logistics_skill=4
+			legacy_id=2031
+		}
+	}
+	
+	CHI_wei_lihuang={#GUO
+		name=CHI_wei_lihuang #衛立煌，1897年2月16日生於安徽省合肥縣，陸軍大學將官特別班第1期，1935年4月4日授陸軍中將，1936年9月26日加上將銜，1939年5月2日晉二級上將，1960年1月17日於北京病逝
+		portraits={
+			army={
+				large="gfx/leaders/CHI/Portrait_CHI_Wei_Lihuang.dds"
+				small="GFX_idea_CHI_wei_lihuang"
+			}
+		}
+		advisor={
+			slot = high_command 
+			idea_token = CHI_wei_lihuang
+            ledger = army			
+			visible = {
+				tag = event_target:WTT_current_china_leader
+				if = {
+					limit = {
+						NOT = {
+							tag = CHI
+						}
+					}
+					NOT = {
+						any_of_scopes = {
+							array = global.literally_china_including_chinese_puppets
+							tag = event_target:WTT_current_china_leader
+							NOT = {
+								tag = ROOT
+							}
+						}
+					}
+				}
+			}
+			allowed = {
+				is_literally_china = yes
+				#guo has_dlc = "Waking the Tiger"
+			}
+			available = {
+				NOT = {
+					has_global_flag = purged_by_yang_hucheng
+				}
+			}
+			traits = { army_entrenchment_3 }
+            cost = 200
+			ai_will_do = {
+				factor = 200 #guo
+			}
+		}
+		corps_commander={
+			traits={  career_officer infantry_officer  inflexible_strategist    war_hero   trait_cautious  organizer   NRA_Lieut_General }
+			skill=4
+			attack_skill=4
+			defense_skill=4
+			planning_skill=4
+			logistics_skill=3
+			legacy_id=2030
+		}
+	}
+	
+	CHI_zhang_zhizhong={
+		name="张治中" #張治中，1890年10月27日生於安徽省巢縣，保定3期步科，1935年4月4日陸軍中將，1936年9月26日加上將銜，1945年10月3日二級上將，1969年4月10日於北京病逝
+		portraits={
+			army={
+				large="gfx/leaders/CHI/Portrait_CHI_Zhang_Zhizhong.dds"
+			}
+		}
+		corps_commander={
+			traits={  career_officer infantry_officer NRA_Lieut_General hidden_sympathies }
+			skill=3
+			attack_skill=3
+			defense_skill=3
+			planning_skill=3
+			logistics_skill=4
+			legacy_id=-1
+		}
+	}	
+
+	CHI_zhang_fakui={
+		name="张发奎" #張發奎，1896年9月2日生於廣東省始興縣，1936年9月12日加上將銜，1945年10月3日二級上將，1980年3月10日於香港病逝	
+		portraits={
+			army={
+				large="gfx/leaders/CHI/Portrait_CHI_zhang_fakui.dds"
+                small="GFX_idea_CHI_zhang_fakui"
+			}
+		}
+		corps_commander={
+			traits={ career_officer infantry_officer NRA_Lieut_General }
+			skill=3
+			attack_skill=3
+			defense_skill=3
+			planning_skill=3
+			logistics_skill=2
+			legacy_id=-1
+		}
+	}
+
+	CHI_hsueh_yueh={#GUO
+		name="薛岳" #薛岳，1896年12月27日生於廣東省樂昌縣，保定6期，1935年4月5日陸軍中將，1936年9月26日加上將銜，1944年2月9日二級上將，1998年5月3日於台北病逝
+		portraits={
+			army={
+				large="gfx/leaders/CHI/Portrait_CHI_Xue_Yue.dds"
+				small="GFX_idea_CHI_xue_yue"
+			}
+		}
+		advisor={
+			slot = high_command 
+			idea_token = CHI_hsueh_yueh
+            ledger = army			
+			visible = {
+				tag = event_target:WTT_current_china_leader
+				if = {
+					limit = {
+						NOT = {
+							tag = CHI
+						}
+					}
+					NOT = {
+						any_of_scopes = {
+							array = global.literally_china_including_chinese_puppets
+							tag = event_target:WTT_current_china_leader
+							NOT = {
+								tag = ROOT
+							}
+						}
+					}
+				}
+			}
+			allowed = {
+				is_literally_china = yes
+			}
+			traits = { army_overround_planning_2 }
+            cost = 100			
+			ai_will_do = {
+				factor = 300
+			}
+		}
+		corps_commander={
+			traits={ brilliant_strategist  trait_cautious  skilled_staffer   career_officer infantry_officer NRA_Lieut_General organizer  adaptable }
+			skill=5
+			attack_skill=4
+			defense_skill=4
+			planning_skill=4
+			logistics_skill=4
+			legacy_id=-1
+		}
+	}	
+
+    CHI_liu_jianxu={
+		name="刘建绪" #劉建緒，1892年10月2日生於湖南省醴陵縣，保定8期炮科，1935年4月5日陸軍中將，1936年9月26日加上將銜，1978年3月22日於巴西病逝
+		portraits={
+			army={
+				large="gfx/leaders/CHI/Portrait_CHI_Liu_Jianxu.dds"
+			}
+		}
+		corps_commander={
+			traits={ career_officer artillery_officer NRA_Lieut_General }
+			skill=2
+			attack_skill=2
+			defense_skill=2
+			planning_skill=2
+			logistics_skill=3
+			legacy_id=-1
+		}
+	}
+				
+	CHI_sun_lianzhong={
+		name=CHI_sun_lianzhong #孫連仲，1893年2月2日生於河北省雄縣，1935年4月4日授陸軍中將，1936年12月16日加上將銜，1990年8月14日於台北病逝
+		portraits={
+			army={
+				large="gfx/leaders/CHI/Portrait_CHI_Sun_Lianzhong.dds"
+				small="GFX_idea_CHI_sun_lianzhong"
+			}
+		}
+		advisor={
+			slot = high_command 
+			idea_token = CHI_sun_lianzhong
+            ledger = army			
+			visible = {
+				tag = event_target:WTT_current_china_leader
+				if = {
+					limit = {
+						NOT = {
+							tag = CHI
+						}
+					}
+					NOT = {
+						any_of_scopes = {
+							array = global.literally_china_including_chinese_puppets
+							tag = event_target:WTT_current_china_leader
+							NOT = {
+								tag = ROOT
+							}
+						}
+					}
+				}
+			}
+			allowed = {
+				is_literally_china = yes
+			}
+			traits = { army_regrouping_3 }
+            cost = 100
+			ai_will_do = {
+				factor = 300
+			}
+		}
+		corps_commander={
+			traits={  career_officer infantry_officer harsh_leader trait_reckless NRA_Lieut_General urban_assault_specialist }
+			skill=4
+			attack_skill=3
+			defense_skill=5
+			planning_skill=3
+			logistics_skill=3
+			legacy_id=-1
+		}
+	}
+	
+	CHI_pang_bingxun={
+		name="庞炳勋" #龐炳勛，1879年10月25日生於河北省新河縣，1935年4月8日陸軍中將，1936年12月16日加上將銜，1963年1月12日於台北病逝
+		portraits={
+			army={
+				large="gfx/leaders/CHI/Portrait_CHI_Pang_Bingxun.dds"
+			}
+		}
+		corps_commander={
+			traits={ old_guard career_officer infantry_officer NRA_Lieut_General }
+			skill=3
+			attack_skill=3
+			defense_skill=3
+			planning_skill=2
+			logistics_skill=2
+			legacy_id=5016
+		}
+	}	
+		
+	CHI_luo_zhuoying={
+		name="罗卓英" #羅卓英，1896年3月19日生於廣東省大埔縣，保定8期砲科，1935年4月5日陸軍中將，1946年6月13日加上將銜，1961年11月6日於台北病逝
+		portraits={
+			army={
+				large="gfx/leaders/CHI/Portrait_CHI_luo_zhuoying.dds"
+			}
+		}
+		corps_commander={
+			traits={ career_officer artillery_officer NRA_Lieut_General }
+			skill=3
+			attack_skill=2
+			defense_skill=2
+			planning_skill=3
+			logistics_skill=3
+			legacy_id=-1
+		}
+	}
+	
+	CHI_shangguan_yunxiang={
+		name="上官云相" #上官雲相，1895年生於山東省商河縣，保定6期步科，1935年4月4日陸軍中將，1969年8月8日於台北病逝
+		portraits={
+			army={
+				large="gfx/leaders/CHI/Portrait_CHI_Shangguan_Yunxiang.dds"
+			}
+		}
+		corps_commander={
+			traits={ career_officer infantry_officer NRA_Lieut_General }
+			skill=2
+			attack_skill=2
+			defense_skill=2
+			planning_skill=3
+			logistics_skill=2
+			legacy_id=-1
+		}
+	}	
+
+	CHI_liu_maoen={
+		name="刘茂恩" #劉茂恩，1898年6月8日生於河南省鞏縣，保定6期輜科，1935年4月6日陸軍中將，1981年4月24日於台北病逝
+		portraits={
+			army={
+				large="gfx/leaders/CHI/Portrait_CHI_liu_maoen.dds"
+			}
+		}
+		corps_commander={
+			traits={ career_officer engineer_officer NRA_Lieut_General }
+			skill=2
+			attack_skill=2
+			defense_skill=2
+			planning_skill=2
+			logistics_skill=3
+			legacy_id=-1
+		}
+	}
+
+    NEA_he_zhuguo={
+		name="何柱国" #何柱國，1897年生於廣西省容縣，保定6期騎科，日本陸士12期騎科，1935年4月6日陸軍中將，1985年9月3日於北京病逝
+		portraits={
+			army={
+				large="gfx/leaders/NEA/Portrait_NEA_He_Zhuguo.dds"
+				small="GFX_idea_NEA_He_Zhuguo"
+			}
+		}
+		advisor={
+			slot = high_command 
+			idea_token = CHI_he_zhuguo
+			ledger = army
+			visible = {
+				OR = {
+					tag = NEA
+					tag = PRC
+				    AND = {
+						has_global_flag = nea_surrender
+						tag = event_target:WTT_current_china_leader
+						if = {
+							limit = {
+								NOT = {
+									tag = CHI
+								}
+							}
+							NOT = {
+								any_of_scopes = {
+									array = global.literally_china_including_chinese_puppets
+									tag = event_target:WTT_current_china_leader
+									NOT = {
+										tag = ROOT
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+			allowed = {
+				is_literally_china = yes				
+			}
+			traits = { army_cavalry_2 }
+			cost = 100			
+		}			
+		corps_commander={
+			traits={ career_officer cavalry_officer NRA_Lieut_General }
+			skill=3
+			attack_skill=3
+			defense_skill=3
+			planning_skill=2
+			logistics_skill=2
+			legacy_id=-1
+		}
+	}
+	
+	CHI_wu_qiwei={
+		name="吴奇伟" #吳奇偉，1891年1月8日生於廣東省大埔縣，保定6期步科，1935年4月8日陸軍中將，1953年7月11日於北京病逝
+		portraits={
+			army={
+				large="gfx/leaders/CHI/Portrait_CHI_Wu_Qiwei.dds"
+			}
+		}
+		corps_commander={
+			traits={ career_officer infantry_officer NRA_Lieut_General }
+			skill=2
+			attack_skill=3
+			defense_skill=2
+			planning_skill=2
+			logistics_skill=2
+			legacy_id=-1
+		}
+	}
+
+	CHI_li_jue={
+		name="李觉" #李覺，1900年6月6日生於湖南省長沙縣，保定9期步科，1935年4月9日陸軍中將，1987年7月31日於北京病逝
+		portraits={
+			army={
+				large="gfx/leaders/CHI/Portrait_CHI_Li_Jue.dds"
+			}
+		}
+		corps_commander={
+			traits={ career_officer infantry_officer NRA_Lieut_General }
+			skill=2
+			attack_skill=2
+			defense_skill=2
+			planning_skill=3
+			logistics_skill=2
+			legacy_id=-1
+		}
+	}	
+
+	CHI_huang_zhenqiu={ #guo
+		name="黄镇球" #黃鎮球，1898年4月9日生於廣東省梅縣，保定6期步科，1936年1月29日陸軍少將，1936年10月5日陸軍中將，1979年7月5日於台北病逝
+		portraits={
+			army={
+				small="gfx/interface/advisors/idea_CHI_Huang_Zhenqiu.tga"
+				large="gfx/leaders/CHI/huangzhenqiu.jpg"
+			}
+		}
+		advisor={
+			slot = high_command 
+			idea_token = CHI_huang_zhenqiu
+            ledger = army			
+			visible = {
+				tag = event_target:WTT_current_china_leader
+				if = {
+					limit = {
+						NOT = {
+							tag = CHI
+						}
+					}
+					NOT = {
+						any_of_scopes = {
+							array = global.literally_china_including_chinese_puppets
+							tag = event_target:WTT_current_china_leader
+							NOT = {
+								tag = ROOT
+							}
+						}
+					}
+				}
+			}
+			allowed = {
+				is_literally_china = yes
+			}
+			traits = {
+				army_concealment_2
+			}
+			cost = 100	
+			ai_will_do = {
+				factor = 100 #guo
+			}
+		}		
+		corps_commander={
+			traits={ career_officer infantry_officer NRA_Major_General }
+			skill=3
+			attack_skill=3
+			defense_skill=2
+			planning_skill=2
+			logistics_skill=3
+			legacy_id=-1
+		}
+	}	
+
+	CHI_zeng_wanzhong={
+		name="曾万钟" #曾萬鐘，1894年生於雲南省大關縣，雲南講武堂3期，1935年4月9日陸軍中將，1968年病逝
+		portraits={
+			army={
+				large="gfx/leaders/CHI/Portrait_CHI_Zeng_Wanzhong.dds"
+			}
+		}
+		corps_commander={
+			traits={ career_officer infantry_officer NRA_Lieut_General }
+			skill=2
+			attack_skill=2
+			defense_skill=2
+			planning_skill=2
+			logistics_skill=1
+			legacy_id=-1
+		}
+	}	
+	
+	CHI_tang_enbo={
+		name=CHI_tang_enbo #湯恩伯，1899年9月20日生於浙江省武義縣，日本陸軍士官學校，1935年4月9日授陸軍中將，1946年2月10日加上將銜，1954年6月29日於東京病逝
+		portraits={
+			army={
+				large="gfx/leaders/CHI/Portrait_CHI_Tang_Enbo.dds"
+				small="GFX_idea_CHI_tang_enbo"
+			}
+		}
+		advisor={
+			slot = high_command 
+			idea_token = CHI_tang_enbo
+            ledger = army			
+			visible = {
+				tag = event_target:WTT_current_china_leader
+				if = {
+					limit = {
+						NOT = {
+							tag = CHI
+						}
+					}
+					NOT = {
+						any_of_scopes = {
+							array = global.literally_china_including_chinese_puppets
+							tag = event_target:WTT_current_china_leader
+							NOT = {
+								tag = ROOT
+							}
+						}
+					}
+				}
+			}
+			allowed = {
+				is_literally_china = yes
+			}
+			traits = { army_infantry_2 }
+            cost = 100				
+			ai_will_do = {
+				factor = 400
+			}
+		}
+		corps_commander={
+			traits={ career_officer infantry_officer NRA_Lieut_General organizer trickster }
+			skill=4
+			attack_skill=4
+			defense_skill=4
+			planning_skill=3
+			logistics_skill=3
+			legacy_id=5013
+		}
+	}
+
+	CHI_hu_zongnan={
+		name="胡宗南" #胡宗南，1896年5月12日生於浙江省鎮海縣，黃埔1期，1935年4月9日陸軍中將，1945年10月3日加上將銜，1962年2月14日於台北病逝
+		portraits={
+			army={
+				large="gfx/leaders/CHI/Portrait_CHI_Hu_Zongnan.dds"
+				small="GFX_idea_CHI_hu_zongnan"
+			}
+		}
+		corps_commander={
+			traits={ politically_connected career_officer infantry_officer NRA_Lieut_General organizer }
+			skill=4
+			attack_skill=4
+			defense_skill=3
+			planning_skill=4
+			logistics_skill=3
+			legacy_id=5012
+		}
+	}
+
+	CHI_li_moan={
+		name="李默庵" #李默庵，1904年生於湖南省長沙縣，黃埔1期，1935年4月9日陸軍中將，2001年11月17日於北京病逝
+		portraits={
+			army={
+				large="gfx/leaders/CHI/Portrait_CHI_Li_Moan.dds"
+			}
+		}
+		corps_commander={
+			traits={ career_officer infantry_officer NRA_Lieut_General }
+			skill=2
+			attack_skill=2
+			defense_skill=2
+			planning_skill=3
+			logistics_skill=2
+			legacy_id=-1
+		}
+	}
+	
+	CHI_li_yannian={
+		name="李延年" #李延年，1904年3月11日生於山東省樂安縣，黃埔1期，1935年4月9日陸軍中將，1974年11月17日於台北病逝
+		portraits={
+			army={
+				large="gfx/leaders/CHI/Portrait_CHI_Li_Yannian.dds"
+			}
+		}
+		corps_commander={
+			traits={ career_officer infantry_officer NRA_Lieut_General }
+			skill=2
+			attack_skill=2
+			defense_skill=3
+			planning_skill=2
+			logistics_skill=2
+			legacy_id=-1
+		}
+	}
+
+	CHI_yu_jishi={
+		name="俞济时" #俞濟時，1904年5月1日生於浙江省奉化縣，黃埔1期，1936年1月28日授陸軍中將，1990年1月25日於台北病逝  
+		portraits={
+			army={
+				large="gfx/leaders/CHI/Portrait_CHI_yu_jishi.dds"
+			}
+		}
+		corps_commander={
+			traits={ career_officer infantry_officer NRA_Major_General }
+			skill=2
+			attack_skill=2
+			defense_skill=2
+			planning_skill=2
+			logistics_skill=2
+			legacy_id=-1
+		}
+	}	
+
+	CHI_li_yutang={
+		name="李玉堂" #李玉堂，1899年3月18日生於山東省廣饒縣，黃埔1期，1935年4月13日陸軍少將，1936年10月5日陸軍中將，1951年2月5日於台北被槍決
+		portraits={
+			army={
+				large="gfx/leaders/CHI/Portrait_CHI_Li_Yutang.dds"
+			}
+		}
+		corps_commander={
+			traits={ career_officer infantry_officer NRA_Major_General }
+			skill=2
+			attack_skill=3
+			defense_skill=3
+			planning_skill=2
+			logistics_skill=2
+			legacy_id=-1
+		}
+	}	
+
+	CHI_guan_linzheng={
+		name="关麟征" #關麟徵，1905年3月19日生於陝西省鄠縣，黃埔1期，1935年4月13日陸軍少將，1936年10月5日陸軍中將，1980年8月1日於香港病逝
+		portraits={
+			army={
+				large="gfx/leaders/CHI/Portrait_CHI_Guan_Linzheng.dds"
+			}
+		}
+		corps_commander={
+			traits={ career_officer infantry_officer trait_reckless NRA_Major_General }
+			skill=3
+			attack_skill=4
+			defense_skill=3
+			planning_skill=3
+			logistics_skill=3
+			legacy_id=-1
+		}
+	}	
+
+	CHI_song_xilian={
+		name="宋希濂" #宋希濂，1907年4月9日生於湖南省湘鄉縣，黃埔1期，1935年4月13日陸軍少將，1936年10月5日陸軍中將，1993年2月13日於紐約病逝
+		portraits={
+			army={
+				large="gfx/leaders/CHI/Portrait_CHI_song_xilian.dds"
+			}
+		}
+		corps_commander={
+			traits={ rising_young_officer brilliant_strategist  career_officer infantry_officer trickster urban_assault_specialist NRA_Major_General }
+			skill=3
+			attack_skill=3
+			defense_skill=4
+			planning_skill=2
+			logistics_skill=3
+			legacy_id=-1
+		}
+	}
+	
+	CHI_huang_jie={
+		name="黄杰" #黃杰，1902年11月2日生於湖南省長沙縣，黃埔1期，1935年4月13日陸軍少將，1936年10月5日陸軍中將，1995年1月14日於台北病逝
+		portraits={
+			army={
+				large="gfx/leaders/CHI/Portrait_CHI_Huang_Jie.dds"
+			}
+		}
+		corps_commander={
+			traits={ career_officer infantry_officer trait_cautious NRA_Major_General }
+			skill=2
+			attack_skill=2
+			defense_skill=2
+			planning_skill=2
+			logistics_skill=3
+			legacy_id=-1
+		}
+	}
+
+	CHI_wang_jingjiu={
+		name="王敬久" #王敬久，1902年生於江蘇省豐縣，黃埔1期，1935年4月13日陸軍少將，1936年10月5日陸軍中將，1964年6月20日於台南病逝
+		portraits={
+			army={
+				large="gfx/leaders/CHI/Portrait_CHI_Wang_Jingjiu.dds"
+			}
+		}
+		corps_commander={
+			traits={ career_officer infantry_officer NRA_Major_General }
+			skill=2
+			attack_skill=3
+			defense_skill=2
+			planning_skill=2
+			logistics_skill=2
+			legacy_id=-1
+		}
+	}
+
+	CHI_liu_kan={
+		name="刘戡" #劉戡，1906年生於湖南省桃源縣，黃埔1期，1935年4月13日陸軍少將，1936年10月5日陸軍中將，1948年3月3日於陝西自殺身亡
+		portraits={
+			army={
+				large="gfx/leaders/CHI/Portrait_CHI_Liu_Kan.dds"
+			}
+		}
+		corps_commander={
+			traits={ career_officer infantry_officer trait_reckless NRA_Major_General }
+			skill=2
+			attack_skill=3
+			defense_skill=2
+			planning_skill=2
+			logistics_skill=2
+			legacy_id=480303
+		}
+	}	
+	
+	CHI_huo_kuizhang={
+		name="霍揆彰" #霍揆彰，1901年3月14日生於湖南省酃縣，黃埔1期，1935年4月13日陸軍少將，1937年5月21日陸軍中將，1953年3月9日於台北病逝
+		portraits={
+			army={
+				large="gfx/leaders/CHI/Portrait_CHI_huo_kuizhang.dds"
+			}
+		}
+		corps_commander={
+			traits={ career_officer infantry_officer NRA_Major_General }
+			skill=2
+			attack_skill=3
+			defense_skill=2
+			planning_skill=2
+			logistics_skill=2
+			legacy_id=-1
+		}
+	}	
+
+	CHI_huang_wei={
+		name="黄维" #黃維，1904年2月28日生於江西省貴溪縣，黃埔1期，1935年4月13日陸軍少將，1939年6月6日陸軍中將，1989年3月20日於北京病逝
+		portraits={
+			army={
+				large="gfx/leaders/CHI/Portrait_CHI_huang_wei.dds"
+			}
+		}
+		corps_commander={
+			traits={ career_officer infantry_officer NRA_Major_General trait_reckless harsh_leader urban_assault_specialist }
+			skill=3
+			attack_skill=3
+			defense_skill=4
+			planning_skill=3
+			logistics_skill=3
+			legacy_id=-1
+		}
+	}
+
+	CHI_xia_chuzhong={
+		name="夏楚中" #夏楚中，1904年5月30日生於湖南省桃江縣，黃埔1期，1935年4月15日陸軍少將，1936年10月5日陸軍中將，1988年12月28日於台北病逝
+		portraits={
+			army={
+				large="gfx/leaders/CHI/Portrait_CHI_xia_chuzhong.dds"
+			}
+		}
+		corps_commander={
+			traits={ career_officer infantry_officer NRA_Major_General }
+			skill=2
+			attack_skill=2
+			defense_skill=2
+			planning_skill=2
+			logistics_skill=2
+			legacy_id=-1
+		}
+	}
+	
+	CHI_wang_zhonglian={
+		name="王仲廉" #王仲廉，1904年4月30日生於江蘇省蕭縣，黃埔1期，1935年4月15日陸軍少將，1939年7月13日陸軍中將，1991年7月26日於台北病逝
+		portraits={
+			army={
+				large="gfx/leaders/CHI/Portrait_CHI_Wang_Zhonglian.dds"
+			}
+		}
+		corps_commander={
+			traits={ career_officer infantry_officer NRA_Major_General }
+			skill=2
+			attack_skill=2
+			defense_skill=3
+			planning_skill=2
+			logistics_skill=2
+			legacy_id=-1
+		}
+	}
+
+	CHI_li_xianzhou={
+		name="李仙洲" #李仙洲，1894年6月17日生於山東省長清縣，黃埔1期，1936年2月1日陸軍少將，1938年3月1日陸軍中將，1988年10月22日於濟南病逝
+		portraits={
+			army={
+				large="gfx/leaders/CHI/Portrait_CHI_Li_Xianzhou.dds"
+			}
+		}
+		corps_commander={
+			traits={ career_officer infantry_officer NRA_Major_General }
+			skill=2
+			attack_skill=2
+			defense_skill=2
+			planning_skill=2
+			logistics_skill=2
+			legacy_id=-1
+		}
+	}	
+	
+	CHI_du_yuming={#GUO
+		name="杜聿明" #杜聿明，1904年11月28日生於陝西省米脂縣，黃埔1期，1936年10月5日陸軍少將，1945年2月20日陸軍中將，1981年5月7日於北京病逝
+		portraits={
+			army={
+				large="gfx/leaders/CHI/Portrait_CHI_Du_Yuming.dds"
+				small="GFX_idea_CHI_du_yuming"
+			}
+		}
+		advisor={
+			slot = high_command 
+			idea_token = CHI_du_yuming
+            ledger = army						
+			visible = {
+				tag = event_target:WTT_current_china_leader
+				if = {
+					limit = {
+						NOT = {
+							tag = CHI
+						}
+					}
+					NOT = {
+						any_of_scopes = {
+							array = global.literally_china_including_chinese_puppets
+							tag = event_target:WTT_current_china_leader
+							NOT = {
+								tag = ROOT
+							}
+						}
+					}
+				}
+			}
+			available = {
+                has_global_flag = recruit_du_yuming
+			}			
+			allowed = {
+				is_literally_china = yes
+			}
+			traits = { army_armored_3 }	
+            cost = 200	
+			ai_will_do = {
+				factor = 0
+			}
+		}		
+		corps_commander={
+			traits={ rising_young_officer armor_officer  brilliant_strategist    career_officer   organizer  adaptable     NRA_Major_General }
+			skill=5
+			attack_skill=4
+			defense_skill=4
+			planning_skill=4
+			logistics_skill=4
+			legacy_id=-1
+			visible = { has_global_flag = recruit_du_yuming } 
+		}
+	}
+	
+	CHI_zheng_dongguo={#GUO
+		name=CHI_zheng_dongguo #鄭洞國，1903年1月13日生於湖南石門縣，黃埔1期，1936年10月22日陸軍少將，1945年2月20日陸軍中將，1991年1月27日於北京病逝
+		portraits={
+			army={
+				large="gfx/leaders/CHI/Portrait_CHI_Zheng_Dongguo.dds"			
+				small="GFX_idea_CHI_zheng_dongguo"
+			}
+		}
+		advisor={
+			slot = high_command 
+			idea_token = CHI_zheng_dongguo
+            ledger = army						
+			visible = {
+				tag = event_target:WTT_current_china_leader
+				if = {
+					limit = {
+						NOT = {
+							tag = CHI
+						}
+					}
+					NOT = {
+						any_of_scopes = {
+							array = global.literally_china_including_chinese_puppets
+							tag = event_target:WTT_current_china_leader
+							NOT = {
+								tag = ROOT
+							}
+						}
+					}
+				}
+			}
+			available = {
+                has_global_flag = recruit_zheng_dongguo
+			}			
+			allowed = {
+				is_literally_china = yes
+			}
+			traits = { army_CombinedArms_2 }	
+            cost = 100	
+			ai_will_do = {
+				factor = 0.5
+			}
+		}			
+		corps_commander={
+			traits={   career_officer    expert_improviser  trait_reckless  trickster    infantry_officer  NRA_Major_General }
+			skill=3
+			attack_skill=4
+			defense_skill=4
+			planning_skill=3
+			logistics_skill=3
+			legacy_id=-1
+			visible = { has_global_flag = recruit_zheng_dongguo } 				
+		}		
+	}
+	
+	CHI_fan_hanjie={#guo
+		name="范汉杰" #范漢傑，1894年10月29日生於廣東大埔縣，黃埔1期，1936年9月5日陸軍少將，1945年3月8日陸軍中將，1976年1月16日於北京病逝
+		portraits={
+			army={
+				large="gfx/leaders/CHI/Portrait_CHI_Fan_Hanjie.dds"
+			}
+		}
+		corps_commander={
+			traits={    career_officer  infantry_officer    trickster     NRA_Major_General }
+			skill=3
+			attack_skill=4
+			defense_skill=3
+			planning_skill=4
+			logistics_skill=3
+			legacy_id=-1
+			visible = { has_global_flag = recruit_fan_hanjie } 					
+		}
+	}
+
+	CHI_wang_yaowu={#guo
+		name=CHI_wang_yaowu #王耀武，1904年1月17日生於山東泰安縣，黃埔3期，1936年陸軍少將，1945年2月20日陸軍中將，1968年7月3日於北京病逝
+		portraits={
+			army={
+				large="gfx/leaders/CHI/Portrait_CHI_Wang_Yaowu.dds"
+				small="GFX_idea_wang_yaowu"
+			}
+		}
+		advisor={
+			slot = high_command 
+			idea_token = CHI_wang_yaowu
+            ledger = army			
+			visible = {
+				tag = event_target:WTT_current_china_leader
+				if = {
+					limit = {
+						NOT = {
+							tag = CHI
+						}
+					}
+					NOT = {
+						any_of_scopes = {
+							array = global.literally_china_including_chinese_puppets
+							tag = event_target:WTT_current_china_leader
+							NOT = {
+								tag = ROOT
+							}
+						}
+					}
+				}
+			}
+			available = {
+                has_global_flag = recruit_wang_yaowu
+			}			
+			allowed = {
+				is_literally_china = yes
+				#guo has_dlc = "Waking the Tiger"
+			}
+			traits = { army_artillery_3 }
+			cost = 200
+			ai_will_do = {
+				factor = 0
+			}
+		}
+		corps_commander={
+			traits={ rising_young_officer brilliant_strategist  adaptable  career_officer  artillery_officer  bearer_of_artillery trickster  NRA_Major_General    organizer }
+			skill=4
+			attack_skill=4
+			defense_skill=3
+			planning_skill=3
+			logistics_skill=3
+			legacy_id=-1
+			visible = { has_global_flag = recruit_wang_yaowu } 
+		}
+	}	
+
+    CHI_ma_fawu={
+		name=CHI_ma_fawu #馬法五
+		portraits={
+			army={
+				large="gfx/leaders/CHI/Portrait_CHI_Ma_Fawu.dds"
+			}
+		}
+		corps_commander={
+			traits={ career_officer infantry_officer NRA_Lieut_General }
+			skill=2
+			attack_skill=2
+			defense_skill=1
+			planning_skill=2
+			logistics_skill=2
+			legacy_id=-1					
+		}
+	}
+
+	CHI_han_deqin={
+		name=CHI_han_deqin #韓德勤
+		portraits={
+			army={
+				large="gfx/leaders/CHI/Portrait_CHI_Han_Deqin.dds"
+			}
+		}
+		corps_commander={
+			traits={ career_officer infantry_officer NRA_Lieut_General }
+			skill=2
+			attack_skill=1
+			defense_skill=2
+			planning_skill=2
+			logistics_skill=2
+			legacy_id=-1					
+		}
+	}	
+
+	CHI_dai_anlan={#GUO
+		name="戴安澜" #戴安瀾，1904年11月25日生於安徽無為縣，黃埔3期，1939年6月17日陸軍少將，1942年5月26日於緬甸殉職  
+		portraits={
+			army={
+				large="gfx/leaders/CHI/Portrait_CHI_Dai_Anlan.dds"
+			}
+		}
+		corps_commander={
+			traits={ rising_young_officer trait_reckless armor_officer  career_officer   infantry_officer      fortress_buster      NRA_Major_General }
+			skill=3
+			attack_skill=5
+			defense_skill=4
+			planning_skill=3
+			logistics_skill=3
+			legacy_id=420526
+			visible = { has_global_flag = recruit_dai_anlan } 
+		}
+	}
+	
+	CHI_qiu_qingquan={#GUO
+		name="邱清泉" #邱清泉，1902年1月27日生於浙江永嘉縣，黃埔2期工科，柏林陸軍大學，1939年6月24日陸軍少將，1948年9月22日陸軍中將，1949年1月10日於河南省陳官莊殉職
+		portraits={
+			army={
+				large="gfx/leaders/CHI/Portrait_CHI_Qiu_Qingquan.dds"
+			}
+		}
+		corps_commander={
+			traits={ trait_reckless  harsh_leader   career_officer  engineer_officer   trickster        NRA_Major_General }
+			skill=3
+			attack_skill=3
+			defense_skill=3
+			planning_skill=4
+			logistics_skill=3
+			legacy_id=490110
+			visible = { has_global_flag = recruit_qiu_qingquan } 				
+		}
+	}	
+
+	CHI_liao_yaoxiang={#GUO
+		name="廖耀湘" #廖耀湘，1906年5月16日生於湖南邵陽縣，黃埔6期騎科，法國聖西爾軍校，1968年12月2日於北京文革批鬥大會猝死 
+		portraits={
+			army={
+				large="gfx/leaders/CHI/Portrait_CHI_liao_yaoxiang.dds"
+			}
+		}
+		corps_commander={
+			traits={ cavalry_officer  career_officer  brilliant_strategist    armor_officer  trait_cautious  organizer    NRA_Major_General }
+			skill=4
+			attack_skill=3
+			defense_skill=3
+			planning_skill=3
+			logistics_skill=4
+			legacy_id=-1
+			visible = { has_global_flag = recruit_liao_yaoxiang } 			
+		}
+	}
+		
+	CHI_zhang_lingfu={#GUO
+		name="张灵甫" #張靈甫，1903年8月20日生於陝西長安縣，黃埔4期，1945年2月20日陸軍少將，1947年5月16日於孟良崮陣亡  
+		portraits={
+			army={
+				large="gfx/leaders/CHI/Portrait_CHI_Zhang_Lingfu.dds"
+			}
+		}
+		corps_commander={
+			traits={ rising_young_officer trait_reckless  harsh_leader  politically_connected    infantry_officer  career_officer    NRA_Major_General }
+			skill=3
+			attack_skill=3  
+			defense_skill=3
+			planning_skill=3
+			logistics_skill=3
+			legacy_id=470516
+			visible = { has_global_flag = recruit_zhang_lingfu } 
+		}
+	}	
+
+	CHI_sun_liren={#GUO
+		name="孙立人" #孫立人，1900年12月8日生於安徽省廬江縣，美國維吉尼亞軍校，1945年3月8日陸軍少將，1948年9月22日陸軍中將，1990年11月19日於台中病逝
+		portraits={
+			army={
+				large="gfx/leaders/CHI/Portrait_CHI_Sun_Liren.dds"
+				small="GFX_idea_CHI_sun_li_jen"				
+			}
+		}
+		advisor={#GUO
+			slot = high_command 
+			idea_token = CHI_sun_liren
+            ledger = army			
+			visible = {
+				tag = event_target:WTT_current_china_leader
+				if = {
+					limit = {
+						NOT = {
+							tag = CHI
+						}
+					}
+					NOT = {
+						any_of_scopes = {
+							array = global.literally_china_including_chinese_puppets
+							tag = event_target:WTT_current_china_leader
+							NOT = {
+								tag = ROOT
+							}
+						}
+					}
+				}
+			}
+			available = {
+                has_global_flag = recruit_sun_liren
+			}			
+			allowed = {
+				is_literally_china = yes
+			}
+			traits = { army_eastern_rommel }
+			cost = 200
+			ai_will_do = {
+				factor = 5000
+			}
+		}
+		corps_commander={
+			traits={ rising_young_officer brilliant_strategist  infantry_officer  jungle_rat   career_officer    trickster     NRA_Major_General  adaptable }
+			skill=5
+			attack_skill=5
+			defense_skill=4
+			planning_skill=4
+			logistics_skill=4
+			legacy_id=-1
+			visible = { has_global_flag = recruit_sun_liren } 
+		}
+	}	
+
+    CHI_tao_Zhiyue={
+		name="陶峙岳" #陶峙岳，1892年9月18日出生於湖南寧鄉市仙鳳鄉，1935年4月9日陸軍中將，1988年12月26日病逝於湖南省長沙市
+		portraits={
+			army={
+				large="gfx/leaders/CHI/Portrait_CHI_Tao_Zhiyue.dds"		
+			}
+		}	
+		corps_commander={ #guo
+			traits={ career_officer infantry_officer hidden_sympathies }
+			skill=3
+			attack_skill=3
+			defense_skill=3
+			planning_skill=3
+			logistics_skill=3
+			legacy_id=-1
+		}
+	}
+
+    CHI_liu_yuzhang={
+		name="刘玉章" #劉玉章，1903年11月11日生於陝西興平縣，黃埔4期，1948年9月22日陸軍少將。1942年第2師師長，1948年第52軍軍長。1981年4月11日於台北病逝
+		portraits={
+			army={
+				large="gfx/leaders/CHI/Portrait_CHI_Liu_Yuzhang.dds"		
+			}
+		}	
+		corps_commander={
+			traits={ rising_young_officer trait_reckless career_officer infantry_officer NRA_Major_General }
+			skill=2
+			attack_skill=3
+			defense_skill=2
+			planning_skill=1
+			logistics_skill=1
+			legacy_id=-1
+			visible = { has_global_flag = recruit_liu_yuzhang }
+		}
+	}
+
+    CHI_chen_mingren={
+		name=CHI_chen_mingren #陳明仁#
+		portraits={
+			army={
+				large="gfx/leaders/CHI/Portrait_CHI_Chen_Mingren.dds"		
+			}
+		}	
+		corps_commander={
+			traits={   hidden_sympathies career_officer war_hero infantry_officer  trait_reckless  NRA_Lieut_General fortress_buster }
+			skill=4
+			attack_skill=4
+			defense_skill=3
+			planning_skill=4
+			logistics_skill=3
+			legacy_id=-1
+			visible = { has_global_flag = chen_mingern_graduated }
+		}
+	}
+
+    CHI_li_mi={
+		name=CHI_li_mi #李彌#
+		portraits={
+			army={
+				large="gfx/leaders/CHI/Portrait_CHI_Li_Mi.dds"		
+			}
+		}	
+		corps_commander={
+			traits={ NRA_Major_General engineer_officer extra_specialized_skill }
+			skill=2
+			attack_skill=2
+			defense_skill=3
+			planning_skill=2
+			logistics_skill=1
+			legacy_id=-1
+			visible = { has_global_flag = li_mi_promoted_flag }
+		}
+	}
+
+	############################## NAVY ##############################			
+
+	CHI_chen_shaokuan={#guo
+		name =CHI_chen_shaokuan
+		portraits={
+			army={
+				large="gfx/leaders/CHI/Portrait_CHI_Chen_Shaokuan.dds"
+                small="GFX_idea_CHI_chen_shaokuan" 
+			}
+		}
+		advisor={
+			slot = navy_chief
+			idea_token = CHI_chen_shaokuan
+			visible = {
+				or = { tag = event_target:WTT_current_china_leader tag = event_target:WTT_communist_china }
+				if = {
+					limit = {
+						NOT = {
+							tag = CHI
+							tag = PRC
+						}
+					}
+					NOT = {
+						any_of_scopes = {
+							array = global.literally_china_including_chinese_puppets
+							tag = event_target:WTT_current_china_leader
+							NOT = {
+								tag = ROOT
+							}
+						}
+					}
+				}
+			}
+			allowed = {
+				is_literally_china = yes
+			}
+			traits = { navy_chief_decisive_battle_3 }
+			cost = 200				
+			ai_will_do = {
+				factor = 100
+			}
+		}
+		navy_leader={
+			traits={ navy_media_personality naval_lineage }
+			skill=3
+			attack_skill=2
+			defense_skill=3
+			maneuvering_skill=2
+			coordination_skill=3
+			legacy_id=-1
+		}
+	}
+
+	CHI_gui_yongqing={
+		name =CHI_gui_yongqing
+		portraits = {
+			army = { small="GFX_idea_CHI_gui_yongqing" }
+		}
+		advisor={
+			slot = navy_chief
+			idea_token = CHI_gui_yongqing
+			visible = {
+				tag = event_target:WTT_current_china_leader
+				if = {
+					limit = {
+						NOT = {
+							tag = CHI
+						}
+					}
+					NOT = {
+						any_of_scopes = {
+							array = global.literally_china_including_chinese_puppets
+							tag = event_target:WTT_current_china_leader
+							NOT = {
+								tag = ROOT
+							}
+						}
+					}
+				}
+			}
+			available = {
+				has_completed_focus = CHI_navy_reorganization
+			}				
+			allowed = {
+				is_literally_china = yes
+			}
+			traits = { navy_chief_commerce_raiding_1 }
+			cost = 50			
+		}
+	}
+	
+	CHI_shen_honglie={
+		name=CHI_shen_honglie
+		portraits={
+			army={
+				large="gfx/leaders/CHI/Portrait_CHI_Shen_Honglie.dds"
+				small="GFX_idea_CHI_shen_honglie"
+			}
+		}
+		advisor={
+			slot = theorist
+			idea_token = CHI_shen_honglie
+            ledger = navy
+			visible = {
+				tag = event_target:WTT_current_china_leader
+				if = {
+					limit = {
+						NOT = {
+							tag = CHI
+						}
+					}
+					NOT = {
+						any_of_scopes = {
+							array = global.literally_china_including_chinese_puppets
+							tag = event_target:WTT_current_china_leader
+							NOT = {
+								tag = ROOT
+							}
+						}
+					}
+				}
+			}
+			allowed = {
+				is_literally_china = yes
+			}
+			traits = { grand_fleet_proponent }
+			cost = 150			
+		}
+		navy_leader={
+			traits={ bold  }
+			skill=2
+			attack_skill=2
+			defense_skill=3
+			maneuvering_skill=2
+			coordination_skill=2
+			legacy_id=-1
+		}
+	}	
+
+	CHI_chen_xunyong={
+		name="陈训泳"
+		portraits={
+			army={
+				small="GFX_idea_CHI_chen_xunyong"
+			}
+		}
+		advisor={
+			slot = theorist
+			idea_token = CHI_chen_xunyong
+            ledger = navy
+			visible = {
+				tag = event_target:WTT_current_china_leader
+				if = {
+					limit = {
+						NOT = {
+							tag = CHI
+						}
+					}
+					NOT = {
+						any_of_scopes = {
+							array = global.literally_china_including_chinese_puppets
+							tag = event_target:WTT_current_china_leader
+							NOT = {
+								tag = ROOT
+							}
+						}
+					}
+				}
+			}
+			allowed = {
+				is_literally_china = yes
+			}
+			traits = { naval_theorist }
+			cost = 100	
+		}
+	}		
+
+	CHI_chen_jiliang={
+		name="陈季良" 
+		portraits={
+			army={
+				large="gfx/leaders/CHI/Portrait_CHI_Chen_Jiliang.dds"
+                small="GFX_idea_CHI_chen_jiliang" 				
+			}
+		}
+		advisor={
+			slot = high_command 
+			idea_token = CHI_chen_jiliang
+            ledger = navy
+			visible = {
+				tag = event_target:WTT_current_china_leader
+				if = {
+					limit = {
+						NOT = {
+							tag = CHI
+						}
+					}
+					NOT = {
+						any_of_scopes = {
+							array = global.literally_china_including_chinese_puppets
+							tag = event_target:WTT_current_china_leader
+							NOT = {
+								tag = ROOT
+							}
+						}
+					}
+				}
+			}
+			allowed = {
+				is_literally_china = yes
+			}
+			traits = { navy_capital_ship_2 }
+			cost = 100				
+		}		
+		navy_leader={
+			traits={ bold naval_lineage }
+			skill=2
+			attack_skill=2
+			defense_skill=3
+			maneuvering_skill=2
+			coordination_skill=2
+			legacy_id=-1
+		}
+	}
+	
+	CHI_chan_chak={
+		name="陈策" 
+		portraits={
+			army={
+				large="gfx/leaders/CHI/Portrait_CHI_Chan_Chak.dds"
+                small="GFX_idea_CHI_chan_chak" 					
+			}
+		}
+		advisor={
+			slot = high_command 
+			idea_token = CHI_chan_chak
+            ledger = navy
+			visible = {
+				tag = event_target:WTT_current_china_leader
+				if = {
+					limit = {
+						NOT = {
+							tag = CHI
+						}
+					}
+					NOT = {
+						any_of_scopes = {
+							array = global.literally_china_including_chinese_puppets
+							tag = event_target:WTT_current_china_leader
+							NOT = {
+								tag = ROOT
+							}
+						}
+					}
+				}
+			}
+			allowed = {
+				is_literally_china = yes
+			}
+			traits = { navy_screen_2 }
+			cost = 100				
+		}		
+		navy_leader={
+			traits={ bold }
+			skill=2
+			attack_skill=2
+			defense_skill=2
+			maneuvering_skill=3
+			coordination_skill=2
+			legacy_id=-1
+		}
+	}	
+	
+	CHI_liang_xuzhao={
+		name=CHI_liang_xuzhao
+		portraits={
+			army={
+				small="GFX_idea_CHI_liang_xuzhao"
+			}
+		}
+		advisor={
+			slot = high_command 
+			idea_token = CHI_liang_xuzhao
+            ledger = navy
+			visible = {
+				tag = event_target:WTT_current_china_leader
+				if = {
+					limit = {
+						NOT = {
+							tag = CHI
+						}
+					}
+					NOT = {
+						any_of_scopes = {
+							array = global.literally_china_including_chinese_puppets
+							tag = event_target:WTT_current_china_leader
+							NOT = {
+								tag = ROOT
+							}
+						}
+					}
+				}
+			}
+			available = {
+				has_completed_focus = CHI_chinese_special_force
+			}				
+			allowed = {
+				is_literally_china = yes
+			}
+			traits = { navy_amphibious_assault_2 }
+			cost = 100				
+		}
+	}	
+	
+	############################## AIR FORCE ##############################		
+
+	CHI_zhou_zhirou={
+		name =CHI_zhou_zhirou
+		portraits = {
+			army = { small="GFX_idea_CHI_zhou_zhirou" }
+		}
+		advisor={
+			slot = air_chief
+			idea_token = CHI_zhou_zhirou
+			visible = {
+				tag = event_target:WTT_current_china_leader
+				if = {
+					limit = {
+						NOT = {
+							tag = CHI
+						}
+					}
+					NOT = {
+						any_of_scopes = {
+							array = global.literally_china_including_chinese_puppets
+							tag = event_target:WTT_current_china_leader
+							NOT = {
+								tag = ROOT
+							}
+						}
+					}
+				}
+			}
+			allowed = {
+				is_literally_china = yes
+			}
+			traits = { air_chief_reform_2 }
+			cost = 100
+			ai_will_do = {
+				factor = 100
+				modifier = {
+				factor = 0
+				has_completed_focus = CHI_reorganization_of_the_air_force_focus
+				}
+			}
+		}
+	}
+	
+	CHI_wang_shuming={
+		name =CHI_wang_shuming
+		portraits = {
+			army = { small="GFX_idea_CHI_wang_shuming" }
+		}
+		advisor={
+			slot = air_chief
+			idea_token = CHI_wang_shuming
+			visible = {
+				tag = event_target:WTT_current_china_leader
+				if = {
+					limit = {
+						NOT = {
+							tag = CHI
+						}
+					}
+					NOT = {
+						any_of_scopes = {
+							array = global.literally_china_including_chinese_puppets
+							tag = event_target:WTT_current_china_leader
+							NOT = {
+								tag = ROOT
+							}
+						}
+					}
+				}
+			}
+			available = {
+				has_completed_focus = CHI_reorganization_of_the_air_force_focus
+			}		
+			allowed = {
+				is_literally_china = yes
+			}
+			traits = { air_chief_ground_support_2 }
+			cost = 100
+			ai_will_do = {
+				factor = 500 #guo
+			}
+		}
+	}	
+
+	CHI_chen_qingyun={
+		name=CHI_chen_qingyun #陳慶雲#
+		portraits={
+			army={
+				small="gfx/interface/advisors/idea_CHI_Chen_Qingyun.tga"
+			}
+		}
+		advisor={
+			slot = theorist
+			idea_token = CHI_chen_qingyun
+            ledger = air	
+			visible = {
+				tag = event_target:WTT_current_china_leader
+				if = {
+					limit = {
+						NOT = {
+							tag = CHI
+						}
+					}
+					NOT = {
+						any_of_scopes = {
+							array = global.literally_china_including_chinese_puppets
+							tag = event_target:WTT_current_china_leader
+							NOT = {
+								tag = ROOT
+							}
+						}
+					}
+				}
+			}
+			allowed = {
+				is_literally_china = yes
+			}
+			traits = { close_air_support_proponent }
+			cost = 150		
+		}
+	}	
+
+	CHI_huang_bingheng={
+		name="黄秉衡"
+		portraits={
+			army={
+				small="gfx/interface/advisors/idea_CHI_Huang_Bingheng.tga"
+			}
+		}
+		advisor={
+			slot = theorist
+			idea_token = CHI_huang_bingheng
+            ledger = air	
+			visible = {
+				tag = event_target:WTT_current_china_leader
+				if = {
+					limit = {
+						NOT = {
+							tag = CHI
+						}
+					}
+					NOT = {
+						any_of_scopes = {
+							array = global.literally_china_including_chinese_puppets
+							tag = event_target:WTT_current_china_leader
+							NOT = {
+								tag = ROOT
+							}
+						}
+					}
+				}
+			}
+			allowed = {
+				is_literally_china = yes
+			}
+			traits = { air_warfare_theorist }
+			cost = 100			
+			ai_will_do = {
+				factor = 200 #guo
+			}
+		}
+	}	
+
+	CHI_mao_bangchu={
+		name=CHI_mao_bangchu
+		portraits={
+			army={
+				small="GFX_idea_CHI_mao_bangchu"
+			}
+		}
+		advisor={
+			slot = high_command 
+			idea_token = CHI_mao_bangchu
+            ledger = air
+			visible = {
+				tag = event_target:WTT_current_china_leader
+				if = {
+					limit = {
+						NOT = {
+							tag = CHI
+						}
+					}
+					NOT = {
+						any_of_scopes = {
+							array = global.literally_china_including_chinese_puppets
+							tag = event_target:WTT_current_china_leader
+							NOT = {
+								tag = ROOT
+							}
+						}
+					}
+				}
+			}
+			allowed = {
+				is_literally_china = yes
+			}
+			traits = { air_close_air_support_2 }	
+			cost = 100		
+		}
+	}	
+		
+	CHI_gao_zihang={
+		name=CHI_gao_zihang
+		portraits={
+			army={
+				small="GFX_idea_CHI_gao_zihang"
+			}
+		}
+		advisor={
+			slot = high_command 
+			idea_token = CHI_gao_zihang
+            ledger = air	
+			visible = {
+				tag = event_target:WTT_current_china_leader
+				if = {
+					limit = {
+						NOT = {
+							tag = CHI
+						}
+					}
+					NOT = {
+						any_of_scopes = {
+							array = global.literally_china_including_chinese_puppets
+							tag = event_target:WTT_current_china_leader
+							NOT = {
+								tag = ROOT
+							}
+						}
+					}
+				}
+			}
+			allowed = {
+				is_literally_china = yes
+			}
+			traits = { air_air_superiority_3 }
+			cost = 200
+		}
+	}	
+	
+	############################## THEORIST ##############################	
+
+	CHI_chiang_paili={
+		name=CHI_chiang_paili
+		portraits={
+			army={
+				small="GFX_idea_CHI_chiang_paili"
+			}
+		}
+		advisor={
+			slot = theorist
+			idea_token = CHI_chiang_paili
+            ledger = army	
+			visible = {
+				tag = event_target:WTT_current_china_leader
+				if = {
+					limit = {
+						NOT = {
+							tag = CHI
+						}
+					}
+					NOT = {
+						any_of_scopes = {
+							array = global.literally_china_including_chinese_puppets
+							tag = event_target:WTT_current_china_leader
+							NOT = {
+								tag = ROOT
+							}
+						}
+					}
+				}
+				
+			}
+			allowed = {
+				is_literally_china = yes
+			}
+			available = { NOT = { has_global_flag = chiang_baili_dead } NOT = { has_government = communism } }
+			traits = { mass_assault_expert }
+            cost = 150
+			ai_will_do = {
+				factor = 300
+			}			
+		}
+	}
+
+	CHI_yang_jie={
+		name="杨杰"
+		portraits={
+			army={
+				small="GFX_idea_CHI_yang_jie"
+			}
+		}
+		advisor={
+			slot = theorist
+			idea_token = CHI_yang_jie
+            ledger = army			
+			visible = {
+				tag = event_target:WTT_current_china_leader
+				if = {
+					limit = {
+						NOT = {
+							tag = CHI
+						}
+					}
+					NOT = {
+						any_of_scopes = {
+							array = global.literally_china_including_chinese_puppets
+							tag = event_target:WTT_current_china_leader
+							NOT = {
+								tag = ROOT
+							}
+						}
+					}
+				}
+			}
+			allowed = {
+				is_literally_china = yes
+			}
+			traits = { grand_battle_plan_expert }
+			cost = 150			
+			ai_will_do = {
+				factor = 200
+			}
+		}
+	}		
+
+	CHI_xiong_shihui={
+		name=CHI_xiong_shihui
+		portraits={
+			army={
+				small="GFX_idea_xiong_shihui"
+			}
+		}
+		advisor={
+			slot = theorist
+			idea_token = CHI_xiong_shihui
+            ledger = army			
+			visible = {
+				tag = event_target:WTT_current_china_leader
+				if = {
+					limit = {
+						NOT = {
+							tag = CHI
+						}
+					}
+					NOT = {
+						any_of_scopes = {
+							array = global.literally_china_including_chinese_puppets
+							tag = event_target:WTT_current_china_leader
+							NOT = {
+								tag = ROOT
+							}
+						}
+					}
+				}
+			}
+			allowed = {
+				is_literally_china = yes
+			}
+			traits = { military_theorist }
+            cost = 100				
+			ai_will_do = {
+				factor = 200 #guo
+			}
+		}
+	}		
+
+	CHI_wu_dayou={
+		name=CHI_wu_dayou
+		portraits={
+			army={
+				small="GFX_idea_CHI_wu_dayou"
+			}
+		}
+		advisor={
+			slot = theorist
+			idea_token = CHI_wu_dayou
+            ledger = army
+			traits = { nuclear_scientist }
+            cost = 100	
+			research_bonus = {
+				nuclear = 0.15
+			}	
+			allowed = {
+				OR = {
+					tag = MAN
+					original_tag = CHI
+					is_chinese_warlord = yes
+				}
+			}
+			available = {
+				if = {
+					limit = {
+						OR = {
+							is_chinese_warlord = yes
+							tag = MAN
+						}
+					}
+					has_completed_focus = WRL_academy_rf_focus
+					else = {
+						has_completed_focus = CHI_academy_rf_focus
+					}
+				}
+			}
+		}
+	}	
+
+	############################## FOREIGN ADVISOR ##############################
+    
+    CHI_alexander_von_falkenhausen={
+		name =CHI_alexander_von_falkenhausen
+		portraits = {
+			army = { small="GFX_idea_CHI_alexander_von_falkenhausen" }
+		}
+		allowed_civil_war = {
+			NOT = {
+				OR = {
+					has_government = communism
+					has_government = n_socialism
+				}
+			}
+		}
+		advisor={
+			slot = foreign_advisor
+			idea_token = CHI_alexander_von_falkenhausen			
+			ledger = army
+			visible = {
+				#NOT is enemy ideology
+				GER = {
+					NOT = {
+						is_enemy_ideology = yes
+					}
+				}
+				OR = {
+					AND = { #this person is loyal, only appears after old leader ded
+						tag = event_target:WTT_current_china_leader
+						NOT = {
+							any_neighbor_country = {
+								tag = var:global.previous_china_leader
+							}
+						}
+					}
+					tag = var:global.previous_china_leader
+				}
+				#tag = event_target:WTT_current_china_leader
+				if = {
+					limit = {
+						NOT = {
+							tag = CHI
+						}
+					}
+					NOT = {
+						any_of_scopes = {
+							array = global.literally_china_including_chinese_puppets
+							tag = event_target:WTT_current_china_leader
+							NOT = {
+								tag = ROOT
+							}
+						}
+					}
+				}
+			}
+			allowed = {
+				is_literally_china = yes
+			}
+			available = {
+				NOT = {
+					OR = {
+						has_war_with = GER
+						has_global_flag = falkenhausen_recalled
+						has_government = communism
+						has_government = n_socialism
+					}
+				}
+			}
+			traits = { foreign_military_theorist }
+			research_bonus = {
+				infantry_weapons = 0.1
+			}
+			modifier = { #guo
+                experience_gain_factor = 0.1
+				army_org_factor = 0.05
+				planning_speed = 0.1
+                max_planning = 0.05
+				experience_gain_army_unit_factor = 0.1
+                training_time_army_factor = -0.1
+			}
+			ai_will_do = { #guo
+			factor = 9999
+			}
+			cost = 150
+		}
+	}
+
+	CHI_claire_chennault={
+		name =CHI_claire_chennault
+		portraits = {
+			army = { small="GFX_idea_CHI_claire_chennault" }
+		}
+		advisor={
+			slot = foreign_advisor
+			idea_token = CHI_claire_chennault
+			ledger = air
+			visible = {
+				USA = {
+					NOT = {
+						is_enemy_ideology = yes
+					}
+				}
+				OR = {
+					AND = { #this person is loyal, only appears after old leader ded
+						tag = event_target:WTT_current_china_leader
+						NOT = {
+							any_neighbor_country = {
+								tag = var:global.previous_china_leader
+							}
+						}
+					}
+					tag = var:global.previous_china_leader
+				}
+				#tag = event_target:WTT_current_china_leader
+				if = {
+					limit = {
+						NOT = {
+							tag = CHI
+						}
+					}
+					NOT = {
+						any_of_scopes = {
+							array = global.literally_china_including_chinese_puppets
+							tag = event_target:WTT_current_china_leader
+							NOT = {
+								tag = ROOT
+							}
+						}
+					}
+				}
+			}
+			allowed = {
+				is_literally_china = yes
+			}
+			available = {
+				chennalt_check = yes
+				#NOT = { has_idea = joseph_stilwell_chi }
+			}
+			traits = { air_tactical_bombing_3 }
+			research_bonus = { #guo
+				air_equipment = 0.1
+			}
+			modifier = { #guo
+			    air_mission_xp_gain_factor = 0.1
+				experience_gain_air = 0.1
+			}
+			cost = 200
+			ai_will_do = {
+				factor = 100 #guo
+			}
+		}
+	}
+
+	joseph_stilwell_chi={
+		name ="约瑟夫·沃伦·史迪威"
+		portraits = {
+			army = { small="GFX_idea_joseph_stilwell" }
+		}
+		advisor={
+			slot = foreign_advisor
+			idea_token = joseph_stilwell_chi
+			ledger = army			
+			visible = {
+				USA = {
+					NOT = {
+						is_enemy_ideology = yes
+					}
+				}
+				OR = {
+					AND = { #this person is loyal, only appears after old leader ded
+						tag = event_target:WTT_current_china_leader
+						NOT = {
+							any_neighbor_country = {
+								tag = var:global.previous_china_leader
+							}
+						}
+					}
+					tag = var:global.previous_china_leader
+				}
+				#tag = event_target:WTT_current_china_leader
+				if = {
+					limit = {
+						NOT = {
+							tag = CHI
+						}
+					}
+					NOT = {
+						any_of_scopes = {
+							array = global.literally_china_including_chinese_puppets
+							tag = event_target:WTT_current_china_leader
+							NOT = {
+								tag = ROOT
+							}
+						}
+					}
+				}
+			}
+			allowed = {
+				is_literally_china = yes
+			}
+			available = {
+				stilwell_check = yes
+				#NOT = { has_idea = CHI_claire_chennault }
+				has_global_flag = stilwell_to_china_flag
+				#has_war_together_with = USA
+				if = {
+				limit = { is_historical_focus_on = yes }
+				has_global_flag = chi_canyu #guo
+				}
+			}
+			traits = { china_zhanqu_canmouzhang }
+			research_bonus = { #guo
+				artillery = 0.1
+			}
+			modifier = { #guo
+			    max_command_power = 50
+		        command_power_gain_mult = 0.15
+				army_org_factor = 0.05
+				planning_speed = 0.1
+				max_planning = 0.05
+				experience_gain_army = 0.1
+				land_reinforce_rate = 0.05
+			}
+			cost = 200				
+			ai_will_do = {
+				factor = 999 #guo
+			}
+		}
+	}
+
+    albert_coady_wedemeyer={
+		name =albert_coady_wedemeyer
+		portraits = {
+			army = { small="GFX_idea_USA_albert_coady_wedemeyer" }
+		}
+		advisor={
+			slot = foreign_advisor
+			idea_token = albert_coady_wedemeyer
+			ledger = army			
+			visible = {
+				USA = {
+					NOT = {
+						is_enemy_ideology = yes
+					}
+				}
+				OR = {
+					AND = { #this person is loyal, only appears after old leader ded
+						tag = event_target:WTT_current_china_leader
+						NOT = {
+							any_neighbor_country = {
+								tag = var:global.previous_china_leader
+							}
+						}
+					}
+					tag = var:global.previous_china_leader
+				}
+				#tag = event_target:WTT_current_china_leader
+				if = {
+					limit = {
+						NOT = {
+							tag = CHI
+						}
+					}
+					NOT = {
+						any_of_scopes = {
+							array = global.literally_china_including_chinese_puppets
+							tag = event_target:WTT_current_china_leader
+							NOT = {
+								tag = ROOT
+							}
+						}
+					}
+				}
+			}
+			allowed = {
+				is_literally_china = yes
+			}
+			available = {
+			    wedemeyer_check = yes				
+				#has_war_together_with = USA
+				if = {
+				limit = { is_historical_focus_on = yes }
+				has_global_flag = chi_canyu #guo
+				}
+			}
+			traits = { china_zhanqu_canmouzhang_weidemai }
+			research_bonus = { #guo
+				armor = 0.1
+			}
+			modifier = { #guo
+			    max_command_power = 50
+		        command_power_gain_mult = 0.15
+				attrition = -0.1
+				supply_consumption_factor = -0.1
+				no_supply_grace = 48
+				experience_gain_army_unit_factor = 0.1
+				land_reinforce_rate = 0.05
+			}
+			ai_will_do = {
+				factor = 999 #guo
+			}
+			cost = 200			
+		}
+	}	
+
+	CHI_pavel_zhigarev={
+		name =CHI_pavel_zhigarev
+		portraits = {
+			army = { small="GFX_idea_pavel_zhigarev" }
+		}
+		advisor={
+			slot = foreign_advisor
+			idea_token = CHI_pavel_zhigarev
+			ledger = air
+			visible = {
+				if = { #soviet union doesn't care as much
+					limit = {
+						SOV = { has_government = communism }
+					}
+					NOT = {
+						has_government = fascism
+					}
+				}
+				else = {
+					SOV = { NOT = { is_enemy_ideology = yes } }
+				}
+				OR = {
+					AND = { #this person is loyal, only appears after old leader ded
+						tag = event_target:WTT_current_china_leader
+						NOT = {
+							any_neighbor_country = {
+								tag = var:global.previous_china_leader
+							}
+						}
+					}
+					tag = var:global.previous_china_leader
+				}
+				#tag = event_target:WTT_current_china_leader
+				NOT = { has_global_flag = second_term_sov_advisor }
+				if = {
+					limit = {
+						NOT = {
+							tag = CHI
+						}
+					}
+					NOT = {
+						any_of_scopes = {
+							array = global.literally_china_including_chinese_puppets
+							tag = event_target:WTT_current_china_leader
+							NOT = {
+								tag = ROOT
+							}
+						}
+					}
+				}
+			}
+			allowed = {
+				is_literally_china = yes
+			}
+			available = {
+				has_completed_focus = CHI_the_soviet_volunteer_group
+				NOT = { SOV = { has_country_flag = counter_purge } }
+				NOT = { has_global_flag = SOV_recalled_advisors }
+				NOT = { has_war_with = SOV }
+			}
+			traits = { air_air_combat_training_2 } #guo
+			research_bonus = { #guo
+				air_equipment = 0.1
+			}
+			modifier = { #guo
+			    air_mission_xp_gain_factor = 0.1
+				experience_gain_air = 0.1
+			}
+			cost = 100				
+			ai_will_do = {
+				factor = 100 #guo
+			}
+		}
+	}
+
+	CHI_gregory_thor={
+		name =CHI_gregory_thor
+		portraits = {
+			army = { small="GFX_idea_gregory_thor" }
+		}
+		advisor={
+			slot = foreign_advisor
+			idea_token = CHI_gregory_thor
+			ledger = air				
+			visible = {
+				if = { #soviet union doesn't care as much
+					limit = {
+						SOV = { has_government = communism }
+					}
+					NOT = {
+						has_government = fascism
+					}
+				}
+				else = {
+					SOV = { NOT = { is_enemy_ideology = yes } }
+				}
+				OR = {
+					AND = { #this person is loyal, only appears after old leader ded
+						tag = event_target:WTT_current_china_leader
+						NOT = {
+							any_neighbor_country = {
+								tag = var:global.previous_china_leader
+							}
+						}
+					}
+					tag = var:global.previous_china_leader
+				}
+				#tag = event_target:WTT_current_china_leader
+				has_global_flag = second_term_sov_advisor
+				NOT = { has_global_flag = third_term_sov_advisor }
+				if = {
+					limit = {
+						NOT = {
+							tag = CHI
+						}
+					}
+					NOT = {
+						any_of_scopes = {
+							array = global.literally_china_including_chinese_puppets
+							tag = event_target:WTT_current_china_leader
+							NOT = {
+								tag = ROOT
+							}
+						}
+					}
+				}
+			}
+			allowed = {
+				is_literally_china = yes
+			}
+			available = {
+				NOT = { has_country_flag = purge_2_group_a }
+				NOT = { has_global_flag = SOV_recalled_advisors }
+				NOT = { has_war_with = SOV }
+			}
+			traits = { air_chief_safety_2 }
+			research_bonus = { #guo
+				air_equipment = 0.1
+			}
+			modifier = { #guo
+			    air_mission_xp_gain_factor = 0.1
+				experience_gain_air = 0.1
+			}
+			cost = 100				
+			ai_will_do = {
+				factor = 100 #guo
+			}
+		}
+	}
+
+	CHI_petr_anisimov={
+		name =CHI_petr_anisimov
+		portraits = {
+			army = { small="GFX_idea_petr_anisimov" }
+		}
+		advisor={
+			slot = foreign_advisor
+			idea_token = CHI_petr_anisimov
+			ledger = air			
+			visible = {
+				if = { #soviet union doesn't care as much
+					limit = {
+						SOV = { has_government = communism }
+					}
+					NOT = {
+						has_government = fascism
+					}
+				}
+				else = {
+					SOV = { NOT = { is_enemy_ideology = yes } }
+				}
+				OR = {
+					AND = { #this person is loyal, only appears after old leader ded
+						tag = event_target:WTT_current_china_leader
+						NOT = {
+							any_neighbor_country = {
+								tag = var:global.previous_china_leader
+							}
+						}
+					}
+					tag = var:global.previous_china_leader
+				}
+				#tag = event_target:WTT_current_china_leader
+				has_global_flag = third_term_sov_advisor
+				NOT = { has_global_flag = fourth_term_sov_advisor }
+				if = {
+					limit = {
+						NOT = {
+							tag = CHI
+						}
+					}
+					NOT = {
+						any_of_scopes = {
+							array = global.literally_china_including_chinese_puppets
+							tag = event_target:WTT_current_china_leader
+							NOT = {
+								tag = ROOT
+							}
+						}
+					}
+				}
+			}
+			allowed = {
+				is_literally_china = yes
+			}
+			available = {
+				NOT = { has_country_flag = purge_2_group_a }
+				NOT = { has_global_flag = SOV_recalled_advisors }
+				NOT = { has_war_with = SOV }
+			}
+			traits = { air_chief_reform_2 }
+			research_bonus = { #guo
+				air_equipment = 0.1
+			}
+			modifier = { #guo
+			    air_mission_xp_gain_factor = 0.1
+				experience_gain_air = 0.1
+			}
+			cost = 100				
+			ai_will_do = {
+				factor = 100 #guo
+			}
+		}
+	}
+
+	CHI_pavel_rychagov={
+		name =CHI_pavel_rychagov
+		portraits = {
+			army = { small="GFX_idea_pavel_rychagov" }
+		}
+		advisor={
+			slot = foreign_advisor
+			idea_token = CHI_pavel_rychagov
+			ledger = air				
+			visible = {
+				if = { #soviet union doesn't care as much
+					limit = {
+						SOV = { has_government = communism }
+					}
+					NOT = {
+						has_government = fascism
+					}
+				}
+				else = {
+					SOV = { NOT = { is_enemy_ideology = yes } }
+				}
+				OR = {
+					AND = { #this person is loyal, only appears after old leader ded
+						tag = event_target:WTT_current_china_leader
+						NOT = {
+							any_neighbor_country = {
+								tag = var:global.previous_china_leader
+							}
+						}
+					}
+					tag = var:global.previous_china_leader
+				}
+				#tag = event_target:WTT_current_china_leader
+				has_global_flag = fourth_term_sov_advisor
+				if = {
+					limit = {
+						NOT = {
+							tag = CHI
+						}
+					}
+					NOT = {
+						any_of_scopes = {
+							array = global.literally_china_including_chinese_puppets
+							tag = event_target:WTT_current_china_leader
+							NOT = {
+								tag = ROOT
+							}
+						}
+					}
+				}
+			}
+			allowed = {
+				is_literally_china = yes
+			}
+			allowed = {
+				original_tag = CHI
+				
+			}
+			available = {
+				NOT = { has_country_flag = purge_2_group_a }
+				NOT = { has_global_flag = SOV_recalled_advisors }
+				NOT = { has_war_with = SOV }
+			}
+			traits = { air_chief_all_weather_2 }
+			research_bonus = { #guo
+				air_equipment = 0.1
+			}
+			modifier = { #guo
+			    air_mission_xp_gain_factor = 0.1
+				experience_gain_air = 0.1
+			}
+			cost = 100			
+			ai_will_do = {
+				factor = 100 #guo
+			}
+		}
+	}
+
+	german_advisors={
+		name =german_advisors
+		allowed_civil_war = {
+			NOT = {
+				OR = {
+					has_government = communism
+					has_government = n_socialism
+				}
+			}
+		}
+		advisor={
+			slot = foreign_advisor
+			idea_token = german_advisors
+			ledger = army
+			allowed = {
+				always = no
+			}
+			available = {
+				NOT = {
+					OR = {
+						has_war_with = GER
+						has_global_flag = falkenhausen_recalled
+						has_government = communism
+						has_government = n_socialism
+					}
+				}
+			}
+			modifier = {				
+			    land_doctrine_cost_factor = -0.1
+			}
+		}
+	}
+}

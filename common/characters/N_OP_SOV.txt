@@ -1,0 +1,559 @@
+characters={
+#######political advisor########
+
+	SOV_georgy_safarov = {
+		name = SOV_georgy_safarov
+	
+		portraits = {
+			army = {
+				small = "GFX_portrait_SOV_georgy_safarov_small"
+				large = GFX_portrait_SOV_georgy_safarov
+			}
+		}
+	
+		advisor={	
+			slot = political_advisor
+			idea_token = georgy_safarov
+			allowed = {
+				original_tag = SOV
+			}
+
+			available = {
+				has_completed_focus = SOV_cooperation_against_stalin
+			}
+
+			traits = {
+				radical_opposition
+			}
+			cost = 150
+			ai_will_do = {
+				factor = 1.000
+			}
+	
+			visible = {
+				NOT = { has_character_flag = SOV_exiled_flag } 
+				NOT = { has_completed_focus = SOV_the_bloc_of_rights_and_trotskyites } 
+			}
+		}
+
+	}
+
+	SOV_oscar_tarkhanov = {
+		name = SOV_oscar_tarkhanov
+	
+		portraits = {
+			army = {
+				small = "GFX_portrait_SOV_oscar_tarkhanov_small"
+				large = GFX_portrait_SOV_oscar_tarkhanov
+			}
+		}
+	
+		advisor={	
+			slot = political_advisor
+			idea_token = oscar_tarkhanov
+			allowed = {
+				original_tag = SOV
+			}
+
+			available = {
+				has_completed_focus = SOV_cooperation_against_stalin
+			}
+
+			traits = {
+				new_opposition_member
+			}
+			cost = 150
+			ai_will_do = {
+				factor = 1.000
+			}
+
+			visible = {
+				NOT = { has_character_flag = SOV_exiled_flag } 
+				NOT = { has_completed_focus = SOV_the_bloc_of_rights_and_trotskyites } 
+			}
+	
+		}
+
+	}
+
+	SOV_nikolai_krestinsky = {
+		name = SOV_nikolai_krestinsky
+	
+		portraits = {
+			army = {
+				small = "GFX_portrait_SOV_nikolai_krestinsky_small"
+				large = GFX_portrait_SOV_nikolai_krestinsky
+			}
+		}
+	
+		advisor={	
+			slot = political_advisor
+			idea_token = nikolai_krestinsky
+			allowed = {
+				original_tag = SOV
+			}
+
+			available = {
+				has_completed_focus = SOV_cooperation_against_stalin
+			}
+
+			traits = {
+				peoples_commissar_of_diplomatic
+			}
+			cost = 150
+			ai_will_do = {
+				factor = 1.000
+			}
+
+			visible = {
+				NOT = { has_character_flag = SOV_exiled_flag } 
+				NOT = { has_completed_focus = SOV_the_bloc_of_rights_and_trotskyites } 
+			}
+	
+		}
+
+	}
+
+	SOV_khristian_rakovsky = {
+		name = SOV_khristian_rakovsky
+	
+		portraits = {
+			army = {
+				small = "GFX_portrait_SOV_khristian_rakovsky_small"
+				large = GFX_portrait_SOV_khristian_rakovsky
+			}
+		}
+	
+		advisor={	
+			slot = political_advisor
+			idea_token = khristian_rakovsky
+
+			allowed = {
+				original_tag = SOV
+			}
+
+			available = {
+				has_completed_focus = SOV_cooperation_against_stalin
+			}
+
+			traits = {
+				international_communist_fighter
+			}
+			cost = 150
+			ai_will_do = {
+				factor = 1.000
+			}
+
+			visible = {
+				NOT = { has_character_flag = SOV_exiled_flag } 
+				NOT = { has_completed_focus = SOV_the_bloc_of_rights_and_trotskyites } 
+			}
+	
+		}
+
+	}
+
+	SOV_grigory_yevdokimov = {
+		name = SOV_grigory_yevdokimov
+	
+		portraits = {
+			army = {
+				small = "GFX_portrait_SOV_grigory_yevdokimov_small"
+				large = GFX_portrait_SOV_grigory_yevdokimov
+			}
+		}
+	
+		advisor={	
+			slot = political_advisor
+			idea_token = grigory_yevdokimov
+
+			allowed = {
+				original_tag = SOV
+			}
+
+			available = {
+				has_completed_focus = SOV_cooperation_against_stalin
+			}
+
+			traits = {
+				new_opposition_veteran
+			}
+			cost = 150
+			ai_will_do = {
+				factor = 1.000
+			}
+
+			visible = {
+				NOT = { has_character_flag = SOV_exiled_flag } 
+				NOT = { has_completed_focus = SOV_the_bloc_of_rights_and_trotskyites } 
+			}
+	
+		}
+
+	}
+
+	SOV_lazar_shatskin = {
+		name = SOV_lazar_shatskin
+	
+		portraits = {
+			army = {
+				small = "GFX_portrait_SOV_lazar_shatskin_small"
+				large = GFX_portrait_SOV_lazar_shatskin
+			}
+		}
+	
+		advisor={	
+			slot = political_advisor
+			idea_token = lazar_shatskin
+
+			allowed = {
+				original_tag = SOV
+			}
+
+			available = {
+				has_completed_focus = SOV_cooperation_against_stalin
+			}
+
+			traits = {
+				founder_of_youth_league
+			}
+			cost = 150
+			ai_will_do = {
+				factor = 1.000
+			}
+
+			visible = {
+				NOT = { has_character_flag = SOV_exiled_flag } 
+				NOT = { has_completed_focus = SOV_the_bloc_of_rights_and_trotskyites } 
+			}
+	
+		}
+
+	}
+
+	SOV_timofey_sapronov = {
+		name = SOV_timofey_sapronov
+	
+		portraits = {
+			army = {
+				small = "GFX_portrait_SOV_timofey_sapronov_small"
+				large = GFX_portrait_SOV_timofey_sapronov
+			}
+		}
+	
+		advisor={	
+			slot = political_advisor
+			idea_token = timofey_sapronov
+
+			allowed = {
+				original_tag = SOV
+			}
+
+			available = {
+				has_completed_focus = SOV_cooperation_against_stalin
+			}
+
+			traits = {
+				leader_of_democratic_centralists_sapronov
+			}
+			cost = 150
+			ai_will_do = {
+				factor = 1.000
+			}
+
+			visible = {
+				NOT = { has_character_flag = SOV_exiled_flag } 
+				NOT = { has_completed_focus = SOV_the_bloc_of_rights_and_trotskyites } 
+			}
+	
+		}
+
+	}
+
+	SOV_nikolay_osinsky = {
+		name = SOV_nikolay_osinsky
+	
+		portraits = {
+			army = {
+				small = "GFX_portrait_SOV_nikolay_osinsky_small"
+				large = GFX_portrait_SOV_nikolay_osinsky
+			}
+		}
+	
+		advisor={	
+			slot = political_advisor
+			idea_token = nikolay_osinsky
+
+			allowed = {
+				original_tag = SOV
+			}
+
+			available = {
+				has_completed_focus = SOV_cooperation_against_stalin
+			}
+
+			traits = {
+				leader_of_democratic_centralists_osinsky
+			}
+			cost = 150
+			ai_will_do = {
+				factor = 1.000
+			}
+
+			visible = {
+				NOT = { has_character_flag = SOV_exiled_flag } 
+				NOT = { has_completed_focus = SOV_the_bloc_of_rights_and_trotskyites } 
+			}
+	
+		}
+
+	}
+
+	SOV_vladimir_smirnov = {
+		name = SOV_vladimir_smirnov
+	
+		portraits = {
+			army = {
+				small = "GFX_portrait_SOV_vladimir_smirnov_small"
+				large = GFX_portrait_SOV_vladimir_smirnov
+			}
+		}
+	
+		advisor={	
+			slot = political_advisor
+			idea_token = vladimir_smirnov
+
+			allowed = {
+				original_tag = SOV
+			}
+
+			available = {
+				has_completed_focus = SOV_cooperation_against_stalin
+			}
+
+			traits = {
+				leader_of_democratic_centralists_smirnov
+			}
+			cost = 150
+			ai_will_do = {
+				factor = 1.000
+			}
+
+			visible = {
+				NOT = { has_character_flag = SOV_exiled_flag } 
+				NOT = { has_completed_focus = SOV_the_bloc_of_rights_and_trotskyites } 
+			}
+	
+		}
+
+	}
+
+	SOV_andrei_bubnov = {
+		name = SOV_andrei_bubnov
+	
+		portraits = {
+			army = {
+				small = "GFX_portrait_SOV_andrei_bubnov_small"
+				large = GFX_portrait_SOV_andrei_bubnov
+			}
+		}
+	
+		advisor={	
+			slot = political_advisor
+			idea_token = andrei_bubnov
+
+			allowed = {
+				original_tag = SOV
+			}
+
+			available = {
+				has_completed_focus = SOV_cooperation_against_stalin
+			}
+
+			traits = {
+				leader_of_democratic_centralists_bubnov
+			}
+			cost = 150
+			ai_will_do = {
+				factor = 1.000
+			}
+
+			visible = {
+				NOT = { has_character_flag = SOV_exiled_flag } 
+				NOT = { has_completed_focus = SOV_the_bloc_of_rights_and_trotskyites } 
+			}
+	
+		}
+
+	}
+
+	SOV_sergei_medvedev = {
+		name = SOV_sergei_medvedev
+	
+		portraits = {
+			army = {
+				small = "GFX_portrait_SOV_sergei_medvedev_small"
+				large = GFX_portrait_SOV_sergei_medvedev
+			}
+		}
+	
+		advisor={	
+			slot = political_advisor
+			idea_token = sergei_medvedev
+
+			allowed = {
+				original_tag = SOV
+			}
+
+			available = {
+				has_completed_focus = SOV_cooperation_against_stalin
+			}
+
+			traits = {
+				leader_of_worker_medvedev
+			}
+			cost = 150
+			ai_will_do = {
+				factor = 1.000
+			}
+
+			visible = {
+				NOT = { has_character_flag = SOV_exiled_flag } 
+				NOT = { has_completed_focus = SOV_the_bloc_of_rights_and_trotskyites } 
+			}
+	
+		}
+
+	}
+
+
+
+	SOV_vladimir_nevsky = {
+		name = SOV_vladimir_nevsky
+	
+		portraits = {
+			army = {
+				small = "GFX_portrait_SOV_vladimir_nevsky_small"
+				large = GFX_portrait_SOV_vladimir_nevsky
+			}
+		}
+	
+		advisor={	
+			slot = political_advisor
+			idea_token = vladimir_nevsky
+
+			allowed = {
+				original_tag = SOV
+			}
+
+			available = {
+				has_completed_focus = SOV_cooperation_against_stalin
+			}
+
+			traits = {
+				leader_of_worker_nevsky
+			}
+			cost = 150
+			ai_will_do = {
+				factor = 1.000
+			}
+
+			visible = {
+				NOT = { has_character_flag = SOV_exiled_flag } 
+				NOT = { has_completed_focus = SOV_the_bloc_of_rights_and_trotskyites } 
+			}
+	
+		}
+
+	}
+
+
+
+	SOV_vasily_mikhailov = {
+		name = SOV_vasily_mikhailov
+	
+		portraits = {
+			army = {
+				small = "GFX_portrait_SOV_vasily_mikhailov_small"
+				large = GFX_portrait_SOV_vasily_mikhailov
+			}
+		}
+	
+		advisor={	
+			slot = political_advisor
+			idea_token = vasily_mikhailov
+
+			allowed = {
+				original_tag = SOV
+			}
+
+			available = {
+				OR = {
+				has_completed_focus = SOV_return_democracy_to_the_party
+				has_completed_focus = SOV_the_right_opposition  
+			    }
+				NOP_SOV_upgrade_through_national_focus = yes
+			}
+
+			traits = {
+				organizer_of_right_union
+			}
+			cost = 150
+			ai_will_do = {
+				factor = 1.000
+			}
+
+			visible = {
+				NOT = { has_character_flag = SOV_exiled_flag } 
+				NOT = { has_completed_focus = SOV_the_trade_union_as_labor_organizer}
+				NOT = { has_completed_focus = SOV_the_bloc_of_rights_and_trotskyites } 
+			}
+	
+		}
+
+	}
+
+	SOV_vasily_mikhailov_after = {
+		name = SOV_vasily_mikhailov_after
+	
+		portraits = {
+			army = {
+				small = "GFX_portrait_SOV_vasily_mikhailov_small"
+				large = GFX_portrait_SOV_vasily_mikhailov
+			}
+		}
+	
+		advisor={	
+			slot = political_advisor
+			idea_token = vasily_mikhailov_after
+
+			allowed = {
+				original_tag = SOV
+			}
+
+			available = {
+				OR = {
+					has_completed_focus = SOV_return_democracy_to_the_party
+					has_completed_focus = SOV_the_right_opposition  
+					}
+			}
+
+			traits = {
+				organizer_of_right_union_after
+			}
+			cost = 150
+			ai_will_do = {
+				factor = 1.000
+			}
+
+			visible = {
+				NOT = { has_character_flag = SOV_exiled_flag } 
+				NOT = { has_completed_focus = SOV_the_bloc_of_rights_and_trotskyites }
+				has_completed_focus = SOV_the_trade_union_as_labor_organizer
+			}
+	
+		}
+
+	}
+
+}

@@ -1,0 +1,387 @@
+characters={
+
+	NVA_ho_chi_minh={
+		name=NVA_ho_chi_minh
+		portraits={
+			civilian={
+				large="gfx/leaders/VIN/Portrait_Vietnam_Ho_Chi_Minh.dds"
+				small="gfx/interface/ideas/nva_ho_chi_minh_advisor.dds"
+			}
+		}
+		country_leader={
+		    traits={ uncle_ho ho_leader_of_independence ho_linguist veteran_guerrilla_fighter }
+			ideology=marxism
+			expire="1965.1.1.1"
+			id=-1
+			desc=NVA_ho_chi_minh_desc
+		}
+		advisor = {
+            slot = political_advisor
+            idea_token = NVA_ho_chi_minh
+			can_be_fired = no
+            traits = { PRC_experienced_communism_fighter army_guerilla_warfare_3 }      # Unspecified cost defaults to 150.
+			
+			available = {
+			    has_government = communism
+			}
+			ai_will_do = {
+				factor = 500
+			}
+        }
+		field_marshal={
+			skill=5
+			attack_skill=4
+			defense_skill=5
+			planning_skill=4
+			logistics_skill=5
+			legacy_id =-1
+			
+		    traits={ brilliant_strategist aggressive_assaulter inspirational_leader logistics_wizard offensive_doctrine ranger infantry_leader infantry_expert jungle_rat guerilla_fighter scavenger trait_mountaineer adaptable media_personality war_hero trickster }
+		
+		    visible = {
+				has_government = communism
+		    }
+			desc=NVA_ho_chi_minh_desc
+		}
+	}
+	
+	NVA_truong_chinh={
+		name=NVA_truong_chinh
+		portraits={
+			civilian={
+				large="gfx/leaders/VIN/Portrait_NVA_Truong_Chinh.dds"
+				small="gfx/interface/ideas/nva_truong_chinh_advisor.dds"
+			}
+		}
+		advisor = {
+            slot = political_advisor
+            idea_token = NVA_truong_chinh
+            ledger = civilian
+            traits = { economic_reformer }      # Unspecified cost defaults to 150.
+			available = {
+			    has_government = communism
+			}
+        }
+	}
+	NVA_pham_van_dong={
+		name=NVA_pham_van_dong
+		portraits={
+			civilian={
+				small="gfx/interface/ideas/nva_pham_van_dong_advisor.dds"
+			}
+		}
+		advisor = {
+            slot = political_advisor
+            idea_token = NVA_pham_van_dong
+            ledger = civilian
+            traits = { ideological_crusader }      # Unspecified cost defaults to 150.
+			available = {
+			    has_government = communism
+			}
+        }
+	}
+	NVA_le_duan={
+		name=NVA_le_duan
+		portraits={
+			civilian={
+				large="gfx/leaders/VIN/Portrait_NVA_Le_Duan.dds"
+				small="gfx/interface/ideas/nva_le_duan_advisor.dds"
+			}
+		}
+		advisor = {
+            slot = political_advisor
+            idea_token = NVA_le_duan
+            ledger = civilian
+            traits = { staunch_stalinist communist_revolutionary }      # Unspecified cost defaults to 150.
+			available = {
+			    has_government = communism
+			}
+        }
+	}
+	
+	############
+	### ARMY ###
+	############
+	
+	NVA_vo_nguyen_giap={
+		name=NVA_vo_nguyen_giap
+		portraits={
+			army={
+				large="gfx/leaders/VIN/NVA/nguyen_giap.dds"
+				small="gfx/interface/ideas/nva_vo_nguyen_giap_advisor.dds"
+			}
+			civilian={
+				large="gfx/leaders/VIN/Portrait_NVA_Vo_Nguyen_Giap.dds"
+			}
+		}
+		corps_commander={
+			traits={ brilliant_strategist trait_mountaineer }
+			skill=5
+			attack_skill=4
+			defense_skill=4
+			planning_skill=4
+			logistics_skill=4
+			legacy_id=-1
+			visible = { has_government = communism }
+		}
+		advisor = {
+            slot = army_chief
+            idea_token = NVA_vo_nguyen_giap
+            ledger = army
+            traits = { army_chief_offensive_3 }      # Unspecified cost defaults to 150.
+			available = {
+			    has_government = communism
+			}
+			ai_will_do = {
+				factor = 250
+			}
+        }
+	}
+	NVA_nguyen_binh={
+		name=NVA_nguyen_binh
+		portraits={
+			army={
+				large="gfx/leaders/VIN/NVA/nguyen_binh.dds"
+			}
+		}
+		corps_commander={
+			traits={ infantry_officer trait_mountaineer }
+			skill=3
+			attack_skill=3
+			defense_skill=2
+			planning_skill=3
+			logistics_skill=2
+			legacy_id=-1
+			visible = { has_government = communism }
+		}
+	}
+	NVA_le_trong_tan={
+		name=NVA_le_trong_tan
+		portraits={
+			army={
+				large="gfx/leaders/VIN/NVA/le_trong_tan.dds"
+			}
+		}
+		corps_commander={
+			traits={ infantry_officer trait_mountaineer organizer }
+			skill=4
+			attack_skill=4
+			defense_skill=3
+			planning_skill=4
+			logistics_skill=2
+			legacy_id=-1
+			visible = { has_government = communism }
+		}
+	}
+	NVA_hoang_van_thai={
+		name=NVA_hoang_van_thai
+		portraits={
+			army={
+				large="gfx/leaders/VIN/NVA/hoang_van_thai.dds"
+				small="gfx/interface/ideas/nva_hoang_van_thai_advisor.dds"
+			}
+		}
+		corps_commander={
+			traits={ brilliant_strategist infantry_officer trait_mountaineer organizer }
+			skill=5
+			attack_skill=4
+			defense_skill=4
+			planning_skill=4
+			logistics_skill=4
+			legacy_id=-1
+			visible = { has_government = communism }
+		}
+		advisor = {
+            slot = high_command
+            idea_token = NVA_hoang_van_thai
+            ledger = army
+            traits = { army_infantry_3 }      # Unspecified cost defaults to 150.
+			available = {
+			    has_government = communism
+			}
+        }
+	}
+	NVA_nguyen_huu_ann={
+		name=NVA_nguyen_huu_ann
+		portraits={
+			army={
+				large="gfx/leaders/VIN/NVA/nguyen_huu_ann.dds"
+			}
+		}
+		corps_commander={
+			traits={ infantry_officer trait_mountaineer }
+			skill=4
+			attack_skill=3
+			defense_skill=4
+			planning_skill=3
+			logistics_skill=4
+			legacy_id=-1
+			visible = { has_government = communism }
+		}
+	}
+	NVA_chi_thanh={
+		name=NVA_chi_thanh
+		portraits={
+			army={
+				large="gfx/leaders/VIN/NVA/chi-thanh.dds"
+			}
+		}
+		corps_commander={
+			traits={ infantry_officer trait_mountaineer organizer politically_connected }
+			skill=3
+			attack_skill=3
+			defense_skill=4
+			planning_skill=2
+			logistics_skill=2
+			legacy_id=-1
+			visible = { has_government = communism }
+		}
+	}
+	NVA_chu_van_tan={
+		name=NVA_chu_van_tan
+		portraits={
+			army={
+				large="gfx/leaders/VIN/NVA/chu_van_tan.dds"
+				small="gfx/interface/ideas/nva_chu_van_tan_advisor.dds"
+			}
+		}
+		corps_commander={
+			traits={ infantry_officer trait_mountaineer trait_cautious }
+			skill=3
+			attack_skill=3
+			defense_skill=2
+			planning_skill=3
+			logistics_skill=4
+			legacy_id=-1
+			visible = { has_government = communism }
+		}
+		advisor = {
+            slot = high_command
+            idea_token = NVA_chu_van_tan
+            ledger = army
+            traits = { army_concealment_3 }      # Unspecified cost defaults to 150.
+			available = {
+			    has_government = communism
+			}
+        }
+	}
+	NVA_van_tien_dung={
+		name=NVA_van_tien_dung
+		portraits={
+			army={
+				large="gfx/leaders/VIN/NVA/van_tien_dung.dds"
+				small="gfx/interface/ideas/nva_van_tien_dung_advisor.dds"
+			}
+		}
+		corps_commander={
+			traits={ organizer infantry_leader  }
+			skill=4
+			attack_skill=4
+			defense_skill=3
+			planning_skill=4
+			logistics_skill=4
+			legacy_id=-1
+			visible = { has_government = communism }
+		}
+		advisor = {
+            slot = high_command
+            idea_token = NVA_van_tien_dung
+            ledger = army
+            traits = { army_logistics_3 }      # Unspecified cost defaults to 150.
+			available = {
+			    has_government = communism
+			}
+        }
+	}
+	## SOUTH VIETNAM ##
+	ARVN_duong_van_minh={
+		name=ARVN_duong_van_minh
+		portraits={
+			army={
+				large="gfx/leaders/VIN/ARVN/duong_van_minh.dds"
+			}
+		}
+		field_marshal={
+			traits={ politically_connected trait_cautious }
+			skill=3
+			attack_skill=3
+			defense_skill=2
+			planning_skill=3
+			logistics_skill=2
+			legacy_id=-1
+			visible = { NOT = { is_subject_of = JAP has_government = communism } }
+		}
+	}
+	ARVN_nguyen_huu_co={
+		name=ARVN_nguyen_huu_co
+		portraits={
+			army={
+				large="gfx/leaders/VIN/ARVN/nguyen_huu_co.dds"
+			}
+		}
+		corps_commander={
+			traits={ }
+			skill=3
+			attack_skill=3
+			defense_skill=2
+			planning_skill=3
+			logistics_skill=1
+			legacy_id=-1
+			visible = { NOT = { is_subject_of = JAP has_government = communism } }
+		}
+	}
+	ARVN_do_cao_tri={
+		name=ARVN_do_cao_tri
+		portraits={
+			army={
+				large="gfx/leaders/VIN/ARVN/do_cao_tri.dds"
+			}
+		}
+		corps_commander={
+			traits={ }
+			skill=2
+			attack_skill=2
+			defense_skill=3
+			planning_skill=1
+			logistics_skill=2
+			legacy_id=-1
+			visible = { NOT = { is_subject_of = JAP has_government = communism } }
+		}
+	}
+	ARVN_quang_truong={
+		name=ARVN_quang_truong
+		portraits={
+			army={
+				large="gfx/leaders/VIN/ARVN/quang_truong.dds"
+			}
+		}
+		corps_commander={
+			traits={ brilliant_strategist organizer infantry_officer }
+			skill=5
+			attack_skill=4
+			defense_skill=3
+			planning_skill=5
+			logistics_skill=3
+			legacy_id=-1
+			visible = { NOT = { is_subject_of = JAP has_government = communism } }
+		}
+	}
+	ARVN_nguyen_khanh={
+		name=ARVN_nguyen_khanh
+		portraits={
+			army={
+				large="gfx/leaders/VIN/ARVN/nguyen_khanh.dds"
+			}
+		}
+		corps_commander={
+			traits={ politically_connected }
+			skill=1
+			attack_skill=1
+			defense_skill=2
+			planning_skill=1
+			logistics_skill=1
+			legacy_id=-1
+			visible = { NOT = { is_subject_of = JAP has_government = communism } }
+		}
+	}
+}

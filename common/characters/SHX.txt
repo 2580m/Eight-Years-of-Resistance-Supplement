@@ -1,0 +1,769 @@
+characters={
+
+	### ARMY CHIEFS ###
+
+	SHX_yan_xishan={
+		name=SHX_yan_xishan #閻錫山，1883年10月8日生於山西省五台縣，日本東京振武學校、日本陸軍士官學校第21期，1935年4月2日一級上將，1960年5月23日於台北病逝
+		portraits={
+			civilian={
+				large="gfx/leaders/SHX/Portrait_SHX_Yan_Xishan.dds"
+			}
+			army={
+				large="gfx/leaders/SHX/Portrait_SHX_Yan_Xishan.dds"
+				small="GFX_idea_CHI_yan_xishan"
+			}
+		}
+		country_leader={
+			ideology=despotism
+			expire="1960.5.23"
+			#traits={ xishan_doctrine }
+			id=-1
+		}
+		country_leader={
+			ideology=fascism_ideology
+			expire="1960.5.23"
+			#traits={ xishan_doctrine }
+			id=-1
+		}
+		country_leader={
+			ideology=conservatism
+			expire="1960.5.23"
+			#traits={ xishan_doctrine }
+			id=-1
+		}
+		country_leader={
+			ideology=n_socialism_ideology
+			expire="1960.5.23"
+			#traits={ xishan_doctrine }
+			id=-1
+		}
+		country_leader={
+			ideology=marxism
+			expire="1960.5.23"
+			#traits={ xishan_doctrine }
+			id=-1
+		}
+		advisor={
+			slot = army_chief
+			idea_token = SHX_yan_xishan
+			allowed = {
+				original_tag = SHX
+			}
+			traits = {
+				army_chief_old_guard
+			}
+			ai_will_do = {
+				factor = 100
+			}		
+		}
+		field_marshal={
+			traits={ old_guard logistics_wizard NRA_General_1stRank }
+			skill=3
+			attack_skill=1
+			defense_skill=3
+			planning_skill=2
+			logistics_skill=4
+			legacy_id=4003
+			desc=SHX_yan_xishan_desc
+		}
+	}
+
+	SHX_fu_zuoyi={
+		name="傅作义" #傅作義，1895年6月27日生於山西省榮河縣，保定5期步科，1935年4月2日二級上將，1974年4月19日於北京病逝
+		portraits={
+			army={
+				large="gfx/leaders/SHX/Portrait_SHX_Fu_Zuoyi.dds"
+				small="GFX_idea_SHX_Fu_Zuoyi"
+			}
+		}
+        country_leader={
+			ideology=despotism
+			expire="1960.5.23"
+			traits={ fu_zuoyi_doctrine }
+			id=-1
+		}
+		country_leader={
+			ideology=fascism_ideology
+			expire="1960.5.23"
+			traits={ fu_zuoyi_doctrine }
+			id=-1
+		}
+		country_leader={
+			ideology=conservatism
+			expire="1960.5.23"
+			traits={ fu_zuoyi_doctrine }
+			id=-1
+		}
+		country_leader={
+			ideology=n_socialism_ideology
+			expire="1960.5.23"
+			traits={ fu_zuoyi_doctrine }
+			id=-1
+		}
+		country_leader={
+			ideology=marxism
+			expire="1960.5.23"
+			traits={ fu_zuoyi_doctrine }
+			id=-1
+		}
+		advisor={
+			slot = army_chief
+			idea_token = SHX_fu_zuoyi
+			allowed = {
+				always = yes#guo
+			}
+			traits = {
+				army_chief_defensive_3
+			}
+			cost = 200
+			ai_will_do = {
+				factor = 200
+                modifier = {
+					factor = 200
+					has_war = yes
+				}
+			}
+		}
+        advisor={
+			slot = theorist
+			idea_token = SHX_fu_zuoyi_theorist
+			ledger = army
+			allowed = {
+				always = yes#guo
+			}			
+			traits = {
+				military_theorist 
+			}
+			cost = 100
+		}
+		field_marshal={ #guo
+			traits={ brilliant_strategist  adaptable  career_officer infantry_officer war_hero NRA_General_2ndRank trickster }
+			skill=5
+			attack_skill=4
+			defense_skill=5
+			planning_skill=4
+			logistics_skill=5
+			legacy_id=4002
+            desc=SHX_fu_zuoyi_desc
+		}
+	}
+
+	### MILITARY HIGH COMMAND ###
+
+	SHX_yang_aiyuan={
+		name=SHX_yang_aiyuan #楊愛源，1887年生於山西省五台縣，保定1期步科，1935年12月10日二級上將，1959年1月2日於台北病逝
+		portraits={
+			army={
+				large="gfx/leaders/SHX/Portrait_SHX_Yang_Aiyuan.dds"
+				small="GFX_idea_SHX_Yang_Aiyuan"
+			}
+		}
+		advisor={
+			slot = high_command
+			idea_token = SHX_yang_aiyuan
+			ledger = army
+			allowed = {
+				original_tag = SHX
+			}
+			traits = {
+				army_logistics_2
+			}
+			cost = 100
+			ai_will_do = {
+				factor = 100
+			}
+		}
+		field_marshal={
+			traits={ career_officer extra_specialized_skill NRA_General_2ndRank }
+			skill=2
+			attack_skill=1
+			defense_skill=2
+			planning_skill=2
+			logistics_skill=3
+			desc=SHX_yang_aiyuan_desc
+		}
+	}
+
+	SHX_sun_chu={
+		name=SHX_sun_chu #孫楚，1890年生於山西省解縣，保定1期步科，1935年4月8日陸軍中將，1962年1月18日於太原病逝
+		portraits={
+			army={
+				large="gfx/leaders/SHX/Portrait_SHX_Sun_Chu.dds"
+				small="GFX_idea_SHX_Sun_Chu"
+			}
+		}
+		advisor={
+			slot = high_command
+			idea_token = SHX_sun_chu
+			ledger = army
+			allowed = {
+				original_tag = SHX
+			}
+			traits = {
+				army_infantry_2
+			}
+			cost = 100
+			ai_will_do = {
+				factor = 100
+			}
+		}
+		corps_commander={
+			traits={ infantry_officer NRA_Lieut_General }
+			skill=3
+			attack_skill=2
+			defense_skill=3
+			planning_skill=3
+			logistics_skill=2
+			legacy_id=-1
+		}
+	}
+
+	SHX_wang_jingguo={
+		name=SHX_wang_jingguo #王靖國，1893年生於山西省五台縣，保定5期步科，1935年4月8日陸軍中將，1952年於獄中病逝
+		portraits={
+			army={
+				large="gfx/leaders/SHX/Portrait_SHX_Wang_Jingguo.dds"
+				small="GFX_idea_SHX_Wang_Jingguo"
+			}
+		}
+		advisor={
+			slot = high_command
+			idea_token = SHX_wang_jingguo
+			ledger = army
+			allowed = {
+				original_tag = SHX
+			}
+			traits = {
+				army_regrouping_2
+			}
+			cost = 100
+			ai_will_do = {
+				factor = 100
+			}
+		}
+		corps_commander={
+			traits={ NRA_Lieut_General }
+			skill=2
+			attack_skill=1
+			defense_skill=2
+			planning_skill=2
+			logistics_skill=2
+			legacy_id=-1
+		}
+	}
+	
+	SHX_li_fuying={
+		name=SHX_li_fuying #李服膺，1890年生於山西省崞縣，保定5期步科，1935年4月8日陸軍中將，1937年10月2日被槍決於太原
+		portraits={
+			army={
+				large="gfx/leaders/SHX/Portrait_SHX_Li_Fuying.dds"
+				small="GFX_idea_SHX_Li_Fuying"
+			}
+		}
+		advisor={
+			slot = high_command
+			idea_token = SHX_li_fuying
+			ledger = army
+			allowed = {
+				original_tag = SHX
+			}
+			traits = {
+			    army_entrenchment_2
+			}
+			cost = 100
+			ai_will_do = {
+				factor = 100
+			}
+		}
+		corps_commander={
+			traits={ trait_cautious NRA_Lieut_General }
+			skill=2
+			attack_skill=2
+			defense_skill=2
+			planning_skill=2
+			logistics_skill=1
+			legacy_id=371002
+		}
+	}	
+
+	SHX_zhao_chengshou={
+		name=SHX_zhao_chengshou #趙承綬，1891年生於山西省五台縣，保定5期騎科，1936年1月24日陸軍中將，1966年於北京病逝
+		portraits={
+			army={
+				large="gfx/leaders/SHX/Portrait_SHX_Zhao_Chengshou.dds"
+				small="GFX_idea_SHX_zhao_chengshou"
+			}
+		}
+		advisor={
+			slot = high_command
+			idea_token = SHX_zhao_chengshou
+			ledger = army
+			allowed = {
+				original_tag = SHX
+			}
+			traits = {
+				army_cavalry_2
+			}
+			cost = 100
+		}
+		corps_commander={
+			traits={ cavalry_officer extra_specialized_skill NRA_Lieut_General }
+			skill=2
+			attack_skill=2
+			defense_skill=3
+			planning_skill=2
+			logistics_skill=1
+			legacy_id=-1
+		}
+	}
+
+	SHX_zhou_dai={
+		name=SHX_zhou_dai #周玳（1887—1972）山西省代縣人，晉綏軍炮兵司令，1936年1月24日陸軍中將
+		portraits={
+			army={
+				small="GFX_idea_SHX_Zhou_Dai"
+			}
+		}
+		advisor={
+			slot = high_command
+			idea_token = SHX_zhou_dai
+			ledger = army
+			allowed = {
+				original_tag = SHX
+			}
+			traits = {
+				army_artillery_2
+			}
+			cost = 100
+		}
+	}
+
+	SHX_chen_changjie={
+		name=SHX_chen_changjie #陳長捷，1892年6月2日生於福建省閩縣，保定7期騎科，1935年4月19日陸軍少將，1937年11月15日陸軍中將，1968年4月7日於上海自殺
+		portraits={
+			army={
+				large="gfx/leaders/SHX/Portrait_SHX_Chen_Changjie.dds"
+				small="GFX_idea_SHX_Chen_Changjie"
+			}
+		}
+		advisor={
+			slot = high_command
+			idea_token = SHX_chen_changjie
+			ledger = army
+			allowed = {
+				original_tag = SHX
+			}
+			traits = {
+				army_concealment_2
+			}
+			cost = 100		
+		}
+		corps_commander={
+			traits={ extra_specialized_skill NRA_Major_General }
+			skill=2
+			attack_skill=2
+			defense_skill=3
+			planning_skill=2
+			logistics_skill=1
+			legacy_id=-1
+		}
+	}
+
+    SHX_Dong_Qiwu={
+		name=SHX_Dong_Qiwu #董其武（1899年11月27日—1989年3月3日）山西省河津縣人
+		portraits={
+			army={
+				large="gfx/leaders/SHX/Portrait_SHX_Dong_Qiwu.dds"
+				small="GFX_idea_dong_qiwu"
+			}
+		}
+		corps_commander={
+			traits={ NRA_Major_General } #1936.5 Major-General (Post rank),1937-11-30 Lieutenant-General (Post rank)
+			skill=2
+			attack_skill=2
+			defense_skill=2
+			planning_skill=2
+			logistics_skill=1
+		}
+		advisor={
+			slot = high_command
+			idea_token =  SHX_Dong_Qiwu
+			ledger = army
+			allowed = {
+				original_tag = SUY
+			}
+			traits = {
+				army_regrouping_2
+			}
+			cost = 100
+			ai_will_do = {
+				factor = 100
+			}
+		}
+	}	
+	
+    SHX_Sun_Lanfeng={
+		name=SHX_Sun_Lanfeng #孫蘭峰（1896年11月17日—1987年2月27日）山東省滕縣人，
+		portraits={
+			army={
+				large="gfx/leaders/SHX/Portrait_SHX_Sun_Lanfeng.dds"
+				small="GFX_idea_sun_langfeng"
+			}
+		}
+		corps_commander={
+			traits={ NRA_Major_General } # #1936.5 Major-General (Post rank)
+			skill=2
+			attack_skill=2
+			defense_skill=3
+			planning_skill=1
+			logistics_skill=1
+		}
+		advisor={
+			slot = high_command
+			idea_token = SHX_Sun_Lanfeng
+			ledger = army
+			allowed = {
+				original_tag = SUY
+			}
+			traits = {
+				army_infantry_2
+			}
+			cost = 100
+			ai_will_do = {
+				factor = 100
+			}
+		}
+	}
+
+	SHX_Peng_Yubin={
+		name=SHX_Peng_Yubin #彭毓斌
+		portraits={
+			army={
+				large="gfx/leaders/SHX/Portrait_SHX_Peng_Yubin.dds"
+			}
+		}
+		corps_commander={
+			traits={ cavalry_officer NRA_Major_General } 
+			skill=2
+			attack_skill=2
+			defense_skill=2
+			planning_skill=2
+			logistics_skill=1
+		}
+	}
+
+	#SHX_Lu_Yinglin={
+	#	name=SHX_Lu_Yinglin #魯英麟
+	#	portraits={
+	#		army={
+	#			large="gfx/leaders/SHX/Portrait_SHX_Lu_Yinglin.dds" #its liu kan
+	#		}
+	#	}
+	#	corps_commander={
+	#		traits={ NRA_Major_General } 
+	#		skill=2
+	#		attack_skill=1
+	#		defense_skill=2
+	#		planning_skill=3
+	#		logistics_skill=1
+	#	}
+	#}
+
+	SHX_Bo_Yibo={ #guo
+		name="薄一波"
+		portraits={
+			army={
+				large="gfx/leaders/PRC/Portrait_PRC_Bo_Yibo.dds"
+				small="GFX_idea_SHX_Bo_Yibo"
+			}
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = SHX_Bo_Yibo
+			
+			available = {
+				if = {
+				limit = {
+				original_tag = SHX
+				not = { has_government = communism }
+				}
+				has_global_flag = has_completed_focus_SHX_United_front
+				not = { has_war_with = event_target:WTT_communist_china }
+				}
+			}
+			traits = { lieutenant_of_industry }			
+			allowed = {
+				#is_literally_china = yes
+			}
+			on_add = {
+				owner = {
+					if = {
+						limit = {
+						    has_idea = CHI_communist_in_government
+						}	
+						PRC_support_up = yes
+					}
+				}
+			}
+			on_remove = {
+				owner = {
+					if = {
+						limit = {
+						    has_idea = CHI_communist_in_government
+						}	
+					}
+					PRC_support_down = yes
+				}
+			}
+			ai_will_do = {
+				factor = 1
+				
+			}
+			desc=boyibo_miaoshu
+		}
+		corps_commander={
+			traits={ rising_young_officer youji_hero politically_connected media_personality }
+			skill=1
+			attack_skill=1
+			defense_skill=1
+			planning_skill=2
+			logistics_skill=2
+			desc=boyibo_miaoshu
+			visible = { OR = { has_global_flag = has_completed_focus_SHX_United_front has_government = communism has_idea = CHI_communist_in_government TAG = event_target:WTT_current_china_leader }
+				if = {
+				limit = {
+				original_tag = SHX
+				not = { has_government = communism }
+				}
+				has_global_flag = has_completed_focus_SHX_United_front
+				not = { has_war_with = event_target:WTT_communist_china }
+				}
+			}
+		}
+	}
+	### THEORISTS ###
+
+	SHX_zhu_shouguang={
+		name=SHX_zhu_shouguang #朱綬光#
+		portraits={
+			army={
+				small="GFX_idea_SHX_Zhu_Shouguang"
+			}
+		}
+		advisor={
+			slot = theorist
+			idea_token = SHX_zhu_shouguang
+			ledger = army
+			allowed = {
+				original_tag = SHX
+			}			
+			traits = {
+				grand_battle_plan_expert
+			}
+			cost = 150
+		}
+	}
+
+	SHX_chu_xichun={
+		name=SHX_chu_xichun  #楚溪春#
+		portraits={
+			army={
+				small="GFX_idea_SHX_Chu_Xichun"
+			}
+		}
+		advisor={
+			slot = theorist
+			idea_token = SHX_chu_xichun
+			ledger = army
+			allowed = {
+				original_tag = SHX
+			}			
+			traits = {
+				military_theorist 
+			}
+			cost = 100
+		}
+	}
+
+	### AIR CHIEFS ###
+
+	SHX_zhong_jihan={
+		name=SHX_zhong_jihan #仲躋翰#
+		portraits={
+			army={
+				small="GFX_idea_SHX_Zhong_Jihan"
+			}
+		}
+		advisor={
+			slot = air_chief
+			idea_token = SHX_zhong_jihan
+			allowed = {
+				original_tag = SHX
+			}
+			traits = {
+				air_chief_reform_2
+			}
+			cost = 100
+		}
+	}
+
+	### POLITICAL ADVISORS ###
+
+	SHX_zhao_daiwen={
+		name=SHX_zhao_daiwen #趙戴文，山西省代州五台縣（1867年11月28日－1943年12月17日）山西省吉縣
+		portraits={
+			army={
+				small="GFX_idea_SHX_Zhao_Daiwen"
+			}
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = SHX_zhao_daiwen
+			allowed  = {
+				original_tag  = SHX
+			}
+			traits  = {
+				old_figurehead #山西省政府主席（1936年5月27日－1943年12月17日）
+			}
+			ai_will_do = {
+				factor = 100
+			}
+		}
+	}
+	
+	SHX_jia_jingde={
+		name=SHX_jia_jingde #賈景德，山西省澤州府沁水縣（1880年8月28日－1960年10月21日）臺灣省臺北市
+		portraits={
+			army={
+				small="GFX_idea_SHX_Jia_Jingde"
+			}
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = SHX_jia_jingde
+			allowed  = {
+				original_tag  = SHX
+			}
+			traits  = {
+				editor #太原綏靖公署秘書長（1932年－1938年），行政院顧問（1939年－1942年），國民政府銓敘部部長（1941年12月27日－1948年7月13日）
+			}
+		}
+	}
+
+	SHX_liang_huazhi={
+		name=SHX_liang_huazhi #梁化之，山西省忻州定襄縣（1904年－1949年4月24日）山西省太原市
+		portraits={
+			army={
+				small="GFX_idea_SHX_Liang_Huazhi"
+			}
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = SHX_liang_huazhi
+			allowed  = {
+				original_tag  = SHX
+			}
+			traits  = {
+				backroom_backstabber #山西省政府委員（1938年2月24日－1946年11月27日），代理山西省政府主席（1949年3月29日－1949年4月24日）
+			}
+			ai_will_do = {
+				factor = 100
+			}			
+		}
+	}	
+
+	SHX_qiu_yangjun={
+		name=SHX_qiu_yangjun #邱仰濬，山西省絳州新絳縣（1896年－1949年1月27日）太平輪
+		portraits={
+			army={
+				small="GFX_idea_SHX_Qiu_Yangjun"
+			}
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = SHX_qiu_yangjun
+			allowed  = {
+				original_tag  = SHX
+			}
+			traits  = {
+				financial_expert #山西省政府委員（1936年6月26日－1947年9月3日），山西省民政廳廳長（1936年6月26日－1947年9月3日）
+			}
+		}
+	}
+	
+	SHX_ji_gongquan={
+		name=SHX_ji_gongquan #冀貢泉，山西省汾陽縣（1882年－1967年8月17日）北京市
+		portraits={
+			army={
+				small="GFX_idea_SHX_Ji_Gongquan"
+			}
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = SHX_ji_gongquan
+			allowed  = {
+				original_tag  = SHX
+			}
+			traits  = {
+				sharp_tongued_lawyer #山西省政府委員（1932年4月21日－1938年2月24日），山西省教育廳廳長（1932年4月21日－1938年2月24日）
+			}
+		}
+	}
+
+	SHX_wang_huaiming={
+		name=SHX_wang_huaiming #王懷明，山西省絳州新絳縣（1891年－1982年6月11日）山西省太原市
+		portraits={
+			army={
+				small="GFX_idea_SHX_Wang_Huaiming"
+			}
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = SHX_wang_huaiming
+			allowed  = {
+				original_tag  = SHX
+			}
+			traits  = {
+				wrl_education_reformer #山西省政府委員（1937年8月5日－1946年5月7日），山西省教育廳廳長（1938年2月24日－1942年11月14日）
+			}
+		}
+	}
+	
+	SHX_fan_xiangli={
+		name=SHX_fan_xiangli #樊象離，山西省解縣
+		portraits={
+			army={
+				small="GFX_idea_SHX_Fan_Xiangli"
+			}
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = SHX_fan_xiangli
+			allowed  = {
+				original_tag  = SHX
+			}
+			traits  = {
+				wrl_technocrat #山西省政府委員（1935年2月8日－1940年9月20日），山西省建設廳廳長（1936年3月7日－1940年9月20日）
+			}
+		}
+	}	
+	
+	SHX_wang_qian={
+		name=SHX_wang_qian #王謙
+		portraits={
+			army={
+				small="GFX_idea_SHX_Wang_Qian"
+			}
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = SHX_wang_qian
+			allowed  = {
+				original_tag  = SHX
+			}
+			traits  = {
+				economist #山西省政府委員（1937年2月27日－1941年7月22日）
+			}
+		}
+	}
+}

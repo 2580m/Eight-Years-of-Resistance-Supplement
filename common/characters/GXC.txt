@@ -1,0 +1,554 @@
+﻿characters={
+
+	### ARMY CHIEFS ###
+
+	GXC_li_zongren={
+		name=GXC_li_zongren #李宗仁，1891年8月13日生於廣西省臨桂縣，廣西陸軍速成學堂，1935年4月2日一級上將，1969年1月30日於北京病逝
+		portraits={
+			civilian={
+				large="gfx/leaders/GXC/Portrait_GXC_Li_Zongren.dds"
+			}
+			army={
+				large="gfx/leaders/GXC/Portrait_GXC_Li_Zongren.dds"
+				small="GFX_idea_li_zongren_old"
+			}
+		}
+		country_leader={
+			ideology=despotism
+			expire="1969.1.30"
+			id=-1
+			traits={  }
+		}
+		country_leader={
+			ideology=fascism_ideology
+			expire="1969.1.30"
+			id=-1
+			traits={  }
+		}
+		country_leader={
+			ideology=conservatism
+			expire="1969.1.30"
+			id=-1
+			traits={  }
+		}
+		country_leader={
+			ideology=marxism
+			expire="1969.1.30"
+			id=-1
+			traits={  }
+		}
+		country_leader={
+			ideology=n_socialism_ideology
+			expire="1969.1.30"
+			id=-1
+			traits={  }
+		}
+		advisor={
+			slot = army_chief
+			idea_token = GXC_li_zongren
+			allowed = {
+				original_tag = GXC
+			}
+			traits = {
+				army_chief_defensive_3
+			}
+			cost = 200
+			ai_will_do = {
+				factor = 50
+			}
+		}
+		field_marshal={#guo
+			traits={ logistics_wizard infantry_officer organizer  NRA_General_1stRank  adaptable  brilliant_strategist  career_officer war_hero media_personality }
+			skill=5
+			attack_skill=4
+			defense_skill=5
+			planning_skill=4
+			logistics_skill=5
+			legacy_id=2505
+            desc=GXC_li_zongren_desc
+            visible = {
+				if = {
+					limit = {
+						NOT = {
+							original_tag = GXC
+						}
+					}
+					OR = {
+						has_global_flag = joined_chi_GXC
+						has_global_flag = li_is_in_charge_central_government_flag
+					}
+				}
+			}
+		}
+	}
+
+	GXC_bai_chongxi={
+		name="白崇禧" #白崇禧，1893年3月18日生於廣西省臨桂縣，保定3期步科，1935年4月3日二級上將，1945年10月3日一級上將，1966年12月2日於台北病逝
+		portraits={
+			army={
+				large="gfx/leaders/GXC/Portrait_GXC_Bai_Chongxi.dds"
+				small="GFX_idea_GXC_Bai_Chongxi"
+			}
+		}
+		advisor={
+			slot = army_chief
+			idea_token = GXC_bai_chongxi
+			allowed = {
+				original_tag = GXC
+			}
+			traits = {
+				army_chief_offensive_3
+			}
+			cost = 200
+			ai_will_do = {
+				factor = 500
+			}
+		}		
+		field_marshal={ #guo
+			traits={ logistics_wizard  infantry_officer    brilliant_strategist  organizer  NRA_General_2ndRank career_officer offensive_doctrine  adaptable }
+			skill=5
+			attack_skill=5
+			defense_skill=4
+			planning_skill=5
+			logistics_skill=4
+			legacy_id=9500 #guo
+            desc=GXC_bai_chongxi_desc
+		}
+	}
+
+	### MILITARY HIGH COMMAND ###
+
+	GXC_li_pinxian={
+		name="李品仙" #李品仙，1890年4月22日生於廣西省蒼梧縣，保定1期步科，1936年1月23日陸軍中將，1937年3月13日加上將銜，1987年3月23日於台北病逝
+		portraits={
+			army={
+				large="gfx/leaders/GXC/Portrait_GXC_Li_Pinxian.dds"
+				small="GFX_idea_GXC_Li_Pinxian"
+			}
+		}
+		advisor={
+			slot = high_command
+			idea_token = GXC_li_pinxian
+			ledger = army
+			allowed = {
+				original_tag = GXC
+			}
+			traits = {
+				army_infantry_2
+			}
+			cost = 100
+			ai_will_do = {
+				factor = 100
+			}
+		}
+		corps_commander={
+			traits={ career_officer infantry_officer NRA_Lieut_General }
+			skill=3
+			attack_skill=3  
+			defense_skill=3
+			planning_skill=3 
+			logistics_skill=2
+			legacy_id=-1
+		}
+	}
+
+	GXC_liao_lei={
+		name="廖磊" #廖磊，1890年2月20日生於廣西省陸川縣，保定2期步科，1936年1月23日陸軍中將，1937年5月14日加上將銜，1939年10月23日於安徽病逝
+		portraits={
+			army={
+				large="gfx/leaders/GXC/Portrait_GXC_Liao_Lei.dds"
+				small="GFX_idea_GXC_Liao_Lei"
+			}
+		}
+		advisor={
+			slot = high_command
+			idea_token = GXC_liao_lei
+			ledger = army
+			allowed = {
+				original_tag = GXC
+			}
+			traits = {
+				army_logistics_2
+			}
+			cost = 100
+			ai_will_do = {
+				factor = 100
+			}
+		}
+		corps_commander={
+			traits={ career_officer infantry_officer NRA_Lieut_General }
+			skill=3
+			attack_skill=2  
+			defense_skill=3
+			planning_skill=2 
+			logistics_skill=3
+			legacy_id=-1
+		}
+	}
+
+	GXC_xia_wei={
+		name="夏威" #夏威，1893年3月2日生於廣西省容縣，保定3期步科，1936年1月23日陸軍中將，1937年5月14日加上將銜，1975年1月3日於香港車禍身亡
+		portraits={
+			army={
+				large="gfx/leaders/GXC/Portrait_GXC_Xia_Wei.dds"
+				small="GFX_idea_GXC_Xia_Wei"
+			}
+		}
+		advisor={
+			slot = high_command
+			idea_token = GXC_xia_wei
+			ledger = army
+			allowed = {
+				original_tag = GXC
+			}
+			traits = {
+				army_regrouping_2
+			}
+			cost = 100
+			ai_will_do = {
+				factor = 100
+			}
+		}
+		corps_commander={
+			traits={ career_officer infantry_officer NRA_Lieut_General }
+			skill=2
+			attack_skill=3  
+			defense_skill=2
+			planning_skill=2
+			logistics_skill=2
+			legacy_id=-1
+		}
+	}
+
+	GXC_wei_yunshong={
+		name="韦云淞"
+		portraits={
+			army={
+				small="GFX_idea_GXC_Wei_Yunshong"
+			}
+		}
+		advisor={
+			slot = high_command
+			idea_token = GXC_wei_yunshong
+			ledger = army
+			allowed = {
+				original_tag = GXC
+			}
+			traits = {
+				army_concealment_2
+			}
+			cost = 100
+		}
+	}
+
+	GXC_zhou_zuhuang={
+		name="周祖晃"
+		portraits={
+			army={
+			    large="gfx/leaders/GXC/Portrait_GXC_Zhou_Zuhuang.dds"
+				small="GFX_idea_GXC_Zhou_Zuhuang"
+			}
+		}
+		advisor={
+			slot = high_command
+			idea_token = GXC_zhou_zuhuang
+			ledger = army
+			allowed = {
+				original_tag = GXC
+			}
+			traits = {
+				army_entrenchment_2
+			}
+			cost = 100
+		}
+		corps_commander={
+			traits={ career_officer cavalry_officer NRA_Major_General }
+			skill=2
+			attack_skill=2 
+			defense_skill=2
+			planning_skill=2 
+			logistics_skill=2
+			legacy_id=-1
+		}
+	}
+
+	GXC_zhang_gan={
+		name="张淦" #張淦，1897年9月17日生於廣西省桂林府，廣西陸軍速成學校，1939年11月13日陸軍中將，1959年2月21日於獄中病逝
+		portraits={
+			army={
+				small="GFX_idea_GXC_Zhang_Gan"
+				large="gfx/leaders/GXC/Portrait_GXC_Zhang_Gan.dds"
+			}
+		}
+		advisor={		
+			slot = high_command
+			idea_token = GXC_zhang_gan
+			ledger = army
+			allowed = {
+				original_tag = GXC 
+			}
+			traits = {
+				army_artillery_2
+			}
+			cost = 100
+		}
+		corps_commander={
+			traits={ career_officer infantry_officer NRA_Major_General }
+			skill=2
+			attack_skill=2 
+			defense_skill=2
+			planning_skill=2 
+			logistics_skill=2
+			legacy_id=-1
+		}
+	}
+
+	### THEORISTS ###
+
+	GXC_liu_fei={
+		name="刘斐"
+		portraits={
+			army={
+				small="GFX_idea_GXC_Liu_Fei"
+			}
+		}
+		advisor={
+			slot = theorist
+			idea_token = GXC_liu_fei
+			ledger = army
+			allowed = {
+				original_tag = GXC
+			}
+			
+			traits = {
+				mass_assault_expert
+			}
+			cost = 150
+			ai_will_do = {
+				factor = 100
+			}		
+		}
+	}
+
+	GXC_liu_shiyi={
+		name="刘世逸"
+		portraits={
+			army={
+				small="GFX_idea_GXC_Liu_Shiyi"
+			}
+		}
+		advisor={
+			slot = theorist
+			idea_token = GXC_liu_shiyi
+			ledger = army
+			allowed = {
+				original_tag = GXC
+			}
+			
+			traits = {
+				military_theorist
+			}
+			cost = 100
+		}
+	}
+
+	### AIR CHIEFS ###
+
+	GXC_lin_weicheng={
+		name="林伟成"
+		portraits={
+			army={
+				small="GFX_idea_GXC_Lin_Weicheng"
+			}
+		}
+		advisor={
+			slot = air_chief
+			idea_token = GXC_lin_weicheng
+			allowed = {
+				original_tag = GXC 
+			}
+			traits = {
+				air_chief_reform_2
+			}
+			cost = 100
+		}
+	}
+
+	### POLITICAL ADVISORS ###
+
+	GXC_huang_xuchu={
+		name="黄旭初" #黃旭初，廣西省梧州府容縣（1892年4月27日－1975年11月18日）香港九龍
+		portraits={
+			army={
+				small="GFX_idea_GXC_Huang_Xuchu"
+			}
+		}
+		advisor={
+			slot = political_advisor #政治家
+			idea_token = GXC_huang_xuchu
+			allowed  = {
+				original_tag  = GXC
+			}
+			traits  = {
+				silent_workhorse #廣西省政府主席（1931年7月1日－1949年11月28日）
+			}
+			ai_will_do = {
+				factor = 100
+			}
+		}
+	}
+
+	GXC_lei_peihong={
+		name="雷沛鸿" #雷沛鴻，廣西省南寧府宣化縣（1888年2月11日－1967年7月21日）廣西省
+		portraits={
+			army={
+				small="GFX_idea_GXC_Lei_Peihong"
+			}
+		}
+		advisor={
+			slot = political_advisor #教育家
+			idea_token = GXC_lei_peihong
+			allowed  = {
+				original_tag  = GXC
+			}
+			traits  = {
+				education_reformer #廣西省政府委員（1936年10月2日－1940年9月4日），廣西省教育廳廳長（1939年6月24日－1940年9月4日）
+			}
+			ai_will_do = {
+				factor = 1.000
+			}
+		}
+	}
+
+	GXC_lei_yin={
+		name="雷殷" #雷殷，廣西省邕寧縣（1886年4月－1972年11月）
+		portraits={
+			army={
+				small="GFX_idea_GXC_Lei_Yin"
+			}
+		}
+		advisor={
+			slot = political_advisor #政治家
+			idea_token = GXC_lei_yin
+			allowed  = {
+				original_tag  = GXC
+			}
+			traits  = {
+				gran_carabinero #廣西省政府委員（1936年10月2日－1939年6月24日），廣西省民政廳廳長（1936年10月2日－1939年6月24日）
+			}
+			ai_will_do = {
+				factor = 1.000
+			}
+		}
+	}
+
+	GXC_huang_zhongyue={
+		name="黄钟岳" #黃鍾岳
+		portraits={
+			army={
+				small="GFX_idea_GXC_Huang_Zhongyue"
+			}
+		}
+		advisor={
+			slot = political_advisor #經濟官僚
+			idea_token = GXC_huang_zhongyue
+			allowed  = {
+				original_tag  = GXC
+			}
+			traits  = {
+				financial_expert #廣西省政府委員（1936年10月2日－1942年3月18日），廣西省財政廳廳長（1936年10月2日－1942年3月18日）
+			}
+			ai_will_do = {
+				factor = 1.000
+			}
+		}
+	}
+
+	GXC_qiu_changwei={
+		name="邱昌渭" #邱昌渭，湖南省芷江縣（1898年10月18日－1956年7月24日）
+		portraits={
+			army={
+				small="GFX_idea_GXC_Qiu_Changwei"
+			}
+		}
+		advisor={
+			slot = political_advisor #政治家
+			idea_token = GXC_qiu_changwei
+			allowed  = {
+				original_tag  = GXC
+			}
+			traits  = {
+				technocrat #廣西省政府委員（1936年10月2日－1943年10月4日），廣西省教育廳廳長（1936年10月2日－1939年6月24日），廣西省民政廳廳長（1939年6月24日－1943年2月1日）
+			}
+			ai_will_do = {
+				factor = 1.000
+			}
+		}
+	}
+
+	GXC_su_xixun={
+		name="苏希询" #蘇希詢，廣西省武鳴縣（1890年－1970年7月30日）
+		portraits={
+			army={
+				small="GFX_idea_GXC_Su_Xixun"
+			}
+		}
+		advisor={
+			slot = political_advisor #法學家
+			idea_token = GXC_su_xixun
+			allowed  = {
+				original_tag  = GXC
+			}
+			traits  = {
+				prominent_lawyer #廣西省政府委員（1939年5月9日－1945年3月5日），廣西省政府秘書長（1936年），廣西省教育廳廳長（1940年9月4日－1943年10月4日），廣西省政府秘書長（1944年5月18日－1945年3月5日）
+			}
+			ai_will_do = {
+				factor = 1.000
+			}
+		}
+	}
+
+	GXC_cheng_siyuan={
+		name="程思远" #程思遠，廣西省賓陽縣（1908年－2005年）
+		portraits={
+			army={
+				small="GFX_idea_GXC_Cheng_Siyuan"
+			}
+		}
+		advisor={
+			slot = political_advisor #政治家
+			idea_token = GXC_cheng_siyuan
+			allowed  = {
+				original_tag  = GXC
+			}
+			traits  = {
+				editor #李宗仁秘書（1930年），義大利羅馬大學政治學博士（1934年－1938年），白崇禧辦公室秘書（1938年），廣西綏靖公署政治部主任（1939年）
+			}
+			ai_will_do = {
+				factor = 1.000
+			}
+		}
+	}
+
+	GXC_chen_xiong={
+		name="陈雄"
+		portraits={
+			army={
+				small="GFX_idea_GXC_Chen_Xiong"
+			}
+		}
+		advisor={
+			slot = political_advisor 
+			idea_token = GXC_chen_xiong
+			allowed  = {
+				original_tag  = GXC
+			}
+			traits  = {
+				armaments_organizer 
+			}
+			ai_will_do = {
+				factor = 1.000
+			}
+		}
+	}
+}

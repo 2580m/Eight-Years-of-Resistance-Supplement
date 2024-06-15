@@ -1,0 +1,250 @@
+characters = {
+    #卡拉什尼科夫
+	SOV_kalashnikov= {
+		name="米哈伊尔·季莫费耶维奇·卡拉什尼科夫"
+
+		portraits = {
+			army = {
+				small = "gfx/interface/ideas/idea_kalashnikov.dds"
+			}
+		}
+		allowed_civil_war = {
+			OR = { 
+				SOV_advisor_is_aligned_centre = yes 
+			}
+			has_government = communism
+		}
+		advisor = {
+			cost = 150
+			slot = theorist
+			idea_token = kalashnikov
+			ledger = army
+			allowed = {
+				original_tag = SOV
+			}
+			available = {
+
+			}
+
+			research_bonus = {
+				infantry_weapons = 0.25
+			}
+			traits = {
+				sov_revolutionary_small_arms_designer
+			}
+			ai_will_do = {
+			factor = 200
+			}
+		}		
+	}
+	SOV_Andrei_Andreyev = {
+		name="安德列·安德列耶维奇·安德列耶夫"
+
+		portraits = {
+			army = {
+				small =  "gfx/interface/ideas/SOV_Andrei_Andreyev.png"
+			}
+		}
+		allowed_civil_war = {
+			OR = { 
+				SOV_advisor_is_aligned_centre = yes 
+			}
+			has_government = communism
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = SOV_Andrei_Andreyev
+			allowed = {
+				original_tag = SOV
+			}
+			
+			visible = {
+
+			}
+			available = {
+			has_country_leader = { ruling_only = yes character = SOV_iosif_stalin }
+			}
+			
+			traits = {
+				最高苏维埃中央书记
+			}
+			ai_will_do = {
+			factor = 50
+			}
+		}
+	}
+	SOV_Zhdanov = {
+		name="安德烈·亚历山德罗维奇·日丹诺夫"
+
+		portraits = {
+			army = {
+				small = "gfx/interface/ideas/SOV_Andrey_Zdanov.png"
+			}
+		}
+        allowed_civil_war = {
+			OR = { 
+				SOV_advisor_is_aligned_centre = yes 
+			}
+			has_government = communism
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = SOV_Zhdanov
+			allowed = {
+				original_tag = SOV
+			}
+			
+			visible = {
+
+			}
+			available = {
+			has_country_leader = { ruling_only = yes character = SOV_iosif_stalin }
+			}
+			
+			traits = {
+				钢铁教条继承人
+			}
+           
+			ai_will_do = {
+			factor = 500
+			}
+		}
+	}	
+	SOV_Malenkov = {
+		name="格奥尔基·马克西米连诺维奇·马林科夫"
+
+		portraits = {
+			army = {
+				small = "gfx/interface/ideas/SOV_Georgy_Malenkov.png"
+			}
+		}
+        allowed_civil_war = {
+			OR = { 
+				SOV_advisor_is_aligned_centre = yes 
+			}
+			has_government = communism
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = SOV_Malenkov
+			allowed = {
+				original_tag = SOV
+			}
+			
+			visible = {
+				NOT = {
+					has_character_flag = SOV_character_purged_flag 
+				}
+			}
+			available = {
+			has_country_leader = { ruling_only = yes character = SOV_iosif_stalin }
+			}
+			
+			traits = {
+				部长会议主席
+			}
+			ai_will_do = {
+			factor = 0
+			}
+		}
+	}
+	SOV_Ordzhonikidze = {
+		name="格里戈利·奥尔忠尼启则"
+		portraits = {
+			army = {
+				small =  "gfx/interface/ideas/SOV_Sergo_Ordzhonikidze.png"
+			}
+		}
+		allowed_civil_war = {
+			OR = { 
+				SOV_advisor_is_aligned_centre = yes 
+			}
+			has_government = communism
+		}
+
+		advisor = {
+			slot = political_advisor
+			idea_token = SOV_Ordzhonikidze
+			allowed = {
+				original_tag = SOV
+			}
+			
+			visible = {
+	
+			}
+			available = {
+				has_country_leader = { ruling_only = yes character = SOV_iosif_stalin }
+			}
+			traits = {
+				苏联重工业奠基者
+			}
+			ai_will_do = {
+			factor = 500
+			}
+		}
+	}
+	SOV_Viktor_Abakumov = {
+			name="维克托·阿巴库莫夫"
+			allowed_civil_war = {
+			has_government = communism
+			}
+			portraits = {
+				army = {
+					small = "gfx/interface/ideas/SOV_Viktor_Abakumov.png"
+				}
+			}
+
+		advisor = {
+				slot = political_advisor
+				idea_token = SOV_Viktor_Abakumov
+				name = SOV_Viktor_Abakumov
+			allowed = {
+				original_tag = SOV
+			}
+			visible = {
+				
+			}
+			available = { 
+				has_completed_focus = SOV_nkvd_primacy
+			}
+
+			traits = {
+					染血的反间谍工作者
+			}
+			ai_will_do = {
+			factor = 200
+			}
+		}
+	}
+	SOV_Dmitri_Ustinov = {
+		name="德米特里·乌斯季诺夫"
+		allowed_civil_war = {
+			has_government = communism
+		}
+		portraits = {
+			army = {
+				small = "gfx/interface/ideas/SOV_Dmitri_Ustinov.png"
+            }
+        }
+
+		advisor = {
+				slot = political_advisor
+				idea_token = SOV_Dmitri_Ustinov
+				name = SOV_Dmitri_Ustinov
+			allowed = {
+				original_tag = SOV
+			}
+			visible = {
+				
+			}
+			available = { 
+
+			}
+
+			traits = { 武器工业人民委员 }
+			ai_will_do = {
+			factor = 3
+			}
+		}
+	}
+}

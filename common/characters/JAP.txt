@@ -1,0 +1,3163 @@
+characters={
+
+	############################## POLITICAL ##############################
+
+	okada_keisuke={
+		name="冈田启介" #岡田 啓介 1868年2月14日～1952年10月17日、前海軍大臣、拓務大臣、逓信大臣。内閣総理大臣 1934年7月8日～1936年3月9日
+		portraits={
+			civilian={
+				large="gfx/leaders/JAP/Portrait_Japan_Okada_Keisuke.dds"
+			}
+		}
+		country_leader={
+			ideology=moderatism
+			desc=LEADER_OKADA_KEISUKE_DESC
+			traits={}
+			expire="1952.10.17"
+			id=-1
+		}
+	}
+
+	hiranuma_kiichiro={
+		name="平沼骐一郎" #平沼 騏一郎 1867年10月25日～1952年8月22日、前検事総長、司法大臣。内閣総理大臣 1939年1月5日～8月30日、国務大臣 1940年12月6日～12月21日、内務大臣 1940年12月21日～1941年7月18日、枢密院議長 1945年4月9日～12月3日
+		portraits={
+			civilian={
+				large="gfx/leaders/JAP/Portrait_Hiranuma_Kiichiro.dds"
+			}
+		}
+		country_leader={
+			ideology=despotism
+			traits={ anti_communist }
+			expire="1952.8.22"
+			id=-1
+		}
+	}
+
+	abe_isoo={
+		name="安部矶雄" #安部 磯雄 1865年3月1日～1949年2月10日、日本野球の父。社会大衆党執行委員長 1932年7月24日～1940年3月21日
+		portraits={
+			civilian={
+				large="gfx/leaders/JAP/Portrait_Japan_Abe_Isoo.dds"
+			}
+		}
+		country_leader={
+			ideology=n_democratic_socialism
+			traits={ father_of_japanese_baseball christian_socialist }
+			expire="1949.2.10"
+			id=-1
+		}
+	}
+
+	seigo_nakano={
+		name="中野正刚" #中野 正剛 1886年2月12日～1943年10月27日。東方会総裁 1936年5月25日～1943年10月27日 
+		portraits={
+			civilian={
+				large="gfx/leaders/JAP/Portrait_Japan_Seigo_Nakano.dds"
+			}
+		}
+		country_leader={
+			ideology=fascism_ideology
+			desc=LEADER_NAKANO_SAIGO_DESC
+			expire="1943.10.27"
+			id=-1
+		}
+	}
+
+	kyuichi_tokuda={
+		name=JAP_kyuichi_tokuda #徳田 球一 1894年9月12日～1953年10月14日。日本共産党書記長 1946年4月11日～1950年6月6日
+		portraits={
+			civilian={
+				large="GFX_Portrait_kyuichi_tokuda"
+			}
+		}
+		country_leader={
+			ideology=marxism
+			expire="1953.10.14"
+			id=-1
+		}
+	}
+
+	saionji_kinmochi={
+		name =saionji_kinmochi #西園寺 公望 1849年12月7日～1940年11月24日。大日本帝国の元老、前文部大臣、内閣総理大臣。
+		portraits={ 
+			civilian={
+				small="GFX_idea_saionji_kinmochi"
+			}
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = saionji_kinmochi
+			visible = {
+				NOT = {
+					has_government = communism
+				}
+			}
+			available = {				
+				NOT = { has_country_flag = genro_purged_by_kodoha }
+				NOT = { has_country_flag = house_arrest_genro }
+				NOT = { has_country_flag = saionji_kinmochi_dead }
+			}
+			allowed = {
+				original_tag = JAP
+			}
+			traits = { genro }
+		}
+	}
+
+	korekiyo_takahashi={
+		name ="高桥是清" #高橋 是清 1854年9月19日～1936年2月26日。日本の財政家、前大蔵大臣、農林大臣、商工大臣、内閣総理大臣。
+		portraits={ 
+			civilian={
+				small="GFX_idea_JAP_korekiyo_takahashi"
+			}
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = korekiyo_takahashi
+			allowed = {
+				original_tag = JAP
+			}
+			visible = {
+				NOT = { has_country_flag = assed_in_226 } #1936年2月26日反乱軍に殺害
+			}
+			traits = { economist }
+			ai_will_do = {
+			factor = 7 #guo
+			}
+		}
+	}
+
+	makoto_saito={
+		name ="斎藤実" #斎藤 実 1858年12月2日～1936年2月26日。前海軍大臣、朝鮮総督、内閣総理大臣、外務大臣、文部大臣。内大臣 1935年12月26日～1936年2月26日
+		portraits={ 
+			civilian={
+				small="GFX_idea_JAP_makoto_saito"
+			}
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = makoto_saito
+			allowed = {
+				original_tag = JAP
+			}
+			visible = {
+				NOT = { has_country_flag = assed_in_226 } #1936年2月26日反乱軍に殺害
+			}
+			traits = { elder_statesman }
+		}
+	}
+
+	makino_nobuaki={
+		name =makino_nobuaki #牧野 伸顕 1861年11月24日～1949年1月25日。前文部大臣、農商務大臣、外務大臣、宮内大臣、内大臣。  
+		portraits={
+			civilian={
+				small="GFX_idea_makino_nobuaki"
+			}
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = makino_nobuaki
+			available = {
+				NOT = { has_country_flag = purged_by_kodoha }
+			}
+			allowed = {
+				original_tag = JAP
+			}
+			traits = { staunch_monarchist }
+		}
+	}
+
+	suzuki_kisaburo={
+		name="铃木喜三郎" #鈴木 喜三郎 1867年11月6日～1940年6月24日。前検事総長、司法大臣、内務大臣。立憲政友会総裁 1932年5月～1937年2月
+		portraits={
+			civilian={
+				large="gfx/leaders/JAP/Portrait_Japan_Suzuki_Kisaburo.dds"
+				small="GFX_idea_suzuki_kisaburo"
+			}
+		}
+		country_leader={
+			ideology=conservatism
+			expire="1940.6.24"
+			id=-1
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = suzuki_kisaburo
+			allowed = {
+				original_tag = JAP
+			}
+            can_be_fired = no #change to decision
+			#allowed_to_remove = { #ken deleted due NSB not support
+			#	OR = {
+			#		custom_trigger_tooltip = {
+			#			tooltip = side_with_militarists_in_226
+			#			has_completed_focus = JAP_placate_military_focus
+			#			has_completed_focus = JAP_Sonno_Tokkan_focus
+			#		}
+			#		has_completed_focus = JAP_strengthen_civilian_government
+			#	}
+			#}
+			visible = {
+				has_idea = suzuki_kisaburo
+			}
+			ai_will_do = {
+				factor = 0
+			}
+			removal_cost = 50
+			traits = { opposition_bureaucrat }
+		}
+	}
+
+	kijuro_shidehara={
+		name =kijuro_shidehara #幣原 喜重郎 1872年9月13日～1951年3月10日、前外務大臣、内閣総理大臣臨時代理。内閣総理大臣 1945年10月9日～1946年5月22日
+		portraits={
+			civilian={
+				small="GFX_idea_kijuro_shidehara"
+			}
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = kijuro_shidehara
+			allowed = {
+				original_tag = "JAP"
+			}
+			available = {
+				has_completed_focus = JAP_strengthen_civilian_government
+				if = {
+					limit = { has_dlc = "Man the Guns" }
+					NOT = { has_autonomy_state = autonomy_supervised_state }
+				}
+			}
+			traits = { democratic_reformer }
+			on_add = {
+				#country_event = political.13
+			}
+			do_effect = {
+				NOT = {
+					has_government = democratic
+				}
+			}
+			ai_will_do = {
+				factor = 0
+			}
+		}
+	}
+
+	mineo_osumi={
+		name =mineo_osumi #大角 岑生 1876年5月1日～1941年2月5日。海軍大臣 1931年12月13日～1932年5月26日、1933年1月9日～1936年3月9日
+		portraits={
+			civilian={
+				small="GFX_idea_mineo_osumi"
+			}
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = mineo_osumi
+			allowed = {
+				original_tag = JAP
+			}
+			removal_cost = 50
+			visible = {
+				has_idea = suzuki_kisaburo
+			}
+            can_be_fired = no #change to decision
+			#allowed_to_remove = { #ken deleted due NSB not support
+			#	OR = {
+			#		custom_trigger_tooltip = {
+			#			tooltip = side_with_militarists_in_226
+			#			has_completed_focus = JAP_placate_military_focus
+			#			has_completed_focus = JAP_Sonno_Tokkan_focus
+			#		}
+			#		has_completed_focus = JAP_strengthen_civilian_government
+			#	}
+			#}
+			traits = { naval_expansionist }
+		}
+	}
+
+	hachiro_arita={
+		name =hachiro_arita #有田 八郎 1884年9月21日～1965年3月4日。外務大臣 1936年3月9日～4月2日、1938年10月29日～1939年8月30日、1940年1月16日～7月22日
+		portraits={
+			civilian={
+				small="GFX_idea_hachiro_arita"
+			}
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = hachiro_arita
+			available = {
+				NOT = {
+					is_in_faction_with = GER
+				}
+			}
+			allowed = {
+				original_tag = JAP
+			}
+			ai_will_do = {
+				factor = 0
+			}
+			#targeted_modifier = { #ken deleted due NSB not support targeted_modifier
+			#	tag = GER
+			#	opinion_gain_monthly_factor = -0.3
+			#}
+			#targeted_modifier = {
+			#	tag = USA
+			#	opinion_gain_monthly_factor = 0.075
+			#}			
+			traits = { compassionate_gentleman } #日独防共協定を締結したが、日独伊同盟の締結には最後まで反対した
+		}
+	}
+
+	mitsumasa_yonai={
+		name =mitsumasa_yonai #米内 光政 1880年3月2日～1948年4月20日。海軍大臣 1937年2月2日～1939年8月30日、1944年7月22日～1945年12月1日、内閣総理大臣 1940年1月16日～7月22日
+		portraits={
+			civilian={
+				large="gfx/leaders/JAP/Portrait_Mitsumasa_Yonai.dds"
+				small="GFX_idea_mitsumasa_yonai"
+			}
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = mitsumasa_yonai
+			traits = { silent_workhorse }
+			allowed = {
+				original_tag = JAP
+			}
+			ai_will_do = {
+				factor = 1000 #let AI use stronger people
+			}
+			available = {
+				NOT = {
+					has_country_leader = {
+						character = mitsumasa_yonai 
+						ruling_only = yes
+					}
+				}
+			}
+		}
+	}
+
+	takuo_godo={
+		name=JAP_takuo_godo #伍堂 卓雄 1877年9月23日～1956年4月7日。商工大臣 兼 鉄道大臣 1937年2月2日～6月4日、農林大臣 1939年8月30日～10月16日、商工大臣 1939年8月30日～1940年1月16日
+		portraits={
+			civilian={
+				small="GFX_idea_takuo_godo"
+			}
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = takuo_godo
+			allowed = {
+				original_tag = JAP
+			}
+			traits = {
+				war_industrialist 
+			}
+			ai_will_do = {
+				factor = 24.000 #guo
+			}
+		}
+	}
+
+	suehiko_shiono={
+		name ="塩野季彦" #塩野 季彦 1880年1月1日～1949年1月7日。司法大臣 1937年2月2日～1939年8月30日、逓信大臣 1939年1月5日～4月7日
+		portraits={
+			civilian={
+				small="GFX_idea_JAP_suehiko_shiono"
+			}
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = suehiko_shiono
+			allowed = { 
+				original_tag = JAP
+			}
+			traits = { appeaser }
+			ai_will_do = {
+			factor = 24 #guo
+			}
+		}
+	}
+
+	fumimaro_konoe={
+		name =fumimaro_konoe #近衞 文麿 1891年10月12日～1945年12月16日。内閣総理大臣 1937年6月4日～1939年1月5日、1940年7月22日～1941年10月18日、貴族院議長、枢密院議長、外務大臣、 農林大臣、司法大臣、国務大臣
+		portraits={
+			civilian={
+				large="gfx/leaders/JAP/Portrait_Japan_Fumimaro_Konoe.dds"
+				small="GFX_idea_fumimaro_konoe"
+			}
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = fumimaro_konoe
+			allowed = {
+				original_tag = JAP
+				FK_NOT_in_charge = yes
+			}
+			available = {
+				OR = {
+					has_government = neutrality
+					has_government = fascism
+					has_completed_focus = JAP_absorb_tohokai_focus
+				}
+				NOT = { has_country_flag = assed_by_tojo }
+				FK_NOT_in_charge = yes
+			}
+			traits = { popular_figurehead }
+			ai_will_do = {
+				factor = 5000
+				modifier = {
+					factor = 0
+					has_completed_focus = JAP_konoe_cabinet_focus
+				}
+				modifier = {
+					factor = 0
+					has_country_flag = konoe_cabinet_lol
+				}
+			}
+		}
+	}
+
+	hideki_tojo={
+		name =hideki_tojo #東條 英機 1884年12月30日～1948年12月23日。陸軍大臣 1940年7月22日～1944年7月22日、内閣総理大臣 1941年10月18日～1944年7月22日、内務大臣、外務大臣、文部大臣、商工大臣、軍需大臣
+		portraits={
+			civilian={
+				large="gfx/leaders/JAP/Portrait_Japan_Hideki_Tojo.dds"
+				small="GFX_idea_hideki_tojo"
+			}
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = hideki_tojo
+			allowed = {
+				original_tag = JAP
+				NOT = { has_country_flag = tojo_cabinet_flag }
+			}
+			available = {
+				OR = {
+					has_government = neutrality
+					has_government = fascism
+					has_completed_focus = JAP_work_with_toseiha_focus
+				}
+				has_completed_focus = JAP_second_konoe_cabinet_focus
+				NOT = { has_country_flag = purged_by_kodoha }
+				NOT = { has_country_flag = pro_axis_generals_purged }
+				NOT = {
+					has_country_leader = {
+						character = hideki_tojo
+						ruling_only = yes 
+					}
+				}				
+			}
+			traits = { prince_of_terror }
+			ai_will_do = {
+				base = 0
+				modifier = {
+					add = 9000
+					has_completed_focus = JAP_second_konoe_cabinet_focus
+				}
+			}
+		}
+	}
+
+	okinori_kaya={
+		name ="贺屋兴宣" #賀屋 興宣 1889年1月30日～1977年4月28日。大蔵大臣 1937年6月4日～1938年5月26日、大蔵大臣 1941年10月18日～1944年2月19日
+		portraits={
+			civilian={
+				small="GFX_idea_JAP_okinori_kaya"
+			}
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = okinori_kaya		
+			allowed = { 
+				original_tag = JAP
+			}
+			available = {
+				NOT = { has_country_flag = pro_axis_generals_purged }
+			}				
+			traits = { financial_expert }
+			ai_will_do = {
+			factor = 24 #guo
+			}
+		}
+	}
+
+	koichi_kido={
+		name ="木户幸一" #木戸 幸一 1889年7月18日～1977年4月6日。文部大臣 1937年10月22日～1938年5月26日、厚生大臣 1938年1月11日～1939年1月5日、内務大臣 1939年1月5日～8月30日、内大臣 1940年6月1日～1945年11月24日
+		portraits={
+			civilian={
+				small="GFX_idea_JAP_koichi_kido"
+			}
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = koichi_kido
+			allowed = { 
+				original_tag = JAP
+			}
+			available = {
+				NOT = { has_country_flag = pro_axis_generals_purged }
+			}				
+			traits = { backroom_backstabber } #内大臣
+		}
+	}
+
+	yosuke_matsuoka={
+		name ="松冈洋右" #松岡 洋右 1880年3月4日～1946年6月27日。拓務大臣 1940年7月22日～9月28日、外務大臣 1940年7月22日～1941年7月18日
+		portraits={
+			civilian={
+				small="GFX_idea_JAP_yosuke_matsuoka"
+			}
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = yosuke_matsuoka
+			allowed = { 
+				original_tag = JAP
+			}
+			available = {			
+                has_completed_focus = JAP_second_konoe_cabinet_focus
+				NOT = { has_country_flag = pro_axis_generals_purged }							
+			}
+			traits = { the_foreign_connection }
+			ai_will_do = {
+			factor = 24 #guo
+			}
+		}
+	}
+
+	nobusuke_kishi={ 
+		name =nobusuke_kishi #岸 信介 1896年11月13日～1987年8月7日。商工大臣 1941年10月18日～1943年10月8日、国務大臣 1943年10月8日～1944年7月22日	
+		portraits={
+			civilian={
+				small="GFX_idea_JAP_nobusuke_kishi"
+			}
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = nobusuke_kishi
+			allowed = {
+				original_tag = JAP
+			}
+			available = {
+                has_completed_focus = tojo_cabinet_focus                                                                                              
+			}
+			traits = { devil_of_showa } 
+			ai_will_do = {
+			factor = 24 #guo
+			}
+		}
+	}
+
+	shigemitsu_mamoru={ 
+		name ="重光葵" #重光 葵 1887年7月29日～1957年1月26日。外務大臣 1943年4月20日～1945年4月7日	
+		portraits={
+			civilian={
+				small="GFX_idea_JAP_shigemitsu_mamoru"
+			}
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = shigemitsu_mamoru
+			allowed = {
+				original_tag = JAP
+			}
+			available = { 
+                has_completed_focus = tojo_cabinet_focus  
+				NOT = { has_country_flag = pro_axis_generals_purged }								
+			}
+			traits = { smooth_talking_charmer } 
+		}
+	}
+
+	genki_abe={
+		name =genki_abe #安倍 源基 1894年2月14日～1989年10月6日、警視総監 1937年12月24日～1939年1月11日、1940年1月19日～12月23日。内務大臣 1945年4月7日～1945年8月17日
+		portraits={
+			civilian={
+				small="GFX_idea_genki_abe"
+			}
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = genki_abe
+			allowed = { 
+				has_dlc = "La Resistance"
+				original_tag = JAP
+			}			
+			available = {
+				has_intelligence_agency = yes
+				NOT = { has_country_flag = pro_axis_generals_purged }
+			}
+			traits = { head_of_intelligence }
+
+			ai_will_do = {
+				factor = 24 #guo
+				modifier = {
+					has_intelligence_agency = no
+					factor = 0
+				}
+			}
+		}
+	}
+
+	chiune_sugihara={ 
+		name ="杉原千亩" #杉原 千畝 1900年1月1日～1986年7月31日、 外交官。「東洋のシンドラー」（日本的辛德勒）、諸国民の中の正義の人（國際義人）  
+		portraits={
+			civilian={
+				small="GFX_idea_chiune_sugihara"
+			}
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = chiune_sugihara
+			allowed = {
+				original_tag = JAP
+			}
+			available = {			    
+				NOT = { has_government = fascism }
+				has_completed_focus = JAP_anti_fascist_diplomacy_focus
+			}			
+			traits = { anti_axis_diplomat } #東洋のシンドラー」（日本的辛德勒）
+		}
+	}
+
+	hiroshi_oshima={ 
+		name =hiroshi_oshima #大島 浩 1886年4月19日～1975年6月6日、 外交官。駐独日本大使、日独伊三国同盟締結の立役者  
+		portraits={
+			civilian={
+				small="GFX_idea_hiroshi_oshima"
+			}
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = hiroshi_oshima
+			allowed = {
+				original_tag = JAP
+			}
+            available = {
+			    has_government = fascism
+				NOT = { has_country_flag = pro_axis_generals_purged }
+			}	
+			traits = { nazi_sympathizer }
+		}
+	}
+
+	ikki_kita={
+		name =ikki_kita #北 一輝 1883年4月3日～1937年8月19日。国家社会主義者、皇道派青年将校の理論的指導者、軍法会議で死刑判決を受けて刑死した。
+		portraits={
+			civilian={
+				small="GFX_idea_ikki_kita"
+			}
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = ikki_kita
+			allowed = {
+				original_tag = JAP
+			}
+			available = {
+				OR = {
+					has_government = fascism
+					has_government = neutrality	
+					has_completed_focus = JAP_absorb_tohokai_focus				
+				}
+				NOT = { has_country_flag = purged_by_terauchi }
+			}
+			traits = { ideological_crusader pan_asianist_ikki_kita }
+		}
+	}
+
+	kingoro_hashimoto={
+		name =kingoro_hashimoto #橋本 欣五郎 1890年2月19日～1957年6月29日、右翼活動家。大政翼賛会常任総務 1940年10月～1941年3月
+		portraits={
+			civilian={
+				small="GFX_idea_kingoro_hashimoto"
+			}
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = kingoro_hashimoto
+			allowed = {
+				original_tag = "JAP"
+			}
+			traits = { fascist_demagogue }
+			visible = {
+				NOT = {
+					has_government = communism
+				}
+				NOT = {
+					has_completed_focus = JAP_socialism_with_christian_charateristics_focus
+				}
+			}
+			available = {	
+				OR = {
+					has_government = neutrality
+					has_government = fascism
+					has_completed_focus = JAP_work_with_toseiha_focus
+				}			
+				NOT = { has_country_flag = pro_axis_generals_purged }
+			}
+			on_add = {
+				#country_event = political.7
+			}
+			do_effect = {
+				NOT = {
+					has_government = fascism
+				}
+			}
+			ai_will_do = {
+				factor = 0
+			}
+		}
+	}
+
+	tetsu_katayama={
+		name="片山哲" #片山 哲 1887年7月28日～1978年5月30日。内閣総理大臣 1947年5月24日～1948年3月10日、日本社会党委員長 1946年9月28日～1950年1月16日
+		portraits={
+			civilian={
+				large="GFX_Portrait_tetsu_katayama"
+				small="GFX_idea_JAP_tetsu_katayama"
+			}
+		}
+		country_leader={
+			ideology=liberalism
+			expire="1978.5.30"
+			id=-1
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = katayama_testu
+			allowed = { 
+				original_tag = JAP
+			}			
+			available = {
+				has_completed_focus = JAP_socialism_with_christian_charateristics_focus
+			}
+			ai_will_do = {
+				factor = 10
+			}
+			traits = { prominent_lawyer christian_socialist }
+		}
+	}
+
+	mizutani_chozaburo={
+		name =mizutani_chozaburo #水谷 長三郎 1897年11月4日～1960年12月17日、労働運動家。商工大臣 1947年6月1日～1948年10月15日
+		portraits={
+			civilian={
+				small="GFX_idea_mizutani_chozaburo"
+			}
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = mizutani_chozaburo
+			allowed = { 
+				original_tag = JAP
+			}
+			
+			available = {
+				has_completed_focus = JAP_socialism_with_christian_charateristics_focus
+			}
+			ai_will_do = {
+				factor = 10
+			}
+			traits = { captain_of_industry } 
+		}
+	}
+
+	aso_hisashi={
+		name =aso_hisashi #麻生 久 1891年5月24日～1940年9月6日、労働運動家。社会大衆党書記長 1932年
+		portraits={
+			civilian={
+				small="GFX_idea_aso_hisashi"
+			}
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = aso_hisashi
+			allowed = {
+				original_tag = "JAP"
+			}
+			available = {
+				has_completed_focus = JAP_promote_army_pamphlet_focus
+			}
+			traits = { socialist_idealist }
+			on_add = {
+				#country_event = rcmpolitical.30
+			}
+			do_effect = {
+				NOT = {
+					has_government = n_socialism
+				}
+			}
+			ai_will_do = {
+				factor = 0
+                modifier = {
+					add = 600
+					has_completed_focus = JAP_left_reform_focus
+				}	
+			}
+		}
+	}
+
+	suzuki_bunji={
+		name =suzuki_bunji #鈴木 文治 1885年9月4日～1946年3月12日、労働運動家、友愛会創始者
+		portraits={
+			civilian={
+				small="GFX_idea_suzuki_bunji"
+			}
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = suzuki_bunji
+			allowed = { 
+				original_tag = JAP
+			}
+			available = {
+				has_completed_focus = JAP_socialism_with_christian_charateristics_focus
+			}
+			traits = { dockyard_union_boss christian_socialist }
+
+			ai_will_do = {
+				factor = 10
+			}
+		}
+	}
+
+	sanzo_nosaka={
+		name =sanzo_nosaka #野坂 参三 1892年3月30日～1993年11月14日、共産主義者
+		portraits={
+			civilian={
+				small="GFX_idea_sanzo_nosaka"
+			}
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = sanzo_nosaka
+			allowed = {
+				original_tag = "JAP"
+			}
+			available = {
+				if = {
+					limit = { has_dlc = "Man the Guns" }
+					NOT = { has_autonomy_state = autonomy_supervised_state }
+				}
+				has_completed_focus = JAP_Release_Kyuichi_Tokuda_focus
+			}
+			traits = { communist_revolutionary }
+			on_add = {
+				#country_event = political.1
+			}
+			do_effect = {
+				NOT = {
+					has_government = communism
+				}
+			}
+			ai_will_do = {
+				factor = 0
+			}
+		}
+	}
+
+	############################## ARMY ##############################
+
+	kanin_kotohito={
+		name =kanin_kotohito #閑院宮載仁親王、陸士旧6期、元帥陸軍大将（1919年12月12日）。第1師団長（1906年2月3日～1911年9月6日）、参謀総長（1931年12月23日～1940年10月3日）、1945年5月20日薨去
+		portraits={
+			army={
+				small="GFX_idea_kanin_kotohito"
+			}
+		}
+		advisor={
+			slot = army_chief
+			idea_token = kanin_kotohito
+			allowed = {
+				original_tag = JAP
+			}
+			available = {
+				NOT = { has_country_flag = prince_purged_by_kodoha }
+				NOT = { has_country_flag = house_arrest_prince }
+                NOT = { has_country_flag = kanin_kotohito_retired }
+			}			
+			traits = { army_chief_old_guard } #参謀総長（1931年12月23日～1940年10月3日）
+			removal_cost = 50						
+		}
+	}
+
+	jotaro_watanabe={
+		name =jotaro_watanabe #渡辺 錠太郎、陸士8期歩兵、陸軍大将（1931年8月1日）。陸軍航空本部（1929年3月14日～1930年6月2日）、台湾軍司令官（1930年6月3日～1931年8月1日）、教育総監（1935年7月16日～1936年2月26日）、1936年2月26日反乱軍に殺害
+		portraits={
+			army={
+				small="GFX_idea_jotaro_watanabe"
+			}
+		}
+		advisor={
+			slot = army_chief
+			idea_token = jotaro_watanabe
+		 	allowed = {
+		 		original_tag = JAP
+		 	}
+			available = {
+				NOT = { has_country_flag = assed_in_226 } #1936年2月26日反乱軍に殺害
+			}			
+			traits = { army_chief_drill_2 } #教育総監（1935年7月16日～1936年2月26日）
+			cost = 100				
+		}
+	}
+
+	shigeru_honjo={
+		name=JAP_shigeru_honjo #本庄 繁、陸士9期歩兵、陸軍大将（1933年6月19日）。関東軍司令官（1931年8月1日～1932年8月8日）、侍従武官長（1933年4月6日～1936年3月23日）、1936年4月予備役、1945年11月20日割腹自決
+		portraits={
+			army={
+				large="gfx/leaders/JAP/Portrait_Japan_Shigeru_Honjo.dds"
+				small="gfx/interface/ideas/idea_JAP_shigeru_honjo.dds"
+			}
+		}
+		field_marshal={
+			traits={ career_officer infantry_officer old_guard fast_planner JAP_samurai_lineage IJA_General } #関東軍司令官（1931年8月1日～1932年8月8日）
+			skill=3
+			attack_skill=2
+			defense_skill=2
+			planning_skill=4
+			logistics_skill=3
+		}
+	}
+
+	sadao_araki={
+		name =sadao_araki #荒木 貞夫、陸士9期歩兵、陸軍大将（1933年10月20日）。陸軍大臣（1931年12月13日～1934年1月23日）、1936年3月予備役、1966年11月2日歿
+		portraits={
+			army={
+				large="gfx/leaders/JAP/Portrait_Japan_Sadao_Araki.dds"
+				small="gfx/interface/ideas/idea_JAP_sadao_araki.dds"
+			}
+		}
+		advisor={
+			slot = army_chief
+			idea_token = sadao_araki
+			allowed = {
+				original_tag = JAP
+			}
+			available = {
+				has_global_flag = kodoha_won
+				NOT = { has_country_flag = forced_to_retire_by_terauchi } #1936年3月予備役
+			}		
+			traits = { army_chief_morale_2 }
+			cost = 100				
+			ai_will_do = {
+				base = 0
+				modifier = {
+					add = 200
+					has_global_flag = kodoha_won
+				}
+			}			
+		}
+		field_marshal={
+			traits={ career_officer infantry_officer old_guard inspirational_leader IJA_General } #陸軍大臣（1931年12月13日～1934年1月23日）
+			skill=3
+			attack_skill=2
+			defense_skill=2
+			planning_skill=3
+			logistics_skill=4
+		}
+	}
+
+	iwane_matsui={
+		name=JAP_iwane_matsui #松井 石根、陸士9期歩兵、陸軍大将（1933年10月20日）。台湾軍司令官（1933年8月1日～1934年8月1日）、1935年8月予備役、上海派遣軍司令官（1937年8月15日～12月1日）、中支那方面軍司令官（1937年10月30日～1938年3月5日）、1938年2月再び予備役、1948年12月23日刑死
+		portraits={
+			army={
+				large="gfx/leaders/JAP/Portrait_Japan_Iwane_Matsui.dds"
+				small="gfx/interface/ideas/idea_JAP_iwane_matsui.dds"
+			}
+		}
+		field_marshal={
+			traits={ career_officer infantry_officer old_guard aggressive_assaulter IJA_General } #上海派遣軍司令官（1937年8月15日～12月1日）、中支那方面軍司令官（1937年10月30日～1938年3月5日）
+			skill=3
+			attack_skill=3
+			defense_skill=2
+			planning_skill=3
+			logistics_skill=3
+			visible = { has_country_flag = recall_iwane_matsui }
+		}
+	}
+
+	yoshiyuki_kawashima={
+		name =yoshiyuki_kawashima #川島 義之、陸士10期歩兵、陸軍大将（1934年3月5日）。朝鮮軍司令官（1932年5月26日～1934年8月1日）、陸軍大臣（1935年9月5日～1936年3月9日）、1936年3月予備役、1945年9月8日歿
+		portraits={
+			army={
+				small="GFX_idea_yoshiyuki_kawashima"
+			}
+		}
+		advisor={
+			slot = army_chief
+			idea_token = yoshiyuki_kawashima
+			allowed = {
+				original_tag = JAP
+			}
+			available = {
+				NOT = { has_country_flag = forced_to_retire_by_terauchi } #1936年3月予備役
+			}
+			traits = { army_chief_organizational_2 } #陸軍大臣（1935年9月5日～1936年3月9日）
+			cost = 100				
+		}
+	}
+
+	kenkichi_ueda={
+		name=JAP_kenkichi_ueda #植田 謙吉、陸士10期騎兵、陸軍大将（1934年11月28日）。朝鮮軍司令官（1934年8月1日～1935年12月2日）、関東軍司令官（1936年3月6日～1939年9月7日）、1939年12月予備役。1962年9月11日歿
+		portraits={
+			army={
+				large="gfx/leaders/JAP/Portrait_Japan_Kenkichi_Ueda.dds"
+				small="gfx/interface/ideas/idea_JAP_kenkichi_ueda.dds"
+			}
+		}
+		advisor={
+			slot = high_command
+			idea_token = kenkichi_ueda
+			ledger = army						
+			allowed = {
+				original_tag = JAP
+			}						
+			traits = { army_cavalry_2 } 
+			cost = 100				
+		}
+		field_marshal={
+			traits={ winter_specialist career_officer cavalry_officer old_guard cavalry_leader JAP_samurai_lineage IJA_General }
+			skill=3
+			attack_skill=3
+			defense_skill=3
+			planning_skill=3
+			logistics_skill=3
+		}
+	}
+
+	hisaichi_terauchi={
+		name =hisaichi_terauchi #寺内 寿一、陸士11期歩兵、陸軍大将（1935年10月30日）、元帥陸軍大将（1943年6月21日）。台湾軍司令官（1934年8月1日～1935年12月2日）、陸軍大臣（1936年3月9日～1937年2月2日）、教育総監（1937年2月9日～1937年8月26日）、北支那方面軍司令官（1937年8月26日～1938年12月9日）、南方軍総司令官（1941年11月6日～1946年6月12日）、1946年6月12日獄死
+		portraits={
+			army={
+				large="gfx/leaders/JAP/Portrait_Japan_Hisaichi_Terauchi.dds"
+				small="GFX_idea_JAP_hisaichi_terauchi"				
+			}
+		}
+		advisor={
+			slot = army_chief
+			idea_token = hisaichi_terauchi
+			allowed = {
+				original_tag = JAP
+			}			
+			available = {
+				OR = {
+					has_government = neutrality
+					has_government = fascism
+					has_completed_focus = JAP_work_with_toseiha_focus
+				}
+				has_completed_focus = JAP_placate_military_focus
+				NOT = { has_country_flag = purged_by_kodoha }
+				NOT = { has_country_flag = pro_axis_generals_purged }
+			}
+			traits = { army_chief_offensive_3 } #陸軍大臣（1936年3月9日～1937年2月2日）、教育総監（1937年2月9日～1937年8月26日）
+			cost = 200				
+			ai_will_do = {
+			    factor = 4500 #guo
+				modifier = {
+					factor = 0
+					has_completed_focus = JAP_strengthen_civilian_government
+				}
+				modifier = {
+					factor = 0
+					has_completed_focus = JAP_Sonno_Tokkan_focus
+				}
+				modifier = {
+					factor = 0
+					has_completed_focus = JAP_purge_the_kodoha_faction
+				}
+			}			
+		}
+		field_marshal={ #guo
+			traits={ brilliant_strategist  war_hero career_officer infantry_officer politically_connected offensive_doctrine IJA_General organizer } #北支那方面軍司令官（1937年8月26日～1938年12月9日）、南方軍総司令官（1941年11月6日～1946年6月12日）
+			skill=4
+			attack_skill=3 #5
+			defense_skill=4
+			planning_skill=3
+			logistics_skill=4
+		}
+	}
+
+	hajime_sugiyama={
+		name =hajime_sugiyama #杉山 元、陸士12期歩兵、陸軍中将（1930年8月1日）、陸軍大将（1936年11月2日）、元帥陸軍大将（1943年6月21日）。教育総監（1936年8月1日～1937年2月9日）、陸軍大臣（1937年2月9日～1938年6月3日）、北支那方面軍司令官（1938年12月9日～1939年9月12日）、駐蒙軍司令官（1939年8月31日～9月12日）、参謀総長（1940年10月3日～1944年2月21日）、教育総監（1944年7月18日～7月22日）、陸軍大臣（1944年7月22日～1945年4月7日）、第1総軍司令官（1945年4月7日～9月12日）、1945年9月12日拳銃自決
+		portraits={
+			army={
+				large="gfx/leaders/JAP/Portrait_Hajime_Sugiyama.dds"
+				small="GFX_idea_hajime_sugiyama"
+			}
+		}
+		advisor={
+			slot = army_chief
+			idea_token = hajime_sugiyama
+			allowed = {
+				original_tag = JAP
+			}
+			available = { #MODDED
+			    is_field_marshal = yes
+				OR = {
+					has_government = neutrality
+					has_government = fascism
+					has_completed_focus = JAP_work_with_toseiha_focus
+				}				
+				has_completed_focus = JAP_army_expansion
+				NOT = { has_country_flag = purged_by_kodoha }
+				NOT = { has_country_flag = pro_axis_generals_purged }
+			}
+			traits = { army_chief_planning_2 } #教育総監（1936年8月1日～1937年2月9日）、陸軍大臣（1937年2月9日～1938年6月3日）、参謀総長（1940年10月3日～1944年2月21日）			
+			cost = 100				
+			ai_will_do = {
+				base = 0
+				modifier = {
+					add = 100
+					has_country_flag = kanin_kotohito_retired
+				}
+			}
+		}
+		corps_commander={
+			traits={ career_officer  infantry_officer inflexible_strategist politically_connected IJA_Lieut_General }
+			skill=3
+			attack_skill=2
+			defense_skill=2 #3
+			planning_skill=3
+			logistics_skill=3 #4
+			legacy_id=2902
+		}
+	}
+	
+	#	kuniaki_koiso={
+#		name=JAP_kuniaki_koiso #小磯 國昭、陸士12期歩兵、陸軍少将（1926年12月1日）、陸軍中将（1931年8月1日）、陸軍大将（1937年7月21日）。関東軍参謀長（1932年8月8日～1934年3月5日）、第5師団長（1934年3月5日～1935年12月2日）、朝鮮軍司令官（1935年12月2日～1938年7月15日）、1938年7月予備役、朝鮮総督（1942年5月29日～1944年7月22日）、内閣総理大臣（1944年7月22日～1945年4月7日）、1950年11月3日獄死
+#		portraits={
+#			army={
+#				large="gfx/leaders/JAP/Portrait_Japan_Kuniaki_Koiso.dds"
+#				small="gfx/interface/ideas/idea_JAP_kuniaki_koiso.dds"
+#			}
+#		}
+#		corps_commander={
+#			traits={ politically_connected IJA_Lieut_General }
+#			skill=3
+#			attack_skill=2
+#			defense_skill=2
+#			planning_skill=3
+#			logistics_skill=3
+#			visible = { 
+#				NOT = {
+#					has_country_leader = {
+#						name = "Kuniaki Koiso"
+#						ruling_only = yes
+#					}
+#				}
+#			}
+#		}
+#	}
+
+	shunroku_hata={
+		name =shunroku_hata #畑 俊六、陸士12期砲兵、陸軍中将（1931年8月1日）、陸軍大将（1937年11月1日）、元帥陸軍大将（1944年6月2日）。台湾軍司令官（1936年8月1日～1937年8月2日）、教育総監（1937年8月26日～1938年2月14日）、中支那派遣軍司令官（1938年2月14日～12月15日）、侍従武官長（1939年5月25日～1939年8月30日）、陸軍大臣（1939年8月30日～1940年7月22日）、支那派遣軍総司令官（1941年3月1日～1944年11月23日）、教育総監（1944年11月23日～1945年4月7日）、第2総軍司令官（1945年4月7日～10月15日）、1962年5月10日歿
+		portraits={
+			army={
+				large="gfx/leaders/JAP/Portrait_Japan_Shunroku_Hata.dds"
+				small="GFX_idea_shunroku_hata"
+			}
+		}
+		advisor={
+			slot = army_chief
+			idea_token = shunroku_hata					
+			allowed = {
+				original_tag = JAP
+			}
+			available = {
+                is_field_marshal = yes
+				NOT = { has_country_flag = pro_axis_generals_purged }				
+			}						
+			traits = { army_chief_drill_2 } #教育総監（1937年8月26日～1938年2月14日）、陸軍大臣（1939年8月30日～1940年7月22日）  		
+			cost = 100
+		}
+		corps_commander={
+			traits={ brilliant_strategist   organizer war_hero career_officer artillery_officer IJA_Lieut_General } #支那派遣軍総司令官（1941年3月1日～1944年11月23日）
+			skill=4
+			attack_skill=4
+			defense_skill=3
+			planning_skill=3
+			logistics_skill=3
+		}
+	}
+
+	kohei_kashii={
+		name =kohei_kashii #香椎 浩平、陸士12期歩兵、陸軍少将（1926年3月2日）、陸軍中将（1931年8月1日）。東京警備司令官（1935年12月2日～1936年4月2日）、1936年7月予備役、1954年12月3日歿 
+		portraits={
+			army={
+				small="GFX_idea_kohei_kashii"
+			}
+		}
+		advisor={
+			slot = high_command
+			idea_token = kohei_kashii
+			allowed = {
+				original_tag = JAP
+			}
+			available = {
+				NOT = { has_country_flag = forced_to_retire_by_terauchi } #1936年7月予備役
+			}
+			traits = { army_concealment_2 } #東京警備司令官（1935年12月2日～1936年4月2日）
+			cost = 100					
+		}
+	}
+
+	kotaro_nakamura={
+		name ="中村孝太郎" #中村 孝太郎、陸士13期歩兵、陸軍少将（1926年7月26日）、陸軍中将（1932年4月11日）、陸軍大将（1938年6月30日）。陸軍大臣（1937年2月2日～2月9日）、東部防衛司令官（1937年8月2日～1938年6月23日）、朝鮮軍司令官（1938年7月15日～1941年7月7日）、東部軍司令官（1941年12月24日～1943年5月1日）、1943年5月予備役。1947年8月29日歿 
+		portraits={
+			army={
+				large="gfx/leaders/JAP/Portrait_Japan_Kotaro_Nakamura.dds"
+			}
+		}
+		corps_commander={
+			traits={ career_officer infantry_officer  IJA_Lieut_General }
+			skill=3
+			attack_skill=2
+			defense_skill=3
+			planning_skill=2
+			logistics_skill=3
+		}
+	}
+
+	motoo_furusho={
+		name ="古荘干郎" #古荘 幹郎、陸士14期歩兵、陸軍少将（1928年8月10日）、陸軍中将（1933年3月18日）、陸軍大将（1938年6月30日）。陸軍航空本部（1936年8月1日～1937年8月2日）、台湾軍司令官（1937年8月2日～1938年9月8日）、第5軍司令官（1937年12月8日～1938年12月15日）、第21軍司令官（1938年9月8日～11月9日）、1940年7月21日歿
+		portraits={
+			army={
+				large="gfx/leaders/JAP/Portrait_Japan_Moto_Furusho.dds"
+			}
+		}
+		corps_commander={
+			traits={ career_officer infantry_officer  IJA_Lieut_General }
+			skill=3
+			attack_skill=3
+			defense_skill=2
+			planning_skill=3
+			logistics_skill=2
+		}
+	}
+																			
+	toshizo_nishio={
+		name=JAP_toshizo_nishio #西尾 寿造、陸士14期歩兵、陸軍少将（1929年8月1日）、陸軍中将（1933年8月1日）、陸軍大将（1939年8月1日）。関東軍参謀長（1934年3月5日～1936年3月23日）、第2軍司令官（1937年8月26日～1938年4月30日）、教育総監（1938年4月30日～1939年9月12日）、支那派遣軍総司令官（1939年9月12日～1941年3月1日）、第13軍司令官（1939年9月12日～10月26日）、1943年5月3日予備役、1960年10月26日歿
+		portraits={
+			army={
+				large="gfx/leaders/JAP/Portrait_Japan_Toshizo_Nishio.dds"
+				small="gfx/interface/ideas/idea_JAP_toshizo_nishio.dds"
+			}
+		}
+		advisor={
+			slot = high_command
+			idea_token = toshizo_nishio
+			ledger = army						
+			allowed = {
+				original_tag = JAP
+			}		
+            ai_will_do = {
+				factor = 50 #let AI use stronger people
+			}				
+			traits = { army_entrenchment_3 } #教育総監（1938年4月30日～1939年9月12日）
+			cost = 200				
+			ai_will_do = {
+			factor = 150 #guo
+			}
+		}
+		corps_commander={
+			traits={ brilliant_strategist rising_young_officer  organizer career_officer infantry_officer IJA_Lieut_General} #支那派遣軍総司令官（1939年9月12日～1941年3月1日） 
+			skill=4
+			attack_skill=3
+			defense_skill=3
+			planning_skill=3
+			logistics_skill=4
+		}
+	}
+
+	otozo_yamada={
+		name=JAP_otozo_yamada #山田 乙三、陸士14期騎兵、陸軍少将（1930年8月1日）、陸軍中将（1934年8月1日）、陸軍大将（1940年8月1日）。第3軍司令官（1938年1月8日～12月10日）、中支那派遣軍司令官（1938年12月15日～1939年9月23日）、教育総監（1939年10月14日～1944年7月18日）、防衛総司令官（1941年7月7日～12月9日）、関東軍総司令官（1944年7月18日～1945年8月11日）、1965年7月18日歿
+		portraits={
+			army={
+				large="gfx/leaders/JAP/Portrait_Japan_Otozo_Yamada.dds"
+				small="gfx/interface/ideas/idea_JAP_otozo_yamada.dds"
+			}
+		}
+		advisor={
+			slot = high_command
+			idea_token = otozo_yamada
+			ledger = army						
+			allowed = {
+				original_tag = JAP
+			}
+			available = {
+				NOT = { has_country_flag = pro_axis_generals_purged }
+			}						
+			traits = { army_CombinedArms_2 } #教育総監（1939年10月14日～1944年7月18日）、防衛総司令官（1941年7月7日～12月9日） 	
+			cost = 100								
+		}
+		corps_commander={
+			traits={ career_officer cavalry_officer JAP_samurai_lineage IJA_Lieut_General }
+			skill=3
+			attack_skill=2
+			defense_skill=3
+			planning_skill=3
+			logistics_skill=3
+		}
+	}
+
+	yoshijiro_umezu={
+		name =yoshijiro_umezu #梅津 美治郎、陸士15期歩兵、陸軍少将（1930年8月1日）、陸軍中将（1934年8月1日）、陸軍大将（1940年8月1日）。第1軍司令官（1938年5月30日～1939年9月7日）、関東軍司令官、総司令官（1939年9月7日～1944年7月18日）、参謀総長（1944年7月18日～1945年11月30日）、第1総軍司令官（1945年9月23日～10月1日）、1945年11月30日予備役。1949年1月8日獄死
+		portraits={
+			army={
+				large="gfx/leaders/JAP/Portrait_Japan_Yoshijiro_Umezu.dds"
+				small="gfx/interface/ideas/idea_JAP_yoshijiro_umezu.dds"
+			}
+		}
+		advisor={
+			slot = army_chief
+			idea_token = yoshijiro_umezu
+			ledger = army	
+			allowed = {
+				original_tag = JAP
+			}
+			available = {
+                    is_field_marshal = yes	
+				has_country_flag = kanin_kotohito_retired
+				NOT = { has_country_flag = purged_by_kodoha }
+				NOT = { has_country_flag = pro_axis_generals_purged }
+			}
+			traits = { army_chief_defensive_2  } #参謀総長（1944年7月18日～1945年11月30日）
+			cost = 100			
+		}
+		corps_commander={
+			traits={  career_officer infantry_officer  organizer JAP_samurai_lineage IJA_Lieut_General } #関東軍司令官、総司令官（1939年9月7日～1944年7月18日）
+			skill=3
+			attack_skill=4
+			defense_skill=3
+			planning_skill=4
+			logistics_skill=3
+		}
+	}
+
+	hisao_tani={
+		name="谷寿夫" #谷 寿夫、陸士15期歩兵、陸軍少将（1930年8月1日）、陸軍中将（1934年8月1日）。第6師団長（1935年12月2日～1937年12月28日）、中部防衛司令官（1937年12月28日～1939年8月1日）、1939年9月2日予備役、1947年4月26日刑死
+		portraits={
+			army={
+				large="gfx/leaders/JAP/Portrait_Japan_Hisao_Tani.dds"
+			}
+		}
+		corps_commander={
+			traits={ career_officer infantry_officer old_guard IJA_Lieut_General }
+			skill=2
+			attack_skill=3
+			defense_skill=2
+			planning_skill=2
+			logistics_skill=2
+		}
+	}
+
+	shigeru_hasunuma={
+		name="莲沼蕃" #蓮沼 蕃、陸士15期騎兵、陸軍少将（1931年8月1日）、陸軍中将（1935年8月1日）、陸軍大将（1940年12月2日）。騎兵監（1935年8月1日～1936年12月1日）、中部防衛司令官（1937年8月26日～12月28日）、駐蒙兵団司令官（1937年12月28日～1938年7月4日）、駐蒙軍司令官（1938年7月4日～1939年8月31日）、侍従武官長（1939年8月31日～1945年11月30日）、1954年2月20日歿
+		portraits={
+			army={
+				large="gfx/leaders/JAP/Portrait_Japan_Shigeru_Hasunuma.dds"
+			}
+		}
+		corps_commander={
+			traits={ career_officer cavalry_officer cavalry_leader IJA_Lieut_General }
+			skill=3
+			attack_skill=2
+			defense_skill=3
+			planning_skill=3
+			logistics_skill=2
+		}
+	}
+
+	kesago_nakajima={
+		name="中岛今朝吾" #中島 今朝吾、陸士15期砲兵、陸軍少将（1932年4月11日）、陸軍中将（1936年3月7日）。第16師団長（1937年8月2日～1938年7月15日）、第4軍司令官（1938年7月15日～1939年8月1日）、1939年9月30日予備役、1945年10月28日歿
+		portraits={
+			army={
+				large="gfx/leaders/JAP/Portrait_Japan_Kesago_Nakajima.dds"
+			}
+		}
+		corps_commander={
+			traits={ career_officer artillery_officer old_guard IJA_Lieut_General }
+			skill=2
+			attack_skill=3
+			defense_skill=2
+			planning_skill=2
+			logistics_skill=2
+		}
+	}
+
+	hayao_tada={
+		name="多田骏" #多田 駿、陸士15期砲兵、陸軍少将（1932年8月8日）、陸軍中将（1936年4月28日）、陸軍大将（1941年7月7日）。第3軍司令官（1938年12月10日～1939年9月12日）、北支那方面軍司令官（1939年9月12日～1941年7月7日）、1941年9月2日予備役、1948年12月18日歿
+		portraits={
+			army={
+				large="gfx/leaders/JAP/Portrait_Japan_Hayao_Tada.dds"
+				small="GFX_idea_hayao_tada"
+			}
+		}
+		advisor={
+			slot = high_command
+			idea_token = hayao_tada
+			ledger = army						
+			allowed = {
+				original_tag = JAP
+			}						
+			traits = { army_artillery_2 }  	
+			cost = 100			
+		}
+		corps_commander={
+			traits={ career_officer artillery_officer  IJA_Lieut_General }
+			skill=3
+			attack_skill=3
+			defense_skill=3
+			planning_skill=3
+			logistics_skill=3
+		}
+	}
+
+	yasuji_okamura={
+		name =yasuji_okamura #岡村 寧次、陸士16期歩兵、陸軍少将（1932年4月11日）、陸軍中将（1936年3月7日）、陸軍大将（1941年4月28日）。第11軍司令官（1938年6月23日～1940年3月9日）、北支那方面軍司令官（1941年7月7日～1944年8月25日）、第6方面軍司令官（1944年8月25日～11月22日）、支那派遣軍総司令官（1944年11月23日～1945年9月2日）、1966年9月2日歿
+		portraits={
+			army={				
+				large="gfx/leaders/JAP/Portrait_Japan_Yasuji_Okamura.dds"
+				small="GFX_idea_yasuji_okamura"
+			}
+		}
+		advisor={
+			slot = theorist
+			idea_token = yasuji_okamura
+			ledger = army
+			allowed = {
+				original_tag = JAP
+			}
+			traits = { superior_firepower_expert } 			
+			cost = 150
+			ai_will_do = {
+				base = 1
+				modifier = {
+					factor = 0
+					is_historical_focus_on = yes
+				}
+			}			
+		}		
+		corps_commander={ #guo
+			traits={ rising_young_officer brilliant_strategist  IJA_Lieut_General infantry_officer career_officer trait_cautious organizer  skilled_staffer adaptable }
+			skill=5
+			attack_skill=4 #5
+			defense_skill=4
+			planning_skill=4 #5
+			logistics_skill=5
+		}
+	}
+
+	kenji_doihara={
+		name=kenji_doihara #土肥原 賢二、陸士16期歩兵、陸軍少将（1932年4月11日）、陸軍中将（1936年3月7日）、陸軍大将（1941年4月28日）。第5軍司令官（1939年5月19日～1940年9月28日）、陸軍航空総監（1941年6月9日～1943年5月1日）、東部軍司令官（1943年5月1日～1944年3月22日）、第7方面軍司令官（1944年3月22日～1945年4月7日）、教育総監（1945年4月7日～8月25日）、第12方面軍 兼 東部軍管区司令官（1945年8月25日～9月23日）、第1総軍司令官（1945年9月14日～9月23日）、1945年11月30日予備役、1948年12月23日刑死
+		portraits={
+			army={				
+				large="gfx/leaders/JAP/Portrait_Japan_Kenji_Doihara.dds"
+				small="GFX_idea_kenji_doihara"
+			}
+		}
+		advisor={
+			slot = high_command
+			idea_token = kenji_doihara
+			ledger = army						
+			allowed = {
+				original_tag = JAP
+			}
+			available = {
+				NOT = { has_country_flag = pro_axis_generals_purged }
+			}						
+			traits = { army_regrouping_2 } #教育総監（1945年4月7日～8月25日）
+			cost = 100	
+			ai_will_do = {
+			factor = 200 #guo
+			}
+		}		
+		corps_commander={
+			traits={  career_officer infantry_officer  trickster IJA_Lieut_General }
+			skill=3
+			attack_skill=3
+			defense_skill=3
+			planning_skill=3
+			logistics_skill=3
+		}
+	}
+
+	seishiro_itagaki={
+		name=seishiro_itagaki #板垣 征四郎、陸士16期歩兵、陸軍少将（1932年8月8日）、陸軍中将（1936年4月28日）、陸軍大将（1941年7月7日）。関東軍参謀長（1936年3月23日～1937年3月1日）、陸軍大臣（1938年6月3日～1939年8月30日）、支那派遣軍総参謀長（1939年9月4日～1941年7月7日）、朝鮮軍司令官（1941年7月7日～1945年4月7日）、第17方面軍司令官（1945年2月1日～4月7日）、第7方面軍司令官（1945年4月7日～1945年9月2日）、1948年12月23日刑死
+		portraits={
+			army={
+				large="gfx/leaders/JAP/Portrait_Japan_Seishiro_Itagaki.dds"
+				small="GFX_idea_seishiro_itagaki"
+			}
+		}
+		advisor={
+			slot = high_command
+			idea_token = seishiro_itagaki
+			ledger = army		
+			allowed = {
+				original_tag = JAP
+			}
+			available = {
+				NOT = { has_country_flag = pro_axis_generals_purged }
+			}					
+			traits = { army_logistics_2 } #陸軍大臣（1938年6月3日～1939年8月30日）		
+			cost = 100
+			ai_will_do = {
+			factor = 200 #guo
+			}
+		}
+		corps_commander={
+			traits={  career_officer infantry_officer  organizer IJA_Lieut_General }
+			skill=3
+			attack_skill=3
+			defense_skill=3
+			planning_skill=3
+			logistics_skill=3
+		}
+	}
+
+	rikichi_ando={
+		name=JAP_rikichi_ando #安藤 利吉、陸士16期歩兵、陸軍少将（1932年8月8日）、陸軍中将（1936年4月28日）、陸軍大将（1944年1月7日）。教育総監（1938年2月14日～4月30日）、第5師団長（1938年5月25日～1938年11月9日）、第21軍司令官（1938年11月9日～1940年2月9日）、南支那方面軍司令官（1940年2月10日～10月5日）、台湾軍司令官（1941年11月6日～1944年9月22日）、第10方面軍司令官（1944年9月22日～1945年10月25日）、台湾総督（1944年12月30日～1945年10月25日）、1946年4月19日獄中服毒自決 
+		portraits={
+			army={
+				large="gfx/leaders/JAP/Portrait_Japan_Rikichi_Ando.dds"
+				small="gfx/interface/ideas/idea_JAP_rikichi_ando.dds"
+			}
+		}
+		corps_commander={
+			traits={ career_officer infantry_officer  IJA_Major_General }
+			skill=3
+			attack_skill=3
+			defense_skill=2
+			planning_skill=3
+			logistics_skill=3
+		}
+	}
+
+	toshishiro_obata={
+		name ="小畑敏四郎" #小畑 敏四郎、陸士16期歩兵、陸軍少将（1932年4月11日）、陸軍中将（1936年3月7日）。1936年8月1日予備役、1947年1月10日歿
+		portraits={
+			army={
+				small="GFX_idea_JAP_toshishiro_obata"
+			}
+		}
+		advisor={
+			slot = theorist
+			idea_token = toshishiro_obata
+			ledger = army
+			allowed = {
+				original_tag = JAP
+			}
+			available = {
+				OR = {
+					has_government = neutrality
+					has_government = fascism
+					has_completed_focus = JAP_absorb_tohokai_focus
+				}			
+				NOT = { has_country_flag = forced_to_retire_by_terauchi } #1936年8月予備役
+			}
+			traits = { mass_assault_expert } 
+			cost = 150	
+			ai_will_do = {
+				base = 0
+				modifier = {
+					add = 100
+					has_global_flag = kodoha_won
+				}
+			}			
+		}		
+	}
+
+	rensuke_isogai={
+		name="矶谷廉介" #磯谷 廉介、陸士16期歩兵、陸軍少将（1933年3月18日）、陸軍中将（1936年12月1日）。第10師団長（1937年3月1日～1938年6月18日）、関東軍参謀長（1938年6月18日～1939年9月7日）、1939年12月1日予備役、香港占領地総督（1942年2月20日～1944年12月24日）、1967年6月6日歿
+		portraits={
+			army={
+				large="gfx/leaders/JAP/Portrait_Japan_Rensuke_Isogai.dds"
+			}
+		}
+		corps_commander={
+			traits={ career_officer infantry_officer old_guard IJA_Lieut_General }
+			skill=2
+			attack_skill=2
+			defense_skill=2
+			planning_skill=3
+			logistics_skill=2
+		}
+	}
+
+	toshinari_maeda={
+		name="前田利为" #前田 利為、陸士17期歩兵、陸軍少将（1933年3月18日）、陸軍中将（1936年12月1日）、陸軍大将（1942年9月5日 追）。1939年予備役、婆羅洲守備軍司令官（1942年4月11日～9月5日）、1942年9月5日飛行機事故殉職
+		portraits={
+			army={
+				large="gfx/leaders/JAP/Portrait_Japan_Toshinari_Maeda.dds"
+			}
+		}
+		corps_commander={
+			traits={ career_officer infantry_officer IJA_Major_General }
+			skill=2
+			attack_skill=2
+			defense_skill=3
+			planning_skill=2
+			logistics_skill=2
+            legacy_id=420905
+		}
+	}
+
+	jun_ushiroku={
+		name="后宫淳" #後宮 淳、陸士17期歩兵、陸軍少将（1934年3月5日）、陸軍中将（1937年8月2日）、陸軍大将（1942年8月17日）。第4軍司令官（1939年8月1日～1940年9月28日）、南支那方面軍司令官（1940年10月5日～1941年6月28日）、支那派遣軍総参謀長（1941年7月7日～1942年8月17日）、中部軍司令官（1942年8月17日～1944年2月21日）、陸軍航空総監（1944年3月28日～7月18日）、第3方面軍司令官（1944年8月25日～1945年8月15日）、1973年11月24日歿
+		portraits={
+			army={
+				large="gfx/leaders/JAP/Portrait_Japan_Jun_Ushiroku.dds"
+			}
+		}
+		corps_commander={
+			traits={ career_officer infantry_officer  IJA_Major_General }
+			skill=3
+			attack_skill=3
+			defense_skill=3
+			planning_skill=3
+			logistics_skill=2
+		}
+	}
+
+	tomoyuki_yamashita={
+		name =tomoyuki_yamashita #山下 奉文、陸士18期歩兵、陸軍少将（1934年8月1日）、陸軍中将（1937年11月1日）、陸軍大将（1943年2月10日）。北支那方面軍参謀長（1938年7月15日～1939年9月23日）、陸軍航空総監（1940年7月22日～1941年6月9日）、関東防衛軍司令官（1941年7月11日～11月6日）、第25軍司令官（1941年11月6日～1942年7月1日）、第1方面軍司令官（1942年7月2日～1944年9月26日）、第14方面軍司令官（1944年9月26日～1945年8月15日）、1946年2月23日刑死
+		portraits={
+			army={
+				large="gfx/leaders/JAP/Portrait_Japan_Tomoyuki_Yamashita.dds"
+				small="GFX_idea_tomoyuki_yamashita"
+			}
+		}
+		advisor={
+			slot = high_command
+			idea_token = tomoyuki_yamashita
+			ledger = army
+			allowed = {
+				original_tag = JAP
+			}
+			available = {
+				NOT = { has_country_flag = pro_axis_generals_purged }
+			}
+			traits = { army_infantry_3 } 		
+			cost = 200	
+			ai_will_do = {
+			factor = 450 #guo
+			}
+		}
+		corps_commander={ #guo
+			traits={ rising_young_officer brilliant_strategist  career_officer infantry_officer IJA_Major_General organizer  trickster jungle_rat  adaptable }
+			skill=5
+			attack_skill=4 #5
+			defense_skill=5
+			planning_skill=4 #5
+			logistics_skill=4
+		}
+	}
+
+	naozaburo_okabe={
+		name="冈部直三郎" #岡部 直三郎、陸士18期砲兵、陸軍少将（1934年8月1日）、陸軍中将（1937年11月1日）、陸軍大将（1943年2月10日）。北支那方面軍参謀長（1937年8月26日～1938年7月15日）、駐蒙軍司令官（1939年9月12日～1940年9月29日）、第3方面軍司令官（1943年10月29日～1944年8月25日）、北支那方面軍司令官（1944年8月25日～11月22日）、第6方面軍司令官（1944年11月12日～1945年9月2日）、1946年11月23日獄死
+		portraits={
+			army={
+				large="gfx/leaders/JAP/Portrait_Japan_Naozaburo_Okabe.dds"
+			}
+		}
+		corps_commander={
+			traits={ career_officer artillery_officer  IJA_Major_General }
+			skill=3
+			attack_skill=3
+			defense_skill=3
+			planning_skill=3
+			logistics_skill=2
+		}
+	}
+
+	keisuke_fujie={
+		name=JAP_keisuke_fujie #藤江 恵輔、陸士18期砲兵、陸軍少将（1934年8月1日）、陸軍中将（1937年11月1日）、陸軍大将（1943年2月10日）。憲兵司令官（1937年8月2日～1938年8月2日）、西部軍司令官（1941年4月10日～1944年3月22日）、東部軍司令官（1944年3月22日～1945年2月1日）、第12方面軍 兼 東部軍管区司令官（1945年2月1日～3月9日）、第11方面軍 兼 東北軍管区司令官（1945年8月7日～10月15日）、1969年2月27日歿
+		portraits={
+			army={
+				large="gfx/leaders/JAP/Portrait_Japan_Keisuke_Fujie.dds"
+				small="gfx/interface/ideas/idea_JAP_keisuke_fujie.dds"
+			}
+		}
+		corps_commander={
+			traits={ career_officer artillery_officer IJA_Major_General }
+			skill=2
+			attack_skill=2
+			defense_skill=3
+			planning_skill=2
+			logistics_skill=2
+		}
+	}
+
+	masataka_yamawaki={
+		name="山胁正隆" #山脇 正隆、陸士18期歩兵、陸軍少将（1934年8月1日）、陸軍中将（1937年11月1日）、陸軍大将（1944年9月22日）。陸軍次官（1938年）、第3師団長（1939年10月14日～1940年9月28日）、駐蒙軍司令官（1940年9月29日～1941年1月20日）、婆羅洲守備軍司令官（1942年9月18日～1944年9月22日）、第37軍司令官（1944年9月22日～12月26日）、1974年4月21日歿 
+		portraits={
+			army={
+				large="gfx/leaders/JAP/Portrait_Japan_Masataka_Yamawaki.dds"
+			}
+		}
+		corps_commander={
+			traits={ career_officer infantry_officer IJA_Major_General }
+			skill=2
+			attack_skill=2
+			defense_skill=2
+			planning_skill=2
+			logistics_skill=2
+		}
+	}
+
+	korechika_anami={
+		name =korechika_anami #阿南 惟幾、陸士18期歩兵、陸軍少将（1935年3月15日）、陸軍中将（1938年3月1日）、陸軍大将（1943年5月1日）。第109師団長（1938年11月9日～1939年9月12日）、第11軍司令官（1941年4月10日～1942年7月1日）、第2方面軍司令官（1942年7月1日～1944年12月26日）、陸軍航空総監（1944年12月26日～1945年4月7日）、陸軍大臣（1945年4月7日～8月14日）、1945年8月15日割腹自刃
+		portraits={
+			army={
+				large="gfx/leaders/JAP/Portrait_Japan_Korechika_Anami.dds"
+				small="GFX_idea_korechika_anami"
+			}
+		}
+        advisor={
+			slot = high_command
+			idea_token = korechika_anami
+			allowed = {
+				original_tag = JAP
+			}			
+			available = {
+                is_field_marshal = yes
+				has_completed_focus = tojo_cabinet_focus
+				NOT = { has_country_flag = pro_axis_generals_purged }				
+			}
+			traits = { army_commando_2 }
+			cost = 100				
+		}	
+		corps_commander={
+			traits={ commando career_officer infantry_officer  IJA_Major_General }
+			skill=3
+			attack_skill=3
+			defense_skill=2
+			planning_skill=2
+			logistics_skill=3
+		}
+	}		
+			
+	hitoshi_imamura={#guo
+		name =hitoshi_imamura #今村 均、陸士19期歩兵、陸軍少将（1935年3月15日）、陸軍中将（1938年3月1日）、陸軍大将（1943年5月1日）。第5師団長（1938年11月9日～1940年3月9日）、第23軍司令官（1941年6月28日～11月6日）、第16軍司令官（1941年11月6日～1942年11月9日）、第8方面軍司令官（1942年11月9日～1945年9月2日）、1968年10月4日歿
+		portraits={
+			army={
+				large="gfx/leaders/JAP/Portrait_Japan_Hitoshi_Imamura.dds"
+				small="GFX_idea_hitoshi_imamura"
+			}
+		}
+		advisor={
+			slot = high_command
+			idea_token = hitoshi_imamura
+			allowed = {
+				original_tag = JAP
+			}			
+			available = {
+				
+			}
+			traits = { houqinguicai }
+			cost = 200	
+			ai_will_do = {
+				factor = 300
+			}
+		}
+		corps_commander={
+			traits={ career_officer infantry_officer  trait_cautious  jungle_rat  harsh_leader  brilliant_strategist  trickster IJA_Major_General }
+			skill=3
+			attack_skill=2
+			defense_skill=3
+			planning_skill=3
+			logistics_skill=6
+		}
+	}
+
+	osamu_tsukada={
+		name="冢田攻" #塚田 攻、陸士19期歩兵、陸軍少将（1935年8月1日）、陸軍中将（1938年7月15日）、陸軍大将（1942年12月18日 追）。中支那方面軍参謀長（1937年11月2日～1938年2月14日）、南方軍総参謀長（1941年11月6日～1942年7月1日）、第11軍司令官（1942年7月1日～1942年12月18日）、1942年12月18日飛行機事故殉職
+		portraits={
+			army={
+				large="gfx/leaders/JAP/Portrait_Japan_Osamu_Tsukada.dds"
+			}
+		}
+		corps_commander={
+			traits={ career_officer infantry_officer IJA_Major_General }
+			skill=2
+			attack_skill=2
+			defense_skill=2
+			planning_skill=3
+			logistics_skill=2
+            legacy_id=421218
+		}
+	}
+
+	shizuichi_tanaka={
+		name=JAP_shizuichi_tanaka #田中 静壱、陸士19期歩兵、陸軍少将（1935年8月1日）、陸軍中将（1938年7月15日）、陸軍大将（1943年9月7日）。憲兵司令官（1938年8月2日～1939年8月2日）、第13師団長（1939年8月1日～1940年9月28日）、憲兵司令官（1940年9月28日～1941年10月15日）、東部軍司令官（1941年10月15日～12月24日）、第14軍司令官（1942年8月1日～1943年5月19日）、第12方面軍 兼 東部軍管区司令官（1945年3月9日～8月24日）、1945年8月24日拳銃自決
+		portraits={
+			army={
+				large="gfx/leaders/JAP/Portrait_Japan_Shizuichi_Tanaka.dds"
+				small="gfx/interface/ideas/idea_JAP_shizuichi_tanaka.dds"
+			}
+		}
+		corps_commander={
+			traits={ career_officer infantry_officer trickster IJA_Major_General }
+			skill=3
+			attack_skill=2
+			defense_skill=3
+			planning_skill=2
+			logistics_skill=3
+		}
+	}
+
+	masaharu_homma={
+		name=JAP_masaharu_homma #本間 雅晴、陸士19期歩兵、陸軍少将（1935年8月1日）、陸軍中将（1938年7月15日）。第27師団長（1938年7月15日～1940年12月2日）、台湾軍司令官（1940年12月2日～1941年11月6日）、第14軍司令官（1941年11月6日～1942年8月1日）、1942年8月31日予備役、1946年4月3日刑死
+		portraits={
+			army={
+				large="gfx/leaders/JAP/Portrait_Japan_Masaharu_Homma.dds"
+				small="gfx/interface/ideas/idea_JAP_masaharu_homma.dds"
+			}
+		}
+		corps_commander={
+			traits={ career_officer infantry_officer  IJA_Major_General }
+			skill=3
+			attack_skill=4
+			defense_skill=3
+			planning_skill=3
+			logistics_skill=2
+		}
+	}
+
+	masakazu_kawabe={
+		name="河辺正三" #河辺 正三、陸士19期歩兵、陸軍少将（1936年3月7日）、陸軍中将（1939年3月9日）、陸軍大将（1945年3月9日）。中支那派遣軍参謀長（1938年2月15日～1939年1月30日）、第12師団長（1940年3月9日～1941年3月1日）、第3軍司令官（1941年3月1日～1942年8月17日）、支那派遣軍総参謀長（1942年8月17日～1943年3月18日）、緬甸方面軍司令官（1943年3月18日～1944年8月30日）、中部軍司令官（1944年12月1日～1945年2月1日）、第15方面軍 兼 中部軍管区司令官（1945年2月1日～4月7日）、航空総軍司令官（1945年4月7日～9月12日）、陸軍航空本部長（1945年8月16日～11月15日）、第1総軍司令官（1945年10月1日～1945年11月30日）、1965年3月2日歿
+		portraits={
+			army={
+				large="gfx/leaders/JAP/Portrait_Japan_Masakazu_Kawabe.dds"
+				small="GFX_idea_JAP_masakazu_kawabe"
+			}
+		}
+		corps_commander={
+			traits={ career_officer infantry_officer  IJA_Major_General }
+			skill=3
+			attack_skill=3
+			defense_skill=3
+			planning_skill=3
+			logistics_skill=2
+			#visible = { has_country_flag = recruit_masakazu_kawabe }
+		}
+	}
+
+	seiichi_kita={
+		name="喜多诚一" #喜多 誠一、陸士19期歩兵、陸軍少将（1936年3月7日）、陸軍中将（1939年3月9日）、陸軍大将（1945年3月9日）。第14師団長（1940年3月9日～1941年10月15日）、第6軍司令官（1941年10月15日～1943年3月1日）、第12軍司令官（1943年3月1日～1944年2月7日）、第1方面軍司令官（1944年9月26日～1945年8月15日）、1947年8月7日野戦病院歿
+		portraits={
+			army={
+				large="gfx/leaders/JAP/Portrait_Japan_Seiichi_Kita.dds"
+			}
+		}
+		corps_commander={
+			traits={ career_officer infantry_officer IJA_Major_General }
+			skill=2
+			attack_skill=2
+			defense_skill=2
+			planning_skill=2
+			logistics_skill=2
+			#visible = { has_country_flag = recruit_seiichi_kita }
+		}
+	}
+
+	yasuhiko_asaka={
+		name="朝香宫鸠彦王" #朝香宮鳩彦王、陸士20期歩兵、陸軍中将（1933年8月1日）、陸軍大将（1939年8月1日）。上海派遣軍司令官（1937年12月2日～1938年2月14日）、1945年11月30日予備役、1981年4月12日歿 
+		portraits={
+			army={
+				large="gfx/leaders/JAP/Portrait_Japan_Yasuhiko_Asaka.dds"
+			}
+		}
+		corps_commander={
+			traits={ career_officer infantry_officer politically_connected IJA_Lieut_General }
+			skill=3
+			attack_skill=3
+			defense_skill=2
+			planning_skill=2
+			logistics_skill=3
+		}
+	}
+
+	naruhiko_higashikuni={
+		name="东久迩宫稔彦王" #東久邇宮稔彦王、陸士20期歩兵、陸軍中将（1933年8月1日）、陸軍大将（1939年8月1日）。陸軍航空本部長（1937年8月2日～1938年4月30日）、第2軍司令官（1938年4月30日～1939年1月4日）、防衛総司令官（1941年12月9日～1945年4月8日）、内閣総理大臣（1945年8月17日～10月9日）、陸軍大臣（1945年8月17日～8月23日）、1990年1月20日歿
+		portraits={
+			army={
+				large="gfx/leaders/JAP/Portrait_Japan_Naruhiko_Higashikuni.dds"
+				small="gfx/interface/ideas/idea_JAP_naruhiko_higashikuni.dds"
+			}
+		}
+		advisor={
+			slot = high_command
+			idea_token = naruhiko_higashikuni
+			allowed = {
+				original_tag = JAP
+			}
+			available = {
+				NOT = { has_idea = kohei_kashii }
+				has_completed_focus = strike_usa_focus
+			}			
+			traits = { army_concealment_2 } #防衛総司令官（1941年12月9日～1945年4月8日）
+			cost = 100			
+		}
+		corps_commander={
+			traits={ career_officer infantry_officer politically_connected IJA_Lieut_General }
+			skill=3
+			attack_skill=2
+			defense_skill=3
+			planning_skill=2
+			logistics_skill=3
+		}
+	}
+
+	sadamu_shimomura={
+		name="下村定" #下村 定、陸士20期砲兵、陸軍少将（1936年3月7日）、陸軍中将（1939年3月9日）、陸軍大将（1945年5月7日）。東京湾要塞司令官（1938年9月23日～1940年8月1日）、第13軍司令官（1942年10月8日～1944年3月22日）、西部軍司令官（1944年3月22日～11月22日）、北支那方面軍司令官（1944年11月22日～1945年8月19日）、陸軍大臣（1945年8月23日～12月1日）、教育總監（1945年8月25日～10月15日）、1968年3月25日交通事故死
+		portraits={
+			army={
+				large="gfx/leaders/JAP/Portrait_Japan_Sadamu_Shimomura.dds"
+				small="GFX_idea_JAP_sadamu_shimomura"
+			}
+		}
+        advisor={
+			slot = army_chief
+			idea_token = sadamu_shimomura
+			allowed = {
+				original_tag = JAP
+				has_completed_focus = JAP_navy_leadership_focus ### hidden for after remove all the pro axis army chief
+			}			
+			available = {
+				has_completed_focus = JAP_navy_leadership_focus
+			}
+			on_add = {
+				sadamu_shimomura = { remove_unit_leader_role = yes }
+			}			
+			traits = { army_chief_organizational_2 } #陸軍大臣（1945年8月23日～12月1日）、教育總監（1945年8月25日～10月15日）
+			cost = 100				
+		}	
+		corps_commander={
+			traits={ career_officer artillery_officer Major_General }
+			skill=3
+			attack_skill=3
+			defense_skill=3
+			planning_skill=3
+			logistics_skill=3
+			#visible = { has_country_flag = recruit_sadamu_shimomura } 
+		}
+	}
+
+	teiichi_yoshimoto={
+		name="吉本贞一" #吉本 貞一、陸士20期歩兵、陸軍少将（1936年3月7日）、陸軍中将（1939年3月9日）、陸軍大将（1945年5月7日）。中支那派遣軍参謀長（1939年1月31日～9月23日）、第2師団長（1939年11月6日～1941年4月10日）。関東軍参謀長（1941年4月10日～1942年8月1日）、1942年第1軍司令官（1942年8月1日～1944年11月22日）、第11方面軍司令官（1945年2月1日～8月22日）、1945年9月14日自決
+		portraits={
+			army={
+				large="gfx/leaders/JAP/Portrait_Japan_Teiichi_Yoshimoto.dds"
+			}
+		}
+		corps_commander={
+			traits={ career_officer infantry_officer Major_General }
+			skill=3
+			attack_skill=3
+			defense_skill=3
+			planning_skill=3
+			logistics_skill=2
+			#visible = { has_country_flag = recruit_teiichi_yoshimoto } 
+		}
+	}
+
+	heitaro_kimura={
+		name="木村兵太郎" #木村 兵太郎、陸士20期砲兵、陸軍少将（1936年8月1日）、陸軍中将（1939年3月9日）、陸軍大将（1945年5月7日）。第32師団長（1939年3月9日～1940年10月22日）、関東軍参謀長（1940年10月22日～1941年4月10日）、緬甸方面軍司令官（1944年8月30日～1945年9月12日）、1948年12月23日刑死
+		portraits={
+			army={
+				large="gfx/leaders/JAP/Portrait_Japan_Heitaro_Kimura.dds"
+				small="GFX_idea_heitaro_kimura"
+			}
+		}
+		corps_commander={
+			traits={ harsh_leader career_officer artillery_officer Major_General }
+			skill=2
+			attack_skill=2
+			defense_skill=2
+			planning_skill=3
+			logistics_skill=3
+			#visible = { has_country_flag = recruit_heitaro_kimura } 
+		}
+	}
+
+    mitsuru_ushijima={
+		name="牛岛满" #牛島 満、陸士20期歩兵、陸軍少将（1937年3月1日）、陸軍中将（1939年8月1日）、陸軍大将（1945年6月23日 追）。第11師団長（1939年12月1日～1941年10月15日）、第32軍司令官（1944年8月8日～1945年6月23日）、1945年6月23日沖縄島自決
+		portraits={
+			army={
+				large="gfx/leaders/JAP/Portrait_Japan_Mitsuru_Ushijima.dds"
+			}
+		}
+		corps_commander={
+			traits={ career_officer infantry_officer trait_reckless Major_General }
+			skill=3
+			attack_skill=3
+			defense_skill=3
+			planning_skill=2
+			logistics_skill=2
+			legacy_id=450623
+			visible = { has_country_flag = recruit_mitsuru_ushijima } 
+		}
+	}	
+
+	shin_yoshida={
+		name="吉田悳" #吉田 悳、陸士20期騎兵、陸軍少将（1936年8月1日）、陸軍中将（1939年3月9日）。騎兵集団長（1939年1月7日～10月2日）、騎兵監（1939年10月2日～1941年4月10日）、陸軍機甲本部長（1941年4月10日～1942年6月26日）、関東防衛軍司令官（1943年12月7日～1945年3月1日）、1965年6月12日歿 
+		portraits={
+			army={
+				large="gfx/leaders/JAP/Portrait_Japan_Shin_Yoshida.dds"
+				small="GFX_idea_JAP_shin_yoshida"
+			}
+		}
+        advisor={
+			slot = high_command
+			idea_token = shin_yoshida
+			allowed = {
+				original_tag = JAP
+			}
+			available = {
+				has_completed_focus = JAP_armored_divisions
+			}			
+			traits = { army_armored_2 } #陸軍機甲本部長（1941年4月10日～1942年6月26日）
+			cost = 100		
+			
+			ai_will_do = { #guo
+			    factor = 1
+				modifier = {
+				factor = 2500
+				date > 1940.1.1
+				num_divisions > 150
+		        num_of_military_factories > 150
+		        has_template_majority_unit = medium_armor
+				}
+			}
+		}		
+		corps_commander={
+			traits={ career_officer cavalry_officer  armor_officer  IJA_Major_General }
+			skill=2
+			attack_skill=2
+			defense_skill=2
+			planning_skill=2
+			logistics_skill=2
+			#visible = { has_country_flag = recruit_shin_yoshida } 
+		}
+	}
+
+	takashi_sakai={
+		name=JAP_takashi_sakai #酒井 隆、陸士20期歩兵、陸軍少将（1937年3月1日）、陸軍中将（1939年8月1日）。第23軍司令官（1941年11月26日～1943年3月1日）、1943年4月30日予備役、1946年9月30日刑死
+		portraits={
+			army={
+				large="gfx/leaders/JAP/Portrait_Japan_Takashi_Sakai.dds"
+				small="gfx/interface/ideas/idea_JAP_takashi_sakai.dds"
+			}
+		}
+		corps_commander={
+			traits={ career_officer infantry_officer IJA_Major_General }
+			skill=2
+			attack_skill=2
+			defense_skill=2
+			planning_skill=2
+			logistics_skill=2
+			visible = { has_country_flag = recruit_takashi_sakai } 
+		}
+	}
+
+	isamu_yokoyama={
+		name="横山勇" #横山 勇、陸士21期歩兵、陸軍少将（1937年3月1日）、陸軍中将（1939年8月1日）。第1師団長（1939年9月12日～1941年10月15日）、第4軍司令官（1941年10月15日～1942年12月21日）、第11軍司令官（1942年12月22日～1944年11月22日）、西部軍司令官（1944年11月22日～1945年2月1日）、第16方面軍 兼 西部軍管区司令官（1945年2月1日～終戦）、1952年4月21日歿
+		portraits={
+			army={
+				large="gfx/leaders/JAP/Portrait_Japan_Isamu_Yokoyama.dds"
+			}
+		}
+		corps_commander={
+			traits={  career_officer infantry_officer  IJA_Major_General }
+			skill=3
+			attack_skill=3
+			defense_skill=3
+			planning_skill=3
+			logistics_skill=2
+			visible = { has_country_flag = recruit_isamu_yokoyama } 
+		}
+	}
+
+	jo_iimura={
+		name=JAP_jo_iimura #飯村 穣、陸士21期歩兵、陸軍少将（1937年3月1日）、陸軍中将（1939年8月1日）。関東軍参謀長（1939年9月7日～1940年10月22日）、第5軍司令官（1941年10月15日～1943年10月29日）、南方軍総参謀長（1944年3月22日～12月26日）、第2方面軍司令官（1944年12月26日～1945年5月29日）、東京防衛軍司令官（1945年6月22日～8月20日）、東京師管区司令官（1945年7月5日～8月20日）、1976年2月21日歿
+		portraits={
+			army={
+				large="gfx/leaders/JAP/Portrait_Japan_Jo_Iimura.dds"
+				small="gfx/interface/ideas/idea_JAP_jo_iimura.dds"
+			}
+		}
+		corps_commander={
+			traits={ career_officer infantry_officer IJA_Major_General }
+			skill=2
+			attack_skill=2
+			defense_skill=2
+			planning_skill=3
+			logistics_skill=2
+			visible = { has_country_flag = recruit_jo_iimura } 
+		}
+	}
+
+	harukichi_hyakutake={
+		name=JAP_harukichi_hyakutake #百武 晴吉、陸士21期歩兵、陸軍少将（1937年3月1日）、陸軍中将（1939年8月1日）。第18師団長（1940年2月10日～1941年4月10日）、第17軍司令官（1942年5月5日～1945年4月1日）、1947年3月10日歿
+		portraits={
+			army={
+				large="gfx/leaders/JAP/Portrait_Japan_Harukichi_Hyakutake.dds"
+				small="gfx/interface/ideas/idea_JAP_harukichi_hyakutake.dds"
+			}
+		}
+		corps_commander={
+			traits={ career_officer infantry_officer IJA_Major_General }
+			skill=2
+			attack_skill=2
+			defense_skill=2
+			planning_skill=2
+			logistics_skill=2
+			visible = { has_country_flag = recruit_harukichi_hyakutake } 
+		}
+	}
+
+	kanji_ishiwara={
+		name =kanji_ishiwara #石原 莞爾、陸士21期歩兵、陸軍少将（1937年3月1日）、陸軍中将（1939年8月1日）。関東軍参謀副長（1937年9月27日～1938年12月5日）、第16師団長（1939年8月30日～1941年3月1日）、1941年3月31日予備役、1949年8月15日歿
+		portraits={
+			army={
+				large="gfx/leaders/JAP/Portrait_Japan_Kanji_Ishiwara.dds"
+				small="gfx/interface/ideas/idea_JAP_kanji_ishiwara.dds"
+			}
+		}
+		advisor={
+			slot = theorist
+			idea_token = kanji_ishiwara
+			ledger = army			
+			allowed = {
+				original_tag = JAP
+			}
+			available = {
+				OR = {
+					has_government = neutrality
+					has_government = fascism
+					has_completed_focus = JAP_absorb_tohokai_focus
+				}
+				custom_trigger_tooltip = {
+					tooltip = no_hideki_tojo #東條英機と対立
+					NOT = { has_country_leader_with_trait = prince_of_terror }
+					NOT = { has_idea_with_trait = prince_of_terror }
+				}	
+			}
+			traits = { grand_battle_plan_expert pan_asianist_kanji_ishiwara }
+			modifier = {
+				justify_war_goal_when_in_major_war_time = -0.8#guo
+				generate_wargoal_tension = -1
+				offensive_war_stability_factor = 0.15
+				army_attack_against_major_factor = 0.05
+			}
+			cost = 150	
+			ai_will_do = {
+				base = 0
+				modifier = {
+					add = 9000
+					has_completed_focus = JAP_back_to_where_we_were_heading_focus
+				}
+				modifier = {
+					add = 9000
+					has_completed_focus = JAP_Sonno_Tokkan_focus
+				}
+			}			
+		}
+        corps_commander={
+			traits={ rising_young_officer career_officer infantry_officer trait_reckless media_personality brilliant_strategist  organizer JAP_samurai_lineage IJA_Major_General }
+			skill=4
+			attack_skill=4
+			defense_skill=3
+			planning_skill=4
+			logistics_skill=4
+			visible = { has_country_flag = recruit_kanji_ishiwara } 
+		}
+	}
+
+	kiichiro_higuchi={
+		name=JAP_kiichiro_higuchi #樋口 季一郎、陸士21期歩兵、陸軍少将（1937年8月2日）、陸軍中将（1939年10月2日）。第9師団長（1939年12月1日～1942年8月1日）、北部軍司令官（1942年8月1日～1943年2月11日）、北方軍司令官（1943年2月11日～1944年3月10日）、第5方面軍司令官（1944年3月10日～1945年9月2日）、1970年10月11日歿
+		portraits={
+			army={
+				large="gfx/leaders/JAP/Portrait_Japan_Kiichiro_Higuchi.dds"
+				small="gfx/interface/ideas/idea_JAP_kiichiro_higuchi.dds"
+			}
+		}
+		corps_commander={
+			traits={ career_officer infantry_officer IJA_Major_General }
+			skill=2
+			attack_skill=2
+			defense_skill=2
+			planning_skill=2
+			logistics_skill=2
+			visible = { has_country_flag = recruit_kiichiro_higuchi } 
+		}
+	}
+
+	hatazo_adachi={
+		name=JAP_hatazo_adachi #安達 二十三、陸士22期歩兵、陸軍少将（1938年3月1日）、陸軍中将（1940年8月1日）。第37師団長（1940年8月1日～1941年10月15日）、北支那方面軍参謀長（1941年11月6日～1942年11月9日）、第18軍司令官（1942年10月9日～1945年9月2日）、1947年9月10日割腹自決
+		portraits={
+			army={
+				large="gfx/leaders/JAP/Portrait_Japan_Hatazo_Adachi.dds"
+				small="gfx/interface/ideas/idea_JAP_hatazo_adachi.dds"
+			}
+		}
+		corps_commander={
+			traits={ career_officer infantry_officer IJA_Major_General }
+			skill=2
+			attack_skill=2
+			defense_skill=2
+			planning_skill=2
+			logistics_skill=1
+			visible = { has_country_flag = recruit_hatazo_adachi } 
+		}
+	}
+
+	masatane_kanda={
+		name=JAP_masatane_kanda #神田 正種、陸士23期歩兵、陸軍少将（1938年7月15日）、陸軍中将（1941年3月1日）。第6師団長（1941年4月1日～1945年4月1日）、第17軍司令官（1941年4月1日～1945年9月2日）、1983年1月15日歿
+		portraits={
+			army={
+				large="gfx/leaders/JAP/Portrait_Japan_Masatane_Kanda.dds"
+				small="gfx/interface/ideas/idea_JAP_masatane_kanda.dds"
+			}
+		}
+		corps_commander={
+			traits={ career_officer infantry_officer IJA_Major_General }
+			skill=1
+			attack_skill=2
+			defense_skill=2
+			planning_skill=1
+			logistics_skill=1
+			visible = { has_country_flag = recruit_masatane_kanda } 
+		}
+	}
+
+	sosaku_suzuki={
+		name="铃木宗作" #鈴木 宗作、陸士24期歩兵、陸軍少将（1938年7月15日）、陸軍中将（1941年3月1日）、陸軍大将（1945年6月14日 追）。中支那派遣軍参謀副長（1938年7月14日～1939年9月23日）、支那派遣軍総参謀副長（1939年9月4日～12月1日）、第35軍司令官（1944年7月28日～1945年4月19日）、1945年4月19日民答那峨海戦死
+		portraits={
+			army={
+				large="gfx/leaders/JAP/Portrait_Japan_Sosaku_Suzuki.dds"
+			}
+		}
+		corps_commander={
+			traits={ career_officer infantry_officer trait_reckless Major_General }
+			skill=2	
+			attack_skill=2  
+			defense_skill=2
+			planning_skill=3
+			logistics_skill=2
+            legacy_id=450419
+			visible = { has_country_flag = recruit_sosaku_suzuki } 
+		}
+	}
+
+
+	akira_muto={
+		name=JAP_akira_muto #武藤 章、陸士25期歩兵、陸軍少将（1939年3月9日）、陸軍中将（1941年10月15日）。中支那方面軍参謀副長（1937年11月2日～1938年2月14日）、中支那派遣軍参謀副長（1938年2月14日～1938年7月15日）、北支那方面軍参謀副長（1938年7月31日～1939年9月30日）、近衛師団長（1942年4月20日～1943年6月1日）、近衛第2師団長（1943年6月1日～1944年10月5日）、第14方面軍参謀長（1944年10月5日～1945年9月2日）、1948年12月23日刑死
+		portraits={
+			army={
+				large="gfx/leaders/JAP/Portrait_Japan_Akira_Muto.dds"
+				small="gfx/interface/ideas/idea_JAP_akira_muto.dds"
+			}
+		}
+        advisor={
+			slot = theorist
+			idea_token = akira_muto
+			ledger = army			
+			allowed = {
+				original_tag = JAP
+			}
+			available = {
+				OR = {
+					has_government = neutrality
+					has_government = fascism
+					has_completed_focus = JAP_work_with_toseiha_focus
+				}
+				NOT = { has_country_flag = purged_by_kodoha }
+				NOT = {	has_country_flag = pro_axis_generals_purged }			
+			}
+			traits = { military_theorist }
+			cost = 100		
+		}		
+		corps_commander={
+			traits={ career_officer infantry_officer IJA_Major_General }
+			skill=2
+			attack_skill=1
+			defense_skill=1
+			planning_skill=3
+			logistics_skill=2
+			visible = { has_country_flag = recruit_akira_muto } 
+		}
+	}
+
+	tadamichi_kuribayashi={
+		name="栗林忠道" #栗林 忠道、陸士26期騎兵、陸軍少将（1940年3月9日）、陸軍中将（1943年6月10日）、陸軍大将（1945年3月17日）。騎兵第2旅団長（1940年3月9日～12月2日）、騎兵第1旅団長（1940年12月2日～1941年9月16日）、留守近衛第2師団長（1943年6月10日～1944年4月6日）、第109師団長（1944年5月27日～1945年3月17日）、1945年3月17日硫黄島戦死
+		portraits={
+			army={
+				large="gfx/leaders/JAP/Portrait_Japan_Tadamichi_Kuribayashi.dds"
+			}
+		}
+		corps_commander={ #guo
+			traits={ rising_young_officer cavalry_officer IJA_Major_General career_officer trait_reckless brilliant_strategist  trait_mountaineer jungle_rat trickster }
+			skill=4
+			attack_skill=3
+			defense_skill=5
+			planning_skill=3
+			logistics_skill=4
+            legacy_id=450317
+			visible = { has_country_flag = recruit_tadamichi_kuribayashi } 
+		}
+	}
+
+	############################## NAVY ##############################
+
+	fushimi_hiroyasu={
+		name =fushimi_hiroyasu #伏見宮博恭王、海兵16期、元帥海軍大将（1932年5月27日）。軍令部総長（1932年2月2日～1941年4月9日）、1946年8月16日薨去
+		portraits={
+			navy={
+				small="GFX_idea_fushimi_hiroyasu"
+			}
+		}
+		advisor={
+			slot = navy_chief
+			idea_token = fushimi_hiroyasu		
+			allowed = {
+				original_tag = JAP
+			}
+			available = {
+				NOT = { has_country_flag = purged_by_kodoha }
+                NOT = { has_country_flag = fushimi_hiroyasu_retired }				
+			}	
+			traits = { navy_chief_old_guard } #軍令部総長（1932年2月2日～1941年4月9日）
+			removal_cost = 50					
+		}
+	}
+	
+	eisuke_yamamoto ={
+		name ="山本英辅" #山本 英輔、海兵24期、海軍大将（1931年4月1日）。連合艦隊司令長官（1929年11月11日～1931年12月1日）、海軍航空本部部長（1927年4月5日～1928年12月10日）、1962年7月27日歿 
+		portraits={
+			army={
+				small="GFX_idea_JAP_eisuke_yamamoto"
+			}
+		}
+		advisor={
+			slot = navy_chief
+			idea_token = eisuke_yamamoto		
+			allowed = {
+				original_tag = JAP
+			}		
+			available = {
+				has_global_flag = kodoha_won
+			}
+			visible = {
+				NOT = { has_country_flag = forced_to_retire_by_terauchi } #1936年3月予備役
+			}		
+			traits = { navy_chief_naval_aviation_2 }
+			cost = 100
+			ai_will_do = {
+				base = 0
+				modifier = {
+					add = 200
+					has_global_flag = kodoha_won
+				}
+			}				
+		}
+	}	
+							
+	osami_nagano={
+		name =osami_nagano #永野 修身、海兵28期、海軍大将（1934年3月1日）、元帥海軍大将（1943年6月21日）。海軍大臣（1936年3月9日～1937年2月2日）、連合艦隊 兼 第一艦隊司令長官（1937年2月2日～12月1日）、軍令部総長（1941年4月9日～1944年2月21日）、1947年1月5日歿	
+		portraits={
+			navy={
+				small="GFX_idea_osami_nagano"
+			}
+		}
+		advisor={
+			slot = navy_chief
+			idea_token = osami_nagano			
+			allowed = {
+				original_tag = JAP
+			}
+			available = {
+				NOT = { has_country_flag = purged_by_kodoha }
+				NOT = { has_country_flag = JAP_purged_by_Yonai }				
+			}
+			traits = { navy_chief_decisive_battle_2 }	
+			cost = 100
+			ai_will_do = {
+				base = 0
+				modifier = {
+					add = 500 #guo
+					has_country_flag = fushimi_hiroyasu_retired
+				}
+			}				
+		}
+	}
+
+    sankichi_takahashi={
+		name ="高桥三吉" #高橋 三吉、海兵29期、海軍少将（1925年12月1日）、海軍中将（1929年11月30日）、海軍大将（1936年4月1日）。海軍軍令部次長（1932年2月8日～1933年10月1日）、軍令部次長（1933年10月1日～1933年11月15日）、第二艦隊司令長官（1933年11月15日～1934年11月15日）、連合艦隊 兼 第一艦隊司令長官（1934年11月15日～1936年12月10日）、1966年6月15日歿
+		portraits={
+			navy={
+				small="GFX_idea_JAP_sankichi_takahashi"
+			}
+		}
+		advisor={
+			slot = theorist
+			idea_token = sankichi_takahashi
+			ledger = navy
+			allowed = {
+				original_tag = JAP
+			}
+			traits = { grand_fleet_proponent }
+			cost = 150					
+		}		
+	}	
+
+	gengo_hyakutake={
+		name=JAP_gengo_hyakutake #百武 源吾、海兵30期、海軍中将（1930年12月1日）、海軍大将（1937年4月1日）。第三艦隊司令長官（1934年11月15日～1935年12月1日）、1942年7月15日予備役、1976年1月15日歿
+		portraits={
+			navy={
+				large="gfx/leaders/JAP/Portrait_Japan_Gengo_Hyakutake.dds"
+				small=GFX_portrait_JAP_gengo_hyakutake_small
+			}
+		}
+		navy_leader={
+			traits={ old_guard_navy gentlemanly }
+			skill=2
+			attack_skill=2
+			defense_skill=2
+			maneuvering_skill=3
+			coordination_skill=2
+		}
+	}
+
+	kiyoshi_hasegawa={
+		name=JAP_kiyoshi_hasegawa #長谷川 清、海兵31期、海軍中将（1933年12月1日）、海軍大将（1939年4月1日）。海軍次官（1934年5月10日～1936年12月1日）、第三艦隊司令長官（1936年12月1日～1938年4月25日）、支那方面艦隊司令長官（1937年10月20日～1938年4月25日）、台湾総督（1940年11月27日～1944年12月30日）、1970年9月2日歿
+		portraits={
+			navy={
+				large="gfx/leaders/JAP/Portrait_Japan_Kiyoshi_Hasegawa.dds"
+				small=GFX_portrait_JAP_kiyoshi_hasegawa_small
+			}
+		}
+		navy_leader={
+			traits={  gentlemanly chief_engineer }
+			skill=3
+			attack_skill=2
+			defense_skill=2
+			maneuvering_skill=3
+			coordination_skill=3
+		}
+	}
+
+	koshiro_oikawa={
+		name="及川古志郎" #及川 古志郎、海兵31期、海軍中将（1933年11月15日）、海軍大将（1939年11月15日）。第三艦隊司令長官（1935年12月1日～1936年12月1日）、海軍航空本部長（1936年12月1日～1938年4月25日）、支那方面艦隊 兼 第三艦隊司令長官（1938年4月25日～1940年5月1日）、海軍大臣（1940年9月5日～1941年10月18日）、海上護衛司令長官（1943年11月15日～1944年8月2日）、軍令部総長（1944年8月2日～1945年5月29日）、1958年5月9日歿
+		portraits={
+			navy={
+				small="GFX_idea_JAP_koshiro_oikawa"
+			}
+		}
+		advisor={
+			slot = navy_chief
+			idea_token = koshiro_oikawa
+			allowed = {
+				original_tag = JAP
+			}
+			available = {
+				#has_country_flag = fushimi_hiroyasu_retired
+			}
+			traits = { navy_chief_maneuver_2 }		
+			cost = 100			
+		}
+	}
+
+	zengo_yoshida={
+		name=JAP_zengo_yoshida #吉田 善吾、海兵32期、海軍中将（1934年11月15日）、海軍大将（1940年11月15日）。第二艦隊司令長官（1936年12月1日～1937年12月1日）、連合艦隊 兼 第一艦隊司令長官（1937年12月1日～1939年8月30日）、海軍大臣（1939年8月30日～1940年9月5日）、支那方面艦隊司令長官（1942年11月10日～1943年12月1日）、1945年6月1日予備役、1966年11月14日歿
+		portraits={
+			navy={
+				large="gfx/leaders/JAP/Portrait_Japan_Zengo_Yoshida.dds"
+				small=GFX_portrait_JAP_zengo_yoshida_small
+			}
+		}
+        advisor={
+			slot = high_command
+			idea_token = zengo_yoshida
+			ledger = navy							
+			allowed = {
+				original_tag = JAP
+			}	
+			traits = { navy_fleet_logistics_2 }	
+			cost = 100							
+		}		
+		navy_leader={
+			traits={ battleship_adherent }
+			skill=3
+			attack_skill=3
+			defense_skill=2
+			maneuvering_skill=2
+			coordination_skill=3
+		}
+	}
+
+	isoroku_yamamoto ={
+		name =isoroku_yamamoto #山本 五十六、海兵32期、海軍中将（1934年11月15日）、海軍大将（1940年11月15日）、元帥海軍大将（1943年04月18日 追）。海軍航空本部長（1935年12月2日～1936年12月1日）、海軍次官（1936年12月1日～1939年8月30日）、海軍航空本部長（1938年4月25日～1938年11月15日）、連合艦隊 兼 第一艦隊司令長官（1939年8月30日～1943年4月18日）、1943年4月18日乗機撃墜戦死
+		portraits={
+			navy={
+				large="gfx/leaders/JAP/Portrait_Japan_Isoroku_Yamamoto.dds"
+				small="GFX_idea_isoroku_yamamoto"
+			}
+		}
+		advisor={
+			slot = navy_chief
+			idea_token = isoroku_yamamoto
+			allowed = {
+				original_tag = JAP
+			}
+			available = {
+				NOT = { has_country_flag = purged_by_kodoha }
+                NOT = { has_country_flag = yamamoto_dead }
+                NOT = { has_completed_focus = JAP_navy_leadership_focus }
+				has_completed_focus = JAP_consolidate_yonai_cabinet_focus			
+			}
+			on_add = {
+				isoroku_yamamoto = { remove_unit_leader_role = yes }
+			}			
+			traits = { navy_chief_naval_aviation_3 }	
+			cost = 200	
+			ai_will_do = {
+				base = 0
+				modifier = {
+					add = 100
+					has_completed_focus = JAP_consolidate_yonai_cabinet_focus
+				}
+			}			
+		}
+		navy_leader={
+			traits={  navy_media_personality bold aviation_enthusiast superior_tactician spotter ironside air_controller }
+			skill=5
+			attack_skill=5
+			defense_skill=4
+			maneuvering_skill=3
+			coordination_skill=4
+			legacy_id=2903	
+		}
+	}
+					
+	shigetaro_shimada={
+		name =shigetaro_shimada #嶋田 繁太郎、海軍32期、海軍中将（1934年11月15日）、海軍大将（1940年11月15日）。軍令部次長（1935年12月2日～1937年12月1日）、第二艦隊司令長官（1937年12月1日～1938年11月15日）、支那方面艦隊司令長官（1940年5月1日～1941年9月1日）、海軍大臣（1941年10月18日～1944年7月17日）、軍令部総長（1944年2月21日～8月2日）、1976年6月7日歿	
+		portraits={
+			navy={
+				small="GFX_idea_shigetaro_shimada"
+			}
+		}
+		advisor={
+			slot = navy_chief
+			idea_token = shigetaro_shimada							
+			allowed = {
+				original_tag = JAP
+			}
+			available = {
+				has_completed_focus = tojo_cabinet_focus				
+				NOT = { has_country_flag = JAP_purged_by_Yonai }
+			}
+			traits = { navy_chief_commerce_raiding_2 }	
+			cost = 100		
+		}
+	}
+
+	soemu_toyoda={
+		name =soemu_toyoda #豊田 副武、海兵33期、海軍中将（1935年11月15日）、海軍大将（1941年9月18日）。第四艦隊司令長官（1937年10月20日～1938年11月15日）、第二艦隊司令長官（1938年11月15日～1939年10月21日）、連合艦隊司令長官（1944年5月3日～1945年5月29日）、海軍総司令長官 兼 海上護衛司令長官（1945年4月25日～5月29日）、軍令部総長（1945年5月29日～10月15日）、1957年9月22日歿
+		portraits={
+			navy={
+				large="gfx/leaders/JAP/Portrait_Japan_Soemu_Toyoda.dds"
+				small="GFX_idea_soemu_toyoda"
+			}
+		}
+		advisor={
+			slot = high_command
+			idea_token = soemu_toyoda
+			ledger = navy							
+			allowed = {
+				original_tag = JAP
+			}	
+			traits = { navy_naval_air_defense_2 }	
+			cost = 100							
+		}
+		navy_leader={
+			traits={ navy_media_personality battleship_adherent ironside }
+			skill=4
+			attack_skill=4
+			defense_skill=3
+			maneuvering_skill=3
+			coordination_skill=4
+		}
+	}
+		
+	mineichi_koga={
+		name=JAP_mineichi_koga #古賀 峯一、海兵34期、海軍中将（1936年12月1日）、海軍大将（1942年5月1日）、元帥海軍大将（1944年3月31日 追）。軍令部次長（1937年12月1日～1939年10月21日）、第二艦隊司令長官（1939年10月21日～1941年9月1日）、支那方面艦隊司令長官（1941年9月1日～1942年11月10日）、連合艦隊司令長官（1943年4月21日～1944年3月31日）、1944年3月31日飛機事故殉職
+		portraits={
+			navy={
+				large="gfx/leaders/JAP/Portrait_Japan_Mineichi_Koga.dds"
+				small=GFX_portrait_JAP_mineichi_koga_small
+			}
+		}
+		advisor={
+			slot = high_command
+			idea_token = mineichi_koga
+			ledger = navy						
+			allowed = {
+				original_tag = JAP
+			}						
+			traits = { navy_capital_ship_2 }	
+			cost = 100						
+		}
+		navy_leader={
+			traits={  rising_young_officer navy_media_personality blockade_runner ironside }
+			skill=4
+			attack_skill=3
+			defense_skill=3
+			maneuvering_skill=4
+			coordination_skill=4
+		}
+	}
+		
+	nobutake_kondo={
+		name=JAP_nobutake_kondo #近藤 信竹、海兵35期、海軍少将（1933年11月15日）、海軍中将（1937年12月1日）、海軍大将（1943年4月29日）。第五艦隊司令長官（1938年12月15日～1939年9月29日）、軍令部次長（1939年10月21日～1941年9月1日）、第二艦隊司令長官（1941年9月1日～1943年8月9日）、支那方面艦隊司令長官（1943年12月1日～1945年5月15日）、1953年2月19日歿
+		portraits={
+			navy={
+				large="gfx/leaders/JAP/Portrait_Japan_Nobutake_Kondo.dds"
+				small=GFX_portrait_JAP_nobutake_kondo_small
+			}
+		}
+		navy_leader={
+			traits={ battleship_adherent gunnery_expert  }
+			skill=3
+			attack_skill=4
+			defense_skill=3
+			maneuvering_skill=3
+			coordination_skill=3
+		}
+	}
+
+	chuichi_nagumo={
+		name =chuichi_nagumo #南雲 忠一、海兵36期、海軍少将（1935年11月15日）、海軍中将（1939年11月15日）、海軍大将（1944年7月8日 追）。第一航空艦隊司令長官（1941年4月10日～1942年7月14日）、第三艦隊司令長官（1942年7月14日～11月11日）、第一艦隊司令長官（1943年10月20日～1944年2月25日解隊）、中部太平洋方面艦隊 兼 第十四航空艦隊司令長官（1943年3月4日～7月6日）、1944年7月6日自決於塞班島
+		portraits={
+			navy={
+				large="gfx/leaders/JAP/Portrait_Japan_Chuichi_Nagumo.dds"
+				small="GFX_idea_chuichi_nagumo"
+			}
+		}
+		navy_leader={
+			traits={ battleship_adherent gunnery_expert spotter }
+			skill=3
+			attack_skill=3
+			defense_skill=2
+			maneuvering_skill=4
+			coordination_skill=3
+		}
+	}
+
+	nishizo_tsukahara={
+		name =nishizo_tsukahara #塚原 二四三、海兵36期、海軍少将（1935年11月15日）、海軍中将（1939年11月15日）、海軍大将（1945年5月15日）。第十一航空艦隊司令長官（1941年9月10日～1942年10月1日）、海軍航空本部長（1942年12月1日～1944年9月15日）、軍令部次長（1944年3月1日～7月29日）、1966年3月6日歿
+		portraits={
+			navy={
+				large="gfx/leaders/JAP/Portrait_Japan_Nishizo_Tsukahara.dds"
+				small="GFX_idea_nishizo_tsukahara"
+			}
+		}		
+		advisor={
+			slot = high_command
+			idea_token = nishizo_tsukahara
+			ledger = navy						
+			allowed = {
+				original_tag = JAP
+			}	
+			traits = { air_naval_strike_2 }	
+			cost = 100				
+			ai_will_do = {
+			factor = 200 #guo
+			}
+		}
+	}
+
+	shigeyoshi_inoue={
+		name=JAP_shigeyoshi_inoue #井上 成美、海兵37期、海軍少将（1935年11月15日）、海軍中将（1939年11月15日）、海軍大将（1945年5月15日）。海軍航空本部長（1940年10月1日～1941年8月11日）、第四艦隊司令長官（1941年8月11日～1942年10月26日）、海軍次官（1944年8月5日～1945年5月15日）、1975年12月15日歿
+		portraits={
+			navy={
+				large="gfx/leaders/JAP/Portrait_Japan_Shigeyoshi_Inoue.dds"
+				small=GFX_portrait_JAP_shigeyoshi_inoue_small
+			}
+		}		
+		advisor={
+			slot = theorist
+			idea_token = shigeyoshi_inoue
+			ledger = navy						
+			allowed = {
+				original_tag = JAP
+			}
+			traits = { naval_aviation_pioneer }	
+			cost = 150				
+			ai_will_do = {
+				factor = 100
+			}	
+		}
+		navy_leader={
+			traits={  rising_young_officer navy_career_officer aviation_enthusiast fleet_protector }
+			skill=3
+			attack_skill=2
+			defense_skill=3
+			maneuvering_skill=3
+			coordination_skill=3
+		}
+	}
+
+	jisaburo_ozawa={
+		name=JAP_jisaburo_ozawa #小沢 治三郎、海兵37期、海軍少将（1936年12月1日）、海軍中将（1940年11月15日）。南遣艦隊司令長官（1941年10月18日～1942年1月3日）、第一南遣艦隊司令長官（1942年1月3日～7月14日）、第三艦隊司令長官（1942年11月11日～1944年11月15日）、第一機動艦隊司令長官（1944年3月1日～11月15日）、軍令部次長（1944年11月18日～1945年5月29日）、海軍総司令長官、連合艦隊司令長官、海上護衛司令長官（1945年5月29日～10月10日）、1966年11月9日歿
+		portraits={
+			navy={
+				large="gfx/leaders/JAP/Portrait_Japan_Jisaburo_Ozawa.dds"
+				small=GFX_portrait_JAP_jisaburo_ozawa_small
+			}
+		}
+		advisor={
+			slot = high_command
+			idea_token = jisaburo_ozawa
+			ledger = navy						
+			allowed = {
+				original_tag = JAP
+			}
+			traits = { navy_carrier_3 }	
+			cost = 200	
+			ai_will_do = {
+			factor = 1 #guo
+			modifier = {
+			factor = 300
+			or = {
+			ENG = { is_ai = no }
+			USA = { is_ai = no }
+			}
+			}
+			}
+		}
+		navy_leader={
+			traits={  rising_young_officer navy_career_officer aviation_enthusiast blockade_runner }
+			skill=4
+			attack_skill=3
+			defense_skill=3
+			maneuvering_skill=4
+			coordination_skill=3
+			#visible = { has_country_flag = recruit_jisaburo_ozawa } 
+		}
+	}
+
+	gunichi_mikawa={
+		name="三川军一" #三川 軍一、海兵38期、海軍少将（1936年12月1日）、海軍中将（1940年11月15日）。第八艦隊司令長官（1942年7月14日～1943年4月1日）、第二南遣艦隊司令長官（1943年9月3日～1944年6月18日）、南西方面艦隊 兼 第13航空艦隊司令長官（1944年6月18日～11月1日）、第三南遣艦隊司令長官（1944年8月15日～11月1日）、1981年2月25日
+		portraits={
+			navy={
+				large="gfx/leaders/JAP/Portrait_Japan_Gunichi_Mikawa.dds"
+			}
+		}
+		navy_leader={
+			traits={ bold fleet_protector }
+			skill=3
+			attack_skill=3
+			defense_skill=3
+			maneuvering_skill=3
+			coordination_skill=2
+			visible = { has_country_flag = recruit_gunichi_mikawa } 
+		}
+	}
+
+	takeo_kurita={
+		name="栗田健男" #栗田 健男、海兵38期、海軍少将（1938年11月15日）、海軍中将（1942年5月1日）。第二艦隊司令長官（1943年8月9日～1944年12月23日）、1977年12月19日歿
+		portraits={
+			navy={
+				large="gfx/leaders/JAP/Portrait_Japan_Takeo_Kurita.dds"
+			}
+		}
+		navy_leader={
+			traits={ battleship_adherent gunnery_expert craven }
+			skill=3
+			attack_skill=2
+			defense_skill=3
+			maneuvering_skill=4
+			coordination_skill=2
+			visible = { has_country_flag = recruit_takeo_kurita } 
+		}
+	}
+
+	seiichi_ito={
+		name="伊藤整一" #伊藤 整一、海兵39期、海軍少将（1937年12月1日）、海軍中将（1941年10月15日）、海軍大将（1945年4月7日 追）。軍令部次長（1941年9月1日～1944年11月18日）、第二艦隊司令長官（1944年12月23日～1945年4月7日）、1945年戦死於戦艦「大和」
+		portraits={
+			navy={
+				large="gfx/leaders/JAP/Portrait_Japan_Seiichi_Ito.dds"
+				small="GFX_idea_seiichi_ito"
+			}
+		}
+		navy_leader={
+			traits={ naval_lineage battleship_adherent gunnery_expert }
+			skill=3
+			attack_skill=3
+			defense_skill=2
+			maneuvering_skill=3
+			coordination_skill=3
+			visible = { has_country_flag = recruit_seiichi_ito } 
+		}
+	}
+
+	takeo_takagi={
+		name=JAP_takeo_takagi #高木 武雄、海兵39期、海軍少将（1938年11月15日）、海軍中将（1942年5月1日）、海軍大将（1944年7月8日 追）。第六艦隊司令長官（1943年6月21日～1944年7月6日）。1944年7月6日戦死於塞班島
+		portraits={
+			navy={
+				large="gfx/leaders/JAP/Portrait_Japan_Takeo_Takagi.dds"
+				small=GFX_portrait_JAP_takeo_takagi_small
+			}
+		}
+		navy_leader={
+			traits={ seawolf }
+			skill=3
+			attack_skill=3
+			defense_skill=2
+			maneuvering_skill=3
+			coordination_skill=2
+			visible = { has_country_flag = recruit_takeo_takagi } 
+		}
+	}
+	
+	tamon_yamaguchi={
+		name="山口多闻" #山口 多聞、海兵40期、海軍少将（1938年11月15日）、海軍中将（1942年6月5日 追）。第1連合航空隊司令官（1940年1月15日～11月1日）、第2航空戦隊司令官（1940年11月1日～1942年6月5日）、1944年6月5日戦死
+		portraits={
+			navy={
+				large="gfx/leaders/JAP/Portrait_Japan_Tamon_Yamaguchi.dds"
+			}
+		}	
+		navy_leader={
+			traits={ navy_career_officer bold naval_lineage aviation_enthusiast air_controller }
+			skill=3
+			attack_skill=4
+			defense_skill=2
+			maneuvering_skill=2
+			coordination_skill=2
+			visible = { has_country_flag = recruit_tamon_yamaguchi } 
+		}
+	}
+
+    matome_ugaki={
+		name=JAP_matome_ugaki #宇垣 纒、海兵40期、海軍少将（1938年11月15日）、海軍中将（1942年11月1日）。軍令部第1部長（1938年12月15日）、連合艦隊兼第1艦隊参謀長（1941年8月1日）、第五航空艦隊司令長官（1945年2月10日～8月10日）1945年8月15日戦死
+		portraits={
+			navy={
+				small="GFX_idea_matome_ugaki"
+			}
+		}
+		advisor={
+			slot = theorist
+			idea_token = matome_ugaki
+			ledger = navy
+			allowed = {
+				original_tag = JAP
+			}
+			traits = {
+				naval_theorist
+			}
+			cost = 100
+		}
+	}
+
+	takijiro_onishi={
+		name="大西泷治郎" #大西 瀧治郎、海兵40期、海軍少将（1939年11月15日）、海軍中将（1943年5月1日）。航空本部教育部長（1936年4月）、航空本部総務部長（1942年3月）、第1航空艦隊司令長官（1944年10月20日）1945年8月16日自決
+		portraits={
+			navy={
+				small="GFX_idea_JAP_takijiro_onishi"
+			}
+		}
+		advisor={
+			slot = theorist
+			idea_token = matome_ugaki
+			ledger = navy
+			allowed = {
+				original_tag = JAP
+			}
+			traits = {
+				victory_through_airpower
+			}
+			cost = 150
+		}
+	}	
+	
+	############################## AIR FORCE ##############################
+
+	takeo_hori ={
+		name ="堀丈夫" #堀 丈夫、陸士13期騎兵、陸軍少将（1929年8月1日）、陸軍中将（1933年8月1日）。明野陸軍飛行学校長（1931年8月1日～1931年10月3日）、所沢陸軍飛行学校長（1933年12月20日～1934年8月1日）、航空本部長（1934年8月1日～1935年12月1日）、第1師団長（1935年12月2日～1936年3月23日）、予備役（1936年7月6日）、留守航空兵団司令官（1937年7月15日～1938年6月30日）、1952年4月4日歿
+		portraits={
+			army={
+				small="GFX_idea_JAP_takeo_hori"
+			}
+		}
+		advisor={
+			slot = air_chief
+			idea_token = takeo_hori
+			allowed = {
+				original_tag = JAP
+			}
+			traits = { air_chief_old_guard }
+			ai_will_do = {
+				base = 0
+				modifier = {
+					add = 200
+					has_global_flag = kodoha_won
+				}
+			}			
+		}
+	}
+
+	yoshitoshi_tokugawa ={
+		name =yoshitoshi_tokugawa #徳川 好敏、陸士15期工兵、陸軍少将（1931年8月1日）、陸軍中将（1935年8月1日）。明野陸軍飛行学校長（1931年10月3日～1934年8月1日）、所沢陸軍飛行学校長（1934年8月1日～1936年8月1日）、航空兵団長（1936年8月1日～1937年7月15日）、臨時航空兵団司令官（1937年7月15日～1938年4月）、航空兵団司令官（1938年4月～12月13日）。1939年8月31日予備役、航士校長（1944年3月28日～1945年9月20日）、1963年4月17日歿
+		portraits={
+			army={
+				small="GFX_idea_yoshitoshi_tokugawa"
+			}
+		}
+		advisor={
+			slot = theorist
+			idea_token = yoshitoshi_tokugawa
+			ledger = air						
+			allowed = {
+				original_tag = JAP
+			}
+			traits = { close_air_support_proponent }
+			cost = 150						
+		}
+	}
+	
+	hayashi_kinoshita ={
+		name ="木下敏" #木下 敏、陸士20期歩兵、陸軍少将（1936年3月7日）、陸軍中将（1939年3月9日）。所沢陸軍飛行学校校長（1937年8月2日～10月1日）、陸士分校長（1937年10月1日～1938年12月9日）、航士校長（1938年12月10日～1939年7月1日）、 第3飛行集団長（1939年9月1日～1941年9月15日）、航士校長（1941年9月15日～1942年12月21日）、関東防衛軍司令官（1942年12月22日～1943年12月6日）、第3航空軍司令官（1943年12月7日～終戦）、1963年10月26日歿
+		portraits={
+			army={
+				small="GFX_idea_JAP_hayashi_kinoshita"
+			}
+		}
+		advisor={
+			slot = theorist
+			idea_token = hayashi_kinoshita
+			ledger = air						
+			allowed = {
+				original_tag = JAP
+			}	
+			#			available = {
+#				has_country_flag = recruit_hayashi_kinoshita
+#			}
+			traits = { air_warfare_theorist }	
+			cost = 100					
+		}
+	}	
+
+	takeo_yasuda ={
+		name ="安田武雄" #安田 武雄、陸士21期工兵、陸軍少将（1937年3月1日）、陸軍中将（1939年8月1日）。航空技術研究所長（1938年12月10日～1942年6月1日）、第1航空軍司令官（1942年6月1日～1943年5月1日）、航空総監 兼 航空本部長（1943年5月1日～1944年3月28日)、第1航空軍司令官(1945年4月1日)。1964年8月23日歿
+		portraits={
+			army={
+				small="GFX_idea_JAP_takeo_yasuda"
+			}
+		}
+		advisor={
+			slot = air_chief
+			idea_token = takeo_yasuda					
+			allowed = {
+				original_tag = JAP
+			}
+			available = {
+				has_country_flag = recruit_takeo_yasuda
+			}
+			traits = { air_chief_safety_2 }		
+			cost = 100							
+		}
+	}
+
+	michio_sugawara ={
+		name ="菅原道大" #菅原 道大、陸士21期歩兵、陸軍少将（1937年8月2日）、陸軍中将（1939年10月2日）。下志津飛行校長（1939年12月1日～1940年8月1日）第1飛行集団長（1940年8月1日～1941年9月15日）、第3飛行集団長（1941年9月15日～1942年4月15日）、第3飛行師団長（1942年4月15日～1942年7月9日）、第3航空軍司令官（1942年7月9日～1943年5月1日）、航士校長（1943年5月1日～1944年3月28日）、航空総監 兼 航空本部長（1944年7月18日～12月26日）、教導航空軍司令官（1944年8月8日～12月26日）、第6航空軍司令官（1944年12月26日～終戦）。1983年12月29日歿
+		portraits={
+			army={
+				small="GFX_idea_JAP_michio_sugawara"
+			}
+		}
+		advisor={
+			slot = air_chief
+			idea_token = michio_sugawara					
+			allowed = {
+				original_tag = JAP
+			}
+			available = {
+				has_country_flag = recruit_michio_sugawara
+			}
+			traits = { air_chief_reform_2 }		
+			cost = 100								
+		}
+	}
+
+	yorimichi_suzuki ={
+		name ="铃木率道" #鈴木 率道、陸士22期砲兵、陸軍少将（1937年8月2日）、陸軍中将（1939年10月2日）。航空総監代理 兼 航空本部長代理（1940年12月10日～1941年6月9日）、航空兵団司令官（1941年12月1日～1942年6月1日）、第2航空軍司令官（1942年6月1日～1943年5月19日）。1943年6月2日予備役、1943年8月5日歿
+		portraits={
+			army={
+				small="GFX_idea_JAP_yorimichi_suzuki"
+			}
+		}
+		advisor={
+			slot = air_chief
+			idea_token = yorimichi_suzuki					
+			allowed = {
+				original_tag = JAP
+			}
+			available = {
+				has_country_flag = recruit_yorimichi_suzuki
+				custom_trigger_tooltip = {
+					tooltip = no_hideki_tojo #東條英機と対立
+					NOT = { has_country_leader_with_trait = prince_of_terror }
+					NOT = { has_idea_with_trait = prince_of_terror }
+				}
+			}	
+			traits = { air_chief_ground_support_2 }	
+			cost = 100		
+			ai_will_do = {
+			factor = 200 #guo
+			}
+		}
+	}
+
+	kumaichi_teramoto ={
+		name ="寺本熊市" #寺本 熊市、陸士22期歩兵、陸軍少将（1937年11月1日）、陸軍中将（1940年8月1日）。第2飛行集団長（1940年8月1日～1942年4月15日）、第2飛行集団長（1942年4月15日～1943年5月1日）、第1航空軍司令官（1943年5月1日～7月20日）、第4航空軍司令官（1943年7月20日～1944年8月30日）、航空総監代理 兼 航空本部長代理（1945年4月7日～18日）、航空本部長（1945年4月18日～8月15日）。1945年8月15日自決
+		portraits={
+			army={
+				small="GFX_idea_JAP_kumaichi_teramoto"
+			}
+		}
+		advisor={
+			slot = high_command
+			idea_token = kumaichi_teramoto		
+			ledger = air				
+			allowed = {
+				original_tag = JAP
+			}
+			available = {
+				has_country_flag = recruit_kumaichi_teramoto
+			}
+			traits = { air_air_superiority_2 }
+			cost = 100							
+		}
+	}
+
+	hideyoshi_obata={
+		name="小畑英良" #小畑 英良、陸士23期騎兵、陸軍少将（1938年3月1日）、陸軍中将（1940年12月2日）、陸軍大将（1944年9月30日 追）。明野陸軍飛行学校校長（1938年7月15日～1940年9月24日）、第5飛行集団長（1940年12月2日～1942年4月15日）、第5飛行師団長（1942年4月15日～1943年5月1日）、第3航空軍司令官（1943年5月1日～12月7日）、第31軍司令官（1944年2月25日～ 8月11日）、1944年8月11日關島戦死
+		portraits={
+			army={
+				large="gfx/leaders/JAP/Portrait_Japan_Hideyoshi_Obata.dds"
+				small="GFX_idea_JAP_hideyoshi_obata"
+			}
+		}
+		advisor={
+			slot = high_command
+			idea_token = hideyoshi_obata
+			ledger = air		
+			allowed = {
+				original_tag = JAP
+			}
+			available = {
+				has_country_flag = recruit_hideyoshi_obata
+			}
+			traits = { air_close_air_support_2 }	
+			cost = 100				
+			ai_will_do = {
+			factor = 200 #guo
+			}
+		}
+	}
+
+	torashiro_kawabe={
+		name =torashiro_kawabe #河辺 虎四郎、陸士24期砲兵、陸軍少将（1938年7月15日）、陸軍中将（1941年8月25日）。第2飛行師団長（1943年5月1日～5月19日）、第2航空軍司令官（1943年5月19日～1944年8月8日）。1960年6月25日歿
+		portraits={
+			army={
+				small="GFX_idea_torashiro_kawabe"
+			}
+		}
+		advisor={
+			slot = high_command
+			idea_token = torashiro_kawabe
+			ledger = air		
+			allowed = {
+				original_tag = JAP
+			}
+			available = {
+				has_country_flag = recruit_torashiro_kawabe
+			}
+			traits = { air_bomber_interception_2 }	
+			cost = 100				
+			ai_will_do = {
+				factor = 100
+			}				
+		}
+	}
+
+	############################## THEORIST ##############################
+				
+	yoshio_nishina ={
+		name =yoshio_nishina #仁科 芳雄、1890年12月6日～1951年1月10日、日本現代物理学の父。
+		portraits={
+			army={
+				small="GFX_idea_yoshio_nishina"
+			}
+		}
+		advisor={
+			slot = theorist
+			idea_token = yoshio_nishina				
+			allowed = {
+				original_tag = JAP
+			}
+			research_bonus = {
+				nuclear = 0.150
+			}						
+			traits = { nuclear_scientist }	
+			cost = 100			
+		}
+	}		
+
+	hideo_itokawa ={
+		name =hideo_itokawa #糸川 英夫、1912年7月20日～1999年2月21日、日本火箭科學の父。
+		portraits={
+			army={
+				small="GFX_idea_hideo_itokawa"
+			}
+		}
+		advisor={
+			slot = theorist
+			idea_token = hideo_itokawa				
+			allowed = {
+				original_tag = JAP
+			}
+			research_bonus = {
+				rocketry = 0.150
+			}						
+			traits = { rocket_scientist }	
+			cost = 100
+		}
+	}
+	
+#	hino_kumazo ={
+#		name =hino_kumazo #日野 熊蔵、1878年6月9日～1946年1月15日、日本航空の先駆者。 
+#		portraits={
+#			army={
+#				small="GFX_idea_hino_kumazo"
+#			}
+#		}
+#		advisor={
+#			slot = theorist
+#			idea_token = hino_kumazo
+#			ledger = air						
+#			allowed = {
+#				original_tag = JAP
+#			}			
+#			traits = { air_warfare_theorist }			
+#		}
+#	}
+	
+} 

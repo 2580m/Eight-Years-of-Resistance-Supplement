@@ -1,0 +1,640 @@
+characters={
+
+	FIC_Rene_Robin = {
+		name=FIC_Rene_Robin 
+		portraits={
+			civilian={
+				large = "gfx/leaders/FIC/Portrait_Indochina_Rene_Robin.dds"
+			}
+		}
+		country_leader={
+			ideology = oligarchism
+			traits={ }
+			expire="1965.1.1.1"
+			desc=LENEILUOBINGDESC
+		}
+	}
+	
+	FIC_le_hong_phong = {
+		name=FIC_le_hong_phong
+		portraits={
+			army={
+				small="GFX_idea_generic_communist_asia"
+			}
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = FIC_le_hong_phong		
+			allowed = {
+				original_tag = "FIC"
+			}
+			traits = { communist_revolutionary }
+
+			on_add = {
+				#country_event = political.1
+			}
+
+			do_effect = {
+				NOT = {
+					has_government = communism
+				}
+			}
+			ai_will_do = {
+				factor = 0
+			}
+		}
+	}
+
+	FIC_nguyen_phan_long = {
+		name=FIC_nguyen_phan_long
+		portraits={
+			army={
+				small="GFX_idea_generic_democratic_asia"
+			}
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = FIC_nguyen_phan_long
+			allowed = {
+				original_tag = "FIC"
+			}
+
+			traits = { democratic_reformer }
+
+			on_add = {
+				#country_event = political.13
+			}
+
+			do_effect = {
+				NOT = {
+					has_government = democratic
+				}
+			}
+			ai_will_do = {
+				factor = 0
+			}
+		}
+	}
+		
+	FIC_tran_quang_vinh = {
+		name=FIC_tran_quang_vinh
+		portraits={
+			army={
+				small="GFX_idea_generic_fascist_asia"
+			}
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = FIC_tran_quang_vinh
+			allowed = {
+				original_tag = "FIC"
+			}
+			traits = { fascist_demagogue }
+
+			on_add = {
+				#country_event = political.7
+			}
+			do_effect = {
+				NOT = {
+					has_government = fascism
+				}
+			}
+			ai_will_do = {
+				factor = 0
+			}
+		}
+	}
+
+	FIC_nhat_linh = {
+		name=FIC_nhat_linh
+		portraits={
+			army={
+				small="GFX_idea_generic_n_socialism_asia"
+			}
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = FIC_nhat_linh
+			allowed = {
+				original_tag = FIC
+			}
+			traits = { socialist_idealist }
+
+			on_add = {
+				#country_event = rcmpolitical.30
+			}
+			do_effect = {
+				NOT = {
+					has_government = n_socialism
+				}
+			}
+			ai_will_do = {
+				factor = 0
+			}
+		}
+	}
+
+	FIC_pierre_louis_dreyfus = {
+		name=FIC_pierre_louis_dreyfus
+		portraits={
+			army={
+				small="GFX_idea_generic_political_advisor_europe_1"
+			}
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = FIC_pierre_louis_dreyfus
+			allowed = {
+				original_tag = FIC
+			}			
+			available = {
+				NOT = { has_government = fascism }
+			}
+			traits = { compassionate_gentleman }
+		}
+	}
+
+	FIC_martin_karp = {
+		name=FIC_martin_karp
+		portraits={
+			army={
+				small="GFX_idea_generic_political_advisor_europe_2"
+			}
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = FIC_martin_karp
+			allowed = {
+				original_tag = FIC
+			}
+			traits = { backroom_backstabber }
+		}
+	}
+
+	FIC_pierre_lefaucheux = {
+		name=FIC_pierre_lefaucheux
+		portraits={
+			army={
+				small="GFX_idea_generic_political_advisor_europe_3"
+			}
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = FIC_pierre_lefaucheux
+			allowed = {
+				original_tag = FIC
+			}			
+			available = {
+				NOT = { has_government = fascism }
+			}
+			traits = { captain_of_industry }
+		}
+	}
+
+	FIC_maurice_martin = {
+		name=FIC_maurice_martin
+		portraits={
+			army={
+				small="GFX_idea_generic_army_europe_1"
+			}
+		}
+		advisor={
+			slot = army_chief
+			idea_token = FIC_maurice_martin
+			allowed = {
+				original_tag = FIC
+			}
+			traits = { army_chief_defensive_2 }
+			cost = 100
+			ai_will_do = {
+				factor = 1
+			}
+		}
+	}
+
+	FIC_joseph_bourely = {
+		name=FIC_joseph_bourely
+		portraits={
+			army={
+				small="GFX_idea_generic_army_europe_2"
+			}
+		}
+		advisor={
+			slot = army_chief
+			idea_token = FIC_joseph_bourely
+			allowed = {
+				original_tag = FIC
+			}
+			traits = { army_chief_offensive_2 }
+			cost = 100
+			ai_will_do = {
+				factor = 1
+			}
+		}
+	}
+		
+	FIC_jean_charbonneau = {
+		name=FIC_jean_charbonneau
+		portraits={
+			army={
+				small="GFX_idea_generic_army_europe_3"
+			}
+		}
+		advisor={
+			slot = army_chief
+			idea_token = FIC_jean_charbonneau
+			allowed = {
+				original_tag = FIC
+			}
+			traits = { army_chief_maneuver_1 }
+			cost = 50
+			ai_will_do = {
+				factor = 1
+			}
+		}
+	}
+
+	FIC_michel_boudier = {
+		name=FIC_michel_boudier
+		portraits={
+			army={
+				small="GFX_idea_generic_air_europe_3"
+			}
+		}
+		advisor={
+			slot = air_chief
+			idea_token = FIC_michel_boudier
+			allowed = {
+				original_tag = FIC
+			}
+			traits = { air_air_combat_training_2 }
+			cost = 100
+			ai_will_do = {
+				factor = 1
+			}
+		}
+	}
+		
+	FIC_sylvestre_tavera = {
+		name=FIC_sylvestre_tavera
+		portraits={
+			army={
+				small="GFX_idea_generic_air_europe_2"
+			}
+		}
+		advisor={
+			slot = air_chief
+			idea_token = FIC_sylvestre_tavera
+			allowed = {
+				original_tag = FIC
+			}
+			traits = { air_chief_safety_2 }
+			cost = 100
+			ai_will_do = {
+				factor = 1
+			}
+		}
+	}
+
+	FIC_thierry_dargenlieu = {
+		name=FIC_thierry_dargenlieu
+		portraits={
+			army={
+				small="GFX_idea_generic_navy_europe_3"
+			}
+		}
+		advisor={
+			slot = navy_chief
+			idea_token = FIC_thierry_dargenlieu
+			allowed = {
+				original_tag = FIC
+			}			
+			available = {
+				NOT = { has_government = fascism }
+			}
+			traits = { navy_chief_maneuver_2 }
+			cost = 100
+			ai_will_do = {
+				factor = 1
+			}
+		}
+	}
+
+	FIC_georges_albert_ayme = {
+		name=FIC_georges_albert_ayme
+		portraits={
+			army={
+				small="GFX_idea_generic_army_europe_1"
+			}
+		}
+		advisor={
+			slot = high_command
+			idea_token = FIC_georges_albert_ayme
+			ledger = army
+			allowed = {
+				original_tag = FIC
+			}
+			traits = { army_infantry_2 }
+			cost = 100
+			ai_will_do = {
+				factor = 1
+			}
+		}
+	}
+
+	FIC_georges_catroux_hq = {
+		name=FIC_georges_catroux_hq
+		portraits={
+			civilian={
+				large="gfx/leaders/FIC/Portrait_Indochina_Georges_Catroux.dds"
+			}
+			army={
+				small="GFX_georges_catroux"
+			}
+		}
+		advisor={
+			slot = high_command
+			idea_token = FIC_georges_catroux_hq
+			ledger = army
+			allowed = {
+				original_tag = FIC
+			}			
+			available = {
+				NOT = { has_government = fascism }
+			}
+			traits = { army_logistics_2 }
+			cost = 100
+			ai_will_do = {
+				factor = 1
+			}
+		}
+
+	}
+		
+	FIC_gaston_blanc = {
+		name=FIC_gaston_blanc
+		portraits={
+			army={
+				small="GFX_generic_army_europe_2"
+			}
+		}
+		advisor={
+			slot = high_command
+			idea_token = FIC_gaston_blanc
+			ledger = army
+			allowed = {
+				original_tag = FIC
+			}
+			traits = { army_artillery_2 }
+			cost = 100
+			ai_will_do = {
+				factor = 1
+			}
+		}
+	}
+
+	FIC_william_labussiere = {
+		name=FIC_william_labussiere
+		portraits={
+			army={
+				small="GFX_generic_air_europe_1"
+			}
+		}
+		advisor={
+			slot = high_command
+			idea_token = FIC_william_labussiere
+			ledger = air
+			allowed = {
+				original_tag = FIC
+			}
+			traits = { air_air_superiority_3 }
+			cost = 200
+			ai_will_do = {
+				factor = 1
+			}
+		}
+	}
+
+	FIC_jules_terreaux = {
+		name=FIC_jules_terreaux
+		portraits={
+			army={
+				large="gfx/leaders/FIC/Portrait_France_Generic_navy_2.dds"
+				small="GFX_generic_navy_europe_1"
+			}
+		}
+		advisor={
+			slot = high_command
+			idea_token = FIC_jules_terreaux
+			ledger = navy
+			allowed = {
+				original_tag = FIC
+			}
+			traits = { navy_fleet_logistics_2 }
+			cost = 100
+			ai_will_do = {
+				factor = 1
+			}
+		}
+		navy_leader={
+			traits={}
+			skill=2
+			attack_skill=1
+			defense_skill=2
+			maneuvering_skill=2
+			coordination_skill=2
+		}
+	}
+
+	FIC_fernand_rabutx = {
+		name=FIC_fernand_rabut
+		portraits={
+			army={
+				small="GFX_generic_army_europe_1"
+			}
+		}
+		advisor={
+			slot = theorist
+			idea_token = FIC_fernand_rabut
+			ledger = army
+			allowed = {
+				original_tag = FIC
+			}			
+			traits = { military_theorist }
+			cost = 100			
+		}
+	}
+
+	FIC_michel_boudier_theo = {
+		name=FIC_michel_boudier_theo
+		portraits={
+			army={
+				small="GFX_generic_air_europe_1"
+			}
+		}
+		advisor={
+			slot = theorist
+			idea_token = FIC_michel_boudier_theo
+			ledger = air
+			allowed = {
+				original_tag = FIC
+			}
+			traits = { air_warfare_theorist }
+			cost = 150			
+		}
+	}
+
+	FIC_Eugène_Mordant={
+		name=FIC_Eugene_Mordant
+		portraits={
+			army={
+				large="gfx/leaders/FIC/Portrait_Indochina_Eugene_Mordant.dds"
+			}
+		}
+		corps_commander={
+			traits={ career_officer infantry_officer trait_reckless }
+			skill=3
+			attack_skill=3
+			defense_skill=3
+			planning_skill=2
+			logistics_skill=2
+			legacy_id=-1
+		}
+	}
+
+	FIC_Gabriel_Sabattier={
+		name=FIC_Gabriel_Sabattier
+		portraits={
+			army={
+				large="gfx/leaders/FIC/Portrait_Indochina_Gabriel_Sabattier.dds"
+			}
+		}
+		corps_commander={
+			traits={ career_officer }
+			skill=2
+			attack_skill=1
+			defense_skill=2
+			planning_skill=2
+			logistics_skill=2
+			legacy_id=-1
+		}
+	}
+
+	FIC_Jean_Decoux={
+		name=FIC_Jean_Decoux
+		portraits={
+			civilian={
+				large="gfx/leaders/FIC/Portrait_Indochina_Jean_Decoux.dds"
+			}
+			navy={
+				large="gfx/leaders/FIC/Portrait_Indochina_Jean_Decoux.dds"
+				small="GFX_idea_jean_decoux"
+			}
+		}
+		advisor={
+			slot = navy_chief
+			idea_token = FIC_jean_decoux_nav
+			allowed = {
+				original_tag = FIC
+			}
+			traits = { navy_chief_decisive_battle_2 }
+			cost = 100
+			ai_will_do = {
+				factor = 1
+			}
+		}
+		advisor={
+			slot = theorist
+			idea_token = FIC_jean_decoux_theo
+			ledger = navy
+			allowed = {
+				original_tag = FIC
+			}
+			traits = { naval_theorist }
+			cost = 100			
+		}
+		navy_leader={
+			traits={ fleet_protector spotter }
+			skill=4
+			attack_skill=4
+			defense_skill=3
+			maneuvering_skill=3
+			coordination_skill=3
+		}
+	}
+
+	FIC_Régis_Bérenger={
+		name=FIC_Regis_Berenger
+		portraits={
+			navy={
+				large="gfx/leaders/FIC/Portrait_Indochina_Regis_Berenger.dds"
+			}
+		}
+		navy_leader={
+			traits={ superior_tactician }
+			skill=3
+			attack_skill=2
+			defense_skill=2
+			maneuvering_skill=3
+			coordination_skill=3
+		}
+	}
+}
+
+#create_corps_commander = {
+#	name = "Jean-Robert de Rendinger"
+#    picture = "Portrait_Indochina_Jean_Robert_de_Rendinger.dds"
+#	traits = { career_officer infantry_officer }
+#	skill = 2
+#	attack_skill = 2
+#	defense_skill = 2
+#	planning_skill = 3
+#	logistics_skill = 2
+#}
+
+#create_corps_commander = {
+#	name = "Marcel Alessandri"
+#    picture = "Portrait_Indochina_Marcel_Alessandri.dds"
+#	traits = { career_officer war_hero infantry_officer }
+#	skill = 3
+#	attack_skill = 3
+#	defense_skill = 2
+#	planning_skill = 3
+#	logistics_skill = 3
+#}
+
+#create_corps_commander = {
+#	name = "Émile Lemonnier"
+#    picture = "Portrait_Indochina_Emile_Lemonnier.dds"
+#	traits = { career_officer trait_reckless }
+#	skill = 2
+#	attack_skill = 2
+#	defense_skill = 2
+#	planning_skill = 2
+#	logistics_skill = 2
+#}
+
+#create_corps_commander = {
+#	name = "Maurice Martin"
+#    picture = "Portrait_Indochina_Maurice_Martin.dds"
+#	traits = { career_officer organizer infantry_officer }
+#	skill = 3
+#	attack_skill = 3
+#	defense_skill = 2
+#	planning_skill = 3
+#	logistics_skill = 3
+#}
+
+#create_corps_commander = {
+#	name = "Henri Cazin"
+#    picture = "Portrait_Indochina_Henri_Cazin.dds"
+#	traits = { career_officer war_hero }
+#	skill = 3
+#	attack_skill = 2
+#	defense_skill = 3
+#	planning_skill = 3
+#	logistics_skill = 3
+#}
+
+#Fernand Rabut, Joseph Bourèly, Jean Charbonneau and Gaston Blanc can be added as well (or as advisors)
+

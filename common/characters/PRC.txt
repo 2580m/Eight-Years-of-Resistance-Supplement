@@ -1,0 +1,3350 @@
+characters={
+
+	############################## POLITICAL ##############################
+
+	prc_zhang_wentian = {
+		name=prc_zhang_wentian
+		portraits={
+			civilian={
+				large="gfx/leaders/PRC/Zhang_Wentian.dds"
+				small="GFX_idea_prc_zhang_wentian"
+			}
+		}
+		country_leader={
+			ideology = marxism
+			traits={ PRC_zhang_trait desperate_gambit }
+			expire="1965.1.1.1"
+			id=-1
+			desc=prc_zhang_wentian_desc
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = prc_zhang_wentian
+			traits = { popular_figurehead maoists_trait_zhang_wentian }
+			available = {
+			}
+			visible = {
+				OR = {
+					OR = { has_idea = CHI_communist_in_government TAG = event_target:WTT_current_china_leader TAG = SOV }
+					tag = event_target:WTT_communist_china
+				}
+			}
+			allowed = {
+				#OR = { is_literally_china = yes TAG = SOV }
+			}			
+			on_add = {
+				owner = {
+				    hidden_effect = {
+					    set_variable = { prc_zhang_wentian_counter = 15 } #first increase after 15 days
+					    add_to_variable = { mao_total = 0.5 } #monthly for locs
+				    }
+				}	
+			}
+			on_remove = {
+				owner = {
+				    hidden_effect = {
+					    subtract_from_variable = { mao_total = 0.5 } #monthly for locs
+				    }
+				}	
+			}
+            on_add = {
+				owner = {
+					if = {
+						limit = {
+						    has_idea = CHI_communist_in_government
+						}	
+						PRC_support_up = yes
+					}
+				}
+			}
+			on_remove = {
+				owner = {
+					if = {
+						limit = {
+						    has_idea = CHI_communist_in_government
+						}	
+						PRC_support_down = yes
+					}
+				}
+			}
+			#ai_will_do  = {
+			#	factor = 1.000
+			#	modifier  = {
+			#		is_historical_focus_on = yes 
+			#		factor = 80
+			#	}
+			#}
+			removal_cost = 50
+			#allowed_to_remove = {
+			#	if = {
+			#		limit = {
+			#			NOT = { has_country_leader = { name = "Wang Fanxi" ruling_only = yes } }
+			#			original_tag = PRC
+			#		}
+			#		set_temp_variable = { temp_faction_support = 40 }
+			#		set_temp_variable = { temp_greater_or_smaller = 0 } #1 greater 0 smaller
+			#		set_temp_variable = { temp_get_faction = 2 }
+			#		OR = {
+			#			custom_trigger_tooltip = {
+			#				tooltip = CHECK_FACTION_SUPPORT_tt
+			#				check_variable = { parliament_seat_array_adjusted^1 < 40 }
+			#			}
+			#			NOT = { has_country_leader = { name = "Zhang Wentian" ruling_only = yes } }
+			#		}					
+			#	}
+			#}
+		}
+	}
+
+	prc_mao_zedong={
+		name="毛泽东"
+		portraits={
+			civilian={
+				large="gfx/leaders/PRC/Portrait_PRC_Mao_Zedong.dds"
+				small="GFX_idea_prc_mao_zedong"
+			}
+			army = {
+			    large="gfx/leaders/PRC/maozedong0.dds"
+				small="GFX_idea_prc_mao_zedong"
+			}
+		}
+		country_leader={
+			ideology = marxism
+			traits={ cornered_fox youjizhandashi hero_of_the_peasantry_MAO }
+			expire="1976.9.9"
+			id=-1
+			desc=prc_mao_zedong_desc
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = prc_mao_zedong
+			traits = { red_army_organizer maoists_trait_mao_zedong }
+			visible = {
+				OR = {
+					OR = { has_idea = CHI_communist_in_government TAG = event_target:WTT_current_china_leader TAG = SOV }
+					tag = event_target:WTT_communist_china
+				}
+			}
+			allowed = {
+				#OR = { is_literally_china = yes TAG = SOV }
+			}
+			available = {
+			    if = {
+				limit = {
+				original_tag = PRC
+				}
+				leader_is_maoist = yes
+				}
+			}
+			on_add = {
+				owner = {
+				    hidden_effect = {
+					    set_variable = { prc_mao_zedong_counter = 15 } #first increase after 15 days
+					    add_to_variable = { mao_total = 0.5 } #monthly for locs
+                    }
+				}
+			}
+			on_remove = {
+				owner = {
+				    hidden_effect = {
+					    subtract_from_variable = { mao_total = 0.5 } #monthly for locs
+					}	
+				}
+			}
+			ai_will_do = {
+				factor = 1
+				modifier = {
+					factor = 100
+					is_historical_focus_on = yes
+				}
+			}
+			on_add = {
+				owner = {
+					if = {
+						limit = {
+						    has_idea = CHI_communist_in_government
+						}	                     
+                        PRC_support_up = yes
+					}
+				}
+			}
+			on_remove = {
+				owner = {
+					if = {
+						limit = {
+						    has_idea = CHI_communist_in_government
+						}	
+						PRC_support_down = yes
+					}
+				}
+			}
+			can_be_fired = no #change to decision
+			desc=prc_mao_zedong_desc
+			#removal_cost = 50
+			#allowed_to_remove = { #ken deleted due NSB not support
+			#	always = no
+            #	if = {
+			#		limit = {
+			#			NOT = { has_country_leader = { name = "Wang Fanxi" ruling_only = yes } }
+			#			original_tag = PRC
+			#		}
+			#		set_temp_variable = { temp_faction_support = 40 }
+			#		set_temp_variable = { temp_greater_or_smaller = 0 } #1 greater 0 smaller
+			#		set_temp_variable = { temp_get_faction = 2 }
+			#		custom_trigger_tooltip = {
+			#			tooltip = CHECK_FACTION_SUPPORT_tt
+			#			check_variable = { parliament_seat_array_adjusted^1 < 40 }
+			#		}
+			#	}
+			#}
+		}
+		field_marshal={
+			skill=5
+			attack_skill=5
+			defense_skill=6
+			planning_skill=5
+			logistics_skill=6
+			legacy_id =-1
+			
+		    traits = { inspirational_leader trait_mountaineer logistics_wizard Tzxx_Resprcted_military_leader adaptable youji_hero brilliant_strategist war_hero media_personality }
+		
+		    visible = {
+		    if = {
+				limit = {
+				original_tag = PRC
+				}
+				leader_is_maoist = yes
+				}
+		    }
+			desc=prc_mao_zedong_desc
+		}
+	}
+	
+	PRC_zhou_enlai = {
+		name=PRC_zhou_enlai
+		portraits={
+			civilian={
+				small="GFX_idea_PRC_zhou_enlai"
+				large="gfx/leaders/PRC/Portrait_China_zongli.png"
+			}
+		}
+		country_leader={
+			ideology = marxism
+			traits={ comintern_celebrity legitimate_heir dangdeyuanlao guojizhengzhihuodongjia nanchangqiyi tongyizhanxianzhichi }
+			expire="1976.9.9"
+			id=-1
+			desc=PRC_zhou_enlai_desc
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = PRC_zhou_enlai
+			available = {
+				NOT = { has_global_flag = zhou_enlai_marginalized }
+				NOT = {
+					has_global_flag = zhou_enlai_in_moscow
+				}
+			}
+			allowed = {
+				#OR = { is_literally_china = yes TAG = SOV }
+			}
+			ai_will_do = {
+				factor = 600
+			}
+			visible = {
+				NOT = {
+					has_completed_focus = PRC_reunite_the_group_of_three_focus
+				}
+			}
+			traits = { pingyijinrendegemingjia }
+			modifier = {
+				political_power_factor = 0.05
+				conscription_factor = 0.10
+				resistance_damage_to_garrison = -0.25
+		        required_garrison_factor = -0.15
+		        compliance_gain = 0.05
+		        operative_slot = 2
+				stability_factor = 0.05
+		        army_morale_factor = 0.05
+				army_org_factor = 0.05
+				opinion_gain_monthly_factor = 0.25
+				improve_relations_maintain_cost_factor = -0.25 #MODDED
+			}
+			on_add = {
+				owner = {
+					if = {
+						limit = {
+						    has_idea = CHI_communist_in_government
+						}	
+						PRC_support_up = yes
+					}
+				}
+			}
+			on_remove = {
+				owner = {
+					if = {
+						limit = {
+						    has_idea = CHI_communist_in_government
+						}	
+						PRC_support_down = yes
+					}
+				}
+			}
+		}
+		field_marshal={
+			skill=4
+			attack_skill=4
+			defense_skill=4
+			planning_skill=4
+			logistics_skill=5
+			legacy_id =-1
+			
+		    traits = { logistics_wizard youji_hero inspirational_leader Tzxx_imperturbable_strategist war_hero media_personality }
+		
+		    visible = {
+		    if = {
+				limit = {
+				original_tag = PRC
+				}
+				NOT = { has_global_flag = zhou_enlai_marginalized }
+				NOT = {
+					has_global_flag = zhou_enlai_in_moscow
+				}
+				}
+		    }
+			
+			desc=PRC_zhou_enlai_desc
+		}
+	}
+	PRC_zhou_enlai_2 = {
+		name=PRC_zhou_enlai
+		portraits={
+			civilian={
+				small="GFX_idea_PRC_zhou_enlai"
+				large="gfx/leaders/PRC/Portrait_China_zongli.png"
+			}
+		}
+		#country_leader={
+		#	ideology = marxism
+		#	traits={ pingyijinrendegemingjia comintern_celebrity legitimate_heir dangdeyuanlao }
+		#	expire="1976.9.9"
+		#	id=-1
+		#	desc=PRC_zhou_enlai_desc
+		#}
+		advisor={
+			slot = political_advisor
+			idea_token = PRC_zhou_enlai_2
+			available = {
+				NOT = {
+					has_global_flag = zhou_enlai_in_moscow
+				}
+			}
+			allowed = {
+				#OR = { is_literally_china = yes TAG = SOV }
+			}
+			ai_will_do = {
+				factor = 2500
+			}
+			visible = {
+                if = {
+				limit = {
+				original_tag = PRC
+				}
+				has_completed_focus = PRC_reunite_the_group_of_three_focus
+                }
+			}
+			traits = { pingyijinrendegemingjia }
+			modifier = {
+				political_power_factor = 0.10
+				conscription_factor = 0.15
+				resistance_damage_to_garrison = -0.30
+		        required_garrison_factor = -0.20
+		        compliance_gain = 0.07
+		        operative_slot = 3
+				stability_factor = 0.10
+		        army_morale_factor = 0.10
+				army_org_factor = 0.10
+				opinion_gain_monthly_factor = 0.30
+				improve_relations_maintain_cost_factor = -0.30 #MODDED
+			}
+			on_add = {
+				owner = {
+					if = {
+						limit = {
+						    has_idea = CHI_communist_in_government
+						}	
+						PRC_support_up = yes
+					}
+				}
+			}
+			on_remove = {
+				owner = {
+					if = {
+						limit = {
+						    has_idea = CHI_communist_in_government
+						}	
+						PRC_support_down = yes
+					}
+				}
+			}
+		}
+	}
+	
+	PRC_dengyingchao={
+		name=PRC_dengyingchao
+		portraits={
+			civilian = {
+				small="gfx/interface/ideas/PRC_dengyingchao.png"
+			}
+		}
+		gender = female
+		advisor={
+			slot = political_advisor
+			idea_token = PRC_dengyingchao
+			
+			visible = {
+					OR = {
+						OR = { has_idea = CHI_communist_in_government TAG = event_target:WTT_current_china_leader TAG = SOV }
+						original_tag = PRC
+					}
+			}
+			available = {
+			if = {
+			limit = {
+			original_tag = PRC
+			}
+			
+			or = {
+			custom_trigger_tooltip = {
+				tooltip = has_idea_PRC_zhou_enlai
+				or = { has_idea = PRC_zhou_enlai has_idea = PRC_zhou_enlai_2 }
+			}
+			has_country_leader = { character = PRC_zhou_enlai ruling_only = yes	}
+			}
+			
+			}
+			}
+			traits = { SWE_suffragette_research }			
+			allowed = {
+				#OR = { is_literally_china = yes TAG = SOV }
+			}
+			on_add = {
+				owner = {
+					if = {
+						limit = {
+						    has_idea = CHI_communist_in_government
+						}	
+						PRC_support_up = yes
+					}
+				}
+			}
+			on_remove = {
+				owner = {
+					if = {
+						limit = {
+						    has_idea = CHI_communist_in_government
+						}
+						PRC_support_down = yes
+					}
+				}
+			}
+			ai_will_do = {
+				factor = 1
+				
+			}
+		}
+	}
+	
+	PRC_wanghongwen = {
+		name=PRC_wanghongwen
+		portraits={
+			civilian={
+				large="gfx/leaders/PRC/PRC_wanghongwen.png"
+				small="gfx/interface/ideas/PRC_wanghongwen.png"
+			}
+		}
+		country_leader={
+			ideology = maoism
+			traits={ legitimate_heir }
+			expire="1976.9.9"
+			id=-1
+			desc=PRC_wanghongwen_desc
+		}
+	}
+	
+	PRC_quanguorenda = {
+		name=PRC_quanguorenda
+		portraits={
+			civilian={
+				large="gfx/leaders/PRC/PRC_quanguorenda.png"
+				#small="gfx/interface/ideas/PRC_wanghongwen.png"
+			}
+		}
+		country_leader={
+			ideology = leninism
+			traits={ minzhujizhongzhi }
+			expire="1976.9.9"
+			id=-1
+			desc=PRC_quanguorenda_desc
+		}
+	}
+	
+	prc_wang_jiaxiang = {
+		name=prc_wang_jiaxiang
+		portraits={
+			civilian={
+				small="GFX_idea_prc_wang_jiaxiang"
+				large="gfx/leaders/PRC/Portrait_China_wang_jiaxiang.png"
+			}
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = prc_wang_jiaxiang
+			traits = { smooth_talking_charmer mao_zedong_thought_guards }
+			available = {
+				NOT = {
+					has_global_flag = prc_wang_jiaxiang_go_to_soviet_union
+				}
+			}
+			visible = {
+				#OR = { is_literally_china = yes TAG = SOV }
+			}
+			on_add = {
+				owner = {
+					if = {
+						limit = {
+						    has_idea = CHI_communist_in_government
+						}	
+						PRC_support_up = yes
+					}
+				}
+			}
+			on_remove = {
+				owner = {
+					if = {
+						limit = {
+						    has_idea = CHI_communist_in_government
+						}	
+						PRC_support_down = yes
+					}
+				}
+			}
+			allowed = {
+				#OR = { is_literally_china = yes TAG = SOV }
+			}			
+			on_add = {
+				owner = {
+				    hidden_effect = {
+					    set_variable = { prc_wang_jiaxiang_counter = 15 } #first increase after 15 days
+					    add_to_variable = { mao_total = 0.5 } #monthly for locs
+					}
+				}
+			}
+			on_remove = {
+				owner = {
+				    hidden_effect = {
+					    subtract_from_variable = { mao_total = 0.5 } #monthly for locs
+					}
+				}
+			}
+			ai_will_do = {
+				factor = 50
+			}
+		}
+		field_marshal={
+			skill=2
+			attack_skill=2
+			defense_skill=2
+			planning_skill=3
+			logistics_skill=4
+			legacy_id =-1
+			
+		    traits = { youji_hero military_political_commissar trait_cautious logistics_wizard }
+		
+		    visible = {
+		    if = {
+				limit = {
+				original_tag = PRC
+				}
+				NOT = {
+					has_global_flag = prc_wang_jiaxiang_go_to_soviet_union
+				}
+				}
+		    }
+			desc=prc_wang_jiaxiang_desc
+		}
+	}
+	
+	PRC_chen_yun = {				
+		name=PRC_chen_yun
+		portraits={
+			civilian={
+				small="GFX_idea_PRC_chen_yun"
+			}
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = PRC_chen_yun
+			traits = { jingjizhanxian maoists_trait_chen_yun }
+			available = {
+				has_global_flag = PRC_chen_yun_returned_flag
+			}
+			visible = {
+				if = {
+					limit = {
+						NOT = {
+							tag = event_target:WTT_communist_china
+						}
+					}
+					OR = {
+						OR = { has_idea = CHI_communist_in_government TAG = event_target:WTT_current_china_leader TAG = SOV }
+						tag = event_target:WTT_communist_china
+					}
+				}
+			}
+			allowed = {
+				#OR = { is_literally_china = yes TAG = SOV }
+			}
+			ai_will_do = {
+				factor = 600
+			}
+			on_add = {
+				owner = {
+				    hidden_effect = {
+					    set_variable = { PRC_chen_yun_counter = 15 } #first increase after 15 days
+					    add_to_variable = { mao_total = 0.5 } #monthly for locs
+					}
+				}
+			}
+			on_remove = {
+				owner = {
+				    hidden_effect = {
+					    subtract_from_variable = { mao_total = 0.5 } #monthly for locs
+					}
+				}
+			}
+			on_add = {
+				owner = {
+					if = {
+						limit = {
+						    has_idea = CHI_communist_in_government
+						}	
+						PRC_support_up = yes
+					}
+				}
+			}
+			on_remove = {
+				owner = {
+					if = {
+						limit = {
+						    has_idea = CHI_communist_in_government
+						}	
+						PRC_support_down = yes
+					}
+				}
+			}
+		}
+	}
+
+	PRC_zhang_guotao = {
+		name=PRC_zhang_guotao
+		portraits={
+			civilian={
+				large="gfx/leaders/PRC/Portrait_China_Zhang_Guotao.dds"
+				small="GFX_idea_PRC_zhang_guotao"
+			}
+			army={
+				large="gfx/leaders/PRC/Portrait_China_Zhang_Guotao.dds"
+				small="GFX_idea_PRC_zhang_guotao"
+			}
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = PRC_zhang_guotao
+			traits = { comintern_celebrity ZHANG_FACTION_trait_zhang_guotao }
+			visible = {
+				if = {
+					limit = {
+						NOT = {
+							tag = event_target:WTT_communist_china
+						}
+					}
+					OR = {
+						has_idea = CHI_communist_in_government
+						tag = event_target:WTT_communist_china
+						tag = event_target:WTT_current_china_leader
+					}
+				}
+			}
+			allowed = {
+				#OR = { is_literally_china = yes TAG = SOV }
+			}
+			ai_will_do = {
+			factor = 0.5
+			modifier = {
+			factor = 0
+			is_historical_focus_on = yes
+			}
+			}
+			available = { #MODDED
+				NOT = { #MODDED
+					has_idea = Chinese_Red_Army #MODDED
+				} #MODDED
+			} #MODDED
+			on_add = {
+				owner = {
+				    hidden_effect = {
+					    set_variable = { PRC_zhang_guotao_counter = 15 } #first increase after 15 days
+					    add_to_variable = { zhang_total = 0.5 } #monthly for locs
+					}	
+				}
+			}
+			on_remove = {
+				owner = {
+				    hidden_effect = {
+					    subtract_from_variable = { zhang_total = 0.5 } #monthly for locs
+					}	
+				}
+			}
+			on_add = {
+				owner = {
+					if = {
+						limit = {
+						    has_idea = CHI_communist_in_government
+						}	
+						PRC_support_up = yes
+					}
+				}
+			}
+			on_remove = {
+				owner = {
+					if = {
+						limit = {
+						    has_idea = CHI_communist_in_government
+						}	
+						PRC_support_down = yes
+					}
+				}
+			}
+			can_be_fired = no #change to decision
+		}
+		
+	    field_marshal={
+		    skill=3
+		    attack_skill=3
+		    defense_skill=2
+		    planning_skill=3
+		    logistics_skill=3
+		    legacy_id =-1
+		    traits = { old_guard youji_hero harsh_leader scavenger }
+		    visible = {
+		       has_global_flag = union_of_the_three_armies
+			   if = {
+			   limit = { original_tag = PRC }
+		       NOT = {
+			      has_global_flag = PRC_zhang_guotao_defect
+		       }
+			   }
+		    }
+			desc=PRC_zhang_guotao_desc
+	    }
+	
+	}
+
+	prc_xu_teli = {				
+		name=prc_xu_teli
+		portraits={
+			civilian={
+				small="GFX_idea_prc_xu_teli"
+			}
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = prc_xu_teli
+			traits = { education_reformer }
+			available = {
+			}
+			visible = {
+				OR = {
+						has_idea = CHI_communist_in_government
+						tag = event_target:WTT_communist_china
+						tag = event_target:WTT_current_china_leader
+					}
+			}
+			on_add = {
+				owner = {
+					if = {
+						limit = {
+						    has_idea = CHI_communist_in_government
+						}	
+						PRC_support_up = yes
+					}
+				}
+			}
+			on_remove = {
+				owner = {
+					if = {
+						limit = {
+						    has_idea = CHI_communist_in_government
+						}	
+						PRC_support_down = yes
+					}
+				}
+			}
+			allowed = {
+				#OR = { is_literally_china = yes TAG = SOV }
+			}			
+			ai_will_do = {
+				factor = 19
+			}
+		}
+	}
+		
+	PRC_lin_bojiu = {				
+		name=PRC_lin_bojiu
+		portraits={
+			civilian={
+				small="GFX_idea_PRC_lin_bojiu"
+			}
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = PRC_lin_bojiu
+			traits = { ecomonist_publicist }
+			visible = {
+				if = {
+					limit = {
+						NOT = {
+							tag = event_target:WTT_communist_china
+						}
+					}
+					OR = {
+						OR = { has_idea = CHI_communist_in_government TAG = event_target:WTT_current_china_leader TAG = SOV }
+						tag = event_target:WTT_communist_china
+					}
+				}
+			}
+			allowed = {
+				#OR = { is_literally_china = yes TAG = SOV }
+			}
+			ai_will_do = {
+				factor = 19
+			}
+			on_add = {
+				owner = {
+					if = {
+						limit = {
+						    has_idea = CHI_communist_in_government
+						}	
+						PRC_support_up = yes
+					}
+				}
+			}
+			on_remove = {
+				owner = {
+					if = {
+						limit = {
+						    has_idea = CHI_communist_in_government
+						}	
+						PRC_support_down = yes
+					}
+				}
+			}
+		}
+	}
+
+	prc_xie_juezai = {				
+		name=prc_xie_juezai
+		portraits={
+			civilian={
+				small="GFX_idea_prc_xie_juezai"
+			}
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = prc_xie_juezai
+			traits = { prominent_lawyer }
+			available = {
+			}
+			visible = {
+				OR = {
+						has_idea = CHI_communist_in_government
+						tag = event_target:WTT_communist_china
+						tag = event_target:WTT_current_china_leader
+					}
+			}
+			on_add = {
+				owner = {
+					if = {
+						limit = {
+						    has_idea = CHI_communist_in_government
+						}	
+						PRC_support_up = yes
+					}
+				}
+			}
+			on_remove = {
+				owner = {
+					if = {
+						limit = {
+						    has_idea = CHI_communist_in_government
+						}	
+						PRC_support_down = yes
+					}
+				}
+			}
+			allowed = {
+				#OR = { is_literally_china = yes TAG = SOV }
+			}			
+		}
+	}
+		
+	PRC_liu_shaoqi = {
+		name=PRC_liu_shaoqi
+		portraits={
+			civilian={
+				small="GFX_idea_PRC_liu_shaoqi"
+				large="gfx/leaders/PRC/PRC_liu_shaoqi.png"
+			}
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = PRC_liu_shaoqi
+			traits = { guerilla_warfare_strategist }
+			available = {
+			    if = {
+				limit = {
+				original_tag = PRC
+				}
+				has_completed_focus = PRC_Strategic_offensive
+				}
+			}
+			visible = {
+				if = {
+					limit = {
+						NOT = {
+							tag = event_target:WTT_communist_china
+						}
+					}
+					OR = {
+						OR = { has_idea = CHI_communist_in_government TAG = event_target:WTT_current_china_leader TAG = SOV }
+						tag = event_target:WTT_communist_china
+					}
+				}
+			}
+			allowed = {
+				#OR = { is_literally_china = yes TAG = SOV }
+			}
+			on_add = {
+				owner = {
+					if = {
+						limit = {
+						    has_idea = CHI_communist_in_government
+						}	
+						PRC_support_up = yes
+					}
+				}
+			}
+			on_remove = {
+				owner = {
+					if = {
+						limit = {
+						    has_idea = CHI_communist_in_government
+						}	
+						PRC_support_down = yes
+					}
+				}
+			}
+			ai_will_do = {
+				factor = 100
+			}
+		}
+		
+		corps_commander={
+			traits={ Tzxx_imperturbable_strategist media_personality scavenger youji_hero }
+			skill=3
+			attack_skill=3
+			defense_skill=3
+			planning_skill=4
+			logistics_skill=5
+			legacy_id=0
+			desc=PRC_liu_shaoqi_desc
+		}
+	}
+	
+	prc_ren_bishi={
+		name=prc_ren_bishi
+		portraits={
+			army={
+				small="gfx/interface/ideas/prc_ren_bishi.tga"
+				large="gfx/leaders/PRC/prc_ren_bishi.png"
+			}
+		}
+		advisor={
+			slot = theorist
+			idea_token = prc_ren_bishi
+			available = {
+				NOT = {
+					has_idea = Chinese_Red_Army
+					has_global_flag = ren_bishi_in_moscow
+				}
+			}
+			visible = {
+				if = {
+					limit = {
+						NOT = {
+							tag = event_target:WTT_communist_china
+						}
+					}
+					OR = {
+						OR = { has_idea = CHI_communist_in_government TAG = event_target:WTT_current_china_leader TAG = SOV }
+						tag = event_target:WTT_communist_china
+					}
+				}
+			}
+            on_add = {
+				owner = {
+					if = {
+						limit = {
+						    has_idea = CHI_communist_in_government
+						}	
+						PRC_support_up = yes
+					}
+				}
+			}
+			on_remove = {
+				owner = {
+					if = {
+						limit = {
+						    has_idea = CHI_communist_in_government
+						}	
+						PRC_support_down = yes
+					}
+				}
+			}
+			traits = { head_of_political_commissar }			
+			allowed = {
+				#OR = { is_literally_china = yes TAG = SOV }
+			}
+			cost = 150
+			ai_will_do = {
+				factor = 6000
+			}
+		}
+		
+		corps_commander={
+			traits={ military_political_commissar scavenger youji_hero }
+			skill=3
+			attack_skill=3
+			defense_skill=3
+			planning_skill=4
+			logistics_skill=5
+			legacy_id=0
+			desc=prc_ren_bishi_desc
+			visible = {
+				NOT = {
+					has_idea = Chinese_Red_Army
+					has_global_flag = ren_bishi_in_moscow
+				}
+			}
+		}
+	}
+		
+	PRC_deng_xiaoping = {				
+		name=PRC_deng_xiaoping
+		portraits={
+			civilian={
+				small="GFX_idea_PRC_deng_xiaoping"
+			}
+			army={
+				large=GFX_portrait_dengxiaoping
+			}
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = PRC_deng_xiaoping
+			traits = { captain_of_industry }
+			available = {
+			    if = {
+				limit = {
+				original_tag = PRC
+				}
+				has_completed_focus = PRC_Developing_Focus
+				}
+			}
+
+			visible = {
+				if = {
+					limit = {
+						NOT = {
+							tag = event_target:WTT_communist_china
+						}
+					}
+					OR = {
+						OR = { has_idea = CHI_communist_in_government TAG = event_target:WTT_current_china_leader TAG = SOV }
+						tag = event_target:WTT_communist_china
+					}
+				}
+			}
+			allowed = {
+				#OR = { is_literally_china = yes TAG = SOV }
+				#has_dlc = "Waking the Tiger"
+			}
+			ai_will_do = {
+				factor = 100
+			}
+			on_add = {
+				owner = {
+					if = {
+						limit = {
+						    has_idea = CHI_communist_in_government
+						}	
+						PRC_support_up = yes
+					}
+				}
+			}
+			on_remove = {
+				owner = {
+					if = {
+						limit = {
+						    has_idea = CHI_communist_in_government
+						}	
+						PRC_support_down = yes
+					}
+				}
+			}
+		}
+		
+		corps_commander={
+			skill = 3
+			attack_skill = 3
+			defense_skill = 3
+			planning_skill = 4
+			logistics_skill = 5
+			legacy_id =-1
+			traits = {  youji_hero military_political_commissar  scavenger }
+			desc=PRC_deng_xiaoping_desc
+		}
+	}
+		
+	prc_wang_guanlan = {
+		name=prc_wang_guanlan
+		portraits={
+			civilian={
+				small="GFX_idea_prc_wang_guanlan"
+			}
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = prc_wang_guanlan 
+			traits = { agrarian_reformer }
+			available = {
+				if = {
+					limit = {
+						original_tag = PRC
+					}
+					has_completed_focus = PRC_Land_reform
+				}
+			}
+			visible = {
+				OR = {
+						has_idea = CHI_communist_in_government
+						tag = event_target:WTT_communist_china
+						tag = event_target:WTT_current_china_leader
+					}
+			}
+            on_add = {
+				owner = {
+					if = {
+						limit = {
+						    has_idea = CHI_communist_in_government
+						}	
+						PRC_support_up = yes
+					}
+				}
+			}
+			on_remove = {
+				owner = {
+					if = {
+						limit = {
+						    has_idea = CHI_communist_in_government
+						}	
+						PRC_support_down = yes
+					}
+				}
+			}
+			allowed = {
+				#OR = { is_literally_china = yes TAG = SOV }
+			}			
+		}
+	}
+		
+	PRC_dong_biwu = {				
+		name=PRC_dong_biwu
+		portraits={
+			civilian={
+				small="GFX_idea_PRC_dong_biwu"
+			}
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = PRC_dong_biwu
+			traits = { party_organizer }	 
+			visible = {
+				if = {
+					limit = {
+						NOT = {
+							tag = event_target:WTT_communist_china
+						}
+					}
+					OR = {
+						OR = { has_idea = CHI_communist_in_government TAG = event_target:WTT_current_china_leader TAG = SOV }
+						tag = event_target:WTT_communist_china
+					}
+				}
+			}
+			allowed = {
+				#OR = { is_literally_china = yes TAG = SOV }
+				#has_dlc = "Waking the Tiger"
+			}
+			on_add = {
+				owner = {
+					if = {
+						limit = {
+						    has_idea = CHI_communist_in_government
+						}	
+						PRC_support_up = yes
+					}
+				}
+			}
+			on_remove = {
+				owner = {
+					if = {
+						limit = {
+						    has_idea = CHI_communist_in_government
+						}	
+						PRC_support_down = yes
+					}
+				}
+			}
+			ai_will_do = {
+				factor = 1
+			}
+		}
+	}
+		
+	prc_tsai_shufan = {				
+		name=prc_tsai_shufan
+		portraits={
+			civilian={
+				small="GFX_idea_prc_tsai_shufan"
+			}
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = prc_tsai_shufan	
+			traits = { silent_workhorse }
+			available = {
+			}
+			visible = {
+				OR = {
+						has_idea = CHI_communist_in_government
+						tag = event_target:WTT_communist_china
+						tag = event_target:WTT_current_china_leader
+					}
+			}
+            on_add = {
+				owner = {
+					if = {
+						limit = {
+						    has_idea = CHI_communist_in_government
+						}	
+						PRC_support_up = yes
+					}
+				}
+			}
+			on_remove = {
+				owner = {
+					if = {
+						limit = {
+						    has_idea = CHI_communist_in_government
+						}	
+						PRC_support_down = yes
+					}
+				}
+			}
+			allowed = {
+				#OR = { is_literally_china = yes TAG = SOV }
+			}			
+			ai_will_do = {
+				factor = 9999
+			}
+		}
+	}
+		
+	PRC_kang_sheng = {				
+		name=PRC_kang_sheng 
+		portraits={
+			civilian={
+				small="GFX_idea_PRC_kang_sheng"
+			}
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = PRC_kang_sheng
+			traits = { prince_of_terror backroom_backstabber maoists_trait_kang_sheng }	
+			available = {
+				has_global_flag = PRC_kang_sheng_returned_flag
+				
+			}
+			visible = {
+				if = {
+					limit = {
+						NOT = {
+							tag = event_target:WTT_communist_china
+						}
+					}
+					OR = {
+						OR = { has_idea = CHI_communist_in_government TAG = event_target:WTT_current_china_leader TAG = SOV }
+						tag = event_target:WTT_communist_china
+					}
+				}
+			}
+			allowed = {
+				#OR = { is_literally_china = yes TAG = SOV }
+			}
+			cost = 150
+			ai_will_do = {
+				factor = 1500
+                modifier = {
+					factor = 0
+					OR = {
+						has_global_flag = PRC_expand_changjiang_bureau_focus_focus_flag
+						has_global_flag = PRC_minority_faction_focus_focus_flag
+						has_global_flag = PRC_majority_faction_focus_focus_flag
+						has_global_flag = PRC_challenge_the_first_red_army_focus_focus_flag
+					}
+				}
+			}
+			on_add = {
+				owner = {
+				    hidden_effect = {
+					    set_variable = { PRC_kang_sheng_counter = 15 } #first increase after 15 days
+					    add_to_variable = { mao_total = 0.5 } #monthly for locs
+					}
+				}
+			}
+			on_remove = {
+				owner = {
+				    hidden_effect = {
+					    subtract_from_variable = { mao_total = 0.5 } #monthly for locs
+					}
+				}
+			}
+			on_add = {
+				owner = {
+					if = {
+						limit = {
+						    has_idea = CHI_communist_in_government
+						}	
+						PRC_support_up = yes
+					}
+				}
+			}
+			on_remove = {
+				owner = {
+					if = {
+						limit = {
+						    has_idea = CHI_communist_in_government
+						}	
+						PRC_support_down = yes
+					}
+				}
+			}
+		}
+	}
+		
+	prc_deng_fa = {				
+		name=prc_deng_fa
+		portraits={
+			civilian={
+				small="GFX_idea_prc_deng_fa"
+			}
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = prc_deng_fa
+			traits = { head_of_intelligence army_radio_intelligence_3 }	
+			available = {
+				NOT = {
+					#has_global_flag = Deng_Fa_killed_in_flight
+					has_global_flag = deng_fa_to_USSR
+					has_global_flag = deng_fa_to_SIK
+				}
+				has_intelligence_agency = yes
+			}
+			visible = {
+				OR = {
+						has_idea = CHI_communist_in_government
+						tag = event_target:WTT_communist_china
+						tag = event_target:WTT_current_china_leader
+					}
+			}
+            on_add = {
+				owner = {
+					if = {
+						limit = {
+						    has_idea = CHI_communist_in_government
+						}	
+						PRC_support_up = yes
+					}
+				}
+			}
+			on_remove = {
+				owner = {
+					if = {
+						limit = {
+						    has_idea = CHI_communist_in_government
+						}	
+						PRC_support_down = yes
+					}
+				}
+			}
+			allowed = {
+				#OR = { is_literally_china = yes TAG = SOV }
+				#has_dlc = "La Resistance" 
+			}			
+		}
+	}
+		
+	prc_bo_gu = {		
+		name=prc_bo_gu 
+		portraits={
+			civilian={
+				large="gfx/leaders/PRC/Portrait_China_Bo_Gu.dds"
+				small="GFX_idea_prc_bo_gu"
+			}
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = prc_bo_gu
+			traits = { editor twenty_eight_bolshevik_bo_gu }
+			available = {
+				NOT = { has_global_flag = bo_gu_marginalized }
+				#NOT = {
+				#	has_global_flag = bo_gu_killed_in_flight
+				#}
+			}
+			visible = {
+				OR = {
+						has_idea = CHI_communist_in_government
+						tag = event_target:WTT_communist_china
+						tag = event_target:WTT_current_china_leader
+					}
+			}
+			on_add = {
+				owner = {
+					if = {
+						limit = {
+						    has_idea = CHI_communist_in_government
+						}	
+						PRC_support_up = yes
+					}
+				}
+			}
+			on_remove = {
+				owner = {
+					if = {
+						limit = {
+						    has_idea = CHI_communist_in_government
+						}	
+						PRC_support_down = yes
+					}
+				}
+			}
+			allowed = {
+				#OR = { is_literally_china = yes TAG = SOV }
+			}			
+			on_add = {
+				owner = {
+				    hidden_effect = {
+					    set_variable = { prc_bo_gu_counter = 15 } #first increase after 15 days
+					    add_to_variable = { teb_total = 0.5 } #monthly for locs
+					}
+				}
+			}
+			on_remove = {
+				owner = {
+				    hidden_effect = {
+					    subtract_from_variable = { teb_total = 0.5 } #monthly for locs
+					}
+				}
+			}
+			can_be_fired = no 
+		}
+	}	
+	prc_wang_ming = {
+		name=prc_wang_ming
+		portraits={
+			civilian={
+				large="gfx/leaders/PRC/Portrait_China_Wang_Ming.dds"
+				small="GFX_idea_prc_wang_ming"
+			}
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = prc_wang_ming
+			traits = { ideological_crusader twenty_eight_bolshevik_wang_ming }
+			available = {
+				NOT = { has_global_flag = Wang_ming_marginalized }
+				has_global_flag = PRC_wang_ming_returned_flag
+			}
+			visible = {
+				OR = {
+						has_idea = CHI_communist_in_government
+						tag = event_target:WTT_communist_china
+						tag = event_target:WTT_current_china_leader
+					}
+			}
+			on_add = {
+				owner = {
+					if = {
+						limit = {
+						    has_idea = CHI_communist_in_government
+						}	
+						PRC_support_up = yes
+					}
+				}
+			}
+			on_remove = {
+				owner = {
+					if = {
+						limit = {
+						    has_idea = CHI_communist_in_government
+						}	
+						PRC_support_down = yes
+					}
+				}
+			}
+			allowed = {
+				#OR = { is_literally_china = yes TAG = SOV }
+			}			
+			on_add = {
+				owner = {
+				    hidden_effect = {
+					    set_variable = { prc_wang_ming_counter = 15 } #first increase after 15 days
+					    add_to_variable = { teb_total = 0.5 } #monthly for locs
+					}
+				}
+			}
+			on_remove = {
+				owner = {
+				    hidden_effect = {
+					    subtract_from_variable = { teb_total = 0.5 } #monthly for locs
+					}
+				}
+			}	
+			ai_will_do  = {
+				factor = 1.000
+				modifier  = {
+					is_historical_focus_on = yes 
+					factor = 0
+				}
+			}		
+		}
+	}	
+	prc_meng_qingshu = {		
+		name=prc_meng_qingshu
+		portraits={
+			civilian={
+				small="GFX_idea_prc_meng_qingshu"
+			}
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = prc_meng_qingshu
+			traits = { diyifuren twenty_eight_bolshevik_meng_qingshu }
+			available = {
+				has_country_leader = { character = prc_wang_ming ruling_only = yes	}
+			}
+			visible = {
+				OR = {
+						has_idea = CHI_communist_in_government
+						tag = event_target:WTT_communist_china
+						tag = event_target:WTT_current_china_leader
+					}
+			}
+			on_add = {
+				owner = {
+					if = {
+						limit = {
+						    has_idea = CHI_communist_in_government
+						}	
+						PRC_support_up = yes
+					}
+				}
+			}
+			on_remove = {
+				owner = {
+					if = {
+						limit = {
+						    has_idea = CHI_communist_in_government
+						}	
+						PRC_support_down = yes
+					}
+				}
+			}
+			allowed = {
+				#OR = { is_literally_china = yes TAG = SOV }
+			}			
+			on_add = {
+				owner = {
+				    hidden_effect = {
+					    set_variable = { prc_meng_qingshu_counter = 15 } #first increase after 15 days
+					    add_to_variable = { teb_total = 0.5 } #monthly for locs
+					}
+				}
+			}
+			on_remove = {
+				owner = {
+				    hidden_effect = {
+					    subtract_from_variable = { teb_total = 0.5 } #monthly for locs
+					}
+				}
+			}
+			ai_will_do  = {
+				factor = 1.000
+				modifier  = {
+					is_historical_focus_on = yes 
+					factor = 0
+				}
+			}	
+		}
+	}	
+	prc_chen_changhao = {
+		name=prc_chen_changhao
+		portraits={
+			civilian={
+				small="GFX_idea_prc_chen_changhao"
+			}
+			army={
+				large="gfx/leaders/PRC/chenchanghao.jpg"
+				
+			}
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = prc_chen_changhao
+			traits = { political_commissar ZHANG_FACTION_trait_chen_changhao twenty_eight_bolshevik_chen_changhao }
+			available = {
+				NOT = {
+					has_global_flag = prc_chen_changhao_go_to_soviet_union
+				}
+				NOT = {
+					has_idea = Chinese_Red_Army					
+				}
+				has_idea = PRC_zhang_guotao
+			}
+			visible = {
+				OR = {
+						has_idea = CHI_communist_in_government
+						tag = event_target:WTT_communist_china
+						tag = event_target:WTT_current_china_leader
+					}
+			}
+			on_add = {
+				owner = {
+					if = {
+						limit = {
+						    has_idea = CHI_communist_in_government
+						}	
+						PRC_support_up = yes
+					}
+				}
+			}
+			on_remove = {
+				owner = {
+					if = {
+						limit = {
+						    has_idea = CHI_communist_in_government
+						}	
+						PRC_support_down = yes
+					}
+				}
+			}
+			allowed = {
+				#OR = { is_literally_china = yes TAG = SOV }
+			}			
+			on_add = {
+				owner = {
+				    hidden_effect = {
+					    set_variable = { prc_chen_changhao_counter = 15 } #first increase after 15 days
+					    add_to_variable = { teb_total = 0.5 } #monthly for locs
+					}
+				}
+			}
+			on_remove = {
+				owner = {
+				    hidden_effect = {
+					    subtract_from_variable = { teb_total = 0.5 } #monthly for locs
+					}
+				}
+			}
+			ai_will_do  = {
+				factor = 1.000
+				modifier  = {
+					is_historical_focus_on = yes 
+					factor = 0
+				}
+			}	
+		}
+		corps_commander={
+			traits={ youji_hero trait_cautious  hill_fighter military_political_commissar }
+			skill=3
+			attack_skill=3
+			defense_skill=3
+			planning_skill=3
+			logistics_skill=3
+			legacy_id=0
+			
+			visible = {
+				NOT = {
+					has_global_flag = prc_chen_changhao_go_to_soviet_union
+				}
+				has_global_flag = union_of_the_three_armies 
+			}
+			desc=prc_chen_changhao_desc
+		}
+	}
+				
+	prc_wang_shengrong = {	
+		name=prc_wang_shengrong
+		portraits={
+			civilian={
+				small="GFX_idea_prc_wang_shengrong"
+			}
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = prc_wang_shengrong
+			traits = { armaments_organizer twenty_eight_bolshevik_wang_shengrong }
+			available = {
+			}
+			visible = {
+				OR = {
+						has_idea = CHI_communist_in_government
+						tag = event_target:WTT_communist_china
+						tag = event_target:WTT_current_china_leader
+					}
+			}
+			on_add = {
+				owner = {
+					if = {
+						limit = {
+						    has_idea = CHI_communist_in_government
+						}	
+						PRC_support_up = yes
+					}
+				}
+			}
+			on_remove = {
+				owner = {
+					if = {
+						limit = {
+						    has_idea = CHI_communist_in_government
+						}	
+						PRC_support_down = yes
+					}
+				}
+			}
+			allowed = {
+				#OR = { is_literally_china = yes TAG = SOV }
+			}
+			on_add = {
+				owner = {
+				    hidden_effect = {
+					    set_variable = { prc_wang_shengrong_counter = 15 } #first increase after 15 days
+					    add_to_variable = { teb_total = 0.5 } #monthly for locs
+					}
+				}
+			}
+			on_remove = {
+				owner = {
+				    hidden_effect = {
+					    subtract_from_variable = { teb_total = 0.5 } #monthly for locs
+					}
+				}
+			}
+			ai_will_do = {
+			factor = 2000
+			modifier = {
+			factor = 0
+			is_historical_focus_on = yes
+			not = { has_completed_focus = PRC_7th_National_Congress_focus }
+			}
+			}
+		}
+	}
+
+	prc_chen_duxiu = {
+		name=prc_chen_duxiu
+		portraits={
+			civilian={
+                large="gfx/leaders/PRC/Portrait_China_Chen_Duxiu.dds"
+				small="GFX_idea_prc_chen_duxiu"
+			}
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = prc_chen_duxiu
+			traits = { old_trotskyist_figurehead }
+			available = {
+				has_global_flag = PRC_trotskyist_released
+				has_global_flag = chen_accepts_to_join_party
+				NOT = { has_country_leader = { character = prc_wang_fanxi ruling_only = yes } }
+			}
+			visible = {
+				OR = {
+						has_idea = CHI_communist_in_government
+						tag = event_target:WTT_communist_china
+						tag = event_target:WTT_current_china_leader
+					}
+			}
+			on_add = {
+				owner = {
+					if = {
+						limit = {
+						    has_idea = CHI_communist_in_government
+						}	
+						PRC_support_up = yes
+					}
+				}
+			}
+			on_remove = {
+				owner = {
+					if = {
+						limit = {
+						    has_idea = CHI_communist_in_government
+						}	
+						PRC_support_down = yes
+					}
+				}
+			}
+			allowed = {
+				#OR = { is_literally_china = yes TAG = SOV }
+			}
+			modifier = { custom_modifier_tooltip = TROT_faction_monthly_tt }
+			on_add = {
+				owner = {
+				    hidden_effect = {
+					    set_variable = { prc_chen_duxiu_counter = 15 } #first increase after 15 days
+					    add_to_variable = { trotskyist_total = 0.5 } #monthly for locs
+					}
+				}
+			}
+			on_remove = {
+				owner = {
+				    hidden_effect = {
+					    subtract_from_variable = { trotskyist_total = 0.5 } #monthly for locs
+					}
+				}
+			}
+		}
+	}
+
+	prc_peng_shuzhi = {
+		name=prc_peng_shuzhi
+		portraits={
+			civilian={
+				small="GFX_idea_prc_peng_shuzhi"
+				large="gfx/leaders/PRC/Portrait_China_Peng_Shuzhi.dds"
+			}
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = prc_peng_shuzhi
+			traits = { trotskyist_philosopher_PRC }
+			available = {
+				has_global_flag = PRC_trotskyist_released
+				has_global_flag = PRC_majority_faction_focus_focus_flag
+			}
+			visible = {
+				OR = {
+						has_idea = CHI_communist_in_government
+						tag = event_target:WTT_communist_china
+						tag = event_target:WTT_current_china_leader
+					}
+			}
+			on_add = {
+				owner = {
+					if = {
+						limit = {
+						    has_idea = CHI_communist_in_government
+						}	
+						PRC_support_up = yes
+					}
+				}
+			}
+			on_remove = {
+				owner = {
+					if = {
+						limit = {
+						    has_idea = CHI_communist_in_government
+						}	
+						PRC_support_down = yes
+					}
+				}
+			}
+			allowed = {
+				#OR = { is_literally_china = yes TAG = SOV }
+			}
+			modifier = { custom_modifier_tooltip = TROT_faction_monthly_tt }
+			on_add = {
+				owner = {
+				    hidden_effect = {
+					    set_variable = { prc_peng_shuzhi_counter = 15 } #first increase after 15 days
+					    add_to_variable = { trotskyist_total = 0.5 } #monthly for locs
+					}
+				}
+			}
+			on_remove = {
+				owner = {
+				    hidden_effect = {
+					    subtract_from_variable = { trotskyist_total = 0.5 } #monthly for locs
+					}
+				}
+			}
+		}
+	}
+		
+	prc_zheng_chaolin = {
+		name=prc_zheng_chaolin
+		portraits={
+			civilian={
+				small="GFX_idea_prc_zheng_chaolin"
+			}
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = prc_zheng_chaolin
+			traits = { devoted_trotskyist_RCM_zheng_chaolin }
+			available = {
+				has_global_flag = PRC_trotskyist_released
+				has_global_flag = PRC_minority_faction_focus_focus_flag
+			}
+			visible = {
+				OR = {
+						has_idea = CHI_communist_in_government
+						tag = event_target:WTT_communist_china
+						tag = event_target:WTT_current_china_leader
+					}
+			}
+			on_add = {
+				owner = {
+					if = {
+						limit = {
+						    has_idea = CHI_communist_in_government
+						}	
+						PRC_support_up = yes
+					}
+				}
+			}
+			on_remove = {
+				owner = {
+					if = {
+						limit = {
+						    has_idea = CHI_communist_in_government
+						}	
+						PRC_support_down = yes
+					}
+				}
+			}
+			allowed = {
+				#OR = { is_literally_china = yes TAG = SOV }
+			}
+			modifier = { custom_modifier_tooltip = TROT_faction_monthly_tt }
+			on_add = {
+				owner = {
+				    hidden_effect = {
+					    set_variable = { prc_zheng_chaolin_counter = 15 } #first increase after 15 days
+					    add_to_variable = { trotskyist_total = 0.5 } #monthly for locs
+					}
+				}
+			}
+			on_remove = {
+				owner = {
+				    hidden_effect = {
+					    subtract_from_variable = { trotskyist_total = 0.5 } #monthly for locs
+					}
+				}
+			}
+		}
+	}
+			
+	prc_wang_fanxi = {
+		name=prc_wang_fanxi
+		portraits={
+			civilian={
+				small="GFX_idea_prc_wang_fanxi"
+                large="gfx/leaders/PRC/Portrait_PRC_Wang_Fanxi.dds"
+			}
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = prc_wang_fanxi
+			traits = { devoted_trotskyist_RCM_wang_fanxi }
+			available = {
+				has_global_flag = PRC_trotskyist_released
+				has_global_flag = PRC_minority_faction_focus_focus_flag
+			}
+			visible = {
+				OR = {
+						has_idea = CHI_communist_in_government
+						tag = event_target:WTT_communist_china
+						tag = event_target:WTT_current_china_leader
+					}
+			}
+			on_add = {
+				owner = {
+					if = {
+						limit = {
+						    has_idea = CHI_communist_in_government
+						}	
+						PRC_support_up = yes
+					}
+				}
+			}
+			on_remove = {
+				owner = {
+					if = {
+						limit = {
+						    has_idea = CHI_communist_in_government
+						}	
+						PRC_support_down = yes
+					}
+				}
+			}
+			allowed = {
+				#OR = { is_literally_china = yes TAG = SOV }
+			}
+			modifier = { custom_modifier_tooltip = TROT_faction_monthly_tt }
+			on_add = {
+				owner = {
+				    hidden_effect = {
+					    set_variable = { prc_wang_fanxi_counter = 15 } #first increase after 15 days
+					    add_to_variable = { trotskyist_total = 0.5 } #monthly for locs
+					}
+				}
+			}
+			on_remove = {
+				owner = {
+				    hidden_effect = {
+					    subtract_from_variable = { trotskyist_total = 0.5 } #monthly for locs
+					}
+				}
+			}
+		}
+	}	
+		
+	prc_wang_shiwei = {
+		name=prc_wang_shiwei
+		portraits={
+			civilian={
+				small="GFX_idea_prc_wang_shiwei"
+			}
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = prc_wang_shiwei
+			traits = { trotskyist_writer }
+			available = {
+				NOT = {	has_global_flag = wang_shiwei_jailed }
+				NOT = { has_global_flag = wang_shiwei_executed }
+			}
+			visible = {
+				OR = {
+						has_idea = CHI_communist_in_government
+						tag = event_target:WTT_communist_china
+						tag = event_target:WTT_current_china_leader
+					}
+			}
+			on_add = {
+				owner = {
+					if = {
+						limit = {
+						    has_idea = CHI_communist_in_government
+						}	
+						PRC_support_up = yes
+					}
+				}
+			}
+			on_remove = {
+				owner = {
+					if = {
+						limit = {
+						    has_idea = CHI_communist_in_government
+						}	
+						PRC_support_down = yes
+					}
+				}
+			}
+			allowed = {
+				#OR = { is_literally_china = yes TAG = SOV }
+			}
+			modifier = { custom_modifier_tooltip = TROT_faction_bimonthly_tt }
+			on_add = {
+				owner = {
+				    hidden_effect = {
+					    set_variable = { prc_wang_shiwei_counter = 30 } #first increase after 30 days
+					    add_to_variable = { trotskyist_total = 0.25 } #monthly for locs
+					}	
+				}
+			}
+			on_remove = {
+				owner = {
+				    hidden_effect = {
+					    subtract_from_variable = { trotskyist_total = 0.25 } #monthly for locs
+					}	
+				}
+			}
+		}
+	}
+		
+		#prc_shen_junru = {
+#
+		#	picture = generic_political_advisor_asia_1
+#
+		#	available = {
+		#		has_completed_focus = PRC_social_democracy
+		#		if = {
+		#			limit = { has_dlc = "Man the Guns" }
+		#			NOT = { has_autonomy_state = autonomy_supervised_state }
+		#		}
+		#	}
+#
+		#	#visible = { has_country_flag = PRC_shen_junru_visible }
+#
+		#	allowed = {	#OR = { is_literally_china = yes TAG = SOV } }
+#
+		#	traits = { socialist_novelist_RCM }
+		#}
+#
+		#prc_liang_shuming = {
+#
+		#	picture = generic_political_advisor_asia_1
+#
+		#	available = {
+		#		has_completed_focus = PRC_social_democracy
+		#		if = {
+		#			limit = { has_dlc = "Man the Guns" }
+		#			NOT = { has_autonomy_state = autonomy_supervised_state }
+		#		}
+		#	}
+#
+		#	allowed = {	#OR = { is_literally_china = yes TAG = SOV } }
+#
+		#	#visible = { has_country_flag = PRC_liang_shuming_visible }
+#
+		#	traits = { social_philosopher }
+		#}
+
+	############################## MILITARY ##############################
+
+	PRC_zhu_de={
+		name=PRC_zhu_de #朱德
+		portraits={
+			army={
+				large="gfx/leaders/PRC/Portrait_PRC_Zhu_De.dds"
+				small="GFX_idea_PRC_zhu_de"
+			}
+		}
+		advisor={
+			slot = army_chief
+			idea_token = PRC_zhu_de
+			visible = {
+				if = {
+					limit = {
+						NOT = {
+							tag = event_target:WTT_communist_china
+						}
+					}
+					OR = {
+						OR = { has_idea = CHI_communist_in_government TAG = event_target:WTT_current_china_leader TAG = SOV }
+						tag = event_target:WTT_communist_china
+					}
+				}
+			}
+			available = {
+			NOT = {
+					has_idea = Chinese_Red_Army
+			    }
+			}
+			allowed = {
+				#OR = { is_literally_china = yes TAG = SOV }
+			}
+			traits = { army_chief_organizational_3 maoists_trait_zhude }
+			cost = 200			
+			ai_will_do = {
+				factor = 50
+			}
+			desc=zhude_desc
+		}		
+		field_marshal={
+			traits={ Tzxx_Resprcted_military_leader trait_mountaineer career_officer youji_hero infantry_officer adaptable inspirational_leader brilliant_strategist war_hero logistics_wizard }
+			skill=5
+			attack_skill=4
+			defense_skill=4
+			planning_skill=4
+			logistics_skill=5
+			legacy_id=9003
+			visible = { has_global_flag = union_of_the_three_armies } 
+			desc=zhude_desc
+		}
+	}
+
+	PRC_peng_dehuai={
+		name=PRC_peng_dehuai #彭德懷
+		portraits={
+			army={
+				large="gfx/leaders/PRC/Portrait_PRC_Peng_Dehuai.dds"
+				small="GFX_idea_PRC_peng_dehuai"
+			}
+		}
+		advisor={
+			slot = army_chief
+			idea_token = PRC_peng_dehuai		
+			visible = {
+				if = {
+					limit = {
+						NOT = {
+							tag = event_target:WTT_communist_china
+						}
+					}
+					OR = {
+						OR = { has_idea = CHI_communist_in_government TAG = event_target:WTT_current_china_leader TAG = SOV }
+						tag = event_target:WTT_communist_china
+					}
+				}
+			}
+			allowed = {
+				#OR = { is_literally_china = yes TAG = SOV }
+			}
+			traits = { army_chief_offensive_3 }
+			cost = 200					
+			ai_will_do = {
+				base = 750
+				modifier = {
+					add = 1500
+					has_idea = PRC_kang_sheng
+					has_completed_focus = PRC_dispatch_ren_bishi_to_moscow_focus
+					has_completed_focus = PRC_found_the_military_commission_general_political_department_focus
+				}
+				modifier = {
+					add = 100
+					OR = {
+						has_completed_focus = PRC_West_road_army_victory
+						has_completed_focus = PRC_expand_changjiang_bureau_focus
+						has_completed_focus = PRC_majority_faction_focus
+						has_completed_focus = PRC_minority_faction_focus
+					}
+				}
+			}
+			desc=pengdehuai_desc
+		}
+		field_marshal={
+			traits={ youji_hero career_officer trait_mountaineer infantry_officer adaptable brilliant_strategist  war_hero harsh_leader trait_reckless }
+			skill=5
+			attack_skill=5
+			defense_skill=5
+			planning_skill=4
+			logistics_skill=3
+			legacy_id=9004  
+			desc=pengdehuai_desc
+		}
+	}
+	
+	PRC_lin_biao={
+		name="林彪" #林彪
+		portraits={
+			army={
+				large="gfx/leaders/PRC/Portrait_PRC_Lin_Biao.dds"
+				small="GFX_idea_PRC_lin_biao"
+			}
+		}
+		advisor={
+			slot = high_command
+			idea_token = PRC_lin_biao
+			ledger = army				
+			visible = {
+				if = {
+					limit = {
+						NOT = {
+							tag = event_target:WTT_communist_china
+						}
+					}
+					OR = {
+						OR = { has_idea = CHI_communist_in_government TAG = event_target:WTT_current_china_leader TAG = SOV }
+						tag = event_target:WTT_communist_china
+					}
+				}
+			}
+			available = { NOT = { has_country_flag = linbiaofushang } }
+			allowed = {
+				#OR = { is_literally_china = yes TAG = SOV }
+			}
+			traits = { army_overround_planning_3 } #army_infantry_3
+			cost = 200			
+			ai_will_do = {
+				factor = 9999
+				modifier = {
+				factor = 0
+				date < 1940.1.1
+				}
+				modifier = {
+				factor = 999
+				date > 1940.1.1
+				}
+			}
+			desc=linbiao_desc
+		}		
+		corps_commander={
+			traits={ advantaged_operational_experts rising_young_officer youji_hero brilliant_strategist  career_officer infantry_officer trait_cautious  trait_mountaineer adaptable }
+			skill=5
+			attack_skill=4 #5
+			defense_skill=4
+			planning_skill=6 #7
+			logistics_skill=5
+			legacy_id=9000      
+			visible = { NOT = { has_country_flag = linbiaofushang } }
+			desc=linbiao_desc
+		}
+	}
+	
+	PRC_liu_bocheng={
+		name=PRC_liu_bocheng #劉伯承
+		portraits={
+			army={
+				large="gfx/leaders/PRC/Portrait_PRC_Liu_Bocheng.dds"
+				small="GFX_idea_PRC_liu_bocheng"
+			}
+		}
+		advisor={
+			slot = theorist
+			idea_token = PRC_liu_bocheng
+			ledger = army			
+			visible = {
+				if = {
+					limit = {
+						NOT = {
+							tag = event_target:WTT_communist_china
+						}
+					}
+					OR = {
+						OR = { has_idea = CHI_communist_in_government TAG = event_target:WTT_current_china_leader TAG = SOV }
+						tag = event_target:WTT_communist_china
+					}
+				}
+			}
+			available = {
+			NOT = {
+					has_idea = Chinese_Red_Army
+			    }
+			}	
+			allowed = {
+				#OR = { is_literally_china = yes TAG = SOV }
+			}
+			traits = { mass_assault_expert }	
+			cost = 150
+			ai_will_do = {
+				factor = 200
+			}			
+			desc=liubocheng_desc
+		}
+		corps_commander={
+			traits={ youji_hero trait_mountaineer adaptable brilliant_strategist  war_hero career_officer infantry_officer  trickster }
+			skill=4
+			attack_skill=4
+			defense_skill=4
+			planning_skill=4
+			logistics_skill=4
+			legacy_id=9001
+			visible = { has_global_flag = union_of_the_three_armies } 	
+			desc=liubocheng_desc
+		}
+	}	
+		
+	PRC_he_long={
+		name=PRC_he_long #賀龍
+		portraits={
+			army={
+				large="gfx/leaders/PRC/Portrait_PRC_He_Long.dds"
+				small="GFX_idea_PRC_he_long"
+			}
+		}
+		advisor={
+			slot = army_chief
+			idea_token = PRC_he_long			
+			available = {
+				NOT = {
+					has_idea = Chinese_Red_Army
+				}
+			}
+			visible = {
+				if = {
+					limit = {
+						NOT = {
+							tag = event_target:WTT_communist_china
+						}
+					}
+					OR = {
+						OR = { has_idea = CHI_communist_in_government TAG = event_target:WTT_current_china_leader TAG = SOV }
+						tag = event_target:WTT_communist_china
+					}
+				}
+			}
+			allowed = {
+				#OR = { is_literally_china = yes TAG = SOV }
+			}
+			traits = { army_chief_morale_2 }
+			cost = 100	
+			desc=helong_desc
+		}
+		field_marshal={
+			traits={ infantry_officer war_hero trait_reckless trait_mountaineer youji_hero logistics_wizard scavenger  }
+			skill=3
+			attack_skill=3
+			defense_skill=3
+			planning_skill=3
+			logistics_skill=6
+			legacy_id=9002 
+			visible = { has_global_flag = union_of_the_three_armies } 			
+			desc=helong_desc
+		}
+	}	
+	
+	PRC_chen_yi={
+		name=PRC_chen_yi #陳毅
+		portraits={
+			army={
+				large="gfx/leaders/PRC/Portrait_PRC_Chen_Yi.dds"
+				small="GFX_idea_PRC_chen_yi"
+			}
+		}
+		advisor={
+			slot = high_command
+			idea_token = PRC_chen_yi
+			ledger = army			
+			visible = {
+				if = {
+					limit = {
+						NOT = {
+							tag = event_target:WTT_communist_china
+						}
+					}
+					OR = {
+						OR = { has_idea = CHI_communist_in_government TAG = event_target:WTT_current_china_leader TAG = SOV }
+						tag = event_target:WTT_communist_china
+					}
+				}
+			}
+			available = {
+			OR = { has_completed_focus = PRC_Join_the_war date > 1939.1.1 }
+			}
+			allowed = {
+				#OR = { is_literally_china = yes TAG = SOV }
+			}
+			traits = { army_regrouping_2 }
+			cost = 100			
+			ai_will_do = {
+				factor = 150
+			}
+			desc=chenyi_desc
+		}
+		corps_commander={
+			traits={ irregulars_leader scavenger hill_fighter youji_hero  }
+			skill=3
+			attack_skill=3
+			defense_skill=3
+			planning_skill=4
+			logistics_skill=5
+			legacy_id=-1
+			visible = { OR = { has_completed_focus = PRC_Join_the_war date > 1939.1.1 } }
+			desc=chenyi_desc
+		}
+	}
+	
+	PRC_luo_ronghuan={
+		name="罗荣桓" #羅榮桓
+		portraits={
+			army={
+				large="gfx/leaders/PRC/Portrait_PRC_Luo_Ronghuan.dds"
+				small="GFX_idea_PRC_luo_ronghuan"				
+			}
+		}
+		advisor={
+			slot = high_command
+			idea_token = PRC_luo_ronghuan
+			ledger = army		
+			visible = {
+				if = {
+					limit = {
+						NOT = {
+							tag = event_target:WTT_communist_china
+						}
+					}
+					OR = {
+						OR = { has_idea = CHI_communist_in_government TAG = event_target:WTT_current_china_leader TAG = SOV }
+						tag = event_target:WTT_communist_china
+					}
+				}
+			}
+			allowed = {
+				#OR = { is_literally_china = yes TAG = SOV }
+			}
+			traits = { army_political_build_2 }
+			cost = 100		
+			ai_will_do = {
+				factor = 350
+			}
+			desc=luoronghuan_desc
+		}		
+		corps_commander={
+			traits={ Tzxx_imperturbable_strategist youji_hero trait_cautious scavenger military_political_commissar }
+			skill=3
+			attack_skill=3
+			defense_skill=3
+			planning_skill=4
+			logistics_skill=5
+			legacy_id=9007      
+			desc=luoronghuan_desc
+		}
+	}
+	
+	PRC_xu_xiangqian={
+		name=PRC_xu_xiangqian #徐向前
+		portraits={
+			army={
+				large="gfx/leaders/PRC/Portrait_PRC_Xu_Xiangqian.dds"
+				small="GFX_idea_PRC_xu_xiangqian"
+			}
+		}
+		advisor={	
+			slot = high_command
+			idea_token = PRC_xu_xiangqian
+			ledger = army
+			available = {
+				NOT = {
+					has_idea = Chinese_Red_Army
+				}
+			}
+			visible = {
+				OR = {
+					OR = { has_idea = CHI_communist_in_government TAG = event_target:WTT_current_china_leader TAG = SOV }
+					tag = event_target:WTT_communist_china
+				}				
+			}
+			allowed = {
+				#OR = { is_literally_china = yes TAG = SOV }
+			}
+			traits = { army_infantry_3 }
+			cost = 200				
+			ai_will_do = {
+				factor = 500
+			}
+			desc=xuxiangqian_desc
+		}
+		corps_commander={
+			traits={ career_officer infantry_officer adaptable brilliant_strategist  hill_fighter youji_hero trickster }
+			skill=4
+			attack_skill=5
+			defense_skill=4
+			planning_skill=4
+			logistics_skill=3
+			legacy_id=9005    
+			visible = { has_global_flag = union_of_the_three_armies } 		
+			desc=xuxiangqian_desc
+		}
+	}	
+
+	PRC_nie_rongzhen={
+		name=PRC_nie_rongzhen #聶榮臻
+		portraits={
+			army={
+				large="gfx/leaders/PRC/Portrait_PRC_Nie_Rongzhen.dds"
+				small="GFX_idea_PRC_nie_rongzhen"
+			}
+		}
+		advisor={
+			slot = high_command
+			idea_token = PRC_nie_rongzhen
+			ledger = army		
+			visible = {
+				if = {
+					limit = {
+						NOT = {
+							tag = event_target:WTT_communist_china
+						}
+					}
+					OR = {
+						OR = { has_idea = CHI_communist_in_government TAG = event_target:WTT_current_china_leader TAG = SOV }
+						tag = event_target:WTT_communist_china
+					}
+				}
+			}
+			allowed = {
+				#OR = { is_literally_china = yes TAG = SOV }
+			}
+			traits = { army_logistics_2 }
+			cost = 100					
+			ai_will_do = {
+				factor = 100
+			}
+			desc=nierongzhen_desc
+		}
+		corps_commander={
+			traits={ career_officer infantry_officer scavenger youji_hero military_political_commissar  }
+			skill=3
+			attack_skill=3
+			defense_skill=3
+			planning_skill=4
+			logistics_skill=5
+			legacy_id=9008    
+			desc=nierongzhen_desc
+		}
+	}	
+
+	PRC_ye_jianying={
+		name=PRC_ye_jianying #葉劍英
+		portraits={
+			army={
+				large="gfx/leaders/PRC/Portrait_PRC_Ye_Jianying.dds"
+				small="GFX_idea_PRC_ye_jianying"
+			}
+		}
+		advisor={
+			slot = high_command
+			idea_token = PRC_ye_jianying
+			ledger = army	
+			visible = {
+				if = {
+					limit = {
+						NOT = {
+							tag = event_target:WTT_communist_china
+						}
+					}
+					OR = {
+						OR = { has_idea = CHI_communist_in_government TAG = event_target:WTT_current_china_leader TAG = SOV }
+						tag = event_target:WTT_communist_china
+					}
+				}
+			}
+			allowed = {
+				#OR = { is_literally_china = yes TAG = SOV }
+			}
+			traits = { army_chief_planning_2_high_command } #army_concealment_2
+			cost = 100
+			ai_will_do = {
+				factor = 1
+			}			
+			desc=yejianying_desc
+		}
+		corps_commander={
+			traits={  career_officer infantry_officer media_personality youji_hero }
+			skill=3
+			attack_skill=3
+			defense_skill=3
+			planning_skill=5
+			logistics_skill=4
+			legacy_id=9006   
+			desc=yejianying_desc
+		}
+	}
+	
+	PRC_ye_ting={
+		name="叶挺" #葉挺
+		portraits={
+			army={
+				large="gfx/leaders/PRC/Portrait_PRC_Ye_Ting.dds"
+				small="gfx/interface/ideas/Portrait_PRC_Ye_Ting.png"
+			}
+		}
+		advisor={
+			slot = high_command
+			idea_token = PRC_ye_ting		
+			visible = {
+				if = {
+					limit = {
+						NOT = {
+							tag = event_target:WTT_communist_china
+						}
+					}
+					OR = {
+						OR = { has_idea = CHI_communist_in_government TAG = event_target:WTT_current_china_leader TAG = SOV }
+						tag = event_target:WTT_communist_china
+					}
+				}
+			}
+			allowed = {
+				#OR = { is_literally_china = yes TAG = SOV }
+			}
+			available = {
+				OR = { has_completed_focus = PRC_Join_the_war date > 1939.1.1 }
+				NOT = { has_global_flag = PRC_ye_ting_be_capture }
+			}
+			traits = { beifashuangjie_ye }
+			cost = 200					
+			ai_will_do = {
+				base = 1
+			}
+			desc=PRC_ye_ting_desc
+		}
+		field_marshal={
+			traits={ brilliant_strategist organizer trickster war_hero career_officer engineer_officer }
+			skill=4
+			attack_skill=4
+			defense_skill=4
+			planning_skill=4
+			logistics_skill=3
+			legacy_id=3000
+			visible = { 
+			OR = { has_completed_focus = PRC_Join_the_war date > 1939.1.1 }
+			NOT = { has_global_flag = PRC_ye_ting_be_capture }
+			}
+			desc=PRC_ye_ting_desc
+		}
+	}
+
+	PRC_xiang_ying={
+		name="项英" #項英
+		portraits={
+			army={
+				large="gfx/leaders/PRC/Portrait_PRC_Xiang_Ying.dds"
+				small="gfx/interface/ideas/PRC_xiang_ying.png"
+			}
+		}
+		advisor={
+			slot = army_chief
+			idea_token = PRC_xiang_ying
+			visible = {
+				if = {
+					limit = {
+						NOT = {
+							tag = event_target:WTT_communist_china
+						}
+					}
+					OR = {
+						OR = { has_idea = CHI_communist_in_government TAG = event_target:WTT_current_china_leader TAG = SOV }
+						tag = event_target:WTT_communist_china
+					}
+				}
+			}
+			
+			available = {
+				OR = { has_completed_focus = PRC_Join_the_war date > 1939.1.1 }
+			}
+                
+			allowed = {
+				#OR = { is_literally_china = yes TAG = SOV }
+			}
+			traits = { army_chief_old_guard trait_28b_trait_PRC_xiang_ying }
+			cost = 50
+			ai_will_do = {
+				factor = 0
+			}
+		}
+		field_marshal={
+			traits={ youji_hero irregulars_leader old_guard scavenger military_political_commissar }
+			skill=3
+			attack_skill=3
+			defense_skill=3
+			planning_skill=3
+			logistics_skill=3
+			legacy_id=-1
+			visible = { OR = { has_completed_focus = PRC_Join_the_war date > 1939.1.1 } }
+		}
+	}
+	
+	PRC_xiao_ke={
+		name="萧克" #蕭克
+		portraits={
+			army={
+				large="gfx/leaders/PRC/Portrait_PRC_Xiao_Ke.dds"
+			}
+		}
+		corps_commander={
+			traits={ youji_hero career_officer infantry_officer }
+			skill=3
+			attack_skill=3  
+			defense_skill=3
+			planning_skill=3
+			logistics_skill=3
+			legacy_id=-1
+			visible = { has_global_flag = union_of_the_three_armies } 			
+		}
+	}	
+	
+	PRC_su_yu={
+		name=PRC_su_yu #粟裕
+		portraits={
+			army={
+				large="gfx/leaders/PRC/Portrait_PRC_Su_Yu.dds"
+				small="GFX_idea_PRC_su_yu"
+			}
+		}
+		advisor={
+			slot = high_command
+			idea_token = PRC_su_yu
+			ledger = army			
+			visible = {
+				if = {
+					limit = {
+						NOT = {
+							tag = event_target:WTT_communist_china
+						}
+					}
+					OR = {
+						OR = { has_idea = CHI_communist_in_government TAG = event_target:WTT_current_china_leader TAG = SOV }
+						tag = event_target:WTT_communist_china
+					}
+				}
+			}
+			available = {	
+                OR = { has_completed_focus = PRC_Join_the_war date > 1939.1.1 }				  				  					  
+            }
+			allowed = {
+				#OR = { is_literally_china = yes TAG = SOV }
+			}
+			traits = { army_speed_battlefield_3 }
+			cost = 200
+			ai_will_do = {
+				factor = 450
+			}
+			desc=suyu_desc
+		}
+		corps_commander={
+			traits={ irregulars_leader suyu_operational_experts infantry_officer rising_young_officer youji_hero brilliant_strategist swamp_fox ranger  hill_fighter  adaptable  trait_mountaineer  trickster  }
+			skill=5
+			attack_skill=6
+			defense_skill=4
+			planning_skill=5
+			logistics_skill=4
+			legacy_id=-1
+			visible = { OR = { has_completed_focus = PRC_Join_the_war date > 1939.1.1 } }
+			desc=suyu_desc
+		}
+	}
+	
+	PRC_xu_haidong={
+		name="徐海东" #徐海東
+		portraits={
+			army={
+				large="gfx/leaders/PRC/Portrait_PRC_Xu_Haidong.dds"
+				small="GFX_idea_PRC_xu_haidong"
+			}
+		}
+		advisor={
+			slot = high_command
+			idea_token = PRC_xu_haidong
+			ledger = army	
+			visible = {
+				if = {
+					limit = {
+						NOT = {
+							tag = event_target:WTT_communist_china
+						}
+					}
+					OR = {
+						OR = { has_idea = CHI_communist_in_government TAG = event_target:WTT_current_china_leader TAG = SOV }
+						tag = event_target:WTT_communist_china
+					}
+				}
+			}
+			allowed = {
+				#OR = { is_literally_china = yes TAG = SOV }
+			}
+			traits = { army_concealment_2 }
+			cost = 100
+			ai_will_do = {
+				factor = 1
+			}
+		}
+		corps_commander={
+			traits={  irregulars_leader youji_hero trait_mountaineer trickster }
+			skill=4
+			attack_skill=4
+			defense_skill=4
+			planning_skill=3 
+			logistics_skill=4
+			legacy_id=-1
+		}
+	}	
+	
+	PRC_chen_geng={
+		name=PRC_chen_geng #陳賡
+		portraits={
+			army={
+				large="gfx/leaders/PRC/Portrait_PRC_Chen_Geng.dds"
+				small="GFX_idea_PRC_chen_geng"
+			}
+		}
+		advisor={	
+			slot = high_command
+			idea_token = PRC_chen_geng
+			ledger = army		
+			visible = {
+				if = {
+					limit = {
+						NOT = {
+							tag = event_target:WTT_communist_china
+						}
+					}
+					OR = {
+						OR = { has_idea = CHI_communist_in_government TAG = event_target:WTT_current_china_leader TAG = SOV }
+						tag = event_target:WTT_communist_china
+					}
+				}
+			}
+			allowed = {
+				#OR = { is_literally_china = yes TAG = SOV }
+			}
+			traits = { army_commando_3 }
+			cost = 100				
+		}
+		corps_commander={
+			traits={ rising_young_officer youji_hero career_officer infantry_officer trickster brilliant_strategist  }
+			skill=4
+			attack_skill=4
+			defense_skill=3
+			planning_skill=3
+			logistics_skill=4
+			legacy_id=-1
+		}
+	}
+
+	PRC_xiao_jinguang={
+		name="萧劲光" #蕭勁光
+		portraits={
+			army={
+				large="gfx/leaders/PRC/Portrait_PRC_Xiao_Jinguang.dds"
+				small="GFX_idea_PRC_ziao_jingguang"
+			}
+		}
+		corps_commander={
+			traits={  rising_young_officer career_officer infantry_officer youji_hero }
+			skill=3
+			attack_skill=4
+			defense_skill=4
+			planning_skill=3
+			logistics_skill=3
+			legacy_id=-1
+			visible = {
+			NOT = { has_completed_focus = PRC_Establish_the_naval }
+			}
+		}
+	}
+	
+	PRC_wang_shusheng={
+		name="王树声" #王樹聲
+		portraits={
+			army={
+				large="gfx/leaders/PRC/Portrait_PRC_Wang_Shusheng.dds"
+			}
+		}
+		corps_commander={
+			traits={ youji_hero trait_reckless }
+			skill=3
+			attack_skill=3
+			defense_skill=3
+			planning_skill=3
+			logistics_skill=3
+			legacy_id=-1
+			visible = { has_global_flag = union_of_the_three_armies } 				
+		}
+	}	
+
+	PRC_xu_guangda={
+		name="许光达" #許光達
+		portraits={
+			army={
+				small="GFX_idea_PRC_xu_guangda"
+				large="gfx/leaders/PRC/xuguangda.jpg"
+			}
+		}
+		advisor={	
+			slot = high_command
+			idea_token = PRC_xu_guangda
+			ledger = army
+			visible = {
+				if = {
+					limit = {
+						NOT = {
+							tag = event_target:WTT_communist_china
+						}
+					}
+					OR = {
+						OR = { has_idea = CHI_communist_in_government TAG = event_target:WTT_current_china_leader TAG = SOV }
+						tag = event_target:WTT_communist_china
+					}
+				}
+			}
+			allowed = {
+				#OR = { is_literally_china = yes TAG = SOV }
+			}
+			available = {
+			    if = {
+				limit = {
+				original_tag = PRC
+				}
+				has_completed_focus = PRC_Tank
+				}
+			}				
+			traits = {
+				army_armored_2
+			}
+			cost = 100
+		}
+		corps_commander={
+			traits={ youji_hero career_officer armor_officer artillery_officer trait_reckless }
+			skill=4
+			attack_skill=4
+			defense_skill=4
+			planning_skill=3
+			logistics_skill=3
+			legacy_id=0
+			visible = {
+			    if = {
+				limit = {
+				original_tag = PRC
+				}
+				has_completed_focus = PRC_Tank
+				}
+			}
+		}
+	}
+	
+	prc_zuo_quan={
+		name=prc_zuo_quan #左權
+		portraits={
+			army={
+				large="gfx/leaders/PRC/Portrait_PRC_Zuo_Quan.dds"
+				small="GFX_idea_prc_zuo_quan"
+			}
+		}
+		advisor={
+			slot = theorist
+			idea_token = prc_zuo_quan
+			ledger = army
+			visible = {
+				if = {
+					limit = {
+						NOT = {
+							tag = event_target:WTT_communist_china
+						}
+					}
+					OR = {
+						OR = { has_idea = CHI_communist_in_government TAG = event_target:WTT_current_china_leader TAG = SOV }
+						tag = event_target:WTT_communist_china
+					}
+				}
+			}
+			allowed = {
+				#OR = { is_literally_china = yes TAG = SOV }
+			}
+			traits = { grand_battle_plan_expert }
+			cost = 150				
+		}
+		corps_commander={
+			traits={ rising_young_officer brilliant_strategist  career_officer infantry_officer  expert_improviser youji_hero }
+			skill=4
+			attack_skill=3
+			defense_skill=3
+			planning_skill=4
+			logistics_skill=4
+			legacy_id=420525
+			desc=prc_zuo_quan_desc
+		}
+	}		
+
+	PRC_peng_xuefeng={
+		name="彭雪枫" #彭雪楓
+		portraits={
+			army={
+				large="gfx/leaders/PRC/Portrait_PRC_Peng_Xuefeng.dds"						
+				small="GFX_idea_PRC_peng_xuefeng"
+			}
+		}
+		advisor={
+			slot = high_command
+			idea_token = PRC_peng_xuefeng
+			ledger = army
+			visible = {
+				if = {
+					limit = {
+						NOT = {
+							tag = event_target:WTT_communist_china
+						}
+					}
+					OR = {
+						OR = { has_idea = CHI_communist_in_government TAG = event_target:WTT_current_china_leader TAG = SOV }
+						tag = event_target:WTT_communist_china
+					}
+				}
+			}
+			allowed = {
+				#OR = { is_literally_china = yes TAG = SOV }
+			}
+			traits = {
+				army_cavalry_2
+			}
+			cost = 100
+		}
+		corps_commander={
+			traits={ youji_hero trait_reckless cavalry_officer trickster }
+			skill=3
+			attack_skill=4
+			defense_skill=3
+			planning_skill=3
+			logistics_skill=3
+			legacy_id=440911
+		}		
+	}
+
+	PRC_zhu_rui={
+		name="朱瑞" #朱瑞
+		portraits={
+			army={
+				small="GFX_idea_PRC_zhu_rui"
+				large="gfx/leaders/PRC/Portrait_PRC_Zhu_Rui.dds"
+			}
+		}		
+		advisor={	
+			slot = high_command
+			idea_token = PRC_zhu_rui
+			ledger = army
+			visible = {
+				if = {
+					limit = {
+						NOT = {
+							tag = event_target:WTT_communist_china
+						}
+					}
+					OR = {
+						OR = { has_idea = CHI_communist_in_government TAG = event_target:WTT_current_china_leader TAG = SOV }
+						tag = event_target:WTT_communist_china
+					}
+				}
+			}
+			allowed = {
+				#OR = { is_literally_china = yes TAG = SOV }
+			}
+			available = {
+			    if = {
+				limit = {
+				original_tag = PRC
+				}
+				has_completed_focus = PRC_Homemade_artillery
+				}
+			}			
+			traits = {
+				army_artillery_3
+			}
+			cost = 200
+		}
+		corps_commander = {
+		    traits={  youji_hero trait_reckless bearer_of_artillery artillery_officer career_officer trait_engineer fortress_buster }
+			skill=3
+			attack_skill=4
+			defense_skill=2
+			planning_skill=3
+			logistics_skill=4
+			legacy_id=481001
+		}
+	}	
+
+	PRC_liu_yalou={
+		name=PRC_liu_yalou #劉亞樓
+		portraits={
+			army={
+				small="GFX_idea_PRC_liu_yalou"
+				large="gfx/leaders/PRC/liuyalou.jpg"
+			}
+		}
+		advisor={
+			slot = air_chief
+			idea_token = PRC_liu_yalou		
+			visible = {
+				if = {
+					limit = {
+						NOT = {
+							tag = event_target:WTT_communist_china
+						}
+					}
+					OR = {
+						OR = { has_idea = CHI_communist_in_government TAG = event_target:WTT_current_china_leader TAG = SOV }
+						tag = event_target:WTT_communist_china
+					}
+				}
+			}
+			available = {
+			    if = {
+				limit = {
+				original_tag = PRC
+				}
+				has_completed_focus = PRC_Establish_the_air_force
+				}
+			}
+			allowed = {
+				#OR = { is_literally_china = yes TAG = SOV }
+			}
+			traits = { air_chief_reform_2 }
+			cost = 100
+			ai_will_do = {
+				factor = 2
+			}
+		}
+		corps_commander={
+			traits={ rising_young_officer harsh_leader youji_hero infantry_officer  career_officer air_force_ties  }
+			skill=3
+			attack_skill=3
+			defense_skill=3
+			planning_skill=5
+			logistics_skill=3
+			legacy_id=0
+			visible = { OR = { has_completed_focus = PRC_War_of_Liberation has_global_flag = PRC_War_of_Liberation_has_been_selected has_global_flag = PRC_civil_war_started TAG = event_target:WTT_current_china_leader } }
+		}
+
+	}
+
+	PRC_otto_braun={
+		name=PRC_otto_braun
+		portraits={
+			army={
+				small="GFX_idea_PRC_otto_braun"
+				large="gfx/leaders/PRC/lide.png"
+			}
+		}
+		advisor={
+			slot = foreign_advisor
+			idea_token = PRC_otto_braun
+			visible = {
+				NOT = {
+					has_completed_focus = PRC_reunite_the_group_of_three_focus
+				}
+			}
+			allowed = {
+				#OR = { is_literally_china = yes TAG = SOV }
+			}
+			available = {
+				NOT = {
+					has_global_flag = otto_braun_left_yanan
+				}
+			}
+			traits = { fortification_armchair_general }
+			cost = 0		
+			ai_will_do = {
+				factor = 1
+			}
+		}
+		corps_commander={
+			traits={ old_guard career_officer cavalry_officer harsh_leader urban_assault_specialist politically_connected }
+			skill=2
+			attack_skill=1
+			defense_skill=2
+			planning_skill=3
+			logistics_skill=2
+			legacy_id=0
+			visible = {
+			NOT = {
+					has_global_flag = otto_braun_left_yanan
+				}
+				NOT = {
+					has_completed_focus = PRC_reunite_the_group_of_three_focus
+				}
+			}
+		}
+	}
+
+	PRC_otto_braun_2={
+		name=PRC_otto_braun
+		portraits={
+			army={
+				small="GFX_idea_PRC_otto_braun"
+				large="gfx/leaders/PRC/lide.png"
+			}
+		}
+		advisor={
+			slot = foreign_advisor
+			idea_token = PRC_otto_braun_2
+			visible = {
+				has_completed_focus = PRC_reunite_the_group_of_three_focus
+			}
+			allowed = {
+				#OR = { is_literally_china = yes TAG = SOV }
+			}
+			available = {
+				NOT = {
+					has_global_flag = otto_braun_left_yanan
+				}
+			}
+			traits = { army_chief_entrenchment_3 }
+			cost = 0
+			ai_will_do = {
+				factor = 1
+			}
+		}
+		corps_commander={
+			traits={ career_officer cavalry_officer harsh_leader urban_assault_specialist inflexible_strategist politically_connected }
+			skill=3
+			attack_skill=3
+			defense_skill=2
+			planning_skill=4
+			logistics_skill=2
+			legacy_id=0
+			visible = {
+			has_completed_focus = PRC_reunite_the_group_of_three_focus
+			NOT = {
+					has_global_flag = otto_braun_left_yanan
+				}
+			}
+		}
+	}
+	
+	PRC_mu_chong={
+		name=PRC_mu_chong #武亭（1904年5月16日—1952年10月7日）朝鮮咸鏡北道鏡城郡人，保定炮科
+		portraits={
+			army={
+				small="GFX_idea_PRC_mu_chong"
+			}
+		}
+		advisor={
+			slot = foreign_advisor
+			idea_token = PRC_mu_chong
+			allowed = {
+				#OR = { is_literally_china = yes TAG = SOV }
+			}
+			available = {
+				DPR = {
+					exists = no
+				}		
+			}
+			traits = { army_artillery_builder }
+			cost = 200
+			ai_will_do = {
+			factor = 25
+			modifier = {
+			factor = 30
+			has_global_flag = CHI_no_longer_united_flag
+			}
+			}
+			research_bonus = { #guo
+				artillery = 0.1
+			}
+			modifier = { #guo
+                army_artillery_attack_factor = 0.15
+		        army_artillery_defence_factor = 0.15
+				experience_gain_artillery_combat_factor = 0.1
+				unit_artillery_design_cost_factor = -0.25
+				unit_artillery_brigade_design_cost_factor = -0.25
+			}
+		}
+	}
+}
