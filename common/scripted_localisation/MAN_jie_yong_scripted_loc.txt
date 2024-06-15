@@ -1,0 +1,157 @@
+
+
+#决议名称
+defined_text = {
+	name = jue_yi_ming_cheng_localization_key
+	#MAN
+	text = {
+		trigger = {
+			tag = MAN 
+		}
+		localization_key = jue_yi_ming_cheng_localization_key_0
+	}
+}
+
+#决议描述
+defined_text = {
+	text = {
+		trigger = {
+			tag = MAN 
+		}
+		localization_key = jue_yi_miao_shu_localization_key_0
+	}
+}
+
+###################################################################
+defined_text = {
+	#借用机床
+	name = jie_yong_ji_chuang_localization_key
+	text = {
+		trigger = {
+			tag = MAN 
+		}
+		localization_key = jie_yong_localization_key_0
+	}
+}
+
+defined_text = {
+	#借用武器产线
+	name = jie_yong_jun_gong_localization_key
+	text = {
+		trigger = {
+			tag = MAN 
+		}
+		localization_key = jie_yong_jun_gong_localization_key_0
+	}
+}
+
+defined_text = {
+	#借用船坞
+	name = jie_yong_chuan_wu_localization_key
+	text = {
+		trigger = {
+			tag = MAN 
+		}
+		localization_key = jie_yong_chuan_wu_localization_key_0
+	}
+}
+
+defined_text = {
+	#借用日本军队
+	name = jie_yong_bu_dui_localization_key
+	text = {
+		trigger = {
+			tag = MAN 
+		}
+		localization_key = jie_yong_bu_dui_localization_key_0
+	}
+}
+
+defined_text = {
+	#借用舰队
+	name = jie_yong_jian_dui_jian_dui_localization_key
+	text = {
+		trigger = {
+			tag = MAN 
+		}
+		localization_key = jie_yong_jian_dui_localization_key_0
+	}
+}
+
+defined_text = {
+	#偷取飞机
+	name = jie_yong_fei_ji_localization_key
+	text = {
+		trigger = {
+			tag = MAN 
+		}
+		localization_key = jie_yong_fei_ji_localization_key_0
+	}
+}
+
+defined_text = {
+	#偷取人口
+	name = mi_mi_zhuan_yi_localization_key
+	text = {
+		trigger = {
+			tag = MAN 
+		}
+		localization_key = mi_mi_zhuan_yi_localization_key_0
+	}
+}
+
+defined_text = {
+	#偷取将领
+	name = jie_yong_jiang_ling_localization_key
+	text = {
+		trigger = {
+			tag = MAN 
+		}
+		localization_key = jie_yong_jiang_ling_localization_key_0
+	}
+}
+
+defined_text = {
+	#偷取好感度
+	name = jie_yong_hao_gan_du_localization_key
+	text = {
+		trigger = {
+			tag = MAN 
+		}
+		localization_key = pian_qu_ri_ben_hao_gan_localization_key_0
+	}
+}
+
+
+defined_text = {
+	#偷取资源
+	name = jie_yong_zi_yuan_localization_key
+	text = {
+		trigger = {
+			tag = MAN 
+		}
+		localization_key = jie_yong_zi_yuan_localization_key_0
+	}
+}
+
+defined_text = {
+	#偷取科技
+	name = jie_yong_ke_ji_localization_key
+	text = {
+		trigger = {
+			tag = MAN 
+		}
+		localization_key = jie_yong_ke_ji_localization_key_0
+	}
+}
+
+defined_text = {
+	#偷取军工组织
+	name = jie_yong_jun_gong_zu_zhi_localization_key
+	text = {
+		trigger = {
+			tag = MAN 
+		}
+		localization_key = jie_yong_jun_gong_zu_zhi_localization_key_0
+	}
+}
