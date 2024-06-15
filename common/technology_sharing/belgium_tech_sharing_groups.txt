@@ -1,0 +1,45 @@
+
+ technology_sharing_group = {
+
+	id = BEL_european_technological_exchange
+	name = BEL_european_technological_exchange
+	desc = BEL_european_technological_exchange_desc
+	picture = GFX_technology_sharing_default
+    
+	research_sharing_per_country_bonus = 0.1
+
+    available = {
+        is_in_faction_with = BEL
+		capital_scope = { is_on_continent = europe }
+		}
+	}
+	
+ technology_sharing_group = {
+
+	id = BEL_axis_research_exchange
+	name = BEL_axis_research_exchange
+	desc = BEL_axis_research_exchange_desc
+	picture = GFX_technology_sharing_default
+    
+	research_sharing_per_country_bonus = 0.1
+
+    available = {
+        is_in_faction_with = GER
+		is_in_faction_with = BEL
+		}
+	}
+
+ technology_sharing_group = {
+
+	id = BEL_comintern_research_exchange
+	name = BEL_comintern_research_exchange
+	desc = BEL_comintern_research_exchange_desc
+	picture = GFX_technology_sharing_default
+    
+	research_sharing_per_country_bonus = 0.1
+
+    available = {
+        is_in_faction_with = SOV
+		is_in_faction_with = BEL
+		}
+	}
