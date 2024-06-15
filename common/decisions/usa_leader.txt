@@ -1,0 +1,1756 @@
+
+operations = {
+	
+    ww3_break_nato = {
+		priority = 9999
+
+		icon = generic_army_support
+		fire_only_once = yes
+
+		allowed = {
+			always = yes
+		}
+
+		available = {
+			is_faction_leader = yes
+			has_war_support > 0.8
+			has_stability > 0.8
+		}
+
+		visible = {
+		    has_idea = nato_member
+			not = {
+			has_war_with = SOV
+			is_in_faction_with = SOV
+			}
+			SOV = {
+			is_major = yes
+			}
+		}
+
+		cost = 150
+		days_remove = 30
+		war_with_on_remove = SOV
+		
+		ai_will_do = {
+			base = 0
+		}
+
+		remove_effect = {
+		    declare_war_on = { target = SOV type = topple_government }
+			every_country = {
+			    limit = { is_in_faction_with = root has_idea = nato_member }
+                add_to_war = {
+					targeted_alliance = root
+					enemy = SOV
+					hostility_reason = asked_to_join
+				}
+            }
+		}
+	}
+	ww3_break_Warsaw = {
+		priority = 9999
+
+		icon = generic_army_support
+		fire_only_once = yes
+
+		allowed = {
+			always = yes
+		}
+
+		available = {
+			is_faction_leader = yes
+			has_war_support > 0.8
+			has_stability > 0.8
+		}
+
+		visible = {
+		    has_idea = warsaw_member
+			not = {
+			has_war_with = event_target:nato_leader
+			is_in_faction_with = event_target:nato_leader
+			}
+			event_target:nato_leader = {
+			is_major = yes
+			}
+		}
+
+		cost = 150
+		days_remove = 30
+		war_with_on_remove = event_target:nato_leader
+		
+		ai_will_do = {
+			base = 0
+		}
+
+		remove_effect = {
+		    declare_war_on = { target = event_target:nato_leader type = annex_everything }
+			every_country = {
+			    limit = { is_in_faction_with = root has_idea = warsaw_member }
+                add_to_war = {
+					targeted_alliance = root
+					enemy = event_target:nato_leader
+					hostility_reason = asked_to_join
+				}
+            }
+		}
+	}
+	
+    ally_build_WGR = {
+		priority = 9999
+		
+		icon = eng_trade_unions_support
+		fire_only_once = no
+		
+		allowed = {
+			not = { tag = WGR }
+		}
+
+		available = {
+            not = {
+			any_enemy_country = { is_major = yes }
+			}
+			has_global_flag = { flag = ger_zhanbai days > 365 }
+		}
+
+		visible = {
+		    not = { has_global_flag = ally_build_WGR_happen }
+			WGR = {
+			is_subject_of = root
+			has_cosmetic_tag = ally_occupation_of_ger
+			}
+		}
+
+		days_remove = 30
+		
+		cost = 50
+		
+		ai_will_do = {
+			base = 0
+			modifier = {
+			add = 9000
+			has_global_flag = { flag = ger_zhanbai days > 450 }
+			}
+		}
+		
+		cancel_trigger = {
+		any_enemy_country = { is_major = yes }
+		}
+		
+		complete_effect = {
+			
+		}
+
+		remove_effect = {
+			set_global_flag = ally_build_WGR_happen
+			add_political_power = 150
+			end_puppet = WGR
+			if = {
+			limit = { country_exists = DDR }
+			DDR = { every_core_state = { add_core_of = WGR } }
+			}
+			WGR = {
+			leave_faction = yes
+			add_opinion_modifier = { target = ROOT modifier = liberator }
+			set_cosmetic_tag = WGR
+			add_ideas = TO_chose_neutrality_modded
+			add_ideas = GER_western_trade_cooperation
+			if = {
+			limit = {
+			not = { has_war_with = FRA }
+			FRA = { is_democratic_type = yes }
+			}
+			FRA = { add_ideas = GER_western_trade_cooperation }
+			}
+			if = {
+			limit = {
+			not = { has_war_with = ITA }
+			ITA = { is_democratic_type = yes }
+			}
+			ITA = { add_ideas = GER_western_trade_cooperation }
+			}
+			if = {
+			limit = {
+			not = { country_exists = ITA has_war_with = event_target:nanfangwangguo }
+			event_target:nanfangwangguo = { is_democratic_type = yes }
+			}
+			event_target:nanfangwangguo = { add_ideas = GER_western_trade_cooperation }
+			}
+			if = {
+			limit = {
+			not = { has_war_with = BEL }
+			BEL = { is_democratic_type = yes }
+			}
+			BEL = { add_ideas = GER_western_trade_cooperation }
+			}
+			if = {
+			limit = {
+			not = { has_war_with = HOL }
+			HOL = { is_democratic_type = yes }
+			}
+			HOL = { add_ideas = GER_western_trade_cooperation }
+			}
+			if = {
+			limit = {
+			not = { has_war_with = LUX }
+			LUX = { is_democratic_type = yes }
+			}
+			LUX = { add_ideas = GER_western_trade_cooperation }
+			}
+			
+			set_politics = {
+                ruling_party = democratic 
+                elections_allowed = yes
+			    election_frequency = 48
+            }
+			set_party_name = {
+				ideology = democratic
+				name = "基督教民主/社会联盟"
+				long_name = "基督教民主/社会联盟"
+			}
+			add_ai_strategy = {
+		        type = befriend
+		        id = ROOT
+		        value = 500
+	            }
+				add_ai_strategy = {
+		        type = alliance
+		        id = ROOT
+		        value = 500
+	            }
+				add_ai_strategy = {
+		        type = support
+		        id = ROOT
+		        value = 500
+	            }
+			retire_country_leader = yes	
+			create_country_leader = {
+	name="康拉德·阿登纳"
+	desc = "POLITICS_KONRAD_ADENAUER_DESC"
+	picture = GFX_portrait_Konrad_Adenauer
+	expire = "1965.1.1"
+	ideology = conservatism
+	traits = {
+	deguozaizao
+	economic_reformer
+	}
+            }
+			hidden_effect = {
+			if = {
+			limit = { country_exists = event_target:ENG_occupation_of_ger }
+			every_core_state = { remove_core_of = event_target:ENG_occupation_of_ger }
+			annex_country = { target = event_target:ENG_occupation_of_ger transfer_troops = yes }
+			}
+			if = {
+			limit = { country_exists = event_target:FRA_occupation_of_ger }
+			every_core_state = { remove_core_of = event_target:FRA_occupation_of_ger }
+			annex_country = { target = event_target:FRA_occupation_of_ger transfer_troops = yes }
+			}
+			set_capital = { state = 42 }
+			}
+			}
+			
+			diplomatic_relation = {
+	country = WGR
+	relation = non_aggression_pact
+	active = yes
+            }
+give_guarantee = WGR
+WGR = {
+give_military_access = root
+}
+		}
+	}
+	
+	sov_build_DDR = {
+		priority = 9999
+		
+		icon = eng_trade_unions_support
+		fire_only_once = no
+		
+		allowed = {
+			not = { tag = DDR }
+		}
+
+		available = {
+            not = {
+			any_enemy_country = { is_major = yes }
+			}
+			has_global_flag = { flag = ger_zhanbai days > 365 }
+		}
+
+		visible = {
+		    not = { has_global_flag = sov_build_DDR_happen }
+			DDR = {
+			is_subject_of = root
+			has_cosmetic_tag = sov_occupation_of_ger
+			}
+		}
+
+		days_remove = 30
+		
+		cost = 50
+		
+		ai_will_do = {
+			base = 0
+			modifier = {
+			add = 9000
+			has_global_flag = { flag = ger_zhanbai days > 450 }
+			}
+		}
+		
+		cancel_trigger = {
+		any_enemy_country = { is_major = yes }
+		}
+		
+		complete_effect = {
+			
+		}
+
+		remove_effect = {
+			set_global_flag = sov_build_DDR_happen
+			add_political_power = 150
+			if = {
+			limit = { country_exists = WGR }
+			WGR = { every_core_state = { add_core_of = DDR } }
+			}
+			DDR = {
+			set_cosmetic_tag = DDR
+			add_ai_strategy = {
+		        type = befriend
+		        id = ROOT
+		        value = 500
+	            }
+				add_ai_strategy = {
+		        type = alliance
+		        id = ROOT
+		        value = 500
+	            }
+				add_ai_strategy = {
+		        type = support
+		        id = ROOT
+		        value = 500
+	            }
+			add_opinion_modifier = { target = ROOT modifier = liberator }
+			set_party_name = {
+				ideology = communism
+				name = "德国统一社会党"
+				long_name = "德国统一社会党"
+			}
+			retire_country_leader = yes
+			create_country_leader = {
+	name="威廉·皮克"
+	desc = "POLITICS_WILHELM_PIECK_DESC"	 
+	picture = GFX_portrait_Wilhelm_Pieck
+	expire = "1965.1.1"
+	ideology = stalinism
+	traits = {
+		stalins_puppet # This will now be added in on_actions if SOV releases the country as a puppet via action or war conference
+		exiled # He left in 1933 so he should still be exiled
+		staunch_stalinist
+	}
+}
+			}
+		}
+	}
+	
+    International_Military_Tribunal_for_the_Far_East = {
+		priority = 9999
+		
+		icon = eng_blackshirt_speech
+		fire_only_once = no
+		
+		allowed = {
+			not = { tag = JAP }
+		}
+
+		available = {
+            not = {
+			any_enemy_country = { is_major = yes }
+			}
+		}
+
+		visible = {
+		    not = { tag = JAP }
+			not = { has_global_flag = International_Military_Tribunal_for_the_Far_East_happen }
+		    or = {
+			has_global_flag = kangri_begin
+			has_global_flag = the_Pacific_War_happen
+			has_global_flag = lianheguojiaxuanyan
+			}
+			not = { has_government = fascism }
+			is_subject = no
+			
+		    if = {
+			limit = {
+			JAP = { exists = yes }
+			}
+			JAP = {
+			or = {
+			is_subject_of = root
+			is_puppet_of = root
+			}
+			}
+			}
+			
+			if = {
+			limit = {
+			JAP = { exists = no }
+			}
+			282 = {
+			owner = {
+			not = { tag = JAP }
+			or = {
+			is_subject_of = root
+			is_puppet_of = root
+			tag = root
+			}
+			}
+			}
+			}
+		}
+
+		days_remove = 30
+		
+		cost = 50
+		
+		ai_will_do = {
+			base = 5000
+		}
+		
+		cancel_trigger = {
+		any_enemy_country = { is_major = yes }
+		}
+		
+		complete_effect = {
+			set_country_flag = lord_of_japan
+		}
+
+		remove_effect = {
+			news_event = zizhinews.35
+			set_global_flag = International_Military_Tribunal_for_the_Far_East_happen
+			custom_effect_tooltip = all_sinner_must_die
+			hidden_effect = {
+			JAP = {
+			every_army_leader = {
+			retire = yes
+		    }
+			every_unit_leader = {
+			retire = yes
+		    }
+			}
+			}
+		}
+	}
+	
+	Nuremberg_International_Military_Tribunal = {
+		priority = 9999
+		
+		icon = eng_blackshirt_speech
+		fire_only_once = no
+		
+		allowed = {
+			not = { tag = GER }
+			not = { tag = DDR }
+			not = { tag = WGR }
+		}
+
+		available = {
+            not = {
+			any_enemy_country = { is_major = yes }
+			}
+		}
+
+		visible = {
+		    not = { tag = GER }
+			not = { has_global_flag = Nuremberg_International_Military_Tribunal_happen }
+		    or = {
+			has_global_flag = WW2modded
+			has_global_flag = lianheguojiaxuanyan
+			}
+			not = { has_government = fascism }
+			is_subject = no
+			
+		    if = {
+			limit = {
+			GER = { exists = yes }
+			}
+			GER = {
+			or = {
+			is_subject_of = root
+			is_puppet_of = root
+			}
+			}
+			}
+			
+			if = {
+			limit = {
+			GER = { exists = no }
+			}
+			54 = {
+			owner = {
+			not = { tag = GER }
+			or = {
+			is_subject_of = root
+			is_puppet_of = root
+			tag = root
+			}
+			}
+			}
+			}
+		}
+
+		days_remove = 30
+		
+		cost = 50
+		
+		ai_will_do = {
+			base = 9000
+		}
+		
+		cancel_trigger = {
+		any_enemy_country = { is_major = yes }
+		}
+		
+		complete_effect = {
+			set_country_flag = lord_of_germany
+		}
+
+		remove_effect = {
+			news_event = zizhinews.36
+			set_global_flag = Nuremberg_International_Military_Tribunal_happen
+			custom_effect_tooltip = all_sinner_must_die
+			hidden_effect = {
+			GER = {
+			every_army_leader = {
+			retire = yes
+		    }
+			every_unit_leader = {
+			retire = yes
+		    }
+			}
+			}
+		}
+	}
+	
+    usa_Doolittle_Raid = {
+		priority = 9999
+		
+		icon = generic_intelligence_operation
+		fire_only_once = yes
+		
+		highlight_states = {
+	 		highlight_state_targets = { state = 282 } 
+			highlight_color_before_active = 3
+			highlight_color_while_active = 2
+		}
+		
+		allowed = {
+			original_tag = USA
+		}
+
+		available = {
+            has_war_together_with = event_target:WTT_current_china_leader
+			event_target:WTT_current_china_leader = { OR = { controls_state = 605 any_allied_country = { controls_state = 605 } } }
+			controls_state = 631
+			controls_state = 629
+			not = { has_idea = usa_pearl_harbour_afterwinds }
+			if = {
+			limit = { 
+			is_ai = no
+			has_dlc = "By Blood Alone"
+			}
+			    OR = {
+                has_tech = improved_medium_airframe	
+                has_tech = improved_large_airframe
+				}
+                ships_in_area = {
+                    area = 177
+                    size > 14
+                }
+				hidden_trigger = {
+				command_power > 4
+			    }
+            
+			}
+			if = {
+			limit = { 
+			is_ai = yes
+			JAP = { is_ai = no }
+			}
+                ships_in_area = {
+                    area = 177
+                    size > 14
+                }
+            
+			}
+		}
+
+		visible = {
+		has_defensive_war_with = JAP
+		NOT = { has_war_with = event_target:WTT_current_china_leader }
+		has_war_together_with = event_target:WTT_current_china_leader
+		}
+
+		custom_cost_trigger = {
+		    if = {
+			limit = { is_ai = no }
+			command_power > 4
+			}
+		}
+		custom_cost_text = decision_cost_CP_5
+		
+		days_remove = 7
+		
+		ai_will_do = {
+			base = 0
+			modifier = {
+			add = 9000
+			OR = {
+			date > 1942.4.10
+			has_global_flag = { flag = the_Pacific_War_happen days > 180 }
+			}
+			}
+			
+		}
+		
+		complete_effect = {
+			add_command_power = -5
+		}
+
+		remove_effect = {
+		    282 = {
+			damage_building = { type = industrial_complex damage = 1 }
+			damage_building = { type = arms_factory damage = 1 }
+			damage_building = { type = infrastructure damage = 1 }
+            damage_building = { type = air_base damage = 1 }
+			damage_building = { type = dockyard damage = 1 }
+			damage_building = { type = rail_way damage = 1 }
+            damage_building = { type = supply_node damage = 1 }
+			}
+			JAP = {
+			add_stability = -0.05
+			add_war_support = -0.05
+			add_political_power = -150
+			add_timed_idea = {
+                 idea = jap_Doolittle_Raid
+                 days = 120
+            }
+			}
+			add_stability = 0.05
+			add_war_support = 0.05
+			add_political_power = 150
+			air_experience = 25
+			news_event = zizhinews.21
+		}
+		
+	}
+	
+    usa_torch_operation = { 
+		priority = 9999
+
+		icon = infiltrate_state
+		fire_only_once = yes
+
+		allowed = {
+			original_tag = USA
+		}
+
+		available = {
+			##is_faction_leader = yes
+			is_in_faction_with = FRA
+		}
+
+		visible = {
+		has_war_with = GER
+		FRA = { has_capitulated = yes }
+		is_in_faction_with = FRA
+		any_other_country = {
+		original_tag = FRA
+		has_government = GER
+		owns_state = 26
+		NOT = { has_war_with = ROOT }
+		}
+		}
+
+		cost = 25
+		
+		ai_will_do = {
+			base = 0 
+			modifier = {
+			add = 9000
+			date > 1942.11.1
+			}
+			
+		}
+
+		complete_effect = {
+		
+		random_other_country = {
+		limit = {
+		original_tag = FRA
+		has_government = GER
+		owns_state = 26
+		NOT = { has_war_with = ROOT }
+		}
+		ROOT = {
+		declare_war_on = { target = PREV type = topple_government }
+		}
+		}
+		
+		if = {
+		limit = {
+		is_ai = yes
+		461 = { is_controlled_by_ROOT_or_ally = no controller = { is_ai = yes } }
+		459 = { is_controlled_by_ROOT_or_ally = no controller = { is_ai = yes } }
+		}
+		USA = {
+		set_province_controller = 7069
+		set_province_controller = 7132
+		set_province_controller = 1145
+		set_province_controller = 11943
+		set_province_controller = 10070
+		}
+		
+		division_template = {
+				name = "Beifei chūton-gun"
+				is_locked = no
+			
+				regiments = {
+					infantry = { x = 0 y = 0 }
+					infantry = { x = 0 y = 1 }
+					infantry = { x = 0 y = 2 }
+					infantry = { x = 0 y = 3 }
+                    infantry = { x = 0 y = 4 }
+					
+					infantry = { x = 1 y = 0 }
+					infantry = { x = 1 y = 1 }
+					infantry = { x = 1 y = 2 }
+					infantry = { x = 1 y = 3 }
+                    infantry = { x = 1 y = 4 }
+					
+					infantry = { x = 2 y = 0 }
+					infantry = { x = 2 y = 1 }
+					
+					medium_armor = { x = 3 y = 0 } 
+                    medium_armor = { x = 3 y = 1 }
+                    medium_armor = { x = 3 y = 2 }
+					medium_armor = { x = 3 y = 3 }
+					
+					mot_artillery_brigade = { x = 4 y = 0 } 
+                    
+					                                                                             
+				}
+				support = {                                                 
+                    field_hospital = { x = 0 y = 0 } 
+					engineer = { x = 0 y = 1 }
+					artillery = { x = 0 y = 2 } 
+					anti_tank = { x = 0 y = 3 } 
+					anti_air = { x = 0 y = 4 }
+				}
+		}
+		
+		461 = {
+		create_unit = {
+				division = "name = \"Beifei chūton-gun\" division_template = \"Beifei chūton-gun\" start_experience_factor = 0.5 " 
+				owner = USA
+				count = 6
+			}
+		}
+		459 = {
+		create_unit = {
+				division = "name = \"Beifei chūton-gun\" division_template = \"Beifei chūton-gun\" start_experience_factor = 0.5 " 
+				owner = USA
+				count = 4
+			}
+		}
+		
+		}
+			
+		}
+		
+	}
+	
+usa_support_kmt_civil_war = {
+priority = 9999
+		icon = generic_prepare_civil_war
+                                allowed = {
+                                                original_tag = USA
+                                }
+		available = {
+                                                
+                               event_target:WTT_current_china_leader = { has_war_with = event_target:WTT_communist_china }
+							   743 = { is_owned_and_controlled_by = ROOT }
+	               }
+		cost = 0
+		days_re_enable = 180
+        days_remove = 180
+                                
+                                fire_only_once = no
+		ai_will_do = {
+			factor = 1500
+                                                
+		}
+		visible = {
+		has_global_flag = usa_qingdao_happy	 
+        not = { has_government = communism }
+		743 = { is_owned_and_controlled_by = ROOT }
+		event_target:WTT_communist_china = { exists = yes }
+		event_target:WTT_current_china_leader = { exists = yes }
+	    }	
+                                			
+		complete_effect = {
+		event_target:WTT_current_china_leader = {
+		country_event = usa_support_kmt_civil_war.1
+		army_experience = 10
+		add_equipment_to_stockpile = {
+						type = infantry_equipment
+						amount = 7500
+						producer = USA
+					}
+					add_equipment_to_stockpile = {
+						type = artillery_equipment
+						amount = 500
+						producer = USA
+					}
+					add_equipment_to_stockpile = {#always biggest gap
+						type = support_equipment
+						amount = 500 #not a typo
+						producer = USA
+					}
+					add_equipment_to_stockpile = {
+						type = motorized_equipment
+						amount = 100
+						producer = USA
+					}
+					add_equipment_to_stockpile = {
+						type = light_tank_chassis
+						amount = 100
+						producer = USA
+					}
+					add_equipment_to_stockpile = {
+						type = medium_tank_chassis
+						amount = 100
+						producer = USA
+					}
+					add_equipment_to_stockpile = {#always losing air war at this point
+						type = small_plane_airframe
+						amount = 50
+						producer = USA
+					}
+					add_equipment_to_stockpile = {#always losing air war at this point
+						type = small_plane_cas_airframe
+						amount = 50
+						producer = USA
+					}
+		}
+		
+		ROOT = {
+		if = {
+		limit = { is_ai = no }
+		add_equipment_to_stockpile = {
+						type = infantry_equipment
+						amount = -7500
+						producer = USA
+					}
+					add_equipment_to_stockpile = {
+						type = artillery_equipment
+						amount = -500
+						producer = USA
+					}
+					add_equipment_to_stockpile = {#always biggest gap
+						type = support_equipment
+						amount = -500 #not a typo
+						producer = USA
+					}
+					add_equipment_to_stockpile = {
+						type = motorized_equipment
+						amount = -100
+						producer = USA
+					}
+					add_equipment_to_stockpile = {
+						type = light_tank_chassis
+						amount = -100
+						producer = USA
+					}
+					add_equipment_to_stockpile = {
+						type = medium_tank_chassis
+						amount = -100
+						producer = USA
+					}
+					add_equipment_to_stockpile = {#always losing air war at this point
+						type = small_plane_airframe
+						amount = -50
+						producer = USA
+					}
+					add_equipment_to_stockpile = {#always losing air war at this point
+						type = small_plane_cas_airframe
+						amount = -50
+						producer = USA
+					}
+		}
+		}
+
+		}
+               }
+}
+
+operations = {
+	
+usa_support_sov_defense_war = {
+priority = 9999
+		icon = generic_prepare_civil_war
+                                allowed = {
+                                                original_tag = USA
+                                }
+		available = {
+                                                
+                               SOV = { 
+							   has_war_with = GER
+							   controls_state = 213
+							   controls_state = 215
+							   }
+							   has_idea = lianheguojiaxuanyan
+	               }
+		cost = 0
+		days_re_enable = 180
+        days_remove = 180
+                                
+                                fire_only_once = no
+		ai_will_do = {
+			factor = 1500
+                                                
+		}
+		visible = {	
+		has_idea = lianheguojiaxuanyan
+			SOV = { 		   
+			has_war_with = GER	
+			has_idea = lianheguojiaxuanyan
+			}
+			is_subject = no
+	    }
+		
+		complete_effect = {
+		SOV = {
+		country_event = usa_support_sov_defense_war.1
+		#army_experience = 10
+		add_equipment_to_stockpile = {
+						type = infantry_equipment
+						amount = 15000
+						producer = USA
+					}
+                    add_equipment_to_stockpile = {
+				        type = train_equipment
+				        amount = 25
+				        producer = USA
+			        }				
+					add_equipment_to_stockpile = {
+						type = medium_tank_chassis
+						amount = 500
+						producer = USA
+					}
+					add_equipment_to_stockpile = {
+						type = anti_air_equipment
+						amount = 300
+						producer = USA
+					}
+					add_equipment_to_stockpile = {
+						type = anti_tank_equipment
+						amount = 300
+						producer = USA
+					}
+					add_equipment_to_stockpile = {
+						type = artillery_equipment
+						amount = 1500
+						producer = USA
+					}
+					add_equipment_to_stockpile = {#always biggest gap
+						type = support_equipment
+						amount = 1500 #not a typo
+						producer = USA
+					}
+					add_equipment_to_stockpile = {
+						type = motorized_equipment
+						amount = 500
+						producer = USA
+					}
+					add_equipment_to_stockpile = {#always losing air war at this point
+						type = small_plane_airframe
+						amount = 200
+						producer = USA
+					}
+					add_equipment_to_stockpile = {
+						type = convoy
+						amount = 100
+						producer = USA
+					}
+		}
+		
+		ROOT = {
+		if = {
+		limit = { is_ai = no }
+		add_equipment_to_stockpile = {
+						type = infantry_equipment
+						amount = -15000
+						producer = USA
+					}
+                    add_equipment_to_stockpile = {
+				        type = train_equipment
+				        amount = -25
+				        producer = USA
+			        }				
+					add_equipment_to_stockpile = {
+						type = medium_tank_chassis
+						amount = -500
+						producer = USA
+					}
+					add_equipment_to_stockpile = {
+						type = anti_air_equipment
+						amount = -300
+						producer = USA
+					}
+					add_equipment_to_stockpile = {
+						type = anti_tank_equipment
+						amount = -300
+						producer = USA
+					}
+					add_equipment_to_stockpile = {
+						type = artillery_equipment
+						amount = -1500
+						producer = USA
+					}
+					add_equipment_to_stockpile = {#always biggest gap
+						type = support_equipment
+						amount = -1500 #not a typo
+						producer = USA
+					}
+					add_equipment_to_stockpile = {
+						type = motorized_equipment
+						amount = -500
+						producer = USA
+					}
+					add_equipment_to_stockpile = {#always losing air war at this point
+						type = small_plane_airframe
+						amount = -200
+						producer = USA
+					}
+					add_equipment_to_stockpile = {
+						type = convoy
+						amount = -100
+						producer = USA
+					}
+		}
+		}
+		
+
+		}
+               }
+}
+
+political_actions = {
+
+usa_end_puppet_phi = {
+priority = 9999
+		icon = GFX_decision_eng_trade_unions_support
+                                allowed = {
+                                                original_tag = USA
+                                }
+		activation = {
+                                            
+                               is_subject = no
+		is_major = yes
+has_capitulated = no
+has_war = no
+OR = {
+			has_global_flag = JAP_surrender_in_ww2
+			date > 1946.7.1
+			}
+                                                          
+                               
+                               has_government = democratic
+                               PHI = { is_subject_of = ROOT }
+							   
+							   
+	               }
+		cost = 25
+        days_mission_timeout = 365
+		is_good = no
+		timeout_effect = {
+			activate_mission = usa_end_puppet_phi
+			
+			add_stability = -0.05
+			add_political_power = -150
+			add_popularity = {
+                                                           ideology = democratic  
+                                                           popularity = -0.05
+                                }
+		}                        
+                                
+                                fire_only_once = yes
+								selectable_mission = yes
+		ai_will_do = {
+			factor = 9000
+                                                
+		}
+		available = {
+
+		}
+		
+		complete_effect = {
+hidden_effect = {
+news_event = { id = news.1022 days = 1 }
+}
+end_puppet = PHI
+PHI = {
+leave_faction = yes
+add_opinion_modifier = { target = ROOT modifier = liberator }
+				add_ideas = TO_chose_neutrality_modded
+				give_military_access = ROOT
+				diplomatic_relation = {
+	            country = ROOT
+	            relation = non_aggression_pact
+	            active = yes
+                }
+				add_ai_strategy = {
+		        type = befriend
+		        id = ROOT
+		        value = 500
+	            }
+				add_ai_strategy = {
+		        type = alliance
+		        id = ROOT
+		        value = 500
+	            }
+				add_ai_strategy = {
+		        type = support
+		        id = ROOT
+		        value = 500
+	            }
+}
+give_guarantee = PHI
+			add_popularity = {
+                                                           ideology = democratic  
+                                                           popularity = 0.05
+                                }        
+add_political_power = 150
+add_stability = 0.05
+		}
+		
+        }
+
+usa_enforce_mex_add_war = {
+priority = 9999
+		icon = generic_prepare_civil_war
+                                allowed = {
+                                                original_tag = USA
+                                }
+		available = {
+                                                
+                               
+                                   #is_faction_leader = yes
+	               }
+		cost = 25
+                                
+                                
+                                fire_only_once = yes
+		ai_will_do = {
+			base = 0
+                                                modifier = {
+				add = 9999
+				date > 1942.5.31
+			}
+		}
+		visible = {	
+			is_subject = no
+		is_major = yes
+has_capitulated = no
+			any_other_country = {
+				is_major = yes
+                                                                
+				has_war_with = ROOT
+			}   
+                                                          
+                               OR = {
+                               has_government = democratic
+                               has_government = communism
+                              
+                               }
+                               
+                                MEX = {
+is_subject = no
+has_capitulated = no
+has_war = no
+is_in_faction = no
+NOT = { has_government = fascism }
+                                }
+			
+	               }	
+                                			
+		complete_effect = {
+			         MEX = {
+                                           country_event = { id = usa_enforce.1 hours = 0 }
+                                                         }
+		}
+               }
+
+usa_leader = {
+priority = 9999
+		icon = GFX_decision_eng_trade_unions_support
+                                allowed = {
+                                                original_tag = USA
+                                }
+		available = {
+                                                
+                               is_major = yes
+is_faction_leader = no
+	               }
+		cost = 0
+                                
+                                
+                                fire_only_once = no
+		ai_will_do = {
+			factor = 9999
+		}
+		visible = {						
+			is_subject = no
+		is_major = yes
+			any_other_country = {
+				is_major = yes
+                                                                
+				has_war_with = ROOT
+			}   
+                any_other_country = {
+                is_faction_leader = yes
+				is_in_faction_with = ROOT                   
+			}                             
+                               OR = {
+                               has_government = democratic
+                               has_government = communism
+                               has_government = n_socialism
+                               }
+                               
+                                #is_faction_leader = no
+			
+	               }	
+                                			
+		complete_effect = {
+			         set_faction_leader = yes                       
+           add_political_power = -50
+		}
+}
+
+
+usa_suggest_WAFU = {
+priority = 9999
+		icon = GFX_decision_eng_trade_unions_support
+                                allowed = {
+                                                original_tag = USA
+                                }
+                                cost = 0
+                                
+                                
+                                fire_only_once = yes
+								selectable_mission = yes
+								is_good = no
+		ai_will_do = {
+			factor = 9999
+modifier = {
+				factor = 0
+				has_defensive_war_with = JAP
+				date < 1942.1.1
+				has_global_flag = { flag = the_Pacific_War_happen days < 30 }
+			}
+		}
+		activation = {
+		not = { has_global_flag = SOV_BAD_GUYS_flag } #guo
+			is_subject = no
+		is_major = yes
+#is_faction_leader = yes
+			GER = {
+				is_major = yes
+                                                                has_government = fascism
+				has_war_with = ROOT
+				has_war_with = SOV
+				has_war_with = ENG
+		}
+                               JAP = {
+				is_major = yes
+				OR = {
+                                                                has_government = fascism
+																has_government = neutrality
+															}	
+				has_war_with = event_target:WTT_current_china_leader
+				has_war_with = ROOT
+		}
+                               
+                               NOT = { has_government = fascism }
+                               NOT = {
+                                           ENG = { has_government = fascism }
+                                           SOV = { has_government = fascism }
+                                           event_target:WTT_current_china_leader = { has_government = fascism }
+                               }
+
+                               
+
+                               event_target:WTT_current_china_leader = { 
+OR = {
+is_major = yes
+is_faction_leader = yes
+}
+                               }
+                               SOV = {
+							   OR = {
+is_major = yes
+is_faction_leader = yes
+}
+							   }
+                               
+                               
+                               NOT = { 
+                                           SOV = { has_war_with = USA }
+                                           SOV = { has_war_with = ENG }    
+                                           SOV = { has_war_with = event_target:WTT_current_china_leader }  
+                               }     
+                               NOT = { 
+                                           event_target:WTT_current_china_leader = { has_war_with = USA }
+                                           event_target:WTT_current_china_leader = { has_war_with = ENG }    
+                                           event_target:WTT_current_china_leader = { has_war_with = SOV }  
+                               }   
+                               NOT = { 
+                                           USA = { has_war_with = event_target:WTT_current_china_leader }
+                                           USA = { has_war_with = ENG }    
+                                           USA = { has_war_with = SOV }  
+                                                                    
+                               }                               
+                               NOT = { 
+                                           ENG = { has_war_with = event_target:WTT_current_china_leader }                            
+                                           ENG = { has_war_with = SOV }  
+                                           ENG = { has_war_with = USA }                                    
+                               }
+		}
+		available = {
+                                              #is_faction_leader = yes
+		}
+			
+        cancel_trigger = {
+			
+			NOT = {
+			OR = {
+			#is_faction_leader = yes
+				is_subject = no
+				has_war_with = GER
+				has_war_with = JAP
+				}
+			}
+		}   
+		days_mission_timeout = 60
+		timeout_effect = {
+			activate_mission = usa_suggest_WAFU
+			
+			add_war_support = -0.15
+			add_stability = -0.15
+			add_political_power = -150
+		}
+		complete_effect = {
+set_global_flag = usa_suggest_WAFU_over
+effect_tooltip = {
+event_target:WTT_current_china_leader = {
+                                           country_event = { id = bbb.26 hours = 1 }
+                                       }
+SOV = {
+                                           country_event = { id = bbb.24111 hours = 1 }
+                                       }
+custom_effect_tooltip = if_they_accept_tt
+
+SOV = {							
+diplomatic_relation = {
+	country = USA
+	relation = non_aggression_pact
+	active = yes
+}
+diplomatic_relation = {
+	country = event_target:WTT_current_china_leader
+	relation = non_aggression_pact
+	active = yes
+}
+								}
+								USA = {							
+diplomatic_relation = {
+	country = SOV
+	relation = non_aggression_pact
+	active = yes
+}
+diplomatic_relation = {
+	country = event_target:WTT_current_china_leader
+	relation = non_aggression_pact
+	active = yes
+}
+								}
+								event_target:WTT_current_china_leader = {							
+diplomatic_relation = {
+	country = USA
+	relation = non_aggression_pact
+	active = yes
+}
+diplomatic_relation = {
+	country = SOV
+	relation = non_aggression_pact
+	active = yes
+}
+								}			
+USA = {
+give_guarantee = SOV
+give_guarantee = event_target:WTT_current_china_leader
+                                         set_faction_name = shijiefanfaxisilianmeng-oumeijituan    
+										 add_ideas = lianheguojiaxuanyan
+                              }
+                              SOV = {
+give_guarantee = event_target:WTT_current_china_leader
+give_guarantee = USA
+                                         #set_faction_name = shijiefanfaxisilianmeng-sulianjituan
+										 add_ideas = lianheguojiaxuanyan
+										 if = {
+										 limit = { NOT = { has_idea = usa_lend_lease_support } }
+										 add_ideas = usa_lend_lease_support
+										 }
+                              }
+event_target:WTT_current_china_leader = {
+give_guarantee = USA
+give_guarantee = SOV
+		set_faction_name = shijiefanfaxisilianmeng-zhongguojituan
+
+                                                             
+                                add_ideas = lianheguojiaxuanyan
+								if = {
+										 limit = { NOT = { has_idea = usa_lend_lease_support } }
+										 add_ideas = usa_lend_lease_support
+										 }
+}
+
+}
+
+
+
+			         hidden_effect = {
+                                       event_target:WTT_current_china_leader = {
+                                           country_event = { id = bbb.26 hours = 6 }
+                                       }
+                                       }
+
+
+
+
+
+		}
+    }
+			   		   			   
+	usa_suggest_kairo_meeting = {
+        priority = 9999
+		icon = GFX_decision_hol_exchange_intelligence_data
+                                allowed = {
+                                                original_tag = USA
+                                }
+								is_good = no
+		activation = {
+                               #is_faction_leader = yes
+							   has_idea = lianheguojiaxuanyan
+							   has_global_flag = { flag = usa_gei_in_war days > 90 }
+							   
+OR = {
+
+event_target:WTT_current_china_leader = { surrender_progress < 0.05 } #1
+SOV = { surrender_progress < 0.05 } #2
+ 
+AND = {#3
+217 = { CONTROLLER = { has_war_with = GER } }
+245 = { CONTROLLER = { has_war_with = GER } } #苏军赢得斯大林格勒战役
+218 = { CONTROLLER = { has_war_with = GER } }
+
+115 = { CONTROLLER = { has_war_with = GER } } #西西里登陆成功
+448 = { CONTROLLER = { has_war_with = GER } }
+
+OR = {
+737 = { controller = { is_in_faction_with = ROOT } } #美军赢得瓜岛战役
+634 = { controller = { is_in_faction_with = ROOT } }
+631 = { controller = { is_in_faction_with = ROOT } }
+629 = { controller = { is_in_faction_with = ROOT } }
+}
+}
+
+}
+
+OR = {
+		date > 1943.1.1
+		event_target:WTT_current_china_leader = { surrender_progress < 0.05 } #1
+SOV = { surrender_progress < 0.05 } #2  
+		}
+		
+		605 = { CONTROLLER = { has_war_with = JAP } } #重庆
+
+		#622 = { CONTROLLER = { has_war_with = JAP } } #延安
+			
+			ENG = { has_idea = lianheguojiaxuanyan }
+			SOV = { has_idea = lianheguojiaxuanyan }
+			event_target:WTT_current_china_leader = { has_idea = lianheguojiaxuanyan }
+			is_subject = no
+		
+has_capitulated = no
+
+OR = {
+
+447 = { controller = { is_in_faction_with = ROOT } } #开罗
+907 = { controller = { is_in_faction_with = ROOT } }
+
+
+447 = { controller = { is_in_faction_with = SOV } }
+907 = { controller = { is_in_faction_with = SOV } }
+
+447 = { controller = { is_in_faction_with = event_target:WTT_current_china_leader } }
+907 = { controller = { is_in_faction_with = event_target:WTT_current_china_leader } }
+
+}
+
+
+	    }
+		cost = 0
+		days_mission_timeout = 90
+		timeout_effect = {
+			activate_mission = usa_suggest_kairo_meeting
+			
+			add_war_support = -0.1
+			add_stability = -0.1
+			add_political_power = -150
+		}                                                               
+                                fire_only_once = yes
+								selectable_mission = yes
+		ai_will_do = {
+			factor = 100
+                                                
+		}
+		
+        cancel_trigger = {
+			
+			NOT = {
+			OR = {
+			has_idea = lianheguojiaxuanyan
+			
+				#is_faction_leader = yes
+				has_war_with = GER
+				}
+			}
+		}
+		
+		complete_effect = {
+		set_global_flag = usa_suggest_kairo_meeting_over
+		
+		ENG = { country_event = { id = kairo_meeting.1 hours = 6 } }#invite tip
+		event_target:WTT_current_china_leader = { country_event = { id = kairo_meeting.2 hours = 6 } }
+		
+        hidden_effect = {
+		event_target:WTT_current_china_leader = { country_event = { id = kairo_meeting.3 days = 2 } }#liuqiu
+		event_target:WTT_current_china_leader = { country_event = { id = kairo_meeting.33 days = 2 } }#yuenan
+		ENG = { country_event = { id = kairo_meeting.4 days = 2 } }#hk
+		USA = { country_event = { id = kairo_meeting.5 days = 2 } }#ger or jap?
+		
+		###
+		USA = { country_event = { id = kairo_meeting.6 days = 3 } }#liuqiu all tooltip(different)
+		ENG = { country_event = { id = kairo_meeting.6 days = 3 } }
+		event_target:WTT_current_china_leader = { country_event = { id = kairo_meeting.6 days = 3 } }
+		
+		USA = { country_event = { id = kairo_meeting.66 days = 3 } }#yuenan all tooltip(trigger)
+		ENG = { country_event = { id = kairo_meeting.66 days = 3 } }
+		event_target:WTT_current_china_leader = { country_event = { id = kairo_meeting.66 days = 3 } }
+		
+		USA = { country_event = { id = kairo_meeting.7 days = 3 } }#hk all tooltip(different)
+		ENG = { country_event = { id = kairo_meeting.7 days = 3 } }
+		event_target:WTT_current_china_leader = { country_event = { id = kairo_meeting.7 days = 3 } }
+		
+		USA = { country_event = { id = kairo_meeting.8 days = 4 } }#miandianzuozhan all tooltip(same)(trigger)
+		ENG = { country_event = { id = kairo_meeting.8 days = 4 } }
+		event_target:WTT_current_china_leader = { country_event = { id = kairo_meeting.8 days = 4 } }
+		
+		USA = { country_event = { id = kairo_meeting.9 days = 5 } }#ger or jap? all tooltip (different)
+		ENG = { country_event = { id = kairo_meeting.9 days = 5 } }
+		event_target:WTT_current_china_leader = { country_event = { id = kairo_meeting.9 days = 5 } }
+				
+		USA = { country_event = { id = kairo_meeting.10 days = 6 } }#chuzhiriben all tooltip(same)
+		ENG = { country_event = { id = kairo_meeting.10 days = 6 } }
+		event_target:WTT_current_china_leader = { country_event = { id = kairo_meeting.10 days = 6 } }#maybe quicker?
+		
+		USA = { country_event = { id = kairo_meeting.11 days = 6 } }#man taiwan korea all tooltip(same)
+		ENG = { country_event = { id = kairo_meeting.11 days = 6 } }
+		event_target:WTT_current_china_leader = { country_event = { id = kairo_meeting.11 days = 6 } }#maybe quicker?
+		
+		#set_global_flag = kairo_meeting_happen
+		news_event = { id = news.1027 days = 7 }
+		###
+		}
+		
+		}
+		
+    }   
+			   
+	usa_suggest_tehran_meeting = {
+        priority = 9999
+		icon = GFX_decision_hol_exchange_intelligence_data
+                                allowed = {
+                                                original_tag = USA
+                                }
+								is_good = no
+		activation = {
+                               #is_faction_leader = yes
+							   has_idea = lianheguojiaxuanyan
+							   has_global_flag = kairo_meeting_happen
+							   has_global_flag = { flag = usa_gei_in_war days > 90 }
+							   OR = {
+							   266 = { controller = { is_in_faction_with = SOV } }
+							   266 = { controller = { is_in_faction_with = USA } }
+							   266 = { controller = { is_in_faction_with = event_target:WTT_current_china_leader } }
+							   }
+							   219 = { CONTROLLER = { has_war_with = GER } } #莫斯科
+217 = { CONTROLLER = { has_war_with = GER } } #斯大林格勒
+195 = { CONTROLLER = { has_war_with = GER } } #列宁格勒
+	    }
+		cost = 0
+		days_mission_timeout = 90
+		timeout_effect = {
+			activate_mission = usa_suggest_tehran_meeting
+			
+			add_war_support = -0.1
+			add_stability = -0.1
+			add_political_power = -150
+		}                                                                 
+                                fire_only_once = yes
+								selectable_mission = yes
+		ai_will_do = {
+			factor = 100
+                                                
+		}
+		
+        cancel_trigger = {
+			
+			NOT = {
+			OR = {
+			has_idea = lianheguojiaxuanyan
+			
+				#is_faction_leader = yes
+				has_war_with = GER
+				}
+			}
+		}
+		
+		complete_effect = {
+		set_global_flag = usa_suggest_tehran_meeting_over
+		
+		ENG = { country_event = { id = tehran_meeting.1 hours = 6 } }#invite tip
+		SOV = { country_event = { id = tehran_meeting.2 hours = 6 } }
+		
+		
+		hidden_effect = {
+		USA = { country_event = { id = tehran_meeting.3 days = 2 } }#dierzhanchang(trigger)
+					
+		###
+		USA = { country_event = { id = tehran_meeting.4 days = 3 } }#lianheguo all tooltip(same)
+		ENG = { country_event = { id = tehran_meeting.4 days = 3 } }
+		SOV = { country_event = { id = tehran_meeting.4 days = 3 } }
+		
+		USA = { country_event = { id = tehran_meeting.5 days = 4 } }#chuzhideguo all tooltip(same)
+		ENG = { country_event = { id = tehran_meeting.5 days = 4 } }	
+		SOV = { country_event = { id = tehran_meeting.5 days = 4 } }#maybe quicker?
+		
+		USA = { country_event = { id = tehran_meeting.55 days = 4 } }#dierzhanchang all tooltip(different)(trigger)
+		ENG = { country_event = { id = tehran_meeting.55 days = 4 } }	
+		SOV = { country_event = { id = tehran_meeting.55 days = 4 } }
+		
+		USA = { country_event = { id = tehran_meeting.6 days = 5 } }#bolanwenti all tooltip(same)(trigger)
+		ENG = { country_event = { id = tehran_meeting.6 days = 5 } }
+		SOV = { country_event = { id = tehran_meeting.6 days = 5 } }
+		
+		SOV = { country_event = { id = tehran_meeting.7 days = 6 } }#duirizuozhan all tooltip(same)(trigger)
+		USA = { country_event = { id = tehran_meeting.7 days = 6 } }
+		ENG = { country_event = { id = tehran_meeting.7 days = 6 } }
+		
+		#set_global_flag = tehran_meeting_happen
+		news_event = { id = news.1028 days = 7 }
+		###
+		}
+
+		}
+		
+    }		   
+			   
+	usa_suggest_Potsdam_Declaration = {
+		icon = eng_trade_unions_support
+		allowed = {
+            TAG = USA
+		}
+		is_good = no
+		fire_only_once = yes
+		selectable_mission = yes
+		activation = {
+			TAG = USA
+			#is_faction_leader = yes
+			is_subject = no
+			has_idea = lianheguojiaxuanyan
+			ENG = { has_idea = lianheguojiaxuanyan }
+			SOV = { has_idea = lianheguojiaxuanyan }
+			#event_target:WTT_current_china_leader = { has_idea = lianheguojiaxuanyan }
+			has_war_with = JAP
+			has_global_flag = kairo_meeting_happen
+			has_global_flag = tehran_meeting_happen
+			NOT = { has_war_with = GER }
+			NOT = { has_war_with = ITA }
+		}
+		cancel_trigger = {
+			NOT = {
+			OR = {
+			#is_faction_leader = yes
+			is_subject = no
+			has_idea = lianheguojiaxuanyan
+			ENG = { has_idea = lianheguojiaxuanyan }
+			SOV = { has_idea = lianheguojiaxuanyan }
+			#event_target:WTT_current_china_leader = { has_idea = lianheguojiaxuanyan }
+			has_war_with = JAP
+			has_global_flag = kairo_meeting_happen
+			has_global_flag = tehran_meeting_happen
+			NOT = { has_war_with = GER }
+			NOT = { has_war_with = ITA }
+			}
+			}
+		}
+		available = {
+		
+		}
+		#days_remove = 180
+		days_mission_timeout = 60
+		timeout_effect = {
+			activate_mission = usa_suggest_Potsdam_Declaration
+			
+			add_war_support = -0.1
+			add_stability = -0.1
+			add_political_power = -150
+			
+		}
+		cost = 0
+		ai_will_do = {
+			factor = 999
+		}
+		complete_effect = {
+		set_global_flag = usa_suggest_Potsdam_Declaration_over
+		    JAP = {
+			add_war_support = -0.2
+			add_stability = -0.2
+			add_political_power = -200
+			set_country_flag = bocitan_happen
+			}
+			set_global_flag = Potsdam_Declaration_happen
+			news_event = zizhinews.20
+		}
+	}
+			   
+			   
+			   
+			   
+			   
+
+}

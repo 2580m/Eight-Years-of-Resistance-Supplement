@@ -1,0 +1,438 @@
+
+nato_decisions = {
+
+	NATO_brussels_treaty = {
+		icon = generic_formable_nations		
+
+		available = {
+			has_war = no
+
+		}
+
+		visible = {
+has_war = no #guo
+OR = {
+has_global_flag = ger_zhanbai
+has_global_flag = had_yalta_conference
+}
+			OR = {
+				tag = ENG
+				tag = FRA
+			}
+			date > 1942.1.1 #guo
+			NOT = {
+				custom_trigger_tooltip = {
+					tooltip = brussels_to_has_already_happened
+					has_global_flag = brussels_to_fired
+				}
+			}
+
+#guo
+is_democratic_type = yes
+			is_in_faction = yes
+is_subject = no
+is_major = yes
+			country_exists = SOV
+			NOT = { is_in_faction_with = SOV }
+SOV = { has_government = communism } 
+
+		}
+
+		ai_will_do = {
+			factor = 9999
+			modifier = {
+				factor = 0
+				OR = {
+					ENG = { is_ai = no }
+					FRA = { is_ai = no }
+				}
+			}
+		}
+
+		cost = 50 #guo
+
+		fire_only_once = yes
+
+		complete_effect = {
+			set_global_flag = brussels_to_fired
+			set_country_flag = TO_joined_brussels_treaty
+			every_other_country = {
+				limit = { 
+					is_subject = no
+					is_in_faction_with = ROOT
+					NOT = { tag = USA }
+				}
+				hidden_effect = { country_event = treaty_org.1 }
+				custom_effect_tooltip = TO_will_be_invited_to_join_or_leave
+			}
+			hidden_effect = { news_event = { id = treaty_org.2 days = 1 } }
+		}
+	}
+	
+	NATO_suggest_nato = {
+		icon = generic_formable_nations		
+
+		available = {
+			has_war = no
+is_faction_leader = yes
+is_democratic_type = yes
+if = {
+limit = { has_country_leader = { ruling_only = yes character = USA_franklin_delano_roosevelt } }
+not = { has_country_leader = { ruling_only = yes character = USA_franklin_delano_roosevelt } }
+}
+		}
+                                cancel_if_not_visible = yes
+		visible = {
+has_war = no #guo
+date > 1942.1.1
+is_faction_leader = yes
+is_major = yes
+is_democratic_type = yes
+			country_exists = SOV
+			NOT = { is_in_faction_with = SOV }
+SOV = { has_government = communism } 
+
+			is_in_faction = yes
+			OR = {
+				has_country_flag = TO_joined_brussels_treaty
+				tag = USA
+			}
+			has_global_flag = brussels_to_fired
+			is_subject = no
+			OR = { is_in_faction_with = ENG is_in_faction_with = FRA is_in_faction_with = GER is_in_faction_with = ITA }
+			NOT = { has_global_flag = nato_suggested }
+		}
+		
+		fire_only_once = yes
+
+		days_remove = 30 #guo
+		
+		ai_will_do = {#guo
+			factor = 9999
+			
+			
+		}
+
+		cost = 50 #guo
+
+		fire_only_once = yes
+		
+		remove_effect = {
+set_global_flag = nato_suggested
+set_country_flag = nato_leader
+save_global_event_target_as = nato_leader
+if = {
+limit = { has_country_leader = { ruling_only = yes name = "Harry S. Truman" } }
+add_country_leader_trait = dulumenzhuyi
+}
+set_rule = {
+	can_send_volunteers = yes
+	can_puppet = yes
+	can_only_justify_war_on_threat_country = no
+}
+
+if = {
+limit = { has_character = USA_george_marshall }
+add_timed_idea = {
+            idea = usa_Marshall_plan
+            days = 1460
+        }
+every_other_country = {
+limit = {
+or = {
+is_in_faction_with = root
+and = { tag = GRE exists = yes is_in_faction = no NOT = { has_government = communism has_government = fascism has_war_with = root } }
+and = { tag = TUR exists = yes is_in_faction = no NOT = { has_government = communism has_government = fascism has_war_with = root } }
+and = { tag = SWE exists = yes is_in_faction = no NOT = { has_government = communism has_government = fascism has_war_with = root } }
+and = { tag = IRE exists = yes is_in_faction = no NOT = { has_government = communism has_government = fascism has_war_with = root } }
+and = { tag = POR exists = yes is_in_faction = no NOT = { has_government = communism has_government = fascism has_war_with = root } }
+and = { tag = SWI exists = yes is_in_faction = no NOT = { has_government = communism has_government = fascism has_war_with = root } }
+and = { tag = WGR exists = yes is_in_faction = no NOT = { has_government = communism has_government = fascism has_war_with = root } }
+}
+capital_scope = { is_on_continent = europe }
+}
+add_timed_idea = {
+            idea = usa_Marshall_plan_ally
+            days = 1460
+        }
+add_ai_strategy = {
+		type = alliance
+		id = root
+		value = 200
+    }
+add_ai_strategy = {
+		type = befriend
+		id = root
+		value = 200
+    }	
+}
+}
+
+hidden_effect = {
+			if = {
+				limit = { 
+					OR = { 
+						is_in_faction_with = USA 
+						tag = USA 
+					}
+				}
+				news_event = treaty_org.3
+			}
+			else = {
+				news_event = treaty_org.4
+			}
+}
+			every_country = {
+				limit = {
+				    or = {
+					is_in_faction_with = ROOT 
+					tag = root
+					}
+NOT = { tag = WGR }
+NOT = { tag = PHI }
+NOT = { tag = JAP }
+OR = {#guo
+capital_scope = {
+						is_on_continent = europe 
+					}
+capital_scope = {
+						is_on_continent = north_america
+					}
+}
+
+					OR = { 
+						is_subject = no
+						has_autonomy_state = autonomy_dominion
+					}
+				}
+				add_ideas = nato_member #guo
+			}
+			if = {
+				limit = { is_in_faction = yes }
+				set_faction_name = north_atlantic_treaty_org
+			}
+			hidden_effect = {
+			every_country = {
+			limit = { 
+			OR = {
+			tag = ROOT
+			is_in_faction_with = ROOT
+			}
+			}
+			add_ai_strategy = {
+		                                         type = support
+		                                         id = SOV
+		                                         value = -9999
+	                        }
+            add_ai_strategy = { #help you in other ways
+		              type = send_lend_lease_desire
+		              id = SOV
+		              value = -9999
+	                            
+                            }
+
+							add_ai_strategy = { #help you in other ways
+		              type = alliance
+		              id = SOV
+		              value = -9999
+	                            
+                            }
+							add_ai_strategy = { #help you in other ways
+		              type = antagonize
+		              id = SOV
+		              value = 1
+	                            
+                            }
+			}
+
+			every_country = {
+			limit = {
+			NOT = { has_government = USA }
+			NOT = { is_in_faction_with = USA }
+			OR = {
+			tag = SOV
+			is_in_faction_with = SOV
+			}
+			}
+			add_ai_strategy = {
+		                                         type = support
+		                                         id = USA
+		                                         value = -9999
+	                        }
+            add_ai_strategy = { #help you in other ways
+		              type = send_lend_lease_desire
+		              id = USA
+		              value = -9999
+	                            
+                            }
+							
+							add_ai_strategy = { #help you in other ways
+		              type = alliance
+		              id = USA
+		              value = -9999
+	                            
+                            }
+							add_ai_strategy = { #help you in other ways
+		              type = antagonize
+		              id = USA
+		              value = 1
+	                            
+                            }
+			}
+
+			every_country = {
+			limit = {
+			NOT = { has_government = ENG }
+			NOT = { is_in_faction_with = ENG }
+			OR = {
+			tag = SOV
+			is_in_faction_with = SOV
+			}
+			}
+			add_ai_strategy = {
+		                                         type = support
+		                                         id = ENG
+		                                         value = -9999
+	                        }
+            add_ai_strategy = { #help you in other ways
+		              type = send_lend_lease_desire
+		              id = ENG
+		              value = -9999
+	                            
+                            }
+							
+							add_ai_strategy = { #help you in other ways
+		              type = alliance
+		              id = ENG
+		              value = -9999
+	                            
+                            }
+							add_ai_strategy = { #help you in other ways
+		              type = antagonize
+		              id = ENG
+		              value = 1
+	                            
+                            }
+			}
+
+			every_country = {
+			limit = {
+			NOT = { has_government = FRA }
+			NOT = { is_in_faction_with = FRA }
+			OR = {
+			tag = SOV
+			is_in_faction_with = SOV
+			}
+			}
+			add_ai_strategy = {
+		                                         type = support
+		                                         id = FRA
+		                                         value = -9999
+	                        }
+            add_ai_strategy = { #help you in other ways
+		              type = send_lend_lease_desire
+		              id = FRA
+		              value = -9999
+	                            
+                            }
+							
+							add_ai_strategy = { #help you in other ways
+		              type = alliance
+		              id = FRA
+		              value = -9999
+	                            
+                            }
+							add_ai_strategy = { #help you in other ways
+		              type = antagonize
+		              id = FRA
+		              value = 1
+	                            
+                            }
+			}
+			
+			}
+		}
+		
+		complete_effect = {
+			
+		}
+	}
+	
+	NATO_have_warsaw_pact = { #TODO  for sov to build warsaw
+		icon = generic_formable_nations		
+
+	    available = {
+			has_war = no
+is_faction_leader = yes
+has_government = communism
+OR = {
+is_in_faction_with = POL
+controls_state = 10
+}
+		}
+                                cancel_if_not_visible = yes
+		visible = {
+tag = SOV #guo
+OR = {
+is_in_faction_with = POL
+controls_state = 10
+}
+is_major = yes
+			is_subject = no
+			has_government = communism
+			is_faction_leader = yes
+
+			any_other_country = { has_idea = nato_member }
+
+
+
+		}
+		
+		fire_only_once = yes
+
+		days_remove = 30 #guo
+
+		ai_will_do = {#guo
+			factor = 9999
+			
+		}
+	
+		cost = 50 #guo
+	
+		fire_only_once = yes
+
+		complete_effect = {
+			
+		}
+
+		remove_effect = {
+set_global_flag = warsaw_pact
+set_country_flag = warsaw_leader 
+			set_faction_name = socialist_camp
+
+hidden_effect = {
+news_event = { id = news.1019 days = 1 }
+}
+every_country = {#guo
+				limit = { 
+					or = {
+					is_in_faction_with = ROOT 
+					tag = root
+					}
+                                                                  capital_scope = {
+						is_on_continent = europe 
+					}
+					NOT = { TAG = DDR }
+                    NOT = { TAG = YUG }
+					#OR = { 
+					#	is_subject = no
+					#	has_autonomy_state = autonomy_dominion
+					#}
+				}
+				add_ideas = warsaw_member #guo
+			}
+
+		}
+	}
+
+}

@@ -1,0 +1,1272 @@
+####### NO STEP BACK! #######
+@DAYS_DETERMINED = 180 #Used for propaganda campaign CHI_heroes_forward -> Value should be the same as CHI_default_propaganda_campaign_duration
+
+########## chinesee
+
+X_xchinese_propaganda_campaigns = {
+	X_xchinese_propaganda_3 = { # ID = 3
+		priority = 2
+		icon = eng_propaganda_campaigns
+		ai_will_do = { base = 100 modifier = { factor = 0 has_political_power < 500 } }
+		allowed = { is_literally_china = yes }
+		available = { X_xchinese_propaganda_poster_slot_available = yes }
+		visible = {
+			#NOT = { has_country_flag = Second_X_xchinese_propaganda_3 }  
+			CKS_in_charge = yes
+			is_literally_china = yes
+			not = { has_government = communism }
+			has_civil_war = no
+		}
+		days_remove = 180        
+		days_re_enable = 90
+
+		cost = X_xchinese_propaganda_3_cost
+		modifier = {
+			war_support_weekly = 0.003
+			experience_gain_factor = 0.10
+			experience_gain_army_unit_factor = 0.10
+			experience_gain_army_factor = 0.10
+			army_morale_factor = 0.10
+			land_reinforce_rate = 0.05
+		}
+		complete_effect = {
+            #set_variable = { X_xchinese_propaganda_3_cost = 50 }
+			set_variable = { X_xchinese_new_propaganda_campaign = 4 }
+			X_xchinese_pick_propaganda_campaign_slot_effect = yes
+			IF = {
+				limit = {
+					has_country_flag = First_X_xchinese_propaganda_3
+				}
+				set_country_flag = Second_X_xchinese_propaganda_3
+			}
+		}
+		remove_effect = {
+			IF = {
+				limit = {
+					NOT = {
+						has_country_flag = First_X_xchinese_propaganda_3
+				    }  
+				}
+				set_country_flag = First_X_xchinese_propaganda_3
+			}
+			#custom_effect_tooltip = CHI_propaganda_campaign_cooldown_tt
+			set_variable = { X_xchinese_propaganda_campaign_to_remove = 4 }
+			X_xchinese_reset_propaganda_campaign_slot_effect = yes
+			multiply_variable = { X_xchinese_propaganda_3_cost = 2 }
+		}
+	}
+	X_xchinese_propaganda_4 = { # ID = 4
+		priority = 2
+		icon = eng_propaganda_campaigns
+		ai_will_do = { base = 100 modifier = { factor = 0 has_political_power < 500 } }
+		allowed = { is_literally_china = yes }
+		available = { X_xchinese_propaganda_poster_slot_available = yes 
+		CKS_in_charge = yes
+		}
+		visible = {
+			#NOT = { has_country_flag = Second_X_xchinese_propaganda_4 }  
+			#CKS_in_charge = yes
+			is_literally_china = yes
+			not = { has_government = communism }
+			has_civil_war = no
+		}
+		days_remove = 180        
+		days_re_enable = 90
+
+		cost = X_xchinese_propaganda_4_cost
+		modifier = {
+			political_power_factor = 0.10
+			war_support_weekly = 0.002
+			stability_weekly = 0.002
+			command_power_gain_mult = 0.10
+			master_ideology_drift = 0.25
+		}
+		complete_effect = {
+            #set_variable = { X_xchinese_propaganda_4_cost = 50 }
+			set_variable = { X_xchinese_new_propaganda_campaign = 3 }
+			X_xchinese_pick_propaganda_campaign_slot_effect = yes
+			IF = {
+				limit = {
+					has_country_flag = First_X_xchinese_propaganda_4
+				}
+				set_country_flag = Second_X_xchinese_propaganda_4
+			}
+		}
+		remove_effect = {
+			IF = {
+				limit = {
+					NOT = {
+						has_country_flag = First_X_xchinese_propaganda_4
+				    }  
+				}
+				set_country_flag = First_X_xchinese_propaganda_4
+			}
+			#custom_effect_tooltip = CHI_propaganda_campaign_cooldown_tt
+			set_variable = { X_xchinese_propaganda_campaign_to_remove = 3 }
+			X_xchinese_reset_propaganda_campaign_slot_effect = yes
+			multiply_variable = { X_xchinese_propaganda_4_cost = 2 }
+		}
+	}
+	X_xchinese_propaganda_5 = { # ID = 5
+		priority = 2
+		icon = eng_propaganda_campaigns
+		ai_will_do = { base = 100 modifier = { factor = 0 has_political_power < 500 } }
+		allowed = { is_literally_china = yes }
+		available = {
+			X_xchinese_propaganda_poster_slot_available = yes
+			IF = {
+				limit = {
+					original_tag = CHI
+				}
+				has_idea = CHI_alexander_von_falkenhausen
+			}
+			else = {
+				GER = {
+					exists = yes
+					is_subject = no
+					NOT = { has_government = communism has_war_with = root }
+					has_opinion = {
+						target = ROOT
+						value > 49
+					}
+				}
+			}
+		}
+		visible = {
+			#NOT = { has_country_flag = Second_X_xchinese_propaganda_5 }  
+			not = { has_government = communism }
+			has_civil_war = no
+		}
+		days_remove = 180        
+		days_re_enable = 90
+
+		cost = X_xchinese_propaganda_5_cost
+		modifier = {
+			experience_gain_factor = 0.05
+			army_org_factor = 0.10
+			planning_speed = 0.15
+            max_planning = 0.05
+			experience_gain_army_unit_factor = 0.05
+            training_time_army_factor = -0.15
+			research_speed_factor = 0.05
+			license_purchase_cost = -0.25
+			license_production_speed = 0.25
+			opinion_gain_monthly_factor = 0.25
+			trade_opinion_factor = 0.25
+		}
+		complete_effect = {
+            #set_variable = { X_xchinese_propaganda_5_cost = 50 }
+			set_variable = { X_xchinese_new_propaganda_campaign = 5 }
+			X_xchinese_pick_propaganda_campaign_slot_effect = yes
+			IF = {
+				limit = {
+					has_country_flag = First_X_xchinese_propaganda_5
+				}
+				set_country_flag = Second_X_xchinese_propaganda_5
+			}
+		}
+		remove_effect = {
+			IF = {
+				limit = {
+					NOT = {
+						has_country_flag = First_X_xchinese_propaganda_5
+				    }  
+				}
+				set_country_flag = First_X_xchinese_propaganda_5
+			}
+			#custom_effect_tooltip = CHI_propaganda_campaign_cooldown_tt
+			set_variable = { X_xchinese_propaganda_campaign_to_remove = 5 }
+			X_xchinese_reset_propaganda_campaign_slot_effect = yes
+			multiply_variable = { X_xchinese_propaganda_5_cost = 2 }
+		}
+	}
+	X_xchinese_propaganda_6 = { # ID = 6
+		priority = 2
+		icon = eng_propaganda_campaigns
+		ai_will_do = { base = 100 modifier = { factor = 0 has_political_power < 500 } }
+		allowed = { is_literally_china = yes }
+		available = {
+			X_xchinese_propaganda_poster_slot_available = yes
+			has_war_with = JAP
+			surrender_progress > 0.3
+		}
+		visible = {
+			has_civil_war = no
+			not = { has_government = communism }
+		}
+		days_remove = 180        
+		days_re_enable = 90
+
+		cost = X_xchinese_propaganda_6_cost
+		modifier = {
+			army_core_attack_factor = 0.15
+			army_core_defence_factor = 0.15
+			org_loss_at_low_org_factor = -0.15
+			land_reinforce_rate = 0.10
+		}
+		complete_effect = {
+            #set_variable = { X_xchinese_propaganda_6_cost = 50 }
+			set_variable = { X_xchinese_new_propaganda_campaign = 6 }
+			X_xchinese_pick_propaganda_campaign_slot_effect = yes
+			IF = {
+				limit = {
+					has_country_flag = First_X_xchinese_propaganda_6
+				}
+				set_country_flag = Second_X_xchinese_propaganda_6
+			}
+		}
+		remove_effect = {
+			IF = {
+				limit = {
+					NOT = {
+						has_country_flag = First_X_xchinese_propaganda_6
+				    }  
+				}
+				set_country_flag = First_X_xchinese_propaganda_6
+			}
+			set_variable = { X_xchinese_propaganda_campaign_to_remove = 6 }
+			X_xchinese_reset_propaganda_campaign_slot_effect = yes
+			multiply_variable = { X_xchinese_propaganda_6_cost = 2 }
+		}
+	}
+	X_xchinese_propaganda_7 = { # ID = 7
+		priority = 2
+		icon = eng_propaganda_campaigns
+		ai_will_do = { base = 100 modifier = { factor = 0 has_political_power < 500 } }
+		allowed = { is_literally_china = yes }
+		available = {
+			X_xchinese_propaganda_poster_slot_available = yes
+			has_war_with = JAP
+			surrender_progress > 0.3
+		}
+		visible = {
+			#NOT = { has_country_flag = Second_X_xchinese_propaganda_7 }  
+			has_civil_war = no
+			not = { has_government = communism }
+		}
+		days_remove = 180        
+		days_re_enable = 90
+
+		cost = X_xchinese_propaganda_7_cost
+		modifier = {
+			weekly_manpower = 3000
+			mobilization_speed = 0.5
+			conscription_factor = 0.25
+			training_time_factor = -0.15
+			minimum_training_level = -0.15
+		}
+		complete_effect = {
+            #set_variable = { X_xchinese_propaganda_7_cost = 50 }
+			set_variable = { X_xchinese_new_propaganda_campaign = 7 }
+			X_xchinese_pick_propaganda_campaign_slot_effect = yes
+			IF = {
+				limit = {
+					has_country_flag = First_X_xchinese_propaganda_7
+				}
+				set_country_flag = Second_X_xchinese_propaganda_7
+			}
+		}
+		remove_effect = {
+			IF = {
+				limit = {
+					NOT = {
+						has_country_flag = First_X_xchinese_propaganda_7
+				    }  
+				}
+				set_country_flag = First_X_xchinese_propaganda_7
+			}
+			#custom_effect_tooltip = CHI_propaganda_campaign_cooldown_tt
+			set_variable = { X_xchinese_propaganda_campaign_to_remove = 7 }
+			X_xchinese_reset_propaganda_campaign_slot_effect = yes
+			multiply_variable = { X_xchinese_propaganda_7_cost = 2 }
+		}
+	}
+	X_xchinese_propaganda_8 = { # ID = 8
+		priority = 2
+		icon = eng_propaganda_campaigns
+		ai_will_do = { base = 100 modifier = { factor = 0 has_political_power < 500 } }
+		allowed = { is_literally_china = yes }
+		available = { X_xchinese_propaganda_poster_slot_available = yes }
+		visible = {
+			#NOT = { has_country_flag = Second_X_xchinese_propaganda_8 }  
+			is_literally_china = yes
+			not = { has_government = communism }
+			has_civil_war = no
+		}
+		days_remove = 180        
+		days_re_enable = 90
+
+		cost = X_xchinese_propaganda_8_cost
+		modifier = {
+			consumer_goods_factor = -0.15
+			production_speed_buildings_factor = 0.10
+			local_resources_factor = 0.10
+			cic_construction_boost_factor = 0.05
+		}
+		complete_effect = {
+            #set_variable = { X_xchinese_propaganda_8_cost = 50 }
+			set_variable = { X_xchinese_new_propaganda_campaign = 8 }
+			X_xchinese_pick_propaganda_campaign_slot_effect = yes
+			IF = {
+				limit = {
+					has_country_flag = First_X_xchinese_propaganda_8
+				}
+				set_country_flag = Second_X_xchinese_propaganda_8
+			}
+		}
+		remove_effect = {
+			IF = {
+				limit = {
+					NOT = {
+						has_country_flag = First_X_xchinese_propaganda_8
+				    }  
+				}
+				set_country_flag = First_X_xchinese_propaganda_8
+			}
+			#custom_effect_tooltip = CHI_propaganda_campaign_cooldown_tt
+			set_variable = { X_xchinese_propaganda_campaign_to_remove = 8 }
+			X_xchinese_reset_propaganda_campaign_slot_effect = yes
+			multiply_variable = { X_xchinese_propaganda_8_cost = 2 }
+		}
+	}
+	X_xchinese_propaganda_9 = { # ID = 9
+		priority = 2
+		icon = eng_propaganda_campaigns
+		ai_will_do = { base = 100 modifier = { factor = 0 has_political_power < 500 } }
+		allowed = { is_literally_china = yes }
+		available = { X_xchinese_propaganda_poster_slot_available = yes }
+		visible = {
+			#NOT = { has_country_flag = Second_X_xchinese_propaganda_9 }  
+			not = { has_government = communism }
+			has_civil_war = no
+		}
+		days_remove = 180        
+		days_re_enable = 90
+
+		cost = X_xchinese_propaganda_9_cost
+		modifier = {
+			enemy_operative_detection_chance_factor = 0.25
+			enemy_operative_capture_chance_factor = 0.25
+			intelligence_agency_defense = 2
+			encryption = 1
+			civilian_intel_to_others  = -25#泄露给他国的民政情报
+			army_intel_to_others  = -25#泄露给他国的陆军情报
+			navy_intel_to_others  = -25#泄露给他国的海军情报
+			airforce_intel_to_others  = -25#泄露给他国的空军情报
+			drift_defence_factor = 0.25 #意识形态变化抵制力度
+			foreign_subversive_activites = -0.25 #外国颠覆活动效率
+			party_popularity_stability_factor = 0.10
+		}
+		complete_effect = {
+            #set_variable = { X_xchinese_propaganda_9_cost = 50 }
+			set_variable = { X_xchinese_new_propaganda_campaign = 9 }
+			X_xchinese_pick_propaganda_campaign_slot_effect = yes
+			IF = {
+				limit = {
+					has_country_flag = First_X_xchinese_propaganda_9
+				}
+				set_country_flag = Second_X_xchinese_propaganda_9
+			}
+		}
+		remove_effect = {
+			IF = {
+				limit = {
+					NOT = {
+						has_country_flag = First_X_xchinese_propaganda_9
+				    }  
+				}
+				set_country_flag = First_X_xchinese_propaganda_9
+			}
+			#custom_effect_tooltip = CHI_propaganda_campaign_cooldown_tt
+			set_variable = { X_xchinese_propaganda_campaign_to_remove = 9 }
+			X_xchinese_reset_propaganda_campaign_slot_effect = yes
+			multiply_variable = { X_xchinese_propaganda_9_cost = 2 }
+		}
+	}
+	X_xchinese_propaganda_10 = { # ID = 10
+		priority = 2
+		icon = eng_propaganda_campaigns
+		ai_will_do = { base = 100 modifier = { factor = 0 has_political_power < 500 } }
+		allowed = { is_literally_china = yes }
+		available = { X_xchinese_propaganda_poster_slot_available = yes }
+		visible = {
+			#NOT = { has_country_flag = Second_X_xchinese_propaganda_3 }  
+			not = { has_government = communism }
+			has_civil_war = no
+		}
+		days_remove = 180        
+		days_re_enable = 90
+
+		cost = X_xchinese_propaganda_10_cost
+		modifier = {
+			command_power_gain_mult = 0.10
+			breakthrough_factor = 0.05
+			army_attack_factor = 0.05
+			army_defence_factor = 0.05
+		}
+		complete_effect = {
+            #set_variable = { X_xchinese_propaganda_10_cost = 50 }
+			set_variable = { X_xchinese_new_propaganda_campaign = 10 }
+			X_xchinese_pick_propaganda_campaign_slot_effect = yes
+			IF = {
+				limit = {
+					has_country_flag = First_X_xchinese_propaganda_10
+				}
+				set_country_flag = Second_X_xchinese_propaganda_10
+			}
+		}
+		remove_effect = {
+			IF = {
+				limit = {
+					NOT = {
+						has_country_flag = First_X_xchinese_propaganda_3
+				    }  
+				}
+				set_country_flag = First_X_xchinese_propaganda_3
+			}
+			#custom_effect_tooltip = CHI_propaganda_campaign_cooldown_tt
+			set_variable = { X_xchinese_propaganda_campaign_to_remove = 10 }
+			X_xchinese_reset_propaganda_campaign_slot_effect = yes
+			multiply_variable = { X_xchinese_propaganda_10_cost = 2 }
+		}
+	}
+	X_xchinese_propaganda_11 = { # ID = 11
+		priority = 2
+		icon = eng_propaganda_campaigns
+		ai_will_do = { base = 100 modifier = { factor = 0 has_political_power < 500 } }
+		allowed = { is_literally_china = yes }
+		available = {
+			X_xchinese_propaganda_poster_slot_available = yes
+			524 = { is_fully_controlled_by = root }
+			if = {
+			limit = { original_tag = CHI }
+			has_completed_focus = CHI_the_fall_of_mainland
+			}
+			else = { num_of_controlled_states < 5 }
+		}
+		visible = {
+			#NOT = { has_country_flag = Second_X_xchinese_propaganda_11 }  
+			is_literally_china = yes
+			not = { has_government = communism }
+			has_civil_war = no
+		}
+		days_remove = 180        
+		days_re_enable = 90
+
+		cost = X_xchinese_propaganda_11_cost
+		modifier = {
+			production_speed_coastal_bunker_factor = 0.25
+			production_speed_bunker_factor = 0.25
+			weekly_manpower = 2500
+			production_speed_arms_factory_factor= 0.15
+			production_speed_anti_air_building_factor= 0.25
+			production_speed_air_base_factor= 0.25
+			production_speed_naval_base_factor= 0.15
+			production_speed_rail_way_factor= 0.25 #铁路
+			production_speed_supply_node_factor= 0.25 #补给站
+			
+			consumer_goods_factor = -0.20
+		}
+		complete_effect = {
+            #set_variable = { X_xchinese_propaganda_11_cost = 50 }
+			set_variable = { X_xchinese_new_propaganda_campaign = 11 }
+			X_xchinese_pick_propaganda_campaign_slot_effect = yes
+			IF = {
+				limit = {
+					has_country_flag = First_X_xchinese_propaganda_11
+				}
+				set_country_flag = Second_X_xchinese_propaganda_11
+			}
+		}
+		remove_effect = {
+			IF = {
+				limit = {
+					NOT = {
+						has_country_flag = First_X_xchinese_propaganda_11
+				    }  
+				}
+				set_country_flag = First_X_xchinese_propaganda_11
+			}
+			#custom_effect_tooltip = CHI_propaganda_campaign_cooldown_tt
+			set_variable = { X_xchinese_propaganda_campaign_to_remove = 11 }
+			X_xchinese_reset_propaganda_campaign_slot_effect = yes
+			multiply_variable = { X_xchinese_propaganda_11_cost = 2 }
+		}
+	}
+	X_xchinese_propaganda_12 = { # ID = 12
+		priority = 2
+		icon = eng_propaganda_campaigns
+		ai_will_do = { base = 100 modifier = { factor = 0 has_political_power < 500 } }
+		allowed = { is_literally_china = yes }
+		available = { X_xchinese_propaganda_poster_slot_available = yes has_war = yes 
+		surrender_progress > 0
+		}
+		visible = {
+			#NOT = { has_country_flag = Second_X_xchinese_propaganda_12 }  
+			is_literally_china = yes
+			not = { has_government = communism }
+			has_civil_war = no
+		}
+		days_remove = 180        
+		days_re_enable = 90
+
+		cost = X_xchinese_propaganda_12_cost
+		modifier = {
+			production_speed_arms_factory_factor = 0.10
+			production_speed_naval_base_factor = 0.10
+			industrial_capacity_factory = 0.10
+			industrial_capacity_dockyard = 0.10
+			consumer_goods_factor = -0.15
+			production_factory_max_efficiency_factor = 0.05 #生产效率上限
+			production_factory_efficiency_gain_factor = 0.05 #生产效率增长
+		}
+		complete_effect = {
+            #set_variable = { X_xchinese_propaganda_12_cost = 50 }
+			set_variable = { X_xchinese_new_propaganda_campaign = 12 }
+			X_xchinese_pick_propaganda_campaign_slot_effect = yes
+			IF = {
+				limit = {
+					has_country_flag = First_X_xchinese_propaganda_12
+				}
+				set_country_flag = Second_X_xchinese_propaganda_12
+			}
+		}
+		remove_effect = {
+			IF = {
+				limit = {
+					NOT = {
+						has_country_flag = First_X_xchinese_propaganda_12
+				    }  
+				}
+				set_country_flag = First_X_xchinese_propaganda_12
+			}
+			#custom_effect_tooltip = CHI_propaganda_campaign_cooldown_tt
+			set_variable = { X_xchinese_propaganda_campaign_to_remove = 12 }
+			X_xchinese_reset_propaganda_campaign_slot_effect = yes
+			multiply_variable = { X_xchinese_propaganda_12_cost = 2 }
+		}
+	}
+	X_xchinese_propaganda_13 = { # ID = 13
+		priority = 2
+		icon = eng_propaganda_campaigns
+		ai_will_do = { base = 100 modifier = { factor = 0 has_political_power < 500 } }
+		allowed = { is_literally_china = yes }
+		available = { X_xchinese_propaganda_poster_slot_available = yes has_war_with = JAP }
+		visible = {
+			#NOT = { has_country_flag = Second_X_xchinese_propaganda_13 }  
+			has_civil_war = no
+		}
+		days_remove = 180        
+		days_re_enable = 90
+
+		cost = X_xchinese_propaganda_13_cost
+		targeted_modifier = {
+			tag = JAP
+			attack_bonus_against = 0.05
+			defense_bonus_against = 0.10
+			breakthrough_bonus_against = 0.05
+		}
+		modifier = {
+			defensive_war_stability_factor = 0.1
+			weekly_casualties_war_support = 0.002 #MODDED
+		}
+		complete_effect = {
+            #set_variable = { X_xchinese_propaganda_13_cost = 50 }
+			set_variable = { X_xchinese_new_propaganda_campaign = 13 }
+			X_xchinese_pick_propaganda_campaign_slot_effect = yes
+			IF = {
+				limit = {
+					has_country_flag = First_X_xchinese_propaganda_13
+				}
+				set_country_flag = Second_X_xchinese_propaganda_13
+			}
+		}
+		remove_effect = {
+			IF = {
+				limit = {
+					NOT = {
+						has_country_flag = First_X_xchinese_propaganda_13
+				    }  
+				}
+				set_country_flag = First_X_xchinese_propaganda_13
+			}
+			#custom_effect_tooltip = CHI_propaganda_campaign_cooldown_tt
+			set_variable = { X_xchinese_propaganda_campaign_to_remove = 13 }
+			X_xchinese_reset_propaganda_campaign_slot_effect = yes
+			multiply_variable = { X_xchinese_propaganda_13_cost = 2 }
+		}
+	}
+	X_xchinese_propaganda_14 = { # ID = 14
+		priority = 2
+		icon = eng_propaganda_campaigns
+		ai_will_do = { base = 100 modifier = { factor = 0 has_political_power < 500 } }
+		allowed = { is_literally_china = yes }
+		available = { X_xchinese_propaganda_poster_slot_available = yes }
+		visible = {
+			#NOT = { has_country_flag = Second_X_xchinese_propaganda_14 }  
+			not = { has_government = communism }
+			has_civil_war = no
+		}
+		days_remove = 180        
+		days_re_enable = 90
+
+		cost = X_xchinese_propaganda_14_cost
+		modifier = {
+			communism_drift = -0.10
+			drift_defence_factor = 0.25
+			political_power_factor = 0.10
+			party_popularity_stability_factor = 0.10
+			subversive_activites_upkeep = -0.25
+			propaganda_mission_factor = 0.25 #政治宣传任务成果
+			boost_ideology_mission_factor = 0.25 #加强意识形态任务成果
+			operation_collaboration_government_outcome = 0.25 #筹备合作政府效率 
+			operation_collaboration_government_cost = -0.25 #筹备合作政府花费 
+			operation_coup_government_outcome = 0.25 #进行颠覆效率 
+			operation_coup_government_cost = -0.25 #进行颠覆花费
+		}
+		complete_effect = {
+			add_popularity = { ideology = communism popularity = -0.05 }
+            #set_variable = { X_xchinese_propaganda_14_cost = 50 }
+			set_variable = { X_xchinese_new_propaganda_campaign = 14 }
+			X_xchinese_pick_propaganda_campaign_slot_effect = yes
+			IF = {
+				limit = {
+					has_country_flag = First_X_xchinese_propaganda_14
+				}
+				set_country_flag = Second_X_xchinese_propaganda_14
+			}
+		}
+		remove_effect = {
+			IF = {
+				limit = {
+					NOT = {
+						has_country_flag = First_X_xchinese_propaganda_14
+				    }  
+				}
+				set_country_flag = First_X_xchinese_propaganda_14
+			}
+			#custom_effect_tooltip = CHI_propaganda_campaign_cooldown_tt
+			set_variable = { X_xchinese_propaganda_campaign_to_remove = 14 }
+			X_xchinese_reset_propaganda_campaign_slot_effect = yes
+			multiply_variable = { X_xchinese_propaganda_14_cost = 2 }
+		}
+	}
+	
+	###########
+	#communism#
+	X_xchinese_propaganda_15 = { # ID = 15
+		priority = 2
+		icon = eng_propaganda_campaigns
+		ai_will_do = { base = 100 modifier = { factor = 0 has_political_power < 500 } }
+		allowed = { is_literally_china = yes }
+		available = { X_xchinese_propaganda_poster_slot_available = yes
+		has_idea = PRC_maoism
+		}
+		visible = {
+			#NOT = { has_country_flag = Second_X_xchinese_propaganda_15 }  
+			has_government = communism
+			has_civil_war = no
+		}
+		days_remove = 180        
+		days_re_enable = 90
+
+		cost = X_xchinese_propaganda_15_cost
+		modifier = {
+			command_power_gain_mult = 0.15
+			army_org_factor = 0.10
+			army_morale_factor = 0.10
+			experience_loss_factor = -0.10
+			experience_gain_factor = 0.15
+			experience_gain_army_unit_factor = 0.15
+			experience_gain_army_factor = 0.15
+		}
+		complete_effect = {
+            #set_variable = { X_xchinese_propaganda_15_cost = 50 }
+			set_variable = { X_xchinese_new_propaganda_campaign = 15 }
+			X_xchinese_pick_propaganda_campaign_slot_effect = yes
+			IF = {
+				limit = {
+					has_country_flag = First_X_xchinese_propaganda_15
+				}
+
+				set_country_flag = Second_X_xchinese_propaganda_15
+			}
+		}
+		remove_effect = {
+			IF = {
+				limit = {
+					NOT = {
+						has_country_flag = First_X_xchinese_propaganda_15
+				    }  
+				}
+				set_country_flag = First_X_xchinese_propaganda_15
+			}
+			#custom_effect_tooltip = CHI_propaganda_campaign_cooldown_tt
+			set_variable = { X_xchinese_propaganda_campaign_to_remove = 15 }
+			X_xchinese_reset_propaganda_campaign_slot_effect = yes
+			multiply_variable = { X_xchinese_propaganda_15_cost = 2 }
+		}
+	}
+	X_xchinese_propaganda_16 = { # ID = 16
+		priority = 2
+		icon = eng_propaganda_campaigns
+		ai_will_do = { base = 100 modifier = { factor = 0 has_political_power < 500 } }
+		allowed = { is_literally_china = yes }
+		available = { X_xchinese_propaganda_poster_slot_available = yes has_war = yes }
+		visible = {
+			#NOT = { has_country_flag = Second_X_xchinese_propaganda_16 }  
+			has_government = communism
+			has_civil_war = no
+		}
+		days_remove = 180        
+		days_re_enable = 90
+
+		cost = X_xchinese_propaganda_16_cost
+		modifier = {
+			army_defence_factor = 0.10
+			industrial_capacity_factory = 0.05
+			industrial_capacity_dockyard = 0.05
+			production_factory_efficiency_gain_factor = 0.05
+			breakthrough_factor = 0.10
+			army_attack_factor = 0.10
+			land_reinforce_rate = 0.05
+			army_speed_factor = 0.10
+		}
+		complete_effect = {
+            #set_variable = { X_xchinese_propaganda_16_cost = 50 }
+			set_variable = { X_xchinese_new_propaganda_campaign = 16 }
+			X_xchinese_pick_propaganda_campaign_slot_effect = yes
+			IF = {
+				limit = {
+					has_country_flag = First_X_xchinese_propaganda_16
+				}
+				set_country_flag = Second_X_xchinese_propaganda_16
+			}
+		}
+		remove_effect = {
+			IF = {
+				limit = {
+					NOT = {
+						has_country_flag = First_X_xchinese_propaganda_16
+				    }  
+				}
+				set_country_flag = First_X_xchinese_propaganda_16
+			}
+			#custom_effect_tooltip = CHI_propaganda_campaign_cooldown_tt
+			set_variable = { X_xchinese_propaganda_campaign_to_remove = 16 }
+			X_xchinese_reset_propaganda_campaign_slot_effect = yes
+			multiply_variable = { X_xchinese_propaganda_16_cost = 2 }
+		}
+	}
+	X_xchinese_propaganda_17 = { # ID = 17
+		priority = 2
+		icon = eng_propaganda_campaigns
+		ai_will_do = { base = 100 modifier = { factor = 0 has_political_power < 500 } }
+		allowed = { is_literally_china = yes }
+		available = { X_xchinese_propaganda_poster_slot_available = yes
+		has_war = yes
+		}
+		visible = {
+			#NOT = { has_country_flag = Second_X_xchinese_propaganda_17 }  
+			has_government = communism
+			has_civil_war = no
+		}
+		days_remove = 180        
+		days_re_enable = 90
+
+		cost = X_xchinese_propaganda_17_cost
+		modifier = {
+			stability_weekly = -0.001
+			war_support_weekly = -0.001
+			consumer_goods_factor = -0.15
+			min_export = -0.15
+			production_speed_industrial_complex_factor = -0.15
+			production_speed_arms_factory_factor = 0.15
+			supply_consumption_factor = -0.15 #补给消耗
+			out_of_supply_factor = -0.15 #补给耗尽惩罚
+			no_supply_grace = 72
+			SUPPLY_FACTOR = 0.15
+			SUPPLY_NODE_RANGE = 0.15
+		}
+		complete_effect = {
+            #set_variable = { X_xchinese_propaganda_17_cost = 50 }
+			set_variable = { X_xchinese_new_propaganda_campaign = 17 }
+			X_xchinese_pick_propaganda_campaign_slot_effect = yes
+			IF = {
+				limit = {
+					has_country_flag = First_X_xchinese_propaganda_17
+				}
+				set_country_flag = Second_X_xchinese_propaganda_17
+			}
+		}
+		remove_effect = {
+			IF = {
+				limit = {
+					NOT = {
+						has_country_flag = First_X_xchinese_propaganda_17
+				    }  
+				}
+				set_country_flag = First_X_xchinese_propaganda_17
+			}
+			#custom_effect_tooltip = CHI_propaganda_campaign_cooldown_tt
+			set_variable = { X_xchinese_propaganda_campaign_to_remove = 17 }
+			X_xchinese_reset_propaganda_campaign_slot_effect = yes
+			multiply_variable = { X_xchinese_propaganda_17_cost = 2 }
+		}
+	}
+	X_xchinese_propaganda_18 = { # ID = 18
+		priority = 2
+		icon = eng_propaganda_campaigns
+		ai_will_do = { base = 100 modifier = { factor = 0 has_political_power < 500 } }
+		allowed = { is_literally_china = yes }
+		available = { X_xchinese_propaganda_poster_slot_available = yes }
+		visible = {
+			has_government = communism
+			has_civil_war = no
+		}
+		days_remove = 180        
+		days_re_enable = 90
+
+		cost = X_xchinese_propaganda_18_cost
+		modifier = {
+			political_power_factor = 0.10
+			enemy_operative_detection_chance_factor = 0.75
+			enemy_operative_capture_chance_factor = 0.75
+			intelligence_agency_defense = 5
+			encryption = 1
+			civilian_intel_to_others  = -50#泄露给他国的民政情报
+			army_intel_to_others  = -50#泄露给他国的陆军情报
+			navy_intel_to_others  = -50#泄露给他国的海军情报
+			airforce_intel_to_others  = -50#泄露给他国的空军情报
+			drift_defence_factor = 0.50 #意识形态变化抵制力度
+			foreign_subversive_activites = -0.50 #外国颠覆活动效率
+			party_popularity_stability_factor = 0.15
+		}
+		complete_effect = {
+            #set_variable = { X_xchinese_propaganda_18_cost = 50 }
+			set_variable = { X_xchinese_new_propaganda_campaign = 18 }
+			X_xchinese_pick_propaganda_campaign_slot_effect = yes
+			IF = {
+				limit = {
+					has_country_flag = First_X_xchinese_propaganda_18
+				}
+				set_country_flag = Second_X_xchinese_propaganda_18
+			}
+		}
+		remove_effect = {
+			IF = {
+				limit = {
+					NOT = {
+						has_country_flag = First_X_xchinese_propaganda_18
+				    }  
+				}
+				set_country_flag = First_X_xchinese_propaganda_18
+			}
+			set_variable = { X_xchinese_propaganda_campaign_to_remove = 18 }
+			X_xchinese_reset_propaganda_campaign_slot_effect = yes
+			multiply_variable = { X_xchinese_propaganda_18_cost = 2 }
+		}
+	}
+	X_xchinese_propaganda_19 = { # ID = 19
+		priority = 2
+		icon = eng_propaganda_campaigns
+		ai_will_do = { base = 100 modifier = { factor = 0 has_political_power < 500 } }
+		allowed = { is_literally_china = yes }
+		available = { X_xchinese_propaganda_poster_slot_available = yes 
+		if = {
+		limit = { original_tag = PRC }
+		or = { has_idea = PRC_songqingling has_idea = PRC_hexiangning has_idea = PRC_jiangqing has_idea = PRC_dengyingchao has_idea = prc_meng_qingshu }
+		}
+		}
+		visible = {
+			has_government = communism
+			has_civil_war = no
+		}
+		days_remove = 180        
+		days_re_enable = 90
+
+		cost = X_xchinese_propaganda_19_cost
+		modifier = {
+			mobilization_speed = 0.5
+			weekly_manpower = 1500
+			conscription_factor = 0.25
+			industrial_capacity_factory = 0.10 #工厂产出
+			industrial_capacity_dockyard = 0.10
+			production_factory_max_efficiency_factor = 0.10 #生产效率上限
+			production_factory_efficiency_gain_factor = 0.10 #生产效率增长
+			production_speed_buildings_factor = 0.05
+		}
+		complete_effect = {
+            #set_variable = { X_xchinese_propaganda_19_cost = 50 }
+			set_variable = { X_xchinese_new_propaganda_campaign = 19 }
+			X_xchinese_pick_propaganda_campaign_slot_effect = yes
+			IF = {
+				limit = {
+					has_country_flag = First_X_xchinese_propaganda_19
+				}
+				set_country_flag = Second_X_xchinese_propaganda_19
+			}
+		}
+		remove_effect = {
+			IF = {
+				limit = {
+					NOT = {
+						has_country_flag = First_X_xchinese_propaganda_19
+				    }  
+				}
+				set_country_flag = First_X_xchinese_propaganda_19
+			}
+			set_variable = { X_xchinese_propaganda_campaign_to_remove = 19 }
+			X_xchinese_reset_propaganda_campaign_slot_effect = yes
+			multiply_variable = { X_xchinese_propaganda_19_cost = 2 }
+		}
+	}
+	X_xchinese_propaganda_20 = { # ID = 20
+		priority = 2
+		icon = eng_propaganda_campaigns
+		ai_will_do = { base = 100 modifier = { factor = 0 has_political_power < 500 } }
+		allowed = { is_literally_china = yes }
+		available = { X_xchinese_propaganda_poster_slot_available = yes }
+		visible = {
+			has_government = communism
+			has_civil_war = no
+		}
+		days_remove = 180        
+		days_re_enable = 90
+
+		cost = X_xchinese_propaganda_20_cost
+		modifier = {
+			industrial_capacity_factory = 0.15
+			industrial_capacity_dockyard = 0.15
+			consumer_goods_factor = 0.15
+			production_factory_max_efficiency_factor = 0.10 #生产效率上限
+			production_factory_efficiency_gain_factor = 0.10 #生产效率增长
+		}
+		complete_effect = {
+            #set_variable = { X_xchinese_propaganda_20_cost = 50 }
+			set_variable = { X_xchinese_new_propaganda_campaign = 20 }
+			X_xchinese_pick_propaganda_campaign_slot_effect = yes
+			IF = {
+				limit = {
+					has_country_flag = First_X_xchinese_propaganda_20
+				}
+				set_country_flag = Second_X_xchinese_propaganda_20
+			}
+		}
+		remove_effect = {
+			IF = {
+				limit = {
+					NOT = {
+						has_country_flag = First_X_xchinese_propaganda_20
+				    }  
+				}
+				set_country_flag = First_X_xchinese_propaganda_20
+			}
+			set_variable = { X_xchinese_propaganda_campaign_to_remove = 20 }
+			X_xchinese_reset_propaganda_campaign_slot_effect = yes
+			multiply_variable = { X_xchinese_propaganda_20_cost = 2 }
+		}
+	}
+	X_xchinese_propaganda_21 = { # ID = 21
+		priority = 2
+		icon = eng_propaganda_campaigns
+		ai_will_do = { base = 100 modifier = { factor = 0 has_political_power < 500 } }
+		allowed = { is_literally_china = yes }
+		available = { X_xchinese_propaganda_poster_slot_available = yes }
+		visible = {
+			#NOT = { has_country_flag = Second_X_xchinese_propaganda_21 }  
+			has_government = communism
+			has_civil_war = no
+		}
+		days_remove = 180        
+		days_re_enable = 90
+
+		cost = X_xchinese_propaganda_21_cost
+		modifier = {
+			production_speed_buildings_factor = 0.15
+			local_resources_factor = 0.15
+			cic_construction_boost_factor = 0.15
+		}
+		complete_effect = {
+            #set_variable = { X_xchinese_propaganda_21_cost = 50 }
+			set_variable = { X_xchinese_new_propaganda_campaign = 21 }
+			X_xchinese_pick_propaganda_campaign_slot_effect = yes
+			IF = {
+				limit = {
+					has_country_flag = First_X_xchinese_propaganda_21
+				}
+				set_country_flag = Second_X_xchinese_propaganda_21
+			}
+		}
+		remove_effect = {
+			IF = {
+				limit = {
+					NOT = {
+						has_country_flag = First_X_xchinese_propaganda_21
+				    }  
+				}
+				set_country_flag = First_X_xchinese_propaganda_21
+			}
+			#custom_effect_tooltip = CHI_propaganda_campaign_cooldown_tt
+			set_variable = { X_xchinese_propaganda_campaign_to_remove = 21 }
+			X_xchinese_reset_propaganda_campaign_slot_effect = yes
+			multiply_variable = { X_xchinese_propaganda_21_cost = 2 }
+		}
+	}
+	X_xchinese_propaganda_22 = { # ID = 22
+		priority = 2
+		icon = eng_propaganda_campaigns
+		ai_will_do = { base = 100 modifier = { factor = 0 has_political_power < 500 } }
+		allowed = { is_literally_china = yes }
+		available = { X_xchinese_propaganda_poster_slot_available = yes }
+		visible = {
+			has_government = communism
+			has_civil_war = no
+		}
+		days_remove = 180        
+		days_re_enable = 90
+
+		cost = X_xchinese_propaganda_22_cost
+		modifier = {
+			consumer_goods_factor = -0.30
+			production_lack_of_resource_penalty_factor = -0.15
+		}
+		complete_effect = {
+            #set_variable = { X_xchinese_propaganda_22_cost = 50 }
+			set_variable = { X_xchinese_new_propaganda_campaign = 22 }
+			X_xchinese_pick_propaganda_campaign_slot_effect = yes
+			IF = {
+				limit = {
+					has_country_flag = First_X_xchinese_propaganda_22
+				}
+				set_country_flag = Second_X_xchinese_propaganda_22
+			}
+		}
+		remove_effect = {
+			IF = {
+				limit = {
+					NOT = {
+						has_country_flag = First_X_xchinese_propaganda_22
+				    }  
+				}
+				set_country_flag = First_X_xchinese_propaganda_22
+			}
+			set_variable = { X_xchinese_propaganda_campaign_to_remove = 22 }
+			X_xchinese_reset_propaganda_campaign_slot_effect = yes
+			multiply_variable = { X_xchinese_propaganda_22_cost = 2 }
+		}
+	}
+	X_xchinese_propaganda_23 = { # ID = 23
+		priority = 2
+		icon = eng_propaganda_campaigns
+		ai_will_do = { base = 100 modifier = { factor = 0 has_political_power < 500 } }
+		allowed = { is_literally_china = yes }
+		available = { X_xchinese_propaganda_poster_slot_available = yes 
+		is_in_faction_with = SOV
+		}
+		visible = {
+			has_government = communism
+			has_civil_war = no
+		}
+		days_remove = 180        
+		days_re_enable = 90
+
+		cost = X_xchinese_propaganda_23_cost
+		modifier = {
+			license_purchase_cost = -0.50
+			license_production_speed = 0.50
+			opinion_gain_monthly_factor = 0.25
+			trade_opinion_factor = 0.25
+			research_speed_factor = 0.10
+			subversive_activites_upkeep = -0.25
+			cic_construction_boost_factor = 0.15
+			propaganda_mission_factor = 0.25 #政治宣传任务成果
+			boost_ideology_mission_factor = 0.25 #加强意识形态任务成果
+			operation_collaboration_government_outcome = 0.25 #筹备合作政府效率 
+			operation_collaboration_government_cost = -0.25 #筹备合作政府花费 
+			operation_coup_government_outcome = 0.25 #进行颠覆效率 
+			operation_coup_government_cost = -0.25 #进行颠覆花费
+		}
+		complete_effect = {
+            #set_variable = { X_xchinese_propaganda_23_cost = 50 }
+			set_variable = { X_xchinese_new_propaganda_campaign = 23 }
+			X_xchinese_pick_propaganda_campaign_slot_effect = yes
+			IF = {
+				limit = {
+					has_country_flag = First_X_xchinese_propaganda_23
+				}
+				set_country_flag = Second_X_xchinese_propaganda_23
+			}
+		}
+		remove_effect = {
+			IF = {
+				limit = {
+					NOT = {
+						has_country_flag = First_X_xchinese_propaganda_23
+				    }  
+				}
+				set_country_flag = First_X_xchinese_propaganda_23
+			}
+			#custom_effect_tooltip = CHI_propaganda_campaign_cooldown_tt
+			set_variable = { X_xchinese_propaganda_campaign_to_remove = 23 }
+			X_xchinese_reset_propaganda_campaign_slot_effect = yes
+			multiply_variable = { X_xchinese_propaganda_23_cost = 2 }
+		}
+	}
+	X_xchinese_propaganda_24 = { # ID = 24
+		priority = 2
+		icon = eng_propaganda_campaigns
+		ai_will_do = { base = 100 modifier = { factor = 0 has_political_power < 500 } }
+		allowed = { is_literally_china = yes }
+		available = { X_xchinese_propaganda_poster_slot_available = yes 
+		has_country_leader = { ruling_only = yes character = prc_mao_zedong }
+		}
+		visible = {
+			#NOT = { has_country_flag = Second_X_xchinese_propaganda_24 }  
+			has_government = communism
+			has_civil_war = no
+		}
+		days_remove = 180        
+		days_re_enable = 90
+
+		cost = X_xchinese_propaganda_24_cost
+		modifier = {
+			political_power_factor = 0.15
+			war_support_weekly = 0.005
+			stability_weekly = 0.005
+			command_power_gain_mult = 0.15
+			communism_drift = 0.25
+		}
+		complete_effect = {
+            #set_variable = { X_xchinese_propaganda_24_cost = 50 }
+			set_variable = { X_xchinese_new_propaganda_campaign = 24 }
+			X_xchinese_pick_propaganda_campaign_slot_effect = yes
+			IF = {
+				limit = {
+					has_country_flag = First_X_xchinese_propaganda_24
+				}
+				clr_country_flag = First_X_xchinese_propaganda_24
+				set_country_flag = Second_X_xchinese_propaganda_24
+			}
+		}
+		remove_effect = {
+			IF = {
+				limit = {
+					NOT = {
+						has_country_flag = First_X_xchinese_propaganda_24
+				    }  
+				}
+				set_country_flag = First_X_xchinese_propaganda_24
+			}
+			#custom_effect_tooltip = CHI_propaganda_campaign_cooldown_tt
+			set_variable = { X_xchinese_propaganda_campaign_to_remove = 24 }
+			X_xchinese_reset_propaganda_campaign_slot_effect = yes
+			multiply_variable = { X_xchinese_propaganda_24_cost = 2 }
+		}
+	}
+	X_xchinese_propaganda_25 = { # ID = 25
+		priority = 2
+		icon = eng_propaganda_campaigns
+		ai_will_do = { base = 100 modifier = { factor = 0 has_political_power < 500 } }
+		allowed = { is_literally_china = yes }
+		available = { X_xchinese_propaganda_poster_slot_available = yes }
+		visible = {
+			#NOT = { has_country_flag = Second_X_xchinese_propaganda_25 }  
+			has_government = communism
+			has_civil_war = no
+		}
+		days_remove = 180        
+		days_re_enable = 90
+
+		cost = X_xchinese_propaganda_25_cost
+		modifier = {
+			compliance_gain = 0.10
+			resistance_target = -0.25
+			resistance_growth = -0.25
+			resistance_damage_to_garrison = -0.25
+			required_garrison_factor = -0.25
+		}
+		complete_effect = {
+            #set_variable = { X_xchinese_propaganda_25_cost = 50 }
+			set_variable = { X_xchinese_new_propaganda_campaign = 25 }
+			X_xchinese_pick_propaganda_campaign_slot_effect = yes
+			IF = {
+				limit = {
+					has_country_flag = First_X_xchinese_propaganda_25
+				}
+				clr_country_flag = First_X_xchinese_propaganda_25
+				set_country_flag = Second_X_xchinese_propaganda_25
+			}
+		}
+		remove_effect = {
+			IF = {
+				limit = {
+					NOT = {
+						has_country_flag = First_X_xchinese_propaganda_25
+				    }  
+				}
+				set_country_flag = First_X_xchinese_propaganda_25
+			}
+			#custom_effect_tooltip = CHI_propaganda_campaign_cooldown_tt
+			set_variable = { X_xchinese_propaganda_campaign_to_remove = 25 }
+			X_xchinese_reset_propaganda_campaign_slot_effect = yes
+			multiply_variable = { X_xchinese_propaganda_25_cost = 2 }
+		}
+	}
+	X_xchinese_propaganda_26 = { # ID = 26
+		priority = 2
+		icon = eng_propaganda_campaigns
+		ai_will_do = { base = 100 modifier = { factor = 0 has_political_power < 500 } }
+		allowed = { is_literally_china = yes }
+		available = { X_xchinese_propaganda_poster_slot_available = yes }
+		visible = {
+			has_government = communism
+			has_civil_war = no
+		}
+		days_remove = 180        
+		days_re_enable = 90
+
+		cost = X_xchinese_propaganda_26_cost
+		modifier = {
+			research_speed_factor = 0.15
+			local_resources_factor = 0.15
+			production_speed_synthetic_refinery_factor = 0.25
+			production_speed_rocket_site_factor = 0.25
+			production_speed_radar_station_factor = 0.25
+			production_speed_nuclear_reactor_factor = 0.25
+			fuel_gain_factor = 0.25
+			license_production_speed = 0.25
+			decryption_power = 50
+			encryption = 5
+			production_factory_start_efficiency_factor = 0.05 #基础生产效率
+			line_change_production_efficiency_factor = 0.05 #生产效率保持
+		}
+		complete_effect = {
+			#set_variable = { X_xchinese_propaganda_26_cost = 50 }
+			set_variable = { X_xchinese_new_propaganda_campaign = 26 }
+			X_xchinese_pick_propaganda_campaign_slot_effect = yes
+			IF = {
+				limit = {
+					has_country_flag = First_X_xchinese_propaganda_26
+				}
+				clr_country_flag = First_X_xchinese_propaganda_26
+				set_country_flag = Second_X_xchinese_propaganda_26
+				multiply_variable = { X_xchinese_propaganda_26_cost = 2 }
+			}
+		}
+		remove_effect = {
+			IF = {
+				limit = {
+					NOT = {
+						has_country_flag = First_X_xchinese_propaganda_25
+				    }  
+				}
+				set_country_flag = First_X_xchinese_propaganda_25
+			}
+			set_variable = { X_xchinese_propaganda_campaign_to_remove = 26 }
+			X_xchinese_reset_propaganda_campaign_slot_effect = yes
+			multiply_variable = { X_xchinese_propaganda_26_cost = 2 }
+		}
+	}
+
+}

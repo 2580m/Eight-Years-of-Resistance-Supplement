@@ -1,0 +1,1218 @@
+operations = { #四平战役
+KMT_border_the_PRC_in_changchun = {
+		icon = border_war
+		allowed = {
+		OR = {
+			TAG = event_target:WTT_current_china_leader
+			TAG = CHI
+			}
+		}
+
+		available = {
+			has_full_control_of_state = 716
+			has_full_control_of_state = 1010
+			divisions_in_border_state = {
+					state = 716
+					border_state = 328
+					size > 4
+			}
+		}
+
+		visible = {
+		has_full_control_of_state = 716
+		has_full_control_of_state = 1010
+			328 = { is_owned_and_controlled_by = event_target:WTT_communist_china }
+			NOT = {		
+				has_war_with = event_target:WTT_communist_china
+				is_in_faction_with = event_target:WTT_communist_china
+			}
+			NOT = {		
+				has_war_with = JAP
+			}
+			has_global_flag = CHI_no_longer_united_flag
+		}
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 716
+				state = 328
+			}
+		}
+		
+		fire_only_once = yes
+		ai_will_do = {
+			base = 100
+			
+		}
+		cost = 0 
+		days_remove = 30
+		war_with_on_remove = event_target:WTT_communist_china
+		complete_effect = {
+			
+			event_target:WTT_communist_china = {
+				country_event = KMT_PRC_border_changchun.1
+				hidden_effect = {
+				activate_mission = PRC_KMT_is_assembling_in_changchun #just tip
+				}
+			}
+		}
+		remove_effect = {
+			start_border_war = {
+				change_state_after_war = no
+				minimum_duration_in_days = 30
+				attacker = { #KMT
+					state = 716	
+					num_provinces = 8
+					on_win = KMT_PRC_border_changchun.2
+					on_lose = KMT_PRC_border_changchun.3
+					on_cancel = KMT_PRC_border_changchun.4
+					leader_score = { base = 100 }
+				}
+
+				defender = { #PRC
+					state = 328
+					num_provinces = 8
+					on_win = KMT_PRC_border_changchun.31
+					on_lose = KMT_PRC_border_changchun.21
+					on_cancel = KMT_PRC_border_changchun.41
+				}
+			}
+			
+			set_border_war_data = {
+				attacker = 716
+				defender = 328
+				attacker_modifier = 1.5
+				combat_width = 180
+			}
+			
+			activate_mission = KMT_get_the_changchun #timeout_effect
+			set_global_flag = siping_battle_happen
+			hidden_effect = {
+			event_target:WTT_communist_china = { activate_mission = PRC_hold_the_changchun } #timeout_effect
+			if = {
+			limit = {
+			always = yes
+			}
+			716 = { add_dynamic_modifier = { modifier = balance_idea_KMT_attack_changchun scope = event_target:WTT_current_china_leader days = 90 } }
+			328 = { add_dynamic_modifier = { modifier = balance_idea_KMT_attack_changchun scope = event_target:WTT_current_china_leader days = 90 } }
+			 }
+			}
+		}
+	}
+	
+	PRC_KMT_is_assembling_in_changchun = { #just tip for warning PRC
+		icon = border_war
+		allowed = {
+              OR = {
+                  TAG = event_target:WTT_communist_china
+			      TAG = PRC
+			  }
+        }
+		
+		fire_only_once = yes
+		selectable_mission = no
+		
+		activation = {
+			always = no #activation by decision
+		}
+		
+		available = { #can do
+			hidden_trigger = {
+				always = no
+			}
+		}
+		
+		highlight_states = {
+			highlight_state_targets = {
+				state = 716
+				state = 328
+			}
+		}
+		
+		days_mission_timeout = 30
+		is_good = no
+		
+		timeout_effect = {
+			effect_tooltip = {
+			start_border_war = {
+				change_state_after_war = no
+				minimum_duration_in_days = 30
+				attacker = { #KMT
+					state = 716	
+					num_provinces = 8
+					on_win = KMT_PRC_border_changchun.2
+					on_lose = KMT_PRC_border_changchun.3
+					on_cancel = KMT_PRC_border_changchun.4
+					leader_score = { base = 100 }
+				}
+
+				defender = { #PRC
+					state = 328
+					num_provinces = 8
+					on_win = KMT_PRC_border_changchun.31
+					on_lose = KMT_PRC_border_changchun.21
+					on_cancel = KMT_PRC_border_changchun.41
+				}
+			}
+			
+			set_border_war_data = {
+				attacker = 716
+				defender = 328
+				attacker_modifier = 1.5
+				combat_width = 180
+			}
+			
+			activate_mission = PRC_hold_the_changchun
+			}
+		}
+		
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	KMT_get_the_changchun = { #timeout_effect for KMT
+		icon = border_war
+		allowed = {
+              OR = {
+                  TAG = event_target:WTT_current_china_leader
+			      TAG = CHI
+			  }
+        }
+		
+		fire_only_once = yes
+		selectable_mission = no
+		
+		activation = {
+			always = no #activation by decision
+		}
+		
+		available = { #非点击式任务的任务完成要求
+			716 = { has_border_war = no }		#MODDED
+			328 = { has_border_war = no }
+		}
+		
+		highlight_states = {
+			highlight_state_targets = {
+				state = 716
+				state = 328
+			}
+		}
+		
+		days_mission_timeout = 90
+		is_good = no
+		
+		complete_effect = {
+			
+		}
+		
+		timeout_effect = {
+		cancel_border_war = {
+				defender = 328
+				attacker = 716		#MODDED
+			}
+		}
+		
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	PRC_hold_the_changchun = { #timeout_effect for PRC
+		icon = border_war
+		allowed = {
+              OR = {
+                  TAG = event_target:WTT_communist_china
+			      TAG = PRC
+			  }
+        }
+		
+		fire_only_once = yes
+		selectable_mission = no
+		
+		activation = {
+			always = no #activation by decision
+		}
+		
+		available = { #非点击式任务的任务完成要求
+			716 = { has_border_war = no }		#MODDED
+			328 = { has_border_war = no }
+		}
+		
+		highlight_states = {
+			highlight_state_targets = {
+				state = 716
+				state = 328
+			}
+		}
+		
+		days_mission_timeout = 90
+		is_good = no
+		
+		complete_effect = {
+			
+		}
+		
+		timeout_effect = {
+		effect_tooltip = {
+		cancel_border_war = {
+				defender = 328
+				attacker = 716		#MODDED
+			}
+			}
+		}
+		
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+}
+
+
+operations = { #山海关战役
+KMT_border_the_PRC_in_shanhaiguan = {
+		icon = border_war
+		allowed = {
+		OR = {
+			TAG = event_target:WTT_current_china_leader
+			TAG = CHI
+			}
+		}
+
+		available = {
+			has_full_control_of_state = 608
+			divisions_in_border_state = {
+					state = 608
+					border_state = 609
+					size > 2
+				}
+		}
+
+		visible = {
+		has_full_control_of_state = 608
+			609 = { is_owned_and_controlled_by = event_target:WTT_communist_china }
+			NOT = {		
+				has_war_with = event_target:WTT_communist_china
+				is_in_faction_with = event_target:WTT_communist_china
+			}
+			NOT = {		
+				has_war_with = JAP
+			}
+			has_global_flag = CHI_no_longer_united_flag
+		}
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 608
+				state = 609
+			}
+		}
+		
+		fire_only_once = yes
+		ai_will_do = { 
+			factor = 100
+			
+		}
+		cost = 0 
+		days_remove = 30
+		war_with_on_remove = event_target:WTT_communist_china
+		complete_effect = {
+			set_global_flag = shanhai_happen
+			event_target:WTT_communist_china = {
+				country_event = KMT_PRC_border_shanhaiguan.1
+				hidden_effect = {
+				activate_mission = PRC_KMT_is_assembling_in_shanhaiguan #just tip
+				}
+			}
+		}
+		remove_effect = {
+		set_global_flag = shanhai_battle_happen
+			start_border_war = {
+				change_state_after_war = no
+				minimum_duration_in_days = 30
+				attacker = { #KMT
+					state = 608
+					num_provinces = 5
+					on_win = KMT_PRC_border_shanhaiguan.2
+					on_lose = KMT_PRC_border_shanhaiguan.3
+					on_cancel = KMT_PRC_border_shanhaiguan.4
+					leader_score = { base = 100 }
+				}
+
+				defender = { #PRC
+					state = 609
+					num_provinces = 5
+					on_win = KMT_PRC_border_shanhaiguan.31
+					on_lose = KMT_PRC_border_shanhaiguan.21
+					on_cancel = KMT_PRC_border_shanhaiguan.41
+				}
+			}
+			
+			set_border_war_data = {
+				attacker = 608
+				defender = 609
+				attacker_modifier = 1.75
+				combat_width = 180
+			}
+			
+			activate_mission = KMT_get_the_shanhaiguan #timeout_effect
+			hidden_effect = {
+			event_target:WTT_communist_china = { activate_mission = PRC_hold_the_shanhaiguan } #timeout_effect
+			
+			608 = { add_dynamic_modifier = { modifier = balance_idea_KMT_attack_shanhaiguan scope = event_target:WTT_current_china_leader days = 90 } }
+			609 = { add_dynamic_modifier = { modifier = balance_idea_KMT_attack_shanhaiguan scope = event_target:WTT_current_china_leader days = 90 } }
+			 
+			}
+		}
+	}
+	
+	PRC_KMT_is_assembling_in_shanhaiguan = { #just tip for warning PRC
+		icon = border_war
+		allowed = {
+              OR = {
+                  TAG = event_target:WTT_communist_china
+			      TAG = PRC
+			  }
+        }
+		
+		fire_only_once = yes
+		selectable_mission = no
+		
+		activation = {
+			always = no #activation by decision
+		}
+		
+		available = { #can do
+			hidden_trigger = {
+				always = no
+			}
+		}
+		
+		highlight_states = {
+			highlight_state_targets = {
+				state = 608
+				state = 609
+			}
+		}
+		
+		days_mission_timeout = 30
+		is_good = no
+		
+		timeout_effect = {
+			effect_tooltip = {
+			start_border_war = {
+				change_state_after_war = no
+				minimum_duration_in_days = 30
+				attacker = { #KMT
+					state = 608
+					num_provinces = 5
+					on_win = KMT_PRC_border_shanhaiguan.2
+					on_lose = KMT_PRC_border_shanhaiguan.3
+					on_cancel = KMT_PRC_border_shanhaiguan.4
+					leader_score = { base = 100 }
+				}
+
+				defender = { #PRC
+					state = 609
+					num_provinces = 5
+					on_win = KMT_PRC_border_shanhaiguan.31
+					on_lose = KMT_PRC_border_shanhaiguan.21
+					on_cancel = KMT_PRC_border_shanhaiguan.41
+				}
+			}
+			
+			set_border_war_data = {
+				attacker = 608
+				defender = 609
+				attacker_modifier = 1.75
+				combat_width = 180
+			}
+			
+			activate_mission = PRC_hold_the_shanhaiguan
+			}
+		}
+		
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	KMT_get_the_shanhaiguan = { #timeout_effect for KMT
+		icon = border_war
+		allowed = {
+              OR = {
+                  TAG = event_target:WTT_current_china_leader
+			      TAG = CHI
+			  }
+        }
+		
+		fire_only_once = yes
+		selectable_mission = no
+		
+		activation = {
+			always = no #activation by decision
+		}
+		
+		available = { #非点击式任务的任务完成要求
+			608 = { has_border_war = no }		#MODDED
+			609 = { has_border_war = no }
+		}
+		
+		highlight_states = {
+			highlight_state_targets = {
+				state = 608
+				state = 609
+			}
+		}
+		
+		days_mission_timeout = 45
+		is_good = no
+		
+		complete_effect = {
+			
+		}
+		
+		timeout_effect = {
+		cancel_border_war = {
+				defender = 609
+				attacker = 608		#MODDED
+			}
+		}
+		
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	PRC_hold_the_shanhaiguan = { #timeout_effect for PRC
+		icon = border_war
+		allowed = {
+              OR = {
+                  TAG = event_target:WTT_communist_china
+			      TAG = PRC
+			  }
+        }
+		
+		fire_only_once = yes
+		selectable_mission = no
+		
+		activation = {
+			always = no #activation by decision
+		}
+		
+		available = { #非点击式任务的任务完成要求
+			608 = { has_border_war = no }		#MODDED
+			609 = { has_border_war = no }
+		}
+		
+		highlight_states = {
+			highlight_state_targets = {
+				state = 608
+				state = 609
+			}
+		}
+		
+		days_mission_timeout = 45
+		is_good = no
+		
+		complete_effect = {
+			
+		}
+		
+		timeout_effect = {
+		effect_tooltip = {
+		cancel_border_war = {
+				defender = 609
+				attacker = 608		#MODDED
+			}
+		}	
+		}
+		
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+}
+
+
+
+operations = { #上党战役
+PRC_border_the_SHX_in_shangdang = {
+		icon = border_war
+		allowed = {
+		OR = {
+			TAG = event_target:WTT_communist_china
+			TAG = PRC
+			}
+		}
+
+		available = {
+			has_full_control_of_state = 607
+			divisions_in_border_state = {
+					state = 607
+					border_state = 1027
+					size > 4
+				}
+		}
+
+		visible = {
+		607 = { is_owned_and_controlled_by = ROOT }
+			1027 = { is_owned_and_controlled_by = SHX }
+			NOT = {		
+				has_war_with = event_target:WTT_current_china_leader
+				has_war_with = SHX
+				is_in_faction_with = event_target:WTT_current_china_leader
+			}
+			NOT = {		
+				has_war_with = JAP
+			}
+			has_global_flag = CHI_no_longer_united_flag
+		}
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 607
+				state = 1027
+			}
+		}
+		
+		fire_only_once = yes
+		ai_will_do = { 
+			factor = 100
+			
+		}
+		cost = 0 
+		days_remove = 30
+		war_with_on_remove = SHX
+		complete_effect = {
+			
+			SHX = {
+				country_event = SHX_PRC_border_shangdang.2
+				hidden_effect = {
+				activate_mission = SHX_PRC_is_assembling_in_shangdang #just tip
+				}
+			}
+		}
+		remove_effect = {
+			start_border_war = {
+				change_state_after_war = no
+				minimum_duration_in_days = 30
+				attacker = { #PRC
+					state = 607	
+					num_provinces = 5
+					on_win = SHX_PRC_border_shangdang.3
+					on_lose = SHX_PRC_border_shangdang.4
+					on_cancel = SHX_PRC_border_shangdang.5
+					leader_score = { base = 100 }
+				}
+
+				defender = { #SHX
+					state = 1027
+					num_provinces = 5
+					on_win = SHX_PRC_border_shangdang.41
+					on_lose = SHX_PRC_border_shangdang.31
+					on_cancel = SHX_PRC_border_shangdang.51
+				}
+			}
+			
+			set_border_war_data = {
+				attacker = 607
+				defender = 1027
+				attacker_modifier = 0.30
+				combat_width = 180
+			}
+			
+			activate_mission = PRC_get_the_shangdang #timeout_effect
+			hidden_effect = {
+			SHX = { activate_mission = SHX_hold_the_shangdang } #timeout_effect
+			if = {
+			limit = {
+			SHX = { is_ai = yes }
+			}
+			607 = { add_dynamic_modifier = { modifier = balance_idea_PRC_attack_shangdang scope = event_target:WTT_communist_china days = 90 } }
+			1027 = { add_dynamic_modifier = { modifier = balance_idea_PRC_attack_shangdang scope = event_target:WTT_communist_china days = 90 } }
+			 }
+			}
+		}
+	}
+	
+	SHX_PRC_is_assembling_in_shangdang = { #just tip for warning SHX
+		icon = border_war
+		allowed = {
+              
+                  
+			      TAG = SHX
+			  
+        }
+		
+		fire_only_once = yes
+		selectable_mission = no
+		
+		activation = {
+			always = no #activation by decision
+		}
+		
+		available = { #can do
+			hidden_trigger = {
+				always = no
+			}
+		}
+		
+		highlight_states = {
+			highlight_state_targets = {
+				state = 1027
+				state = 607
+			}
+		}
+		
+		days_mission_timeout = 30
+		is_good = no
+		
+		timeout_effect = {
+			effect_tooltip = {
+			start_border_war = {
+				change_state_after_war = no
+				minimum_duration_in_days = 30
+				attacker = { #PRC
+					state = 607	
+					num_provinces = 5
+					on_win = SHX_PRC_border_shangdang.3
+					on_lose = SHX_PRC_border_shangdang.4
+					on_cancel = SHX_PRC_border_shangdang.5
+					leader_score = { base = 100 }
+				}
+
+				defender = { #SHX
+					state = 1027
+					num_provinces = 5
+					on_win = SHX_PRC_border_shangdang.41
+					on_lose = SHX_PRC_border_shangdang.31
+					on_cancel = SHX_PRC_border_shangdang.51
+				}
+			}
+			
+			set_border_war_data = {
+				attacker = 607
+				defender = 1027
+				attacker_modifier = 0.30
+				combat_width = 180
+			}
+			
+			activate_mission = SHX_hold_the_shangdang
+			}
+		}
+		
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	PRC_get_the_shangdang = { #timeout_effect for PRC
+		icon = border_war
+		allowed = {
+              OR = {
+                  TAG = event_target:WTT_communist_china
+			      TAG = PRC
+			  }
+        }
+		
+		fire_only_once = yes
+		selectable_mission = no
+		
+		activation = {
+			always = no #activation by decision
+		}
+		
+		available = { #非点击式任务的任务完成要求
+			1027 = { has_border_war = no }		#MODDED
+			607 = { has_border_war = no }
+		}
+		
+		highlight_states = {
+			highlight_state_targets = {
+				state = 1027
+				state = 607
+			}
+		}
+		
+		days_mission_timeout = 60
+		is_good = no
+		
+		complete_effect = {
+			
+		}
+		
+		timeout_effect = {
+		cancel_border_war = {
+				defender = 1027
+				attacker = 607		#MODDED
+			}
+		}
+		
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	SHX_hold_the_shangdang = { #timeout_effect for SHX
+		icon = border_war
+		allowed = {
+              
+			      TAG = SHX
+			  
+        }
+		
+		fire_only_once = yes
+		selectable_mission = no
+		
+		activation = {
+			always = no #activation by decision
+		}
+		
+		available = { #非点击式任务的任务完成要求
+			1027 = { has_border_war = no }		#MODDED
+			607 = { has_border_war = no }
+		}
+		
+		highlight_states = {
+			highlight_state_targets = {
+				state = 1027
+				state = 607
+			}
+		}
+		
+		days_mission_timeout = 60
+		is_good = no
+		
+		complete_effect = {
+			
+		}
+		
+		timeout_effect = {
+		effect_tooltip = {
+		cancel_border_war = {
+				defender = 1027
+				attacker = 607		#MODDED
+			}
+			}
+		}
+		
+		ai_will_do = {
+			factor = 0
+		}
+	}	
+	
+}
+
+operations = { #津浦路战役
+    KMT_border_the_PRC_in_jinpulu = {
+		icon = border_war
+		allowed = {
+		OR = {
+			TAG = event_target:WTT_current_china_leader
+			TAG = CHI
+			}
+		}
+
+		available = {
+		    OR = {
+			has_full_control_of_state = 606
+			has_full_control_of_state = 598
+			AND = { 606 = { is_controlled_by = GXC } gives_military_access_to = GXC GXC = { gives_military_access_to = ROOT } }
+			AND = { 598 = { is_controlled_by = GXC } gives_military_access_to = GXC GXC = { gives_military_access_to = ROOT } }
+			}
+			if = {
+			limit = { is_ai = no }
+			OR = {
+			divisions_in_border_state = {
+					state = 598
+					border_state = 597
+					size > 4
+			}
+			divisions_in_border_state = {
+					state = 606
+					border_state = 598
+					size > 4
+			}
+			}
+			}
+			else = { always = yes }
+		}
+
+		visible = {
+		    OR = {
+			has_full_control_of_state = 606
+			has_full_control_of_state = 598
+			AND = { 606 = { is_controlled_by = GXC } }
+			AND = { 598 = { is_controlled_by = GXC } }
+			}
+			597 = { is_owned_and_controlled_by = event_target:WTT_communist_china }
+			NOT = {
+				has_war_with = event_target:WTT_communist_china
+				is_in_faction_with = event_target:WTT_communist_china
+			}
+			NOT = {
+				has_war_with = JAP
+			}
+			has_global_flag = CHI_no_longer_united_flag
+		}
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 597
+				state = 598
+				state = 606
+			}
+		}
+		
+		fire_only_once = yes
+		ai_will_do = { 
+			base = 100
+		}
+		cost = 0
+		days_remove = 30
+		war_with_on_remove = event_target:WTT_communist_china
+		complete_effect = {
+			if = {
+			limit = {
+			606 = { is_controlled_by = GXC } gives_military_access_to = GXC GXC = { gives_military_access_to = ROOT }
+			}
+			transfer_state = 606
+			set_global_flag = gxc_owns_606
+			}
+			
+			event_target:WTT_communist_china = {
+				country_event = KMT_PRC_border_jinpulu.1
+				hidden_effect = {
+				activate_mission = PRC_KMT_is_assembling_in_jinpulu #just tip
+				}
+			}
+			
+			hidden_effect = {
+			add_ai_strategy = {
+		    type = prepare_for_war
+		    id = "PRC"
+		    value = 300
+	        }
+			event_target:WTT_communist_china = {
+			add_ai_strategy = {
+		    type = prepare_for_war
+		    id = "CHI"
+		    value = 300
+	        }
+			}
+			}
+		}
+		remove_effect = {
+		set_global_flag = jinpu_battle_happen
+		    if = {
+			limit = {
+			has_full_control_of_state = 606
+			598 = { is_owned_and_controlled_by = event_target:WTT_communist_china }
+			}
+			start_border_war = {
+				change_state_after_war = no
+				combat_width = 180
+				minimum_duration_in_days = 30
+				attacker = { #KMT
+					state = 606	
+					num_provinces = 6
+					on_win = KMT_PRC_border_jinpulu.2
+					on_lose = KMT_PRC_border_jinpulu.3
+					on_cancel = KMT_PRC_border_jinpulu.4
+				}
+
+				defender = { #PRC
+					state = 598
+					num_provinces = 6
+					on_win = KMT_PRC_border_jinpulu.31
+					on_lose = KMT_PRC_border_jinpulu.21
+					on_cancel = KMT_PRC_border_jinpulu.41
+					#modifier = 0.5
+					leader_score = { base = 100 }
+				}
+			}
+			}
+			
+			if = {
+			limit = {
+			has_full_control_of_state = 598
+			597 = { is_owned_and_controlled_by = event_target:WTT_communist_china }
+			}
+			start_border_war = {
+				change_state_after_war = no
+				combat_width = 180
+				minimum_duration_in_days = 30
+				attacker = { #KMT
+					state = 598
+					num_provinces = 6
+					on_win = KMT_PRC_border_jinpulu.2
+					on_lose = KMT_PRC_border_jinpulu.3
+					on_cancel = KMT_PRC_border_jinpulu.4
+				}
+
+				defender = { #PRC
+					state = 597
+					num_provinces = 6
+					on_win = KMT_PRC_border_jinpulu.31
+					on_lose = KMT_PRC_border_jinpulu.21
+					on_cancel = KMT_PRC_border_jinpulu.41
+					#modifier = 0.5
+					leader_score = { base = 100 }
+				}
+			}
+			}
+			
+			activate_mission = KMT_get_the_jinpulu #timeout_effect
+			hidden_effect = {
+			event_target:WTT_communist_china = { activate_mission = PRC_hold_the_jinpulu } #timeout_effect
+			if = {
+			limit = {
+			always = yes
+			}
+			606 = { add_dynamic_modifier = { modifier = balance_idea_PRC_hold_jinpulu scope = event_target:WTT_communist_china days = 90 } }
+			598 = { add_dynamic_modifier = { modifier = balance_idea_PRC_hold_jinpulu scope = event_target:WTT_communist_china days = 90 } }
+			597 = { add_dynamic_modifier = { modifier = balance_idea_PRC_hold_jinpulu scope = event_target:WTT_communist_china days = 90 } }
+			 }
+			}
+		}
+	}
+	
+	PRC_KMT_is_assembling_in_jinpulu = { #just tip for warning PRC
+		icon = border_war
+		allowed = {
+              OR = {
+                  TAG = event_target:WTT_communist_china
+			      TAG = PRC
+			  }
+        }
+		
+		fire_only_once = yes
+		selectable_mission = no
+		
+		activation = {
+			always = no #activation by decision
+		}
+		
+		available = { #can do
+			hidden_trigger = {
+				always = no
+			}
+		}
+		
+		highlight_states = {
+			highlight_state_targets = {
+				state = 606
+				state = 598
+				state = 597
+			}
+		}
+		
+		days_mission_timeout = 30
+		is_good = no
+		
+		timeout_effect = {
+			effect_tooltip = {
+			if = {
+			limit = {
+			has_full_control_of_state = 606
+			598 = { is_owned_and_controlled_by = event_target:WTT_communist_china }
+			}
+			start_border_war = {
+				change_state_after_war = no
+				combat_width = 180
+				minimum_duration_in_days = 30
+				attacker = { #KMT
+					state = 606	
+					num_provinces = 6
+					on_win = KMT_PRC_border_jinpulu.2
+					on_lose = KMT_PRC_border_jinpulu.3
+					on_cancel = KMT_PRC_border_jinpulu.4
+				}
+
+				defender = { #PRC
+					state = 598
+					num_provinces = 6
+					on_win = KMT_PRC_border_jinpulu.31
+					on_lose = KMT_PRC_border_jinpulu.21
+					on_cancel = KMT_PRC_border_jinpulu.41
+					#modifier = 0.5
+					leader_score = { base = 100 }
+				}
+			}
+			}
+			
+			if = {
+			limit = {
+			has_full_control_of_state = 598
+			597 = { is_owned_and_controlled_by = event_target:WTT_communist_china }
+			}
+			start_border_war = {
+				change_state_after_war = no
+				combat_width = 180
+				minimum_duration_in_days = 30
+				attacker = { #KMT
+					state = 598
+					num_provinces = 6
+					on_win = KMT_PRC_border_jinpulu.2
+					on_lose = KMT_PRC_border_jinpulu.3
+					on_cancel = KMT_PRC_border_jinpulu.4
+				}
+
+				defender = { #PRC
+					state = 597
+					num_provinces = 6
+					on_win = KMT_PRC_border_jinpulu.31
+					on_lose = KMT_PRC_border_jinpulu.21
+					on_cancel = KMT_PRC_border_jinpulu.41
+					#modifier = 0.5
+					leader_score = { base = 100 }
+				}
+			}
+			}
+			
+			activate_mission = PRC_hold_the_jinpulu
+			}
+		}
+		
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	KMT_get_the_jinpulu = { #timeout_effect for KMT
+		icon = border_war
+		allowed = {
+              OR = {
+                  TAG = event_target:WTT_current_china_leader
+			      TAG = CHI
+			  }
+        }
+		
+		fire_only_once = yes
+		selectable_mission = no
+		
+		activation = {
+			always = no #activation by decision
+		}
+		
+		available = { #非点击式任务的任务完成要求
+			606 = { has_border_war = no }		#MODDED
+			598 = { has_border_war = no }
+			597 = { has_border_war = no }
+		}
+		
+		highlight_states = {
+			highlight_state_targets = {
+				state = 606
+				state = 598
+				state = 597
+			}
+		}
+		
+		days_mission_timeout = 60
+		is_good = no
+		
+		complete_effect = {
+			
+		}
+		
+		timeout_effect = {
+		    if = {
+			limit = {
+			event_target:WTT_current_china_leader = { has_full_control_of_state = 606 }
+			598 = { is_owned_and_controlled_by = event_target:WTT_communist_china }
+			}
+		    cancel_border_war = {
+				defender = 598
+				attacker = 606		#MODDED
+			}
+			}
+			
+			if = {
+			limit = {
+			event_target:WTT_current_china_leader = { has_full_control_of_state = 598 }
+			597 = { is_owned_and_controlled_by = event_target:WTT_communist_china }
+			}
+			cancel_border_war = {
+				defender = 597
+				attacker = 598		#MODDED
+			}
+			}
+		}
+		
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	PRC_hold_the_jinpulu = { #timeout_effect for PRC
+		icon = border_war
+		allowed = {
+              OR = {
+                  TAG = event_target:WTT_communist_china
+			      TAG = PRC
+			  }
+        }
+		
+		fire_only_once = yes
+		selectable_mission = no
+		
+		activation = {
+			always = no #activation by decision
+		}
+		
+		available = { #非点击式任务的任务完成要求
+			606 = { has_border_war = no }		#MODDED
+			598 = { has_border_war = no }
+			597 = { has_border_war = no }
+		}
+		
+		highlight_states = {
+			highlight_state_targets = {
+				state = 606
+				state = 598
+				state = 597
+			}
+		}
+		
+		days_mission_timeout = 60
+		is_good = no
+		
+		complete_effect = {
+			
+		}
+		
+		timeout_effect = {
+		effect_tooltip = {
+		    if = {
+			limit = {
+			event_target:WTT_current_china_leader = { has_full_control_of_state = 606 }
+			598 = { is_owned_and_controlled_by = event_target:WTT_communist_china }
+			}
+		    cancel_border_war = {
+				defender = 598
+				attacker = 606		#MODDED
+			}
+			}
+			
+			if = {
+			limit = {
+			event_target:WTT_current_china_leader = { has_full_control_of_state = 598 }
+			597 = { is_owned_and_controlled_by = event_target:WTT_communist_china }
+			}
+			cancel_border_war = {
+				defender = 597
+				attacker = 598		#MODDED
+			}
+			}
+		}
+		}
+		
+		ai_will_do = {
+			factor = 0
+		}
+	}
+}

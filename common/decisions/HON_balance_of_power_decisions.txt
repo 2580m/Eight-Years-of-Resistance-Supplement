@@ -1,0 +1,536 @@
+HON_balance_of_power_category = {
+	HON_very_low_increase_effect = {
+
+		icon = decision_generic_decision
+		priority = 90
+		allowed = {
+			original_tag = HON
+		}
+
+		cost = 35
+
+		
+		days_remove = 70
+		modifier = {consumer_goods_factor = -0.15}
+		complete_effect = {
+			GER_bop_very_low_increase_effect = yes
+		}
+
+		visible = { has_completed_focus = HON_republic }
+		
+	}
+	
+	HON_increase_2 = { 
+
+		icon = decision_generic_decision
+		priority = 90
+		allowed = {
+			original_tag = HON
+		}
+
+		cost = 50
+
+		
+		days_remove = 100
+		modifier = {
+		political_power_factor = 0.15
+	
+		}
+		complete_effect = {
+			GER_bop_low_increase_effect = yes
+		}
+
+		visible = { has_completed_focus = HON_republic }
+		
+	}
+	
+	HON_increase_3 = { 
+
+		icon = decision_generic_decision
+		priority = 90
+		allowed = {
+			original_tag = HON
+		}
+
+		cost = 50
+
+		
+		days_remove = 100
+		modifier = {
+		
+		political_advisor_cost_factor = -0.35
+		
+		}
+		complete_effect = {
+			GER_bop_medium_increase_effect = yes
+		}
+
+		visible = { has_completed_focus = HON_republic }
+		
+	}
+	HON_fascist_balance_decision = {  
+
+		icon = decision_generic_decision
+		priority = 90
+		allowed = {
+			original_tag = HON
+		}
+
+		cost = 100
+
+		
+		days_remove = 90
+		modifier = {
+		
+			
+		production_speed_arms_factory_factor = 0.05
+		
+		}
+		complete_effect = {
+			GER_bop_medium_increase_effect = yes
+			add_popularity = {
+				ideology = fascism
+				popularity = 0.05
+			}
+		}
+
+		visible = { has_completed_focus = HON_republic }
+		
+	}
+	
+	HON_decrase_a = { 
+
+		icon = decision_generic_decision
+		priority = 90
+		allowed = {
+			original_tag = HON
+		}
+
+		cost = 70
+
+		
+		days_remove = 90
+		modifier = {
+		
+		production_speed_industrial_complex_factor = 0.05
+		
+		}
+		complete_effect = {
+			GER_bop_medium_decrease_effect = yes
+		}
+
+		visible = { has_completed_focus = HON_republic }
+		
+	}
+	
+	HON_decrase_1 = { 
+
+		icon = decision_generic_decision
+		priority = 90
+		allowed = {
+			original_tag = HON
+		}
+
+		cost = 70
+
+		
+		days_remove = 55
+		modifier = {
+		
+		production_factory_max_efficiency_factor = 0.05
+		
+		}
+		complete_effect = {
+			GER_bop_medium_decrease_effect = yes
+		}
+
+		visible = { has_completed_focus = HON_republic }
+		
+	}
+	
+	HON_decrase_2 = { 
+
+		icon = decision_generic_decision
+		priority = 90
+		allowed = {
+			original_tag = HON
+		}
+
+		cost = 70
+
+		
+		days_remove = 70
+		modifier = {
+		
+			
+		industrial_capacity_factory = 0.05
+		
+		}
+		complete_effect = {
+			GER_bop_low_decrease_effect = yes
+		}
+
+		visible = { has_completed_focus = HON_republic }
+		
+	}
+	
+	HON_communist_balance_decision = { 
+
+		icon = decision_generic_decision
+		priority = 90
+		allowed = {
+			original_tag = HON
+		}
+
+		cost = 75
+
+		
+		days_remove = 70
+		modifier = {
+		
+			
+		consumer_goods_factor = -0.15
+		communism_drift = 0.05
+		}
+		complete_effect = {
+			GER_bop_medium_decrease_effect = yes
+			add_popularity = {
+				ideology = communism
+				popularity = 0.05
+			}
+		}
+
+		visible = { has_completed_focus = HON_republic }
+		
+	}
+	
+	
+	
+	}
+	
+	HON_gun_trade_decision_cat = {
+	 
+	HON_italian_guns = { 
+
+		icon = GFX_decision_ger_military_buildup
+		
+		allowed = {
+			original_tag = HON
+		}
+		available = {has_completed_focus = HON_invite_italy}
+		cost = 50
+
+		
+		days_remove = 100
+		modifier = {
+		
+		political_power_factor = -0.05
+		
+		}
+		complete_effect = {
+		add_equipment_to_stockpile = {
+			type = infantry_equipment
+			amount = 250
+			producer = ITA
+			}
+		}
+
+		
+		
+	}
+	
+	HON_italian_art = {   
+
+		icon = GFX_decision_ger_military_buildup
+		
+		allowed = {
+			original_tag = HON
+		}
+		available = {has_completed_focus = HON_invite_italy}
+		cost = 50
+
+		
+		days_remove = 75
+		modifier = {
+		
+		political_power_factor = -0.05
+		
+		}
+		complete_effect = {
+		add_equipment_to_stockpile = {
+			type = artillery_equipment
+			amount = 25
+			producer = ITA
+			}
+		}
+		}
+
+		HON_italian_support_eq = {     
+
+		icon = GFX_decision_ger_military_buildup
+		
+		allowed = {
+			original_tag = HON
+		}
+		available = {has_completed_focus = HON_invite_italy}
+		cost = 50
+
+		
+		days_remove = 75
+		modifier = {
+		
+		political_power_factor = -0.05
+		
+		}
+		complete_effect = {
+		add_equipment_to_stockpile = {
+			type = support_equipment
+			amount = 50
+			producer = ITA
+			}
+		}
+		
+	}
+	
+	}
+	
+	HON_political_decisions = {
+	
+	HON_cartel_war_decision = {     
+
+		icon = GFX_decision_oppression
+		
+		allowed = {
+			original_tag = HON
+		}
+		available = {}
+		cost = 100
+
+		
+		days_remove = 125
+		modifier = {
+		
+		political_power_factor = 0.15
+		production_factory_max_efficiency_factor = -0.1
+		stability_weekly = 0.002
+		}
+		complete_effect = {
+		add_stability = 0.05
+		}
+		
+	}
+	
+	HON_cartel_support_decision = {     
+
+		icon = GFX_decision_generic_political_discourse
+		
+		allowed = {
+			original_tag = HON
+		}
+		available = {}
+		cost = 75
+
+		
+		days_remove = 100
+		modifier = {
+		
+		political_power_factor = -0.1
+		production_factory_max_efficiency_factor = 0.1
+		stability_weekly = -0.001
+		}
+		complete_effect = {
+		add_stability = -0.025
+		}
+		
+	}
+	
+	HON_army_war_decision = {     
+
+		icon = GFX_decision_generic_prepare_civil_war
+		
+		allowed = {
+			original_tag = HON
+		}
+		available = {}
+		cost = 100
+
+		
+		days_remove = 125
+		modifier = {
+		
+		political_power_factor = 0.1
+		experience_gain_army_factor = -0.1
+		army_advisor_cost_factor = 0.15
+		}
+		complete_effect = {
+		add_stability = 0.05
+		}
+		
+	}
+	HON_army_support_decision = {     
+
+		icon = GFX_decision_generic_army_support
+		
+		allowed = {
+			original_tag = HON
+		}
+		available = {}
+		cost = 75
+
+		
+		days_remove = 100
+		modifier = {
+		
+		political_power_factor = -0.05
+		army_advisor_cost_factor = -0.15
+		experience_gain_army_factor = 0.05
+		}
+		complete_effect = {
+		add_war_support = 0.025
+		}
+		
+	}
+	
+	HON_attack_gua_decision = {     
+
+		icon = GFX_decision_generic_ignite_civil_war
+		
+		allowed = {
+			original_tag = HON
+		}
+		available = {has_completed_focus = HON_contient_defence}
+		visible = {has_completed_focus = HON_contient_defence}
+		cost = 75
+
+		
+		days_remove = 100
+		fire_only_once = yes
+		modifier = {
+		
+		
+		
+		}
+		complete_effect = {
+		GUA = {add_timed_idea = {idea = HON_surrender_idea days = 180}}
+		 create_wargoal = {
+				type = puppet_wargoal_focus
+				target = GUA
+			}
+		}
+		
+	}
+	HON_attack_els_decision = {     
+
+		icon = GFX_decision_generic_ignite_civil_war
+		
+		allowed = {
+			original_tag = HON
+		}
+		available = {has_completed_focus = HON_contient_defence}
+		visible = {has_completed_focus = HON_contient_defence}
+		cost = 75
+
+		
+		days_remove = 100
+		fire_only_once = yes
+		modifier = {
+		
+		
+		
+		}
+		complete_effect = {
+		ELS = {add_timed_idea = {idea = HON_surrender_idea days = 180}}
+		 create_wargoal = {
+				type = puppet_wargoal_focus
+				target = ELS
+			}
+		}
+		
+	}
+	
+	HON_attack_nic_decision = {     
+
+		icon = GFX_decision_generic_ignite_civil_war
+		
+		allowed = {
+			original_tag = HON
+		}
+		available = {has_completed_focus = HON_contient_defence}
+		visible = {has_completed_focus = HON_contient_defence}
+		cost = 75
+
+		
+		days_remove = 100
+		fire_only_once = yes
+		modifier = {
+		
+		
+		
+		}
+		complete_effect = {
+		NIC = {add_timed_idea = {idea = HON_surrender_idea days = 180}}
+		 create_wargoal = {
+				type = puppet_wargoal_focus
+				target = NIC
+			}
+		}
+		
+	}
+	HON_attack_cos_decision = {     
+
+		icon = GFX_decision_generic_ignite_civil_war
+		
+		allowed = {
+			original_tag = HON
+		}
+		available = {has_completed_focus = HON_contient_defence}
+		visible = {has_completed_focus = HON_contient_defence}
+		cost = 75
+
+		
+		days_remove = 100
+		fire_only_once = yes
+		modifier = {
+		
+		
+		
+		}
+		complete_effect = {
+		COS = {add_timed_idea = {idea = HON_surrender_idea days = 180}}
+		 create_wargoal = {
+				type = puppet_wargoal_focus
+				target = COS
+			}
+		}
+		
+	}
+	
+	HON_attack_pan_decision = {     
+
+		icon = GFX_decision_generic_ignite_civil_war
+		
+		allowed = {
+			original_tag = HON
+		}
+		available = {has_completed_focus = HON_contient_defence}
+		visible = {has_completed_focus = HON_contient_defence}
+		cost = 75
+
+		
+		days_remove = 100
+		fire_only_once = yes
+		modifier = {
+		
+		
+		
+		}
+		complete_effect = {
+		PAN = {add_timed_idea = {idea = HON_surrender_idea days = 180}}
+		 create_wargoal = {
+				type = puppet_wargoal_focus
+				target = PAN
+			}
+		}
+		
+	}
+	}

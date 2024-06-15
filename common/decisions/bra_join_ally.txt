@@ -1,0 +1,521 @@
+operations = {
+	join_NATO = {
+priority = 8000
+		icon = GFX_decision_eng_trade_unions_support
+
+		allowed = {
+			always = yes
+		}
+		available = {
+		    if = {
+			limit = { is_literally_china = yes }
+			or = {
+			event_target:WTT_communist_china = { exists = no }
+			event_target:WTT_current_china_leader = { exists = no }
+			}
+			}
+		}
+		visible = {
+has_global_flag = nato_suggested
+is_subject = no
+OR = {
+is_in_faction = no
+AND = {
+NOT = { has_idea = nato_member }
+is_in_faction_with = event_target:nato_leader
+}
+}
+NOT = { 
+has_war_with = event_target:nato_leader
+
+has_government = fascism
+has_government = communism
+}
+event_target:nato_leader = {
+#is_faction_leader = yes
+is_democratic_type = yes
+is_major = yes
+is_subject = no
+has_capitulated = no
+}
+
+
+		}
+		cost = 50 #MODDED
+		fire_only_once = no
+		days_re_enable = 50
+		ai_will_do = {
+			base = 0
+		    modifier = {
+				add = 1500
+OR = {
+				tag = WGR 
+tag = TUR
+tag = GRE
+}
+
+OR = {
+has_war_with = SOV
+event_target:nato_leader = { has_war_with = SOV }
+has_global_flag = { flag = nato_suggested days > 730 }
+}
+			}
+
+
+modifier = {
+				add = 1500
+
+
+has_war_with = SOV
+
+
+			}
+			modifier = {
+				factor = 0
+or = { original_tag = SIK original_tag = TIB is_literally_china = yes } 
+or = { has_war_with = SOV has_war_with = event_target:WTT_communist_china has_war_with = event_target:WTT_current_china_leader }
+			}
+			modifier = {
+				add = 1500
+				is_in_faction_with = event_target:nato_leader
+			}
+modifier = {
+				add = 1500
+				is_historical_focus_on = yes
+				is_in_faction = no
+				OR = {
+							tag = ENG
+							tag = CAN #guo
+							tag = FRA
+							original_tag = ITA #puppetry can mess with this
+							tag = HOL
+							tag = BEL
+							tag = LUX
+							original_tag = ICE
+							original_tag = DEN
+							tag = POR
+							original_tag = NOR
+							tag = USA
+						}
+			}
+
+		    
+		}
+		complete_effect = { #TODO notification event for England
+if = { 
+limit = { has_idea = TO_chose_neutrality_modded } 
+remove_ideas = TO_chose_neutrality_modded
+}
+			if = {
+limit = { is_in_faction = no } 			
+			event_target:nato_leader = { country_event = generic.2 }				
+			}		
+			else = {
+add_ideas = nato_member
+                                                }	
+			
+	    }
+	
+}	
+
+}
+
+operations = {
+	join_WARSAW = {
+priority = 8000
+		icon = GFX_decision_eng_trade_unions_support
+
+		allowed = {
+			always = yes
+		}
+		available = {			
+		    if = {
+			limit = { is_literally_china = yes }
+			or = {
+			event_target:WTT_communist_china = { exists = no }
+			event_target:WTT_current_china_leader = { exists = no }
+			}
+			}
+		}  
+		visible = {
+has_global_flag = warsaw_pact
+is_subject = no
+OR = {
+is_in_faction = no
+AND = {
+NOT = { has_idea = warsaw_member }
+is_in_faction_with = SOV
+}
+}
+NOT = { 
+has_war_with = SOV
+
+has_government = fascism
+is_democratic_type = yes
+has_government = n_socialism
+}
+SOV = {
+#is_faction_leader = yes
+has_government = communism
+is_major = yes
+is_subject = no
+}
+
+
+		}
+		cost = 50 #MODDED
+		fire_only_once = no
+		days_re_enable = 50
+		ai_will_do = {
+			base = 0
+			modifier = {
+			factor = 0
+			is_historical_focus_on = yes
+			SOV = { is_ai = yes }
+			}
+			modifier = {
+				add = 1500
+				is_in_faction_with = SOV
+			}
+		    
+modifier = {
+				add = 1500
+
+
+has_war_with = event_target:nato_leader 
+
+
+			}
+
+
+		    
+		}
+		complete_effect = { #TODO notification event for England
+if = { 
+limit = { has_idea = TO_chose_neutrality_modded } 
+remove_ideas = TO_chose_neutrality_modded
+}
+			if = {
+limit = { is_in_faction = no } 			
+			SOV = { country_event = generic.2 }				
+			}		
+			else = {
+add_ideas = warsaw_member 
+                                                }	
+			
+	    }
+	
+}	
+
+}
+
+operations = {
+	bra_join_ally = {
+priority = 8000
+		icon = GFX_decision_eng_trade_unions_support
+
+		allowed = {
+			original_tag = BRA
+		}
+		available = {			
+		    
+		}  
+		visible = {
+date > 1942.1.1
+is_in_faction = no
+is_subject = no
+NOT = { 
+has_war_with = USA
+has_war_with = ENG
+has_war_with = GER
+has_government = fascism
+has_government = communism
+}
+GER = { 
+		          has_war_with = USA 		          
+	               }
+OR = {
+ENG = { is_democratic_type = yes }
+USA = { is_democratic_type = yes }
+FRA = { is_democratic_type = yes }
+}
+
+OR = {
+ENG = { is_faction_leader = yes }
+USA = { is_faction_leader = yes }
+FRA = { is_faction_leader = yes }
+}
+
+
+		}
+		cost = 0 #MODDED
+		fire_only_once = yes
+		ai_will_do = {
+			base = 0
+		    modifier = {
+				add = 1000
+				is_historical_focus_on = yes
+date > 1942.8.20
+			}
+		    
+		}
+		complete_effect = { #TODO notification event for England
+			add_war_support = 0.15
+			#send_embargo = GER
+			if = {
+				limit = {
+					USA = {
+						is_democratic_type = yes
+						is_faction_leader = yes
+						has_capitulated = no
+						NOT = { has_war_with = ROOT }
+					}
+					NOT = {
+						any_other_country = {
+							is_in_faction_with = USA
+							has_war_with = ROOT
+						}
+					}
+				}
+				USA = { country_event = { hours = 0 id = generic.2 } }
+			}
+			else_if = {
+				limit = {
+					ENG = {
+						is_democratic_type = yes
+						is_faction_leader = yes
+						has_capitulated = no
+						NOT = { has_war_with = ROOT }
+					}
+					NOT = {
+						any_other_country = {
+							is_in_faction_with = ENG
+							has_war_with = ROOT
+						}
+					}
+				}
+				ENG = { country_event = { hours = 0 id = generic.2 } }
+			}
+			else_if = {
+				limit = {
+					FRA = {
+						is_democratic_type = yes
+						is_faction_leader = yes
+						has_capitulated = no
+						NOT = { has_war_with = ROOT }
+					}
+					NOT = {
+						any_other_country = {
+							is_in_faction_with = FRA
+							has_war_with = ROOT
+						}
+					}
+				}
+				FRA = { country_event = { hours = 0 id = generic.2 } }
+			}
+			else = {
+				get_best_alliance_match_democratic_effect = yes
+				var:best_leader = {
+					country_event = generic.2
+				}
+			}
+	                }
+	
+}	
+
+}
+
+
+
+operations = {
+	south_america_join_ally = {
+priority = 8000
+		icon = GFX_decision_eng_trade_unions_support
+
+		allowed = {
+			always = yes
+		}
+		available = {
+		
+		}  
+		visible = {
+date > 1942.1.1
+OR = {
+capital_scope = {
+						is_on_continent = south_america
+					}
+tag = ETH
+tag = PER
+tag = LIB
+tag = TUR
+tag = IRQ
+tag = SAU
+}
+is_subject = no
+is_in_faction = no
+NOT = {
+has_war_with = USA
+has_war_with = ENG
+has_war_with = GER
+}
+GER = {
+		          has_war_with = USA 		          
+	               }
+OR = {
+ENG = { is_democratic_type = yes }
+USA = { is_democratic_type = yes }
+FRA = { is_democratic_type = yes }
+}
+
+OR = {
+ENG = { is_faction_leader = yes }
+USA = { is_faction_leader = yes }
+FRA = { is_faction_leader = yes }
+}
+
+
+		}
+		cost = 0 #MODDED
+		fire_only_once = yes
+		ai_will_do = {
+			base = 0
+		    modifier = {
+				add = 9999
+				is_historical_focus_on = yes
+				if = {
+				limit = { SOV = { has_idea = lianheguojiaxuanyan } }
+				has_global_flag = had_yalta_conference
+				}
+GER = { surrender_progress > 0.2 }
+			}
+		    
+		}
+		complete_effect = { #TODO notification event for England
+			add_war_support = 0.15
+			#send_embargo = GER
+			if = {
+				limit = {
+					USA = {
+						is_democratic_type = yes
+						is_faction_leader = yes
+						has_capitulated = no
+						NOT = { has_war_with = ROOT }
+					}
+					NOT = {
+						any_other_country = {
+							is_in_faction_with = USA
+							has_war_with = ROOT
+						}
+					}
+				}
+				USA = { country_event = { hours = 0 id = generic.2 } }
+			}
+			else_if = {
+				limit = {
+					ENG = {
+						is_democratic_type = yes
+						is_faction_leader = yes
+						has_capitulated = no
+						NOT = { has_war_with = ROOT }
+					}
+					NOT = {
+						any_other_country = {
+							is_in_faction_with = ENG
+							has_war_with = ROOT
+						}
+					}
+				}
+				ENG = { country_event = { hours = 0 id = generic.2 } }
+			}
+			else_if = {
+				limit = {
+					FRA = {
+						is_democratic_type = yes
+						is_faction_leader = yes
+						has_capitulated = no
+						NOT = { has_war_with = ROOT }
+					}
+					NOT = {
+						any_other_country = {
+							is_in_faction_with = FRA
+							has_war_with = ROOT
+						}
+					}
+				}
+				FRA = { country_event = { hours = 0 id = generic.2 } }
+			}
+			else = {
+				get_best_alliance_match_democratic_effect = yes
+				var:best_leader = {
+					country_event = generic.2
+				}
+			}
+	                }
+	
+}	
+
+}
+
+
+political_actions = {
+	sign_UND = {
+priority = 8000
+		icon = GFX_decision_eng_trade_unions_support
+
+		allowed = {
+			always = yes
+		}
+		available = {			
+
+		}  
+		visible = {
+has_global_flag = lianheguojiaxuanyan
+                                
+                                         is_in_faction_with = USA
+                                
+                                any_other_country = {
+                                            has_government = fascism
+is_major = yes
+has_war_with = ROOT
+}
+                                
+                                NOT = { has_idea = lianheguojiaxuanyan }
+								OR = {
+		is_subject = no
+		has_autonomy_state = autonomy_dominion
+		}
+
+
+		}
+		cost = 0 #MODDED
+		fire_only_once = yes
+		ai_will_do = {
+			factor = 100
+		    modifier = {
+				factor = 0
+				OR = {
+tag = NEP
+tag = BHU
+tag = OMA
+tag = YEM
+tag = SAR
+tag = MAL
+tag = SST
+tag = BOR
+tag = INS
+tag = DEN
+}
+			}
+
+
+
+		    
+		}
+		complete_effect = { #TODO notification event for England
+			add_ideas = lianheguojiaxuanyan 
+			
+	                }
+	
+}	
+
+}

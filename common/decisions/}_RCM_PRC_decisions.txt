@@ -1,0 +1,2226 @@
+PRC_western_campaigns_cat = {
+	PRC_attack_ma_hongbin_mission = {
+		icon = infiltrate_state
+
+		available = {
+			#OR = {
+				1044 = {
+					is_owned_and_controlled_by = ROOT
+				}
+				#EGM = {
+				#	has_capitulated = yes
+				#}	
+			#}
+		}
+
+		activation = {
+			always = no
+		}
+
+		#cancel_trigger = {
+		#
+		#}
+
+		is_good = no
+
+		days_mission_timeout = 90
+
+		timeout_effect = {
+			every_controlled_state = {
+				limit = {
+					is_owned_by = EGM
+				}
+				transfer_state_to = ROOT
+			}
+			white_peace = EGM
+		}
+
+		complete_effect = {
+            add_war_support = 0.05
+			add_political_power = 75
+			if = {
+				limit = {
+					EGM = {
+						exists = yes
+					}
+				}
+				annex_country = {
+					target = EGM transfer_troops = no
+				}
+			}
+		}
+	}
+}
+
+
+PRC_request_SOV_aid_decision_cat = {
+	PRC_request_SOV_aid_decision = {
+		icon = infiltrate_state
+		allowed = {
+			is_literally_china = yes
+		}
+		target_trigger = {
+			FROM = {
+				tag = SOV
+			}
+		}
+		visible = {
+			has_completed_focus = PRC_request_supply_from_the_soviet_union_focus
+		}
+		available = {
+			any_neighbor_country = {
+				OR = {
+					tag = FROM
+					is_in_faction_with = FROM
+					is_subject_of = FROM
+				}
+			}
+			NOT = {
+				has_war_with = FROM
+			}
+			
+			FROM = {
+				NOT = {#guo
+					has_opinion_modifier = weibeisulian
+				}
+			}
+		}
+
+		cost = 50
+		days_remove = 90
+		days_re_enable = 0
+		#fire_only_once = yes
+
+		modifier = {
+
+		}
+
+		remove_effect = {
+			FROM = {
+				country_event = RCM_comchina_zhang.1
+			}
+			custom_effect_tooltip = separate_line_tt
+			effect_tooltip = {
+				if = {
+					limit = {
+						always = yEs
+					}
+					random_list = {
+						50 = {
+							country_event = RCM_comchina_zhang.2
+						}
+						20 = {
+							country_event = RCM_comchina_zhang.3
+						} 
+						20 = {
+							country_event = RCM_comchina_zhang.4
+						} 
+						10 = {
+							country_event = RCM_comchina_zhang.5
+						}
+					}
+				}
+				else = {
+					random_list = {
+						30 = {
+							country_event = RCM_comchina_zhang.3
+						} 
+						30 = {
+							country_event = RCM_comchina_zhang.4
+						} 
+						10 = {
+							country_event = RCM_comchina_zhang.5
+						}
+					}
+				}
+			}
+		}
+		complete_effect = {
+			
+		}
+	}
+}
+
+
+#PRC decisions
+parliament_gui_decision_category = {
+	PRC_remove_mao_advisor = {
+
+		icon = SWI_dismiss_council
+		#fire_only_once = yes
+		visible = {
+			has_idea = prc_mao_zedong
+		}
+		available = {
+			set_temp_variable = { temp_faction_support = 40 }
+			set_temp_variable = { temp_greater_or_smaller = 0 } #1 greater 0 smaller
+			set_temp_variable = { temp_get_faction = 2 }
+			custom_trigger_tooltip = {
+				tooltip = CHECK_FACTION_SUPPORT_tt
+				check_variable = { parliament_seat_array_adjusted^1 < 40 }
+			}
+		}
+		#cost = 120
+		custom_cost_trigger = {
+			political_power_growth > 0.5
+		}
+		custom_cost_text = pp_per_day_neg_05
+		
+		ai_will_do = {
+			factor = 0
+			#modifier = {
+			#	factor = 0
+			#	OR = {
+			#		has_country_leader = { character = prc_mao_zedong ruling_only = yes }
+			#		has_country_leader = { character = prc_zhang_wentian ruling_only = yes }
+			#	}
+			#}
+		}
+		days_remove = 65
+		modifier = {
+			political_power_gain = -0.5
+		}
+		visible = {
+			tag = event_target:WTT_communist_china
+		}
+		remove_effect = {
+			remove_ideas = prc_mao_zedong
+		}
+		complete_effect = {
+			
+		}
+	}
+	PRC_remove_bogu_advisor = {
+
+		icon = SWI_dismiss_council
+		#fire_only_once = yes
+		visible = {
+			has_idea = prc_bo_gu
+		}
+		available = {
+			set_temp_variable = { temp_faction_support = 20 }
+			set_temp_variable = { temp_greater_or_smaller = 0 } #1 greater 0 smaller
+			set_temp_variable = { temp_get_faction = 3 }
+			custom_trigger_tooltip = {
+				tooltip = CHECK_FACTION_SUPPORT_tt
+				check_variable = { parliament_seat_array_adjusted^2 < 20 }
+			}
+		}
+		#cost = 120
+		custom_cost_trigger = {
+			political_power_growth > 0.5
+		}
+		custom_cost_text = pp_per_day_neg_05
+		
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0 #guo
+			}
+		}
+		days_remove = 65
+		modifier = {
+			political_power_gain = -0.5
+		}
+		visible = {
+			tag = event_target:WTT_communist_china
+		}
+		remove_effect = {
+			remove_ideas = prc_bo_gu
+		}
+		complete_effect = {
+			
+		}
+	}
+	PRC_remove_zhangguotao_advisor = { #guo
+
+		icon = SWI_dismiss_council
+		#fire_only_once = yes
+		visible = {
+			has_idea = PRC_zhang_guotao
+		}
+		available = {
+			set_temp_variable = { temp_faction_support = 10 }
+			set_temp_variable = { temp_greater_or_smaller = 0 } #1 greater 0 smaller
+			set_temp_variable = { temp_get_faction = 1 }
+			custom_trigger_tooltip = {
+				tooltip = CHECK_FACTION_SUPPORT_tt
+				check_variable = { parliament_seat_array_adjusted^0 < 10 }
+			}
+		}
+		#cost = 120
+		custom_cost_trigger = {
+			political_power_growth > 0.5
+		}
+		custom_cost_text = pp_per_day_neg_05
+		
+		ai_will_do = {
+			factor = 0
+		}
+		days_remove = 65
+		modifier = {
+			political_power_gain = -0.5
+		}
+		visible = {
+			tag = event_target:WTT_communist_china
+		}
+		remove_effect = {
+			remove_ideas = PRC_zhang_guotao
+			set_global_flag = zhang_be_dismissed
+			if = {
+			limit = {
+			leader_is_zhang_guotao = no
+			has_country_flag = no_PRC_west_expedition_victory
+			}
+		    custom_effect_tooltip = zhang_may_defeat
+			}
+		}
+		complete_effect = {
+			
+		}
+	}
+	RCM_wang_ming_demand_meeting_mission = {
+		icon = generic_nationalism
+		fire_only_once = no
+		days_mission_timeout = 120 #guo # Stays for 5 days before being removed
+		#days_re_enable = 25 # Will show up in the interface and can be selected again after 5 days
+		#cost = 40
+
+		is_good = no
+		allowed = {
+			tag = PRC
+		}
+		available = { #can do
+			or = { has_completed_focus = PRC_demand_another_politburo_meeting_focus not = { has_idea = changjiang_bureau } }
+		}
+		activation = {
+			always = no #activate through previous decision
+		}
+		fixed_random_seed = no
+		timeout_effect = { #run effect on selection
+			country_event = RCM_comchina_decisions.7
+			add_to_variable = {
+				count_wang_ming = 1
+			}
+			
+				if = {
+					limit = {
+						check_variable = { count_wang_ming < 4 }
+					}
+					add_days_mission_timeout  = {
+						mission = RCM_wang_ming_demand_meeting_mission
+						days = -30
+					}
+				}
+				set_temp_variable = { temp_member = 3 }
+				set_temp_variable = { temp_seats = 0.05 tooltip = TEB_faction_support_tt }
+										#percentage
+				modify_parliament_seat = yes		
+				add_stability = -0.05
+				add_political_power = -75
+				
+				if = {
+				limit = { leader_is_maoist = yes }
+				set_temp_variable = { temp_member = 2 }
+				set_temp_variable = { temp_seats = -0.05 tooltip = MAOIST_faction_support_tt }
+										#percentage
+				modify_parliament_seat = yes
+				}
+			
+		}
+		ai_will_do = {
+			factor = 50
+		}
+	}
+	RCM_minority_rule_mission = {
+		icon = generic_nationalism
+		fire_only_once = no
+		days_mission_timeout = 140 # Stays for 5 days before being removed
+		#days_re_enable = 25 # Will show up in the interface and can be selected again after 5 days
+		#cost = 40
+
+		is_good = no
+		allowed = {
+			tag = PRC
+		}
+		available = { #can do
+			custom_trigger_tooltip = {
+				tooltip = return_majority_tt
+				NOT = {
+					AND = {
+						OR = {
+							check_variable = { parliament_seat_array^0 < parliament_seat_array^1 }
+							check_variable = { parliament_seat_array^0 < parliament_seat_array^2 }
+							check_variable = { parliament_seat_array^0 < parliament_seat_array^3 }
+						}
+						has_country_leader = {
+							character = PRC_zhang_guotao ruling_only = yes
+						}
+					}
+
+
+					AND = {
+						OR = {
+							check_variable = { parliament_seat_array^1 < parliament_seat_array^0 }
+							check_variable = { parliament_seat_array^1 < parliament_seat_array^2 }
+							check_variable = { parliament_seat_array^1 < parliament_seat_array^3 }
+						}
+						OR = {
+							has_country_leader = {
+								character = prc_mao_zedong ruling_only = yes
+							}
+							has_country_leader = { character = prc_zhang_wentian ruling_only = yes }
+						}
+					}
+
+
+					AND = {
+						OR = {
+							check_variable = { parliament_seat_array^2 < parliament_seat_array^0 }
+							check_variable = { parliament_seat_array^2 < parliament_seat_array^1 }
+							check_variable = { parliament_seat_array^2 < parliament_seat_array^3 }
+						}
+						OR = {
+							has_country_leader = { character = prc_bo_gu ruling_only = yes	}
+							has_country_leader = { character = prc_wang_ming ruling_only = yes	}
+						}
+					}    
+
+					AND = {
+							OR = {
+							check_variable = { parliament_seat_array^3 < parliament_seat_array^0 }
+							check_variable = { parliament_seat_array^3 < parliament_seat_array^1 }
+							check_variable = { parliament_seat_array^3 < parliament_seat_array^2 }
+						}
+						OR = {
+							has_country_leader = { character = prc_peng_shuzhi ruling_only = yes	}
+							has_country_leader = { character = prc_chen_duxiu ruling_only = yes	}
+						}
+					}
+				}
+			}
+		}
+		activation = {
+			always = no #activate through previous decision
+		}
+		fixed_random_seed = no
+		timeout_effect = { #run effect on selection
+			country_event = RCM_comchina_decisions.2
+			effect_tooltip = {		
+				if = {
+					limit = {
+						has_stability < 0.15
+					}
+					if = {
+						limit = {
+							AND = {
+								OR = {
+									check_variable = { parliament_seat_array^0 < parliament_seat_array^1 }
+									check_variable = { parliament_seat_array^0 < parliament_seat_array^2 }
+									check_variable = { parliament_seat_array^0 < parliament_seat_array^3 }
+								}
+								has_country_leader = {
+									character = prc_zhang_guotao ruling_only = yes
+								}
+							}
+						}
+						country_event = RCM_comchina_decisions.3
+					}
+					else_if = {
+						limit = {
+							AND = {
+								OR = {
+									check_variable = { parliament_seat_array^1 < parliament_seat_array^0 }
+									check_variable = { parliament_seat_array^1 < parliament_seat_array^2 }
+									check_variable = { parliament_seat_array^1 < parliament_seat_array^3 }
+								}
+								OR = {
+									has_country_leader = {
+										character = prc_mao_zedong ruling_only = yes
+									}
+									has_country_leader = { character = prc_zhang_wentian ruling_only = yes }
+								}
+							}
+						}
+						country_event = RCM_comchina_decisions.4
+					}
+					else_if = {
+						limit = {
+							AND = {
+								OR = {
+									check_variable = { parliament_seat_array^2 < parliament_seat_array^0 }
+									check_variable = { parliament_seat_array^2 < parliament_seat_array^1 }
+									check_variable = { parliament_seat_array^2 < parliament_seat_array^3 }
+								}
+								OR = {
+									has_country_leader = { character = prc_bo_gu ruling_only = yes	}
+									has_country_leader = { character = prc_wang_ming ruling_only = yes	}
+								}
+							}    
+						}
+						country_event = RCM_comchina_decisions.5
+					}
+					else_if = {
+						limit = {
+							AND = {
+								OR = {
+									check_variable = { parliament_seat_array^3 < parliament_seat_array^0 }
+									check_variable = { parliament_seat_array^3 < parliament_seat_array^1 }
+									check_variable = { parliament_seat_array^3 < parliament_seat_array^2 }
+								}
+								OR = {
+									has_country_leader = { character = prc_peng_shuzhi ruling_only = yes }
+							        has_country_leader = { character = prc_chen_duxiu ruling_only = yes	}
+								}
+							}
+						}
+						country_event = RCM_comchina_decisions.6
+					}
+				}		
+				add_stability = -0.035
+			}
+		}
+		ai_will_do = {
+			factor = 50
+		}
+	}
+	PRC_support_zhang_clique = {
+
+		icon = eng_propaganda_campaigns
+		#fire_only_once = yes
+		
+		available = {
+			has_idea = PRC_zhang_guotao
+		}
+		#cost = 120
+		custom_cost_trigger = {
+			political_power_growth > 0.75
+		}
+		custom_cost_text = pp_per_day_neg_075
+		
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				NOT = {
+					AND = {
+						OR = {
+							check_variable = { parliament_seat_array^0 < parliament_seat_array^1 }
+							check_variable = { parliament_seat_array^0 < parliament_seat_array^2 }
+							check_variable = { parliament_seat_array^0 < parliament_seat_array^3 }
+						}
+						has_country_leader = {
+							character = prc_zhang_guotao ruling_only = yes
+						}
+					}
+				}
+			}
+		}
+		days_remove = 90
+		modifier = {
+			political_power_gain = -0.75
+		}
+		visible = {
+			tag = event_target:WTT_communist_china
+		}
+		remove_effect = {
+			random_list = {
+				15 = {
+					set_temp_variable = { temp_member = 1 }
+					set_temp_variable = { temp_seats = 0.05 tooltip = ZHANG_faction_support_tt }
+										#percentage
+					modify_parliament_seat = yes
+				}
+				20 = {
+					set_temp_variable = { temp_member = 1 }
+					set_temp_variable = { temp_seats = 0.03 tooltip = ZHANG_faction_support_tt }
+										#percentage
+					modify_parliament_seat = yes
+				}
+				15 = {
+					set_temp_variable = { temp_member = 1 }
+					set_temp_variable = { temp_seats = 0.02 tooltip = ZHANG_faction_support_tt }
+										#percentage
+					modify_parliament_seat = yes
+				}
+			}
+		}
+		complete_effect = {
+			
+		}
+	}
+	PRC_support_mao_clique = {
+
+		icon = eng_propaganda_campaigns
+		#fire_only_once = yes
+		
+		available = {
+			OR = {
+				has_idea_with_trait = maoists_trait_zhang_wentian
+				has_idea_with_trait = maoists_trait_mao_zedong
+				has_idea_with_trait = maoists_trait_chen_yun
+				has_idea_with_trait = maoists_trait_kang_sheng
+				has_idea_with_trait = maoists_trait_wang_jiaxiang
+			}
+		}
+		#cost = 120
+		custom_cost_trigger = {
+			political_power_growth > 0.75
+		}
+		custom_cost_text = pp_per_day_neg_075
+		
+		ai_will_do = {
+			 factor = 1
+			 modifier = {
+				factor = 0
+				NOT = {
+					AND = {
+						OR = {
+							check_variable = { parliament_seat_array^1 < parliament_seat_array^0 }
+							check_variable = { parliament_seat_array^1 < parliament_seat_array^2 }
+							check_variable = { parliament_seat_array^1 < parliament_seat_array^3 }
+						}
+						OR = {
+							has_country_leader = {
+								character = prc_mao_zedong ruling_only = yes
+							}
+							has_country_leader = { character = prc_zhang_wentian ruling_only = yes }
+						}
+					}
+				}
+			 }
+		}
+		days_remove = 90
+		modifier = {
+			political_power_gain = -0.75
+		}
+		visible = {
+			tag = event_target:WTT_communist_china
+		}
+		remove_effect = {
+			random_list = {
+				15 = {
+					set_temp_variable = { temp_member = 2 }
+					set_temp_variable = { temp_seats = 0.05 tooltip = MAOIST_faction_support_tt }
+										#percentage
+					modify_parliament_seat = yes
+				}
+				20 = {
+					set_temp_variable = { temp_member = 2 }
+					set_temp_variable = { temp_seats = 0.03 tooltip = MAOIST_faction_support_tt }
+										#percentage
+					modify_parliament_seat = yes
+				}
+				15 = {
+					set_temp_variable = { temp_member = 2 }
+					set_temp_variable = { temp_seats = 0.02 tooltip = MAOIST_faction_support_tt }
+										#percentage
+					modify_parliament_seat = yes
+				}
+			}
+		}
+		complete_effect = {
+			
+		}
+	}
+	PRC_support_TEB_clique = {
+
+		icon = eng_propaganda_campaigns
+		#fire_only_once = yes
+		
+		available = {
+			OR = {
+				has_idea_with_trait = twenty_eight_bolshevik_bo_gu
+				has_idea_with_trait = twenty_eight_bolshevik_wang_ming
+				has_idea_with_trait = twenty_eight_bolshevik_meng_qingshu
+				has_idea_with_trait = twenty_eight_bolshevik_chen_changhao
+				has_idea_with_trait = twenty_eight_bolshevik_wang_shengrong
+			}
+		}
+		#cost = 120
+		custom_cost_trigger = {
+			political_power_growth > 0.75
+		}
+		custom_cost_text = pp_per_day_neg_075
+		
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				NOT = {
+					AND = {
+						OR = {
+							check_variable = { parliament_seat_array^2 < parliament_seat_array^0 }
+							check_variable = { parliament_seat_array^2 < parliament_seat_array^1 }
+							check_variable = { parliament_seat_array^2 < parliament_seat_array^3 }
+						}
+						OR = {
+							has_country_leader = { character = prc_bo_gu ruling_only = yes	}
+							has_country_leader = { character = prc_wang_ming ruling_only = yes	}
+						}
+					}    
+				}
+			}
+		}
+		days_remove = 90
+		modifier = {
+			political_power_gain = -0.75
+		}
+		visible = {
+			tag = event_target:WTT_communist_china
+		}
+		remove_effect = {
+			random_list = {
+				15 = {
+					set_temp_variable = { temp_member = 3 }
+					set_temp_variable = { temp_seats = 0.05 tooltip = TEB_faction_support_tt }
+										#percentage
+					modify_parliament_seat = yes
+				}
+				20 = {
+					set_temp_variable = { temp_member = 3 }
+					set_temp_variable = { temp_seats = 0.03 tooltip = TEB_faction_support_tt }
+										#percentage
+					modify_parliament_seat = yes
+				}
+				15 = {
+					set_temp_variable = { temp_member = 3 }
+					set_temp_variable = { temp_seats = 0.02 tooltip = TEB_faction_support_tt }
+										#percentage
+					modify_parliament_seat = yes
+				}
+			}
+		}
+		complete_effect = {
+			
+		}
+	}
+	PRC_support_TROT_clique = {
+
+		icon = eng_propaganda_campaigns
+		#fire_only_once = yes
+		
+		available = {
+			OR = {
+				has_idea_with_trait = devoted_trotskyist_RCM_zheng_chaolin
+				has_idea_with_trait = devoted_trotskyist_RCM_wang_fanxi
+				has_idea_with_trait = old_trotskyist_figurehead
+				has_idea_with_trait = trotskyist_writer
+			}
+		}
+		#cost = 120
+		custom_cost_trigger = {
+			political_power_growth > 0.75
+		}
+		custom_cost_text = pp_per_day_neg_075
+		
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				NOT = {
+					AND = {
+						OR = {
+							check_variable = { parliament_seat_array^3 < parliament_seat_array^0 }
+							check_variable = { parliament_seat_array^3 < parliament_seat_array^1 }
+							check_variable = { parliament_seat_array^3 < parliament_seat_array^2 }
+						}
+						OR = {
+							has_country_leader = { character = prc_peng_shuzhi ruling_only = yes }
+							has_country_leader = { character = prc_chen_duxiu ruling_only = yes	}
+						}
+					}
+				}
+			}
+		}
+		days_remove = 90
+		modifier = {
+			political_power_gain = -0.75
+		}
+		visible = {
+			tag = event_target:WTT_communist_china
+		}
+		remove_effect = {
+			random_list = {
+				15 = {
+					set_temp_variable = { temp_member = 4 }
+					set_temp_variable = { temp_seats = 0.05 tooltip = TROT_faction_support_tt }
+										#percentage
+					modify_parliament_seat = yes
+				}
+				20 = {
+					set_temp_variable = { temp_member = 4 }
+					set_temp_variable = { temp_seats = 0.03 tooltip = TROT_faction_support_tt }
+										#percentage
+					modify_parliament_seat = yes
+				}
+				15 = {
+					set_temp_variable = { temp_member = 4 }
+					set_temp_variable = { temp_seats = 0.02 tooltip = TROT_faction_support_tt }
+										#percentage
+					modify_parliament_seat = yes
+				}
+			}
+		}
+		complete_effect = {
+			
+		}
+	}
+
+	#retification movement
+
+
+
+
+	RCM_wang_shiwei_protest_mission = {
+		icon = generic_political_rally
+		fire_only_once = no
+		days_mission_timeout = 180 # Stays for 5 days before being removed
+		#days_re_enable = 25 # Will show up in the interface and can be selected again after 5 days
+		#cost = 40
+
+		is_good = no
+		allowed = {
+			tag = PRC
+		}
+		available = { #can do
+			has_global_flag = wang_shiwei_is_put_on_trial
+		}
+		visible = { NOT = { has_completed_focus = PRC_7th_National_Congress_focus } } #guo
+		activation = {
+			always = no #activate through previous decision
+		}
+		fixed_random_seed = no
+		timeout_effect = { #run effect on selection
+			country_event = RCM_comchina_mao.11
+			add_to_variable = {
+				count_wang_shiwei = 1
+			}
+			effect_tooltip = {
+				if = {
+					limit = {
+						check_variable = { count_wang_shiwei < 8 }
+					}
+					add_days_mission_timeout  = {
+						mission = RCM_wang_shiwei_protest_mission
+						days = -15
+					}
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 50
+		}
+	}
+	RCM_core_member_protest_mission = {
+		icon = generic_political_rally
+		fire_only_once = no
+		days_mission_timeout = 180 # Stays for 5 days before being removed
+		#days_re_enable = 25 # Will show up in the interface and can be selected again after 5 days
+		#cost = 40
+
+		is_good = no
+		allowed = {
+			tag = PRC
+		}
+		available = { #can do
+			has_global_flag = wang_ming_self_criticized
+			has_global_flag = zhou_enlai_self_criticized
+			has_global_flag = bo_gu_self_criticized
+		}
+		activation = {
+			always = no #activate through previous decision
+		}
+		fixed_random_seed = no
+		timeout_effect = { #run effect on selection
+			country_event = RCM_comchina_mao.22
+			add_to_variable = {
+				count_wang_shiwei = 1
+			}
+			effect_tooltip = {
+				if = {
+					limit = {
+						check_variable = { count_wang_shiwei < 8 }
+					}
+					add_days_mission_timeout  = {
+						mission = RCM_core_member_protest_mission
+						days = -15
+					}
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 50
+		}
+	}
+	RCM_PRC_set_up_general_study_committee = {
+		icon = eng_trade_unions_support
+		visible = {
+			has_completed_focus = PRC_route_struggle_focus
+		}
+		available = {
+			
+		}
+		fire_only_once = yes
+		cost = 0
+		days_remove = 30
+		days_re_enable = 7
+		fire_only_once = yes
+		ai_will_do = {
+			factor = 500
+		}
+		modifier = {
+			
+		}
+	
+		remove_effect = {
+			country_event = RCM_comchina_mao.4			
+			unlock_decision_tooltip = RCM_PRC_pushes_against_dogmatism
+			unlock_decision_tooltip = RCM_PRC_push_against_empiricism
+			unlock_decision_tooltip = RCM_PRC_push_against_sectarianism
+			unlock_decision_tooltip = RCM_PRC_push_against_liberalism
+			unlock_decision_tooltip = RCM_PRC_perform_speech_on_yanan_forum
+			unlock_decision_tooltip = RCM_PRC_Conclude_Studies_in_each_departments
+		}
+		complete_effect = {
+			custom_effect_tooltip = protests_will_arise_tt
+			hidden_effect = {
+				country_event = { id = RCM_comchina_mao.11 days = 15 random_days = 5 }
+			}
+		}
+	}
+
+	#[X] question our push against (subjectivism) Dogmatism (appear during decisions)
+	RCM_PRC_pushes_against_dogmatism = {
+		icon = generic_break_treaty
+		visible = {
+			has_global_flag = study_committee
+		}
+		available = {
+			
+		}
+		fire_only_once = yes
+		cost = 0
+		days_remove = 40
+		days_re_enable = 7
+		fire_only_once = yes
+	
+		modifier = {
+			
+		}
+		ai_will_do = {
+			factor = 500
+		}
+		remove_effect = {
+			set_global_flag = pushed_dogma_flag
+			set_temp_variable = { temp_member = 3 }
+			set_temp_variable = { temp_seats = -0.05 tooltip = TEB_faction_support_tt }
+										#percentage
+			modify_parliament_seat = yes
+		}
+		complete_effect = {
+			custom_effect_tooltip = protests_will_arise_tt
+			hidden_effect = {
+				country_event = { id = RCM_comchina_mao.6 days = 20 random_days = 8 }
+			}
+		}
+	}
+	#[X] question our push against (subjectivism) empiricism (appear during decisions)
+	RCM_PRC_push_against_empiricism = {
+		icon = generic_break_treaty
+		visible = {
+			has_global_flag = study_committee
+			
+			
+			
+			
+			
+		}
+		available = {
+			has_global_flag = pushed_dogma_flag
+
+		}
+		fire_only_once = yes
+		cost = 0
+		days_remove = 40
+		days_re_enable = 7
+		fire_only_once = yes
+		ai_will_do = {
+			factor = 500
+		}
+		modifier = {
+			
+		}
+	
+		remove_effect = {
+			set_global_flag = pushed_empirical_flag
+			add_political_power = 100
+		}
+		complete_effect = {
+			custom_effect_tooltip = protests_will_arise_tt
+			hidden_effect = {
+				country_event = { id = RCM_comchina_mao.7 days = 20 random_days = 8 }
+			}
+		}
+	}
+	#Party members question our push against sectarianism (appear during decisions)
+	RCM_PRC_push_against_sectarianism = {
+		icon = generic_break_treaty
+		visible = {
+			has_global_flag = study_committee
+		}
+		available = {
+			has_global_flag = pushed_empirical_flag
+
+		}
+		ai_will_do = {
+			factor = 500
+		}
+		fire_only_once = yes
+		cost = 0
+		days_remove = 40
+		days_re_enable = 7
+		fire_only_once = yes
+	
+		modifier = {
+			
+		}
+	
+		remove_effect = {
+			set_global_flag = pushed_sect_flag
+			add_stability = 0.05
+		}
+		complete_effect = {
+			custom_effect_tooltip = protests_will_arise_tt
+			hidden_effect = {
+				country_event = { id = RCM_comchina_mao.8 days = 20 random_days = 8 }
+			}
+		}
+	}
+	#Party members question our push against liberalism (appear during decisions)
+	RCM_PRC_push_against_liberalism = {
+		icon = generic_break_treaty
+		visible = {
+			has_global_flag = study_committee
+		}
+		available = {
+			has_global_flag = pushed_sect_flag
+
+		}
+		ai_will_do = {
+			factor = 500
+		}
+		fire_only_once = yes
+		cost = 0
+		days_remove = 40
+		days_re_enable = 7
+		fire_only_once = yes
+	
+		modifier = {
+			
+		}
+	
+		remove_effect = {
+			set_global_flag = pushed_lib_flag
+			set_temp_variable = { temp_member = 2 }
+			set_temp_variable = { temp_seats = 0.05 tooltip = MAOIST_faction_support_tt }
+										#percentage
+			modify_parliament_seat = yes
+		}
+		complete_effect = {
+			custom_effect_tooltip = protests_will_arise_tt
+			hidden_effect = {
+				country_event = { id = RCM_comchina_mao.9 days = 20 random_days = 8 }
+			}
+		}
+	}
+	#mao do the Talks on Yanan Forum (Wang shiwei be demonized)(after they criticized us)
+	RCM_PRC_perform_speech_on_yanan_forum = {
+		icon = hol_radio_oranje
+		visible = {
+			has_global_flag = study_committee
+		}
+		available = {
+			has_global_flag = pushed_lib_flag
+
+		}
+		ai_will_do = {
+			factor = 500
+		}
+		fire_only_once = yes
+		cost = 0
+		days_remove = 7
+		days_re_enable = 7
+		fire_only_once = yes
+	
+		modifier = {
+			
+		}
+	
+		remove_effect = {
+			set_global_flag = did_speech_flag
+			country_event = RCM_comchina_mao.10
+		}
+		complete_effect = {
+			
+		}
+	}
+	#wang shiwei and other people question our party's oppression (pic needed)
+	
+	#"Conclude Studies in each departments"
+	RCM_PRC_Conclude_Studies_in_each_departments = {
+		icon = eng_trade_unions_demand
+		visible = {
+			has_global_flag = study_committee
+		}
+		available = {
+			has_global_flag = did_speech_flag
+		}
+		ai_will_do = {
+			factor = 500
+		}
+		fire_only_once = yes
+		cost = 0
+		days_remove = 20
+		days_re_enable = 7
+		fire_only_once = yes
+	
+		modifier = {
+			
+		}
+	
+		remove_effect = {
+			set_global_flag = first_phase_concluded
+			unlock_decision_tooltip = RCM_PRC_mao_takeover_leadership
+			unlock_decision_tooltip = RCM_PRC_initiate_the_rescue_campaign
+		}
+		complete_effect = {
+			
+		}
+	}
+	RCM_PRC_mao_takeover_leadership = {
+		icon = generic_military
+		visible = {
+			has_global_flag = first_phase_concluded
+		}
+		available = {
+			
+		}
+	
+		cost = 5 #modded
+		#days_remove = 7
+		days_re_enable = 7
+		fire_only_once = yes
+	    
+		ai_will_do = {
+			factor = 1000
+		}
+		
+		modifier = {
+			
+		}
+	
+		remove_effect = {
+			country_event = RCM_comchina_mao.12
+		}
+		complete_effect = {
+			
+		}
+	}
+	RCM_PRC_initiate_the_rescue_campaign = {
+		icon = generic_speech
+		visible = {
+			has_global_flag = first_phase_concluded
+		}
+		available = {
+			
+		}
+	
+		cost = 50
+		days_remove = 20
+		days_re_enable = 7
+		fire_only_once = yes
+	
+		ai_will_do = {
+			factor = 50
+		}
+		
+		modifier = {
+			
+		}
+	
+		remove_effect = {
+			set_global_flag = rescue_campaign_initiated
+			unlock_decision_tooltip = RCM_PRC_coersion_decsion
+			unlock_decision_tooltip = RCM_PRC_purge_new_comers_decision
+			unlock_decision_tooltip = RCM_PRC_trial_of_wang_shiwei
+			unlock_decision_tooltip = RCM_PRC_force_wang_ming_admit_errors
+			unlock_decision_tooltip = RCM_PRC_force_zhou_enlai_admit_errors
+			unlock_decision_tooltip = RCM_PRC_force_bo_gu_admit_errors
+		}
+		complete_effect = {
+			swap_ideas = {
+				add_idea = yanan_rect_3
+				remove_idea = yanan_rect_2
+			}
+			custom_effect_tooltip = protests_will_arise_tt
+			hidden_effect = {
+				country_event = { id = RCM_comchina_mao.22 days = 10 random_days = 3 }
+			}
+		}
+	}
+	RCM_PRC_coersion_decsion = {
+		icon = generic_police_action
+		visible = {
+			has_global_flag = rescue_campaign_initiated
+		}
+		available = {
+			
+		}
+	
+		ai_will_do = {
+			factor = 200
+		}
+		
+		cost = 30
+		days_remove = 50
+		days_re_enable = 7
+		fire_only_once = yes
+	
+		modifier = {
+			
+		}
+	
+		remove_effect = {
+			set_global_flag = confessions_coerced
+			country_event = RCM_comchina_mao.14
+		}
+		complete_effect = {
+			
+		}
+	}
+	RCM_PRC_purge_new_comers_decision = {
+		icon = generic_assassination
+		visible = {
+			has_global_flag = rescue_campaign_initiated
+		}
+		available = {
+			
+		}
+	
+	    ai_will_do = {
+			factor = 50
+		}
+		
+		cost = 20
+		days_remove = 25
+		days_re_enable = 7
+		fire_only_once = yes
+	
+		modifier = {
+			
+		}
+	
+		remove_effect = {
+			set_global_flag = newcomers_purged
+			country_event = RCM_comchina_mao.15
+		}
+		complete_effect = {
+			
+		}
+	}
+	RCM_PRC_trial_of_wang_shiwei = {
+		icon = generic_arrest
+		visible = {
+			has_global_flag = rescue_campaign_initiated
+		}
+		available = {
+			
+		}
+	
+		ai_will_do = {
+			factor = 200
+		}
+		
+		cost = 20
+		days_remove = 30
+		days_re_enable = 7
+		fire_only_once = yes
+	
+		modifier = {
+			
+		}
+	
+		remove_effect = {
+			set_global_flag = wang_shiwei_is_put_on_trial
+			country_event = RCM_comchina_mao.16
+		}
+		complete_effect = {
+			
+		}
+	}
+	RCM_PRC_force_wang_ming_admit_errors = {
+		icon = generic_political_discourse
+		visible = {
+			has_global_flag = rescue_campaign_initiated
+		}
+		available = {
+			has_global_flag = newcomers_purged
+			has_global_flag = confessions_coerced
+			has_global_flag = wang_shiwei_is_put_on_trial
+		}
+	
+		ai_will_do = {
+			factor = 50
+		}
+		
+		cost = 25
+		days_remove = 25
+		days_re_enable = 7
+		fire_only_once = yes
+	
+		modifier = {
+			
+		}
+	
+		remove_effect = {
+			set_global_flag = wang_ming_self_criticized
+			country_event = RCM_comchina_mao.18
+		}
+		complete_effect = {
+			
+		}
+	}
+	RCM_PRC_force_zhou_enlai_admit_errors = {
+		icon = generic_political_discourse
+		visible = {
+			has_global_flag = rescue_campaign_initiated
+		}
+		available = {
+			has_global_flag = newcomers_purged
+			has_global_flag = confessions_coerced
+			has_global_flag = wang_shiwei_is_put_on_trial
+		}
+	
+		ai_will_do = {
+			factor = 50
+		}
+		
+		cost = 25
+		days_remove = 25
+		days_re_enable = 7
+		fire_only_once = yes
+	
+		modifier = {
+			
+		}
+	
+		remove_effect = {
+			set_global_flag = zhou_enlai_self_criticized
+			country_event = RCM_comchina_mao.19
+		}
+		complete_effect = {
+			
+		}
+	}
+	RCM_PRC_force_bo_gu_admit_errors = {
+		icon = generic_political_discourse
+		visible = {
+			has_global_flag = rescue_campaign_initiated
+		}
+		available = {
+			has_global_flag = newcomers_purged
+			has_global_flag = confessions_coerced
+			has_global_flag = wang_shiwei_is_put_on_trial
+		}
+	
+		ai_will_do = {
+			factor = 50
+		}
+		cost = 25
+		days_remove = 25
+		days_re_enable = 7
+		fire_only_once = yes
+	
+		modifier = {
+		}
+	
+		remove_effect = {
+			set_global_flag = bo_gu_self_criticized
+			country_event = RCM_comchina_mao.21
+		}
+		complete_effect = {
+			
+		}
+	}
+}
+
+PRC_contact_wrl_cat = {
+	PRC_contact_fu_zuoyi_decision = { 
+		icon = GFX_decision_generic_political_discourse
+		allowed = {
+			is_literally_china = yes
+		}
+		visible = {
+			has_completed_focus = PRC_contact_cheng_qian_focus
+		}
+		available = {
+			controls_state = 611
+			controls_state = 716
+			controls_state = 1010
+			controls_state = 328
+			any_enemy_country = {
+				tag = SUY
+				is_neighbor_of = ROOT
+				has_cosmetic_tag = huabei_bandit_supression_hq
+				controls_state = 608
+				OR = {
+					casualties_k > 150
+					strength_ratio = {
+						tag = ROOT
+						ratio < 0.3
+					}
+				}
+			}
+			event_target:WTT_current_china_leader = {
+				has_war_with = ROOT
+				#is_neighbor_of = ROOT
+			}
+		}
+
+		cost = 25
+		days_remove = 5
+		days_re_enable = 0
+		fire_only_once = yes
+
+		modifier = {
+
+		}
+
+		remove_effect = {
+			SUY = {
+				country_event = {
+					id = nhq.1
+				}
+			}
+			custom_effect_tooltip = if_they_accept_green 
+			effect_tooltip = {
+				SUY = {
+					white_peace = ROOT
+					retire_character = SHX_fu_zuoyi
+					SHX_Dong_Qiwu = {
+						add_country_leader_role = {
+							promote_leader = yes
+							country_leader = {
+								expire = "1965.1.1"
+								ideology = despotism
+								traits = { }            
+							} 
+						} 
+					}
+					every_owned_state = {
+						limit = {
+							NOT = { #suiyuan
+								state = 621
+								state = 746
+								state = 1019
+								state = 1014
+							}
+						}
+						ROOT = {
+							transfer_state = PREV
+						}
+					} 
+				} 
+			}
+		}
+		complete_effect = {
+			
+		}
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	
+	PRC_contact_suy_decision = { #suiyuan only, after fu zuoyi surrendered
+		icon = GFX_decision_generic_political_discourse
+		allowed = {
+			is_literally_china = yes
+		}
+		visible = {
+			has_completed_focus = PRC_contact_cheng_qian_focus
+			hidden_trigger = {
+                any_neighbor_country = {
+					tag = SUY
+					has_capitulated = no
+					has_country_leader = {
+						character = SHX_Dong_Qiwu ruling_only = yes
+					}
+				}
+			}
+		}
+		available = {
+			controls_state = 608
+			controls_state = 609
+			any_neighbor_country = {
+				tag = SUY
+				has_capitulated = no
+			    has_country_leader = {
+					character = SHX_Dong_Qiwu ruling_only = yes
+				}
+			}
+			event_target:WTT_current_china_leader = {
+				has_war_with = ROOT
+				#is_neighbor_of = ROOT
+				NOT = {
+					controls_state = 1015
+					controls_state = 613
+				}
+			}
+		}
+
+		cost = 25
+		days_remove = 90
+		days_re_enable = 0
+		fire_only_once = yes
+
+        cancel_trigger = { #will abort
+		    NOT = {
+			   country_exists = SUY
+		    }
+	    }
+
+		modifier = {
+
+		}
+
+		remove_effect = {
+			SUY = {
+				country_event = {
+					id = nhq.3
+				}
+			}
+			custom_effect_tooltip = if_they_accept_green 
+			effect_tooltip = {
+				annex_country = { target = SUY transfer_troops = yes }	
+			}
+			if = {
+				limit = {
+					NOT = {
+						has_war_with = SUY
+					}
+				}
+				custom_effect_tooltip = if_they_refuse_red
+			    effect_tooltip = {
+				    create_wargoal = {
+						type = annex_everything
+						target = SUY
+					}
+			    }
+			}
+		}
+		complete_effect = {
+			
+		}
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	PRC_contact_cheng_qian_decision = {
+		icon = GFX_decision_generic_political_discourse
+		allowed = {
+			is_literally_china = yes
+		}
+		visible = {
+			has_completed_focus = PRC_contact_cheng_qian_focus
+		}
+		available = {
+		    controls_state = 1015 #guo
+			controls_state = 1034
+			controls_state = 744
+		
+			event_target:WTT_current_china_leader = {
+				has_war_with = ROOT
+				is_neighbor_of = ROOT
+				custom_trigger_tooltip = {
+					tooltip = has_cheng_qian_tt
+					any_unit_leader = {
+						has_id = 3031
+					}
+				}
+				#owns_state = 1015
+				OR = {
+					controls_state = 750
+					controls_state = 1035
+					controls_state = 602
+					GXC = {	
+						OR = {
+							controls_state = 750
+							controls_state = 1035
+							controls_state = 602
+						}
+					}
+				}
+				#surrender_progress > 0.5
+			}
+			OR = {
+				750 = {
+					any_neighbor_state = { is_controlled_by = ROOT }
+				}
+				1035 = {
+					any_neighbor_state = { is_controlled_by = ROOT }
+				}
+				602 = {
+					any_neighbor_state = { is_controlled_by = ROOT }
+				}
+			}
+		}
+
+		cost = 25
+		days_remove = 5
+		days_re_enable = 0
+		fire_only_once = yes
+
+		modifier = {
+
+		}
+
+		remove_effect = {
+			custom_effect_tooltip = PRC_contact_cheng_qian_focus_tt
+			event_target:WTT_current_china_leader = {
+				#guo
+				set_global_flag = PRC_contact_cheng_qian_decision_happen
+				hidden_effect = {
+				every_unit_leader = {
+					limit = {
+						OR = {
+							has_trait = hidden_sympathies
+						}
+					}
+					remove_unit_leader_trait = hidden_sympathies
+				}
+				}
+				CHI_chen_mingren = {
+				    set_portraits = {
+			        army={
+				    large="gfx/leaders/PRC/chenmingrenprc.jpg"
+			        }
+		            }
+					set_nationality = root
+				}
+				CHI_cheng_qian = {
+					set_nationality = root
+				}
+				country_event = {
+					id = EFM_Comchina.46
+				}
+			}
+			if = {
+				limit = {
+					GXC = {	
+						OR = {
+							controls_state = 750
+							controls_state = 1035
+							controls_state = 602
+						}
+					}
+				}
+				GXC = {
+					country_event = {
+					    id = EFM_Comchina.46
+					}
+				}
+			}
+		}
+		complete_effect = {
+			
+		}
+		ai_will_do = {
+			factor = 9999 #guo
+		}
+	}
+
+	PRC_contact_kweichow_decision = {
+		icon = GFX_decision_generic_political_discourse
+		allowed = {
+			is_literally_china = yes
+		}
+		visible = {
+			has_completed_focus = PRC_contact_cheng_qian_focus
+		}
+		available = {
+		    controls_state = 1015 #guo
+			controls_state = 1034
+			controls_state = 744
+		
+			event_target:WTT_current_china_leader = {
+				has_war_with = ROOT
+				is_neighbor_of = ROOT
+				#owns_state = 1015
+				OR = {
+					controls_state = 748
+					controls_state = 603
+				}
+				#surrender_progress > 0.5
+			}
+			OR = {
+				748 = {
+					any_neighbor_state = { is_controlled_by = ROOT }
+				}
+				603 = {
+					any_neighbor_state = { is_controlled_by = ROOT }
+				}
+			}
+		}
+
+		cost = 25
+		days_remove = 5
+		days_re_enable = 0
+		fire_only_once = yes
+
+		modifier = {
+
+		}
+
+		remove_effect = {
+			custom_effect_tooltip = PRC_contact_kweichow_tt
+			event_target:WTT_current_china_leader = {
+				country_event = {
+					id = EFM_Comchina.48
+				}
+			}
+		}
+		complete_effect = {
+			
+		}
+		ai_will_do = {
+			factor = 9999 #guo
+		}
+	}
+
+	PRC_contact_sik_decision = {
+		icon = GFX_decision_generic_political_discourse
+		allowed = {
+			is_literally_china = yes
+		}
+		visible = {
+			has_completed_focus = PRC_contact_cheng_qian_focus
+		}
+		available = {
+			any_enemy_country = {
+				tag = SIK
+				NOT = {
+					OR = {
+						has_country_flag = I_am_turkestan
+						has_idea = SIK_For_the_TAR_revolution
+					}
+                }
+				OR = {
+					has_government = neutrality
+				    is_subject_of = event_target:WTT_current_china_leader
+				}
+				is_neighbor_of = ROOT
+			}
+			#OR = {
+			#	any_other_country = {
+			#		original_tag = SIK
+			#		exists = yes
+			#		NOT = {
+            #            OR = {
+			#				has_country_flag = I_am_turkestan
+			#				has_idea = SIK_For_the_TAR_revolution
+			#			}
+			#		}
+			#	    is_subject_of = event_target:WTT_current_china_leader
+			#		is_neighbor_of = ROOT
+			#	}
+			#    AND = {
+			#		controls_state = 756
+			#		controls_state = 608
+			#		controls_state = 1015
+			#		NOT = {
+			#			any_other_country = {
+			#				original_tag = SIK
+			#				exists = yes
+			#				NOT = {
+			#					OR = {
+			#						has_country_flag = I_am_turkestan
+			#						has_idea = SIK_For_the_TAR_revolution
+			#					}
+			#				}
+			#				is_subject_of = event_target:WTT_current_china_leader
+			#			}
+			#		}
+			#		event_target:WTT_current_china_leader = {
+			#		    any_owned_state = {
+			#				is_controlled_by = event_target:WTT_current_china_leader
+			#				OR = {
+			#					custom_trigger_tooltip = {
+			#						tooltip = is_in_strat_252
+			#						region = 252
+			#					}
+			#				    custom_trigger_tooltip = {
+			#						tooltip = is_in_strat_145
+			#						region = 145
+			#					}
+			#				}
+			#			}
+			#		}
+			#	}
+			#}
+		}
+
+		cost = 25
+		days_remove = 5
+		days_re_enable = 0
+		fire_only_once = yes
+
+		modifier = {
+		}
+
+		remove_effect = {
+			#custom_effect_tooltip = PRC_contact_zhang_zhizong_focus_tt
+			#MODDED
+			SIK = {
+			    hidden_effect = { #guo
+				set_global_flag = PRC_contact_sik_decision_happen
+				every_unit_leader = {
+					limit = {
+						OR = {
+							has_trait = hidden_sympathies
+						}
+					}
+					remove_unit_leader_trait = hidden_sympathies
+				}
+				}
+			    country_event = {
+					id = EFM_Comchina_SIK.45
+			    }
+		    }
+			custom_effect_tooltip = if_they_accept_green
+			effect_tooltip = {
+				annex_country = { target = SIK transfer_troops = yes }
+			}
+		}
+		complete_effect = {
+			
+		}
+		ai_will_do = {
+			factor = 9999 #guo
+		}
+	}
+
+	PRC_contact_xik_decision = {
+		icon = GFX_decision_generic_political_discourse
+		allowed = {
+			is_literally_china = yes
+		}
+		visible = {
+			has_completed_focus = PRC_contact_cheng_qian_focus
+		}
+		available = {
+			#always = no ###this needs some work
+			any_enemy_country = {
+				OR = {
+					tag = XIK
+					tag = SIC
+				}
+				has_capitulated = no
+			}
+			#NOT = {
+			#	country_exists = SIC
+			#}
+			event_target:WTT_current_china_leader = {
+				has_war_with = ROOT
+				#is_neighbor_of = ROOT
+				NOT = {
+					controls_state = 1015
+					controls_state = 613
+				}
+				OR = {
+					controls_state = 605
+					controls_state = 751
+					controls_state = 753
+					controls_state = 1041
+					has_subject = SIC
+				}
+			}
+			controls_state = 608
+		}
+
+		cost = 25
+		days_remove = 5
+		days_re_enable = 0
+		fire_only_once = yes
+
+		modifier = {
+
+		}
+
+		remove_effect = {
+			#custom_effect_tooltip = PRC_contact_cheng_qian_focus_tt
+			if = {
+				limit = {
+					any_enemy_country = {
+						tag = XIK
+					}
+				}
+				every_enemy_country = {
+					limit = {
+						OR = {
+							tag = XIK
+							#tag = SIC
+						}
+					}
+					country_event = {
+						id = rcmchina.214
+					}
+				}
+				custom_effect_tooltip = if_they_accept_green 
+			    custom_effect_tooltip = all_of_their_units_join_us_tt
+			    effect_tooltip = {
+				    event_target:WTT_current_china_leader = { 
+						annex_country = { target = XIK transfer_troops = no }	
+					}
+			    }
+			}
+			if = {
+				limit = {
+					any_enemy_country = {
+						tag = SIC
+					}
+				}
+				every_enemy_country = {
+					limit = {
+						OR = {
+							tag = SIC
+						}
+					}
+					country_event = {
+						id = rcmchina.214
+					}
+				}
+				custom_effect_tooltip = if_they_accept_green 
+			    effect_tooltip = {
+				   annex_country = { target = SIC transfer_troops = no }
+			    }
+			}
+		}
+		complete_effect = {
+			
+		}
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+
+	PRC_contact_yun_decision = {
+		icon = GFX_decision_generic_political_discourse
+		allowed = {
+			is_literally_china = yes
+		}
+		visible = {
+			has_completed_focus = PRC_contact_cheng_qian_focus
+		}
+		available = {
+		    controls_state = 1015 #guo
+			controls_state = 1034
+			controls_state = 744
+		
+			any_enemy_country = {
+				tag = YUN
+				has_capitulated = no
+				#is_neighbor_of = ROOT
+			}
+			event_target:WTT_current_china_leader = {
+				has_war_with = ROOT
+				#is_neighbor_of = ROOT
+				NOT = {
+					controls_state = 608
+					controls_state = 1015
+					controls_state = 613
+				}
+			}
+		}
+
+		cost = 25
+		days_remove = 10
+		days_re_enable = 0
+		fire_only_once = yes
+
+		modifier = {
+
+		}
+
+		remove_effect = {
+			YUN = {
+				country_event = rcmchina.213
+			}
+			custom_effect_tooltip = if_they_accept_green 
+			effect_tooltip = {
+				annex_country = { target = YUN transfer_troops = yes }	
+			}
+		}
+		complete_effect = {
+			
+		}
+		ai_will_do = {
+			factor = 9999 #guo
+		}
+	}
+
+	PRC_contact_nxm_decision = {
+		icon = GFX_decision_generic_political_discourse
+		allowed = {
+			is_literally_china = yes
+		}
+		visible = {
+			has_completed_focus = PRC_contact_cheng_qian_focus
+		}
+		available = {
+			any_enemy_country = {
+				tag = NXM
+				is_neighbor_of = ROOT
+				has_capitulated = no
+			}
+			event_target:WTT_current_china_leader = {
+				has_war_with = ROOT
+				#is_neighbor_of = ROOT
+				NOT = {
+					controls_state = 608
+					controls_state = 1015
+					#controls_state = 613
+				}
+			}
+		}
+
+		cost = 25
+		days_remove = 5
+		days_re_enable = 0
+		fire_only_once = yes
+
+		modifier = {
+
+		}
+
+		remove_effect = {
+			NXM = {
+				country_event = {
+					id = EFM_Comchina.50
+				}
+			}
+			custom_effect_tooltip = if_they_accept_green 
+			effect_tooltip = {
+				annex_country = { target = NXM transfer_troops = yes }	
+			}
+		}
+		complete_effect = {
+			
+		}
+		ai_will_do = {
+			factor = 9999 #guo
+		}
+	}
+
+    PRC_contact_shc_decision = {
+		icon = GFX_decision_generic_political_discourse
+		allowed = {
+			is_literally_china = yes
+		}
+		visible = {
+			has_completed_focus = PRC_contact_cheng_qian_focus
+		}
+		available = {
+			any_enemy_country = {
+				tag = SHC
+				has_capitulated = no
+				is_neighbor_of = ROOT
+			    surrender_progress > 0.01
+				has_war_support < 0.8
+			}
+			event_target:WTT_current_china_leader = {
+				has_war_with = ROOT
+				#is_neighbor_of = ROOT
+			}
+			controls_state = 608
+			controls_state = 614
+			controls_state = 597
+			controls_state = 1016
+			controls_state = 1029
+		}
+
+		cost = 25
+		days_remove = 10
+		days_re_enable = 0
+		fire_only_once = yes
+
+		modifier = {
+
+		}
+
+		remove_effect = {
+			SHC = {
+				country_event = rcmchina.213
+			}
+			custom_effect_tooltip = if_they_accept_green 
+			effect_tooltip = {
+				annex_country = { target = SHC transfer_troops = yes }	
+			}
+		}
+		complete_effect = {
+			
+		}
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+}
+
+PRC_move_capital_cat = {
+	PRC_move_capital_decision = { 
+		icon = GFX_decision_generic_form_nation
+		allowed = {
+			is_literally_china = yes
+		}
+		
+		state_target = yes
+		on_map_mode = map_and_decisions_view #map_only  #guo
+		target_trigger = {
+			FROM = {
+				is_owned_and_controlled_by = ROOT
+				is_capital = no 
+				is_in_home_area = yes
+			}
+		}
+
+
+		visible = {
+			hidden_trigger = {
+				has_completed_focus = PRC_Guerrilla_warfare_orientation
+			}
+			NOT = {
+				OR = {
+					has_completed_focus = PRC_A_New_Country
+					has_completed_focus = PRC_For_the_Soviets
+					has_completed_focus = PRC_Federal_Republic
+				}
+			}
+		}
+		available = {
+			FROM = {
+				is_controlled_by = ROOT
+				is_capital = no 
+				is_in_home_area = yes
+			}
+			has_war = yes
+		}
+
+		cost = 25
+		days_remove = 30
+		days_re_enable = 30
+		fire_only_once = no
+
+		modifier = {
+            political_power_gain = -0.25
+		}
+
+		remove_effect = {
+			set_capital = { state = FROM }
+		}
+		complete_effect = {
+			custom_effect_tooltip = 60d_cd_tt
+		}
+
+        cancel_if_not_visible = yes
+
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 1000
+				FROM = {
+					OR = {
+						region = 143
+						region = 155
+						region = 243
+						region = 242
+					}
+				}
+				OR = {
+					NOT = {
+						controls_state = 1029
+					}
+					NOT = {
+						has_full_control_of_state = 1030
+					}
+					AND = {
+						NOT = {
+							controls_state = 608
+						}
+						NOT = {
+							has_full_control_of_state = 1020
+						}
+						NOT = {
+							has_full_control_of_state = 611
+						}
+					}
+				}
+				any_owned_state = {
+					is_controlled_by = ROOT
+					is_capital = no
+					is_in_home_area = yes
+					OR = {
+						region = 143
+						region = 155
+						region = 243
+						region = 242
+					}
+				}
+				any_owned_state = {
+					is_controlled_by = ROOT
+					is_capital = yes
+					is_in_home_area = yes
+					region = 245
+				}
+				count_triggers = {
+					amount > 4
+					controls_state = 715
+		            controls_state = 716
+		            controls_state = 1008
+		            controls_state = 328
+		            controls_state = 1007
+		            controls_state = 1011
+		            controls_state = 714
+		            controls_state = 717
+		            controls_state = 1005
+					controls_state = 610
+					controls_state = 745
+					controls_state = 761
+					controls_state = 608
+					controls_state = 609
+					controls_state = 611
+					controls_state = 614
+					controls_state = 621
+					controls_state = 746
+					controls_state = 1014
+					controls_state = 615
+					controls_state = 1017
+					controls_state = 1027
+					controls_state = 1013
+					#controls_state = 622
+					controls_state = 616
+					controls_state = 612
+					#controls_state = 1029
+					#controls_state = 744
+					#controls_state = 1031
+					controls_state = 1012
+					controls_state = 1016
+					controls_state = 1044
+					controls_state = 991
+					controls_state = 1019
+					controls_state = 1020
+					controls_state = 998
+				}
+			}
+		}
+	}
+}

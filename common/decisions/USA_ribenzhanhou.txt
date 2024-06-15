@@ -1,0 +1,248 @@
+日本战后处理方案{
+    执行四国分区占领日本方案 = {
+		icon = generic_prepare_civil_war 
+		available = {
+			has_government = democratic
+            USA = { puppet = JAP }		
+			}			
+        cost = 50
+		days_remove = 90
+        fire_only_once = yes 
+		ai_will_do = { 
+		    	factor = 0
+		}
+		visible = { has_government = democratic
+		USA = { puppet = JAP }
+		}
+        complete_effect = {
+        USA ={
+            set_state_controller = 282
+			set_state_owner = 282
+            set_state_controller = 532
+			set_state_owner = 532
+	        set_state_controller = 535
+			set_state_owner = 535
+	        set_state_controller = 534
+			set_state_owner = 534
+	        set_state_controller = 531
+			set_state_owner = 531				
+            }
+        ENG ={
+            set_state_controller = 528
+			set_state_owner = 528
+            set_state_controller = 529
+			set_state_owner = 529
+	        set_state_controller = 994
+			set_state_owner = 994				
+            }
+        CHI ={
+            set_state_controller = 530
+			set_state_owner = 530
+            set_state_controller = 526
+			set_state_owner = 526				
+            }
+        SOV ={
+            set_state_controller = 533
+			set_state_owner = 533
+            set_state_controller = 995
+			set_state_owner = 995
+	        set_state_controller = 996
+			set_state_owner = 996
+		    set_state_controller = 536
+			set_state_owner = 536
+	        set_state_controller = 555
+			set_state_owner = 555
+		    set_state_controller = 537
+			set_state_owner = 537			
+            }
+        }           
+
+
+    }			
+    建立大和民国 = {
+		icon = generic_prepare_civil_war 
+		available = {
+			has_government = democratic
+			282 = {
+				is_controlled_by_ROOT_or_puppet = yes
+			}
+			532 = {
+				is_controlled_by_ROOT_or_puppet = yes
+			}
+			535 = {
+				is_controlled_by_ROOT_or_puppet = yes
+			}
+			534 = {
+				is_controlled_by_ROOT_or_puppet = yes
+			}
+		    531 = {
+				is_controlled_by_ROOT_or_puppet = yes
+			}					
+		}
+        cost = 100
+		days_remove = 90
+            fire_only_once = yes #仅可触发一次 yes/no
+		    ai_will_do = { #ai倾向
+		    	factor = 0
+		}
+		visible = { has_government = democratic
+			282 = {
+				is_controlled_by_ROOT_or_puppet = yes
+			}
+			532 = {
+				is_controlled_by_ROOT_or_puppet = yes
+			}
+			535 = {
+				is_controlled_by_ROOT_or_puppet = yes
+			}
+			534 = {
+				is_controlled_by_ROOT_or_puppet = yes
+			}
+		    531 = {
+				is_controlled_by_ROOT_or_puppet = yes
+			}
+		}
+        complete_effect = { 
+        531 = {
+            add_core_of = GUM
+        }
+        995 = {
+            add_core_of = GUM
+        }		
+        532 = {
+            add_core_of = GUM
+        }
+        535 = {
+            add_core_of = GUM
+        }
+        534 = {
+            add_core_of = GUM
+        }
+        282 = {
+            add_core_of = GUM
+        }
+        533 = {
+            add_core_of = GUM
+        }
+        536 = {
+            add_core_of = GUM
+        }
+        996 = {
+            add_core_of = GUM
+        }
+	    555 = {
+            add_core_of = GUM
+        }	
+        530 = {
+            add_core_of = GUM
+        }
+	    529 = {
+            add_core_of = GUM
+        }
+        528 = {
+            add_core_of = GUM
+        }
+        994 = {
+            add_core_of = GUM
+        }
+	    638 = {
+            remove_core_of = GUM
+        }
+	    648 = {
+            remove_core_of = GUM
+        }
+		646 = {
+            remove_core_of = GUM
+        }
+	    632 = {
+            remove_core_of = GUM
+        }
+        JAP ={
+            give_military_access = USA #给美国军通
+            set_state_controller = 282
+			set_state_owner = 282
+            set_state_controller = 532
+			set_state_owner = 532
+	        set_state_controller = 535
+			set_state_owner = 535
+	        set_state_controller = 534
+			set_state_owner = 534
+	        set_state_controller = 531
+			set_state_owner = 531
+            set_state_controller = 528
+			set_state_owner = 528
+            set_state_controller = 529
+			set_state_owner = 529
+	        set_state_controller = 994
+			set_state_owner = 994
+	        set_state_controller = 530
+			set_state_owner = 530
+		    remove_ideas = emperor_showa
+		    set_cosmetic_tag = JAP_minguo			
+			set_party_name = {
+					ideology = democratic
+					name = "自由民主党"
+					long_name = "自由民主党"
+				}
+            create_country_leader = {
+                name = "吉田茂"
+                desc = "POLITICS_DETIANQIUYI_DESC"
+                picture = "gfx/leaders/JAP/jitianmao.jpg"
+                expire = "1965.1.1"
+                ideology = conservatism
+                traits = { national_integralist popular_figurehead anti_communist
+                }
+            }				
+            set_capital = {
+                state = 282
+                remember_old_capital = no
+            }
+               }
+            USA ={
+                puppet = JAP
+
+            }	
+	
+        GUM ={
+            give_military_access = SOV #给苏联国军通
+            set_state_controller = 533
+			set_state_owner = 533
+            set_state_controller = 995
+			set_state_owner = 995
+	        set_state_controller = 996
+			set_state_owner = 996
+		    set_state_controller = 536
+			set_state_owner = 536
+				add_ideas = JAP_agrarian_reform_idea
+				add_ideas = JAP_red_brigades					
+				add_ideas = JAP_reeducation_campaign
+				add_ideas = intemationalism
+				add_ideas = JAP_nationalize_the_zaibatsus		
+				set_cosmetic_tag = JAP_communism
+			set_party_name = {
+					ideology = communism
+					name = "日本共产党"
+					long_name = "日本共产党"
+				}			
+            create_country_leader = {
+                name = "德田球一"
+                desc = "POLITICS_DETIANQIUYI_DESC"
+                picture = "gfx/leaders/JAP/Portrait_Japan_Kyuichi_Tokuda.dds"
+                expire = "1965.1.1"
+                ideology = marxism
+                traits = { cornered_fox
+                }
+            }
+            set_capital = {
+                state = 533
+                remember_old_capital = no
+            }     
+       }
+            SOV ={
+                puppet = GUM
+
+            }	
+     
+    }
+		}
+}

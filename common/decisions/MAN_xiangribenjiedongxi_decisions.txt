@@ -1,0 +1,417 @@
+MAN_xiangribenjiedongxi_decisions_categories = {
+
+
+    #####################
+    #######正文开始#######
+    #####################
+	
+	#MAN_assertiveness 王道统治
+
+	#借用机床-借点民工
+	jie_yong_ji_chuang = {
+		icon = GFX_decision_category_generic_trade
+		available = {
+				AND = {
+					TAG = MAN
+					has_completed_focus = MAN_assertiveness
+				}
+		}
+		visible = {
+				has_completed_focus = MAN_assertiveness
+		}
+		cost = 25
+		ai_will_do = {
+			factor = 5
+		}
+		days_remove = 35
+		days_re_enable = 35
+		remove_effect = {
+			jie_yong_ming_yong_gogn_chang = yes
+			country_event = {id = jieyong.1}
+		}
+	}
+	#借用武器产线
+	jie_yong_chan_xian = {
+		icon = GFX_decision_category_CHL_nacista_decisions
+		available = {
+				AND = {
+					TAG = MAN
+					has_completed_focus = MAN_assertiveness
+				}
+		}
+		visible = {
+				has_completed_focus = MAN_assertiveness
+		}
+		cost = 25
+		ai_will_do = {
+			factor = 5
+		}
+		days_remove = 35
+		days_re_enable = 35
+		remove_effect = {
+			jie_yong_jun_yong_gogn_chang = yes
+			country_event = {id = jieyong.2}
+		}
+	}
+	#借用船坞建筑
+	jie_yong_chuan_wu = {
+		icon = GFX_decision_category_SWI_presidential_office
+		available = {
+				AND = {
+					TAG = MAN
+					has_completed_focus = MAN_assertiveness
+				}
+		}
+		visible = {
+				has_completed_focus = MAN_assertiveness
+		}
+		cost = 25
+		ai_will_do = {
+			factor = 5
+		}
+		days_remove = 35
+		days_re_enable = 35
+		remove_effect = {
+			jie_yong_chuan_wu = yes
+			country_event = {id = jieyong.3}
+		}
+	}
+	#借用日本前线军队
+       jie_yong_bu_dui = {
+		icon = GFX_decision_category_army_reform
+		available = {
+				AND = {
+					TAG = MAN
+					has_completed_focus = MAN_assertiveness
+				}
+		}
+		visible = {
+			has_army_experience > 4	
+				has_completed_focus = MAN_assertiveness
+		}
+		custom_cost_trigger = {	
+			has_army_experience > 4	
+		}
+		custom_cost_text = lu_jun_jin_yan_localisation_key			
+		#cost = 0
+		ai_will_do = {
+			factor = 0
+		}
+		days_remove = 35
+		days_re_enable = 35
+		remove_effect = {
+			jie_yong_bu_dui = yes
+			country_event = {id = jieyong.4}
+			hidden_effect = {
+				army_experience = -5
+			}
+		}
+	}
+	#借用舰队
+	jie_yong_jian_dui = {
+		icon = GFX_decision_category_ITA_cooperation_programs
+		available = {
+				AND = {
+					TAG = MAN
+					has_completed_focus = MAN_assertiveness
+				}
+		}
+		visible = {
+			has_navy_experience > 4	
+		        has_completed_focus = MAN_assertiveness
+		}
+
+		custom_cost_trigger = {	
+			has_navy_experience > 4			
+		}
+		custom_cost_text = hai_jun_jin_yan_localisation_key	
+
+		ai_will_do = {
+			factor = 0
+		}
+		days_remove = 35
+		days_re_enable = 35
+		remove_effect = {
+			country_event = {id = jieyong.5}
+			hidden_effect = {
+				navy_experience = -5
+			}
+		}
+	}
+	#借用飞机
+	     jie_yong_fei_ji= {
+		icon = GFX_decision_category_SWI_imperial_council
+		available = {
+				AND = {
+					TAG = MAN
+					has_completed_focus = MAN_assertiveness
+				}
+		}
+		visible = {
+			has_air_experience > 4
+			has_completed_focus = MAN_assertiveness
+		}
+
+		custom_cost_trigger = {	
+			has_air_experience > 4
+		}
+		custom_cost_text = kong_jun_jin_yan_localisation_key	
+
+		ai_will_do = {
+			factor = 0
+		}
+		days_remove = 35
+		days_re_enable = 35
+		remove_effect = {
+			country_event = {id = jieyong.6}
+			jie_yong_fei_ji_zhan_dou_ji = yes
+			jie_yong_fei_ji_CAS = yes
+			hidden_effect = {
+				air_experience = -5
+			}
+		}
+	}
+	#MAN_invite_japanese_settlers
+	#借用人口
+	mi_mi_zhuan_yi = {
+		icon = GFX_decision_category_power_struggle
+		available = {
+				AND = {
+					TAG = MAN
+					has_completed_focus = MAN_assertiveness
+				}
+		}
+		visible = {
+				has_completed_focus = MAN_assertiveness
+		}
+		cost = 15
+		ai_will_do = {
+			factor = 5
+		}
+		days_remove = 35
+		days_re_enable = 35
+		remove_effect = {
+			jie_yong_ren_kou = yes
+			country_event = {id = jieyong.7}
+		}
+	}
+	#借用岛屿
+	jie_yong_dao_yu = {
+		icon = GFX_decision_category_border_war
+		priority = -1
+		available = {
+			AND = {
+				OR = {
+					AND = {
+						TAG = MAN
+						has_completed_focus = MAN_assertiveness
+					}
+				}	
+				NOT = {
+					AND = {
+						controls_state = 745
+						controls_state = 524
+						controls_state = 526
+						controls_state = 537
+						controls_state = 555
+						controls_state = 645
+						controls_state = 648
+						controls_state = 647
+						controls_state = 646
+						controls_state = 684
+					}
+				}	
+			}
+		}
+		visible = {
+				has_completed_focus = MAN_assertiveness
+		}
+		cost = 25
+		days_re_enable = 35
+		ai_will_do = {
+			factor = 0
+		}
+		days_remove = 35
+		remove_effect = {
+			jie_yong_xiao_dao = yes
+			country_event = {id = jieyong.8}
+		}
+	}
+	#借用将领
+	jie_yong_jiang_ling = {
+		icon = GFX_decision_category_military_operation
+		available = {
+				AND = {
+					TAG = MAN
+					has_completed_focus = MAN_assertiveness
+				}
+		}
+		visible = {
+				has_completed_focus = MAN_assertiveness
+		}
+		cost = 5
+		ai_will_do = {
+			factor = 1
+		}
+		days_remove = 35
+		days_re_enable = 35
+		remove_effect = {
+			jie_yong_jiang_ling = yes
+			country_event = {id = jieyong.9}
+		}
+	}
+	#骗取好感度
+	pian_qu_ri_ben_hao_gan = {
+		icon = GFX_decision_category_usa_intervention_mandate
+		fire_only_once = yes
+		available = {
+				AND = {
+					TAG = MAN
+					has_completed_focus = MAN_assertiveness
+				}
+		}
+		visible = {
+				has_completed_focus = MAN_assertiveness
+		}
+		cost = 5
+		ai_will_do = {
+			factor = 0
+		}
+		days_remove = 35
+		days_re_enable = 35
+		remove_effect = {
+			country_event = {id = jieyong.10}
+		}
+	}
+	#借用天皇
+	jie_yong_tian_huang = {
+		icon = GFX_decision_category_jap_pacific_guardian
+		priority = -2
+		fire_only_once = yes
+		available = {
+				AND = {
+					TAG = MAN
+					has_completed_focus = MAN_assertiveness
+			}
+		}
+		visible = {
+				has_completed_focus = MAN_assertiveness
+		}
+		cost = 50
+		ai_will_do = {
+			factor = 0
+		}
+		days_remove = 35
+		days_re_enable = 35
+		remove_effect = {
+			country_event = {id = jieyong.11}
+		}
+	}
+	#借用精神
+	        jie_yong_jing_sheng = {
+		icon = GFX_decision_category_generic
+		priority = -3
+		available = {
+			OR = {
+				NOT = {
+					has_idea = student_mobilization_idea
+				}
+			       NOT = {
+					has_idea = spiritual_mobilization_idea	
+				}
+			       NOT = {
+					has_idea = JAP_first_air_fleet	
+				}
+			       NOT = {
+					has_idea = JAP_expand_the_snlf	
+				}
+				NOT = {
+					has_idea = JAP_superior_will
+				}
+				NOT = {
+					has_idea = JAP_japanese_army_academy
+				}
+				NOT = {
+					has_idea = JAP_supremacy_of_technology	
+				}
+				NOT = {
+					has_idea = the_long_lance_2	
+				}
+				
+			}
+				
+					AND = {
+						TAG = MAN
+						has_completed_focus = MAN_assertiveness
+					}	
+			
+		}
+		visible = {
+				has_completed_focus = MAN_assertiveness
+		}
+		cost = 100
+		ai_will_do = {
+			factor = 0
+		}
+		days_remove = 35
+		days_re_enable = 35
+		remove_effect = {
+			jie_yong_jing_sheng = yes
+			country_event = {id = jieyong.12}
+		}
+	}
+
+	#借用资源
+	jie_yong_zi_yuan = {
+		icon = GFX_decision_category_generic_prospect_for_resources
+		visible = {
+				has_completed_focus = MAN_assertiveness
+		}
+		cost = 15
+		ai_will_do = {
+			factor = 0
+		}
+		days_remove = 35
+		days_re_enable = 35
+		fire_only_once = yes
+		remove_effect = {
+			jie_yong_zi_yuan = YES
+			country_event = {id = jieyong.13}
+		}
+	}
+	#借用科技
+	jie_yong_ke_ji = {
+		icon = GFX_decision_spr_political_assassination
+		visible = {
+				has_completed_focus = MAN_assertiveness
+		}
+		cost = 25
+		ai_will_do = {
+			factor = 0
+		}
+		days_remove = 35
+		days_re_enable = 35
+		remove_effect = {
+			country_event = {id = jieyong.14}
+		}
+	}
+	#借用军工组织
+	jie_yong_jun_gong_zu_zhi = {
+		icon = GFX_decision_category_SOV_soviet_academy_of_sciences
+		visible = {
+				has_completed_focus = MAN_assertiveness
+		}
+		cost = 50
+		ai_will_do = {
+			factor = 0
+		}
+		days_remove = 35
+		days_re_enable = 35
+		remove_effect = {
+			country_event = {id = jieyong.15}
+			ROOT = {
+				set_country_flag = ROOT.ke_yi_shi_yong_flag
+			}
+		}
+	}
+}

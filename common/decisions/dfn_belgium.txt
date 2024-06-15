@@ -1,0 +1,4726 @@
+BEL_colonial_management_category = {
+	BEL_infrastructure_development = {
+		icon = generic_construction
+		
+		available = {
+			OR = {
+				controls_state = 295
+				controls_state = 888
+				controls_state = 889
+				controls_state = 890
+				controls_state = 538
+				controls_state = 718
+				controls_state = 768
+				controls_state = 769
+			}
+		}
+		
+		visible = {
+			any_owned_state = {
+				has_state_flag = BEL_belgian_colonial_state
+				NOT = { has_state_flag = BEL_developed_infrastructure }
+			}
+		}
+		
+		cost = 50
+		fire_only_once = no 
+		days_remove = 60
+		ai_will_do = {
+			factor = 1 
+			}
+		modifier = {
+			political_power_cost = 0.1
+			}
+		complete_effect = {
+			random_owned_state = {
+				limit = {
+				has_state_flag = BEL_belgian_colonial_state
+				NOT = { has_state_flag = BEL_developed_infrastructure }
+				}
+			set_state_flag = BEL_developed_infrastructure
+			set_state_flag = BEL_selected_for_infrastructure_development
+			}
+		}
+		remove_effect = {
+			every_state = {
+				limit = {
+					has_state_flag = BEL_selected_for_infrastructure_development
+					}
+				add_building_construction = {
+					type = infrastructure 
+					level = 1
+					instant_build = yes
+				}
+				clr_state_flag = BEL_selected_for_infrastructure_development
+			}
+		}
+	}
+	BEL_industrialization = {
+		available = {
+			OR = {
+				controls_state = 295
+				controls_state = 888
+				controls_state = 889
+				controls_state = 890
+				controls_state = 538
+				controls_state = 718
+				controls_state = 768
+				controls_state = 769
+			}
+		}
+		
+		visible = {
+			any_owned_state = {
+				has_state_flag = BEL_belgian_colonial_state
+				NOT = { has_state_flag = BEL_industrialized_state }
+			}
+		}
+		
+		cost = 50
+		fire_only_once = no 
+		days_remove = 60
+		ai_will_do = {
+			factor = 1 
+			}
+		modifier = {
+			political_power_cost = 0.1
+			}
+		complete_effect = {
+			random_owned_state = {
+				limit = {
+				has_state_flag = BEL_belgian_colonial_state
+				NOT = { has_state_flag = BEL_industrialized_state }
+				}
+			set_state_flag = BEL_industrialized_state
+			set_state_flag = BEL_selected_for_industrialization
+			}
+		}
+		remove_effect = {
+			every_state = {
+				limit = {
+					has_state_flag = BEL_selected_for_industrialization
+					}
+				add_extra_state_shared_building_slots = 1
+				clr_state_flag = BEL_selected_for_industrialization
+			}
+		}
+	}
+	BEL_african_workers = {
+		icon = generic_industry
+		priority = 100
+		available = {
+			any_controlled_state = {
+				is_on_continent = africa
+			}
+		}
+		visible = {
+			NOT = { has_idea = BEL_african_workers }
+			}
+		
+		cost = 100
+		fire_only_once = yes 
+		ai_will_do = {
+			factor = 1 
+			}
+		complete_effect = {
+			add_stability = -0.1
+			add_ideas = BEL_african_workers
+		}
+	}
+	BEL_connect_supply_hubs = {
+		icon = generic_construction
+		available = {
+			controls_state = 295
+			controls_state = 888
+			controls_state = 889
+		}
+		visible = {
+			
+			}
+		
+		cost = 25
+		days_remove = 30
+		fire_only_once = yes 
+		ai_will_do = {
+			factor = 1 
+			}
+			
+		remove_effect = {
+			build_railway = {
+			path = { 5117 12945 12896 4128 9986 1516 4515 191 } 
+			level = 2
+				}
+			}
+		}
+	}
+
+BEL_integrate_colonies_category = {
+	BEL_integrate_zaire = {
+		icon = generic_form_nation
+		available = {
+			NOT = { has_country_flag = BEL_integrating_state }
+			295 = { is_fully_controlled_by = BEL }
+			888 = { is_fully_controlled_by = BEL }
+			889 = { is_fully_controlled_by = BEL }
+			890 = { is_fully_controlled_by = BEL }
+			538 = { is_fully_controlled_by = BEL }
+			718 = { is_fully_controlled_by = BEL }
+		}
+		visible = {
+		
+		}
+		cost = 200
+		days_remove = 240
+		fire_only_once = yes
+		modifier = {
+			political_power_cost = 0.5
+			consumer_goods_factor = 0.30
+			production_speed_buildings_factor = -0.1
+			}
+		ai_will_do = {
+			base = 0 
+			}
+		
+		complete_effect = {
+			add_stability = -0.1
+			set_country_flag = BEL_integrating_state
+		}
+		
+		remove_effect = {
+			clr_country_flag = BEL_integrating_state
+			add_state_core = 295
+			add_state_core = 888
+			add_state_core = 889
+			add_state_core = 890
+			add_state_core = 538
+			add_state_core = 718
+		}
+	}
+	BEL_integrate_rwanda = {
+		icon = generic_form_nation
+		available = {
+			NOT = { has_country_flag = BEL_integrating_state }
+			768 = { is_fully_controlled_by = BEL }
+		}
+		visible = {
+		
+		}
+		cost = 100
+		days_remove = 120
+		fire_only_once = yes
+		modifier = {
+			political_power_cost = 0.5
+			consumer_goods_factor = 0.30
+			production_speed_buildings_factor = -0.1
+			}
+		ai_will_do = {
+			base = 0 
+			}
+		
+		complete_effect = {
+			add_stability = -0.05
+			set_country_flag = BEL_integrating_state
+		}
+		
+		remove_effect = {
+			clr_country_flag = BEL_integrating_state
+			add_state_core = 768
+		}
+	}
+	BEL_integrate_burundi = {
+		icon = generic_form_nation
+		available = {
+			NOT = { has_country_flag = BEL_integrating_state }
+			769 = { is_fully_controlled_by = BEL }
+		}
+		visible = {
+		
+		}
+		cost = 100
+		days_remove = 120
+		fire_only_once = yes
+		modifier = {
+			political_power_cost = 0.5
+			consumer_goods_factor = 0.30
+			production_speed_buildings_factor = -0.1
+			}
+		ai_will_do = {
+			base = 0 
+			}
+		
+		complete_effect = {
+			add_stability = -0.05
+			set_country_flag = BEL_integrating_state 
+		}
+		
+		remove_effect = {
+			clr_country_flag = BEL_integrating_state
+			add_state_core = 769
+		}
+	}
+}
+
+BEL_army_modernization_category = {
+	BEL_instruct_the_proper_use_of_modern_infrastructure = {
+		icon = generic_army_support
+		available = {
+			NOT = { has_country_flag = BEL_improving_army_conditions }
+			has_army_experience > 10
+		}
+		visible = {
+		
+		}
+		cost = 50
+		days_remove = 60
+		fire_only_once = yes
+		modifier = {
+			political_power_cost = 0.25
+		}
+		ai_will_do = {
+			base = 1 
+			}
+		
+		complete_effect = {
+			set_country_flag = BEL_improving_army_conditions
+			hidden_effect = {
+				army_experience = -10
+			}
+		}
+		
+		remove_effect = {
+			clr_country_flag = BEL_improving_army_conditions
+			custom_effect_tooltip = BEL_modify_belgian_army_tt
+			custom_effect_tooltip = BEL_instruct_the_proper_use_of_modern_infrastructure_tt
+			add_to_variable = { var = BEL_army_speed_factor value = 0.1 }
+			}
+		}
+	BEL_modernize_our_tactics = {
+		icon = generic_army_support
+		available = {
+			NOT = { has_country_flag = BEL_improving_army_conditions }
+			has_army_experience > 10
+		}
+		visible = {
+		
+		}
+		cost = 50
+		days_remove = 60
+		fire_only_once = yes
+		modifier = {
+			political_power_cost = 0.25
+		}
+		ai_will_do = {
+			base = 1 
+			}
+		
+		complete_effect = {
+			set_country_flag = BEL_improving_army_conditions
+			hidden_effect = {
+				army_experience = -10
+			}
+		}
+		
+		remove_effect = {
+			clr_country_flag = BEL_improving_army_conditions
+			custom_effect_tooltip = BEL_modify_belgian_army_tt
+			custom_effect_tooltip = BEL_modernize_our_tactics_tt
+			add_to_variable = { var = BEL_army_org_factor value = 0.08 }
+			}
+	}
+	BEL_review_our_training_method = {
+		icon = generic_army_support
+		available = {
+			NOT = { has_country_flag = BEL_improving_army_conditions }
+			has_army_experience > 10
+		}
+		visible = {
+		
+		}
+		cost = 50
+		days_remove = 60
+		fire_only_once = yes
+		modifier = {
+			political_power_cost = 0.25
+		}
+		ai_will_do = {
+			base = 1 
+			}
+		
+		complete_effect = {
+			set_country_flag = BEL_improving_army_conditions
+			hidden_effect = {
+				army_experience = -10
+			}
+		}
+		
+		remove_effect = {
+			clr_country_flag = BEL_improving_army_conditions
+			custom_effect_tooltip = BEL_modify_belgian_army_tt
+			custom_effect_tooltip = BEL_review_our_training_method_tt
+			custom_effect_tooltip = BEL_review_our_training_method1_tt
+			add_to_variable = { var = BEL_war_support_factor value = 0.15 }
+			add_to_variable = { var = BEL_minimum_training_level value = 0.1 }
+			}
+	}
+	BEL_officer_training = {
+		icon = generic_army_support
+		available = {
+			NOT = { has_country_flag = BEL_improving_army_conditions }
+			has_army_experience > 10
+		}
+		visible = {
+		
+		}
+		cost = 50
+		days_remove = 60
+		fire_only_once = yes
+		modifier = {
+			political_power_cost = 0.25
+		}
+		ai_will_do = {
+			base = 1 
+			}
+		
+		complete_effect = {
+			set_country_flag = BEL_improving_army_conditions
+			hidden_effect = {
+				army_experience = -10
+			}
+		}
+		
+		remove_effect = {
+			clr_country_flag = BEL_improving_army_conditions
+			custom_effect_tooltip = BEL_modify_belgian_army_tt
+			custom_effect_tooltip = BEL_officer_training_tt
+			custom_effect_tooltip = BEL_officer_training1_tt
+			custom_effect_tooltip = BEL_officer_training2_tt
+			add_to_variable = { var = BEL_command_power_gain_mult value = 0.2 }
+			add_to_variable = { var = BEL_max_planning value = 0.1 }
+			add_to_variable = { var = BEL_planning_speed value = 0.1 }
+			}
+	}
+	BEL_adaptation_to_modern_warfare = {
+		icon = generic_army_support
+		available = {
+			NOT = { has_country_flag = BEL_improving_army_conditions }
+			has_army_experience > 10
+		}
+		visible = {
+		
+		}
+		cost = 50
+		days_remove = 60
+		fire_only_once = yes
+		modifier = {
+			political_power_cost = 0.25
+		}
+		ai_will_do = {
+			base = 1 
+			}
+		
+		complete_effect = {
+			set_country_flag = BEL_improving_army_conditions
+			hidden_effect = {
+				army_experience = -10
+			}
+		}
+		
+		remove_effect = {
+			clr_country_flag = BEL_improving_army_conditions
+			custom_effect_tooltip = BEL_modify_belgian_army_tt
+			custom_effect_tooltip = BEL_adaptation_to_modern_warfare_tt
+			add_to_variable = { var = BEL_land_doctrine_cost_factor value = -0.25 }
+			}
+	}
+	BEL_defense_council = {
+		icon = generic_army_support
+		available = {
+			NOT = { has_country_flag = BEL_improving_army_conditions }
+			has_army_experience > 10
+		}
+		visible = {
+		
+		}
+		cost = 50
+		days_remove = 60
+		fire_only_once = yes
+		modifier = {
+			political_power_cost = 0.25
+		}
+		ai_will_do = {
+			base = 1 
+			}
+		
+		complete_effect = {
+			set_country_flag = BEL_improving_army_conditions
+			hidden_effect = {
+				army_experience = -10
+			}
+		}
+		
+		remove_effect = {
+			clr_country_flag = BEL_improving_army_conditions
+			custom_effect_tooltip = BEL_modify_belgian_army_tt
+			custom_effect_tooltip = BEL_defense_council_tt
+			add_to_variable = { var = BEL_army_defence_factor value = 0.1 }
+			}
+	}
+}
+
+BEL_purchase_ships_category = {
+	BEL_purchase_cruiser = {
+		icon = generic_naval
+		available = {
+			NOT = { has_country_flag = BEL_purchased_ship }
+		}
+		visible = {
+		
+		}
+		cost = 50
+		days_remove = 365
+		fire_only_once = no 
+		ai_will_do = {
+			base = 0
+			}
+		
+		cancel_trigger = {
+			OR = {
+				ENG = { exists = no }
+				NOT = { ENG = { controls_state = 126 } }
+				NOT = { ROOT = { controls_state = 6 } }
+			}
+		}
+		
+		cancel_effect = {
+			ENG = { add_offsite_building = { type = industrial_complex level = -1 } }
+		}
+		
+		modifier = {
+			civilian_factory_use = 1 
+			}
+		
+		complete_effect = {
+			ENG = {
+			add_offsite_building = { type = industrial_complex level = 1 } 
+			}
+			set_country_flag = BEL_purchased_ship
+		}
+		
+		remove_effect = {
+			clr_country_flag = BEL_purchased_ship
+			ENG = {
+			add_offsite_building = { type = industrial_complex level = -1 } 
+			}
+			if = {
+				limit = { has_dlc = "Man the Guns" }
+				if = { 
+					limit = {
+						ENG = { has_tech = advanced_ship_hull_cruiser }
+						NOT = { has_country_flag = BEL_already_created_cruiser_variant4 }
+					}
+					hidden_effect = { add_manpower = 1400 }
+					ENG = {
+						create_equipment_variant = {
+							name = "Atlântico Class"	
+							type = ship_hull_cruiser_4
+							name_group = BEL_CL_HISTORICAL
+							parent_version = 0
+							modules = {
+								fixed_ship_battery_slot = ship_light_medium_battery_2
+								fixed_ship_anti_air_slot = ship_anti_air_2
+								fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+								fixed_ship_radar_slot = empty
+								fixed_ship_engine_slot = cruiser_ship_engine_2
+								fixed_ship_armor_slot = empty
+								front_1_custom_slot = ship_anti_air_1
+								mid_1_custom_slot = ship_torpedo_1
+								mid_2_custom_slot = ship_airplane_launcher_1
+								rear_1_custom_slot = ship_light_medium_battery_2
+							}
+						}
+					}
+					create_ship = { type = ship_hull_cruiser_4 equipment_variant = "Atlântico Class" creator = ENG }
+					set_country_flag = BEL_already_created_cruiser_variant4
+				}
+				else_if = {
+					limit = {
+						ENG = { has_tech = advanced_ship_hull_cruiser }
+						has_country_flag = BEL_already_created_cruiser_variant4
+					}
+					hidden_effect = { add_manpower = 1400 }
+					create_ship = { type = ship_hull_cruiser_4 equipment_variant = "Atlântico Class" creator = ENG }
+				}
+				else_if = { 
+					limit = {
+						ENG = { has_tech = improved_ship_hull_cruiser }
+						NOT = { has_country_flag = BEL_already_created_cruiser_variant3 }
+					}
+					hidden_effect = { add_manpower = 1200 }
+					ENG = {
+						create_equipment_variant = {
+							name = "Atlântico Class"	
+							type = ship_hull_cruiser_3
+							name_group = BEL_CL_HISTORICAL
+							parent_version = 0
+							modules = {
+								fixed_ship_battery_slot = ship_light_medium_battery_2
+								fixed_ship_anti_air_slot = ship_anti_air_2
+								fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+								fixed_ship_radar_slot = empty
+								fixed_ship_engine_slot = cruiser_ship_engine_2
+								fixed_ship_armor_slot = empty
+								front_1_custom_slot = ship_anti_air_1
+								mid_1_custom_slot = ship_torpedo_1
+								mid_2_custom_slot = ship_airplane_launcher_1
+								rear_1_custom_slot = ship_light_medium_battery_2
+							}
+						}
+					}
+					create_ship = { type = ship_hull_cruiser_3 equipment_variant = "Atlântico Class" creator = ENG }
+					set_country_flag = BEL_already_created_cruiser_variant3
+				}
+				else_if = {
+					limit = {
+						ENG = { has_tech = improved_ship_hull_cruiser }
+						has_country_flag = BEL_already_created_cruiser_variant3
+					}
+					hidden_effect = { add_manpower = 1400 }
+					create_ship = { type = ship_hull_cruiser_3 equipment_variant = "Atlântico Class" creator = ENG }
+				}
+				else_if = {
+					limit = {
+						NOT = { has_country_flag = BEL_already_created_cruiser_variant2 }
+						}
+					hidden_effect = { add_manpower = 800 }
+					ENG = {
+						create_equipment_variant = {
+							name = "Atlântico Class"	
+							type = ship_hull_cruiser_2
+							name_group = BEL_CL_HISTORICAL
+							parent_version = 0
+							modules = {
+								fixed_ship_battery_slot = ship_light_medium_battery_2
+								fixed_ship_anti_air_slot = ship_anti_air_2
+								fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+								fixed_ship_radar_slot = empty
+								fixed_ship_engine_slot = cruiser_ship_engine_2
+								fixed_ship_armor_slot = empty
+								front_1_custom_slot = ship_anti_air_1
+								mid_1_custom_slot = ship_torpedo_1
+								mid_2_custom_slot = ship_airplane_launcher_1
+								rear_1_custom_slot = ship_light_medium_battery_2
+							}
+						}
+					}
+					create_ship = { type = ship_hull_cruiser_2 equipment_variant = "Atlântico Class" creator = ENG }
+					set_country_flag = BEL_already_created_cruiser_variant2
+				}
+				else_if = {
+					limit = {
+						has_country_flag = BEL_already_created_cruiser_variant2
+					}
+					hidden_effect = { add_manpower = 1400 }
+					create_ship = { type = ship_hull_cruiser_2 equipment_variant = "Atlântico Class" creator = ENG }
+				}
+			}
+			else = { #NO MTG
+				if = { 
+					limit = {
+						ENG = { has_tech = advanced_light_cruiser }
+						NOT = { has_country_flag = BEL_already_created_cruiser_variant4 }
+					}
+					hidden_effect = { add_manpower = 1140 }
+					ENG = {
+						create_equipment_variant = {
+							name = "Atlântico Class"
+							type = light_cruiser_4
+							upgrades = {
+								ship_reliability_upgrade = 4
+								ship_engine_upgrade = 3
+								ship_gun_upgrade = 4
+								ship_anti_air_upgrade = 3
+							}
+						}
+					}
+					create_ship = { type = light_cruiser_4 equipment_variant = "Atlântico Class" creator = ENG }
+					set_country_flag = BEL_already_created_cruiser_variant4
+				}
+				else_if = {
+					limit = {
+						ENG = { has_tech = advanced_light_cruiser }
+						has_country_flag = BEL_already_created_cruiser_variant4
+					}
+					hidden_effect = { add_manpower = 1400 }
+					create_ship = { type = light_cruiser_4 equipment_variant = "Atlântico Class" creator = ENG }
+				}
+				else_if = { 
+					limit = {
+						ENG = { has_tech = improved_light_cruiser }
+						NOT = { has_country_flag = BEL_already_created_cruiser_variant3 }
+					}
+					hidden_effect = { add_manpower = 960 }
+					ENG = {
+						create_equipment_variant = {
+							name = "Atlântico Class"
+							type = light_cruiser_3
+							upgrades = {
+								ship_reliability_upgrade = 4
+								ship_engine_upgrade = 2
+								ship_gun_upgrade = 3
+								ship_anti_air_upgrade = 3
+							}
+						}
+					}
+					create_ship = { type = light_cruiser_3 equipment_variant = "Atlântico Class" creator = ENG }
+					set_country_flag = BEL_already_created_cruiser_variant3
+				}
+				else_if = {
+					limit = {
+						ENG = { has_tech = improved_light_cruiser }
+						has_country_flag = BEL_already_created_cruiser_variant3
+					}
+					hidden_effect = { add_manpower = 1400 }
+					create_ship = { type = light_cruiser_3 equipment_variant = "Atlântico Class" creator = ENG }
+				}
+				else_if = { 
+					limit = {
+						ENG = { has_tech = basic_light_cruiser }
+						NOT = { has_country_flag = BEL_already_created_cruiser_variant2 }
+					}
+					hidden_effect = { add_manpower = 800 }
+					ENG = {
+						create_equipment_variant = {
+							name = "Atlântico Class"
+							type = light_cruiser_2
+							upgrades = {
+								ship_reliability_upgrade = 3
+								ship_engine_upgrade = 2
+								ship_gun_upgrade = 3
+								ship_anti_air_upgrade = 2
+							}
+						}
+					}
+					create_ship = { type = light_cruiser_2 equipment_variant = "Atlântico Class" creator = ENG }
+					set_country_flag = BEL_already_created_cruiser_variant2
+				}
+				else_if = {
+					limit = {
+						ENG = { has_tech = basic_light_cruiser }
+						has_country_flag = BEL_already_created_cruiser_variant2
+					}
+					hidden_effect = { add_manpower = 1400 }
+					create_ship = { type = light_cruiser_2 equipment_variant = "Atlântico Class" creator = ENG }
+				}
+				else_if = {
+					limit = {
+						NOT = { has_country_flag = BEL_already_created_cruiser_variant }
+					}
+					hidden_effect = { add_manpower = 600 }
+					ENG = {
+						create_equipment_variant = {
+							name = "Atlântico Class"
+							type = light_cruiser_1
+							upgrades = {
+								ship_reliability_upgrade = 2
+								ship_engine_upgrade = 1
+								ship_gun_upgrade = 3
+								ship_anti_air_upgrade = 2
+							}
+						}
+					}
+					create_ship = { type = light_cruiser_1 equipment_variant = "Atlântico Class" creator = ENG }
+					set_country_flag = BEL_already_created_cruiser_variant
+				}
+				else_if = {
+					limit = {
+						has_country_flag = BEL_already_created_cruiser_variant
+					}
+					hidden_effect = { add_manpower = 1400 }
+					create_ship = { type = light_cruiser_1 equipment_variant = "Atlântico Class" creator = ENG }
+				}
+			}
+		}
+	}
+	BEL_purchase_destroyer = {
+		icon = generic_naval
+		available = {
+			NOT = { has_country_flag = BEL_purchased_ship }
+		}
+		visible = {
+		
+		}
+		cost = 50
+		days_remove = 365
+		fire_only_once = no 
+		ai_will_do = {
+			base = 0
+			}
+		
+		cancel_trigger = {
+			OR = {
+				ENG = { exists = no }
+				NOT = { ENG = { controls_state = 126 } }
+				NOT = { ROOT = { controls_state = 6 } }
+			}
+		}
+		
+		modifier = {
+			civilian_factory_use = 1 
+			}
+		
+		cancel_effect = {
+			ENG = { add_offsite_building = { type = industrial_complex level = -1 } }
+			
+		}
+		
+		complete_effect = {	
+			ENG = {
+			add_offsite_building = { type = industrial_complex level = 1 } 
+			}
+			set_country_flag = BEL_purchased_ship
+		}
+		
+		remove_effect = {
+			clr_country_flag = BEL_purchased_ship
+			ENG = {
+			add_offsite_building = { type = industrial_complex level = -1 } 
+			}
+			if = {
+				limit = { has_dlc = "Man the Guns" }
+				if = { 
+					limit = {
+						ENG = { has_tech = advanced_ship_hull_light }
+						NOT = { has_country_flag = BEL_already_created_destroyer_variant4 }
+					}
+					hidden_effect = { add_manpower = 1000 }
+					ENG = {
+						create_equipment_variant = {
+							name = "Vouga Class"	
+							type = ship_hull_light_4
+							name_group = BEL_DD_HISTORICAL
+							parent_version = 0
+							modules = {
+								fixed_ship_battery_slot = ship_light_battery_1
+								fixed_ship_anti_air_slot = ship_anti_air_1
+								fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+								fixed_ship_radar_slot = empty
+								fixed_ship_engine_slot = light_ship_engine_2
+								fixed_ship_torpedo_slot = ship_torpedo_1
+								mid_1_custom_slot = ship_mine_layer_1
+								rear_1_custom_slot = ship_depth_charge_1
+							}
+						}
+					}
+					create_ship = { type = ship_hull_light_4 equipment_variant = "Vouga Class" creator = ENG }
+					create_ship = { type = ship_hull_light_4 equipment_variant = "Vouga Class" creator = ENG }
+					set_country_flag = BEL_already_created_destroyer_variant4
+				}
+				else_if = {
+					limit = {
+						ENG = { has_tech = advanced_ship_hull_light }
+						has_country_flag = BEL_already_created_destroyer_variant4
+					}
+					hidden_effect = { add_manpower = 1400 }
+					create_ship = { type = ship_hull_light_4 equipment_variant = "Vouga Class" creator = ENG }
+					create_ship = { type = ship_hull_light_4 equipment_variant = "Vouga Class" creator = ENG }
+				}
+				else_if = { 
+					limit = {
+						ENG = { has_tech = improved_ship_hull_light }
+						NOT = { has_country_flag = BEL_already_created_destroyer_variant3 }
+					}
+					hidden_effect = { add_manpower = 800 }
+					ENG = {
+						create_equipment_variant = {
+							name = "Vouga Class"	
+							type = ship_hull_light_3
+							name_group = BEL_DD_HISTORICAL
+							parent_version = 0
+							modules = {
+								fixed_ship_battery_slot = ship_light_battery_1
+								fixed_ship_anti_air_slot = ship_anti_air_1
+								fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+								fixed_ship_radar_slot = empty
+								fixed_ship_engine_slot = light_ship_engine_2
+								fixed_ship_torpedo_slot = ship_torpedo_1
+								mid_1_custom_slot = ship_mine_layer_1
+								rear_1_custom_slot = ship_depth_charge_1
+							}
+						}
+					}
+					create_ship = { type = ship_hull_light_3 equipment_variant = "Vouga Class" creator = ENG }
+					create_ship = { type = ship_hull_light_3 equipment_variant = "Vouga Class" creator = ENG }
+					set_country_flag = BEL_already_created_destroyer_variant3
+				}
+				else_if = {
+					limit = {
+						ENG = { has_tech = improved_ship_hull_light }
+						has_country_flag = BEL_already_created_destroyer_variant3
+					}
+					hidden_effect = { add_manpower = 1400 }
+					create_ship = { type = ship_hull_light_3 equipment_variant = "Vouga Class" creator = ENG }
+					create_ship = { type = ship_hull_light_3 equipment_variant = "Vouga Class" creator = ENG }
+				}
+				else_if = {
+					limit = {
+						NOT = { has_country_flag = BEL_already_created_destroyer_variant2 }
+					}
+					hidden_effect = { add_manpower = 650 }
+					ENG = {
+						create_equipment_variant = {
+							name = "Vouga Class"	
+							type = ship_hull_light_2
+							name_group = BEL_DD_HISTORICAL
+							parent_version = 0
+							modules = {
+								fixed_ship_battery_slot = ship_light_battery_1
+								fixed_ship_anti_air_slot = ship_anti_air_1
+								fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+								fixed_ship_radar_slot = empty
+								fixed_ship_engine_slot = light_ship_engine_2
+								fixed_ship_torpedo_slot = ship_torpedo_1
+								mid_1_custom_slot = ship_mine_layer_1
+								rear_1_custom_slot = ship_depth_charge_1
+							}
+						}
+					}
+					create_ship = { type = ship_hull_light_2 equipment_variant = "Vouga Class" creator = ENG }
+					create_ship = { type = ship_hull_light_2 equipment_variant = "Vouga Class" creator = ENG }
+					set_country_flag = BEL_already_created_destroyer_variant2
+				}
+				else_if = {
+					limit = {
+						has_country_flag = BEL_already_created_destroyer_variant2
+					}
+					hidden_effect = { add_manpower = 1400 }
+					create_ship = { type = ship_hull_light_2 equipment_variant = "Vouga Class" creator = ENG }
+					create_ship = { type = ship_hull_light_2 equipment_variant = "Vouga Class" creator = ENG }
+				}
+			}
+			else = { #NO MTG
+				if = { 
+					limit = {
+						ENG = { has_tech = advanced_destroyer }
+						NOT = { has_country_flag = BEL_already_created_destroyer_variant4 }
+					}
+					hidden_effect = { add_manpower = 500 }
+					ENG = {
+						create_equipment_variant = {
+							name = "Vouga Class"
+							type = destroyer_4
+							upgrades = {
+								ship_torpedo_upgrade = 4
+								destroyer_engine_upgrade = 2
+								ship_ASW_upgrade = 3
+								ship_anti_air_upgrade = 3
+							}
+						}
+					}
+					create_ship = { type = destroyer_4 equipment_variant = "Vouga Class" creator = ENG }
+					create_ship = { type = destroyer_4 equipment_variant = "Vouga Class" creator = ENG }
+					set_country_flag = BEL_already_created_destroyer_variant4
+				}
+				else_if = {
+					limit = {
+						ENG = { has_tech = advanced_destroyer }
+						has_country_flag = BEL_already_created_destroyer_variant4
+					}
+					hidden_effect = { add_manpower = 1400 }
+					create_ship = { type = destroyer_4 equipment_variant = "Vouga Class" creator = ENG }
+					create_ship = { type = destroyer_4 equipment_variant = "Vouga Class" creator = ENG }
+				}
+				else_if = { 
+					limit = {
+						ENG = { has_tech = improved_destroyer }
+						NOT = { has_country_flag = BEL_already_created_destroyer_variant3 }
+					}
+					hidden_effect = { add_manpower = 400 }
+					ENG = {
+						create_equipment_variant = {
+							name = "Vouga Class"
+							type = destroyer_3
+							upgrades = {
+								ship_torpedo_upgrade = 3
+								destroyer_engine_upgrade = 2
+								ship_ASW_upgrade = 2
+								ship_anti_air_upgrade = 3
+							}
+						}
+					}
+					create_ship = { type = destroyer_3 equipment_variant = "Vouga Class" creator = ENG }
+					create_ship = { type = destroyer_3 equipment_variant = "Vouga Class" creator = ENG }
+					set_country_flag = BEL_already_created_destroyer_variant3
+				}
+				else_if = {
+					limit = {
+						ENG = { has_tech = improved_destroyer }
+						has_country_flag = BEL_already_created_destroyer_variant3
+					}
+					hidden_effect = { add_manpower = 1400 }
+					create_ship = { type = destroyer_3 equipment_variant = "Vouga Class" creator = ENG }
+					create_ship = { type = destroyer_3 equipment_variant = "Vouga Class" creator = ENG }
+				}
+				else_if = {
+					limit = {
+						NOT = { has_country_flag = BEL_already_created_destroyer_variant2 }
+					}
+					hidden_effect = { add_manpower = 325 }
+					ENG = {
+						create_equipment_variant = {
+							name = "Vouga Class"
+							type = destroyer_2
+							upgrades = {
+								ship_torpedo_upgrade = 2
+								destroyer_engine_upgrade = 1
+								ship_ASW_upgrade = 2
+								ship_anti_air_upgrade = 3
+							}
+						}
+					}
+					create_ship = { type = destroyer_2 equipment_variant = "Vouga Class" creator = ENG }
+					create_ship = { type = destroyer_2 equipment_variant = "Vouga Class" creator = ENG }
+					set_country_flag = BEL_already_created_destroyer_variant2
+				}
+				else_if = {
+					limit = {
+						has_country_flag = BEL_already_created_destroyer_variant2
+					}
+					hidden_effect = { add_manpower = 1400 }
+					create_ship = { type = destroyer_2 equipment_variant = "Vouga Class" creator = ENG }
+					create_ship = { type = destroyer_2 equipment_variant = "Vouga Class" creator = ENG }
+				}
+			}
+		}
+	}
+	BEL_purchase_submarine = {
+		icon = generic_naval
+		available = {
+			NOT = { has_country_flag = BEL_purchased_ship }
+		}
+		visible = {
+		
+		}
+		cost = 50
+		days_remove = 365
+		fire_only_once = no 
+		ai_will_do = {
+			base = 0
+			}
+		
+		cancel_trigger = {
+			OR = {
+				ENG = { exists = no }
+				NOT = { ENG = { controls_state = 126 } }
+				NOT = { ROOT = { controls_state = 6 } }
+			}
+		}
+		
+		modifier = {
+			civilian_factory_use = 1 
+			}
+		
+		cancel_effect = {
+			ENG = { add_offsite_building = { type = industrial_complex level = -1 } }
+			
+		}
+		
+		complete_effect = {	
+			ENG = {
+			add_offsite_building = { type = industrial_complex level = 1 } 
+			}
+			set_country_flag = BEL_purchased_ship
+		}
+		
+		remove_effect = {
+			clr_country_flag = BEL_purchased_ship
+			ENG = {
+			add_offsite_building = { type = industrial_complex level = -1 } 
+			}
+			if = {
+				limit = { has_dlc = "Man the Guns" }
+				if = { 
+					limit = {
+						ENG = { has_tech = advanced_ship_hull_light }
+						NOT = { has_country_flag = BEL_already_created_submarine_variant4 }
+					}
+					hidden_effect = { add_manpower = 1000 }
+					ENG = {
+						create_equipment_variant = {
+							name = "B Class"	
+							type = ship_hull_submarine_4
+							name_group = BEL_SS_HISTORICAL
+							parent_version = 0
+							modules = {
+								fixed_ship_torpedo_slot = ship_torpedo_sub_2
+								fixed_ship_engine_slot = sub_ship_engine_2
+								rear_1_custom_slot = ship_torpedo_sub_2
+							}
+						}
+					}
+					create_ship = { type = ship_hull_submarine_4 equipment_variant = "B Class" creator = ENG }
+					create_ship = { type = ship_hull_submarine_4 equipment_variant = "B Class" creator = ENG }
+					create_ship = { type = ship_hull_submarine_4 equipment_variant = "B Class" creator = ENG }
+					set_country_flag = BEL_already_created_submarine_variant4
+				}
+				else_if = {
+					limit = {
+						ENG = { has_tech = advanced_ship_hull_light }
+						has_country_flag = BEL_already_created_submarine_variant4
+					}
+					hidden_effect = { add_manpower = 1400 }
+					create_ship = { type = ship_hull_submarine_4 equipment_variant = "B Class" creator = ENG }
+					create_ship = { type = ship_hull_submarine_4 equipment_variant = "B Class" creator = ENG }
+					create_ship = { type = ship_hull_submarine_4 equipment_variant = "B Class" creator = ENG }
+				}
+				else_if = { 
+					limit = {
+						ENG = { has_tech = improved_ship_hull_light }
+						NOT = { has_country_flag = BEL_already_created_submarine_variant3 }
+					}
+					hidden_effect = { add_manpower = 800 }
+					ENG = {
+						create_equipment_variant = {
+							name = "B Class"	
+							type = ship_hull_submarine_3
+							name_group = BEL_SS_HISTORICAL
+							parent_version = 0
+							modules = {
+								fixed_ship_torpedo_slot = ship_torpedo_sub_2
+								fixed_ship_engine_slot = sub_ship_engine_2
+								rear_1_custom_slot = ship_torpedo_sub_2
+							}
+						}
+					}
+					create_ship = { type = ship_hull_submarine_3 equipment_variant = "B Class" creator = ENG }
+					create_ship = { type = ship_hull_submarine_3 equipment_variant = "B Class" creator = ENG }
+					create_ship = { type = ship_hull_submarine_3 equipment_variant = "B Class" creator = ENG }
+					set_country_flag = BEL_already_created_submarine_variant3
+				}
+				else_if = {
+					limit = {
+						ENG = { has_tech = improved_ship_hull_light }
+						has_country_flag = BEL_already_created_submarine_variant3
+					}
+					hidden_effect = { add_manpower = 1400 }
+					create_ship = { type = ship_hull_submarine_3 equipment_variant = "B Class" creator = ENG }
+					create_ship = { type = ship_hull_submarine_3 equipment_variant = "B Class" creator = ENG }
+					create_ship = { type = ship_hull_submarine_3 equipment_variant = "B Class" creator = ENG }
+				}
+				else_if = {
+					limit = {
+						NOT = { has_country_flag = BEL_already_created_submarine_variant2 }
+					}
+					hidden_effect = { add_manpower = 650 }
+					ENG = {
+						create_equipment_variant = {
+							name = "B Class"	
+							type = ship_hull_submarine_2
+							name_group = BEL_SS_HISTORICAL
+							parent_version = 0
+							modules = {
+								fixed_ship_torpedo_slot = ship_torpedo_sub_2
+								fixed_ship_engine_slot = sub_ship_engine_2
+								rear_1_custom_slot = ship_torpedo_sub_2
+							}
+						}
+					}
+					create_ship = { type = ship_hull_submarine_2 equipment_variant = "B Class" creator = ENG }
+					create_ship = { type = ship_hull_submarine_2 equipment_variant = "B Class" creator = ENG }
+					create_ship = { type = ship_hull_submarine_2 equipment_variant = "B Class" creator = ENG }
+					set_country_flag = BEL_already_created_submarine_variant2
+				}
+				else_if = {
+					limit = {
+						has_country_flag = BEL_already_created_submarine_variant2
+					}
+					hidden_effect = { add_manpower = 1400 }
+					create_ship = { type = ship_hull_submarine_2 equipment_variant = "B Class" creator = ENG }
+					create_ship = { type = ship_hull_submarine_2 equipment_variant = "B Class" creator = ENG }
+					create_ship = { type = ship_hull_submarine_2 equipment_variant = "B Class" creator = ENG }
+				}
+			}
+			else = { #NO MTG
+				if = { 
+					limit = {
+						ENG = { has_tech = advanced_destroyer }
+						NOT = { has_country_flag = BEL_already_created_submarine_variant4 }
+					}
+					hidden_effect = { add_manpower = 500 }
+					ENG = {
+						create_equipment_variant = {
+							name = "B Class"
+							type = submarine_4
+							upgrades = {
+								ship_reliability_upgrade = 1
+								sub_engine_upgrade = 1
+								sub_stealth_upgrade = 1
+								sub_torpedo_upgrade = 1
+							}
+						}
+					}
+					create_ship = { type = submarine_4 equipment_variant = "B Class" creator = ENG }
+					create_ship = { type = submarine_4 equipment_variant = "B Class" creator = ENG }
+					create_ship = { type = submarine_4 equipment_variant = "B Class" creator = ENG }
+					set_country_flag = BEL_already_created_submarine_variant4
+				}
+				else_if = {
+					limit = {
+						ENG = { has_tech = advanced_destroyer }
+						has_country_flag = BEL_already_created_submarine_variant4
+					}
+					hidden_effect = { add_manpower = 1400 }
+					create_ship = { type = submarine_4 equipment_variant = "B Class" creator = ENG }
+					create_ship = { type = submarine_4 equipment_variant = "B Class" creator = ENG }
+					create_ship = { type = submarine_4 equipment_variant = "B Class" creator = ENG }
+				}
+				else_if = { 
+					limit = {
+						ENG = { has_tech = improved_destroyer }
+						NOT = { has_country_flag = BEL_already_created_submarine_variant3 }
+					}
+					hidden_effect = { add_manpower = 400 }
+					ENG = {
+						create_equipment_variant = {
+							name = "B Class"
+							type = submarine_3
+							upgrades = {
+								ship_reliability_upgrade = 1
+								sub_engine_upgrade = 1
+								sub_stealth_upgrade = 1
+								sub_torpedo_upgrade = 1
+							}
+						}
+					}
+					create_ship = { type = submarine_3 equipment_variant = "B Class" creator = ENG }
+					create_ship = { type = submarine_3 equipment_variant = "B Class" creator = ENG }
+					create_ship = { type = submarine_3 equipment_variant = "B Class" creator = ENG }
+					set_country_flag = BEL_already_created_submarine_variant3
+				}
+				else_if = {
+					limit = {
+						ENG = { has_tech = improved_destroyer }
+						has_country_flag = BEL_already_created_submarine_variant3
+					}
+					hidden_effect = { add_manpower = 1400 }
+					create_ship = { type = submarine_3 equipment_variant = "B Class" creator = ENG }
+					create_ship = { type = submarine_3 equipment_variant = "B Class" creator = ENG }
+					create_ship = { type = submarine_3 equipment_variant = "B Class" creator = ENG }
+				}
+				else_if = {
+					limit = {
+						NOT = { has_country_flag = BEL_already_created_submarine_variant2 }
+					}
+					hidden_effect = { add_manpower = 325 }
+					ENG = {
+						create_equipment_variant = {
+							name = "B Class"
+							type = submarine_2
+							upgrades = {
+								ship_reliability_upgrade = 1
+								sub_engine_upgrade = 1
+								sub_stealth_upgrade = 1
+								sub_torpedo_upgrade = 1
+							}
+						}
+					}
+					create_ship = { type = submarine_2 equipment_variant = "B Class" creator = ENG }
+					create_ship = { type = submarine_2 equipment_variant = "B Class" creator = ENG }
+					create_ship = { type = submarine_2 equipment_variant = "B Class" creator = ENG }
+					set_country_flag = BEL_already_created_submarine_variant2
+				}
+				else_if = {
+					limit = {
+						has_country_flag = BEL_already_created_destroyer_variant2
+					}
+					hidden_effect = { add_manpower = 1400 }
+					create_ship = { type = submarine_2 equipment_variant = "B Class" creator = ENG }
+					create_ship = { type = submarine_2 equipment_variant = "B Class" creator = ENG }
+					create_ship = { type = submarine_2 equipment_variant = "B Class" creator = ENG }
+				}
+			}
+		}
+	}
+}
+
+BEL_begin_colonization_category = {
+	BEL_request_middle_congo = {
+		icon = infiltrate_state
+		available = {
+		
+		}
+		visible = {
+		NOT = {
+			772 = { controls_or_subject_of = yes }
+			}
+		NOT = {
+			any_other_country = {
+					original_tag = FRA
+					has_government = fascism
+					owns_state = 772
+				}
+			}
+		}
+		cost = 100
+		fire_only_once = yes 
+		ai_will_do = {
+			factor = 0 
+			}
+		
+		complete_effect = {
+		772 = {
+			controller = { country_event = dfn_belgium_colonial_expansion.1 }
+			}
+		}
+	}
+	BEL_request_gabon = {
+		icon = infiltrate_state
+		available = {
+		
+		}
+		visible = {
+		NOT = {
+			539 = { controls_or_subject_of = yes }
+			}
+		NOT = {
+			any_other_country = {
+					original_tag = FRA
+					has_government = fascism
+					owns_state = 539
+				}
+			}
+		}
+		cost = 100
+		fire_only_once = yes 
+		ai_will_do = {
+			factor = 0 
+			}
+		
+		complete_effect = {
+		539 = {
+			controller = { country_event = dfn_belgium_colonial_expansion.4 }
+			}
+		}
+	}
+	BEL_request_equatorial_guinea = {
+		icon = infiltrate_state
+		available = {
+		
+		}
+		visible = {
+		NOT = {
+			297 = { controls_or_subject_of = yes }
+			}
+		NOT = {
+			any_other_country = {
+					original_tag = FRA
+					has_government = fascism
+					owns_state = 297
+				}
+			}
+		}
+		cost = 100
+		fire_only_once = yes 
+		ai_will_do = {
+			factor = 0 
+			}
+		
+		complete_effect = {
+		297 = {
+			controller = { country_event = dfn_belgium_colonial_expansion.7 }
+			}
+		}
+	}
+	BEL_request_cameroon = {
+		icon = infiltrate_state
+		available = {
+		
+		}
+		visible = {
+		NOT = {
+			773 = { controls_or_subject_of = yes }
+			}
+		NOT = {
+			any_other_country = {
+					original_tag = FRA
+					has_government = fascism
+					owns_state = 772
+				}
+			}
+		}
+		cost = 100
+		fire_only_once = yes 
+		ai_will_do = {
+			factor = 0 
+			}
+		
+		complete_effect = {
+		773 = {
+			controller = { country_event = dfn_belgium_colonial_expansion.10 }
+			}
+		}
+	}
+	BEL_request_equatorial_africa = {
+		icon = infiltrate_state
+		available = {
+		
+		}
+		visible = {
+		NOT = {
+			660 = { controls_or_subject_of = yes }
+			}
+		NOT = {
+			any_other_country = {
+					original_tag = FRA
+					has_government = fascism
+					owns_state = 772
+				}
+			}
+		}
+		cost = 100
+		fire_only_once = yes 
+		ai_will_do = {
+			factor = 0 
+			}
+		
+		complete_effect = {
+		660 = {
+			controller = { country_event = dfn_belgium_colonial_expansion.13 }
+			}
+		}
+	}
+	BEL_request_giga_chad = {
+		icon = infiltrate_state
+		available = {
+		
+		}
+		visible = {
+		NOT = {
+			774 = { controls_or_subject_of = yes }
+			}
+			NOT = {
+			any_other_country = {
+					original_tag = FRA
+					has_government = fascism
+					owns_state = 774
+				}
+			}
+		}
+		cost = 100
+		fire_only_once = yes 
+		ai_will_do = {
+			factor = 0 
+			}
+		
+		complete_effect = {
+		774 = {
+			controller = { country_event = dfn_belgium_colonial_expansion.16 }
+			}
+		}
+	}
+	BEL_take_control_of_middle_congo = {
+		icon = infiltrate_state
+		available = {
+		any_other_country = {
+					original_tag = FRA
+					has_government = fascism
+					owns_state = 772
+				}
+		}
+		visible = {
+		NOT = { 
+		772 = { owns_or_subject_of = yes }
+		}
+		any_other_country = {
+					original_tag = FRA
+					has_government = fascism
+					owns_state = 772
+				}
+		}
+		cost = 200
+		fire_only_once = yes 
+		ai_will_do = {
+			factor = 0 
+			}
+		
+		complete_effect = {
+		transfer_state = 772
+		}
+	}
+	BEL_take_control_of_gabon = {
+		icon = infiltrate_state
+		available = {
+		any_other_country = {
+					original_tag = FRA
+					has_government = fascism
+					owns_state = 539
+				}
+		}
+		visible = {
+		NOT = { 
+		539 = { owns_or_subject_of = yes }
+		}
+		any_other_country = {
+					original_tag = FRA
+					has_government = fascism
+					owns_state = 539
+				}
+		}
+		cost = 200
+		fire_only_once = yes 
+		ai_will_do = {
+			factor = 0 
+			}
+		
+		complete_effect = {
+		transfer_state = 539
+		}
+	}
+	BEL_take_control_of_equatorial_guinea = {
+		icon = infiltrate_state
+		available = {
+		any_other_country = {
+					original_tag = FRA
+					has_government = fascism
+					owns_state = 297
+				}
+		}
+		visible = {
+		NOT = { 
+		297 = { owns_or_subject_of = yes }
+		}
+		any_other_country = {
+					original_tag = FRA
+					has_government = fascism
+					owns_state = 297
+				}
+		}
+		cost = 200
+		fire_only_once = yes 
+		ai_will_do = {
+			factor = 0 
+			}
+		
+		complete_effect = {
+		transfer_state = 297
+		}
+	}
+	BEL_take_control_of_cameroon = {
+		icon = infiltrate_state
+		available = {
+		any_other_country = {
+					original_tag = FRA
+					has_government = fascism
+					owns_state = 773
+				}
+		}
+		visible = {
+		NOT = { 
+		773 = { owns_or_subject_of = yes }
+		}
+		any_other_country = {
+					original_tag = FRA
+					has_government = fascism
+					owns_state = 773
+				}
+		}
+		cost = 200
+		fire_only_once = yes 
+		ai_will_do = {
+			factor = 0 
+			}
+		
+		complete_effect = {
+		transfer_state = 773
+		}
+	}
+	BEL_take_control_of_equatorial_africa = {
+		icon = infiltrate_state
+		available = {
+		any_other_country = {
+					original_tag = FRA
+					has_government = fascism
+					owns_state = 660
+				}
+		}
+		visible = {
+		NOT = { 
+		660 = { owns_or_subject_of = yes }
+		}
+		any_other_country = {
+					original_tag = FRA
+					has_government = fascism
+					owns_state = 660
+				}
+		}
+		cost = 200
+		fire_only_once = yes 
+		ai_will_do = {
+			factor = 0 
+			}
+		
+		complete_effect = {
+		transfer_state = 660
+		}
+	}
+	BEL_take_control_of_giga_chad = {
+		icon = infiltrate_state
+		available = {
+		any_other_country = {
+					original_tag = FRA
+					has_government = fascism
+					owns_state = 774
+				}
+		}
+		visible = {
+		NOT = { 
+		774 = { owns_or_subject_of = yes }
+		}
+		any_other_country = {
+					original_tag = FRA
+					has_government = fascism
+					owns_state = 774
+				}
+		}
+		cost = 200
+		fire_only_once = yes 
+		ai_will_do = {
+			factor = 0 
+			}
+		
+		complete_effect = {
+		transfer_state = 774
+		}
+	}
+}
+
+BEL_colonize_the_america_category = {
+	BEL_ask_permission_to_colonization = {
+		available = {
+		
+		}
+		visible = {
+		
+		}
+		cost = 25
+		fire_only_once = yes
+		ai_will_do = {
+			base = 0
+			}
+		
+		complete_effect = {
+			USA = { country_event = dfn_belgium_colonial_expansion.19 }
+		}
+	}
+	BEL_request_belize = {
+		icon = infiltrate_state
+		available = {
+		
+		}
+		
+		fire_only_once = yes
+		
+		visible = {
+			
+		}
+		cost = 50
+		complete_effect = {
+			331 = {
+				controller = { country_event = dfn_belgium_colonial_expansion.22 }
+			}
+		}
+	}
+	BEL_attack_guatemala = {
+		icon = generic_prepare_civil_war
+		available = {
+		
+		}
+		
+		fire_only_once = yes
+		
+		visible = {
+			has_country_flag = BEL_america_agreed
+		}
+		cost = 50
+		complete_effect = {
+			create_wargoal = {
+				target = GUA
+				type = annex_everything
+			}
+		}
+	}
+	BEL_attack_honduras = {
+		icon = generic_prepare_civil_war
+		available = {
+		
+		}
+		
+		fire_only_once = yes
+		
+		visible = {
+			has_country_flag = BEL_america_agreed
+		}
+		cost = 50
+		complete_effect = {
+			create_wargoal = {
+				target = HON
+				type = annex_everything
+			}
+		}
+	}
+	BEL_attack_el_salvador = {
+		icon = generic_prepare_civil_war
+		available = {
+		
+		}
+		
+		fire_only_once = yes
+		
+		visible = {
+			has_country_flag = BEL_america_agreed
+		}
+		cost = 50
+		complete_effect = {
+			create_wargoal = {
+				target = ELS
+				type = annex_everything
+			}
+		}
+	}
+	BEL_attack_nicaragua = {
+		icon = generic_prepare_civil_war
+		available = {
+		
+		}
+		
+		fire_only_once = yes
+		
+		visible = {
+			has_country_flag = BEL_america_agreed
+		}
+		cost = 50
+		complete_effect = {
+			create_wargoal = {
+				target = NIC
+				type = annex_everything
+			}
+		}
+	}
+	BEL_attack_costa_rica = {
+		icon = generic_prepare_civil_war
+		available = {
+		
+		}
+		
+		fire_only_once = yes
+		
+		visible = {
+			has_country_flag = BEL_america_agreed
+		}
+		cost = 50
+		complete_effect = {
+			create_wargoal = {
+				target = COS
+				type = annex_everything
+			}
+		}
+	}
+	BEL_attack_panama = {
+		icon = generic_prepare_civil_war
+		available = {
+		
+		}
+		
+		fire_only_once = yes
+		
+		visible = {
+			has_country_flag = BEL_america_agreed
+		}
+		cost = 50
+		complete_effect = {
+			create_wargoal = {
+				target = PAN
+				type = annex_everything
+			}
+		}
+	}
+	BEL_request_panama = {
+		icon = infiltrate_state
+		available = {
+			owns_state = 304
+		}
+		
+		fire_only_once = yes
+		
+		visible = {
+			has_country_flag = BEL_america_agreed
+		}
+		cost = 50
+		complete_effect = {
+			685 = {
+				controller = { country_event = dfn_belgium_colonial_expansion.25 }
+			}
+		}
+	}
+	BEL_triumph_in_central_america = {
+		icon = generic_civil_support
+		available = {
+			controls_state = 313
+			controls_state = 312
+			controls_state = 314
+			controls_state = 317
+			controls_state = 316
+			controls_state = 304
+		}
+		
+		visible = {
+			has_country_flag = BEL_america_agreed
+		}
+		
+		fire_only_once = yes 
+		
+		complete_effect = {
+			set_country_flag = BEL_triumph_in_central_america_flag
+			add_war_support = 0.1
+			add_political_power = 100
+		}
+	}
+	BEL_end_of_the_monroe_doctrine = {
+		icon = generic_ignite_civil_war
+		available = {
+			NOT = { has_war_with = USA }
+		}
+		
+		visible = {
+			has_country_flag = BEL_triumph_in_central_america_flag
+		}
+		
+		fire_only_once = yes
+		
+		cost = 200
+		
+		complete_effect = {
+			USA = { country_event = { id = dfn_belgium_colonial_expansion.28 hours = 24 } }
+		}
+	}
+	BEL_attack_cuba = {
+		icon = generic_prepare_civil_war
+		available = {
+		
+		}
+		
+		fire_only_once = yes
+		
+		visible = {
+			has_country_flag = BEL_usa_ended_monroe_doctrine
+		}
+		cost = 50
+		complete_effect = {
+			create_wargoal = {
+				target = CUB
+				type = annex_everything
+			}
+		}
+	}
+	BEL_attack_haiti = {
+		icon = generic_prepare_civil_war
+		available = {
+		
+		}
+		
+		fire_only_once = yes
+		
+		visible = {
+			has_country_flag = BEL_usa_ended_monroe_doctrine
+		}
+		cost = 50
+		complete_effect = {
+			create_wargoal = {
+				target = HAI
+				type = annex_everything
+			}
+		}
+	}
+	BEL_attack_dominic = {
+		icon = generic_prepare_civil_war
+		available = {
+		
+		}
+		
+		fire_only_once = yes
+		
+		visible = {
+			has_country_flag = BEL_usa_ended_monroe_doctrine
+		}
+		cost = 50
+		complete_effect = {
+			create_wargoal = {
+				target = DOM
+				type = annex_everything
+			}
+		}
+	}
+	BEL_attack_colombia = {
+		icon = generic_prepare_civil_war
+		available = {
+		
+		}
+		
+		fire_only_once = yes
+		
+		visible = {
+			has_country_flag = BEL_usa_ended_monroe_doctrine
+		}
+		cost = 50
+		complete_effect = {
+			create_wargoal = {
+				target = COL
+				type = annex_everything
+			}
+		}
+	}
+	BEL_attack_venezuela = {
+		icon = generic_prepare_civil_war
+		available = {
+		
+		}
+		
+		fire_only_once = yes
+		
+		visible = {
+			has_country_flag = BEL_usa_ended_monroe_doctrine
+		}
+		cost = 50
+		complete_effect = {
+			create_wargoal = {
+				target = VEN
+				type = annex_everything
+			}
+		}
+	}
+	BEL_attack_ecuador = {
+		icon = generic_prepare_civil_war
+		available = {
+		
+		}
+		
+		fire_only_once = yes
+		
+		visible = {
+			has_country_flag = BEL_usa_ended_monroe_doctrine
+		}
+		cost = 50
+		complete_effect = {
+			create_wargoal = {
+				target = ECU
+				type = annex_everything
+			}
+		}
+	}
+	BEL_attack_peru = {
+		icon = generic_prepare_civil_war
+		available = {
+		
+		}
+		
+		fire_only_once = yes
+		
+		visible = {
+			has_country_flag = BEL_usa_ended_monroe_doctrine
+		}
+		cost = 50
+		complete_effect = {
+			create_wargoal = {
+				target = PRU
+				type = annex_everything
+			}
+		}
+	}
+	BEL_attack_brazil = {
+		icon = generic_prepare_civil_war
+		available = {
+		
+		}
+		
+		fire_only_once = yes
+		
+		visible = {
+			has_country_flag = BEL_usa_ended_monroe_doctrine
+		}
+		cost = 50
+		complete_effect = {
+			create_wargoal = {
+				target = BRA
+				type = annex_everything
+			}
+		}
+	}
+	BEL_attack_bolivia = {
+		icon = generic_prepare_civil_war
+		available = {
+		
+		}
+		
+		fire_only_once = yes
+		
+		visible = {
+			has_country_flag = BEL_usa_ended_monroe_doctrine
+		}
+		cost = 50
+		complete_effect = {
+			create_wargoal = {
+				target = BOL
+				type = annex_everything
+			}
+		}
+	}
+	BEL_attack_paraguay = {
+		icon = generic_prepare_civil_war
+		available = {
+		
+		}
+		
+		fire_only_once = yes
+		
+		visible = {
+			has_country_flag = BEL_usa_ended_monroe_doctrine
+		}
+		cost = 50
+		complete_effect = {
+			create_wargoal = {
+				target = PAR
+				type = annex_everything
+			}
+		}
+	}
+	BEL_attack_chile = {
+		icon = generic_prepare_civil_war
+		available = {
+		
+		}
+		
+		fire_only_once = yes
+		
+		visible = {
+			has_country_flag = BEL_usa_ended_monroe_doctrine
+		}
+		cost = 50
+		complete_effect = {
+			create_wargoal = {
+				target = CHL
+				type = annex_everything
+			}
+		}
+	}
+	BEL_attack_argentina = {
+		icon = generic_prepare_civil_war
+		available = {
+		
+		}
+		
+		fire_only_once = yes
+		
+		visible = {
+			has_country_flag = BEL_usa_ended_monroe_doctrine
+		}
+		cost = 50
+		complete_effect = {
+			create_wargoal = {
+				target = ARG
+				type = annex_everything
+			}
+		}
+	}
+	BEL_attack_urugay = {
+		icon = generic_prepare_civil_war
+		available = {
+		
+		}
+		
+		fire_only_once = yes
+		
+		visible = {
+			has_country_flag = BEL_usa_ended_monroe_doctrine
+		}
+		cost = 50
+		complete_effect = {
+			create_wargoal = {
+				target = URG
+				type = annex_everything
+			}
+		}
+	}
+	BEL_form_belgian_empire = {
+		icon = generic_form_nation
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = BEL_form_belgian_empire_central_america
+				controls_state = 313
+				controls_state = 312
+				controls_state = 314
+				controls_state = 317
+				controls_state = 316
+				controls_state = 304
+				}
+			custom_trigger_tooltip = {
+				tooltip = BEL_form_belgian_empire_south_america
+				controls_state = 493
+				controls_state = 306
+				controls_state = 486
+				controls_state = 489
+				controls_state = 307
+				controls_state = 488
+				controls_state = 649
+				controls_state = 305
+				controls_state = 490
+				controls_state = 491
+				controls_state = 303
+				controls_state = 494
+				controls_state = 492
+				controls_state = 495
+				controls_state = 497
+				controls_state = 498
+				controls_state = 280
+				controls_state = 505
+				controls_state = 499
+				controls_state = 504
+				controls_state = 496
+				controls_state = 501
+				controls_state = 500
+				controls_state = 503
+				controls_state = 502
+				controls_state = 487
+				controls_state = 302
+				controls_state = 688
+				controls_state = 301
+				controls_state = 506
+				controls_state = 279
+				controls_state = 507
+				controls_state = 508
+				controls_state = 509
+				controls_state = 510
+				controls_state = 511
+				controls_state = 278
+				controls_state = 512
+				controls_state = 300
+				}
+			}
+		
+		fire_only_once = yes
+		
+		visible = {
+			has_country_flag = BEL_usa_ended_monroe_doctrine
+		}
+		complete_effect = {
+			set_cosmetic_tag = BEL_BELGIAN_EMPIRE
+			custom_effect_tooltip = BEL_core_central_america
+			custom_effect_tooltip = BEL_core_south_america
+			custom_effect_tooltip = BEL_core_caribbean_states
+			hidden_effect = {
+				add_state_core = 313
+				add_state_core = 312
+				add_state_core = 314
+				add_state_core = 317
+				add_state_core = 316
+				add_state_core = 304
+				add_state_core = 311
+				add_state_core = 685
+				add_state_core = 493
+				add_state_core = 306
+				add_state_core = 486
+				add_state_core = 489
+				add_state_core = 307
+				add_state_core = 488
+				add_state_core = 649
+				add_state_core = 305
+				add_state_core = 490
+				add_state_core = 491
+				add_state_core = 303
+				add_state_core = 494
+				add_state_core = 492
+				add_state_core = 495
+				add_state_core = 497
+				add_state_core = 498
+				add_state_core = 280
+				add_state_core = 505
+				add_state_core = 499
+				add_state_core = 504
+				add_state_core = 496
+				add_state_core = 501
+				add_state_core = 500
+				add_state_core = 503
+				add_state_core = 502
+				add_state_core = 487
+				add_state_core = 302
+				add_state_core = 688
+				add_state_core = 301
+				add_state_core = 506
+				add_state_core = 279
+				add_state_core = 507
+				add_state_core = 508
+				add_state_core = 509
+				add_state_core = 510
+				add_state_core = 511
+				add_state_core = 278
+				add_state_core = 512
+				add_state_core = 300
+				add_state_core = 687
+				add_state_core = 309
+				add_state_core = 310
+				add_state_core = 299
+				add_state_core = 720
+				add_state_core = 691
+				add_state_core = 692
+				add_state_core = 694
+				add_state_core = 308
+				add_state_core = 686
+				add_state_core = 319
+				add_state_core = 318
+				add_state_core = 315
+				add_state_core = 689
+				add_state_core = 693
+				add_state_core = 690
+			}
+		}
+	}
+}
+
+BEL_the_revolutionary_council_category = {
+	BEL_spread_communism_from = {
+		available = {
+		
+		}
+		
+		visible = {
+			has_completed_focus = BEL_support_global_communism
+		}
+		
+		fire_only_once = yes
+		
+		cost = 50
+		
+		ai_will_do = {
+			base = 0 
+			}
+		
+		target_trigger = {
+			FROM = { capital_scope = { is_on_continent = europe } NOT = { has_war_with = ROOT } is_in_faction = no is_puppet = no NOT = { has_government = communism } NOT = { has_capitulated = yes } NOT = { tag = ENG tag = GER tag = EST tag = LAT tag = LIT tag = CZE tag = ALB tag = FRA tag = ITA tag = SPA tag = BUL tag = GRE tag = AUS } }
+		}
+		
+		complete_effect = {
+			FROM = { add_ideas = BEL_spread_communism }
+			FROM = { set_country_flag = BEL_spreaded_communism }
+		}
+	}
+	BEL_invite_countries_from = {
+		available = {
+		
+		}
+		
+		visible = {
+			has_completed_focus = BEL_expand_the_faction
+		}
+		
+		fire_only_once = yes
+		
+		ai_will_do = {
+			base = 0 
+			}
+		
+		target_trigger = {
+			FROM = { has_country_flag = BEL_spreaded_communism has_government = communism }
+			}
+		
+		complete_effect = {
+			FROM = { country_event = { id = generic.5 hours = 4 } }
+		}
+	}
+}
+BEL_fate_of_devlag = {
+	BEL_crush_devlag = {
+		icon = generic_break_treaty
+		available = {
+			NOT = { has_country_flag = BEL_crushing_devlag }
+			NOT = { is_in_faction_with = GER }
+		}
+		
+		visible = {
+			has_completed_focus = BEL_back_in_fashion
+			has_idea = BEL_de_vlag
+		}
+		
+		fire_only_once = yes 
+		
+		ai_will_do = {
+			base = 1 
+			}
+		cost = 50
+		days_remove = 30
+		complete_effect = {
+			set_country_flag = BEL_crushing_devlag
+		}
+		
+		remove_effect = {
+			remove_ideas = BEL_de_vlag
+		}
+	}
+	BEL_neutralize_devlag = {
+		icon = generic_army_support
+		available = {
+			NOT = { has_country_flag = BEL_crushing_devlag }
+			NOT = { is_in_faction_with = GER }
+		}
+		
+		visible = {
+			has_completed_focus = BEL_back_in_fashion
+			has_idea = BEL_de_vlag
+		}
+		
+		fire_only_once = yes 
+		
+		ai_will_do = {
+			base = 1 
+			}
+		cost = 50
+		days_remove = 90
+		
+		complete_effect = {
+			set_country_flag = BEL_crushing_devlag
+			add_stability = -0.1
+		}
+		
+		remove_effect = {
+			swap_ideas = {
+				remove_idea = BEL_de_vlag
+				add_idea = BEL_de_vlag1
+			}
+		}
+	}
+	BEL_support_devlag = {
+		icon = generic_political_discourse
+		available = {
+			NOT = { has_country_flag = BEL_crushing_devlag }
+			is_in_faction_with = GER 
+		}
+		
+		visible = {
+			has_completed_focus = BEL_back_in_fashion
+			has_idea = BEL_de_vlag
+		}
+		
+		fire_only_once = yes 
+		
+		ai_will_do = {
+			base = 1 
+			}
+		cost = 50
+		days_remove = 30 
+		
+		complete_effect = {
+			set_country_flag = BEL_crushing_devlag
+			add_stability = -0.1
+		}
+		
+		remove_effect = {
+			swap_ideas = {
+				remove_idea = BEL_de_vlag
+				add_idea = BEL_de_vlag2
+			}
+		}
+	}
+}
+BEL_claim_europe = {
+	BEL_form_european_union = {
+
+		icon = generic_form_nation
+
+		allowed = {
+				original_tag = BEL
+			}
+
+		available = {
+			is_subject = no
+			controls_state = 8
+			# Netherlands
+			custom_trigger_tooltip = {
+				tooltip = form_eu_netherlands_required_states_tt
+				controls_state = 7
+				controls_state = 35
+				controls_state = 36
+			}
+			# Belgium
+			custom_trigger_tooltip = {
+				tooltip = form_eu_belgium_required_states_tt
+				controls_state = 6
+				controls_state = 34
+			}
+			# France
+			custom_trigger_tooltip = {
+				tooltip = form_eu_france_required_states_tt
+				controls_state = 29
+				controls_state = 18
+				controls_state = 17
+				controls_state = 28
+				controls_state = 15
+				controls_state = 16
+				controls_state = 27
+				controls_state = 14
+				controls_state = 30
+				controls_state = 24
+				controls_state = 23
+				controls_state = 33
+				controls_state = 26
+				controls_state = 20
+				controls_state = 32
+				controls_state = 735
+				controls_state = 25
+				controls_state = 22
+				controls_state = 21
+				controls_state = 851
+				controls_state = 19
+				controls_state = 20
+				controls_state = 1
+				controls_state = 785
+				controls_state = 31
+				controls_state = 806
+			}
+			# Italy
+			custom_trigger_tooltip = {
+				tooltip = form_eu_italy_required_states_tt
+				controls_state = 158
+				controls_state = 159
+				controls_state = 39
+				controls_state = 160
+				controls_state = 161
+				controls_state = 162
+				controls_state = 157
+				controls_state = 2
+				controls_state = 117
+				controls_state = 156
+				controls_state = 115
+				controls_state = 114
+				controls_state = 736
+				controls_state = 849
+				controls_state = 850
+				controls_state = 852
+			}
+			# Germany
+			custom_trigger_tooltip = {
+				tooltip = form_country_germany_required_states_tt
+				controls_state = 51
+				controls_state = 42
+				controls_state = 56
+				controls_state = 57
+				controls_state = 55
+				controls_state = 50
+				controls_state = 59
+				controls_state = 58
+				controls_state = 60
+				controls_state = 54
+				controls_state = 52
+				controls_state = 53
+				controls_state = 61
+				controls_state = 64
+				controls_state = 65
+				controls_state = 62
+			}
+		}
+
+		visible = {
+			original_tag = BEL
+			
+		}
+
+		complete_effect = {
+			set_cosmetic_tag = EUR_UNIFIED
+			8 = { add_core_of = ROOT }
+			# Netherlands
+			custom_effect_tooltip = form_eu_netherlands_coring_states_tt 
+			hidden_effect = {
+				7 = { add_core_of = ROOT }
+				35 = { add_core_of = ROOT }
+				36 = { add_core_of = ROOT }
+				#997 = { add_core_of = ROOT }
+			}
+			# Belgium
+			custom_effect_tooltip = form_eu_belgium_coring_states_tt
+			hidden_effect = {
+				6 = { add_core_of = ROOT }
+				34 = { add_core_of = ROOT }
+			}
+			# France
+			custom_effect_tooltip = form_eu_france_coring_states_tt
+			hidden_effect = {
+				806 = { add_core_of = ROOT }
+				29 = { add_core_of = ROOT }
+				18 = { add_core_of = ROOT }
+				17 = { add_core_of = ROOT }
+				28 = { add_core_of = ROOT }
+				15 = { add_core_of = ROOT }
+				16 = { add_core_of = ROOT }
+				27 = { add_core_of = ROOT }
+				14 = { add_core_of = ROOT }
+				30 = { add_core_of = ROOT }
+				24 = { add_core_of = ROOT }
+				23 = { add_core_of = ROOT }
+				33 = { add_core_of = ROOT }
+				26 = { add_core_of = ROOT }
+				20 = { add_core_of = ROOT }
+				32 = { add_core_of = ROOT }
+				735 = { add_core_of = ROOT }
+				25 = { add_core_of = ROOT }
+				22 = { add_core_of = ROOT }
+				21 = { add_core_of = ROOT }
+				851 = { add_core_of = ROOT }
+				19 = { add_core_of = ROOT }
+				20 = { add_core_of = ROOT }
+				1 = { add_core_of = ROOT }
+				785 = { add_core_of = ROOT }
+				31 = { add_core_of = ROOT }
+			}
+			# Italy
+			custom_effect_tooltip = form_eu_italy_coring_states_tt
+			hidden_effect = {
+				158 = { add_core_of = ROOT }
+				159 = { add_core_of = ROOT }
+				39 = { add_core_of = ROOT }
+				160 = { add_core_of = ROOT }
+				161 = { add_core_of = ROOT }
+				162 = { add_core_of = ROOT }
+				157 = { add_core_of = ROOT }
+				2 = { add_core_of = ROOT }
+				117 = { add_core_of = ROOT }
+				156 = { add_core_of = ROOT }
+				115 = { add_core_of = ROOT }
+				114 = { add_core_of = ROOT }
+				736 = { add_core_of = ROOT }
+				849 = { add_core_of = ROOT }
+				850 = { add_core_of = ROOT }
+				852 = { add_core_of = ROOT }
+			}
+			# Germany
+			custom_effect_tooltip = form_country_germany_coring_states_tt
+			hidden_effect = {
+				51 = { add_core_of = ROOT }
+				42 = { add_core_of = ROOT }
+				56 = { add_core_of = ROOT }
+				57 = { add_core_of = ROOT }
+				55 = { add_core_of = ROOT }
+				50 = { add_core_of = ROOT }
+				59 = { add_core_of = ROOT }
+				58 = { add_core_of = ROOT }
+				60 = { add_core_of = ROOT }
+				54 = { add_core_of = ROOT }
+				52 = { add_core_of = ROOT }
+				53 = { add_core_of = ROOT }
+				61 = { add_core_of = ROOT }
+				64 = { add_core_of = ROOT }
+				65 = { add_core_of = ROOT }
+				62 = { add_core_of = ROOT }
+				68 = { add_core_of = ROOT }
+				66 = { add_core_of = ROOT }
+				67 = { add_core_of = ROOT }
+				63 = { add_core_of = ROOT }
+				5 = { add_core_of = ROOT }
+				763 = { add_core_of = ROOT }
+			}
+			hidden_effect = {
+				news_event = { id = wtt_news.62 hours = 6 }
+				set_global_flag = form_european_union_flag
+				set_country_flag = form_european_union_flag
+			}
+		}
+
+		ai_will_do = {
+			factor = 200
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+			}
+		}
+	}
+	BEL_disable_on_map_decisions = {
+		available = {
+			
+			}
+		
+		fire_only_once = no
+			
+		visible = {
+			NOT = {
+				has_country_flag = BEL_disabled_on_map_decisions
+				}
+			}
+		
+		complete_effect = {
+			set_country_flag = BEL_disabled_on_map_decisions
+		}
+	}
+	BEL_enable_on_map_decisions = {
+		available = {
+		
+		}
+		
+		fire_only_once = no 
+		
+		visible = {
+			has_country_flag = BEL_disabled_on_map_decisions
+		}
+		
+		complete_effect = {
+			clr_country_flag = BEL_disabled_on_map_decisions
+		}
+	}
+	BEL_integrate_picardy = {
+		icon = generic_form_nation
+		
+		available = {
+			controls_state = 785
+		}
+		
+		cancel_trigger = {
+			NOT = { controls_state = 785 }
+		}
+
+		highlight_states = {
+			highlight_states_trigger = { state = 785 }
+		}
+		
+		cost = 100
+		days_remove = 30
+
+		on_map_mode = map_only
+		
+		fire_only_once = yes
+
+		visible = {
+			785 = { NOT = { is_core_of = ROOT } }
+			NOT = { has_country_flag = BEL_disabled_on_map_decisions }
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+
+		remove_effect = {
+			add_state_core = 785
+			}
+		}
+	BEL_integrate_champagne = {
+		icon = generic_form_nation
+		
+		available = {
+			controls_state = 18
+		}
+		
+
+		highlight_states = {
+			highlight_states_trigger = { state = 18 }
+		}
+		
+		cost = 100
+		days_remove = 30
+		
+		cancel_trigger = {
+			NOT = { controls_state = 18 }
+		}
+
+		on_map_mode = map_only
+		
+		fire_only_once = yes
+
+		visible = {
+			18 = { NOT = { is_core_of = ROOT } }
+			NOT = { has_country_flag = BEL_disabled_on_map_decisions }
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+
+		remove_effect = {
+			add_state_core = 18
+			}
+		}
+	BEL_integrate_alsace_lorraine = {
+		icon = generic_form_nation
+		
+		available = {
+			controls_state = 28
+		}
+
+		highlight_states = {
+			highlight_states_trigger = { state = 28 }
+		}
+		
+		cost = 100
+		days_remove = 30
+		
+		cancel_trigger = {
+			NOT = { controls_state = 28 }
+		}
+
+		on_map_mode = map_only
+		
+		fire_only_once = yes
+
+		visible = {
+			28 = { NOT = { is_core_of = ROOT } }
+			NOT = { has_country_flag = BEL_disabled_on_map_decisions }
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+
+		remove_effect = {
+			add_state_core = 28
+			}
+		}
+	BEL_integrate_franche_comte = {
+		icon = generic_form_nation
+		
+		available = {
+			controls_state = 17
+		}
+
+		highlight_states = {
+			highlight_states_trigger = { state = 17 }
+		}
+		
+		cost = 100
+		days_remove = 30
+		
+		cancel_trigger = {
+			NOT = { controls_state = 17 }
+		}
+
+		on_map_mode = map_only
+		
+		fire_only_once = yes
+
+		visible = {
+			17 = { NOT = { is_core_of = ROOT } }
+			NOT = { has_country_flag = BEL_disabled_on_map_decisions }
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+
+		remove_effect = {
+			add_state_core = 17
+			}
+		}
+	BEL_integrate_normandy = {
+		icon = generic_form_nation
+		
+		available = {
+			controls_state = 15
+		}
+
+		highlight_states = {
+			highlight_states_trigger = { state = 15 }
+		}
+		
+		cost = 100
+		days_remove = 30
+		
+		cancel_trigger = {
+			NOT = { controls_state = 15 }
+		}
+
+		on_map_mode = map_only
+		
+		fire_only_once = yes
+
+		visible = {
+			15 = { NOT = { is_core_of = ROOT } }
+			NOT = { has_country_flag = BEL_disabled_on_map_decisions }
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+
+		remove_effect = {
+			add_state_core = 15
+			}
+		}
+	BEL_integrate_paris = {
+		icon = generic_form_nation
+		
+		available = {
+			controls_state = 16
+		}
+
+		highlight_states = {
+			highlight_states_trigger = { state = 16 }
+		}
+		
+		cost = 100
+		days_remove = 30
+		
+		cancel_trigger = {
+			NOT = { controls_state = 16 }
+		}
+
+		on_map_mode = map_only
+		
+		fire_only_once = yes
+
+		visible = {
+			16 = { NOT = { is_core_of = ROOT } }
+			NOT = { has_country_flag = BEL_disabled_on_map_decisions }
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+
+		remove_effect = {
+			add_state_core = 16
+			}
+		}
+	BEL_integrate_brittany = {
+		icon = generic_form_nation
+		
+		available = {
+			controls_state = 14
+		}
+
+		highlight_states = {
+			highlight_states_trigger = { state = 14 }
+		}
+		
+		cost = 100
+		days_remove = 30
+		
+		cancel_trigger = {
+			NOT = { controls_state = 14 }
+		}
+
+		on_map_mode = map_only
+		
+		fire_only_once = yes
+
+		visible = {
+			14 = { NOT = { is_core_of = ROOT } }
+			NOT = { has_country_flag = BEL_disabled_on_map_decisions }
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+
+		remove_effect = {
+			add_state_core = 14
+			}
+		}
+	BEL_integrate_loire = {
+		icon = generic_form_nation
+		
+		available = {
+			controls_state = 30
+		}
+
+		highlight_states = {
+			highlight_states_trigger = { state = 30 }
+		}
+		
+		cost = 100
+		days_remove = 30
+		
+		cancel_trigger = {
+			NOT = { controls_state = 30 }
+		}
+
+		on_map_mode = map_only
+		
+		fire_only_once = yes
+
+		visible = {
+			30 = { NOT = { is_core_of = ROOT } }
+			NOT = { has_country_flag = BEL_disabled_on_map_decisions }
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+
+		remove_effect = {
+			add_state_core = 30
+			}
+		}
+	BEL_integrate_centre = {
+		icon = generic_form_nation
+		
+		available = {
+			controls_state = 24
+		}
+
+		highlight_states = {
+			highlight_states_trigger = { state = 24 }
+		}
+		
+		cost = 100
+		days_remove = 30
+		
+		cancel_trigger = {
+			NOT = { controls_state = 24 }
+		}
+
+		on_map_mode = map_only
+		
+		fire_only_once = yes
+
+		visible = {
+			24 = { NOT = { is_core_of = ROOT } }
+			NOT = { has_country_flag = BEL_disabled_on_map_decisions }
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+
+		remove_effect = {
+			add_state_core = 24
+			}
+		}
+	BEL_integrate_bourgogne = {
+		icon = generic_form_nation
+		
+		available = {
+			controls_state = 27
+		}
+
+		highlight_states = {
+			highlight_states_trigger = { state = 27 }
+		}
+		
+		cost = 100
+		days_remove = 30
+		
+		cancel_trigger = {
+			NOT = { controls_state = 27 }
+		}
+
+		on_map_mode = map_only
+		
+		fire_only_once = yes
+
+		visible = {
+			27 = { NOT = { is_core_of = ROOT } }
+			NOT = { has_country_flag = BEL_disabled_on_map_decisions }
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+
+		remove_effect = {
+			add_state_core = 27
+			}
+		}
+	BEL_integrate_poitou = {
+		icon = generic_form_nation
+		
+		available = {
+			controls_state = 23
+		}
+
+		highlight_states = {
+			highlight_states_trigger = { state = 23 }
+		}
+		
+		cost = 100
+		days_remove = 30
+		
+		cancel_trigger = {
+			NOT = { controls_state = 23 }
+		}
+
+		on_map_mode = map_only
+		
+		fire_only_once = yes
+
+		visible = {
+			23 = { NOT = { is_core_of = ROOT } }
+			NOT = { has_country_flag = BEL_disabled_on_map_decisions }
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+
+		remove_effect = {
+			add_state_core = 23
+			}
+		}
+	BEL_integrate_centre_sud = {
+		icon = generic_form_nation
+		
+		available = {
+			controls_state = 33
+		}
+
+		highlight_states = {
+			highlight_states_trigger = { state = 33 }
+		}
+		
+		cost = 100
+		days_remove = 30
+		
+		cancel_trigger = {
+			NOT = { controls_state = 33 }
+		}
+
+		on_map_mode = map_only
+		
+		fire_only_once = yes
+
+		visible = {
+			33 = { NOT = { is_core_of = ROOT } }
+			NOT = { has_country_flag = BEL_disabled_on_map_decisions }
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+
+		remove_effect = {
+			add_state_core = 33
+			}
+		}
+	BEL_integrate_auvergne = {
+		icon = generic_form_nation
+		
+		available = {
+			controls_state = 26
+		}
+
+		highlight_states = {
+			highlight_states_trigger = { state = 26 }
+		}
+		
+		cost = 100
+		days_remove = 30
+		
+		cancel_trigger = {
+			NOT = { controls_state = 26 }
+		}
+
+		on_map_mode = map_only
+		
+		fire_only_once = yes
+
+		visible = {
+			26 = { NOT = { is_core_of = ROOT } }
+			NOT = { has_country_flag = BEL_disabled_on_map_decisions }
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+
+		remove_effect = {
+			add_state_core = 26
+			}
+		}
+	BEL_integrate_rhone = {
+		icon = generic_form_nation
+		
+		available = {
+			controls_state = 20
+		}
+
+		highlight_states = {
+			highlight_states_trigger = { state = 20 }
+		}
+		
+		cost = 100
+		days_remove = 30
+		
+		cancel_trigger = {
+			NOT = { controls_state = 20 }
+		}
+
+		on_map_mode = map_only
+		
+		fire_only_once = yes
+
+		visible = {
+			20 = { NOT = { is_core_of = ROOT } }
+			NOT = { has_country_flag = BEL_disabled_on_map_decisions }
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+
+		remove_effect = {
+			add_state_core = 20
+			}
+		}
+	BEL_integrate_alpes = {
+		icon = generic_form_nation
+		
+		available = {
+			controls_state = 32
+		}
+
+		highlight_states = {
+			highlight_states_trigger = { state = 32 }
+		}
+		
+		cost = 100
+		days_remove = 30
+		
+		cancel_trigger = {
+			NOT = { controls_state = 32 }
+		}
+
+		on_map_mode = map_only
+		
+		fire_only_once = yes
+
+		visible = {
+			32 = { NOT = { is_core_of = ROOT } }
+			NOT = { has_country_flag = BEL_disabled_on_map_decisions }
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+
+		remove_effect = {
+			add_state_core = 32
+			}
+		}
+	BEL_integrate_savoy = {
+		icon = generic_form_nation
+		
+		available = {
+			controls_state = 735
+		}
+
+		highlight_states = {
+			highlight_states_trigger = { state = 735 }
+		}
+		
+		cost = 100
+		days_remove = 30
+		
+		cancel_trigger = {
+			NOT = { controls_state = 735 }
+		}
+
+		on_map_mode = map_only
+		
+		fire_only_once = yes
+
+		visible = {
+			735 = { NOT = { is_core_of = ROOT } }
+			NOT = { has_country_flag = BEL_disabled_on_map_decisions }
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+
+		remove_effect = {
+			add_state_core = 735
+			}
+		}
+	BEL_integrate_aquitaine = {
+		icon = generic_form_nation
+		
+		available = {
+			controls_state = 19
+		}
+
+		highlight_states = {
+			highlight_states_trigger = { state = 19 }
+		}
+		
+		cost = 100
+		days_remove = 30
+		
+		cancel_trigger = {
+			NOT = { controls_state = 19 }
+		}
+
+		on_map_mode = map_only
+		
+		fire_only_once = yes
+
+		visible = {
+			19 = { NOT = { is_core_of = ROOT } }
+			NOT = { has_country_flag = BEL_disabled_on_map_decisions }
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+
+		remove_effect = {
+			add_state_core = 19
+			}
+		}
+	BEL_integrate_limousin = {
+		icon = generic_form_nation
+		
+		available = {
+			controls_state = 25
+		}
+
+		highlight_states = {
+			highlight_states_trigger = { state = 25 }
+		}
+		
+		cost = 100
+		days_remove = 30
+		
+		cancel_trigger = {
+			NOT = { controls_state = 25 }
+		}
+
+		on_map_mode = map_only
+		
+		fire_only_once = yes
+
+		visible = {
+			25 = { NOT = { is_core_of = ROOT } }
+			NOT = { has_country_flag = BEL_disabled_on_map_decisions }
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+
+		remove_effect = {
+			add_state_core = 25
+			}
+		}
+	
+	BEL_integrate_pyrenees_atlantiques = {
+		icon = generic_form_nation
+		
+		available = {
+			controls_state = 806
+		}
+		
+		cancel_trigger = {
+			NOT = { controls_state = 806 }
+		}
+
+		highlight_states = {
+			highlight_states_trigger = { state = 806 }
+		}
+		
+		cost = 100
+		days_remove = 30
+
+		on_map_mode = map_only
+		
+		fire_only_once = yes
+
+		visible = {
+			806 = { NOT = { is_core_of = ROOT } }
+			NOT = { has_country_flag = BEL_disabled_on_map_decisions }
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+
+		remove_effect = {
+			add_state_core = 806
+			}
+		}
+	BEL_integrate_midi_pyrenees = {
+		icon = generic_form_nation
+		
+		available = {
+			controls_state = 31
+		}
+		
+		cancel_trigger = {
+			NOT = { controls_state = 31 }
+		}
+
+		highlight_states = {
+			highlight_states_trigger = { state = 31 }
+		}
+		
+		cost = 100
+		days_remove = 30
+
+		on_map_mode = map_only
+		
+		fire_only_once = yes
+
+		visible = {
+			31 = { NOT = { is_core_of = ROOT } }
+			NOT = { has_country_flag = BEL_disabled_on_map_decisions }
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+
+		remove_effect = {
+			add_state_core = 31
+			}
+		}
+	BEL_integrate_languedoc = {
+		icon = generic_form_nation
+		
+		available = {
+			controls_state = 22
+		}
+		
+		cancel_trigger = {
+			NOT = { controls_state = 22 }
+		}
+
+		highlight_states = {
+			highlight_states_trigger = { state = 22 }
+		}
+		
+		cost = 100
+		days_remove = 30
+
+		on_map_mode = map_only
+		
+		fire_only_once = yes
+
+		visible = {
+			22 = { NOT = { is_core_of = ROOT } }
+			NOT = { has_country_flag = BEL_disabled_on_map_decisions }
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+
+		remove_effect = {
+			add_state_core = 22
+			}
+		}
+	BEL_integrate_bouches_du_rhone = {
+		icon = generic_form_nation
+		
+		available = {
+			controls_state = 21
+		}
+		
+		cancel_trigger = {
+			NOT = { controls_state = 21 }
+		}
+
+		highlight_states = {
+			highlight_states_trigger = { state = 21 }
+		}
+		
+		cost = 100
+		days_remove = 30
+
+		on_map_mode = map_only
+		
+		fire_only_once = yes
+
+		visible = {
+			21 = { NOT = { is_core_of = ROOT } }
+			NOT = { has_country_flag = BEL_disabled_on_map_decisions }
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+
+		remove_effect = {
+			add_state_core = 21
+			}
+		}
+	BEL_integrate_var = {
+		icon = generic_form_nation
+		
+		available = {
+			controls_state = 851
+		}
+		
+		cancel_trigger = {
+			NOT = { controls_state = 851 }
+		}
+
+		highlight_states = {
+			highlight_states_trigger = { state = 851 }
+		}
+		
+		cost = 100
+		days_remove = 30
+
+		on_map_mode = map_only
+		
+		fire_only_once = yes
+
+		visible = {
+			851 = { NOT = { is_core_of = ROOT } }
+			NOT = { has_country_flag = BEL_disabled_on_map_decisions }
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+
+		remove_effect = {
+			add_state_core = 851
+			}
+		}
+	BEL_integrate_piemonte = {
+		icon = generic_form_nation
+		
+		available = {
+			controls_state = 158
+		}
+		cancel_trigger = {
+			NOT = { controls_state = 158 }
+		}
+
+		highlight_states = {
+			highlight_states_trigger = { state = 158 }
+		}
+		
+		cost = 100
+		days_remove = 30
+
+		on_map_mode = map_only
+		
+		fire_only_once = yes
+
+		visible = {
+			158 = { NOT = { is_core_of = ROOT } }
+			NOT = { has_country_flag = BEL_disabled_on_map_decisions }
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+
+		remove_effect = {
+			add_state_core = 158
+			}
+		}
+	BEL_integrate_lombardia = {
+		icon = generic_form_nation
+		
+		available = {
+			controls_state = 159
+		}
+		cancel_trigger = {
+			NOT = { controls_state = 159 }
+		}
+
+		highlight_states = {
+			highlight_states_trigger = { state = 159 }
+		}
+		
+		cost = 100
+		days_remove = 30
+
+		on_map_mode = map_only
+		
+		fire_only_once = yes
+
+		visible = {
+			159 = { NOT = { is_core_of = ROOT } }
+			NOT = { has_country_flag = BEL_disabled_on_map_decisions }
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+
+		remove_effect = {
+			add_state_core = 159
+			}
+		}
+	BEL_integrate_veneto = {
+		icon = generic_form_nation
+		
+		available = {
+			controls_state = 160
+		}
+		cancel_trigger = {
+			NOT = { controls_state = 160 }
+		}
+
+		highlight_states = {
+			highlight_states_trigger = { state = 160 }
+		}
+		
+		cost = 100
+		days_remove = 30
+
+		on_map_mode = map_only
+		
+		fire_only_once = yes
+
+		visible = {
+			160 = { NOT = { is_core_of = ROOT } }
+			NOT = { has_country_flag = BEL_disabled_on_map_decisions }
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+
+		remove_effect = {
+			add_state_core = 160
+			}
+		}
+	BEL_integrate_trentino = {
+		icon = generic_form_nation
+		
+		available = {
+			controls_state = 850
+		}
+		cancel_trigger = {
+			NOT = { controls_state = 850 }
+		}
+
+		highlight_states = {
+			highlight_states_trigger = { state = 850 }
+		}
+		
+		cost = 100
+		days_remove = 30
+
+		on_map_mode = map_only
+		
+		fire_only_once = yes
+
+		visible = {
+			850 = { NOT = { is_core_of = ROOT } }
+			NOT = { has_country_flag = BEL_disabled_on_map_decisions }
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+
+		remove_effect = {
+			add_state_core = 850
+			}
+		}
+	BEL_integrate_alto_adige = {
+		icon = generic_form_nation
+		
+		available = {
+			controls_state = 39
+		}
+		cancel_trigger = {
+			NOT = { controls_state = 39 }
+		}
+
+		highlight_states = {
+			highlight_states_trigger = { state = 39 }
+		}
+		
+		cost = 100
+		days_remove = 30
+
+		on_map_mode = map_only
+		
+		fire_only_once = yes
+
+		visible = {
+			39 = { NOT = { is_core_of = ROOT } }
+			NOT = { has_country_flag = BEL_disabled_on_map_decisions }
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+
+		remove_effect = {
+			add_state_core = 39
+			}
+		}
+	BEL_integrate_litorale = {
+		icon = generic_form_nation
+		
+		available = {
+			controls_state = 736
+		}
+		cancel_trigger = {
+			NOT = { controls_state = 736 }
+		}
+
+		highlight_states = {
+			highlight_states_trigger = { state = 736 }
+		}
+		
+		cost = 100
+		days_remove = 30
+
+		on_map_mode = map_only
+		
+		fire_only_once = yes
+
+		visible = {
+			736 = { NOT = { is_core_of = ROOT } }
+			NOT = { has_country_flag = BEL_disabled_on_map_decisions }
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+
+		remove_effect = {
+			add_state_core = 736
+			}
+		}
+	BEL_integrate_istria = {
+		icon = generic_form_nation
+		
+		available = {
+			controls_state = 852
+		}
+		cancel_trigger = {
+			NOT = { controls_state = 852 }
+		}
+
+		highlight_states = {
+			highlight_states_trigger = { state = 852 }
+		}
+		
+		cost = 100
+		days_remove = 30
+
+		on_map_mode = map_only
+		
+		fire_only_once = yes
+
+		visible = {
+			852 = { NOT = { is_core_of = ROOT } }
+			NOT = { has_country_flag = BEL_disabled_on_map_decisions }
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+
+		remove_effect = {
+			add_state_core = 852
+			}
+		}
+	BEL_integrate_emilia_romagna = {
+		icon = generic_form_nation
+		
+		available = {
+			controls_state = 161
+		}
+		cancel_trigger = {
+			NOT = { controls_state = 161 }
+		}
+
+		highlight_states = {
+			highlight_states_trigger = { state = 161 }
+		}
+		
+		cost = 100
+		days_remove = 30
+
+		on_map_mode = map_only
+		
+		fire_only_once = yes
+
+		visible = {
+			161 = { NOT = { is_core_of = ROOT } }
+			NOT = { has_country_flag = BEL_disabled_on_map_decisions }
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+
+		remove_effect = {
+			add_state_core = 161
+			}
+		}
+	BEL_integrate_toscana = {
+		icon = generic_form_nation
+		
+		available = {
+			controls_state = 162
+		}
+		cancel_trigger = {
+			NOT = { controls_state = 162 }
+		}
+
+		highlight_states = {
+			highlight_states_trigger = { state = 162 }
+		}
+		
+		cost = 100
+		days_remove = 30
+
+		on_map_mode = map_only
+		
+		fire_only_once = yes
+
+		visible = {
+			162 = { NOT = { is_core_of = ROOT } }
+			NOT = { has_country_flag = BEL_disabled_on_map_decisions }
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+
+		remove_effect = {
+			add_state_core = 162
+			}
+		}
+	BEL_integrate_abruzzo = {
+		icon = generic_form_nation
+		
+		available = {
+			controls_state = 157
+		}
+		cancel_trigger = {
+			NOT = { controls_state = 157 }
+		}
+
+		highlight_states = {
+			highlight_states_trigger = { state = 157 }
+		}
+		
+		cost = 100
+		days_remove = 30
+
+		on_map_mode = map_only
+		
+		fire_only_once = yes
+
+		visible = {
+			157 = { NOT = { is_core_of = ROOT } }
+			NOT = { has_country_flag = BEL_disabled_on_map_decisions }
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+
+		remove_effect = {
+			add_state_core = 157
+			}
+		}
+	BEL_integrate_lazio = {
+		icon = generic_form_nation
+		
+		available = {
+			controls_state = 2
+		}
+		cancel_trigger = {
+			NOT = { controls_state = 2 }
+		}
+
+		highlight_states = {
+			highlight_states_trigger = { state = 2 }
+		}
+		
+		cost = 100
+		days_remove = 30
+
+		on_map_mode = map_only
+		
+		fire_only_once = yes
+
+		visible = {
+			2 = { NOT = { is_core_of = ROOT } }
+			NOT = { has_country_flag = BEL_disabled_on_map_decisions }
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+
+		remove_effect = {
+			add_state_core = 2
+			}
+		}
+	BEL_integrate_campania = {
+		icon = generic_form_nation
+		
+		available = {
+			controls_state = 117
+		}
+		cancel_trigger = {
+			NOT = { controls_state = 117 }
+		}
+
+		highlight_states = {
+			highlight_states_trigger = { state = 117 }
+		}
+		
+		cost = 100
+		days_remove = 30
+
+		on_map_mode = map_only
+		
+		fire_only_once = yes
+
+		visible = {
+			117 = { NOT = { is_core_of = ROOT } }
+			NOT = { has_country_flag = BEL_disabled_on_map_decisions }
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+
+		remove_effect = {
+			add_state_core = 117
+			}
+		}
+	BEL_integrate_puglia = {
+		icon = generic_form_nation
+		
+		available = {
+			controls_state = 849
+		}
+		cancel_trigger = {
+			NOT = { controls_state = 849 }
+		}
+
+		highlight_states = {
+			highlight_states_trigger = { state = 849 }
+		}
+		
+		cost = 100
+		days_remove = 30
+
+		on_map_mode = map_only
+		
+		fire_only_once = yes
+
+		visible = {
+			849 = { NOT = { is_core_of = ROOT } }
+			NOT = { has_country_flag = BEL_disabled_on_map_decisions }
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+
+		remove_effect = {
+			add_state_core = 849
+			}
+		}
+	BEL_integrate_calabria = {
+		icon = generic_form_nation
+		
+		available = {
+			controls_state = 156
+		}
+		cancel_trigger = {
+			NOT = { controls_state = 156 }
+		}
+
+		highlight_states = {
+			highlight_states_trigger = { state = 156 }
+		}
+		
+		cost = 100
+		days_remove = 30
+
+		on_map_mode = map_only
+		
+		fire_only_once = yes
+
+		visible = {
+			156 = { NOT = { is_core_of = ROOT } }
+			NOT = { has_country_flag = BEL_disabled_on_map_decisions }
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+
+		remove_effect = {
+			add_state_core = 156
+			}
+		}
+	BEL_integrate_sicilia = {
+		icon = generic_form_nation
+		
+		available = {
+			controls_state = 115
+		}
+		cancel_trigger = {
+			NOT = { controls_state = 115 }
+		}
+
+		highlight_states = {
+			highlight_states_trigger = { state = 115 }
+		}
+		
+		cost = 100
+		days_remove = 30
+
+		on_map_mode = map_only
+		
+		fire_only_once = yes
+
+		visible = {
+			115 = { NOT = { is_core_of = ROOT } }
+			NOT = { has_country_flag = BEL_disabled_on_map_decisions }
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+
+		remove_effect = {
+			add_state_core = 115
+			}
+		}
+	BEL_integrate_sardegna = {
+		icon = generic_form_nation
+		
+		available = {
+			controls_state = 114
+		}
+		cancel_trigger = {
+			NOT = { controls_state = 114 }
+		}
+
+		highlight_states = {
+			highlight_states_trigger = { state = 114 }
+		}
+		
+		cost = 100
+		days_remove = 30
+
+		on_map_mode = map_only
+		
+		fire_only_once = yes
+
+		visible = {
+			114 = { NOT = { is_core_of = ROOT } }
+			NOT = { has_country_flag = BEL_disabled_on_map_decisions }
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+
+		remove_effect = {
+			add_state_core = 114
+			}
+		}
+	BEL_integrate_corsica = {
+		icon = generic_form_nation
+		
+		available = {
+			controls_state = 1
+		}
+		cancel_trigger = {
+			NOT = { controls_state = 1 }
+		}
+
+		highlight_states = {
+			highlight_states_trigger = { state = 1 }
+		}
+		
+		cost = 100
+		days_remove = 30
+
+		on_map_mode = map_only
+		
+		fire_only_once = yes
+
+		visible = {
+			1 = { NOT = { is_core_of = ROOT } }
+			NOT = { has_country_flag = BEL_disabled_on_map_decisions }
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+
+		remove_effect = {
+			add_state_core = 1
+			}
+		}
+	BEL_integrate_wurttemberg = {
+		icon = generic_form_nation
+		
+		available = {
+			controls_state = 50
+		}
+		cancel_trigger = {
+			NOT = { controls_state = 50 }
+		}
+
+		highlight_states = {
+			highlight_states_trigger = { state = 50 }
+		}
+		
+		cost = 100
+		days_remove = 30
+
+		on_map_mode = map_only
+		
+		fire_only_once = yes
+
+		visible = {
+			50 = { NOT = { is_core_of = ROOT } }
+			NOT = { has_country_flag = BEL_disabled_on_map_decisions }
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+
+		remove_effect = {
+			add_state_core = 50
+			}
+		}
+	BEL_integrate_moselland = {
+		icon = generic_form_nation
+		
+		available = {
+			controls_state = 42
+		}
+		cancel_trigger = {
+			NOT = { controls_state = 42 }
+		}
+
+		highlight_states = {
+			highlight_states_trigger = { state = 42 }
+		}
+		
+		cost = 100
+		days_remove = 30
+
+		on_map_mode = map_only
+		
+		fire_only_once = yes
+
+		visible = {
+			42 = { NOT = { is_core_of = ROOT } }
+			NOT = { has_country_flag = BEL_disabled_on_map_decisions }
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+
+		remove_effect = {
+			add_state_core = 42
+			}
+		}
+	BEL_integrate_rhineland = {
+		icon = generic_form_nation
+		
+		available = {
+			controls_state = 51
+		}
+		cancel_trigger = {
+			NOT = { controls_state = 51 }
+		}
+
+		highlight_states = {
+			highlight_states_trigger = { state = 51 }
+		}
+		
+		cost = 100
+		days_remove = 30
+
+		on_map_mode = map_only
+		
+		fire_only_once = yes
+
+		visible = {
+			51 = { NOT = { is_core_of = ROOT } }
+			NOT = { has_country_flag = BEL_disabled_on_map_decisions }
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+
+		remove_effect = {
+			add_state_core = 51
+			}
+		}
+	BEL_integrate_hessen = {
+		icon = generic_form_nation
+		
+		available = {
+			controls_state = 55
+		}
+		cancel_trigger = {
+			NOT = { controls_state = 55 }
+		}
+
+		highlight_states = {
+			highlight_states_trigger = { state = 55 }
+		}
+		
+		cost = 100
+		days_remove = 30
+
+		on_map_mode = map_only
+		
+		fire_only_once = yes
+
+		visible = {
+			55 = { NOT = { is_core_of = ROOT } }
+			NOT = { has_country_flag = BEL_disabled_on_map_decisions }
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+
+		remove_effect = {
+			add_state_core = 55
+			}
+		}
+	BEL_integrate_westfalen = {
+		icon = generic_form_nation
+		
+		available = {
+			controls_state = 57
+		}
+		cancel_trigger = {
+			NOT = { controls_state = 57 }
+		}
+
+		highlight_states = {
+			highlight_states_trigger = { state = 57 }
+		}
+		
+		cost = 100
+		days_remove = 30
+
+		on_map_mode = map_only
+		
+		fire_only_once = yes
+
+		visible = {
+			57 = { NOT = { is_core_of = ROOT } }
+			NOT = { has_country_flag = BEL_disabled_on_map_decisions }
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+
+		remove_effect = {
+			add_state_core = 57
+			}
+		}
+	BEL_integrate_weser_ems = {
+		icon = generic_form_nation
+		
+		available = {
+			controls_state = 56
+		}
+		cancel_trigger = {
+			NOT = { controls_state = 56 }
+		}
+
+		highlight_states = {
+			highlight_states_trigger = { state = 56 }
+		}
+		
+		cost = 100
+		days_remove = 30
+
+		on_map_mode = map_only
+		
+		fire_only_once = yes
+
+		visible = {
+			56 = { NOT = { is_core_of = ROOT } }
+			NOT = { has_country_flag = BEL_disabled_on_map_decisions }
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+
+		remove_effect = {
+			add_state_core = 56
+			}
+		}
+	BEL_integrate_oberbayern = {
+		icon = generic_form_nation
+		
+		available = {
+			controls_state = 52
+		}
+		cancel_trigger = {
+			NOT = { controls_state = 52 }
+		}
+
+		highlight_states = {
+			highlight_states_trigger = { state = 52 }
+		}
+		
+		cost = 100
+		days_remove = 30
+
+		on_map_mode = map_only
+		
+		fire_only_once = yes
+
+		visible = {
+			52 = { NOT = { is_core_of = ROOT } }
+			NOT = { has_country_flag = BEL_disabled_on_map_decisions }
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+
+		remove_effect = {
+			add_state_core = 52
+			}
+		}
+	BEL_integrate_niederbayern = {
+		icon = generic_form_nation
+		
+		available = {
+			controls_state = 53
+		}
+		cancel_trigger = {
+			NOT = { controls_state = 53 }
+		}
+
+		highlight_states = {
+			highlight_states_trigger = { state = 53 }
+		}
+		
+		cost = 100
+		days_remove = 30
+
+		on_map_mode = map_only
+		
+		fire_only_once = yes
+
+		visible = {
+			53 = { NOT = { is_core_of = ROOT } }
+			NOT = { has_country_flag = BEL_disabled_on_map_decisions }
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+
+		remove_effect = {
+			add_state_core = 53
+			}
+		}
+	BEL_integrate_franken = {
+		icon = generic_form_nation
+		
+		available = {
+			controls_state = 54
+		}
+		cancel_trigger = {
+			NOT = { controls_state = 54 }
+		}
+
+		highlight_states = {
+			highlight_states_trigger = { state = 54 }
+		}
+		
+		cost = 100
+		days_remove = 30
+
+		on_map_mode = map_only
+		
+		fire_only_once = yes
+
+		visible = {
+			54 = { NOT = { is_core_of = ROOT } }
+			NOT = { has_country_flag = BEL_disabled_on_map_decisions }
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+
+		remove_effect = {
+			add_state_core = 54
+			}
+		}
+	BEL_integrate_thuringen = {
+		icon = generic_form_nation
+		
+		available = {
+			controls_state = 60
+		}
+		cancel_trigger = {
+			NOT = { controls_state = 60 }
+		}
+
+		highlight_states = {
+			highlight_states_trigger = { state = 60 }
+		}
+		
+		cost = 100
+		days_remove = 30
+
+		on_map_mode = map_only
+		
+		fire_only_once = yes
+
+		visible = {
+			60 = { NOT = { is_core_of = ROOT } }
+			NOT = { has_country_flag = BEL_disabled_on_map_decisions }
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+
+		remove_effect = {
+			add_state_core = 60
+			}
+		}
+	BEL_integrate_hannover = {
+		icon = generic_form_nation
+		
+		available = {
+			controls_state = 59
+		}
+		cancel_trigger = {
+			NOT = { controls_state = 59 }
+		}
+
+		highlight_states = {
+			highlight_states_trigger = { state = 59 }
+		}
+		
+		cost = 100
+		days_remove = 30
+
+		on_map_mode = map_only
+		
+		fire_only_once = yes
+
+		visible = {
+			59 = { NOT = { is_core_of = ROOT } }
+			NOT = { has_country_flag = BEL_disabled_on_map_decisions }
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+
+		remove_effect = {
+			add_state_core = 59
+			}
+		}
+	BEL_integrate_schleswig_holstein = {
+		icon = generic_form_nation
+		
+		available = {
+			controls_state = 58
+		}
+		cancel_trigger = {
+			NOT = { controls_state = 58 }
+		}
+
+		highlight_states = {
+			highlight_states_trigger = { state = 58 }
+		}
+		
+		cost = 100
+		days_remove = 30
+
+		on_map_mode = map_only
+		
+		fire_only_once = yes
+
+		visible = {
+			58 = { NOT = { is_core_of = ROOT } }
+			NOT = { has_country_flag = BEL_disabled_on_map_decisions }
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+
+		remove_effect = {
+			add_state_core = 58
+			}
+		}
+	BEL_integrate_mecklenburg = {
+		icon = generic_form_nation
+		
+		available = {
+			controls_state = 61
+		}
+		cancel_trigger = {
+			NOT = { controls_state = 61 }
+		}
+
+		highlight_states = {
+			highlight_states_trigger = { state = 61 }
+		}
+		
+		cost = 100
+		days_remove = 30
+
+		on_map_mode = map_only
+		
+		fire_only_once = yes
+
+		visible = {
+			61 = { NOT = { is_core_of = ROOT } }
+			NOT = { has_country_flag = BEL_disabled_on_map_decisions }
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+
+		remove_effect = {
+			add_state_core = 61
+			}
+		}
+	BEL_integrate_vorpommern = {
+		icon = generic_form_nation
+		
+		available = {
+			controls_state = 62
+		}
+		cancel_trigger = {
+			NOT = { controls_state = 62 }
+		}
+
+		highlight_states = {
+			highlight_states_trigger = { state = 62 }
+		}
+		
+		cost = 100
+		days_remove = 30
+
+		on_map_mode = map_only
+		
+		fire_only_once = yes
+
+		visible = {
+			62 = { NOT = { is_core_of = ROOT } }
+			NOT = { has_country_flag = BEL_disabled_on_map_decisions }
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+
+		remove_effect = {
+			add_state_core = 62
+			}
+		}
+	BEL_integrate_berlin = {
+		icon = generic_form_nation
+		
+		available = {
+			controls_state = 64
+		}
+		cancel_trigger = {
+			NOT = { controls_state = 64 }
+		}
+
+		highlight_states = {
+			highlight_states_trigger = { state = 64 }
+		}
+		
+		cost = 100
+		days_remove = 30
+
+		on_map_mode = map_only
+		
+		fire_only_once = yes
+
+		visible = {
+			64 = { NOT = { is_core_of = ROOT } }
+			NOT = { has_country_flag = BEL_disabled_on_map_decisions }
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+
+		remove_effect = {
+			add_state_core = 64
+			}
+		}
+	BEL_integrate_sachsen = {
+		icon = generic_form_nation
+		
+		available = {
+			controls_state = 65
+		}
+		cancel_trigger = {
+			NOT = { controls_state = 65 }
+		}
+
+		highlight_states = {
+			highlight_states_trigger = { state = 65 }
+		}
+		
+		cost = 100
+		days_remove = 30
+
+		on_map_mode = map_only
+		
+		fire_only_once = yes
+
+		visible = {
+			65 = { NOT = { is_core_of = ROOT } }
+			NOT = { has_country_flag = BEL_disabled_on_map_decisions }
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+
+		remove_effect = {
+			add_state_core = 65
+			}
+		}
+	}
+BEL_support_french_revolution_categories = {
+	BEL_arm_french_militants = {
+		icon = generic_army_support
+		available = {
+			NOT = { has_country_flag = BEL_arm_french_militants_flag }
+		}
+		
+		visible = {
+			NOT = {
+				check_variable = {
+					var = BEL_french_support
+					value = 100
+					compare = greater_than_or_equals
+				}
+			}
+		}
+		
+		fire_only_once = no 
+		
+		custom_cost_trigger = {
+			has_equipment = { infantry_equipment > 1999 }
+		}
+		
+		custom_cost_text = decision_cost_ie_2000
+		
+		complete_effect = {
+			set_country_flag = { flag = BEL_arm_french_militants_flag value = 1 days = 10 }
+			custom_effect_tooltip = BEL_add_10_french_support
+			IF = {
+				limit = {
+					check_variable = {
+						var = BEL_french_support
+						value = 90
+						compare = greater_than_or_equals
+							}
+						}
+					set_variable = { BEL_french_support = 100 }
+					}
+			else = {
+				add_to_variable = { var = BEL_french_support value = 10 }
+				}
+			hidden_effect = {
+				add_equipment_to_stockpile = {
+					type = infantry_equipment 
+					amount = -2000
+				}
+			}
+		}
+	}
+	BEL_propaganda_campaing_in_france = {
+		icon = generic_nationalism
+		available = {
+			NOT = { has_country_flag = BEL_propaganda_campaing_in_france_flag }
+		}
+		
+		visible = {
+			NOT = {
+				check_variable = {
+					var = BEL_french_support
+					value = 100
+					compare = greater_than_or_equals
+				}
+			}
+		}
+		
+		fire_only_once = no 
+		
+		cost = 50
+		days_remove = 30
+		
+		complete_effect = {
+		
+		}
+		
+		remove_effect = {
+			set_country_flag = { flag = BEL_propaganda_campaing_in_france_flag value = 1 days = 10 }
+			custom_effect_tooltip = BEL_add_10_french_support
+			IF = {
+				limit = {
+					check_variable = {
+						var = BEL_french_support
+						value = 90
+						compare = greater_than_or_equals
+							}
+						}
+					set_variable = { BEL_french_support = 100 }
+					}
+			else = {
+				add_to_variable = { var = BEL_french_support value = 10 }
+				}
+			}
+		}
+	BEL_uprise_communists = {
+		icon = generic_prepare_civil_war
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = BEL_uprise_communists_tt
+				check_variable = {
+					var = BEL_french_support
+					value = 100
+					compare = greater_than_or_equals
+					}
+				}
+			}
+		
+		visible = {
+			NOT = { has_country_flag = BEL_uprised_communists }
+		}
+		
+		fire_only_once = yes 
+		
+		cost = 100
+		days_remove = 14
+		
+		complete_effect = {
+			
+		}
+		
+		remove_effect = {
+			set_country_flag = BEL_uprised_communists
+			FRA = {
+				start_civil_war = {
+					ruling_party = democratic
+					ideology = communism
+					size = 0.7
+					capital = 29
+					states = { 29 785 15 18 28 17 }
+					}
+				}
+			}
+	}
+	BEL_request_channel_coastals = {
+		icon = infiltrate_state
+		available = {
+			FRA = {
+				is_subject_of = ROOT 
+				controls_state = 29
+				controls_state = 785
+				controls_state = 15
+				controls_state = 30
+				controls_state = 14
+			}
+		}
+		
+		visible = {
+		
+		}
+		
+		fire_only_once = yes
+		
+		cost = 200
+		
+		complete_effect = {
+			FRA = { country_event = { id = dfn_belgium.25 hours = 12 } }
+			custom_effect_tooltip = if_they_accept_tt
+			effect_tooltip = {
+				BEL = {
+					transfer_state = 29
+					transfer_state = 785
+					transfer_state = 15
+					transfer_state = 14
+					transfer_state = 30
+				}
+			}
+		}
+	}
+}
+BEL_form_belgian_channel_categories = {
+	BEL_form_belgian_channel = {
+		icon = generic_form_nation
+		
+		available = {
+			# Netherlands
+			custom_trigger_tooltip = {
+				tooltip = form_eu_netherlands_required_states_tt
+				controls_state = 7
+				controls_state = 35
+				controls_state = 36
+				#controls_state = 997
+			}
+			# Belgium
+			custom_trigger_tooltip = {
+				tooltip = form_eu_belgium_required_states_tt
+				controls_state = 6
+				controls_state = 34
+				controls_state = 6
+				#controls_state = 996
+				#controls_state = 995
+				#controls_state = 994
+				#controls_state = 993
+			}
+			controls_state = 29
+			controls_state = 785
+			controls_state = 15
+			controls_state = 14
+			controls_state = 30
+			controls_state = 123
+			controls_state = 127
+			controls_state = 338
+			controls_state = 126
+			controls_state = 125
+		}
+		
+		visible = {
+		
+		}
+		
+		fire_only_once = yes 
+		
+		complete_effect = {
+			set_cosmetic_tag = BEL_BELGIAN_CHANNEL
+			29 = { add_core_of = ROOT }
+			785 = { add_core_of = ROOT }
+			15 = { add_core_of = ROOT }
+			14 = { add_core_of = ROOT }
+			30 = { add_core_of = ROOT }
+			123 = { add_core_of = ROOT }
+			127 = { add_core_of = ROOT }
+			338 = { add_core_of = ROOT }
+			126 = { add_core_of = ROOT }
+			125 = { add_core_of = ROOT }
+		}
+	}
+}

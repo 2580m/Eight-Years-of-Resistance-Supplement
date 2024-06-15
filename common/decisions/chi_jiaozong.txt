@@ -1,0 +1,1349 @@
+建立各地剿匪总司令部 = {
+    建立东北剿匪总司令部 = {
+		icon = generic_prepare_civil_war
+		available = {
+			has_completed_focus = CHI_political_consultative_assembly_focus
+			has_government = neutrality			
+            has_war_with = PRC
+		}
+        cost = 50
+        fire_only_once = yes
+		ai_will_do = {
+			factor = 0
+		}
+		visible = {
+			has_completed_focus = CHI_political_consultative_assembly_focus
+			has_government = neutrality
+		}
+        complete_effect = { 
+
+		XIA = { inherit_technology = CHI }
+				division_template = {
+					name = "东北剿总"
+					#is_locked = yes
+					priority = 2
+					division_names_group = 正规军
+					regiments = {
+		                        infantry = { x = 0 y = 0 }
+					infantry = { x = 0 y = 1 }
+					infantry = { x = 0 y = 2 }
+					infantry = { x = 0 y = 3 }
+					
+					infantry = { x = 1 y = 0 }
+					infantry = { x = 1 y = 1 }
+					infantry = { x = 1 y = 2 }
+					infantry = { x = 1 y = 3 }
+					
+					infantry = { x = 2 y = 0 }
+					infantry = { x = 2 y = 1 }
+					infantry = { x = 2 y = 2 }
+				        infantry = { x = 2 y = 3 }
+
+		artillery_brigade = { x = 3 y = 0 }
+		artillery_brigade = { x = 3 y = 1 }
+		artillery_brigade = { x = 3 y = 2 }
+		artillery_brigade = { x = 3 y = 3 }
+                         }
+		support = {
+		logistics_company = { x = 0 y = 0 } 
+		engineer = { x = 0 y = 1 }
+		artillery = { x = 0 y = 2 } 
+		mot_recon = { x = 0 y = 3 } 
+		signal_company = { x = 0 y = 4 }
+		}
+				}
+        716 = {
+            add_core_of = XIA
+        }
+        1010 = {
+            add_core_of = XIA
+        }
+        328 = {
+            add_core_of = XIA
+        }
+        745 = {
+            add_core_of = XIA
+        }
+        1006 = {
+            add_core_of = XIA
+        }
+		1007 = {
+            add_core_of = XIA
+        }
+        1005 = {
+            add_core_of = XIA
+        }
+		717 = {
+            add_core_of = XIA
+        }
+	    1008 = {
+            add_core_of = XIA
+        }
+		714 = {
+            add_core_of = XIA
+        }
+        1011 = {
+            add_core_of = XIA
+        }
+		761 = {
+            add_core_of = XIA
+        }
+        1009 = {
+            add_core_of = XIA
+        }
+		715 = {
+            add_core_of = XIA
+        }
+		610 = {
+            add_core_of = XIA
+        }	
+		750 = {
+            remove_core_of = XIA
+        }
+        1035 = {
+            remove_core_of = XIA
+        }
+        602 = {
+            remove_core_of = XIA
+        }	
+						XIA = {
+			 give_military_access = CHI #给民国军通
+            set_state_controller = 716
+			set_state_owner = 716
+            set_state_controller = 1010
+			set_state_owner = 1010
+            set_state_controller = 328
+			set_state_owner = 328
+			
+				hidden_effect = {
+					load_focus_tree = { tree = generic_focus keep_completed = no }
+					every_army_leader = { retire = yEs }
+					every_unit_leader = { retire = yEs }
+					every_character = { retire = yEs }
+				}
+				division_template = {
+					name = "东北剿总"
+					#is_locked = yes
+					priority = 2
+					division_names_group = 正规军
+					regiments = {
+		                        infantry = { x = 0 y = 0 }
+					infantry = { x = 0 y = 1 }
+					infantry = { x = 0 y = 2 }
+					infantry = { x = 0 y = 3 }
+					
+					infantry = { x = 1 y = 0 }
+					infantry = { x = 1 y = 1 }
+					infantry = { x = 1 y = 2 }
+					infantry = { x = 1 y = 3 }
+					
+					infantry = { x = 2 y = 0 }
+					infantry = { x = 2 y = 1 }
+					infantry = { x = 2 y = 2 }
+				        infantry = { x = 2 y = 3 }
+
+		artillery_brigade = { x = 3 y = 0 }
+		artillery_brigade = { x = 3 y = 1 }
+		artillery_brigade = { x = 3 y = 2 }
+		artillery_brigade = { x = 3 y = 3 }
+                         }
+		support = {
+		logistics_company = { x = 0 y = 0 } 
+		engineer = { x = 0 y = 1 }
+		artillery = { x = 0 y = 2 } 
+		mot_recon = { x = 0 y = 3 } 
+		signal_company = { x = 0 y = 4 }
+		}
+				}
+		    716= {
+				create_unit = {
+				division = "name = \"东北剿总\" division_template = \"正规军\" start_experience_factor = 0.3 "
+				owner = CHI
+				count = 34
+			    }
+			}
+			    add_timed_idea = { idea = KMT_Strategic_initiative days = 365 }
+				add_ideas = chi_guojun
+				add_ideas = GEN_idea_marshal_vassal_five
+				add_ideas = paramilitarism_focus
+                add_ideas = chi_jiaozong				
+				remove_ideas = communist_influence
+				remove_ideas = socialist_influence
+				remove_ideas = EGM_war_weariness
+				set_cosmetic_tag = NEA_jiaozong
+			set_party_name = {
+					ideology = neutrality
+					name = "中国国民党"
+					long_name = "中国国民党"
+				}
+			create_country_leader = {
+                name = "陈诚"
+                desc = "POLITICS_CHENCHENG_DESC"
+                picture = "gfx/leaders/CHI/chen_cheng_ROCA.dds"
+                expire = "1965.1.1"
+                ideology = despotism
+                traits = { baizhanlaobing 
+                }
+            }
+            set_capital = {
+                state = 716
+                remember_old_capital = no
+            }
+			load_oob = "东北剿总"
+			}
+            CHI ={
+                puppet = XIA
+
+            }          
+
+    }
+}
+    扩大东北剿匪总司令部 = {
+		icon = generic_prepare_civil_war
+		available = {
+			has_completed_focus = CHI_political_consultative_assembly_focus
+			has_government = neutrality
+			XIA = {
+				is_puppet_of = CHI
+			}			
+			716 = {
+				is_controlled_by_ROOT_or_puppet = yes
+			}
+			1010 = {
+				is_controlled_by_ROOT_or_puppet = yes
+			}
+			1006 = {
+				is_controlled_by_ROOT_or_puppet = yes
+			}
+			1007 = {
+				is_controlled_by_ROOT_or_puppet = yes
+			}
+			1005 = {
+				is_controlled_by_ROOT_or_puppet = yes
+			}
+			717 = {
+				is_controlled_by_ROOT_or_puppet = yes
+			}
+			1008 = {
+				is_controlled_by_ROOT_or_puppet = yes
+			}
+			714 = {
+				is_controlled_by_ROOT_or_puppet = yes
+			}
+			1011 = {
+				is_controlled_by_ROOT_or_puppet = yes
+			}
+			761 = {
+				is_controlled_by_ROOT_or_puppet = yes
+			}
+			1009 = {
+				is_controlled_by_ROOT_or_puppet = yes
+			}
+			715 = {
+				is_controlled_by_ROOT_or_puppet = yes
+			}
+			610 = {
+				is_controlled_by_ROOT_or_puppet = yes
+			}
+			744 = {
+				is_controlled_by_ROOT_or_puppet = yes
+			}
+			1030 = {
+				is_controlled_by_ROOT_or_puppet = yes
+			}
+			622 = {
+				is_controlled_by_ROOT_or_puppet = yes
+			}
+			1050 = {
+				is_controlled_by_ROOT_or_puppet = yes
+			}
+			283 = {
+				is_controlled_by_ROOT_or_puppet = yes
+			}			
+            has_war_with = PRC
+		}
+        cost = 100
+        fire_only_once = yes
+		ai_will_do = {
+			factor = 0
+		}
+		visible = {
+			has_completed_focus = CHI_political_consultative_assembly_focus
+			has_government = neutrality
+		}
+        complete_effect = { 
+
+        716 = {
+            add_core_of = XIA
+        }
+        1010 = {
+            add_core_of = XIA
+        }
+        328 = {
+            add_core_of = XIA
+        }
+        745 = {
+            add_core_of = XIA
+        }
+        1006 = {
+            add_core_of = XIA
+        }
+		1007 = {
+            add_core_of = XIA
+        }
+        1005 = {
+            add_core_of = XIA
+        }
+		717 = {
+            add_core_of = XIA
+        }
+	    1008 = {
+            add_core_of = XIA
+        }
+		714 = {
+            add_core_of = XIA
+        }
+        1011 = {
+            add_core_of = XIA
+        }
+		761 = {
+            add_core_of = XIA
+        }
+        1009 = {
+            add_core_of = XIA
+        }
+		715 = {
+            add_core_of = XIA
+        }
+		610 = {
+            add_core_of = XIA
+        }	
+		744 = {
+            remove_core_of = XIA
+        }
+        1030 = {
+            remove_core_of = XIA
+        }
+        622 = {
+            remove_core_of = XIA
+        }
+        1050 = {
+            remove_core_of = XIA
+        }
+		283 = {
+            remove_core_of = XIA
+        }		
+						XIA = {
+			 give_military_access = CHI #给民国军通
+            set_state_controller = 716
+			set_state_owner = 716
+            set_state_controller = 1010
+			set_state_owner = 1010
+            set_state_controller = 328
+			set_state_owner = 328
+			
+				hidden_effect = {
+					load_focus_tree = { tree = generic_focus keep_completed = no }
+					every_army_leader = { retire = yEs }
+					every_unit_leader = { retire = yEs }
+					every_character = { retire = yEs }
+				}
+				add_ideas = chi_guojun
+				add_ideas = GEN_idea_marshal_vassal_five
+				add_ideas = paramilitarism_focus
+				remove_ideas = communist_influence
+				remove_ideas = socialist_influence
+				remove_ideas = EGM_war_weariness
+				set_cosmetic_tag = NEA_jiaozong
+			set_party_name = {
+					ideology = neutrality
+					name = "中国国民党"
+					long_name = "中国国民党"
+				}
+			create_country_leader = {
+                name = "陈诚"
+                desc = "POLITICS_CHENCHENG_DESC"
+                picture = "gfx/leaders/CHI/chen_cheng_ROCA.dds"
+                expire = "1965.1.1"
+                ideology = despotism
+                traits = { baizhanlaobing 
+                }
+            }				
+            set_capital = {
+                state = 716
+                remember_old_capital = no
+            }
+       
+
+    }
+	            CHI = {
+                puppet = XIA
+
+            }   
+		}
+}
+    让卫立煌接替陈诚 = {
+		icon = generic_prepare_civil_war
+		available = {
+			has_completed_focus = CHI_political_consultative_assembly_focus
+			has_government = neutrality
+            has_war_with = PRC			
+			XIA = {
+				is_puppet_of = CHI
+			}			
+		}
+        cost = 150
+		days_remove = 30		
+        fire_only_once = yes
+		ai_will_do = {
+			factor = 0
+		}
+		visible = {
+			has_completed_focus = CHI_political_consultative_assembly_focus
+			has_government = neutrality
+            has_war_with = PRC			
+		}
+        remove_effect = { 
+		XIA = { inherit_technology = CHI }
+        716 = {
+            add_core_of = XIA
+        }
+        1010 = {
+            add_core_of = XIA
+        }
+        328 = {
+            add_core_of = XIA
+        }
+        745 = {
+            add_core_of = XIA
+        }
+        1006 = {
+            add_core_of = XIA
+        }
+		1007 = {
+            add_core_of = XIA
+        }
+        1005 = {
+            add_core_of = XIA
+        }
+		717 = {
+            add_core_of = XIA
+        }
+	    1008 = {
+            add_core_of = XIA
+        }
+		714 = {
+            add_core_of = XIA
+        }
+        1011 = {
+            add_core_of = XIA
+        }
+		761 = {
+            add_core_of = XIA
+        }
+        1009 = {
+            add_core_of = XIA
+        }
+		715 = {
+            add_core_of = XIA
+        }
+		610 = {
+            add_core_of = XIA
+        }	
+		744 = {
+            remove_core_of = XIA
+        }
+        1030 = {
+            remove_core_of = XIA
+        }
+        622 = {
+            remove_core_of = XIA
+        }
+        1050 = {
+            remove_core_of = XIA
+        }
+		283 = {
+            remove_core_of = XIA
+        }
+								XIA = {
+			 give_military_access = CHI #给民国军通
+            set_state_controller = 716
+			set_state_owner = 716
+            set_state_controller = 1010
+			set_state_owner = 1010
+            set_state_controller = 328
+			set_state_owner = 328
+			
+				hidden_effect = {
+					load_focus_tree = { tree = generic_focus keep_completed = no }
+					every_army_leader = { retire = yEs }
+					every_unit_leader = { retire = yEs }
+					every_character = { retire = yEs }
+				}
+				add_ideas = chi_guojun
+				add_ideas = GEN_idea_marshal_vassal_five
+				add_ideas = paramilitarism_focus
+				remove_ideas = communist_influence
+				remove_ideas = socialist_influence
+				remove_ideas = EGM_war_weariness
+				set_cosmetic_tag = NEA_jiaozong
+			set_party_name = {
+					ideology = neutrality
+					name = "中国国民党"
+					long_name = "中国国民党"
+				}
+			create_country_leader = {
+                name = "卫立煌"
+                desc = "POLITICS_CHENCHENG_DESC"
+                picture = "gfx/leaders/CHI/Portrait_CHI_Wei_Lihuang_2.dds"
+                expire = "1965.1.1"
+                ideology = despotism
+                traits = { baizhanlaobing junduiguanlian qinliqinwei army_chief_morale_3 
+                }
+            }
+            set_capital = {
+                state = 716
+                remember_old_capital = no
+            }
+       
+ 
+    }	
+	            CHI = {
+                puppet = XIA
+
+            }  	
+
+}
+	}
+    建立徐州剿匪总司令部 = {
+		icon = generic_prepare_civil_war
+		available = {
+			has_completed_focus = CHI_political_consultative_assembly_focus
+			has_government = neutrality			
+            has_war_with = PRC
+		}
+        cost = 50
+        fire_only_once = yes
+		ai_will_do = {
+			factor = 0
+		}
+		visible = {
+			has_completed_focus = CHI_political_consultative_assembly_focus
+			has_government = neutrality
+		}		
+        complete_effect = {  
+		SHD= { inherit_technology = CHI }
+				division_template = {
+					name = "徐州剿总"
+					#is_locked = yes
+					priority = 2
+					division_names_group = 正规军
+					regiments = {
+		                        infantry = { x = 0 y = 0 }
+					infantry = { x = 0 y = 1 }
+					infantry = { x = 0 y = 2 }
+					infantry = { x = 0 y = 3 }
+					
+					infantry = { x = 1 y = 0 }
+					infantry = { x = 1 y = 1 }
+					infantry = { x = 1 y = 2 }
+					infantry = { x = 1 y = 3 }
+					
+					infantry = { x = 2 y = 0 }
+					infantry = { x = 2 y = 1 }
+					infantry = { x = 2 y = 2 }
+				        infantry = { x = 2 y = 3 }
+		artillery_brigade = { x = 3 y = 0 }
+		artillery_brigade = { x = 3 y = 1 }
+		artillery_brigade = { x = 3 y = 2 }
+		artillery_brigade = { x = 3 y = 3 }
+                    }
+		support = {
+		logistics_company = { x = 0 y = 0 } 
+		engineer = { x = 0 y = 1 }
+		artillery = { x = 0 y = 2 } 
+		mot_recon = { x = 0 y = 3 } 
+		signal_company = { x = 0 y = 4 }
+		}
+				}
+        598 = {
+            add_core_of = SHD
+        }
+        606 = {
+            add_core_of = SHD
+        }
+        1043 = {
+            add_core_of = SHD
+        }
+        597 = {
+            add_core_of = SHD
+        }		
+        1028 = {
+            remove_core_of = SHD
+        }
+        743 = {
+            remove_core_of = SHD
+        }
+        SHD = {
+            give_military_access = CHI #给民国军通
+            set_state_controller = 598
+			set_state_owner = 598
+			set_state_controller = 1043
+			set_state_owner = 1043
+			set_state_controller = 606
+			set_state_owner = 606
+				division_template = {
+					name = "徐州剿总"
+					#is_locked = yes
+					priority = 2
+					division_names_group = 正规军
+					regiments = {
+		                        infantry = { x = 0 y = 0 }
+					infantry = { x = 0 y = 1 }
+					infantry = { x = 0 y = 2 }
+					infantry = { x = 0 y = 3 }
+					
+					infantry = { x = 1 y = 0 }
+					infantry = { x = 1 y = 1 }
+					infantry = { x = 1 y = 2 }
+					infantry = { x = 1 y = 3 }
+					
+					infantry = { x = 2 y = 0 }
+					infantry = { x = 2 y = 1 }
+					infantry = { x = 2 y = 2 }
+				        infantry = { x = 2 y = 3 }
+		artillery_brigade = { x = 3 y = 0 }
+		artillery_brigade = { x = 3 y = 1 }
+		artillery_brigade = { x = 3 y = 2 }
+		artillery_brigade = { x = 3 y = 3 }
+                    }
+		support = {
+		logistics_company = { x = 0 y = 0 } 
+		engineer = { x = 0 y = 1 }
+		artillery = { x = 0 y = 2 } 
+		mot_recon = { x = 0 y = 3 } 
+		signal_company = { x = 0 y = 4 }
+		}
+				}
+
+		    597= {
+				create_unit = {
+				division = "name = \"徐州剿总\" division_template = \"正规军\" start_experience_factor = 0.2 "
+				owner = CHI
+				count = 50
+			    }
+			}
+			    add_timed_idea = { idea = KMT_Strategic_initiative days = 365 }
+				add_ideas = chi_guojun
+				add_ideas = chi_ningsibuqu					
+				add_ideas = GEN_idea_marshal_vassal_five
+				add_ideas = paramilitarism_focus
+				add_ideas = chi_jiaozong
+				remove_ideas = communist_influence
+				remove_ideas = socialist_influence
+				remove_ideas = EGM_war_weariness
+				remove_ideas = fascist_influence				
+				set_cosmetic_tag = SHD_jiaozong
+			set_party_name = {
+					ideology = neutrality
+					name = "中国国民党"
+					long_name = "中国国民党"
+				}			
+            create_country_leader = {
+                name = "刘峙"
+                desc = "POLITICS_LIUZHI_DESC"
+                picture = "gfx/leaders/CHI/Portrait_CHI_Liu_Zhi_3.dds"
+                expire = "1965.1.1"
+                ideology = despotism
+                traits = { baizhanlaobing
+                }
+            }
+            set_capital = {
+                state = 598
+                remember_old_capital = no
+            }
+			load_oob = "徐州剿总"
+
+        } 
+		            CHI = {
+                puppet = SHD
+
+            }          
+
+
+    }
+    }
+    扩大徐州剿匪总司令部 = {
+		icon = generic_prepare_civil_war
+		available = {
+			has_completed_focus = CHI_political_consultative_assembly_focus
+			has_government = neutrality
+			SHD = {
+				is_puppet_of = CHI
+			}			
+			598 = {
+				is_controlled_by_ROOT_or_puppet = yes
+			}
+			1043 = {
+				is_controlled_by_ROOT_or_puppet = yes
+			}
+			597 = {
+				is_controlled_by_ROOT_or_puppet = yes
+			}
+			606 = {
+				is_controlled_by_ROOT_or_puppet = yes
+			}
+			997 = {
+				is_controlled_by_ROOT_or_puppet = yes
+			}
+			607 = {
+				is_controlled_by_ROOT_or_puppet = yes
+			}
+			1028 = {
+				is_controlled_by_ROOT_or_puppet = yes
+			}
+			743 = {
+				is_controlled_by_ROOT_or_puppet = yes
+			}			
+            has_war_with = PRC
+		}
+        cost = 0
+        fire_only_once = yes
+		ai_will_do = {
+			factor = 0
+		}
+		visible = {
+			has_completed_focus = CHI_political_consultative_assembly_focus
+			has_government = neutrality
+		}
+        complete_effect = { 
+
+        598 = {
+            add_core_of = SHD
+        }
+        997 = {
+            add_core_of = SHD
+        }		
+        606 = {
+            add_core_of = SHD
+        }
+        1043 = {
+            add_core_of = SHD
+        }
+        597 = {
+            add_core_of = SHD
+        }
+        597 = {
+            add_core_of = SHD
+        }
+        607 = {
+            add_core_of = SHD
+        }
+        1028 = {
+            add_core_of = SHD
+        }
+        743 = {
+            add_core_of = SHD
+        }		
+        1028 = {
+            add_core_of = SHD
+        }		
+						SHD = {
+            give_military_access = CHI #给民国军通
+            set_state_controller = 598
+			set_state_owner = 598		
+			set_state_controller = 1043
+			set_state_owner = 1043
+			set_state_controller = 606
+			set_state_owner = 606
+            set_state_controller = 597
+			set_state_owner = 597
+			set_state_controller = 1028
+			set_state_owner = 1028
+			set_state_controller = 607
+			set_state_owner = 607
+			set_state_controller = 997
+			set_state_owner = 997
+			set_state_controller = 743
+			set_state_owner = 743			
+				hidden_effect = {
+					load_focus_tree = { tree = generic_focus keep_completed = no }
+					every_army_leader = { retire = yEs }
+					every_unit_leader = { retire = yEs }
+					every_character = { retire = yEs }
+				}
+				add_ideas = chi_guojun
+				add_ideas = GEN_idea_marshal_vassal_five
+				add_ideas = paramilitarism_focus
+				remove_ideas = communist_influence
+				remove_ideas = socialist_influence
+				remove_ideas = EGM_war_weariness
+				set_cosmetic_tag = SHD_jiaozong
+			set_party_name = {
+					ideology = neutrality
+					name = "中国国民党"
+					long_name = "中国国民党"
+				}
+            create_country_leader = {
+                name = "刘峙"
+                desc = "POLITICS_LIUZHI_DESC"
+                picture = "gfx/leaders/CHI/Portrait_CHI_Liu_Zhi_3.dds"
+                expire = "1965.1.1"
+                ideology = despotism
+                traits = { baizhanlaobing
+                }
+            }				
+            set_capital = {
+                state = 716
+                remember_old_capital = no
+            }
+         
+
+    }
+	            CHI = {
+                puppet = XIA
+
+            } 
+}	
+	}
+    让杜聿明接替刘峙 = {
+		icon = generic_prepare_civil_war 
+		available = {
+			has_completed_focus = CHI_political_consultative_assembly_focus
+			has_government = neutrality
+			SHD = {
+				is_puppet_of = CHI
+			}				
+            has_war_with = PRC
+		}
+        cost = 150
+        fire_only_once = yes
+		days_remove = 30		
+		ai_will_do = {
+			factor = 0
+		}
+		visible = {
+			has_completed_focus = CHI_political_consultative_assembly_focus
+			has_government = neutrality
+		}
+        remove_effect = {  
+		EGM = { inherit_technology = CHI }
+        598 = {
+            add_core_of = SHD
+        }
+        606 = {
+            add_core_of = SHD
+        }
+        1043 = {
+            add_core_of = SHD
+        }
+        597 = {
+            add_core_of = SHD
+        }		
+        1028 = {
+            remove_core_of = SHD
+        }
+        743 = {
+            remove_core_of = SHD
+        }
+
+        SHD = {
+
+            give_military_access = CHI #给民国军通
+            set_state_controller = 598
+			set_state_owner = 598
+			set_state_controller = 1043
+			set_state_owner = 1043
+			set_state_controller = 606
+			set_state_owner = 606			
+				add_ideas = chi_guojun
+				add_ideas = chi_ningsibuqu					
+				add_ideas = GEN_idea_marshal_vassal_five
+				add_ideas = paramilitarism_focus
+				remove_ideas = communist_influence
+				remove_ideas = socialist_influence
+				remove_ideas = EGM_war_weariness
+				set_cosmetic_tag = SHD_jiaozong
+			set_party_name = {
+					ideology = neutrality
+					name = "中国国民党"
+					long_name = "中国国民党"
+				}			
+            create_country_leader = {
+                name = "杜聿明"
+                desc = "POLITICS_HUZONGNAN_DESC"
+                picture = "gfx/leaders/CHI/Portrait_CHI_Du_Yuming_2.dds"
+                expire = "1965.1.1"
+                ideology = despotism
+                traits = { baizhanlaobing junduiguanlian qinliqinwei army_chief_morale_3
+                }
+            }
+            set_capital = {
+                state = 598
+                remember_old_capital = no
+            }    
+
+}
+            CHI ={
+                puppet = SHD
+
+            }
+	}
+}	
+    建立西安绥靖公署 = {
+		icon = generic_prepare_civil_war 
+		available = {
+			has_completed_focus = CHI_political_consultative_assembly_focus
+			has_government = neutrality
+			744 = {
+				is_controlled_by_ROOT_or_puppet = yes
+			}
+			1053 = {
+				is_controlled_by_ROOT_or_puppet = yes
+			}
+			283 = {
+				is_controlled_by_ROOT_or_puppet = yes
+			}
+			756 = {
+				is_controlled_by_ROOT_or_puppet = yes
+			}		
+            has_war_with = PRC
+		}
+        cost = 50
+        fire_only_once = yes
+		ai_will_do = {
+			factor = 100
+		}
+		visible = {
+			has_completed_focus = CHI_political_consultative_assembly_focus
+			has_government = neutrality
+		}
+        complete_effect = {  
+		EGM = { inherit_technology = CHI }
+				division_template = {
+					name = "西安绥靖公署部队"
+					#is_locked = yes
+					priority = 2
+					division_names_group = 正规军
+					regiments = {
+		                        infantry = { x = 0 y = 0 }
+					infantry = { x = 0 y = 1 }
+					infantry = { x = 0 y = 2 }
+					infantry = { x = 0 y = 3 }
+					
+					infantry = { x = 1 y = 0 }
+					infantry = { x = 1 y = 1 }
+					infantry = { x = 1 y = 2 }
+					infantry = { x = 1 y = 3 }
+					
+					infantry = { x = 2 y = 0 }
+					infantry = { x = 2 y = 1 }
+					infantry = { x = 2 y = 2 }
+				        infantry = { x = 2 y = 3 }
+		artillery_brigade = { x = 3 y = 0 }
+		artillery_brigade = { x = 3 y = 1 }
+		artillery_brigade = { x = 3 y = 2 }
+		artillery_brigade = { x = 3 y = 3 }
+                     }
+		support = {
+		logistics_company = { x = 0 y = 0 } 
+		engineer = { x = 0 y = 1 }
+		artillery = { x = 0 y = 2 } 
+		mot_recon = { x = 0 y = 3 } 
+		signal_company = { x = 0 y = 4 }
+		}
+					}
+        622 = {
+            add_core_of = EGM
+        }
+        1030 = {
+            add_core_of = EGM
+        }
+        744 = {
+            add_core_of = EGM
+        }
+        1053 = {
+            add_core_of = EGM
+        }
+		283 = {
+            add_core_of = EGM
+        }
+        756 = {
+            add_core_of = EGM
+        }
+
+        EGM = {
+
+            give_military_access = CHI #给民国军通
+            set_state_controller = 744
+			set_state_owner = 744
+			set_state_controller = 1053
+			set_state_owner = 1053
+			set_state_controller = 283
+			set_state_owner = 283
+			set_state_controller = 756
+			set_state_owner = 756			
+				division_template = {
+					name = "西安绥靖公署部队"
+					#is_locked = yes
+					priority = 2
+					division_names_group = 正规军
+					regiments = {
+		                        infantry = { x = 0 y = 0 }
+					infantry = { x = 0 y = 1 }
+					infantry = { x = 0 y = 2 }
+					infantry = { x = 0 y = 3 }
+					
+					infantry = { x = 1 y = 0 }
+					infantry = { x = 1 y = 1 }
+					infantry = { x = 1 y = 2 }
+					infantry = { x = 1 y = 3 }
+					
+					infantry = { x = 2 y = 0 }
+					infantry = { x = 2 y = 1 }
+					infantry = { x = 2 y = 2 }
+				        infantry = { x = 2 y = 3 }
+		artillery_brigade = { x = 3 y = 0 }
+		artillery_brigade = { x = 3 y = 1 }
+		artillery_brigade = { x = 3 y = 2 }
+		artillery_brigade = { x = 3 y = 3 }
+                           }
+		support = {
+		logistics_company = { x = 0 y = 0 } 
+		engineer = { x = 0 y = 1 }
+		artillery = { x = 0 y = 2 } 
+		mot_recon = { x = 0 y = 3 } 
+		signal_company = { x = 0 y = 4 }
+		}
+					}
+		    756= {
+				create_unit = {
+				division = "name = \"西安绥靖公署部队\" division_template = \"正规军\" start_experience_factor = 0.2 "
+				owner = CHI
+				count = 19
+			    }
+			}
+			    add_timed_idea = { idea = KMT_Strategic_initiative days = 365 }
+				add_ideas = chi_guojun
+				add_ideas = GEN_idea_marshal_vassal_five
+				add_ideas = paramilitarism_focus
+				add_ideas = chi_ningsibuqu
+                add_ideas = chi_jiaozong				
+				remove_ideas = communist_influence
+				remove_ideas = socialist_influence
+				remove_ideas = EGM_war_weariness
+				remove_ideas = xsm_majiajun				
+				set_cosmetic_tag = EGM_jiaozong
+			set_party_name = {
+					ideology = neutrality
+					name = "中国国民党"
+					long_name = "中国国民党"
+				}			
+            create_country_leader = {
+                name = "胡宗南"
+                desc = "POLITICS_HUZONGNAN_DESC"
+                picture = "gfx/leaders/CHI/hu_zongnan_ROCA.dds"
+                expire = "1965.1.1"
+                ideology = despotism
+                traits = { baizhanlaobing 
+                }
+            }
+            set_capital = {
+                state = 744
+                remember_old_capital = no
+            }    
+			load_oob = "西安绥靖公署部队"      
+    }
+            CHI ={
+                puppet = EGM
+
+            }
+}
+	}
+    扩大西安绥靖公署 = {
+		icon = generic_prepare_civil_war
+		available = {
+			has_completed_focus = CHI_political_consultative_assembly_focus
+			has_government = neutrality
+			EGM = {
+				is_puppet_of = CHI
+			}			
+			744 = {
+				is_controlled_by_ROOT_or_puppet = yes
+			}
+			1053 = {
+				is_controlled_by_ROOT_or_puppet = yes
+			}
+			283 = {
+				is_controlled_by_ROOT_or_puppet = yes
+			}
+			756 = {
+				is_controlled_by_ROOT_or_puppet = yes
+			}
+		    1031 = {
+				is_controlled_by_ROOT_or_puppet = yes
+			}
+			1029 = {
+				is_controlled_by_ROOT_or_puppet = yes
+			}
+			622 = {
+				is_controlled_by_ROOT_or_puppet = yes
+			}
+			1030 = {
+				is_controlled_by_ROOT_or_puppet = yes
+			}	
+			1030 = {
+				is_controlled_by_ROOT_or_puppet = yes
+			}
+			622 = {
+				is_controlled_by_ROOT_or_puppet = yes
+			}			
+            has_war_with = PRC
+		}
+        cost = 100
+        fire_only_once = yes
+		ai_will_do = {
+			factor = 0
+		}
+		visible = {
+			has_completed_focus = CHI_political_consultative_assembly_focus
+			has_government = neutrality
+		}
+        complete_effect = { 
+
+        622 = {
+            add_core_of = EGM
+        }
+        1030 = {
+            add_core_of = EGM
+        }
+        744 = {
+            add_core_of = EGM
+        }
+        1053 = {
+            add_core_of = EGM
+        }
+		283 = {
+            add_core_of = EGM
+        }
+        756 = {
+            add_core_of = EGM
+        }
+        1031 = {
+            add_core_of = EGM
+        }
+        1029 = {
+            add_core_of = EGM
+        }
+        1030 = {
+            add_core_of = EGM
+        }
+        622 = {
+            add_core_of = EGM
+        }		
+						EGM = {
+            give_military_access = CHI #给民国军通
+            set_state_controller = 744
+			set_state_owner = 744
+			set_state_controller = 1053
+			set_state_owner = 1053
+			set_state_controller = 283
+			set_state_owner = 283
+			set_state_controller = 756
+			set_state_owner = 756
+            set_state_controller = 1029
+			set_state_owner = 1029
+			set_state_controller = 1031
+			set_state_owner = 1053
+			set_state_controller = 1030
+			set_state_owner = 1030
+			set_state_controller = 622
+			set_state_owner = 622			
+				hidden_effect = {
+					load_focus_tree = { tree = generic_focus keep_completed = no }
+					every_army_leader = { retire = yEs }
+					every_unit_leader = { retire = yEs }
+					every_character = { retire = yEs }
+				}
+				add_ideas = chi_guojun
+				add_ideas = GEN_idea_marshal_vassal_five
+				add_ideas = paramilitarism_focus
+				add_ideas = chi_ningsibuqu				
+				remove_ideas = communist_influence
+				remove_ideas = socialist_influence
+				remove_ideas = EGM_war_weariness
+				remove_ideas = xsm_majiajun				
+				set_cosmetic_tag = EGM_jiaozong
+			set_party_name = {
+					ideology = neutrality
+					name = "中国国民党"
+					long_name = "中国国民党"
+				}
+            create_country_leader = {
+                name = "胡宗南"
+                desc = "POLITICS_HUZONGNAN_DESC"
+                picture = "gfx/leaders/CHI/hu_zongnan_ROCA.dds"
+                expire = "1965.1.1"
+                ideology = despotism
+                traits = { baizhanlaobing 
+                }
+            }				
+            set_capital = {
+                state = 744
+                remember_old_capital = no
+            }
+         
+
+    }
+	           CHI = {
+                puppet = EGM
+
+            }  
+}	
+	}
+    让朱绍良接替胡宗南 = {
+		icon = generic_prepare_civil_war 
+		available = {
+			has_completed_focus = CHI_political_consultative_assembly_focus
+			has_government = neutrality
+			EGM = {
+				is_puppet_of = CHI
+			}					
+            has_war_with = PRC
+		}
+        cost = 150
+        fire_only_once = yes
+		days_remove = 30		
+		ai_will_do = {
+			factor = 0
+		}
+		visible = {
+			has_completed_focus = CHI_political_consultative_assembly_focus
+			has_government = neutrality
+		}
+        remove_effect = {  
+		EGM = { inherit_technology = CHI }
+        622 = {
+            add_core_of = EGM
+        }
+        1030 = {
+            add_core_of = EGM
+        }
+        744 = {
+            add_core_of = EGM
+        }
+        1053 = {
+            add_core_of = EGM
+        }
+		283 = {
+            add_core_of = EGM
+        }
+        756 = {
+            add_core_of = EGM
+        }
+
+        EGM = {
+
+            give_military_access = CHI #给民国军通
+            set_state_controller = 744
+			set_state_owner = 744
+			set_state_controller = 1053
+			set_state_owner = 1053
+			set_state_controller = 283
+			set_state_owner = 283
+			set_state_controller = 756
+			set_state_owner = 756			
+				add_ideas = chi_guojun
+				add_ideas = GEN_idea_marshal_vassal_five
+				add_ideas = paramilitarism_focus
+				add_ideas = chi_ningsibuqu				
+				remove_ideas = communist_influence
+				remove_ideas = socialist_influence
+				remove_ideas = EGM_war_weariness
+				remove_ideas = xsm_majiajun				
+				set_cosmetic_tag = EGM_jiaozong
+			set_party_name = {
+					ideology = neutrality
+					name = "中国国民党"
+					long_name = "中国国民党"
+				}			
+            create_country_leader = {
+                name = "朱绍良"
+                desc = "POLITICS_HUZONGNAN_DESC"
+                picture = "gfx/leaders/CHI/Portrait_CHI_Zhu_Shaoliang_2.dds"
+                expire = "1965.1.1"
+                ideology = despotism
+                traits = { baizhanlaobing junduiguanlian qinliqinwei army_chief_morale_3
+                }
+            }
+            set_capital = {
+                state = 744
+                remember_old_capital = no
+            }    
+
+}
+            CHI ={
+                puppet = EGM
+
+            }
+	}
+}
+    贿赂白崇禧接替李宗仁 = {
+		icon = generic_prepare_civil_war 
+		available = {
+			has_completed_focus = CHI_political_consultative_assembly_focus
+			has_government = neutrality					
+            has_war_with = PRC
+		}
+        cost = 300
+        fire_only_once = yes
+		days_remove = 50		
+		ai_will_do = {
+			factor = 0
+		}
+		visible = {
+			has_completed_focus = CHI_political_consultative_assembly_focus
+			has_government = neutrality
+		}
+        remove_effect = {  
+		GXC = { inherit_technology = CHI }
+        622 = {
+            add_core_of = GXC
+        }
+
+        GXC = {
+
+            give_military_access = CHI #给民国军通		
+				add_ideas = chi_guojun
+				add_ideas = GEN_idea_marshal_vassal_five
+				add_ideas = paramilitarism_focus
+				add_ideas = chi_ningsibuqu
+                add_ideas = chi_jiaozong				
+				remove_ideas = communist_influence
+				remove_ideas = socialist_influence
+				remove_ideas = EGM_war_weariness
+				remove_ideas = xsm_majiajun				
+			set_party_name = {
+					ideology = neutrality
+					name = "中国国民党"
+					long_name = "中国国民党"
+				}			
+            create_country_leader = {
+                name = "白崇禧"
+                desc = "POLITICS_HUZONGNAN_DESC"
+                picture = "gfx/leaders/CHI/bai_chongxi_ROCA.dds"
+                expire = "1965.1.1"
+                ideology = despotism
+                traits = { baizhanlaobing junduiguanlian qinliqinwei army_chief_morale_3
+                }
+            }   
+
+}
+            CHI ={
+                puppet = GXC
+
+            }
+	}
+}   
+	} 
+

@@ -1,0 +1,529 @@
+recruit_national_revolutionary_army_generals = { #country flag 改为 global flag
+
+	
+	recruit_CHI_huang_qixiang = {
+		icon = generic_army_support
+		fire_only_once = yes
+		visible = {
+		    OR = {
+            TAG = event_target:WTT_current_china_leader
+            TAG = CHI
+            }
+		}
+		available = {
+			date > 1937.1.1
+			not = { has_war_with = event_target:WTT_communist_china has_global_flag = PRC_civil_war_started }
+            NOT = { has_completed_focus = ack_hiro_sen_focus }
+			if = {
+			limit = { JAP = { is_fascism_type = yes } }
+			NOT = { is_in_faction_with = JAP }
+			}
+			NOT = { has_government = fascism }
+		}
+		
+		cost = 25
+		
+		complete_effect = {
+			show_unit_leaders_tooltip = CHI_huang_qixiang
+			set_global_flag = CHI_huang_qixiang_come_back
+		}
+		ai_will_do = {
+			factor = 200
+		}
+	}
+
+	recruit_wang_yaowu = {
+		icon = generic_army_support
+		fire_only_once = yes
+		visible = {
+			OR = {
+            TAG = event_target:WTT_current_china_leader
+            TAG = CHI
+            }
+		}
+		available = {
+            #date > 1936.9.5
+			hidden_trigger = {
+				command_power > 4
+			}
+		}
+		custom_cost_trigger = {
+			command_power > 4
+		}
+		custom_cost_text = decision_cost_CP_5
+		complete_effect = {
+			add_command_power = -5
+			custom_effect_tooltip = recruit_wang_yaowu
+			set_global_flag = recruit_wang_yaowu
+		}
+		ai_will_do = {
+			factor = 1
+
+			modifier = {
+				factor = 0  
+				command_power < 10
+			}
+			modifier = {
+				factor = 100
+				command_power > 49 
+			}
+		}		
+	}
+	
+	recruit_fan_hanjie = {
+		icon = generic_army_support
+		fire_only_once = yes
+		visible = {
+		          OR = {
+            TAG = event_target:WTT_current_china_leader
+            TAG = CHI
+            }
+		}
+		available = {
+            #date > 1936.9.5
+			hidden_trigger = {
+				command_power > 4
+			}
+		}
+		custom_cost_trigger = {
+			command_power > 4
+		}
+		custom_cost_text = decision_cost_CP_5
+		complete_effect = {
+			add_command_power = -5
+			custom_effect_tooltip = recruit_fan_hanjie
+			set_global_flag = recruit_fan_hanjie
+		}
+		ai_will_do = {
+			factor = 1
+
+			modifier = {
+				factor = 0  
+				command_power < 10
+			}
+			modifier = {
+				factor = 100
+				command_power > 49 
+			}
+		}	
+	}	
+
+	recruit_du_yuming = {
+		icon = generic_army_support
+		fire_only_once = yes
+		visible = {
+		           OR = {
+            TAG = event_target:WTT_current_china_leader
+            TAG = CHI
+            }
+		}
+		available = {
+            #date > 1936.10.5
+			hidden_trigger = {
+				command_power > 4
+			}
+		}
+		custom_cost_trigger = {
+			command_power > 4
+		}
+		custom_cost_text = decision_cost_CP_5
+		complete_effect = {
+			add_command_power = -5
+			custom_effect_tooltip = recruit_du_yuming
+			set_global_flag = recruit_du_yuming
+		}
+		ai_will_do = {
+			factor = 1
+
+			modifier = {
+				factor = 0  
+				command_power < 10
+			}
+			modifier = {
+				factor = 100
+				command_power > 49 
+			}
+		}	
+	}
+	
+	recruit_zheng_dongguo = {
+		icon = generic_army_support
+		fire_only_once = yes
+		visible = {
+		           OR = {
+            TAG = event_target:WTT_current_china_leader
+            TAG = CHI
+            }
+		}
+		available = {
+            #date > 1936.10.22
+			hidden_trigger = {
+				command_power > 4
+			}
+		}
+		custom_cost_trigger = {
+			command_power > 4
+		}
+		custom_cost_text = decision_cost_CP_5
+		complete_effect = {
+			add_command_power = -5
+			custom_effect_tooltip = recruit_zheng_dongguo
+			set_global_flag = recruit_zheng_dongguo
+		}
+		ai_will_do = {
+			factor = 1
+
+			modifier = {
+				factor = 0  
+				command_power < 10
+			}
+			modifier = {
+				factor = 100
+				command_power > 49 
+			}
+		}
+	}	
+	
+	recruit_qiu_qingquan = {
+		icon = generic_army_support
+		fire_only_once = yes
+		visible = {
+		           OR = {
+            TAG = event_target:WTT_current_china_leader
+            TAG = CHI
+            }
+		}
+		available = {
+            #date > 1938.11.15  #Commanding Officer 22nd New Division
+			hidden_trigger = {
+				command_power > 4
+			}
+		}
+		custom_cost_trigger = {
+			command_power > 4
+		}
+		custom_cost_text = decision_cost_CP_5
+		complete_effect = {
+			add_command_power = -5
+			custom_effect_tooltip = recruit_qiu_qingquan
+			set_global_flag = recruit_qiu_qingquan
+		}
+		ai_will_do = {
+			factor = 1
+
+			modifier = {
+				factor = 0  
+				command_power < 10
+			}
+			modifier = {
+				factor = 100
+				command_power > 49 
+			}
+		}
+	}
+	
+	recruit_dai_anlan = {
+		icon = generic_army_support
+		fire_only_once = yes
+		visible = {
+		           OR = {
+            TAG = event_target:WTT_current_china_leader
+            TAG = CHI
+            }
+		}
+		available = {
+            #date > 1939.1.1  #Commanding Officer 200th Division
+			hidden_trigger = {
+				command_power > 4
+			}
+		}
+		custom_cost_trigger = {
+			command_power > 4
+		}
+		custom_cost_text = decision_cost_CP_5
+		complete_effect = {
+			add_command_power = -5
+			custom_effect_tooltip = recruit_dai_anlan
+			set_global_flag = recruit_dai_anlan
+		}
+		ai_will_do = {
+			factor = 1
+
+			modifier = {
+				factor = 0  
+				command_power < 10
+			}
+			modifier = {
+				factor = 100
+				command_power > 49 
+			}
+		}
+	}	
+
+	recruit_liao_yaoxiang = {
+		icon = generic_army_support
+		fire_only_once = yes
+		visible = {
+		           OR = {
+            TAG = event_target:WTT_current_china_leader
+            TAG = CHI
+            }
+		}
+		available = {
+            #date > 1940.5.7  #Commanding Officer 22nd New Division
+			hidden_trigger = {
+				command_power > 4
+			}
+		}
+		custom_cost_trigger = {
+			command_power > 4
+		}
+		custom_cost_text = decision_cost_CP_5
+		complete_effect = {
+			add_command_power = -5
+			custom_effect_tooltip = recruit_liao_yaoxiang
+			set_global_flag = recruit_liao_yaoxiang
+		}
+		ai_will_do = {
+			factor = 1
+
+			modifier = {
+				factor = 0  
+				command_power < 10
+			}
+			modifier = {
+				factor = 100
+				command_power > 49 
+			}
+		}
+	}	
+
+	recruit_zhang_lingfu = {
+		icon = generic_army_support
+		fire_only_once = yes
+		visible = {
+		           OR = {
+            TAG = event_target:WTT_current_china_leader
+            TAG = CHI
+            }
+		}
+		available = {
+            #date > 1941.10.24  #Commanding Officer 58th Division
+			hidden_trigger = {
+				command_power > 4
+			}
+		}
+		custom_cost_trigger = {
+			command_power > 4
+		}
+		custom_cost_text = decision_cost_CP_5
+		complete_effect = {
+			add_command_power = -5
+			custom_effect_tooltip = recruit_zhang_lingfu
+			set_global_flag = recruit_zhang_lingfu
+		}
+		ai_will_do = {
+			factor = 1
+
+			modifier = {
+				factor = 0  
+				command_power < 10
+			}
+			modifier = {
+				factor = 100
+				command_power > 49 
+			}
+		}
+	}
+
+	recruit_sun_liren = {
+		icon = generic_army_support
+		fire_only_once = yes
+		visible = {
+		           OR = {
+            TAG = event_target:WTT_current_china_leader
+            TAG = CHI
+            }
+		}
+		available = {
+            #date > 1941.12.15  #Commanding Officer 38th New Division
+			hidden_trigger = {
+				command_power > 4
+			}
+		}
+		custom_cost_trigger = {
+			command_power > 4
+		}
+		custom_cost_text = decision_cost_CP_5
+		complete_effect = {
+			add_command_power = -5
+			custom_effect_tooltip = recruit_sun_liren
+			set_global_flag = recruit_sun_liren
+		}
+		ai_will_do = {
+			factor = 1
+
+			modifier = {
+				factor = 0  
+				command_power < 10
+			}
+			modifier = {
+				factor = 100
+				command_power > 49 
+			}
+		}	
+	}
+	
+	recruit_chenmingren = {#guo
+		icon = generic_army_support
+		fire_only_once = yes
+		allowed = { always = no }
+		visible = {
+		           OR = {
+            TAG = event_target:WTT_current_china_leader
+            TAG = CHI
+            }
+			always = no
+		}
+		available = {
+            #date > 1938.6.1  
+			hidden_trigger = {
+				command_power > 4
+			}
+		}
+		custom_cost_trigger = {
+			command_power > 4
+		}
+		custom_cost_text = decision_cost_CP_5
+		complete_effect = {
+			add_command_power = -5
+			custom_effect_tooltip = recruit_chenmingren
+			set_global_flag = recruit_chenmingren
+		}
+		ai_will_do = {
+			factor = 1
+
+			modifier = {
+				factor = 0  
+				command_power < 10
+			}
+			modifier = {
+				factor = 100
+				command_power > 49 
+			}
+		}
+	}
+	
+	recruit_hulian = {#guo
+		icon = generic_army_support
+		fire_only_once = yes
+		visible = {
+		           OR = {
+            TAG = event_target:WTT_current_china_leader
+            TAG = CHI
+            }
+		}
+		available = {
+            #date > 1941.3.1 
+			hidden_trigger = {
+				command_power > 4
+			}
+		}
+		custom_cost_trigger = {
+			command_power > 4
+		}
+		custom_cost_text = decision_cost_CP_5
+		complete_effect = {
+			add_command_power = -5
+			custom_effect_tooltip = recruit_hulian
+			set_global_flag = recruit_hulian
+		}
+		ai_will_do = {
+			factor = 1
+
+			modifier = {
+				factor = 0  
+				command_power < 10
+			}
+			modifier = {
+				factor = 100
+				command_power > 49 
+			}
+		}
+	}
+	
+	recruit_guorugui = {#guo
+		icon = generic_army_support
+		fire_only_once = yes
+		visible = {
+		           OR = {
+            TAG = event_target:WTT_current_china_leader
+            TAG = CHI
+            }
+		}
+		available = {
+            #date > 1941.10.1
+			hidden_trigger = {
+				command_power > 4
+			}
+		}
+		custom_cost_trigger = {
+			command_power > 4
+		}
+		custom_cost_text = decision_cost_CP_5
+		complete_effect = {
+			add_command_power = -5
+			custom_effect_tooltip = recruit_guorugui
+			set_global_flag = recruit_guorugui
+		}
+		ai_will_do = {
+			factor = 1
+
+			modifier = {
+				factor = 0  
+				command_power < 10
+			}
+			modifier = {
+				factor = 100
+				command_power > 49 
+			}
+		}
+	}
+	
+	recruit_liu_yuzhang = {
+		icon = generic_army_support
+		fire_only_once = yes
+		visible = {
+            OR = {
+            TAG = event_target:WTT_current_china_leader
+            TAG = CHI
+            }
+		}
+		available = {
+            #date > 1942.3.1
+		}
+		custom_cost_trigger = {
+			command_power > 4
+		}
+		custom_cost_text = decision_cost_CP_5
+		complete_effect = {
+			add_command_power = -5
+			custom_effect_tooltip = recruit_liu_yuzhang
+			set_global_flag = recruit_liu_yuzhang
+		}
+		ai_will_do = {
+			factor = 1
+
+			modifier = {
+				factor = 0  
+				command_power < 10
+			}
+			modifier = {
+				factor = 100
+				command_power > 49 
+			}
+		}		
+	}
+
+}
+

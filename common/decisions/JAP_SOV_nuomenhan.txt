@@ -1,0 +1,863 @@
+operations = { #诺门罕战役
+JAP_border_the_SOV_in_nuomenhan = {
+		icon = border_war
+		allowed = {
+		TAG = JAP
+		}
+
+		available = {
+			761 = { is_controlled_by_ROOT_or_ally = yes }
+			OR = {
+				has_completed_focus = JAP_Sonno_Tokkan_focus		#MODDED
+				has_completed_focus = JAP_placate_military_focus		#MODDED
+			}
+		}
+
+		visible = {
+		    761 = { is_controlled_by_ROOT_or_ally = yes }
+			819 = {
+			owner = {
+			OR = {
+			TAG = SOV
+			TAG = MON
+			}
+			}
+			}
+			NOT = {		
+				has_war_with = SOV
+				is_in_faction_with = SOV
+			}
+			NOT = {		
+				has_war_with = MON
+				is_in_faction_with = MON
+			}
+			MON = {
+			is_in_faction_with = SOV
+			}
+			is_subject = no
+			NOT = {
+				has_government = communism		#MODDED
+				has_government = n_socialism		#MODDED
+			}
+		}
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 761
+				state = 819
+			}
+		}
+		
+		fire_only_once = yes
+		ai_will_do = { 
+			base = 0
+			modifier = {
+			add = 9000
+			date > 1939.4.1
+			}
+			modifier = {
+			factor = 0
+			has_war_with = event_target:WTT_current_china_leader
+			event_target:WTT_current_china_leader = { surrender_progress < 0.1 }
+			}
+			
+		}
+		cost = 50
+		days_remove = 50
+		war_with_on_remove = SOV
+		complete_effect = {
+			transfer_state = 761
+			MON = {
+				country_event = JAP_SOV_border_nuomenhan.1			
+			}
+		}
+		remove_effect = {
+			start_border_war = {
+				change_state_after_war = no
+				minimum_duration_in_days = 100
+				attacker = { #JAP
+					state = 761	
+					num_provinces = 8
+					on_win = JAP_SOV_border_nuomenhan.2
+					on_lose = JAP_SOV_border_nuomenhan.3
+					on_cancel = JAP_SOV_border_nuomenhan.4
+				}
+
+				defender = { #SOV OR MON
+					state = 819
+					num_provinces = 8
+					on_win = JAP_SOV_border_nuomenhan.31
+					on_lose = JAP_SOV_border_nuomenhan.21
+					on_cancel = JAP_SOV_border_nuomenhan.41
+				}
+			}
+			
+			set_border_war_data = {
+				attacker = 761
+				defender = 819
+				combat_width = 180
+			}
+			
+			activate_mission = JAP_get_the_nuomenhan #timeout_effect
+			
+			hidden_effect = {
+			819 = { owner = { activate_mission = SOV_hold_the_nuomenhan } } #timeout_effect
+			
+			if = {
+			limit = {
+			ROOT = { is_ai = no }
+			}
+			add_timed_idea = { idea = JAP_get_the_nuomenhan days = 120 }
+			}
+			
+			if = {
+			limit = {
+			819 = { owner = { is_ai = yes } }
+			ROOT = { is_ai = yes }
+			is_historical_focus_on = yes
+			}
+			819 = {
+			owner = {
+			add_timed_idea = { idea = SOV_hold_the_nuomenhan days = 120 }
+			}
+			}		
+			}
+			
+			}
+		}
+	}
+	
+	SOV_JAP_is_assembling_in_nuomenhan = { #just tip for warning SOV
+		icon = border_war
+		allowed = {
+              OR = {
+                  TAG = SOV
+			      TAG = MON
+			  }
+        }
+		
+		fire_only_once = yes
+		selectable_mission = no
+		
+		activation = {
+			always = no #activation by decision
+		}
+		
+		available = { #can do
+			hidden_trigger = {
+				always = no
+			}
+		}
+		
+		highlight_states = {
+			highlight_state_targets = {
+				state = 761
+				state = 819
+			}
+		}
+		
+		days_mission_timeout = 50
+		is_good = no
+		
+		timeout_effect = {
+			effect_tooltip = {
+			start_border_war = {
+				change_state_after_war = no
+				minimum_duration_in_days = 100
+				attacker = { #JAP
+					state = 761	
+					num_provinces = 8
+					on_win = JAP_SOV_border_nuomenhan.2
+					on_lose = JAP_SOV_border_nuomenhan.3
+					on_cancel = JAP_SOV_border_nuomenhan.4
+				}
+
+				defender = { #SOV OR MON
+					state = 819
+					num_provinces = 8
+					on_win = JAP_SOV_border_nuomenhan.31
+					on_lose = JAP_SOV_border_nuomenhan.21
+					on_cancel = JAP_SOV_border_nuomenhan.41
+				}
+			}
+			
+			set_border_war_data = {
+				attacker = 761
+				defender = 819
+				combat_width = 180
+			}
+			
+			activate_mission = SOV_hold_the_nuomenhan
+			}
+		}
+		
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	JAP_get_the_nuomenhan = { #timeout_effect for JAP
+		icon = border_war
+		allowed = {
+              TAG = JAP
+        }
+		
+		fire_only_once = yes
+		selectable_mission = no
+		
+		activation = {
+			always = no #activation by decision
+		}
+		
+		available = { #非点击式任务的任务完成要求
+			761 = { has_border_war = no }		#MODDED
+			819 = { has_border_war = no }
+		}
+		
+		highlight_states = {
+			highlight_state_targets = {
+				state = 761
+				state = 819
+			}
+		}
+		
+		days_mission_timeout = 120
+		is_good = no
+		
+		complete_effect = {
+			
+		}
+		
+		timeout_effect = {
+		cancel_border_war = {
+				defender = 761
+				attacker = 819		#MODDED
+			}
+		}
+		
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	SOV_hold_the_nuomenhan = { #timeout_effect for SOV
+		icon = border_war
+		allowed = {
+              OR = {
+                  TAG = SOV
+			      TAG = MON
+			  }
+        }
+		
+		fire_only_once = yes
+		selectable_mission = no
+		
+		activation = {
+			always = no #activation by decision
+		}
+		
+		available = { #非点击式任务的任务完成要求
+			761 = { has_border_war = no }		#MODDED
+			819 = { has_border_war = no }
+		}
+		
+		highlight_states = {
+			highlight_state_targets = {
+				state = 761
+				state = 819
+			}
+		}
+		
+		days_mission_timeout = 120
+		is_good = no
+		
+		complete_effect = {
+			
+		}
+		
+		timeout_effect = {
+		effect_tooltip = {
+		cancel_border_war = {
+				defender = 761
+				attacker = 819		#MODDED
+			}
+		  }
+		}
+		
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	
+	JAP_last_win = {
+		priority = 1000
+
+		icon = generic_prepare_civil_war
+		fire_only_once = yes
+
+		allowed = {
+			original_tag = JAP
+		}
+
+		available = {
+			
+		}
+
+		visible = {
+		    is_subject = no
+			is_puppet = no
+			OR = {
+			has_government = fascism
+			has_government = neutrality
+			has_country_leader = { ruling_only = yes name = "Emperor Hirohito" }
+			}
+			any_core_state = {
+			is_owned_by = root
+			region = 154
+			not = { is_fully_controlled_by = root }
+			}
+			surrender_progress > 0
+			NOT = { has_global_flag = JAP_surrender_in_ww2 }
+			has_civil_war = no
+		}
+		
+		ai_will_do = {
+			base = 9999
+		}
+
+		complete_effect = {
+		add_manpower = -1000000
+		    if = {
+	   limit = {
+	   has_government = neutrality
+	   }
+	    add_popularity = {
+			ideology = fascism
+			popularity = 0.5
+		}
+		set_politics = {
+			ruling_party = fascism
+			elections_allowed = no
+		}
+		create_country_leader = { #guo
+			name="小矶国昭"
+			#desc=POLITICS_SOKOLOVKSY_DESC
+			picture = "gfx/leaders/JAP/xiaojiguozhao.dds"
+			ideology = fascism_ideology
+			traits = { desperate_gambit emergency_powers indecisive }
+		}
+	   }
+		    add_timed_idea = {
+                idea = jap_bentujuezhan
+                days = 1095
+            }
+			news_event = zizhinews.10
+		    division_template = {
+		name = "志愿战斗队"
+		regiments = {
+		            infantry = { x = 0 y = 0 }
+					infantry = { x = 0 y = 1 }
+					infantry = { x = 0 y = 2 }
+					infantry = { x = 0 y = 3 }
+                    infantry = { x = 0 y = 4 }
+					
+					infantry = { x = 1 y = 0 }
+					infantry = { x = 1 y = 1 }
+					infantry = { x = 1 y = 2 }
+					infantry = { x = 1 y = 3 }
+                    infantry = { x = 1 y = 4 }
+					
+					infantry = { x = 2 y = 0 }
+					infantry = { x = 2 y = 1 }
+					infantry = { x = 2 y = 2 }
+		
+		artillery_brigade = { x = 3 y = 0 }
+		artillery_brigade = { x = 3 y = 1 }
+		artillery_brigade = { x = 3 y = 2 }
+		}
+		support = {
+		logistics_company = { x = 0 y = 0 } 
+		engineer = { x = 0 y = 1 }
+		artillery = { x = 0 y = 2 } 
+		anti_tank = { x = 0 y = 3 } 
+		anti_air = { x = 0 y = 4 }
+		}
+	    }
+		    every_owned_state = {
+			   limit = {
+			   is_core_of = root
+			   is_controlled_by = root
+			   }
+			   create_unit = {
+				  division = "name = \"志愿战斗队\" division_template = \"志愿战斗队\" start_experience_factor = 0 start_equipment_factor = 0.8"
+				  owner = JAP
+				  count = 4
+			   }
+			   add_building_construction = {
+				type = bunker
+				province = {
+					all_provinces = yes
+					#limit_to_coastal = yes
+				}
+			    level = 3
+				instant_build = yes
+			   }
+			   add_building_construction = {
+				type = coastal_bunker
+				province = {
+					all_provinces = yes
+					limit_to_coastal = yes
+				}
+			    level = 5
+				instant_build = yes
+			   }
+			    add_building_construction = {
+					type = anti_air_building
+					level = 3
+					instant_build = yes
+                }
+			}
+			282 = {
+			    add_building_construction = {
+					type = bunker
+					level = 10
+					province = 1182
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = coastal_bunker
+					level = 10
+					province = 1182
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = bunker
+					level = 8
+					province = 9998
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = coastal_bunker
+					level = 8
+					province = 9998
+					instant_build = yes
+				}
+				
+				add_building_construction = {
+					type = anti_air_building
+					level = 5
+					instant_build = yes
+                }
+				
+				add_building_construction = {
+					type = radar_station
+					level = 5
+					instant_build = yes
+                }
+			}
+		}
+	}
+}
+
+operations = {
+
+    jap_unplanned_offensive_prepare_warning_for_chi = {
+	
+	    priority = 9999
+
+		icon = hol_draw_up_staff_plans
+
+		allowed = {
+			is_literally_china = yes
+		}
+		
+		highlight_states = {
+			highlight_state_targets = { state = var:jap_unplanned_offensive_prepare_warning_state } 
+	 		highlight_color_while_active = 1
+		}
+
+		on_map_mode = map_and_decisions_view
+
+		available = {
+			hidden_trigger = { always = no }
+		}
+
+		fire_only_once = yes
+
+		days_mission_timeout = 70
+
+		is_good = no
+
+		cancel_if_not_visible = yes
+
+		activation = {
+			always = no
+		}
+
+		visible = {
+			has_war_with = JAP
+			has_global_flag = jap_unplanned_offensive_prepare_in_progress_flag
+		}
+
+		timeout_effect = {
+			clr_global_flag = jap_unplanned_offensive_prepare_in_progress_flag
+			effect_tooltip = {
+			var:jap_unplanned_offensive_prepare_warning_state = {
+				clr_state_flag = jap_unplanned_offensive_state
+				remove_dynamic_modifier = { modifier = jap_unplanned_offensive_state }
+			}
+			}
+		}
+	}
+}
+
+jap_unplanned_offensive_prepare_catagory = {
+
+    jap_unplanned_offensive_prepare_warning_for_jap = {
+	
+	    priority = 9000
+
+		icon = hol_draw_up_staff_plans
+
+		allowed = {
+			original_tag = JAP
+		}
+		
+		highlight_states = {
+	 		highlight_state_targets = { state = var:jap_unplanned_offensive_prepare_warning_state } 
+			highlight_color_before_active = 3
+			highlight_color_while_active = 2
+		}
+		
+		on_map_mode = map_and_decisions_view
+
+		available = {
+			hidden_trigger = { always = no }
+		}
+
+		fire_only_once = yes
+
+		days_mission_timeout = 70
+
+		is_good = yes
+
+		cancel_if_not_visible = yes
+
+		activation = {
+			always = no
+		}
+
+		visible = {
+			has_war_with = event_target:WTT_current_china_leader
+			has_global_flag = jap_unplanned_offensive_prepare_in_progress_flag
+		}
+
+		timeout_effect = {
+			clr_global_flag = jap_unplanned_offensive_prepare_in_progress_flag
+			effect_tooltip = {
+			var:jap_unplanned_offensive_prepare_warning_state = {
+				clr_state_flag = jap_unplanned_offensive_state
+				remove_dynamic_modifier = { modifier = jap_unplanned_offensive_state }
+			}
+			}
+		}
+	}
+
+	jap_unplanned_offensive_prepare_decision = {
+	
+	    priority = 1000
+
+		icon = infiltrate_state
+		
+		allowed = {
+			original_tag = JAP
+		}
+		
+		state_target = yes
+		target_trigger = {
+			FROM = {
+				has_dynamic_modifier = { modifier = jap_unplanned_offensive_state }
+				OR = {
+				is_coastal = yes
+				any_neighbor_state = {
+					is_controlled_by_jap_or_its_puppet = yes
+				}			
+				}
+			}
+		}
+		on_map_mode = map_and_decisions_view #map_only
+		highlight_states = {
+	 		highlight_state_targets = { state = FROM } 
+			highlight_color_before_active = 3
+			highlight_color_while_active = 2
+		}
+
+		available = {
+			NOT = { has_active_mission = jap_unplanned_offensive_prepare_warning_for_jap }
+			command_power_daily > 0.1
+			hidden_trigger = {
+			if = {
+			limit = { is_ai = no }
+				command_power > 24
+			    has_political_power > 14
+			}	
+		    }
+		}
+
+		#cost = 25
+		custom_cost_trigger = {
+		    if = {
+			limit = { is_ai = no }
+			command_power > 24
+			has_political_power > 14
+			}
+		}
+		custom_cost_text = decision_cost_CP_25_pp_15
+
+		fire_only_once = yes
+
+		days_remove = 70
+
+		modifier = {
+			command_power_gain = -0.25
+		}
+
+		visible = {
+			FROM = {
+				has_dynamic_modifier = { modifier = jap_unplanned_offensive_state }
+				OR = {
+				is_coastal = yes
+				any_neighbor_state = {
+					is_controlled_by_jap_or_its_puppet = yes
+				}			
+				}
+			}
+		}
+
+		complete_effect = {
+		    FROM = { save_event_target_as = jap_unplanned_offensive_prepare_warning_state }
+		    set_global_flag = jap_unplanned_offensive_prepare_in_progress_flag
+			activate_mission = jap_unplanned_offensive_prepare_warning_for_jap
+			hidden_effect = {
+			add_command_power = -15
+			add_political_power = -25
+			every_other_country = {
+				limit = {
+					is_literally_china = yes
+					has_war_with = root
+				}
+				activate_mission = jap_unplanned_offensive_prepare_warning_for_chi
+			}
+			}
+		}
+
+		remove_effect = {
+			FROM = {
+				clr_state_flag = jap_unplanned_offensive_state
+				clear_variable = jap_unplanned_offensive_prepare_warning_state
+				remove_dynamic_modifier = { modifier = jap_unplanned_offensive_state }
+				if = {
+			    limit = { has_dynamic_modifier = { modifier = suiyuan_stronghold_JAP scope = JAP } }
+				remove_dynamic_modifier = { modifier = suiyuan_stronghold_JAP scope = JAP }
+				}
+			}
+		}
+
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 1000
+				event_target:WTT_current_china_leader = { is_ai = no }
+			}
+			modifier = {
+				add = 1000
+				has_war_together_with_human_player = yes
+			}
+			modifier = {
+				add = 9999
+				date > 1944.1.1
+			}
+			modifier = { #远离大西北
+				factor = 0
+				FROM = {
+				    OR = {
+					region = 244
+					region = 245
+					region = 144
+					region = 200
+					}
+					NOT = { is_controlled_by = event_target:WTT_current_china_leader }
+				}
+				event_target:WTT_current_china_leader = { has_capitulated = no }
+			}
+			modifier = {
+				add = -6000
+				FROM = {
+				    OR = {
+					state = 744
+					state = 605
+					state = 750
+					state = 748
+					state = 603
+					state = 599
+					}
+				}
+				date < 1945.1.1
+				has_war_with = USA
+				event_target:WTT_current_china_leader = { is_ai = yes }
+				has_war_together_with_human_player = no
+			}
+			modifier = {
+				factor = 0
+				FROM = {
+					state = 1027 #晋南
+				}
+				or = { has_idea = SHX_shanxi_japan_pact_JAP SHX = { is_ai = yes } }
+				event_target:WTT_current_china_leader = { has_capitulated = no }
+			}
+			modifier = {
+				add = 8000
+				FROM = {
+					state = 620 #宜昌
+				}
+				date > 1940.1.1
+			}
+			modifier = {
+				add = 9000
+				FROM = {
+					state = 592
+				}
+			}
+			modifier = {
+				add = 6000
+				FROM = {
+					state = 593
+				}
+			}
+			modifier = {
+				add = 4000
+				FROM = {
+				    OR = {
+					state = 1037
+					state = 591
+					state = 594
+					}
+				}
+			}
+			modifier = {
+				add = 3000
+				FROM = {
+				    is_coastal = yes
+				}
+			}
+			modifier = {
+				add = 2000
+				FROM = {
+				    controller = { is_ai = no }
+				}
+			}
+		}
+	}
+}
+
+
+chi_unplanned_offensive_prepare_catagory = {
+
+	chi_unplanned_offensive_prepare_decision = {
+	
+	    priority = 1000
+
+		icon = infiltrate_state
+		
+		allowed = {
+			is_literally_china = yes
+		}
+		
+		state_target = yes
+		target_trigger = {
+			FROM = {
+				has_dynamic_modifier = { modifier = jap_unplanned_offensive_state }
+				or = {
+					any_neighbor_state = {
+						is_controlled_by_jap_or_its_puppet = yes
+					}
+					all_neighbor_state = {
+						is_controlled_by_jap_or_its_puppet = no
+					}
+				}
+			}
+		}
+		on_map_mode = map_and_decisions_view #map_only
+		highlight_states = {
+	 		highlight_state_targets = { state = FROM } 
+			highlight_color_before_active = 3
+			highlight_color_while_active = 2
+		}
+
+		available = {
+			NOT = { has_country_flag = chi_unplanned_offensive_prepare_in_progress_flag }
+			command_power_daily > 0.1
+			hidden_trigger = {
+			if = {
+			limit = { is_ai = no }
+				command_power > 24
+			    has_political_power > 14
+			}
+		    }
+		}
+
+		#cost = 25
+		custom_cost_trigger = {
+		    if = {
+			limit = { is_ai = no }
+			command_power > 24
+			has_political_power > 14
+			}
+		}
+		custom_cost_text = decision_cost_CP_25_pp_15
+
+		fire_only_once = yes
+
+		days_remove = 70
+
+		modifier = {
+			command_power_gain = -0.25
+		}
+
+		visible = {
+		is_ai = no
+			FROM = {
+				has_dynamic_modifier = { modifier = jap_unplanned_offensive_state }
+				or = {
+					any_neighbor_state = {
+						is_controlled_by_jap_or_its_puppet = yes
+					}
+					all_neighbor_state = {
+						is_controlled_by_jap_or_its_puppet = no
+					}
+				}
+			}
+		}
+
+		complete_effect = {
+		    set_country_flag = { flag = chi_unplanned_offensive_prepare_in_progress_flag days = 70 }
+			hidden_effect = {
+			add_command_power = -15
+			add_political_power = -25
+			}
+		}
+
+		remove_effect = {
+			FROM = {
+				clr_state_flag = jap_unplanned_offensive_state
+				remove_dynamic_modifier = { modifier = jap_unplanned_offensive_state }
+			}
+			clr_country_flag = chi_unplanned_offensive_prepare_in_progress_flag
+		}
+
+		ai_will_do = {
+			base = 0
+		}
+	}
+}

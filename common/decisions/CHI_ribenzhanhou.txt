@@ -1,0 +1,207 @@
+日本战后处理问题{
+    建立中国驻日本占领区 = {
+		icon = generic_prepare_civil_war 
+		available = {
+			has_government = neutrality
+			531 = {
+				is_controlled_by_ROOT_or_puppet = yes
+			}
+			532 = {
+				is_controlled_by_ROOT_or_puppet = yes
+			}
+			535 = {
+				is_controlled_by_ROOT_or_puppet = yes
+			}
+			534 = {
+				is_controlled_by_ROOT_or_puppet = yes
+			}
+			282 = {
+				is_controlled_by_ROOT_or_puppet = yes
+			}
+			533 = {
+				is_controlled_by_ROOT_or_puppet = yes
+			}
+			536 = {
+				is_controlled_by_ROOT_or_puppet = yes
+			}
+			996 = {
+				is_controlled_by_ROOT_or_puppet = yes
+			}
+			530 = {
+				is_controlled_by_ROOT_or_puppet = yes
+			}
+			529 = {
+				is_controlled_by_ROOT_or_puppet = yes
+			}
+			528 = {
+				is_controlled_by_ROOT_or_puppet = yes
+			}
+			994 = {
+				is_controlled_by_ROOT_or_puppet = yes
+			}
+			995 = {
+				is_controlled_by_ROOT_or_puppet = yes
+			}						
+		}
+	days_remove = 90
+        cost = 100
+            fire_only_once = yes #仅可触发一次 yes/no
+		    ai_will_do = { #ai倾向
+		    	factor = 0
+		}
+		visible = { has_government = neutrality
+			531 = {
+				is_controlled_by_ROOT_or_puppet = yes
+			}
+			532 = {
+				is_controlled_by_ROOT_or_puppet = yes
+			}
+			535 = {
+				is_controlled_by_ROOT_or_puppet = yes
+			}
+			534 = {
+				is_controlled_by_ROOT_or_puppet = yes
+			}
+			282 = {
+				is_controlled_by_ROOT_or_puppet = yes
+			}
+			533 = {
+				is_controlled_by_ROOT_or_puppet = yes
+			}
+			536 = {
+				is_controlled_by_ROOT_or_puppet = yes
+			}
+			996 = {
+				is_controlled_by_ROOT_or_puppet = yes
+			}
+			530 = {
+				is_controlled_by_ROOT_or_puppet = yes
+			}
+			529 = {
+				is_controlled_by_ROOT_or_puppet = yes
+			}
+			528 = {
+				is_controlled_by_ROOT_or_puppet = yes
+			}
+			994 = {
+				is_controlled_by_ROOT_or_puppet = yes
+			}
+			995 = {
+				is_controlled_by_ROOT_or_puppet = yes
+			}
+		}
+        complete_effect = { 
+        531 = {
+            add_core_of = FSM
+        }
+        532 = {
+            add_core_of = FSM
+        }
+        535 = {
+            add_core_of = FSM
+        }
+        534 = {
+            add_core_of = FSM
+        }
+        282 = {
+            add_core_of = FSM
+        }
+        533 = {
+            add_core_of = FSM
+        }
+        536 = {
+            add_core_of = FSM
+        }
+        996 = {
+            add_core_of = FSM
+        }	
+        530 = {
+            add_core_of = FSM
+        }
+	    529 = {
+            add_core_of = FSM
+        }
+        528 = {
+            add_core_of = FSM
+        }
+        994 = {
+            add_core_of = FSM
+        }
+		684 = {
+            remove_core_of = FSM
+        }
+		647 = {
+            remove_core_of = FSM
+        }
+	    633 = {
+            remove_core_of = FSM
+        }	
+
+        FSM ={
+                inherit_technology = JAP 
+            give_military_access = PRC #给民国军通
+            set_state_controller = 531
+			set_state_owner = 531
+            set_state_controller = 532
+			set_state_owner = 532
+	        set_state_controller = 535
+			set_state_owner = 535
+            set_state_controller = 534
+			set_state_owner = 534
+            set_state_controller = 282
+			set_state_owner = 282
+            set_state_controller = 533
+			set_state_owner = 533
+		    set_state_controller = 536
+			set_state_owner = 536
+            set_state_controller = 996
+			set_state_owner = 996
+            set_state_controller = 995
+			set_state_owner = 995
+            set_state_controller = 530
+			set_state_owner = 530
+	        set_state_controller = 529
+			set_state_owner = 529
+            set_state_controller = 994
+			set_state_owner = 994
+            set_state_controller = 528
+			set_state_owner = 528	
+                add_ideas = chi_guojun
+				set_cosmetic_tag = CHI_jap
+			set_party_name = {
+					ideology = neutrality #中立主义
+					name = "中国驻日占领军总司令部"
+					long_name = "中华民国驻日本占领军总司令部"
+				}			
+            create_country_leader = {
+                name = "何应钦"
+                desc = "POLITICS_HEYINGQING_DESC"
+                picture = "gfx/leaders/CHI/He_Yingqin_ROCA.dds"
+                expire = "1965.1.1"
+                ideology = despotism
+                traits = { baizhanlaobing
+                }
+            }
+            set_popularities = { #This MUST add up to 100 otherwise the ideologies break
+                neutrality = 100
+	           #democratic
+	           #fascism 
+	           #communism
+            }
+            set_politics = {   #设置意识形态
+                ruling_party = neutrality
+                elections_allowed = no   #不允许选举
+            }
+            set_capital = {  #设置首都
+                state = 282
+                remember_old_capital = no
+            }  
+                  }		
+            CHI ={
+                puppet = FSM
+
+            }
+        
+}
+		}
+	}

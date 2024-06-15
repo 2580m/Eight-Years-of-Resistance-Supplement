@@ -1,0 +1,41 @@
+
+	特殊行动 = {
+	
+		逮捕汪精卫 = {
+
+			icon = generic_political_actions
+
+			available = {
+                            	country_exists = EHB
+		                1015 = { is_owned_by = EHB }
+                               1015 = {
+				is_controlled_by_ROOT_or_puppet = yes
+                                   }
+                               has_war_with = JAP
+                               EHB = {
+                                  has_country_leader = {
+                    name = "汪精卫"
+                    ruling_only = yes
+                         }
+			}
+               }
+
+			fire_only_once = yes
+		    ai_will_do = {
+			factor = 100
+		    }
+			visible = {
+                      has_war_with = JAP
+			}
+			complete_effect = {
+                           ROOT = {
+                                     annex_country = { target = EHB transfer_troops = no }
+                              EHB = {
+                                            retire_country_leader = yes
+                                               }
+                                  }
+			}
+		}
+	}
+
+

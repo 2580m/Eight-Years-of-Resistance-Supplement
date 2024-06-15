@@ -1,0 +1,65 @@
+#MODDED for the nationalise the oil decision
+political_actions = {
+	IRQ_nationalise_the_oil = {
+
+		icon = generic_prepare_civil_war
+
+		allowed = {
+			original_tag = IRQ
+		}
+		available = {
+			controls_state = 676
+			controls_state = 291
+		    NOT = { is_subject_of = ENG } #MODDED
+		    NOT = { is_in_faction_with = ENG } #MODDED
+		}
+		visible = {
+			
+		}
+		cost = 25 #MODDED
+		fire_only_once = yes
+		ai_will_do = {
+			base = 0 #MODDED
+		    modifier = {
+				#MODDED
+				factor = 0
+				has_government = neutrality
+			}
+		    modifier = {#guo
+				#MODDED
+				add = 999
+				has_government = fascism
+			    date > 1941.5.1
+			}
+			modifier = {
+				#MODDED
+				add = 1000 
+				has_war_with = ENG 
+			}
+		}
+		complete_effect = { #TODO notification event for England
+			add_war_support = 0.1
+			send_embargo = ENG
+			ENG = { 
+				remove_resource_rights = 676
+				remove_resource_rights = 291
+			    #
+				country_event = {
+                    days = 1 id = rcm_middle_east.1  #MODDED
+                }
+			}
+		    #MODDED
+			diplomatic_relation = { 
+				country = ENG
+				relation = military_access
+				active = no
+			}
+		    #MODDED
+			diplomatic_relation = {
+	            country = ENG
+	            relation = non_aggression_pact
+	            active = no
+            }
+		}
+	}
+}	

@@ -1,0 +1,1015 @@
+联系世界各地的革命同志 = {
+    联系美国黑人同志 = {
+		icon = generic_prepare_civil_war
+		available = {
+			has_completed_focus = PRC_internationalist_clique_focus
+			has_government = communism
+            USA = { NOT = { has_government = communism }		}
+		}
+		days_remove = 90
+        cost = 300
+        fire_only_once = yes
+		ai_will_do = {
+			factor = 0
+		}
+		visible = {
+			has_completed_focus = PRC_internationalist_clique_focus
+			has_government = communism
+		}
+        complete_effect = { 
+
+        365 = {
+            add_core_of = WES
+        }
+        367 = {
+            add_core_of = WES
+        }
+        370 = {
+            add_core_of = WES
+        }
+        364 = {
+            add_core_of = WES
+        }
+        371 = {
+            add_core_of = WES
+        }
+	    363 = {
+            add_core_of = WES
+        }
+		699 = {
+            add_core_of = WES
+        }	
+	      WES ={
+            set_state_controller = 365
+			set_state_owner = 365
+            set_state_controller = 367
+			set_state_owner = 367
+            set_state_controller = 370
+			set_state_owner = 370
+	        set_state_controller = 364
+			set_state_owner = 364	
+            give_military_access = PRC #给中共军通
+			add_timed_idea = { idea = PRC_diguozhuyixuanzhan_idea 
+                                                            days = 365 }
+			set_cosmetic_tag = WES_heiren	
+			set_party_name = {
+					ideology = communism
+					name = "黑人权利斗争联盟"
+					long_name = "黑人权利斗争联盟"
+				}
+             create_country_leader = {
+                name = "哈里·海伍德"
+                desc = "POLITICS_DETIANQIUYI_DESC"
+                picture = "gfx/leaders/USA/Portait_USA_harry_haywood.dds"
+                expire = "1965.1.1"
+                ideology = marxism
+                traits = { cornered_fox
+                }
+                       }	
+            set_capital = {
+                state = 365
+                remember_old_capital = no
+            }
+                                                inherit_technology = USA
+                   }
+            PRC ={
+                puppet = WES
+            }
+
+    }
+}
+    
+
+    联系日本共产党 = {
+		icon = generic_prepare_civil_war
+		available = {
+			has_completed_focus = PRC_internationalist_clique_focus
+			has_government = communism
+            JAP = { NOT = { has_government = communism }	}	
+		}
+		days_remove = 60
+        cost = 150
+        fire_only_once = yes
+		ai_will_do = {
+			factor = 0
+		}
+		visible = {
+			has_completed_focus = PRC_internationalist_clique_focus
+			has_government = communism
+		}		
+        complete_effect = { 
+        531 = {
+            add_core_of = GUM
+        }
+        532 = {
+            add_core_of = GUM
+        }
+        535 = {
+            add_core_of = GUM
+        }
+        534 = {
+            add_core_of = GUM
+        }
+        282 = {
+            add_core_of = GUM
+        }
+        533 = {
+            add_core_of = GUM
+        }
+        536 = {
+            add_core_of = GUM
+        }
+        996 = {
+            add_core_of = GUM
+        }
+	    555 = {
+            add_core_of = GUM
+        }	
+        530 = {
+            add_core_of = GUM
+        }
+	    529 = {
+            add_core_of = GUM
+        }
+        528 = {
+            add_core_of = GUM
+        }
+        994 = {
+            add_core_of = GUM
+        }
+	    638 = {
+            remove_core_of = GUM
+        }
+	    648 = {
+            remove_core_of = GUM
+        }
+		646 = {
+            remove_core_of = GUM
+        }
+	    632 = {
+            remove_core_of = GUM
+        }	
+        GUM = {
+            give_military_access = PRC #给共和国军通
+            set_state_controller = 531
+			set_state_owner = 531
+			    add_timed_idea = { idea = PRC_diguozhuyixuanzhan_idea days = 365 }	
+				add_ideas = JAP_agrarian_reform_idea
+				add_ideas = JAP_red_brigades					
+				add_ideas = JAP_reeducation_campaign
+				add_ideas = intemationalism
+				add_ideas = JAP_nationalize_the_zaibatsus		
+				set_cosmetic_tag = JAP_communism
+			set_party_name = {
+					ideology = communism
+					name = "日本共产党"
+					long_name = "日本共产党"
+				}			
+            create_country_leader = {
+                name = "德田球一"
+                desc = "POLITICS_DETIANQIUYI_DESC"
+                picture = "gfx/leaders/JAP/Portrait_Japan_Kyuichi_Tokuda.dds"
+                expire = "1965.1.1"
+                ideology = marxism
+                traits = { cornered_fox
+                }
+            }
+            set_popularities = { #This MUST add up to 100 otherwise the ideologies break
+                communism = 100
+	           #fascism 
+            }			
+            set_capital = {
+                state = 531
+                remember_old_capital = no
+            }
+                                           inherit_technology = JAP
+                }
+            PRC = {
+                puppet = GUM
+            }
+
+       
+
+                    }
+               }
+
+    帮助朝鲜延安派革命 = {
+		icon = generic_prepare_civil_war
+		available = {
+			has_completed_focus = PRC_internationalist_clique_focus
+			has_government = communism
+		}
+		days_remove = 50
+        cost = 120
+        fire_only_once = yes
+		ai_will_do = {
+			factor = 0
+		}
+		visible = {
+			has_completed_focus = PRC_internationalist_clique_focus
+			has_government = communism
+		}		
+        complete_effect = { 	
+        KOR = {
+            give_military_access = PRC #给共和国军通
+            set_state_controller = 527
+			set_state_owner = 527
+            set_state_controller = 1004
+			set_state_owner = 1004
+            set_state_controller = 1003
+			set_state_owner = 1003		
+			    add_timed_idea = { idea = PRC_diguozhuyixuanzhan_idea days = 365 }		
+			set_party_name = {
+					ideology = communism
+					name = "朝鲜劳动党"
+					long_name = "朝鲜劳动党（延安派）"
+				}			
+            create_country_leader = {
+                name = "武亭"
+                desc = "POLITICS_DETIANQIUYI_DESC"
+                picture = "gfx/leaders/KOR/wuting.dds"
+                expire = "1965.1.1"
+                ideology = marxism
+                traits = { junduiguanlian army_artillery_builder
+                }
+            }
+            set_capital = {
+                state = 527
+                remember_old_capital = no
+            }
+                                           inherit_technology = KOR
+                }
+            PRC = {
+                puppet = KOR
+            }
+
+       
+
+                    }
+               }
+
+    帮助越共亲中派革命 = {
+		icon = generic_prepare_civil_war
+		available = {
+			has_completed_focus = PRC_internationalist_clique_focus
+			has_government = communism
+		}
+		days_remove = 50
+        cost = 100
+        fire_only_once = yes
+		ai_will_do = {
+			factor = 0
+		}
+		visible = {
+			has_completed_focus = PRC_internationalist_clique_focus
+			has_government = communism
+		}		
+        complete_effect = { 	
+        VIN = {
+		    set_state_controller = 986
+			set_state_owner = 986
+            set_state_controller = 988
+			set_state_owner = 988
+            set_state_controller = 987
+			set_state_owner = 987
+            give_military_access = PRC #给共和国军通
+			add_timed_idea = { idea = PRC_diguozhuyixuanzhan_idea days = 365 }	
+			set_party_name = {
+					ideology = communism
+					name = "越南共产党"
+					long_name = "越南共产党（亲中派）"
+				}			
+            create_country_leader = {
+                name = "长征"
+                desc = "POLITICS_DETIANQIUYI_DESC"
+                picture = "gfx/leaders/VIN/Portrait_NVA_Truong_Chinh.dds"
+                expire = "1965.1.1"
+                ideology = marxism
+                traits = { national_integralist popular_figurehead
+                }
+            }
+            set_capital = {
+                state = 988
+                remember_old_capital = no
+            }
+                                           inherit_technology = VIN
+                }
+            PRC = {
+                puppet = VIN
+            }
+
+       
+
+                    }
+               }
+ 
+    帮助埃及革命并组建阿联 = {
+		icon = generic_prepare_civil_war
+		available = {
+			has_completed_focus = PRC_internationalist_clique_focus
+			has_government = communism
+		}
+		days_remove = 60
+        cost = 120
+        fire_only_once = yes
+		ai_will_do = {
+			factor = 0
+		}
+		visible = {
+			has_completed_focus = PRC_internationalist_clique_focus
+			has_government = communism
+		}		
+        complete_effect = { 
+	    677 = {
+            add_core_of = EGY
+        }
+        680 = {
+            add_core_of = EGY
+        }
+        554 = {
+            add_core_of = EGY
+        }
+        ENG = {
+		    set_state_controller = 883
+			set_state_owner = 883
+            set_state_controller = 551
+			set_state_owner = 551
+	        set_state_controller = 886
+			set_state_owner = 886
+	        set_state_controller = 549
+			set_state_owner = 549
+		    set_state_controller = 767
+			set_state_owner = 767
+	        set_state_controller = 884
+			set_state_owner = 884
+		    set_state_controller = 887
+			set_state_owner = 887	
+		    set_state_controller = 885
+			set_state_owner = 885	
+				}			
+        EGY = {
+		    set_state_controller = 677
+			set_state_owner = 677
+            set_state_controller = 680
+			set_state_owner = 680
+	        set_state_controller = 446
+			set_state_owner = 446
+	        set_state_controller = 447
+			set_state_owner = 447
+		    set_state_controller = 554
+			set_state_owner = 554		
+            give_military_access = PRC #给共和国军通
+			add_timed_idea = { idea = PRC_diguozhuyixuanzhan_idea days = 365 }
+		    set_cosmetic_tag = EGY_gc			
+			set_party_name = {
+					ideology = communism
+					name = "自由军官社会主义委员会"
+					long_name = "自由军官社会主义委员会"
+				}			
+            create_country_leader = {
+                name = "贾迈勒·阿卜杜勒·纳赛尔"
+                desc = "POLITICS_DETIANQIUYI_DESC"
+                picture = "gfx/leaders/EGY/nasaier.dds"
+                expire = "1965.1.1"
+                ideology = marxism
+                traits = { junduiguanlian national_integralist 
+                }
+            }
+            set_capital = {
+                state = 907
+                remember_old_capital = no
+            }
+                                           inherit_technology = EGY
+                }
+            PRC = {
+                puppet = EGY
+            }
+
+       
+
+                    }
+               }
+
+    帮助老挝革命 = {
+		icon = generic_prepare_civil_war
+		available = {
+			has_completed_focus = PRC_internationalist_clique_focus
+			has_government = communism
+		}
+		days_remove = 50
+        cost = 100
+        fire_only_once = yes
+		ai_will_do = {
+			factor = 0
+		}
+		visible = {
+			has_completed_focus = PRC_internationalist_clique_focus
+			has_government = communism
+		}		
+        complete_effect = { 	
+        LAO = {
+		    set_state_controller = 670
+			set_state_owner = 670
+            set_state_controller = 985
+			set_state_owner = 985
+            set_state_controller = 984
+			set_state_owner = 984
+	        set_state_controller = 980
+			set_state_owner = 980
+	        set_state_controller = 981
+			set_state_owner = 981				
+            give_military_access = PRC #给共和国军通
+			add_timed_idea = { idea = PRC_diguozhuyixuanzhan_idea days = 365 }
+		    set_cosmetic_tag = LAO_gc			
+			set_party_name = {
+					ideology = communism
+					name = "老挝人民党"
+					long_name = "老挝人民党"
+				}			
+            set_capital = {
+                state = 985
+                remember_old_capital = no
+            }
+                                           inherit_technology = LAO
+                }
+            PRC = {
+                puppet = LAO
+            }
+
+       
+
+                    }
+               }
+			   
+     帮助印度革命 = {
+		icon = generic_prepare_civil_war
+		available = {
+			has_completed_focus = PRC_internationalist_clique_focus
+			has_government = communism
+		}
+		days_remove = 80
+        cost = 200
+        fire_only_once = yes
+		ai_will_do = {
+			factor = 0
+		}
+		visible = {
+			has_completed_focus = PRC_internationalist_clique_focus
+			has_government = communism
+		}		
+        complete_effect = { 	
+        RAJ = {				
+            give_military_access = PRC #给共和国军通
+			add_timed_idea = { idea = PRC_diguozhuyixuanzhan_idea days = 365 }
+			set_cosmetic_tag = RAJ_gc		
+			set_party_name = {
+					ideology = communism
+					name = "印度共产党"
+					long_name = "印度共产党"
+				}			
+            set_capital = {
+                state = 439
+                remember_old_capital = no
+            }
+                                           inherit_technology = RAJ
+                }
+            PRC = {
+                puppet = RAJ
+            }
+
+       
+
+                    }
+               }
+ 
+     帮助缅甸革命 = {
+		icon = generic_prepare_civil_war
+		available = {
+			has_completed_focus = PRC_internationalist_clique_focus
+			has_government = communism
+		}
+		days_remove = 35
+        cost = 100
+        fire_only_once = yes
+		ai_will_do = {
+			factor = 0
+		}
+		visible = {
+			has_completed_focus = PRC_internationalist_clique_focus
+			has_government = communism
+		}		
+        complete_effect = { 	
+        BUR = {	
+			set_state_controller = 288
+			set_state_owner = 288
+            set_state_controller = 992
+			set_state_owner = 992
+            set_state_controller = 640
+			set_state_owner = 640
+	        set_state_controller = 993
+			set_state_owner = 993	
+            give_military_access = PRC #给共和国军通			
+			add_timed_idea = { idea = PRC_diguozhuyixuanzhan_idea days = 365 }	
+			set_cosmetic_tag = BUR_gc			
+			set_party_name = {
+					ideology = communism
+					name = "缅甸共产党"
+					long_name = "缅甸共产党"
+				}
+            create_country_leader = {
+                name = "德钦巴登顶"
+                desc = "POLITICS_SITUMEITANG_DESC"
+                picture = "gfx/leaders/BUR/deqinbadengding.dds"
+                expire = "1965.1.1"
+                ideology = marxism
+                traits = { popular_figurehead
+                }
+            }				
+            set_capital = {
+                state = 288
+                remember_old_capital = no
+            }
+                                           inherit_technology = BUR
+                }
+            PRC = {
+                puppet = BUR
+            }
+
+       
+
+                    }
+               } 
+
+     帮助阿富汗革命 = {
+		icon = generic_prepare_civil_war
+		available = {
+			has_completed_focus = PRC_internationalist_clique_focus
+			has_government = communism
+		}
+		days_remove = 35
+        cost = 100
+        fire_only_once = yes
+		ai_will_do = {
+			factor = 0
+		}
+		visible = {
+			has_completed_focus = PRC_internationalist_clique_focus
+			has_government = communism
+		}		
+        complete_effect = { 	
+        AFG = {				
+            give_military_access = PRC #给共和国军通
+			add_timed_idea = { idea = PRC_diguozhuyixuanzhan_idea days = 365 }	
+			set_cosmetic_tag = AFG_gc			
+			set_party_name = {
+					ideology = communism
+					name = "阿富汗共产党"
+					long_name = "阿富汗共产党"
+				}			
+            set_capital = {
+                state = 267
+                remember_old_capital = no
+            }
+                                           inherit_technology = AFG
+                }
+            PRC = {
+                puppet = AFG
+            }
+
+       
+
+                    }
+               } 
+			   
+      帮助巴基斯坦革命 = {
+		icon = generic_prepare_civil_war
+		available = {
+			has_completed_focus = PRC_internationalist_clique_focus
+			has_government = communism
+		}
+		days_remove = 40
+        cost = 100
+        fire_only_once = yes
+		ai_will_do = {
+			factor = 0
+		}
+		visible = {
+			has_completed_focus = PRC_internationalist_clique_focus
+			has_government = communism
+		}		
+        complete_effect = { 	
+        PAK = {				
+            give_military_access = PRC #给共和国军通
+            set_state_controller = 443
+			set_state_owner = 443
+	        set_state_controller = 444
+			set_state_owner = 444
+            set_state_controller = 445
+			set_state_owner = 445
+	        set_state_controller = 440
+			set_state_owner = 440
+	        set_state_controller = 442
+			set_state_owner = 442
+	        set_state_controller = 444
+			set_state_owner = 444
+		    set_state_controller = 430
+			set_state_owner = 430
+		    set_state_controller = 787
+			set_state_owner = 787			
+			add_timed_idea = { idea = PRC_diguozhuyixuanzhan_idea days = 365 }				
+			set_party_name = {
+					ideology = communism
+					name = "巴基斯坦社会党"
+					long_name = "巴基斯坦社会党"
+				}			
+            set_capital = {
+                state = 440
+                remember_old_capital = no
+            }
+                                           inherit_technology = PAK
+                }
+            PRC = {
+                puppet = PAK
+            }
+
+       
+
+                    }
+               }
+ 
+      帮助柬埔寨革命 = {
+		icon = generic_prepare_civil_war
+		available = {
+			has_completed_focus = PRC_internationalist_clique_focus
+			has_government = communism
+		}
+		days_remove = 35
+        cost = 100
+        fire_only_once = yes
+		ai_will_do = {
+			factor = 0
+		}
+		visible = {
+			has_completed_focus = PRC_internationalist_clique_focus
+			has_government = communism
+		}		
+        complete_effect = { 	
+        CAM = {				
+            give_military_access = PRC #给共和国军通
+            set_state_controller = 982
+			set_state_owner = 982
+	        set_state_controller = 741
+			set_state_owner = 741
+            set_state_controller = 983
+			set_state_owner = 983			
+			add_timed_idea = { idea = PRC_diguozhuyixuanzhan_idea days = 365 }			
+			set_party_name = {
+					ideology = communism
+					name = "柬埔寨共产党"
+					long_name = "柬埔寨共产党"
+				}			
+            set_capital = {
+                state = 741
+                remember_old_capital = no
+            }
+                                           inherit_technology = CAM
+                }
+            PRC = {
+                puppet = CAM
+            }
+
+       
+
+                    }
+               }
+			   
+      帮助菲律宾革命 = {
+		icon = generic_prepare_civil_war
+		available = {
+			has_completed_focus = PRC_internationalist_clique_focus
+			has_government = communism
+		}
+		days_remove = 35
+        cost = 100
+        fire_only_once = yes
+		ai_will_do = {
+			factor = 0
+		}
+		visible = {
+			has_completed_focus = PRC_internationalist_clique_focus
+			has_government = communism
+		}		
+        complete_effect = { 	
+        PHI = {				
+            give_military_access = PRC #给共和国军通		
+			add_timed_idea = { idea = PRC_diguozhuyixuanzhan_idea days = 365 }			
+			set_party_name = {
+					ideology = communism
+					name = "菲律宾共产党"
+					long_name = "菲律宾共产党"
+				}			
+            set_capital = {
+                state = 327
+                remember_old_capital = no
+            }
+                                           inherit_technology = PHI
+                }
+            PRC = {
+                puppet = PHI
+            }
+
+       
+
+                    }
+               }
+
+       帮助印度尼西亚革命 = {
+		icon = generic_prepare_civil_war
+		available = {
+			has_completed_focus = PRC_internationalist_clique_focus
+			has_government = communism
+		}
+		days_remove = 60
+        cost = 120
+        fire_only_once = yes
+		ai_will_do = {
+			factor = 0
+		}
+		visible = {
+			has_completed_focus = PRC_internationalist_clique_focus
+			has_government = communism
+		}		
+        complete_effect = { 	
+        INS = {				
+            give_military_access = PRC #给共和国军通		
+			add_timed_idea = { idea = PRC_diguozhuyixuanzhan_idea days = 365 }
+		    set_cosmetic_tag = INS_gc			
+            set_capital = {
+                state = 335
+                remember_old_capital = no
+            }
+                                           inherit_technology = INS
+                }
+            PRC = {
+                puppet = INS
+            }
+
+       
+
+                    }
+               }
+
+       帮助马来西亚革命 = {
+		icon = generic_prepare_civil_war
+		available = {
+			has_completed_focus = PRC_internationalist_clique_focus
+			has_government = communism
+		}
+		days_remove = 60
+        cost = 120
+        fire_only_once = yes
+		ai_will_do = {
+			factor = 0
+		}
+		visible = {
+			has_completed_focus = PRC_internationalist_clique_focus
+			has_government = communism
+		}		
+        complete_effect = {
+        1055 = {
+            add_core_of = MAL
+        }
+        1058 = {
+            add_core_of = MAL
+        }
+        1061 = {
+            add_core_of = MAL
+        }
+        336 = {
+            add_core_of = MAL
+        }
+        1057 = {
+            add_core_of = MAL
+        }
+	    1059 = {
+            add_core_of = MAL
+        }
+		1056 = {
+            add_core_of = MAL
+        }
+        970 = {
+            add_core_of = MAL
+        }
+        972 = {
+            add_core_of = MAL
+        }
+        971 = {
+            add_core_of = MAL
+        }
+        333 = {
+            add_core_of = MAL
+        }		
+        MAL = {				
+            give_military_access = PRC #给共和国军通
+	        set_state_controller = 1055
+			set_state_owner = 1055
+	        set_state_controller =1058
+			set_state_owner = 1058
+            set_state_controller = 1061
+			set_state_owner = 1061
+	        set_state_controller = 336
+			set_state_owner = 336
+	        set_state_controller =1057
+			set_state_owner = 1057
+            set_state_controller = 1059
+			set_state_owner = 1059
+	        set_state_controller = 1056
+			set_state_owner = 1056
+	        set_state_controller =970
+			set_state_owner = 970
+            set_state_controller = 972
+			set_state_owner = 972
+		    set_state_controller = 971
+			set_state_owner = 971
+            set_state_controller = 333
+			set_state_owner = 333		
+			add_timed_idea = { idea = PRC_diguozhuyixuanzhan_idea days = 365 }
+		    set_cosmetic_tag = MAL_gc		
+            set_capital = {
+                state = 1055
+                remember_old_capital = no
+            }
+                                           inherit_technology = MAL
+                }
+            PRC = {
+                puppet = MAL
+            }
+
+       
+
+                    }
+               }
+
+      帮助利比里亚革命 = {
+		icon = generic_prepare_civil_war
+		available = {
+			has_completed_focus = PRC_internationalist_clique_focus
+			has_government = communism
+		}
+		days_remove = 30
+        cost = 100
+        fire_only_once = yes
+		ai_will_do = {
+			factor = 0
+		}
+		visible = {
+			has_completed_focus = PRC_internationalist_clique_focus
+			has_government = communism
+		}		
+        complete_effect = { 	
+        LIB = {				
+            give_military_access = PRC #给共和国军通		
+			add_timed_idea = { idea = PRC_diguozhuyixuanzhan_idea days = 365 }			
+			set_party_name = {
+					ideology = communism
+					name = "利比里亚共产党"
+					long_name = "利比里亚共产党"
+				}				
+            set_capital = {
+                state = 298
+                remember_old_capital = no
+            }
+                                           inherit_technology = LIB
+                }
+            PRC = {
+                puppet = LIB
+            }
+
+       
+
+                    }
+               }			   
+ 
+       帮助坦桑尼亚革命 = {
+		icon = generic_prepare_civil_war
+		available = {
+			has_completed_focus = PRC_internationalist_clique_focus
+			has_government = communism
+		}
+		days_remove = 35
+        cost = 100
+        fire_only_once = yes
+		ai_will_do = {
+			factor = 0
+		}
+		visible = {
+			has_completed_focus = PRC_internationalist_clique_focus
+			has_government = communism
+		}		
+        complete_effect = { 	
+        TZN = {				
+            give_military_access = PRC #给共和国军通
+            set_state_controller = 546
+			set_state_owner = 546			
+			add_timed_idea = { idea = PRC_diguozhuyixuanzhan_idea days = 365 }			
+			set_party_name = {
+					ideology = communism
+					name = "坦桑尼亚共产党"
+					long_name = "坦桑尼亚共产党"
+				}				
+            set_capital = {
+                state = 546
+                remember_old_capital = no
+            }
+                                           inherit_technology = TZN
+                }
+            PRC = {
+                puppet = TZN
+            }
+
+       
+
+                    }
+               }
+ 
+    联系爱国侨领司徒美堂 = {
+		icon = generic_prepare_civil_war 
+		available = {
+			has_completed_focus = PRC_internationalist_clique_focus
+			has_government = communism
+            USA = { NOT = { has_government = communism }		}	
+		}
+		days_remove = 90
+        cost = 300
+        fire_only_once = yes
+		ai_will_do = {
+			factor = 0
+		}
+		visible = {
+			has_completed_focus = PRC_internationalist_clique_focus
+			has_government = communism
+		}
+        complete_effect = { 
+        378 = {
+            add_core_of = HAW
+        }
+        629 = {
+            remove_core_of = HAW
+        }
+        630 = {
+            remove_core_of = HAW
+        }
+        727 = {
+            remove_core_of = HAW
+        }
+		642 = {
+            remove_core_of = HAW
+        }
+        631 = {
+            remove_core_of = HAW
+        }
+        HAW ={
+                               inherit_technology = USA 
+                               PRC ={
+                                    puppet = HAW}
+            give_military_access = PRC #给共和国军通
+            set_state_controller = 378
+			set_state_owner = 378	
+		    add_timed_idea = { idea = PRC_diguozhuyixuanzhan_idea days = 365 }		
+		    set_cosmetic_tag = PRC_huaren
+			set_party_name = {
+					ideology = neutrality
+					name = "致公党"
+					long_name = "致公党（美国分部）"
+				}			
+            create_country_leader = {
+                name = "司徒美堂"
+                desc = "POLITICS_SITUMEITANG_DESC"
+                picture = "gfx/leaders/PRC/situmeitang.dds"
+                expire = "1965.1.1"
+                ideology = centrism #marxism
+                traits = { popular_figurehead
+                }
+            }
+            set_popularities = { #This MUST add up to 100 otherwise the ideologies break
+                neutrality = 100
+	           #fascism 
+            }
+            set_politics = {   #设置意识形态
+                ruling_party = neutrality
+                #last_election = "1932.5.1"   #上次大选
+                #election_frequency = 48    #选举频率
+                elections_allowed = yes   
+            }
+            set_capital = {
+                state = 378
+                remember_old_capital = no
+            }   
+
+                  }	
+            #
+
+    
+           }
+}
+      }

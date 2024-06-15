@@ -1,0 +1,1351 @@
+#HEAVILY MODDED, not all are labeled
+#Category only allowed for CHI
+	CHI_anti_imperialism = {
+	
+		CHI_release_korea = {
+
+			icon = generic_nationalism
+
+			available = {
+				country_exists = KOR
+			}
+
+			days_mission_timeout = 180
+
+			fire_only_once = yes
+			activation = {
+				owns_state = 525
+				owns_state = 527
+				owns_state = 999 		#MODDED
+				owns_state = 1000		#MODDED
+				owns_state = 1001		#MODDED
+				owns_state = 1002		#MODDED
+				owns_state = 1003		#MODDED
+				owns_state = 1004		#MODDED
+				KOR = {
+					exists = no
+				}
+
+				#has_completed_focus = CHI_commit_to_korean_independence 		#MODDED
+			}
+
+			visible = {
+				OR = {
+					owns_state = 525
+					owns_state = 527
+					owns_state = 999		#MODDED
+					owns_state = 1000		#MODDED
+					owns_state = 1001		#MODDED
+					owns_state = 1002		#MODDED
+					owns_state = 1003		#MODDED
+					owns_state = 1004		#MODDED
+				}
+
+				KOR = {
+					exists = no
+				}
+				NOT = {		#MODDEDv
+					has_government = communism
+				}
+				#has_completed_focus = CHI_commit_to_korean_independence		#MODDED^
+			}
+			complete_effect = {
+				add_political_power = 50
+			}
+			timeout_effect = {
+				add_stability = -0.1 #naughty
+			}
+		}
+	}
+
+
+#Category allowed for all potential nationalist china
+#Category visible when CHI_army_reform focus is completed
+	CHI_army_reform = {
+
+		CHI_army_reform = {
+
+			icon = generic_prepare_civil_war
+
+			available = {
+				#MODDEDv
+				has_army_experience > 149
+				if = {
+					limit = {
+						tag = CHI
+					}
+					has_completed_focus = CHI_reorganize_nra
+				}
+				else_if = {
+					limit = {
+						is_originally_warlord = yes
+					}
+					has_completed_focus = WRL_reorganize_the_military
+				}
+				#MODDED^
+				if = {
+					limit = {
+						has_idea = CHI_army_corruption_000
+					}
+					OR = {
+						#has_tech = mass_assault
+						#has_tech = trench_warfare
+						#has_tech = superior_firepower
+						#has_tech = mobile_warfare
+						has_tech = pocket_defence
+						has_tech = grand_battle_plan
+						has_tech = delay
+						has_tech = sup_delay
+					}
+				}
+				if = {
+					limit = {
+						has_idea = CHI_army_corruption_00
+					}
+					OR = {
+						has_tech = defence_in_depth
+						#
+						has_tech = grand_assault
+						#
+						has_tech = intergrated_support
+						has_tech = dispersed_support
+						#
+						has_tech = armored_spearhead
+						has_tech = mobile_infantry
+					}
+				}
+				if = {
+					limit = {
+						has_idea = CHI_army_corruption_0
+					}
+					OR = {
+						has_tech = large_front_operations
+						has_tech = peoples_army
+						#
+						has_tech = armored_operations
+						has_tech = assault_concentration
+						#
+						has_tech = sup_mechanized_offensive
+						#
+						has_tech = mechanised_offensive
+						has_tech = blitzkrieg
+					}
+				}
+				if = {
+					limit = {
+						has_idea = CHI_army_corruption_1
+					}
+					OR = {
+						has_tech = human_infantry_offensive
+						has_tech = deep_operations
+						#
+						has_tech = night_assault_tactics
+						has_tech = assault_breakthrough
+						#
+						has_tech = forward_observers
+						has_tech = combined_arms
+						#
+						has_tech = firebrigades
+						has_tech = volkssturm
+					}
+				}
+				if = {
+					limit = {
+						has_idea = CHI_army_corruption_2
+					}
+					OR = {
+						has_tech = large_front_offensive
+						has_tech = operational_concentration
+						#
+						has_tech = infiltration_in_depth
+						has_tech = c3i_theory
+						#
+						has_tech = shock_and_awe
+						has_tech = air_land_battle
+						#
+						has_tech = modern_blitzkrieg
+						has_tech = werwolf_guerillas
+					}
+				}
+			}
+
+			cost = 0
+			ai_will_do = {
+				factor = 500
+			}
+			days_remove = 120 #MODDED was 90
+
+			visible = {
+				OR = {
+					has_idea = CHI_army_corruption_000
+					has_idea = CHI_army_corruption_00 		#MODDED
+					has_idea = CHI_army_corruption_0		#MODDED
+					has_idea = CHI_army_corruption_1
+					has_idea = CHI_army_corruption_2
+					#has_idea = CHI_army_corruption_3		#MODDED
+				}
+			}
+			remove_effect = {
+				if = { 		#MODDEDv
+					limit = { has_idea = CHI_army_corruption_000 }
+					swap_ideas = {
+						remove_idea = CHI_army_corruption_000
+						add_idea = CHI_army_corruption_00
+					}
+					if = {
+						limit = {
+							has_idea = CHI_superior_to_the_wrl_000
+						}
+						hidden_effect = {
+                            swap_ideas = {
+								remove_idea = CHI_superior_to_the_wrl_000
+								add_idea = CHI_superior_to_the_wrl_00
+							}
+						}
+						remove_ideas = CHI_superior_to_the_wrl_000_for_tt
+						add_ideas = CHI_superior_to_the_wrl_00_for_tt
+					}
+				}
+				else_if = { 		#MODDEDv
+					limit = { has_idea = CHI_army_corruption_00 }
+					swap_ideas = {
+						remove_idea = CHI_army_corruption_00
+						add_idea = CHI_army_corruption_0
+					}
+					if = {
+						limit = {
+							has_idea = CHI_superior_to_the_wrl_00
+						}
+						hidden_effect = {
+                            swap_ideas = {
+								remove_idea = CHI_superior_to_the_wrl_00
+								add_idea = CHI_superior_to_the_wrl_0
+							}
+						}
+						remove_ideas = CHI_superior_to_the_wrl_00_for_tt
+						add_ideas = CHI_superior_to_the_wrl_0_for_tt
+					}
+				}
+				else_if = {
+					limit = { has_idea = CHI_army_corruption_0 }
+					swap_ideas = {
+						remove_idea = CHI_army_corruption_0
+						add_idea = CHI_army_corruption_1
+					}
+					if = {
+						limit = {
+							has_idea = CHI_superior_to_the_wrl_0
+						}
+						hidden_effect = {
+                            swap_ideas = {
+								remove_idea = CHI_superior_to_the_wrl_0
+								add_idea = CHI_superior_to_the_wrl_1
+							}
+						}
+						remove_ideas = CHI_superior_to_the_wrl_0_for_tt
+						add_ideas = CHI_superior_to_the_wrl_1_for_tt
+					}
+				} 		#MODDED^
+				else_if = {
+					limit = { has_idea = CHI_army_corruption_1 }
+					swap_ideas = {
+						remove_idea = CHI_army_corruption_1
+						add_idea = CHI_army_corruption_2
+					}
+					if = {
+						limit = {
+							has_idea = CHI_superior_to_the_wrl_1
+						}
+						hidden_effect = {
+                            swap_ideas = {
+								remove_idea = CHI_superior_to_the_wrl_1
+								add_idea = CHI_superior_to_the_wrl_2
+							}
+						}
+						remove_ideas = CHI_superior_to_the_wrl_1_for_tt
+						add_ideas = CHI_superior_to_the_wrl_2_for_tt
+					}
+				}
+				else_if = {
+					limit = { has_idea = CHI_army_corruption_2 }
+					swap_ideas = {
+						remove_idea = CHI_army_corruption_2
+						add_idea = CHI_army_corruption_3
+					}
+				}
+				#else_if = { 		#MODDED
+				#	limit = { has_idea = CHI_army_corruption_3 }
+				#	remove_ideas = CHI_army_corruption_3
+				#}
+			}
+			complete_effect = {
+				army_experience = -150 	#MODDED
+				custom_effect_tooltip = 120_days_tt #MODDED
+			}
+		}
+		#CHI_lessons_of_war = { 		#MODDED
+		#	icon = generic_army_support
+		#	available = {
+		#		has_army_experience > 199
+		#		has_idea = CHI_incompetent_officers
+		#		if = {
+		#			limit = { has_idea = CHI_army_corruption_1 }
+		#			NOT = { has_idea = CHI_army_corruption_1 }
+		#		}
+		#		if = {
+		#			limit = { has_idea = CHI_army_corruption_2 }
+		#			NOT = { has_idea = CHI_army_corruption_2 }
+		#		}
+		#		if = {
+		#			limit = { has_idea = CHI_army_corruption_3 }
+		#			NOT = { has_idea = CHI_army_corruption_3 }
+		#		}
+		#		if = {
+		#			limit = {
+		#				NOT = { has_idea = CHI_army_corruption_1 }
+		#				NOT = { has_idea = CHI_army_corruption_2 }
+		#				NOT = { has_idea = CHI_army_corruption_3 }
+		#			}
+		#			NOT = { has_idea = CHI_army_corruption_3 }
+		#		}
+		#	}
+		#	cost = 0
+		#	ai_will_do = {
+		#		factor = 10
+		#	}
+		#	fire_only_once = yes
+		#	visible = {
+		#		tag = CHI
+		#		has_completed_focus = CHI_reorganize_nra
+		#	}
+		#	complete_effect = {
+		#		army_experience = -200
+		#		remove_ideas = CHI_incompetent_officers
+		#		set_country_flag = CHI_lessons_of_war_completed
+		#	}
+		#}
+		#Activates when the player picks CHI_60_divisions_plan decision
+		CHI_bolster_our_ranks = {
+
+			icon = generic_prepare_civil_war
+
+			available = {
+				num_divisions > 60
+				has_army_manpower = { size > 549999 }
+			}
+
+			fire_only_once = yes
+		
+			days_mission_timeout = 180
+
+			is_good = no
+
+			activation = {
+				always = no #Triggered from effect in CHI_60_divisions_plan
+			}
+
+			complete_effect = {
+				add_war_support = 0.1
+			}
+
+			timeout_effect = {
+
+			}
+		}
+
+		CHI_60_divisions_plan = {
+
+			icon = generic_operation
+
+            allowed = {
+				has_dlc = "No Step Back" #MODDED
+			}
+
+			available = {
+			    has_idea = CHI_german_coop #MODDED
+				num_divisions > 59 #MODDED
+				any_country_division = {
+					unit_strength > 0.49
+					NOT = {
+						division_has_battalion_in_template = cavalry
+					}
+				}
+			}
+
+			cost = 75 #MODDED
+			
+			ai_will_do = {
+				factor = 1000 #MODDED
+			}
+			
+			fire_only_once = no #MODDED
+
+			visible = {
+				#has_dlc = "Waking the Tiger" 		#MODDED
+				has_completed_focus = CHI_german_training_method #MODDED
+				NOT = {
+					has_global_flag = chi_60d_plan_3_flag
+				}
+			}
+
+			days_remove = 180
+
+			modifier = {
+				training_time_army_factor = 0.5 #MODDED
+                command_power_gain_mult = -0.15 #MODDED
+				experience_gain_army_factor = 0.001 #MODDED
+			}
+
+			complete_effect = {
+				custom_effect_tooltip = can_be_taken_3_times_tt #MODDED
+				#activate_mission = CHI_bolster_our_ranks #MODDED
+			}
+			remove_effect = { #MODDED
+                #divs can be duplicated cuz idk if theres a way to check duplicated divs(at least theres no trigger for it)
+				#so its kinda random
+				custom_effect_tooltip = give_adjusted_medals_to_20_div_tt
+				if = {
+					limit = {
+						NOT = {
+							has_global_flag = chi_60d_plan_1_flag
+						}
+					}
+					set_global_flag = chi_60d_plan_1_flag
+				}
+				if = {
+					limit = {
+						has_global_flag = chi_60d_plan_1_flag
+						NOT = {
+							has_global_flag = chi_60d_plan_2_flag
+						}
+					}
+					set_global_flag = chi_60d_plan_2_flag
+				}
+				if = {
+					limit = {
+						has_global_flag = chi_60d_plan_2_flag
+						NOT = {
+							has_global_flag = chi_60d_plan_3_flag
+						}
+					}
+					set_global_flag = chi_60d_plan_3_flag
+				}
+				#random_country_division = {
+				#	limit = {
+				#		NOT = {
+				#			#has_variable = im_german_style_div
+				#			#is_in_array = { global.german_style_div = THIS }
+				#		}
+				#	}
+				#	#add_to_array = {
+				#	#	array = global.german_style_div
+				#	#	value = THIS
+				#	#}
+				#	add_history_entry = {
+				#		key = become_adjusted_division
+				#		subject = "60 Divisions Plan"
+				#		allow = yes #(allow medal award)
+				#	}
+				#	hidden_effect = { #this effect has no loc
+                #        add_unit_medal_to_latest_entry = {
+				#			unit_medals = adjusted_medal
+				#		}
+				#	}	
+				#}
+				every_country_division = {
+					limit = {
+						unit_strength > 0.49
+						NOT = {
+							division_has_battalion_in_template = cavalry
+						}
+					}
+					random_select_amount = 20
+					add_history_entry = {
+						key = become_adjusted_division
+						subject = "60 Divisions Plan"
+						allow = yes #(allow medal award)
+					}
+					hidden_effect = { #this effect has no loc
+                        add_unit_medal_to_latest_entry = {
+							unit_medals = adjusted_medal
+						}
+					}	
+				}
+			}
+		}
+	}
+	
+	economy_decisions = { 		#MODDEDv
+		CHI_fight_corruption = { 
+			icon = ger_mefo_bills
+
+			available = {
+				has_idea = PRC_government_corruption
+				NOT = {
+					has_idea = CHI_ineffective_bureaucracy_warlord
+				}
+				is_legit_china = yes
+			}
+			cost = 50
+			ai_will_do = {
+				factor = 5
+			}
+			visible = {
+				has_idea = PRC_government_corruption
+				#tag = event_target:WTT_current_china_leader
+			}
+			#days_re_enable = 100
+			days_remove = 120
+			complete_effect = {
+			}
+			modifier = {
+				political_power_gain = -0.5
+			}
+			remove_effect = {
+				remove_ideas = PRC_government_corruption
+			}
+		} 		#MODDED^
+	}
+
+	war_measures = {
+		#SCORCHED EARTH TACTICS MOVED TO war_of_resistance
+	}
+
+#Category allowed for all potential nationalist china
+#Visible for nationalist china if has warlords as subjects
+CHI_integrate_the_warlords = {
+	CHI_integrate_the_army = {
+		icon = generic_prepare_civil_war
+		available = {
+			FROM = { compare_autonomy_state < autonomy_colony }
+			custom_trigger_tooltip = {
+				tooltip = CHI_not_has_warlord_integration_maxed_out_tt
+				NOT = {
+					has_idea = CHI_warlord_integration_5
+				}
+			}
+			#NOT = {
+				#	has_country_flag = CHI_integrate_the_army
+				#}
+		}
+		visible = {
+			hidden_trigger = {
+				has_country_flag = CHI_subjugate_warlords_flag
+			}
+			FROM = { is_subject_of = ROOT }
+			hidden_trigger = {
+				NOT = {
+					has_country_flag = CHI_integrate_the_army
+				}
+			}
+		}
+		cancel_if_not_visible = yes
+
+		cost = 150
+
+		#MODDED VPI by Yard1
+		target_array = subjects		
+		#MODDED^ VPI by Yard1
+		target_trigger = {
+			FROM = {
+				is_subject_of = ROOT
+				is_warlord = yes
+			}
+		}
+		days_remove = 70
+		fire_only_once = yes
+		ai_will_do = {
+			factor = 10
+			modifier = {
+				OR = {
+					has_idea = CHI_warlord_integration_3
+					has_idea = CHI_warlord_integration_4
+					has_idea = CHI_warlord_integration_5
+				}
+				factor = 0
+				#TODO_WTT_CODE need a trigger for daily increase of PP to see if it's okay to reduce
+			}
+		}
+		remove_effect = {
+			add_command_power = 20
+			FROM = {
+				every_unit_leader = {
+					limit = {
+						OWNER = { TAG = THIS }
+					}
+					set_unit_leader_flag = allegiance_to_@FROM #return when wars break out
+					set_nationality = ROOT
+				}
+				hidden_effect = {
+					country_event = rcmchina.363 #notify them
+				}
+			}
+			set_global_flag = joined_chi_@FROM
+			FROM = { set_country_flag = CHI_integrate_the_army }
+			custom_effect_tooltip = we_will_be_able_to_integrate_their_administration_tt
+		}
+		complete_effect = {
+			CHI_warlord_integration_up = yes
+		}
+	}
+	CHI_integrate_the_administration = {
+		icon = generic_political_discourse
+		available = {
+			FROM = {
+				compare_autonomy_state < autonomy_colony
+			}
+		}
+		visible = {
+			FROM = {
+				is_subject_of = ROOT
+				has_country_flag = CHI_integrate_the_army
+			}
+		}
+		cancel_if_not_visible = yes
+
+		cost = 75 #MODDED
+
+		# VPI by Yard1
+		target_array = subjects
+		target_trigger = {
+			FROM = {
+				has_country_flag = CHI_integrate_the_army
+				is_subject_of = ROOT
+				is_warlord = yes
+			}
+		}
+		fire_only_once = yes
+		ai_will_do = {
+			factor = 10
+			modifier = {
+				OR = {
+					has_idea = CHI_warlord_integration_3
+					has_idea = CHI_warlord_integration_4
+					has_idea = CHI_warlord_integration_5
+				}
+				factor = 0
+				#TODO_WTT_CODE need a trigger for daily increase of PP to see if it's okay to reduce
+			}
+		}
+		days_remove = 60
+		remove_effect = {
+			add_war_support = 0.02
+			add_stability = 0.02
+			if = {
+				limit = {
+					FROM = {
+						has_autonomy_state = autonomy_rcm_provincial_government
+					}							
+				}
+				FROM = {
+					get_current_government_type = yes
+				}
+				ROOT = {
+					puppet = FROM
+				}
+				FROM = {
+					restore_previous_government_type = yes
+				}
+			}
+			FROM = {
+				set_country_flag = CHI_integrate_the_administration
+				if = {
+					limit = {
+						has_country_flag = wtt_political_struggle
+					}
+					custom_effect_tooltip = remove_from_political_struggle_tt
+					WTT_political_struggle_remove_current_country = yes
+				}				
+				hidden_effect = {
+					country_event = rcmchina.364 #notify them
+				}
+			}
+			custom_effect_tooltip = we_will_be_able_to_fully_integrate_them_tt
+		}
+		complete_effect = {
+
+		}
+	}
+	CHI_full_integration = {
+		icon = oppression
+		available = {
+			FROM = {
+				FROM = { compare_autonomy_state < autonomy_colony }
+			}
+		}
+		visible = {
+			FROM = { is_subject_of = ROOT }
+		}
+		cancel_if_not_visible = yes
+
+		cost = 100
+
+		target_array = subjects
+		target_trigger = {
+			FROM = {
+				has_country_flag = CHI_integrate_the_administration
+				is_subject_of = ROOT
+				is_warlord = yes
+			}
+		}
+		days_remove = 50
+		remove_effect = {
+			CHI_warlord_integration_down = yes
+			if = {
+				limit = {
+					FROM = {
+						OR = {
+							tag = YUN
+							tag = GXC
+						}
+					}
+				}
+				set_country_flag = achievement_romance_of_the_three_kingdoms_@FROM
+			}
+			FROM = {
+				hidden_effect = {
+					country_event = rcmchina.365 #notify them
+				}
+			}
+			effect_tooltip = {
+				annex_country = { target = FROM transfer_troops = yes }
+			}
+		}
+		fire_only_once = yes
+		ai_will_do = {
+			factor = 10
+		}
+		complete_effect = {
+		}
+	}
+	CHI_peace_with_wrl = {
+		icon = generic_political_discourse
+		available = {
+	        OR = { 
+				has_war_with = JAP
+				JAP = { 
+					focus_progress = {
+					    focus = JAP_intervene_in_china
+					    progress > 0.3
+				   }
+				}
+			}
+		}
+		visible = {
+			always = no ###EYWOR HAS THIS ALREADY, rcmchina.331 (event)
+			hidden_trigger = {
+			    any_enemy_country = {
+				    is_literally_china = yes
+			        NOT = { original_tag = SIK }
+				    NOT = { is_subject_of = JAP }
+					NOT = { has_civil_war = yes  }
+			    }
+			    NOT = {
+					date > 1940.1.1
+				}
+			}
+			NOT = {
+				has_global_flag = CHI_no_longer_united_flag
+			}
+             
+		}
+	
+		cost = 35
+
+		complete_effect = {
+			every_enemy_country = {
+                limit = {
+					is_literally_china = yes
+				    NOT = { original_tag = SIK }
+				    NOT = { is_subject_of = JAP }
+					NOT = { has_civil_war = yes  }
+					is_in_faction = no
+				}
+				country_event = gxc.27
+			}
+			every_enemy_country = {
+                limit = {
+					is_literally_china = yes
+					NOT = { original_tag = SIK }
+				    NOT = { is_subject_of = JAP }
+					NOT = { has_civil_war = yes  }
+					OR = {
+                        AND = {
+							is_in_faction = yes
+							all_allied_country = {
+								is_ai = yes
+							}
+							is_faction_leader = yes
+						}
+						AND = {
+							is_in_faction = yes
+							is_faction_leader = no
+							is_ai = no
+							any_allied_country = {
+								is_faction_leader = yes
+								is_ai = yes
+							}
+						}
+						AND = {
+							is_in_faction = yes
+							is_faction_leader = yes
+							is_ai = no
+						}
+					}
+				}
+				country_event = gxc.27
+			}
+		}
+		fire_only_once = yes
+		ai_will_do = {
+			factor = 5000
+		}
+	}
+}
+### #  # ### ### #  ### ###   ##  ### ###  ##  #  #
+#  ## # #    #  #   #  #  # #  #  #   #  #  # ## #
+#  # ## ##   #  #   #  ###  ####  #   #  #  # # ##
+#  #  # #    #  #   #  #  # #  #  #   #  #  # #  #
+### #  # #   ### ### #  #  # #  #  #  ###  ##  #  #
+#Category allowed for all potential nationalist china
+#Visible when another country had completed focus PRC_infiltration
+
+###  ##  ###  ### ###  ##  #  #      ## #  # ###  ###   ##  ###  ###
+#   #  # #  # #    #  #    ## #     #   #  # #  # #  # #  # #  #  #
+##  #  # ###  ##   #  # ## # ##      #  #  # ###  ###  #  # ###   #
+#   #  # #  # #    #  #  # #  #       # #  # #    #    #  # #  #  #
+#    ##  #  # ### ###  ##  #  #     ##   ##  #    #     ##  #  #  #
+foreign_support = {
+	CHI_flying_tigers = {
+		icon = generic_air
+		allowed = {
+			original_tag = USA
+		}
+		available = {
+			has_equipment = { small_plane_airframe > 99 }
+		}
+		visible = {
+			has_country_flag = CHI_flying_tigers
+		}
+		cost = 25
+		ai_will_do = {
+			factor = 1
+		}
+		fire_only_once = yes
+		days_remove = -1
+		complete_effect = {
+			random_country = {
+				limit = {
+					has_completed_focus = CHI_invite_the_flying_tigers
+				}
+				custom_effect_tooltip = flying_tigers_tt
+				hidden_effect = {
+					if = {
+						limit = {
+							NOT = { has_dlc = "By Blood Alone" }
+						}
+						add_equipment_to_stockpile = {
+							producer = USA
+							type = fighter_equipment_1
+							amount = 100
+						}
+					}
+					else = {
+						USA = {
+							create_equipment_variant = {
+								name = "P-40" #
+								type = small_plane_airframe_2
+								modules = {
+									fixed_main_weapon_slot = heavy_mg_4x
+									fixed_auxiliary_weapon_slot_1 = heavy_mg_2x
+									fixed_auxiliary_weapon_slot_2 = bomb_locks
+									engine_type_slot = engine_3_1x
+									special_type_slot_1 = drop_tanks
+								}
+							}
+						}
+						add_equipment_to_stockpile = {
+							producer = USA
+							type = small_plane_airframe_2
+							amount = 100
+							variant_name = "P-40"
+						}
+					}
+				}
+			}
+			add_war_support = 0.05
+		}
+		modifier = {
+			air_volunteer_cap = 1
+		}
+	}
+	CHI_soviet_volunteer_group = {
+		icon = generic_air
+		allowed = {
+			original_tag = SOV
+		}
+		available = {
+			has_equipment = { small_plane_airframe > 99 }
+			has_equipment = { medium_plane_airframe > 49 }
+		}
+		visible = {
+			has_country_flag = CHI_soviet_volunteer_group
+		}
+		cost = 25
+		ai_will_do = {
+			factor = 1
+		}
+		days_remove = -1
+		fire_only_once = yes
+		complete_effect = {
+			random_country = {
+				limit = {
+					has_completed_focus = CHI_the_soviet_volunteer_group
+				}
+				custom_effect_tooltip = soviet_volunteers_tt
+				hidden_effect = {
+					if = {
+						limit = {
+							NOT = {
+								has_dlc = "By Blood Alone"
+							}
+						}
+						add_equipment_to_stockpile = {
+							producer = SOV
+							type = fighter_equipment_1
+							amount = 100
+						}
+						add_equipment_to_stockpile = {
+							producer = SOV
+							type = tac_bomber_equipment_1
+							amount = 50
+						}	
+					}
+					else = {
+						add_equipment_to_stockpile = {
+							producer = SOV
+							type = small_plane_airframe_1
+							amount = 100
+							variant_name = "I-16"
+						}
+						add_equipment_to_stockpile = {
+							producer = SOV
+							type = medium_plane_airframe_0
+							amount = 50
+							variant_name = "DB-3"
+						}	
+					}
+				}
+			}
+			add_war_support = 0.05	
+		}
+		modifier = {
+			air_volunteer_cap = 1
+		}
+	}
+
+    CHI_rcm_close_burma_road = { #MODDED
+		icon = GFX_decision_generic_motorized
+		allowed = {
+			OR = {
+				original_tag = ENG
+				original_tag = BUR
+				original_tag = RAJ
+			}
+		}
+		available = {
+			is_subject = no
+			OR = {
+				992 = {
+					controller = {
+						is_subject_of = ROOT
+					}
+				}
+				controls_state = 992
+			}
+			NOT = {
+				has_global_flag = burma_road_closed_flag
+			}
+			if = {
+				limit = {
+					original_tag = ENG
+				}
+				NOT = {
+					has_global_flag = sino_british_agreement_flag
+				}
+			}
+		}
+		visible = {
+			has_global_flag = burma_road_done_flag
+		}
+		
+		cost = 10
+
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 1000
+				any_enemy_country = {
+					is_literally_china = yes
+					OR = {
+						is_ally_with = event_target:WTT_current_china_leader
+						tag = event_target:WTT_current_china_leader
+					}
+				}
+			}
+		}
+		
+		fire_only_once = no
+
+		days_re_enable = 1
+		
+		#days_remove = 365
+		
+		complete_effect = {
+			set_global_flag = burma_road_closed_flag
+			random_other_country = {
+				limit = {
+					has_country_flag = chi_eng_agreed_burma_road_flag
+				}
+				country_event = { id = wtt_burma_road.2 }
+				effect_tooltip = {
+					add_offsite_building = {
+						type = arms_factory
+						level = -4
+					}
+				}
+			}
+		}
+	} #MODDED
+
+	CHI_rcm_open_burma_road = { #MODDED
+		icon = GFX_decision_generic_motorized
+		allowed = {
+			OR = {
+				original_tag = ENG
+				original_tag = BUR
+				original_tag = RAJ
+			}
+		}
+		available = {
+			has_global_flag = burma_road_closed_flag
+		}
+		visible = {
+			has_global_flag = burma_road_done_flag
+			if = {
+				limit = {
+					is_subject = no
+				}
+				992 = {
+				    controller = {
+						OR = {
+							is_subject = ROOT
+							tag = ROOT
+						}
+					}
+				}
+			}
+			747 = {
+				is_not_controlled_by_jap_or_its_puppet = yes
+				controller = {
+					NOT = {
+						has_war_with = ROOT
+					}
+				}
+				OR = {
+					controller = {
+						is_legit_china = yes
+					}
+					controller = {
+						is_subject_of = event_target:WTT_current_china_leader
+					}
+					controller = {
+						is_in_faction_with = event_target:WTT_current_china_leader
+					}	
+				}
+			}
+			640 = {
+				is_not_controlled_by_jap_or_its_puppet = yes
+				controller = {
+					NOT = {
+						has_war_with = ROOT
+					}
+				}
+				OR = {
+					controller = {
+						is_legit_china = yes
+					}
+					controller = {
+						is_subject_of = event_target:WTT_current_china_leader
+					}
+					controller = {
+						is_in_faction_with = event_target:WTT_current_china_leader
+					}	
+				}
+			}	
+		}
+		
+		cost = 10
+
+		ai_will_do = {
+			factor = 100
+		}
+		
+		fire_only_once = no
+		
+        days_re_enable = 1
+
+		#days_remove = 365
+		
+		complete_effect = {
+			clr_global_flag = burma_road_closed_flag
+			random_other_country = {
+				limit = {
+					has_country_flag = chi_eng_agreed_burma_road_flag
+				}
+				country_event = { id = wtt_burma_road.4 }
+				add_offsite_building = {
+					type = arms_factory
+					level = 4
+				}
+			}
+		}
+	} #MODDED
+	#REMOVED BURMA ROAD for better performance
+		#REMOVE the hump
+}
+	political_actions = {
+		CHI_move_the_capital = {
+			allowed = {
+				is_literally_china = yes
+				has_dlc = "Waking the Tiger"
+			}
+			available = {
+				has_war = no
+				OR = {
+					has_full_control_of_state = 608
+					#has_full_control_of_state = 613	#MODDED
+					has_full_control_of_state = 1015	#MODDED
+				}
+				capital_scope = {
+					NOT = {
+						OR = {
+							state = 608
+							state = 1015	#MODDED
+						}
+					}
+				}
+			}
+			visible = {
+				has_war = no
+				OR = {
+					has_full_control_of_state = 608
+					has_full_control_of_state = 1015 	#MODDED
+				}
+				capital_scope = {
+					NOT = {
+						OR = {
+							state = 608
+							state = 1015	#MODDED
+						}
+					}
+				}
+			}
+			cost = 50
+			ai_will_do = {
+				factor = 1
+			}
+			complete_effect = {
+				country_event = wtt_china.204
+			}
+		}
+	}
+
+	CHI_xian_incident = {
+		CHI_instigate_xian_incident = {
+			icon = generic_political_discourse
+			available = {
+				#NOT ={	# MODDED
+				#	PRC = {
+				#		has_completed_focus = PRC_Anti_Japanese_and_Chiang
+				#	}
+				#}
+				NOT = {
+					JAP = {
+						has_global_flag = kodoha_won
+					}
+				}
+				has_global_flag = tacit_truce_flag
+				OR = {
+					has_government = democratic
+					has_government = neutrality
+				}
+				CHI = {
+					#has_opinion_modifier = hostile_status
+					NOT = { has_war_with = GXC }
+					NOT = { has_global_flag = CHI_truce_com }
+					NOT = { is_in_faction_with = JAP }
+				}
+				has_global_flag = chiang_in_xian
+				country_exists = PRC
+				NOT = {
+					has_global_flag = CHI_xian_fired
+				}
+				NOT = {
+					has_opinion_modifier = CHI_prc_reconciliation
+				}
+				NOT = {
+					has_war_with = CHI 
+				}
+			}
+			visible = {
+				country_exists = PRC
+				has_country_flag = I_can_do_xian_incident
+				tag = NEA
+			}
+			cancel_trigger = {
+				OR = {
+				    NOT = {
+					   country_exists = PRC
+				    }
+					has_war_with = CHI 
+					hidden_trigger = { has_global_flag = NEA_choose_xian_incident_happen } #guo
+				}
+			}
+			#cost = 10
+			days_remove = 175 #MODDED was 144
+			fire_only_once = yes
+			ai_will_do = {
+				factor = 10000
+			}
+			complete_effect = {
+			set_global_flag = NEA_choose_xian_incident #guo
+			}
+			remove_effect = {
+				set_country_flag = CHI_xian_instigator_flag
+				set_global_flag = CHI_xian_fired
+				remove_country_leader_trait = budikang #guo
+				swap_ruler_traits = { #guo
+				remove = shaoshuai
+				add = shaoshuai_more
+				}
+				hidden_effect = { #guo
+				remove_country_leader_trait = {
+	ideology = despotism
+	trait = shaoshuai
+}
+remove_country_leader_trait = {
+	ideology = n_socialism_ideology
+	trait = shaoshuai
+}
+remove_country_leader_trait = {
+	ideology = conservatism
+	trait = shaoshuai
+}
+remove_country_leader_trait = {
+	ideology = fascism_ideology
+	trait = shaoshuai
+}
+remove_country_leader_trait = {
+	ideology = marxism
+	trait = shaoshuai
+}
+				
+				add_country_leader_trait = {
+	ideology = despotism
+	trait = shaoshuai_more
+}
+add_country_leader_trait = {
+	ideology = n_socialism_ideology
+	trait = shaoshuai_more
+}
+add_country_leader_trait = {
+	ideology = conservatism
+	trait = shaoshuai_more
+}
+add_country_leader_trait = {
+	ideology = fascism_ideology
+	trait = shaoshuai_more
+}
+add_country_leader_trait = {
+	ideology = marxism
+	trait = shaoshuai_more
+}
+				}
+				
+				CHI = {
+					country_event = { id = rcmsoviet.18 }
+				}
+			}
+		}
+		NEA_invite_back_zhang_xueliang = {
+			icon = generic_political_discourse
+			available = {
+				NOT = {
+					country_exists = CHI
+				}
+				NOT = {
+					has_country_leader = {
+						character = NEA_zhang_xueliang ruling_only = yes
+					}
+				}
+			}
+			visible = {
+				NOT = {
+					has_country_flag = no_more_zxl
+				}
+				tag = event_target:WTT_current_china_leader
+				NOT = {
+					has_country_leader = {
+						character = NEA_zhang_xueliang ruling_only = yes
+					}
+				}
+				tag = NEA
+			}
+			cancel_trigger = {
+			}
+			cost = 20
+			#days_remove = 
+			#fire_only_once = yes
+			ai_will_do = {
+				factor = 1000
+			}
+			remove_effect = {
+				country_event = rcmchina.387
+			}
+		}
+	}
+
+	operations = {
+		#no indochina MODDED
+	}
+
+	prestigious_projects = {
+		CHI_build_a_carrier = {
+		allowed = {
+			is_literally_china = yes
+		}
+			icon = generic_naval
+			available = {
+				has_navy_size = { unit = carrier size > 0 }
+			}
+
+			days_mission_timeout = 720
+
+			fire_only_once = yes
+			is_good = no
+			activation = {
+				has_completed_focus = CHI_naval_aviation
+			}
+		
+			complete_effect = {
+				add_political_power = 100
+				navy_experience = 30
+				add_war_support = 0.05
+			}
+
+			timeout_effect = {
+		
+			}
+		}
+	}

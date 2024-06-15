@@ -1,0 +1,1064 @@
+operations = {
+	
+	GER_invite_china_join = {
+		priority = 9999
+
+		icon = GFX_decision_hol_exchange_intelligence_data
+		fire_only_once = no
+		days_re_enable = 50
+
+		allowed = {
+			original_tag = GER
+		}
+
+		available = {
+			event_target:WTT_current_china_leader = { is_fascism_type = yes is_subject = no is_in_faction = no }
+			threat > 0.5
+		}
+
+		visible = {
+		    not = { is_in_faction_with = event_target:WTT_current_china_leader }
+			has_completed_focus = GER_china_friend
+			is_subject = no
+			is_faction_leader = yes
+			country_exists = event_target:WTT_current_china_leader
+		}
+
+		cost = 50
+		
+		ai_will_do = {
+			base = 9999
+			
+		}
+
+		complete_effect = {
+		    event_target:WTT_current_china_leader = {
+				if = {
+				limit = { has_government = neutrality is_ai = yes }
+				complete_national_focus = CHI_axis_help_party_focus
+				}
+			    country_event = generic.5
+				add_popularity = { ideology = fascism popularity = 0.5 }
+				add_timed_idea = { idea = fascist_influence days = 1080 }
+			}
+		}
+	}
+	
+    ITA_invite_rommel = {
+		priority = 9999
+
+		icon = generic_army_support
+		fire_only_once = yes
+
+		allowed = {
+			original_tag = ITA
+		}
+
+		available = {
+			any_enemy_country = { is_major = yes has_war_with = GER }
+			if = {
+			limit = { has_war_with = POL }
+			POL = { has_capitulated = yes }
+			}
+			if = {
+			limit = { has_war_with = FRA }
+			FRA = { has_capitulated = yes }
+			}
+			if = {
+			limit = { has_war_with = CZE }
+			CZE = { has_capitulated = yes }
+			}
+			or = { 451 = { is_controlled_by_enemy = yes } 663 = { is_controlled_by_enemy = yes } } #date > 1941.2.1
+			448 = { is_controlled_by_ROOT_or_ally = yes }
+			115 = { is_controlled_by_ROOT_or_ally = yes }
+			2 = { is_controlled_by_ROOT_or_ally = yes }
+		}
+
+		visible = {
+		    is_in_faction_with = GER
+			GER = { has_character = GER_erwin_rommel }
+		}
+
+		cost = 100
+		
+		ai_will_do = {
+			base = 9999
+			
+		}
+
+		complete_effect = {
+		    GER = {
+			    country_event = GER_erwin_rommel.1
+			}
+		}
+	}
+	GER_call_back_rommel = {
+		priority = 9999
+
+		icon = generic_army_support
+		fire_only_once = yes
+
+		allowed = {
+			original_tag = GER
+		}
+
+		available = {
+			
+		}
+
+		visible = {
+			has_global_flag = GER_erwin_rommel_go_to_africa
+			any_allied_country = { has_country_flag = GER_erwin_rommel_in_africa }
+		}
+
+		cost = 0
+		
+		ai_will_do = {
+			base = 0
+			modifier = {
+			add = 9000
+			458 = { is_controlled_by_enemy = yes }
+			448 = { is_controlled_by_enemy = yes }
+			450 = { is_controlled_by_enemy = yes }
+			460 = { is_controlled_by_enemy = yes }
+			}
+			modifier = {
+			add = 9000
+			NOT = { has_war_with = ENG has_war_with = FRA has_war_with = EGY any_enemy_country = { is_major = yes } }
+			}
+		}
+
+		complete_effect = {
+		    hidden_effect = {
+			    event_target:GER_erwin_rommel_in_africa = {
+				    every_army_leader = {
+			retire = yes
+		    }
+			every_unit_leader = {
+			retire = yes
+		    }
+				}
+			}
+			
+		    annex_country = { target = event_target:GER_erwin_rommel_in_africa transfer_troops = yes }
+			clr_global_flag = GER_erwin_rommel_go_to_africa
+			
+			hidden_effect = {
+			every_state = {
+			limit = { has_state_flag = GER_erwin_rommel_in_africa_state }
+			random_other_country = {
+			limit = {
+			original_tag = ITA
+			is_in_faction_with = root
+			}
+			set_state_owner = PREV
+			}
+			}
+			every_state = {
+			limit = { has_state_flag = GER_erwin_rommel_in_africa_state or = { is_fully_controlled_by = root is_fully_controlled_by = event_target:GER_erwin_rommel_in_africa } }
+			random_other_country = {
+			limit = {
+			original_tag = ITA
+			is_in_faction_with = root
+			}
+			transfer_state = PREV
+			}
+			}
+			}
+			
+			if = {
+			limit = { R36 = { exists = yes is_subject_of = root has_capitulated = no } }
+			every_state = {
+			limit = { has_state_flag = GER_erwin_rommel_in_africa_state is_controlled_by_ROOT_or_ally = yes }
+			transfer_state_to = R36
+			}
+			}
+		}
+	}
+	
+    GER_adolf_hitler_general = {
+		priority = 9999
+
+		icon = generic_army_support
+		fire_only_once = yes
+
+		allowed = {
+			original_tag = GER
+		}
+
+		available = {
+			any_enemy_country = { is_major = yes }
+			casualties_k > 500
+		}
+
+		visible = {
+		has_country_leader = { ruling_only = yes character = GER_adolf_hitler }
+		}
+
+		cost = 200
+		
+		ai_will_do = {
+			base = 5000
+			modifier = {
+			factor = 100
+			has_war_with = SOV
+			date > 1941.12.1
+			}
+			modifier = {
+			factor = 0
+			AND = {
+			surrender_progress < 0.05
+			not = { has_war_with = SOV }
+			not = { has_war_with = USA }
+			}
+			}
+		}
+
+		complete_effect = {
+		    set_global_flag = GER_adolf_hitler_general
+			show_unit_leaders_tooltip = GER_adolf_hitler
+			custom_effect_tooltip = available_chief_of_army
+		    show_ideas_tooltip = GER_adolf_hitler
+			add_country_leader_trait = lujunsiling
+			add_country_leader_trait = qinliqinwei
+			if = {
+			limit = { GER_Blomberg = { is_field_marshal = yes } }
+			GER_Blomberg = { demote_leader = yes }
+		    }
+			if = {
+			limit = { GER_walther_von_brauchitsch = { is_field_marshal = yes } }
+			GER_walther_von_brauchitsch = { demote_leader = yes }
+		    }
+			if = {
+			limit = { GER_ludwig_beck = { is_field_marshal = yes } }
+			GER_ludwig_beck = { demote_leader = yes }
+		    }
+			retire_character = GER_Blomberg
+			retire_character = GER_walther_von_brauchitsch
+			retire_character = GER_ludwig_beck
+			
+			hidden_effect = {
+			add_ideas = GER_adolf_hitler
+            }
+		}
+	}
+	
+	GER_Skorzney_general = {
+		priority = 1000
+
+		icon = generic_army_support
+		fire_only_once = yes
+
+		allowed = {
+			original_tag = GER
+		}
+
+		available = {
+			has_idea = heinrich_himmler
+			hidden_trigger = {
+				command_power > 4
+			}
+		}
+		
+		custom_cost_trigger = {
+			command_power > 4
+		}
+		custom_cost_text = decision_cost_CP_5
+
+		visible = {
+		    OR = {
+				has_government = fascism 
+				has_country_flag = GER_reinstated_nazi_leadership 
+			} 
+		}
+		
+		ai_will_do = {
+			base = 0
+		}
+
+		complete_effect = {
+		    add_command_power = -5
+			custom_effect_tooltip = GER_Skorzney_general
+			set_global_flag = GER_Skorzney_general
+		}
+	}
+	
+	GER_last_win = {
+		priority = 1000
+
+		icon = generic_prepare_civil_war
+		fire_only_once = yes
+
+		allowed = {
+			original_tag = GER
+		}
+
+		available = {
+			
+		}
+
+		visible = {
+		    has_government = fascism
+			OR = {
+			has_war_with = ENG
+			has_war_with = USA
+			}
+			has_war_with = SOV
+			surrender_progress > 0.05
+		}
+		
+		ai_will_do = {
+			base = 9999
+		}
+
+		complete_effect = {
+		    every_controlled_state = {
+					limit = {
+						OR = {
+							state = 64
+						}
+					}
+                    add_building_construction = {
+						type = bunker
+						level = 10
+						province = 6521
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = bunker
+						level = 5
+						province = 11505
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = bunker
+						level = 5
+						province = 9428
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = bunker
+						level = 5
+						province = 11444
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = bunker
+						level = 5
+						province = 375
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = bunker
+						level = 5
+						province = 3499
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = bunker
+						level = 5
+						province = 3367
+						instant_build = yes
+					}
+					
+					add_building_construction = {
+						type = bunker
+						level = 3
+						province = 9496
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = bunker
+						level = 3
+						province = 11415
+						instant_build = yes
+					}
+					
+					add_building_construction = {
+						type = anti_air_building
+						level = 5
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = radar_station
+						level = 5
+						instant_build = yes
+					}
+		    }
+			every_controlled_state = {
+					limit = {
+						OR = {
+							state = 65
+						}
+					}
+                    add_building_construction = {
+						type = bunker
+						level = 3
+						province = 9535
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = bunker
+						level = 3
+						province = 3514
+						instant_build = yes
+					}
+					
+		    }
+			every_controlled_state = {
+					limit = {
+						OR = {
+							state = 62
+						}
+					}
+                    add_building_construction = {
+						type = bunker
+						level = 3
+						province = 3207
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = bunker
+						level = 3
+						province = 3312
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = bunker
+						level = 3
+						province = 349
+						instant_build = yes
+					}
+					
+		    }
+			every_controlled_state = {
+					limit = {
+						OR = {
+							is_core_of = root
+						}
+					}
+					add_building_construction = {
+						type = anti_air_building
+						level = 1
+						instant_build = yes
+					}
+		    }
+			
+		    division_template = {
+		name = "国民冲锋队"
+		regiments = {
+		            infantry = { x = 0 y = 0 }
+					infantry = { x = 0 y = 1 }
+					infantry = { x = 0 y = 2 }
+					infantry = { x = 0 y = 3 }
+                    infantry = { x = 0 y = 4 }
+					
+					infantry = { x = 1 y = 0 }
+					infantry = { x = 1 y = 1 }
+					infantry = { x = 1 y = 2 }
+					infantry = { x = 1 y = 3 }
+                    infantry = { x = 1 y = 4 }
+					
+					infantry = { x = 2 y = 0 }
+					infantry = { x = 2 y = 1 }
+					
+		artillery_brigade = { x = 3 y = 0 }
+		artillery_brigade = { x = 3 y = 1 }
+		artillery_brigade = { x = 3 y = 2 }
+		anti_air_brigade = { x = 3 y = 3 }
+		anti_tank_brigade = { x = 3 y = 4 }
+		}
+		support = {
+		medium_flame_tank = { x = 0 y = 0 } 
+		engineer = { x = 0 y = 1 }
+		logistics_company = { x = 0 y = 2 } 
+		field_hospital = { x = 0 y = 3 } 
+		rangers_support = { x = 0 y = 4 }
+		}
+	    }
+		    every_owned_state = {
+			   limit = {
+			   is_core_of = root
+			   is_controlled_by = root
+			   }
+			   add_dynamic_modifier = { modifier = GER_last_win scope = GER days = 365 }
+			   create_unit = {
+				  division = "name = \"国民冲锋队\" division_template = \"国民冲锋队\" start_experience_factor = 0.3 "
+				  owner = GER
+				  count = 3
+			   }
+			}
+			every_owned_state = {
+			   limit = {
+			   is_core_of = root
+			   is_controlled_by = root
+			   state = 64
+			   }
+			   create_unit = {
+				  division = "name = \"国民冲锋队\" division_template = \"国民冲锋队\" start_experience_factor = 0.5 "
+				  owner = GER
+				  count = 10
+			   }
+			}
+		}
+	}
+	
+    ger_call_jap_into_war = {
+		priority = 1000
+
+		icon = infiltrate_state
+		fire_only_once = yes
+
+		allowed = {
+			original_tag = GER
+		}
+
+		available = {
+			has_idea = tripartite_pact_ideas
+			if = {
+			limit = {
+			JAP = { has_war_with = event_target:WTT_current_china_leader }
+			}
+			has_global_flag = falkenhausen_recalled
+			event_target:WTT_current_china_leader = { surrender_progress > 0.3 }
+			}
+			SOV = {
+			or = {
+			and = {
+			surrender_progress > 0.65
+			NOT = {
+			controls_state = 195
+			controls_state = 219
+            controls_state = 217
+			}
+			}
+			has_civil_war = yes
+			}
+			}
+		}
+
+		visible = {
+		has_war_with = SOV
+		JAP = { 
+		has_idea = tripartite_pact_ideas
+		NOT = { has_war_with = SOV }
+		NOT = { is_in_faction_with = SOV }
+		}
+		}
+
+		cost = 25
+		
+		ai_will_do = {
+			base = 9000
+			
+		}
+
+		complete_effect = {
+			JAP = {
+			country_event = bbb.15
+			}
+			
+		}
+	}
+	
+	ger_reform_intelegenc = { #This is a duplicate of the decision present in the Paranoia category
+		priority = 7000
+
+		icon = generic_army_support
+		fire_only_once = yes
+
+		allowed = {
+			original_tag = GER
+		}
+
+		available = {
+			has_army_experience > 149
+		}
+
+		visible = {
+		has_idea = GER_barbar_east_waijunchu
+		}
+
+		cost = 150
+		days_remove = 365
+		
+		ai_will_do = {
+			base = 0
+			modifier = {
+			add = 9999
+			or = {
+			date > 1945.5.1
+			ENG = { surrender_progress > 0.5 }
+			SOV = { is_subject = yes }
+			SOV = { exists = no }
+			}
+			}
+		}
+
+		complete_effect = {
+			army_experience = -150
+			
+		}
+		remove_effect = {
+		        swap_ideas = {
+					remove_idea = GER_barbar_east_waijunchu
+					add_idea = GER_barbar_east_waijunchu_2
+				}
+		}
+	}
+	
+	fin_join_war_attack_sov = {
+		priority = 9999
+        icon = infiltrate_state
+
+                                allowed = {
+                                                always = no
+                                }
+		available = {
+            
+	    }
+		cost = 0
+                                
+                                days_remove = 7
+                                fire_only_once = yes
+		ai_will_do = {
+			base = 9999
+                                                
+		}
+		visible = {
+			has_idea = fin_ger_brother
+                               is_subject = no
+							   GER = { has_war_with = SOV }
+                               NOT = { has_war_with = GER }
+							   NOT = { has_war_with = SOV }
+							   NOT = { is_in_faction_with = SOV }
+	    }	
+                                			
+		remove_effect = {
+		set_global_flag = continue_war
+		if = {
+		limit = {
+		is_ai = yes
+		SOV = { is_ai = yes }
+		GER = { is_ai = yes }
+		}
+			 213 = {
+			 add_dynamic_modifier = { modifier = molmansik_stronghold_for_sov scope = SOV }
+			 add_dynamic_modifier = { modifier = molmansik_stronghold_for_fin scope = FIN }
+			 }
+			 215 = {
+			 add_dynamic_modifier = { modifier = molmansik_stronghold_for_sov scope = SOV }
+			 add_dynamic_modifier = { modifier = molmansik_stronghold_for_fin scope = FIN }
+			 }
+		}
+		
+FIN = {
+                add_to_war = {
+					targeted_alliance = GER
+					enemy = SOV
+					hostility_reason = asked_to_join
+				}
+        }
+								
+								add_timed_idea = {
+                 idea = fin_continue_war
+                 days = 180
+             }
+								
+								hidden_effect = {
+								if = {
+								limit = {
+								GER = { has_war_with = ENG }
+								}
+								ENG = { country_event = { id = eng_declare_fin.1 days = 150 } }
+								}
+								}
+
+#hidden_effect = {
+#news_event = { id = zizhinews.7 days = 1 }
+#}
+
+
+        }
+    }
+	
+	GER_operation_barbarossa_modded = {
+		priority = 8000
+        icon = infiltrate_state
+        allowed = {
+            original_tag = GER
+        }
+		available = {
+            NOT = { is_in_faction_with = SOV }
+			surrender_progress < 0.05
+	    }
+		cost = 0
+                                     
+        fire_only_once = yes
+		
+		ai_will_do = {
+			base = 0
+            modifier = {
+				add = 9999
+				date > 1941.6.21
+			}
+			modifier = {
+				add = 9999
+				OR = {
+	            ENG = { exists = no }
+	            ENG = { has_capitulated = yes }
+	            ENG = { is_subject = yes }
+				is_in_faction_with = ENG
+	            }
+			}
+			modifier = {
+				add = 9999
+				is_historical_focus_on = no
+			}
+		}
+		visible = {
+			has_completed_focus = GER_ussr_war_goal
+            is_subject = no
+            NOT = { has_war_with = SOV }
+	    }	
+                                			
+		complete_effect = {
+        set_global_flag = operation_barbarossa
+
+every_state = {
+limit = {
+controller = { is_in_faction_with = SOV }
+OR = {
+state = 97
+state = 89
+state = 91
+state = 95
+state = 784
+state = 814
+state = 78
+state = 206
+state = 194
+state = 201
+state = 199
+state = 202
+state = 198
+state = 192
+}
+}
+damage_building = { type = air_base damage = 5 }
+}
+
+if = {
+limit = { is_ai = no }
+add_timed_idea = {
+        idea = GER_barbarossa_player
+        days = 180
+    }
+}
+
+if = {
+limit = { is_ai = yes }
+add_ideas = balance_idea_ger_more_gun
+}	
+									
+diplomatic_relation = {
+	country = SOV
+	relation = non_aggression_pact
+	active = no
+}
+
+hidden_effect = {
+country_event = super.5
+}
+
+            IF = {
+				limit = { SOV = { has_civil_war = no } }
+				declare_war_on = { target = SOV type = annex_everything }
+			}
+			ELSE = {
+				every_country = {
+					limit = { original_tag = SOV }
+					ROOT = {
+						declare_war_on = {
+							type = annex_everything
+							target = PREV
+						}
+					}
+				}
+			}     
+			
+			IF = {
+				limit = {
+				LIT = {
+				exists = yes
+				NOT = {
+				is_ally_with = root
+				has_government = root
+				}
+				}
+				}
+				declare_war_on = { target = LIT type = annex_everything }
+			}
+			IF = {
+				limit = {
+				LAT = {
+				exists = yes
+				NOT = {
+				is_ally_with = root
+				has_government = root
+				}
+				}
+				}
+				declare_war_on = { target = LAT type = annex_everything }
+			}
+			IF = {
+				limit = {
+				EST = {
+				exists = yes
+				NOT = {
+				is_ally_with = root
+				has_government = root
+				}
+				}
+				}
+				declare_war_on = { target = EST type = annex_everything }
+			}
+		}
+    }
+}
+	
+operations = {
+
+        GER_contact_fin_zz = {
+		priority = 9999
+        icon = GFX_decision_hol_exchange_intelligence_data
+
+                                allowed = {
+                                                original_tag = GER
+                                }
+		available = {
+            FIN = { has_completed_focus = FIN_the_lone_wolf }
+	    }
+		cost = 50
+        fire_only_once = yes
+		ai_will_do = {
+			base = 0
+            modifier = {
+				add = 9999
+				FIN = { has_completed_focus = FIN_the_lone_wolf }
+				or = {
+				date > 1940.6.22
+				focus_progress  = {
+				focus = GER_ussr_war_goal 
+				progress > 0
+			    }
+				}
+			}
+			modifier = {
+				factor = 0
+				surrender_progress > 0.07
+			}
+		}
+		visible = {
+			SOV = { owns_state = 146 }
+                               is_subject = no
+							   FIN = { is_in_faction = no }
+							   FIN = { is_subject = no }
+                               NOT = { has_war_with = FIN }
+							   NOT = { has_war_with = SOV }
+							   NOT = { FIN = { has_war_with = SOV has_completed_focus = FIN_cooperation_with_germany } }
+                                NOT = { is_in_faction_with = FIN }
+								NOT = { is_in_faction_with = SOV }
+	    }
+		
+		complete_effect = {
+        FIN = { country_event = ger_contact_fin.1 }
+        }
+		
+        }
+
+        goebbels_total_war_mobalization_speech = { #This is a duplicate of the decision present in the Paranoia category
+		priority = 9999
+
+		icon = eng_blackshirt_speech
+		fire_only_once = yes
+
+		allowed = {
+			original_tag = GER
+		}
+
+		available = {
+			has_idea = joseph_goebbels
+			any_enemy_country = { is_major = yes }
+			casualties_k > 1000
+			if = {
+			limit = { is_ai = no }
+			has_war_support > 0.8
+			has_idea = war_economy
+			}
+		}
+
+		visible = {
+		is_subject = no
+		has_character = GER_joseph_goebbels
+		has_government = fascism
+		}
+
+		cost = 300
+		
+		ai_will_do = {
+			base = 5000
+			modifier = {
+			factor = 100
+			OR = {
+			date > 1943.1.1
+			surrender_progress > 0.05
+			}
+			}
+			modifier = {
+			factor = 0
+			is_historical_focus_on = yes
+			date < 1943.1.1
+			surrender_progress < 0.05
+			SOV = { is_ai = yes }
+			}
+			modifier = {
+			factor = 0
+			is_historical_focus_on = yes
+			date < 1943.1.1
+			surrender_progress < 0.05
+			casualties_inflicted_by = {
+			opponent = SOV
+			thousands < 1000
+		    }
+			casualties_inflicted_by = {
+			opponent = USA
+			thousands < 1000
+		    }
+			}
+			modifier = {
+			factor = 0
+			AND = {
+			NOT = { has_war_with = SOV }
+			NOT = { has_war_with = USA }
+			surrender_progress < 0.05
+			}
+			}
+			modifier = {
+			factor = 0
+			AND = {
+			surrender_progress < 0.05
+			has_war_with = SOV
+			SOV = { surrender_progress > 0.4 }
+			}
+			}
+		}
+
+		complete_effect = {
+			hidden_effect = {
+			play_song = "gepeier"
+			}
+			news_event = zizhinews.14
+			set_global_flag = goebbels_total_war_mobalization_speech
+			add_ideas = tot_economic_mobilisation
+			add_ideas = ger_total_war	
+			custom_effect_tooltip = gain_base_supp_cond_p10_tt
+			add_to_variable = {
+		    var = This.supply_condition
+			value = 10 #MODDED
+		    }
+		    add_to_variable = {
+			var = This.supply_condition_base
+			value = 10 #MODDED
+		    }
+		}
+	    }
+	
+    ger_eng_navy_agreement_cheating = { #This is a duplicate of the decision present in the Paranoia category
+		priority = 8000
+
+		icon = generic_naval
+		fire_only_once = yes
+
+		allowed = {
+			original_tag = GER
+		}
+
+		available = {
+			has_completed_focus = GER_plan_z
+			NOT = { has_completed_focus = GER_accept_british_naval_dominance }
+			NOT = { is_in_faction_with = ENG }
+		}
+
+		visible = {
+			has_idea = ger_eng_navy_agreement
+			NOT = { has_war_with = ENG }
+			NOT = { is_in_faction_with = ENG }
+			NOT = { has_completed_focus = GER_accept_british_naval_dominance }
+		}
+
+		cost = 15
+		
+		ai_will_do = {
+			base = 100  
+		}
+
+		complete_effect = {
+			swap_ideas = {
+			add_idea = ger_eng_navy_agreement_cheating_reduced
+			remove_idea = ger_eng_navy_agreement
+	        }
+		}
+	}
+	
+	ger_eng_navy_agreement_abolish = { #This is a duplicate of the decision present in the Paranoia category
+		priority = 9000
+
+		icon = generic_naval
+		fire_only_once = yes
+
+		allowed = {
+			original_tag = GER
+		}
+
+		available = {
+			NOT = { has_completed_focus = GER_accept_british_naval_dominance }
+			NOT = { is_in_faction_with = ENG }
+		}
+
+		visible = {
+		is_subject = no
+		OR = {
+			has_idea = ger_eng_navy_agreement
+			has_idea = ger_eng_navy_agreement_cheating_reduced
+			}
+			NOT = { has_war_with = ENG }
+			NOT = { is_in_faction_with = ENG }
+			NOT = { has_completed_focus = GER_accept_british_naval_dominance }
+		}
+
+		cost = 100
+		
+		ai_will_do = {
+			base = 9999
+			modifier = {
+			factor = 0
+			date < 1939.1.1
+			}
+		}
+
+		complete_effect = {
+			
+			effect_tooltip = { remove_ideas = ger_eng_navy_agreement }
+			hidden_effect = { remove_ideas = ger_eng_navy_agreement }
+	        hidden_effect = { remove_ideas = ger_eng_navy_agreement_cheating_reduced }
+			ENG = { 
+			country_event = ger_eng_navy_agreement.1
+			add_opinion_modifier = {
+			modifier = ger_eng_navy_agreement_broken
+			target = ROOT
+		    }
+			}
+		}
+	}
+}

@@ -1,0 +1,262 @@
+划江而治？玩家专属，半成品{
+    与中共商讨划江而治 = {
+		icon = POL_looming_peasants_strike 
+		available = {
+			has_government = neutrality
+			1043 = {
+				is_controlled_by_ROOT_or_puppet = no
+			}
+			606 = {
+				is_controlled_by_ROOT_or_puppet = no
+			}
+			598 = {
+				is_controlled_by_ROOT_or_puppet = no
+			}
+			997 = {
+				is_controlled_by_ROOT_or_puppet = no
+			}
+			1015 = {
+				is_controlled_by_ROOT_or_puppet = yes
+			}			
+		}
+        cost = 50
+            fire_only_once = yes #仅可触发一次 yes/no
+		    ai_will_do = { #ai倾向
+		    	factor = 0
+		}
+		visible = { has_government = neutrality
+			1043 = {
+				is_controlled_by_ROOT_or_puppet = no
+			}
+			606 = {
+				is_controlled_by_ROOT_or_puppet = no
+			}
+			598 = {
+				is_controlled_by_ROOT_or_puppet = no
+			}
+			997 = {
+				is_controlled_by_ROOT_or_puppet = no
+			}
+			1015 = {
+				is_controlled_by_ROOT_or_puppet = yes
+			}			
+		}
+        complete_effect = { hidden_effect = { every_subject_country = { inherit_technology = GER } }	
+            hidden_effect = {  
+                every_subject_country = { 
+                    inherit_technology = JAP 
+                } 
+            }
+		PRC = { remove_ideas = { idea = PRC_War_of_Liberation } }			
+        remove_ideas = zhongguoshiwu
+	    remove_ideas = CHI_civil_war_debuff_1		
+	    remove_ideas = CHI_civil_war_debuff_1
+	    remove_ideas = CHI_civil_war_debuff_2
+	    remove_ideas = CHI_civil_war_debuff_3
+            CHI ={
+                puppet = GXC
+
+            }
+	        white_peace = PRC		
+        PRC ={
+            set_state_controller = 716
+			set_state_owner = 716
+            set_state_controller = 1010
+			set_state_owner = 1010
+	        set_state_controller = 328
+			set_state_owner = 328
+            set_state_controller = 1006
+			set_state_owner = 1006
+            set_state_controller = 1007
+			set_state_owner = 1007
+		    set_state_controller = 1005
+			set_state_owner = 1005
+            set_state_controller = 717
+			set_state_owner = 717
+            set_state_controller = 1008
+			set_state_owner = 1008
+            set_state_controller = 714
+			set_state_owner = 714
+	        set_state_controller = 1011
+			set_state_owner = 1011
+            set_state_controller = 761
+			set_state_owner = 761
+            set_state_controller = 1009
+			set_state_owner = 1009
+		    set_state_controller = 715
+			set_state_owner = 715
+            set_state_controller = 610
+			set_state_owner = 610
+            set_state_controller = 744
+			set_state_owner = 744
+            set_state_controller = 1030
+			set_state_owner = 1030
+	        set_state_controller = 622
+			set_state_owner = 622
+            set_state_controller = 1050
+			set_state_owner = 1050	
+	        set_state_controller = 283
+			set_state_owner = 283
+		    set_state_controller = 1005
+			set_state_owner = 1005
+            set_state_controller = 717
+			set_state_owner = 717
+            set_state_controller = 1008
+			set_state_owner = 1008
+            set_state_controller = 714
+			set_state_owner = 714
+	        set_state_controller = 1011
+			set_state_owner = 1011
+            set_state_controller = 761
+			set_state_owner = 761
+            set_state_controller = 1009
+			set_state_owner = 1009
+		    set_state_controller = 715
+			set_state_owner = 715
+            set_state_controller = 610
+			set_state_owner = 610
+            set_state_controller = 744
+			set_state_owner = 744
+            set_state_controller = 1030
+			set_state_owner = 1030
+	        set_state_controller = 622
+			set_state_owner = 622
+            set_state_controller = 1050
+			set_state_owner = 1050	
+	        set_state_controller = 1044
+			set_state_owner = 1044
+		    set_state_controller = 1031
+			set_state_owner = 1031	
+	        set_state_controller = 616
+			set_state_owner = 616
+		    set_state_controller = 756
+			set_state_owner = 756
+			set_state_controller = 1045
+			set_state_owner = 1045
+		    set_state_controller = 1047
+			set_state_owner = 1047
+	        set_state_controller = 754
+			set_state_owner = 754
+		    set_state_controller = 755
+			set_state_owner = 755
+			set_state_controller = 604
+			set_state_owner = 604
+		    set_state_controller = 598
+			set_state_owner = 598
+			set_state_controller = 606
+			set_state_owner = 606
+		    set_state_controller = 1043
+			set_state_owner = 1043
+	        set_state_controller = 597
+			set_state_owner = 597
+		    set_state_controller = 1028
+			set_state_owner = 1028
+			set_state_controller = 743
+			set_state_owner = 743
+			set_state_controller = 607
+			set_state_owner = 607
+			set_state_controller = 997
+			set_state_owner = 997	
+			set_state_controller = 609
+			set_state_owner = 609	
+	        set_state_controller = 608
+			set_state_owner = 608
+		    set_state_controller = 614
+			set_state_owner = 614
+			set_state_controller = 1013
+			set_state_owner = 1013
+		    set_state_controller = 615
+			set_state_owner = 615
+	        set_state_controller = 1027
+			set_state_owner = 1027
+		    set_state_controller = 998
+			set_state_owner = 998
+			set_state_controller = 1017
+			set_state_owner = 1017
+		    set_state_controller = 1016
+			set_state_owner = 1016
+			set_state_controller = 991
+			set_state_owner = 991
+		    set_state_controller = 1012
+			set_state_owner = 1012
+	        set_state_controller = 612
+			set_state_owner = 612
+		    set_state_controller = 1062
+			set_state_owner = 1062
+			set_state_controller = 1020
+			set_state_owner = 1020
+			set_state_controller = 1014
+			set_state_owner = 1014
+			set_state_controller = 1019
+			set_state_owner = 1019
+			set_state_controller = 746
+			set_state_owner = 746			
+        CHI ={
+            set_state_controller = 1015
+			set_state_owner = 1015
+            set_state_controller = 613
+			set_state_owner = 613
+	        set_state_controller = 749
+			set_state_owner = 749
+            set_state_controller = 596
+			set_state_owner = 596
+            set_state_controller = 1033
+			set_state_owner = 1033
+            set_state_controller = 595
+			set_state_owner = 595
+		    set_state_controller = 1032
+			set_state_owner = 1032
+            set_state_controller = 600
+			set_state_owner = 600
+            set_state_controller = 1034
+			set_state_owner = 1034
+            set_state_controller = 620
+			set_state_owner = 620
+	        set_state_controller = 1035
+			set_state_owner = 1035
+            set_state_controller = 602
+			set_state_owner = 602
+	        set_state_controller = 750
+			set_state_owner = 750
+	        set_state_controller = 748
+			set_state_owner = 748
+	        set_state_controller = 603
+			set_state_owner = 603
+	        set_state_controller = 1036
+			set_state_owner = 1036
+	        set_state_controller = 593
+			set_state_owner = 593	
+		    set_state_controller = 592
+			set_state_owner = 592
+		    set_state_controller = 592
+			set_state_owner = 592			
+	        set_state_controller = 1037
+			set_state_owner = 1037	
+		    set_state_controller = 591
+			set_state_owner = 591
+			set_state_controller = 524
+			set_state_owner = 524	
+		    set_state_controller = 605
+			set_state_owner = 605
+			set_state_controller = 1041
+			set_state_owner = 1041	
+			set_state_controller = 1023
+			set_state_owner = 1023
+			set_state_controller = 753
+			set_state_owner = 753	
+			set_state_controller = 751
+			set_state_owner = 751
+		    set_state_controller = 325
+			set_state_owner = 325
+			set_state_controller = 1040
+			set_state_owner = 1040	
+			set_state_controller = 747
+			set_state_owner = 747
+			set_state_controller = 1042
+			set_state_owner = 1042	
+			set_state_controller = 752
+			set_state_owner = 752		
+
+}
+    }
+}

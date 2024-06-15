@@ -1,0 +1,226 @@
+the_project_of_repair_pacific_fleet = {
+    repair_west_virginia = {
+        visible = {
+            not = { has_country_flag = repair_west_virginia_done }
+        }
+        cost = 0
+		ai_will_do = { #guo
+		factor = 100
+		}
+        available = {
+            
+        }
+        fire_only_once = yes
+        modifier = {
+            industrial_capacity_dockyard = -0.02
+        }
+        days_remove = 450
+        complete_effect = {
+            custom_effect_tooltip = west_virginia.desc
+        }
+        remove_effect = {
+		set_country_flag = repair_west_virginia_done
+            custom_effect_tooltip = west_virginia.effect
+            hidden_effect = {
+                create_equipment_variant = {
+                name = "USS West Virginia BB-48"
+                type = ship_hull_heavy_1
+                parent_version = 0
+                modules = {
+                    fixed_ship_battery_slot = ship_heavy_battery_2
+                    fixed_ship_anti_air_slot = ship_anti_air_3
+                    fixed_ship_fire_control_system_slot = ship_fire_control_system_3
+                    fixed_ship_radar_slot = ship_radar_4
+                    fixed_ship_engine_slot = light_ship_engine_3
+                    fixed_ship_armor_slot = ship_armor_bb_2
+                    front_1_custom_slot = ship_heavy_battery_2
+                    mid_1_custom_slot = ship_anti_air_3
+                    mid_2_custom_slot = ship_airplane_launcher_2
+                    rear_1_custom_slot = ship_anti_air_3
+                    }
+                }
+                load_oob = "USA_west_virginia"
+            }
+        }
+    }
+
+    repair_california = {
+        visible = {
+            not = { has_country_flag = repair_california_done }
+        }
+        cost = 0
+		ai_will_do = { #guo
+		factor = 100
+		}
+        available = {
+            
+        }
+		fire_only_once = yes
+        modifier = {
+            industrial_capacity_dockyard = -0.02
+        }
+        days_remove = 400
+        complete_effect = {
+            custom_effect_tooltip = california.desc
+        }
+        remove_effect = {
+		set_country_flag = repair_california_done
+            custom_effect_tooltip = california.effect
+            hidden_effect = {
+                create_equipment_variant = {
+                name = "USS California BB-44"
+                type = ship_hull_heavy_1
+                parent_version = 0
+                modules = {
+                    fixed_ship_battery_slot = ship_heavy_battery_2
+                    fixed_ship_anti_air_slot = ship_anti_air_3
+                    fixed_ship_fire_control_system_slot = ship_fire_control_system_2
+                    fixed_ship_radar_slot = ship_radar_3
+                    fixed_ship_engine_slot = light_ship_engine_3
+                    fixed_ship_armor_slot = ship_armor_bb_2
+                    front_1_custom_slot = ship_heavy_battery_2
+                    mid_1_custom_slot = ship_anti_air_3
+                    mid_2_custom_slot = ship_airplane_launcher_2
+                    rear_1_custom_slot = ship_anti_air_3
+                    }
+                }
+                load_oob = "USA_california"
+            }
+        }
+    }
+
+    repair_nevada = {
+        visible = {
+            not = { has_country_flag = repair_nevada_done }
+        }
+        cost = 0
+		ai_will_do = { #guo
+		factor = 100
+		}
+        available = {
+            
+        }
+		fire_only_once = yes
+        modifier = {
+            industrial_capacity_dockyard = -0.02
+        }
+        days_remove = 400
+        complete_effect = {
+            custom_effect_tooltip = nevada.desc
+        }
+        remove_effect = {
+		set_country_flag = repair_nevada_done
+            custom_effect_tooltip = nevada.effect
+            hidden_effect = {
+                create_equipment_variant = {
+                name = "USS Nevada BB-36"
+                type = ship_hull_heavy_1
+                parent_version = 0
+                modules = {
+                    fixed_ship_battery_slot = ship_heavy_battery_2
+                    fixed_ship_anti_air_slot = ship_anti_air_3
+                    fixed_ship_fire_control_system_slot = ship_fire_control_system_2
+                    fixed_ship_radar_slot = ship_radar_3
+                    fixed_ship_engine_slot = light_ship_engine_3
+                    fixed_ship_armor_slot = ship_armor_bb_2
+                    front_1_custom_slot = ship_heavy_battery_2
+                    mid_1_custom_slot = ship_anti_air_3
+                    mid_2_custom_slot = ship_airplane_launcher_2
+                    rear_1_custom_slot = ship_anti_air_3
+                }
+            }
+            load_oob = "USA_nevada"
+            }
+        }
+    }
+
+    repair_tennessee = {
+        visible = {
+            not = { has_country_flag = repair_tennessee_done }
+        }
+        cost = 0
+		ai_will_do = { #guo
+		factor = 100
+		}
+        available = {
+            
+        }
+		fire_only_once = yes
+        modifier = {
+            industrial_capacity_dockyard = -0.02
+        }
+        days_remove = 400
+        complete_effect = {
+            custom_effect_tooltip = tennessee.desc
+        }
+        remove_effect = {
+		set_country_flag = repair_tennessee_done
+            custom_effect_tooltip = tennessee.effect
+            hidden_effect = {
+                create_equipment_variant = {
+                name = "USS Tennessee BB-43"
+                type = ship_hull_heavy_1
+                parent_version = 0
+                modules = {
+                    fixed_ship_battery_slot = ship_heavy_battery_2
+                    fixed_ship_anti_air_slot = ship_anti_air_3
+                    fixed_ship_fire_control_system_slot = ship_fire_control_system_2
+                    fixed_ship_radar_slot = ship_radar_3
+                    fixed_ship_engine_slot = light_ship_engine_3
+                    fixed_ship_armor_slot = ship_armor_bb_2
+                    front_1_custom_slot = ship_heavy_battery_2
+                    mid_1_custom_slot = ship_anti_air_3
+                    mid_2_custom_slot = ship_airplane_launcher_2
+                    rear_1_custom_slot = ship_anti_air_3
+                }
+            }
+            load_oob = "USA_tennessee"
+            }
+        }
+    }
+
+    repair_maryland = {
+        visible = {
+            not = { has_country_flag = repair_maryland_done }
+        }
+        cost = 0
+		ai_will_do = { #guo
+		factor = 100
+		}
+        available = {
+            
+        }
+		fire_only_once = yes
+        modifier = {
+            industrial_capacity_dockyard = -0.02
+        }
+        days_remove = 400
+        complete_effect = {
+            custom_effect_tooltip = maryland.desc
+        }
+        remove_effect = {
+		set_country_flag = repair_maryland_done
+            custom_effect_tooltip = maryland.effect
+            hidden_effect = {
+                create_equipment_variant = {
+                name = "USS Maryland BB-46"
+                type = ship_hull_heavy_1
+                parent_version = 0
+                modules = {
+                    fixed_ship_battery_slot = ship_heavy_battery_2
+                    fixed_ship_anti_air_slot = ship_anti_air_3
+                    fixed_ship_fire_control_system_slot = ship_fire_control_system_2
+                    fixed_ship_radar_slot = ship_radar_3
+                    fixed_ship_engine_slot = light_ship_engine_3
+                    fixed_ship_armor_slot = ship_armor_bb_2
+                    front_1_custom_slot = ship_heavy_battery_2
+                    mid_1_custom_slot = ship_anti_air_3
+                    mid_2_custom_slot = ship_airplane_launcher_2
+                    rear_1_custom_slot = ship_anti_air_3
+                }
+            }
+            load_oob = "USA_maryland"
+            }
+        }
+    }
+}

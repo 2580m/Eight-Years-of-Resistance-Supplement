@@ -1,0 +1,1286 @@
+fuck_you_donot_bother_me_AI_NMSL = {
+
+	ban_gongye_debuff = {
+		priority = 9999
+		
+		visible = {
+			is_ai = no
+		}
+		available = {
+			
+		}
+		complete_effect = {
+			every_country = {
+				remove_ideas = incompetent_heavy_industry
+				remove_ideas = no_proper_equipment_design
+				remove_ideas = agrarion_society_generic_1
+				remove_ideas = agrarion_society_generic_2
+				remove_ideas = agrarion_society_generic_3
+			}
+		}
+	}
+	
+	ban_ammo_market_zz = {
+		priority = 9500
+		
+		visible = {
+			is_ai = no
+		}
+		available = {
+			
+		}
+		complete_effect = {
+			set_global_flag = ban_ammo_market_zz
+		}
+	}
+	go_ammo_market_zz = {
+		priority = 9500
+		
+		visible = {
+			is_ai = no
+		}
+		available = {
+			has_global_flag = ban_ammo_market_zz
+		}
+		complete_effect = {
+			clr_global_flag = ban_ammo_market_zz
+		}
+	}
+
+	fuck_you_donot_bother_me = {
+		visible = {
+			is_ai = no
+			NOT = {
+				has_country_flag = donot_bother_me
+			}
+		}
+		available = {
+			
+		}
+		complete_effect = {
+			hidden_effect = {
+				set_country_flag = donot_bother_me
+				country_event = {
+					id = gf.5
+				}
+				#不知道为什么，在这里写every_country会闪退，所以写到事件里去了
+			}
+		}
+	}
+	OK_you_can_beg_me = {
+		visible = {
+			is_ai = no
+			has_country_flag = donot_bother_me
+		}
+		available = {
+			
+		}
+		complete_effect = {
+			hidden_effect = {
+				country_event = {
+					id = gf.6
+				}
+				clr_country_flag = donot_bother_me
+			}
+		}
+	}
+	
+	fuck_you_donot_send_army_to_me = {
+		visible = {
+			is_ai = no
+			NOT = {
+				has_country_flag = ai_dont_send_army_to_me
+			}
+		}
+		available = {
+			
+		}
+		complete_effect = {
+			hidden_effect = {
+				set_country_flag = ai_dont_send_army_to_me
+				country_event = {
+					id = gf.7
+				}
+				#不知道为什么，在这里写every_country会闪退，所以写到事件里去了
+			}
+		}
+	}
+	OK_you_can_send_army_to_me = {
+		visible = {
+			is_ai = no
+			has_country_flag = ai_dont_send_army_to_me
+		}
+		available = {
+			
+		}
+		complete_effect = {
+			hidden_effect = {
+				country_event = {
+					id = gf.8
+				}
+				clr_country_flag = ai_dont_send_army_to_me
+			}
+		}
+	}
+	
+	ban_minor_country = {
+		priority = 8888
+
+		icon = generic_army_support
+		fire_only_once = no
+
+		allowed = {
+			always = yes
+		}
+
+		available = {
+			
+		}
+
+		visible = {
+		    is_ai = no
+		}
+
+		cost = 0
+		
+		ai_will_do = {
+			base = 0
+		}
+
+		complete_effect = {
+			every_other_country = {
+				limit = {
+				    is_ai = yes
+					is_literally_china = no
+					not = { original_tag = SIK original_tag = TIB original_tag = CHI original_tag = PRC }
+					is_major = no
+					not = { tag = CAN tag = USA tag = MEX tag = HOL tag = FRA tag = ENG }
+					OR = {
+					    is_subject = no
+						overlord = { is_ai = yes }
+					}
+					or = {
+					    capital_scope = { is_on_continent = south_america }
+						capital_scope = { is_on_continent = north_america }
+					}
+				}
+				BRA = {
+				    annex_country = { target = PREV transfer_troops = no }
+					add_ideas = kaibai
+			    }
+		    }
+			every_other_country = {
+				limit = {
+				    is_ai = yes
+					is_literally_china = no
+					not = { original_tag = SIK original_tag = TIB original_tag = CHI original_tag = PRC }
+					is_major = no
+					not = { tag = CAN tag = USA tag = MEX tag = RAJ }
+					or = {
+					    TAG = YEM TAG = OMA TAG = LIB 
+					}
+					ENG = { exists = yes is_major = yes is_subject = no }
+				}
+				ENG = {
+				    annex_country = { target = PREV transfer_troops = no }
+			    }
+		    }
+		}
+	}
+	
+	ban_RCM_great_patriotic_war_buff = {
+		priority = 2001
+
+		icon = generic_army_support
+		fire_only_once = yes
+
+		allowed = {
+			always = yes
+		}
+
+		available = {
+			
+		}
+
+		visible = {
+		    is_ai = no
+		}
+
+		cost = 0
+		
+		ai_will_do = {
+			base = 0
+		}
+
+		complete_effect = {
+			set_global_flag = ban_RCM_great_patriotic_war_buff
+		}
+	}
+	
+	ban_the_ally_occupation_of_ger = {
+		priority = 2000
+
+		icon = generic_army_support
+		fire_only_once = yes
+
+		allowed = {
+			always = yes
+		}
+
+		available = {
+			
+		}
+
+		visible = {
+		    is_ai = no
+		}
+
+		cost = 0
+		
+		ai_will_do = {
+			base = 0
+		}
+
+		complete_effect = {
+			country_event = PRC_luobinghui.200
+		}
+	}
+	
+	save_the_cpu = {
+		priority = 1000
+
+		icon = generic_army_support
+		fire_only_once = no
+
+		allowed = {
+			always = yes
+		}
+
+		available = {
+			
+		}
+
+		visible = {
+		    is_ai = no
+		}
+
+		cost = 0
+		
+		ai_will_do = {
+			base = 0
+		}
+
+		complete_effect = {
+			every_other_country = {
+			    limit = {
+				    is_ai = yes
+					is_literally_china = no
+					not = { original_tag = SIK original_tag = TIB original_tag = CHI original_tag = PRC }
+				}
+                set_country_flag = delete_unit_country
+            }
+			every_other_country = {
+				limit = {
+				    is_ai = yes
+					is_literally_china = no
+					not = { original_tag = SIK original_tag = TIB original_tag = CHI original_tag = PRC }
+				}
+				delete_unit = {
+				    disband = yes 
+			    }
+		    }
+			every_other_country = {
+				limit = {
+				    is_ai = yes
+					is_literally_china = no
+					not = { original_tag = SIK original_tag = TIB original_tag = CHI original_tag = PRC }
+					is_major = no
+					not = { tag = CAN tag = USA tag = MEX }
+					OR = {
+					    is_subject = no
+						overlord = { is_ai = yes }
+					}
+					or = {
+					    capital_scope = { is_on_continent = south_america }
+						capital_scope = { is_on_continent = north_america }
+					}
+				}
+				BRA = {
+				    annex_country = { target = PREV transfer_troops = no }
+					add_ideas = kaibai
+			    }
+		    }
+			every_other_country = {
+				limit = {
+				    is_ai = yes
+					is_literally_china = no
+					not = { original_tag = SIK original_tag = TIB original_tag = CHI original_tag = PRC }
+					is_major = no
+					not = { tag = CAN tag = USA tag = MEX tag = RAJ }
+					or = {
+					    TAG = YEM TAG = OMA TAG = LIB 
+					}
+					ENG = { exists = yes is_major = yes is_subject = no }
+				}
+				ENG = {
+				    annex_country = { target = PREV transfer_troops = no }
+			    }
+		    }
+			every_other_country = {
+				limit = {
+				    is_ai = yes
+					is_literally_china = no
+					not = { original_tag = SIK original_tag = TIB original_tag = CHI original_tag = PRC }
+				}
+				delete_unit = {
+				    disband = yes 
+			    }
+		    }
+		}
+	}
+	save_the_cpu_2 = {
+		priority = 800
+
+		icon = generic_army_support
+		fire_only_once = no
+
+		allowed = {
+			always = yes
+		}
+
+		available = {
+			
+		}
+
+		visible = {
+		    is_ai = no
+		}
+
+		cost = 0
+		
+		ai_will_do = {
+			base = 0
+		}
+
+		complete_effect = {
+			every_other_country = {
+			    limit = {
+				    is_ai = yes
+					is_literally_china = no
+					not = { original_tag = SIK original_tag = TIB original_tag = CHI original_tag = PRC }
+					is_major = no
+					not = { tag = CAN tag = USA tag = RAJ }
+				}
+                set_country_flag = delete_unit_country_minor
+            }
+			every_other_country = {
+				limit = {
+				    is_ai = yes
+					is_literally_china = no
+					not = { original_tag = SIK original_tag = TIB original_tag = CHI original_tag = PRC }
+					is_major = no
+					not = { tag = CAN tag = USA tag = RAJ }
+				}
+				delete_unit = {
+				    disband = no 
+			    }
+		    }
+		}
+	}
+}
+
+political_actions = {
+
+    GER_protect_rom_against_sov = {
+		priority = 9999
+
+		icon = generic_prepare_civil_war
+		fire_only_once = yes
+
+		allowed = {
+			original_tag = GER
+		}
+
+		available = {
+			
+		}
+
+		visible = {
+		    is_subject = no
+			is_major = yes
+			is_faction_leader = yes
+			is_ai = yes
+			not = { has_government = SOV }
+			ROM = { is_ai = yes owns_state = 46 has_defensive_war_with = SOV }
+			NOT = { has_war_with = ROM has_war_with = SOV }
+			NOT = { is_ally_with = SOV has_war_together_with = SOV }
+		}
+
+		cost = 0
+		
+		ai_will_do = {
+			base = 9999
+			
+		}
+
+		complete_effect = {
+		    add_to_faction = ROM
+			add_to_war = {
+		    targeted_alliance = ROM
+		    enemy = SOV
+	        }
+		}
+	}
+	
+	SOV_protect_TUR_against_GER = {
+		priority = 9999
+
+		icon = generic_prepare_civil_war
+		fire_only_once = yes
+
+		allowed = {
+			original_tag = SOV
+		}
+
+		available = {
+			
+		}
+
+		visible = {
+		    is_subject = no
+			is_major = yes
+			is_faction_leader = yes
+			is_ai = yes
+			not = { has_government = GER }
+			TUR = { is_ai = yes is_neighbor_of = root has_defensive_war_with = GER }
+			NOT = { has_war_with = TUR has_war_with = GER }
+			NOT = { is_ally_with = GER has_war_together_with = GER }
+		}
+
+		cost = 0
+		
+		ai_will_do = {
+			base = 9999
+			
+		}
+
+		complete_effect = {
+		    add_to_faction = TUR
+			add_to_war = {
+		    targeted_alliance = TUR
+		    enemy = GER
+	        }
+		}
+	}
+	SOV_protect_BALTIC_against_GER = {
+		priority = 9999
+
+		icon = generic_prepare_civil_war
+		fire_only_once = yes
+
+		allowed = {
+			original_tag = SOV
+		}
+
+		available = {
+			
+		}
+
+		visible = {
+		    is_subject = no
+			is_major = yes
+			is_faction_leader = yes
+			is_ai = yes
+			not = { has_government = GER }
+			OR = {
+			LIT = { is_ai = yes is_neighbor_of = root has_defensive_war_with = GER }
+			LAT = { is_ai = yes is_neighbor_of = root has_defensive_war_with = GER }
+			EST = { is_ai = yes is_neighbor_of = root has_defensive_war_with = GER }
+			}
+			NOT = { has_war_with = LIT has_war_with = LAT has_war_with = EST has_war_with = GER }
+			NOT = { is_ally_with = GER has_war_together_with = GER }
+		}
+
+		cost = 0
+		
+		ai_will_do = {
+			base = 9999
+			
+		}
+
+		complete_effect = {
+		    if = { limit = { LIT = { is_ai = yes is_neighbor_of = root } } add_to_faction = LIT }
+			if = { limit = { LAT = { is_ai = yes is_neighbor_of = root } } add_to_faction = LAT }
+			if = { limit = { EST = { is_ai = yes is_neighbor_of = root } } add_to_faction = EST }
+			add_to_war = {
+		    targeted_alliance = LIT
+		    enemy = GER
+	        }
+			add_to_war = {
+		    targeted_alliance = LAT
+		    enemy = GER
+	        }
+			add_to_war = {
+		    targeted_alliance = EST
+		    enemy = GER
+	        }
+		}
+	}
+	
+	AP_transform_puppet = {
+priority = 8000
+		icon = generic_prepare_civil_war
+                                allowed = {
+												has_dlc = "La Resistance"
+                                }
+		cost = 350
+
+                                fire_only_once = no
+
+                                target_array = subjects
+
+		target_trigger = {
+			FROM = {
+				is_subject_of = ROOT
+NOT = { tag = NEA }
+NOT = { tag = XIA }
+NOT = { tag = MAN }
+NOT = { tag = ECA }
+NOT = { tag = EHB }
+NOT = { has_autonomy_state = autonomy_collaboration_government }
+			}
+		}
+		available = {
+			FROM = {
+				NOT = { has_autonomy_state = autonomy_dominion }
+			}
+		}
+      		visible = {
+num_subjects > 0
+is_ai = no
+FROM = {
+NOT = { tag = NEA }
+NOT = { tag = XIA }
+NOT = { tag = MAN }
+NOT = { tag = ECA }
+NOT = { tag = EHB }
+is_subject_of = ROOT
+NOT = { has_country_flag = autonomy_collaboration_government_ai }
+NOT = { has_autonomy_state = autonomy_collaboration_government }
+}
+      		}
+
+		complete_effect = {
+			
+ROOT = {
+				set_autonomy = {
+					target = FROM
+					autonomy_state = autonomy_collaboration_government
+					freedom_level = 0.5
+				}
+}
+
+FROM = {
+#limit = {
+#is_subject_of = ROOT
+#NOT = { has_country_flag = autonomy_collaboration_government_ai }
+#} 
+set_country_flag = autonomy_collaboration_government_ai
+}
+
+			
+		}
+		
+
+		
+	}
+
+}
+
+
+operations = {
+	TechnoSucks = {
+		allowed = {
+			NOT = {
+				
+					tag = FIN
+					tag = SWE
+					tag = NOR
+					tag = MON
+					tag = SIA
+					
+					tag = USA
+					tag = CAN
+					tag = MEX
+					tag = ENG
+					
+					tag = BRA
+					tag = CHL
+					tag = ARG
+
+tag = NEP
+tag = BHU
+tag = YEM
+tag = OMA
+tag = URG
+original_tag = GER
+original_tag = ITA
+original_tag = SOV
+original_tag = LBA
+tag = GEF
+			}
+			
+		}
+
+		available = {
+		date > 1936.1.5
+		
+		}
+
+		visible = {
+			is_ai = yes
+			is_major = no
+			is_faction_leader = no
+			NOT = { is_subject_of = JAP }
+is_literally_china = no
+OR = {
+			has_focus_tree = generic_focus
+			has_focus_tree = legacy_generic_focus
+				capital_scope = { is_on_continent = south_america }
+				capital_scope = { is_on_continent = north_america }
+			}
+		}
+
+		cost = 0
+
+		fire_only_once = yes
+
+		ai_will_do = {
+			factor = 1000		
+		}
+
+		complete_effect = {
+			add_research_slot = -10
+		}
+	}
+
+}
+
+operations = {
+	CHI_run_to_north_west = {
+		icon = generic_army_support
+
+		allowed = {
+			tag = event_target:WTT_current_china_leader
+		}
+
+		available = {
+		is_faction_leader = yes
+		}
+
+		visible = {
+			surrender_progress > 0.8
+			not = {
+			605 = { is_controlled_by_ROOT_or_ally = yes }
+			744 = { is_controlled_by_ROOT_or_ally = yes }
+			}
+			has_war_with = JAP
+			or = {
+			is_in_faction_with = SIK
+			is_in_faction_with = XSM
+			is_in_faction_with = NXM
+			is_in_faction_with = GSM
+			is_in_faction_with = TNG
+			is_in_faction_with = HMI
+			is_in_faction_with = TIB
+			is_in_faction_with = SIC
+			is_in_faction_with = XIK
+			is_in_faction_with = YUN
+			}
+		}
+
+		cost = 0
+
+		fire_only_once = yes
+
+		ai_will_do = {
+			factor = 9999
+		}
+
+		complete_effect = {
+			every_country = {
+			limit = {
+			is_ai = yes
+			is_in_faction_with = root
+			or = {
+			tag = SIK
+			tag = XSM
+			tag = NXM
+			tag = GSM
+			tag = TNG
+			tag = HMI
+			tag = TIB
+			tag = SIC
+			tag = XIK
+			tag = YUN
+			}
+			}
+			transfer_navy = {
+				target = ROOT
+			}
+			every_unit_leader = {
+				set_nationality = ROOT
+			}
+			every_army_leader = {
+				set_nationality = ROOT
+			}
+			ROOT = {
+			annex_country = { target = PREV transfer_troops = yes }
+			}
+			}
+			set_global_flag = chi_run_happen
+			
+			add_ideas = chi_shibaizhuyi
+			every_other_country = {
+				limit = { is_ai = yes is_in_faction_with = root }
+				add_ideas = chi_shibaizhuyi
+			}
+		}
+	}
+	
+	SOV_run_to_ural = {
+		icon = generic_army_support
+
+		allowed = {
+			original_tag = SOV
+		}
+
+		available = {
+		
+		}
+
+		visible = {
+			has_civil_war = no
+			surrender_progress > 0.35
+			capital_scope = {
+				not = { state = 653 }
+			}
+			controls_state = 653
+			or = {
+			not = {
+			controls_state = 219
+			}
+			not = {
+			controls_state = 250
+			}
+			not = {
+			controls_state = 248
+			}
+			not = {
+			controls_state = 253
+			}
+			}
+			has_war = yes
+		}
+
+		cost = 0
+
+		fire_only_once = no
+		days_re_enable = 30
+
+		ai_will_do = {
+			factor = 9999
+		}
+
+		complete_effect = {
+		    if = {
+			limit = {
+			not = { has_global_flag = capital_653 }
+			}
+			653 = {
+		    add_victory_points = {
+					province = 1821
+					value = 25
+				}
+		    }
+			}
+		    set_capital = { state = 653 }
+			set_global_flag = capital_653
+		}
+	}
+}
+
+ROM_change_sides = {
+	
+	# Allies
+
+	ROM_change_sides_to_allies = {
+
+		icon = decision_generic_nationalism
+
+		allowed = {
+			original_tag = ROM
+		}
+
+		available = {
+			is_faction_leader = no
+			has_capitulated = no
+			any_country = {
+				is_faction_leader = yes
+				has_war_with = ROM
+				OR = {
+					has_government = democratic
+					original_tag = ENG
+					original_tag = USA
+				}
+			}
+			OR = {
+				has_country_leader = {
+					character = ROM_king_michael
+					ruling_only = yes
+				}
+				has_government = neutrality
+				has_government = democratic
+			}
+			NOT = {
+				FACTION_LEADER  = {
+					has_government = democratic
+				}
+			}
+			hidden_trigger = {
+				NOT = { has_country_flag = romania_has_flipped_sides } #Romania shouldn't be able to keep switching sides all the time
+			}
+		}
+		
+		visible = {
+			is_faction_leader = no # you shouldn't be able to betray your own faction
+			original_tag = ROM
+			NOT = { has_country_flag = romania_has_flipped_sides }
+			hidden_trigger = { has_country_flag = can_change_sides_dem }
+		}
+
+		cost = 0
+		
+		fire_only_once = yes
+		
+		remove_effect = {
+			hidden_effect = { clr_country_flag = can_change_sides_dem }
+		}
+
+		complete_effect = {
+			#save current faction leader for use in the event
+			hidden_effect = {
+				random_country = {
+					limit = {
+						is_in_faction_with = ROOT
+						is_faction_leader = yes
+					}
+					save_global_event_target_as = romania_former_ally_target
+				}
+			}
+			#top priority is joining the Allies if they still exist
+			if = {
+				limit = {
+					any_country = {
+						is_faction_leader = yes
+						has_war_with = ROM
+						has_government = democratic
+						OR = {
+							original_tag = ENG
+							is_in_faction_with = ENG
+						}
+					}
+				}
+				random_enemy_country = {
+					limit = {
+						is_faction_leader = yes
+						has_war_with = ROM
+						has_government = democratic
+						OR = {
+							original_tag = ENG
+							is_in_faction_with = ENG
+						}
+					}
+					save_event_target_as = romania_new_ally_target
+				}
+			}
+			#then attempts to join the USA's faction
+			else_if = {
+				limit = {
+					any_country = {
+						is_faction_leader = yes
+						has_war_with = ROM
+						has_government = democratic
+						OR = {
+							original_tag = USA
+							is_in_faction_with = USA
+						}
+					}
+				}
+				random_enemy_country = {
+					limit = {
+						is_faction_leader = yes
+						has_war_with = ROM
+						has_government = democratic
+						OR = {
+							original_tag = USA
+							is_in_faction_with = USA
+						}
+					}
+					save_event_target_as = romania_new_ally_target
+				}
+			}
+			#then attempts to join any democratic faction
+			else = {
+				random_enemy_country = {
+					limit = {
+						is_faction_leader = yes
+						has_war_with = ROM
+						has_government = democratic
+					}
+					save_event_target_as = romania_new_ally_target
+				}
+			}
+			event_target:romania_new_ally_target = {
+				country_event = { id = DOD_romania.16 }
+			}
+			hidden_effect = {
+				set_country_flag = romania_has_flipped_sides
+			}
+		}
+
+		ai_will_do = {
+			#AP
+			factor = 0
+		}
+	}
+}
+
+form_greater_german_reich_category = {
+
+	form_greater_german_reich = {
+
+		icon = generic_form_nation
+
+		allowed = {
+			original_tag = GER
+		}
+		
+		fire_only_once = yes
+
+		available = {
+			is_subject = no
+			206 = { is_controlled_by_ROOT_or_ally = yes }
+			202 = { is_controlled_by_ROOT_or_ally = yes }
+			all_owned_state = {
+				is_fully_controlled_by = ROOT
+			}
+		}
+
+		visible = {
+			AND = {
+				original_tag = GER
+				has_government = fascism
+				has_country_leader = { ruling_only = yes character = GER_adolf_hitler }
+			}
+			NOT = { has_global_flag = form_greater_german_reich_flag }
+			OR = {
+				AND = {
+					has_war_with = FRA
+					FRA = { has_capitulated = yes }
+				}
+				AND = {
+					16 = { owner = { or = { tag = root is_subject_of = root } } }
+				}
+			}
+		}
+
+		complete_effect = {
+			set_cosmetic_tag = GER_greater_german_reich
+			if = {
+			limit = { is_ai = no }
+			set_province_name = { id = 6521 name = "日耳曼尼亚" }
+			}
+			hidden_effect = {
+				set_global_flag = form_greater_german_reich_flag
+			}
+		}
+
+		ai_will_do = {
+			factor = 200
+			modifier = {
+				factor = 0
+				is_historical_focus_on = yes
+				date < 1943.1.1
+			}
+		}
+	}
+}
+
+form_macedonian_empire_category = {
+
+	form_macedonian_empire = {
+
+		icon = generic_form_nation
+
+		allowed = {
+			original_tag = GRE
+			has_dlc = "Battle for the Bosporus"
+		}
+
+		available = {
+			is_subject = no
+			# Greece
+			custom_trigger_tooltip = {
+				tooltip = form_country_greece_required_states_tt
+				controls_state = 185
+				controls_state = 731
+				controls_state = 47
+				controls_state = 186
+				controls_state = 184
+				controls_state = 187
+				controls_state = 182
+			}
+			# Macedonia [ Bulgaria / Yugoslav Macedonia / Albania ]
+			custom_trigger_tooltip = {
+				tooltip = form_country_southern_yugoslavia_required_states_tt
+				controls_state = 48
+				controls_state = 212
+				controls_state = 801
+				controls_state = 211
+				controls_state = 106
+				controls_state = 803
+				controls_state = 105
+				controls_state = 44
+				controls_state = 805
+				controls_state = 934
+			}
+			# Iran
+			custom_trigger_tooltip = {
+				tooltip = form_country_iran_required_states_tt
+				controls_state = 419
+				controls_state = 421
+				controls_state = 420
+				controls_state = 417
+				controls_state = 413
+				controls_state = 266
+				controls_state = 418
+				controls_state = 411
+				controls_state = 412
+				controls_state = 416
+				controls_state = 414
+				controls_state = 410
+			}
+			# Afghanistan
+			custom_trigger_tooltip = {
+				tooltip = form_country_afghanistan_required_states_tt
+				controls_state = 415
+				controls_state = 267
+			}
+			# Central Asia
+			custom_trigger_tooltip = {
+				tooltip = form_country_southern_central_asia_required_states_tt
+				controls_state = 742 # Tajikistan
+				controls_state = 405 # Uzbekistan
+				controls_state = 732 # Kyrgyzstan
+			}
+			# Iraq
+			custom_trigger_tooltip = {
+				tooltip = form_country_iraq_required_states_tt
+				controls_state = 676
+				controls_state = 675
+				controls_state = 291
+			}
+			# Turkey
+			custom_trigger_tooltip = {
+				tooltip = form_country_turkey_required_states_tt
+				controls_state = 341
+				controls_state = 340
+				controls_state = 339
+				controls_state = 342
+				controls_state = 343
+				controls_state = 347
+				controls_state = 49
+				controls_state = 346
+				controls_state = 345
+				controls_state = 356
+				controls_state = 348
+				controls_state = 344
+				controls_state = 355
+				controls_state = 349
+				controls_state = 350
+				controls_state = 354
+				controls_state = 353
+				controls_state = 352
+				controls_state = 797
+				controls_state = 798
+				controls_state = 800
+			}
+			# France: Syria
+			custom_trigger_tooltip = {
+				tooltip = form_persia_france_required_states_tt
+				controls_state = 677
+				controls_state = 680
+				controls_state = 553
+				controls_state = 554
+			}
+			# Britain: Egypt
+			custom_trigger_tooltip = {
+				tooltip = form_country_egypt_required_states_tt
+				controls_state = 452
+				controls_state = 447
+				controls_state = 446
+				controls_state = 456
+				controls_state = 453
+				controls_state = 457
+				controls_state = 907
+			}
+			# Britain: Levant / Kuwait
+			custom_trigger_tooltip = {
+				tooltip = form_country_british_levant_required_states_tt
+				controls_state = 454
+				controls_state = 455
+				controls_state = 656
+			}
+			# Raj / Punjab
+			custom_trigger_tooltip = {
+				tooltip = form_country_punjab_required_states_tt
+				controls_state = 440
+				controls_state = 443
+				controls_state = 441
+				controls_state = 787
+				controls_state = 442
+				controls_state = 445
+				controls_state = 444
+			}
+		}
+
+		visible = {
+			original_tag = GRE
+			OR = {
+				AND = {
+					has_completed_focus = GRE_moulding_the_new_world_order
+					has_country_leader = {
+						character = GRE_george_mercouris
+						ruling_only = yes
+					}
+				}
+				AND = {
+					has_completed_focus = GRE_protectors_of_the_mediterranean
+					
+					or = {
+					hidden_trigger = {
+					has_country_leader = {
+						name = "George II"
+						ruling_only = yes
+					}
+					}
+					has_country_leader = {#guo
+						name = "乔治二世"
+						ruling_only = yes
+					}
+					}
+				}
+			}
+			NOT = { has_global_flag = form_macedonian_empire_flag }
+		}
+
+		complete_effect = {
+			set_country_flag = GRE_mae_flag
+			GRE_set_appropriate_cosmetic_tag = yes
+			# Iran
+			custom_effect_tooltip = form_country_iran_coring_states_tt
+			hidden_effect = {
+				419 = { add_core_of = ROOT }
+				421 = { add_core_of = ROOT }
+				420 = { add_core_of = ROOT }
+				417 = { add_core_of = ROOT }
+				413 = { add_core_of = ROOT }
+				266 = { add_core_of = ROOT }
+				418 = { add_core_of = ROOT }
+				411 = { add_core_of = ROOT }
+				412 = { add_core_of = ROOT }
+				416 = { add_core_of = ROOT }
+				414 = { add_core_of = ROOT }
+				410 = { add_core_of = ROOT }
+			}
+			# Afghanistan
+			custom_effect_tooltip = form_country_afghanistan_coring_states_tt
+			hidden_effect = {
+				415 = { add_core_of = ROOT }
+				267 = { add_core_of = ROOT }
+			}
+			# Iraq
+			custom_effect_tooltip = form_country_iraq_coring_states_tt
+			hidden_effect = {
+				676 = { add_core_of = ROOT }
+				675 = { add_core_of = ROOT }
+				291 = { add_core_of = ROOT }
+			}
+			# Turkey
+			custom_effect_tooltip = form_country_turkey_coring_states_tt
+			hidden_effect = {
+				341 = { add_core_of = ROOT }
+				340 = { add_core_of = ROOT }
+				339 = { add_core_of = ROOT }
+				342 = { add_core_of = ROOT }
+				343 = { add_core_of = ROOT }
+				347 = { add_core_of = ROOT }
+				49 = { add_core_of = ROOT }
+				346 = { add_core_of = ROOT }
+				345 = { add_core_of = ROOT }
+				356 = { add_core_of = ROOT }
+				348 = { add_core_of = ROOT }
+				344 = { add_core_of = ROOT }
+				355 = { add_core_of = ROOT }
+				349 = { add_core_of = ROOT }
+				350 = { add_core_of = ROOT }
+				354 = { add_core_of = ROOT }
+				353 = { add_core_of = ROOT }
+				352 = { add_core_of = ROOT }
+				797 = { add_core_of = ROOT }
+				798 = { add_core_of = ROOT }
+				800 = { add_core_of = ROOT }
+			}
+			# France
+			custom_effect_tooltip = form_persia_france_coring_states_tt
+			hidden_effect = {
+				677 = { add_core_of = ROOT }
+				680 = { add_core_of = ROOT }
+				553 = { add_core_of = ROOT }
+				554 = { add_core_of = ROOT }
+			}
+			# Italy
+			custom_effect_tooltip = form_persia_italy_coring_states_tt
+			hidden_effect = {
+				164 = { add_core_of = ROOT }
+				450 = { add_core_of = ROOT }
+				451 = { add_core_of = ROOT }
+				663 = { add_core_of = ROOT }
+			}
+			# Britain
+			custom_effect_tooltip = form_persia_britain_coring_states_tt
+			hidden_effect = {
+				452 = { add_core_of = ROOT }
+				447 = { add_core_of = ROOT }
+				446 = { add_core_of = ROOT }
+				456 = { add_core_of = ROOT }
+				457 = { add_core_of = ROOT }
+				453 = { add_core_of = ROOT }
+				454 = { add_core_of = ROOT }
+				455 = { add_core_of = ROOT }
+				183 = { add_core_of = ROOT }
+				656 = { add_core_of = ROOT }
+				118 = { add_core_of = ROOT }
+				907 = { add_core_of = ROOT }
+			}
+			hidden_effect = {
+				set_global_flag = form_macedonian_empire_flag
+			}
+		}
+
+		ai_will_do = {
+			factor = 200
+		}
+	}
+}

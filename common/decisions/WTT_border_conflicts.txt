@@ -1,0 +1,1043 @@
+
+###########################
+#YARD1's PERFORMANCE BOOST#
+###########################
+#If you change the values loc for WTT_border_incident_delay_until_new_incident_180 and WTT_border_incident_delay_until_new_incident_120 has to be changed
+@border_incident_escalation_countdown = 30
+@border_conflict_incident_forgotten_timer = 30
+@border_conflict_escalate_to_war_countdown = 45
+@border_conflict_time_until_cancelled = 360
+
+CHI_border_clashes = {
+	##heavily MODDED here
+	RCM_insult_against_FROM = { #MODDEDvv
+		icon = eng_blackshirt_speech
+		cost = Root.insult_cost
+		days_re_enable = Root.insult_cd
+		available = {
+			FROM = {
+				any_owned_state = { #MODDEDvv
+					is_controlled_by = FROM
+					any_neighbor_state = {
+						is_fully_controlled_by = ROOT
+						#set_temp_variable = { var:attacker_state_temp = id }
+						#has_ROOT_at_least_1_div_in_current_state_scope = yes #MODDEDvv
+						#hidden_trigger = { NOT = { has_state_flag = border_incident_active } }
+					}
+					NOT = { has_state_flag = border_incident_active } #MODDEDvv
+					#set_temp_variable = { var:defender_state_temp = id }
+				}
+			}
+			NOT = { has_non_aggression_pact_with = FROM } #MODDEDvv'
+		}
+
+		visible = {
+			has_country_flag = unlock_insult_for_@FROM
+			FROM = { exists = yes }
+			NOT = { has_war_with = FROM }
+			FROM = { has_not_initiated_border_incident_with_ROOT = yes }
+			FROM = {
+				NOT = {
+					is_subject_of = ROOT
+				}
+				NOT = {
+					is_in_faction_with = ROOT #MODDEDvv
+				}
+			}
+			NOT = {
+				is_subject_of = FROM
+			}
+
+			OR = {
+				NOT = { has_border_war_with = FROM } #MODDEDvv
+				FROM = {
+					any_owned_state = {
+						is_controlled_by = FROM
+						hidden_trigger = { NOT = { has_state_flag = border_incident_active } }
+						any_neighbor_state = {
+							hidden_trigger = { NOT = { has_state_flag = border_incident_active } }
+							is_fully_controlled_by = ROOT
+						}
+					}
+				}
+			}
+		}
+
+		# VPI by Yard1
+		target_root_trigger = {
+			is_literally_china = yes #MODDEDvv
+		}
+		target_array = neighbors
+
+		target_trigger = {
+			FROM = { is_literally_china = yes }
+		}
+
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = 5
+				is_historical_focus_on = no
+			}
+			modifier = {
+				add = -25
+				is_historical_focus_on = yes
+			}
+			modifier = {
+				add = 5
+				FROM = {
+					has_opinion = {
+						target = ROOT #MODDEDvv
+						value > -50
+					}
+				}
+			}
+			modifier = {
+				add = -25
+				has_completed_focus = CHI_new_model_province #MODDEDvv
+			}
+			modifier = {
+				add = -25
+				political_power_growth < 0.6
+			}
+			modifier = { #don't be too harsh
+				add = -5
+				FROM = {
+					is_ai = no
+					has_war = yes
+				}				
+			}
+		}
+
+		fire_only_once = no #MODDEDvv
+
+		
+		#war_with_target_on_remove = yes
+
+		complete_effect = {
+		}
+		remove_effect = {
+			FROM = {
+				country_event = RCM_warlord.1
+				effect_tooltip = {
+					WRL_insult_for_border_conflict = yes
+				}
+			}
+		}
+	}
+	RCM_propagandize_against_FROM = { #MODDEDvv
+		icon = eng_propaganda_campaigns
+		custom_cost_trigger = {
+			political_power_growth > 0.25
+		}
+		custom_cost_text = pp_per_day_neg_025
+		available = {
+			FROM = {
+				any_owned_state = {
+					is_controlled_by = FROM
+					any_neighbor_state = {
+						is_fully_controlled_by = ROOT
+						#set_temp_variable = { var:attacker_state_temp = id } #MODDED
+						#has_ROOT_at_least_1_div_in_current_state_scope = yes #MODDED
+						#hidden_trigger = { NOT = { has_state_flag = border_incident_active } } #MODDED
+					}
+					NOT = { has_state_flag = border_incident_active }
+					#set_temp_variable = { var:defender_state_temp = id } #MODDED
+				}
+			}
+			NOT = { has_non_aggression_pact_with = FROM }
+		}
+
+		visible = {
+			FROM = { exists = yes }
+			NOT = { has_war_with = FROM }
+			FROM = { has_not_initiated_border_incident_with_ROOT = yes }
+			FROM = {
+				NOT = {
+					is_subject_of = ROOT
+				}
+				NOT = {
+					is_in_faction_with = ROOT
+				}
+			}
+			NOT = {
+				is_subject_of = FROM
+			}
+			OR = {
+				NOT = { has_border_war_with = FROM } #MODDED
+				FROM = {
+					any_owned_state = {
+						is_controlled_by = FROM
+						hidden_trigger = { NOT = { has_state_flag = border_incident_active } }
+						any_neighbor_state = {
+							hidden_trigger = { NOT = { has_state_flag = border_incident_active } }
+							is_fully_controlled_by = ROOT #MODDED
+						}
+					}
+				} #MODDED
+			}
+		}
+
+		# VPI by Yard1
+		target_root_trigger = { #MODDED
+			is_literally_china = yes
+		}
+		target_array = neighbors
+
+		target_trigger = {
+			FROM = { is_literally_china = yes }
+		}
+
+		ai_will_do = {
+			base = 0
+			modifier = {
+				add = -25
+				is_historical_focus_on = yes
+			}
+			modifier = {
+				add = 25
+				FROM = {
+					has_opinion = {
+						target = ROOT
+						value < -40
+					}
+				}
+			}
+		}
+
+		cost = 0
+
+		fire_only_once = no
+
+		days_remove = 30
+		modifier = {
+			political_power_gain = -0.25
+		}
+		#war_with_target_on_remove = yes
+
+		complete_effect = {
+		}
+		remove_effect = {
+			if = {
+				limit ={
+					NOT = {
+						has_country_flag = unlock_insult_for_@FROM
+					}
+				}
+				set_country_flag = unlock_insult_for_@FROM
+				unlock_decision_tooltip = RCM_insult_against_FROM
+			}
+			WRL_propaganda_for_border_conflict = yes
+		}
+	}
+	WTT_border_conflict_initiate_incident = { #MODDED
+		icon = border_war
+
+		available = {
+			#if = {
+			#	limit = {
+			#		OR = {
+			#			has_completed_focus = CHI_anti_opposition_campaigns
+			#			has_completed_focus = CHI_institute_cross_border_raids
+			#		}
+			#	}
+			#	has_opinion = {
+			#		target = FROM #MODDED
+			#		value < -29
+			#	}
+			#	FROM = {
+			#		has_opinion = {
+			#			target = ROOT #MODDED
+			#			value < -29
+			#		}
+			#	}
+			#}
+			#else = {
+				has_opinion = {
+					target = FROM #MODDED
+					value < -49
+				}
+				FROM = {
+					has_opinion = {
+						target = ROOT #MODDED
+						value < -49
+					}
+				}
+			#}
+			
+			FROM = {
+				any_owned_state = {
+					is_controlled_by = FROM #MODDED
+					any_neighbor_state = {
+						is_fully_controlled_by = ROOT
+						set_temp_variable = { var:attacker_state_temp = id }
+						has_ROOT_at_least_1_div_in_current_state_scope = yes #MODDED
+						hidden_trigger = { NOT = { has_state_flag = border_incident_active } }
+					}
+					NOT = { has_state_flag = border_incident_active }
+					set_temp_variable = { var:defender_state_temp = id }
+				}
+			}
+			NOT = { has_non_aggression_pact_with = FROM }
+			if = {
+				limit = {
+					has_idea = SIK_tng_truce_agreement
+				}
+				NOT = {
+					FROM = {
+						tag = TNG
+					}
+				}
+			}
+			if = {
+				limit = {
+					has_idea = SIK_tng_truce_agreement_tng
+				}
+				NOT = {
+					FROM = {
+						tag = SIK
+					}
+				}
+			}
+		}
+
+		visible = {
+			if = {
+				limit = {
+					tag = SIK
+				}
+				has_completed_focus = SIK_Destroy_the_Hotan_warlord #MODDED
+			}
+			if = {
+				limit = {
+					tag = PRC
+				}
+				has_completed_focus = PRC_Red_Army #MODDED
+			}
+			if = {
+				limit = {
+					NOT = {
+						OR = {
+							has_completed_focus = CHI_clash_with_the_central_government_focus #MODDED
+							has_completed_focus = CHI_provoke_border_clashes
+						}
+					}
+				}
+				FROM = {
+					NOT = {
+						is_legit_china = yes #MODDED
+					}
+				}
+			}
+			FROM = {
+				NOT = {
+					is_subject_of = JAP #MODDED
+				}
+			}
+			FROM = {
+				NOT = {
+					is_subject_of = ROOT #MODDED
+				}
+			}
+			FROM = { exists = yes }
+			NOT = { has_war_with = FROM }
+			FROM = { has_not_initiated_border_incident_with_ROOT = yes }
+			FROM = {
+				NOT = {
+					is_subject_of = ROOT
+				}
+				NOT = {
+					is_in_faction_with = ROOT #MODDED
+				}
+			}
+			NOT = {
+				is_subject_of = FROM #MODDED
+			} #MODDED
+			FROM = {
+				is_literally_china = yes #MODDED
+			} #MODDED
+			OR = {
+				NOT = { has_border_war_with = FROM }
+				FROM = {
+					any_owned_state = {
+						is_controlled_by = FROM
+						hidden_trigger = { NOT = { has_state_flag = border_incident_active } }
+						any_neighbor_state = {
+							hidden_trigger = { NOT = { has_state_flag = border_incident_active } }
+							is_fully_controlled_by = ROOT
+						}
+					}
+				}
+			}
+		}
+
+		# VPI by Yard1
+		target_root_trigger = {
+			is_literally_china = yes
+		}
+		target_array = neighbors
+
+		target_trigger = {
+			FROM = { is_literally_china = yes }
+		}
+
+		highlight_states = {
+			highlight_states_trigger = {
+				OR = {
+					state = FROM.defender_state_vs_@ROOT
+					AND = {
+						is_owned_and_controlled_by = FROM
+						hidden_trigger = { NOT = { has_state_flag = border_incident_active } }
+						any_neighbor_state = {
+							hidden_trigger = { NOT = { has_state_flag = border_incident_active } }
+							has_ROOT_at_least_1_div_in_current_state_scope = yes
+							is_fully_controlled_by = ROOT
+						}
+					}
+				}
+				NOT = { has_state_flag = I_choose_this_state_to_DMZ } #guo
+			}
+		}
+
+		ai_will_do = {
+			base = 100 #MODDED
+			modifier = {
+				factor = 0 #guo
+				is_historical_focus_on = yes
+				date < 1938.1.1
+			}
+			modifier = {
+				factor = 0 #guo
+				is_historical_focus_on = yes
+				has_war_with = JAP
+				NOT = { TAG = CHI }
+			}
+			modifier = {
+				add = 6000 #guo 第一次反共高潮
+				TAG = CHI
+				has_war_with = JAP
+				date > 1939.10.1
+				date < 1940.6.1
+				FROM = {
+					tag = PRC
+				}
+			}
+			modifier = {
+				add = 500 #guo 抗战结束后的各地局部冲突
+				or = {
+				TAG = CHI
+				}
+				FROM = {
+					or = {
+				    TAG = PRC
+				    }
+				}
+				date > 1938.1.1
+				not = { has_war_with = JAP }
+			}
+			modifier = {
+				add = 500 #guo 抗战结束后的各地局部冲突
+				or = {
+				TAG = PRC
+				}
+				FROM = {
+					or = {
+				    TAG = CHI
+				    }
+				}
+				date > 1938.1.1
+				not = { has_war_with = JAP }
+			}
+			modifier = {
+				factor = 0 #guo
+				or = {
+				TAG = PRC
+				}
+				FROM = {
+					or = {
+				    is_warlord = yes
+				    }
+					is_ai = yes
+				}
+				date > 1938.1.1
+				not = { has_war_with = JAP }
+			}
+			modifier = {
+				factor = 0 #guo
+				FROM = {
+					or = {
+				    is_warlord = yes
+				    tag = SIK
+				    }
+				}
+				or = {
+				is_warlord = yes
+				tag = SIK
+				}
+				is_historical_focus_on = yes
+			}
+            modifier = {
+				add = -300 #MODDED
+				FROM = {
+					tag = EGM #MODDED
+				}
+				tag = PRC #MODDED
+			}
+			modifier = {
+				add = -300 #MODDED
+				FROM = {
+					tag = PRC #MODDED
+				}
+				tag = EGM #MODDED
+			}
+			modifier = {
+				add = 350 #guo
+				is_historical_focus_on = no #MODDED
+			}
+            modifier = {
+				add = -300 #MODDED
+				FROM = {
+					tag = SIK #MODDED
+				}
+				tag = TNG #MODDED
+			}
+			modifier = {
+				add = -300 #MODDED
+				FROM = {
+					tag = TNG#MODDED
+				}
+				tag = SIK #MODDED
+			}
+			modifier = { #MODDED
+				add = -300 
+				FROM = {
+					original_tag = SIK
+				}
+				original_tag = SIK 
+			} #MODDED
+			modifier = {
+				add = -300 #MODDED
+				FROM = {
+					tag = SIK #MODDED
+				}
+				tag = KHR #MODDED
+			}
+		}
+
+		cost = 25 #guo
+	#=====================pretty much all things above are modded========================
+		fire_only_once = no
+
+		days_remove = @border_incident_escalation_countdown
+		days_re_enable = 120 #MODDED
+
+		war_with_target_on_remove = yes
+
+		complete_effect = {
+			hidden_effect = {
+				FROM = {
+					random_owned_controlled_state = {
+						limit = {
+							hidden_trigger = { NOT = { has_state_flag = border_incident_active } }
+							any_neighbor_state = {
+								hidden_trigger = { NOT = { has_state_flag = border_incident_active } }
+								has_ROOT_at_least_1_div_in_current_state_scope = yes
+								is_fully_controlled_by = ROOT
+							}
+							not = { has_state_flag = dont_border_this_state } #guo
+                            not = { has_state_flag = I_choose_this_state_to_DMZ } #guo
+						}
+						save_event_target_as = defender_state
+						set_variable = { FROM.defender_state_vs_@ROOT = id }
+						set_temp_variable = { defender_state_temp = id }
+						set_state_flag = border_incident_active
+					}
+				}
+				random_state = {
+					limit = {
+						is_fully_controlled_by = ROOT
+						hidden_trigger = { NOT = { has_state_flag = border_incident_active } }
+						has_ROOT_at_least_1_div_in_current_state_scope = yes
+						any_neighbor_state = {
+							state = var:FROM.defender_state_vs_@ROOT
+						}
+					}
+					save_event_target_as = attacker_state
+					set_variable = { FROM.attacker_state_vs_@ROOT = id }
+					set_temp_variable = { attacker_state_temp = id }
+					set_state_flag = border_incident_active
+				}
+			}
+			custom_effect_tooltip = WTT_border_incident_delay_until_new_incident_120
+			FROM = {
+				country_event = { id = wtt_border_incident_defender_warning.1 hours = 1 }
+				activate_targeted_decision = { target = ROOT decision = WTT_border_conflict_incident_warning_defender }
+			}
+		}
+		remove_effect = {
+			hidden_effect = {
+				var:FROM.defender_state_vs_@ROOT = {
+					save_event_target_as = defender_state
+				}
+				var:FROM.attacker_state_vs_@ROOT = {
+					save_event_target_as = attacker_state
+				}
+				FROM = {
+					random_owned_controlled_state = {
+						limit = {
+							hidden_trigger = { NOT = { has_state_flag = border_incident_active } }
+							any_neighbor_state = {
+								is_fully_controlled_by = ROOT
+								has_ROOT_at_least_1_div_in_current_state_scope = yes
+								hidden_trigger = { NOT = { has_state_flag = border_incident_active } }
+							}
+						}
+						set_temp_variable = { defender_state_temp = id }
+					}
+				}
+				random_state = {
+					limit = {
+						is_fully_controlled_by = ROOT
+						hidden_trigger = { NOT = { has_state_flag = border_incident_active } }
+						has_ROOT_at_least_1_div_in_current_state_scope = yes
+						any_neighbor_state = {
+							state = var:FROM.defender_state_vs_@ROOT
+						}
+					}
+					set_temp_variable = { attacker_state_temp = id }
+				}
+			}
+			activate_targeted_decision = { target = FROM decision = WTT_escalate_incident_to_border_conflict }
+		}
+	}
+
+	#Mission for defender warning that a conflict with FROM is coming
+	WTT_border_conflict_incident_warning_defender = {
+
+		icon = border_war
+
+		allowed = { always = no } #Activated from effect
+
+		available = {
+			hidden_trigger = { always = no }
+		}
+
+		highlight_states = {
+			highlight_states_trigger = {
+				OR = {
+					state = var:defender_state_temp
+					state = var:ROOT.defender_state_vs_@FROM
+				}
+			}
+		}
+
+		war_with_target_on_timeout = yes
+		ai_will_do = {
+			base = 0
+			modifier = {
+
+			}
+		}
+
+		days_mission_timeout = @border_incident_escalation_countdown
+
+		fire_only_once = yes
+
+		is_good = no
+
+		timeout_effect = {
+			custom_effect_tooltip = escalation_possible_tooltip_for_defender
+			custom_effect_tooltip = effects_if_border_conflict_is_lost
+			effect_tooltip = {
+				add_political_power = -100
+				var:ROOT.defender_state_vs_@FROM = { FROM = { transfer_state = PREV } }
+			}
+			hidden_effect = {
+				remove_targeted_decision = { target = FROM decision = WTT_border_conflict_incident_warning_defender }
+				activate_targeted_decision = { target = FROM decision = WTT_border_conflict_escalation_warning_defender }
+			}
+		}
+	}
+
+	#Mission for defender warning FROM can escalate to war at any point is coming
+	WTT_border_conflict_escalation_warning_defender = {
+
+		icon = border_war
+
+		allowed = { always = no } #Activated from effect
+
+		available = {
+			hidden_trigger = { always = no }
+		}
+
+		highlight_states = {
+			highlight_states_trigger = {
+				OR = {
+					state = var:defender_state_temp
+					state = var:ROOT.defender_state_vs_@FROM
+				}
+			}
+		}
+
+		war_with_target_on_timeout = yes
+		ai_will_do = {
+			base = 0
+			modifier = {
+
+			}
+		}
+
+		days_mission_timeout = @border_conflict_incident_forgotten_timer
+
+		fire_only_once = yes
+
+		is_good = no
+
+		timeout_effect = {
+			custom_effect_tooltip = from_cannot_escalate
+			custom_effect_tooltip = effects_if_border_conflict_is_lost
+			effect_tooltip = {
+				add_political_power = -100
+				var:ROOT.defender_state_vs_@FROM = { FROM = { transfer_state = PREV } }
+			}
+		}
+	}
+
+	#Mission for attacker to escalate or incident is forgotten
+	#Decision to escalate incident on border with FROM to border conflict
+	WTT_escalate_incident_to_border_conflict = {
+
+		icon = border_war
+
+		allowed = { always = no } #Activated from effect
+
+		available = {
+			var:FROM.attacker_state_vs_@ROOT = {
+				is_fully_controlled_by = ROOT
+			}
+			divisions_in_border_state = {
+				state = var:FROM.attacker_state_vs_@ROOT
+				border_state = var:FROM.defender_state_vs_@ROOT
+				size > 0
+			}
+		}
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = var:FROM.attacker_state_vs_@ROOT
+			}
+		}
+
+		ai_will_do = {
+			base = 100 		#MODDED
+			modifier = {
+
+			}
+		}
+
+		cancel_trigger = {
+			is_in_faction_with = FROM
+		}
+
+		selectable_mission = yes
+
+		fire_only_once = yes #Reactivation handled in effect
+
+		days_mission_timeout = @border_conflict_incident_forgotten_timer
+
+		timeout_effect = {
+			custom_effect_tooltip = WTT_border_incident_delay_until_new_incident_60
+			hidden_effect = {
+				FROM = { remove_targeted_decision = { target = ROOT decision = WTT_border_conflict_escalation_warning_defender } }
+				FROM = {
+					var:attacker_state_vs_@ROOT = {
+						clr_state_flag = border_incident_active
+					}
+					var:defender_state_vs_@ROOT = {
+						clr_state_flag = border_incident_active
+					}
+					clear_variable = attacker_state_vs_@ROOT
+					clear_variable = defender_state_vs_@ROOT
+				}
+			}
+		}
+
+		complete_effect = {
+			start_border_war = {
+				change_state_after_war = no
+				attacker = {
+					state = var:FROM.attacker_state_vs_@ROOT
+					num_provinces = 4
+					on_win = wtt_border_conflict_won_attacker.1
+					on_lose = wtt_border_conflict_lost_attacker.1
+					on_cancel = wtt_border_conflict_canceled_attacker.1
+				}
+
+				defender = {
+					state = var:FROM.defender_state_vs_@ROOT
+					num_provinces = 4
+					on_win = wtt_border_conflict_won_defender.1
+					on_lose = wtt_border_conflict_lost_defender.1
+					on_cancel = wtt_border_conflict_canceled_defender.1
+				}
+			}
+			FROM = {
+				activate_targeted_decision = { target = ROOT decision = WTT_border_conflict_escalate_conflict }
+				activate_targeted_decision = { target = ROOT decision = WTT_border_conflict_time_until_cancelled }
+			}
+			activate_targeted_decision = { target = FROM decision = WTT_border_conflict_escalate_conflict }
+			activate_targeted_decision = { target = FROM decision = WTT_border_conflict_time_until_cancelled }
+		}
+	}
+
+	#Mission for attacker to win border war against FROM in X days
+	WTT_border_conflict_time_until_cancelled = {
+
+		icon = border_war
+
+		allowed = { always = no } #Activated from effect
+
+		available = {
+			var:FROM.defender_state_vs_@ROOT = { has_border_war = no }
+			var:FROM.attacker_state_vs_@ROOT = { has_border_war = no }
+		}
+
+		highlight_states = {
+			highlight_states_trigger = {
+				OR = {
+					state = var:defender_state_temp
+					state = var:FROM.defender_state_vs_@ROOT
+				}
+			}
+		}
+
+		ai_will_do = {
+			base = 0
+			modifier = {
+
+			}
+		}
+
+		days_mission_timeout = @border_conflict_time_until_cancelled
+		is_good = no
+
+		fire_only_once = yes #Reactivation handled in effect
+
+		complete_effect = {
+
+		}
+
+		timeout_effect = {
+			if = {
+				limit = { is_border_conflict_defender_vs_FROM = yes }
+				cancel_border_war = {
+					defender = var:defender_state_vs_@FROM
+					attacker = var:attacker_state_vs_@FROM
+				}
+			}
+			else = {
+				cancel_border_war = {
+					defender = var:FROM.defender_state_vs_@ROOT
+					attacker = var:FROM.attacker_state_vs_@ROOT
+				}
+			}
+			hidden_effect = {
+				remove_targeted_decision = { target = FROM decision = WTT_border_conflict_escalate_conflict }
+			}
+		}
+	}
+
+	#Decision to escalate conflict further
+	WTT_border_conflict_escalate_conflict = {
+
+		icon = decision_generic_ignite_civil_war
+
+		allowed = { always = no } #Activated from effect
+
+		visible = {
+			has_border_war_with = FROM
+		}
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = var:FROM.attacker_state_vs_@ROOT
+				state = var:ROOT.defender_state_vs_@FROM
+			}
+		}
+
+		cost = 25 #guo
+
+		ai_will_do = {
+			base = 0
+			modifier = {
+
+			}
+		}
+
+		fire_only_once = yes #Reactivation handled in effect
+
+		complete_effect = {
+			if = {
+				limit = { is_border_conflict_defender_vs_FROM = yes }
+				set_border_war_data = {
+					attacker = var:ROOT.attacker_state_vs_@FROM		#MODDED
+					defender = var:ROOT.defender_state_vs_@FROM
+					defender_modifier = 0.15
+					combat_width = 100
+				}
+			}
+			else = {
+				set_border_war_data = {
+					attacker = var:FROM.attacker_state_vs_@ROOT		#MODDED
+					defender = var:FROM.defender_state_vs_@ROOT
+					attacker_modifier = 0.15
+					combat_width = 100
+				}
+			}
+			FROM = {
+				set_country_flag = {
+					flag = WTT_border_conflict_escalate_to_war_cooldown_@ROOT
+					days = @border_conflict_escalate_to_war_countdown
+					value = 1
+				}
+				remove_targeted_decision = { target = ROOT decision = WTT_border_conflict_escalate_conflict }
+			}
+			set_country_flag = {
+				flag = WTT_border_conflict_escalate_to_war_cooldown_@FROM
+				days = @border_conflict_escalate_to_war_countdown
+				value = 1
+			}
+			custom_effect_tooltip = in_45_days
+			activate_targeted_decision = { target = FROM decision = WTT_border_conflict_escalate_to_war }
+		}
+	}
+
+	#Decision to escalate conflict further
+	WTT_border_conflict_escalate_to_war = {
+
+		icon = decision_generic_ignite_civil_war
+
+		allowed = { always = no } #Activated from effect
+
+		visible = {
+			NOT = { has_country_flag = WTT_border_conflict_escalate_to_war_cooldown_@FROM }
+			has_border_war_with = FROM
+		}
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = var:FROM.defender_state_vs_@ROOT
+				state = var:ROOT.attacker_state_vs_@FROM
+			}
+		}
+
+		cost = 50 #guo
+
+		ai_will_do = {
+			base = 0
+			modifier = {
+
+			}
+		}
+
+		days_remove = 15
+
+		fire_only_once = yes #Reactivation handled in effect
+
+		war_with_target_on_remove = yes
+
+		complete_effect = {
+			if = {
+				limit = { is_border_conflict_defender_vs_FROM = yes }
+				var:ROOT.defender_state_vs_@FROM = { save_event_target_as = their_state }
+				var:ROOT.attacker_state_vs_@FROM = { save_event_target_as = our_state }
+			}
+			else = {
+				var:FROM.defender_state_vs_@ROOT = { save_event_target_as = our_state }
+				var:FROM.attacker_state_vs_@ROOT = { save_event_target_as = their_state }
+			}
+			FROM = {
+				country_event = { id = wtt_border_conflict_escalate_to_war.1 }
+				hidden_effect = {
+					remove_targeted_decision = { target = ROOT decision = WTT_border_conflict_escalate_to_war }
+				}
+		 	}
+		}
+
+		remove_effect = {
+			cancel_border_war = {
+				dont_fire_events = yes
+				defender = var:FROM.defender_state_vs_@ROOT
+				attacker = var:FROM.attacker_state_vs_@ROOT
+			}
+			declare_war_on = { target = FROM type = annex_everything }
+			if = {
+				limit = { is_border_conflict_defender_vs_FROM = yes }
+				var:attacker_state_vs_@FROM = {
+					clr_state_flag = border_incident_active
+				}
+				var:defender_state_vs_@FROM = {
+					clr_state_flag = border_incident_active
+				}
+				clear_variable = attacker_state_vs_@FROM
+				clear_variable = defender_state_vs_@FROM
+			}
+			else = {
+				FROM = {
+					var:attacker_state_vs_@ROOT = {
+						clr_state_flag = border_incident_active
+					}
+					var:defender_state_vs_@ROOT = {
+						clr_state_flag = border_incident_active
+					}
+					clear_variable = attacker_state_vs_@ROOT
+					clear_variable = defender_state_vs_@ROOT
+				}
+			}
+		}
+	}
+
+	#Decision to back down from conflict
+	WTT_border_conflict_back_out_of_conflict = {
+
+		allowed = { always = no } #Activated from effect
+
+		visible = {
+			has_border_war_with = FROM
+		}
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = var:FROM.attacker_state_vs_@ROOT
+				state = var:ROOT.defender_state_vs_@FROM
+			}
+		}
+
+		ai_will_do = {
+			base = 0
+			modifier = {
+
+			}
+		}
+
+		fire_only_once = yes #Reactivation handled in effect
+
+		complete_effect = {
+			if = {
+				limit = { is_border_conflict_defender_vs_FROM = yes }
+				finalize_border_war = {
+					attacker_win = yes
+					attacker = ROOT.attacker_state_vs_@FROM
+					defender = ROOT.attacker_state_vs_@FROM
+				}
+			}
+			else = {
+				finalize_border_war = {
+					attacker = FROM.attacker_state_vs_@ROOT
+					defender = FROM.attacker_state_vs_@ROOT
+					defender_win = yes
+				}
+			}
+		}
+	}
+}

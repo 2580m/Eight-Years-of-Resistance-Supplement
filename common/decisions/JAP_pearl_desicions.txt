@@ -1,0 +1,126 @@
+pearl = {
+    attack_pearl_harbor = {
+	    allowed = {
+            original_tag = JAP
+        }
+	    priority = 8000
+		
+        icon = generic_merge_plant_aircraft
+		
+		highlight_states = {
+	 		highlight_state_targets = { state = 629 } 
+			highlight_color_before_active = 3
+			highlight_color_while_active = 2
+		}
+
+        visible = {
+		
+        }
+
+        cost = 0
+
+        fire_only_once = yes
+
+        ai_will_do = {
+		factor = 9999
+		
+		modifier = {
+		factor = 0
+		is_historical_focus_on = yes
+		date < 1941.12.7
+		}
+		
+		}
+
+        available = {
+            has_completed_focus = strike_usa_focus
+			or = { has_government = fascism has_government = neutrality }
+            #has_idea = for_the_emperor_idea
+			if = {#guo
+			limit = { is_ai = no }
+            
+                #has_wargoal_against = USA
+                #has_idea = Yamamotos_Plan
+                ships_in_area = {
+                    area = 105
+                    size > 19
+                }
+			}
+        }
+
+        #days_remove = 7
+
+        complete_effect = {
+			 add_ideas = jap_dadongyazhanzheng
+		     add_timed_idea = {
+				idea = jap_zhenzhugang
+				days = 90
+			}
+                  USA = { add_timed_idea = {idea = usa_zhenzhugang days = 60 }
+			}
+            JAP = {
+                news_event = {
+                    id = pearl.2 hours = 6
+                }
+            }
+			
+			hidden_effect = {
+			set_global_flag = prepare_for_attack_pearl_harbor
+            news_event = {
+                id = pearl.1 hours = 9
+            }
+			if = {
+			limit = { is_ai = yes }
+			add_fuel = 500000 #yes the ai needs all this shit
+			add_manpower = 100000
+			        add_equipment_to_stockpile = {
+						type = infantry_equipment
+						amount = 25000
+						producer = JAP
+					}
+                    add_equipment_to_stockpile = {
+				        type = train_equipment
+				        amount = 100
+				        producer = JAP
+			        }
+					
+					add_equipment_to_stockpile = {
+						type = anti_air_equipment
+						amount = 500
+						producer = JAP
+					}
+					add_equipment_to_stockpile = {
+						type = anti_tank_equipment
+						amount = 500
+						producer = JAP
+					}
+					add_equipment_to_stockpile = {
+						type = artillery_equipment
+						amount = 1000
+						producer = JAP
+					}
+					add_equipment_to_stockpile = {#always biggest gap
+						type = support_equipment
+						amount = 1000 #not a typo
+						producer = JAP
+					}
+					add_equipment_to_stockpile = {
+						type = motorized_equipment
+						amount = 500
+						producer = JAP
+					}
+					add_equipment_to_stockpile = {#always losing air war at this point
+						type = small_plane_airframe
+						amount = 250
+						producer = JAP
+					}
+					add_equipment_to_stockpile = {
+						type = convoy
+						amount = 250
+						producer = JAP
+					}
+			}
+			}
+        }
+    }
+}

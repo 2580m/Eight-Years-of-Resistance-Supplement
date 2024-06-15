@@ -1,0 +1,457 @@
+CHINA_recover_motherland = {
+
+CHINA_recover_waidongbei = {
+
+priority = 9000
+#cancel_if_not_visible = yes
+		icon = generic_prepare_civil_war                                              
+                                
+		available = {
+has_full_control_of_state = 561                                      						
+has_full_control_of_state = 560   
+has_full_control_of_state = 657   
+has_full_control_of_state = 409 
+has_full_control_of_state = 408
+#has_full_control_of_state = 563
+ 
+		}
+		cost = 100
+                                days_remove = 70
+                                
+                                fire_only_once = yes
+								
+		ai_will_do = {
+			base = 0
+            
+		}
+		visible = { #has_global_flag = lishilingtu_qiyong	
+ 
+ 
+is_subject = no
+
+		}	
+                                		
+
+		remove_effect = {
+		563 = { set_state_name = nibuchu }
+		408 = { set_state_name = haishenwai }
+		409 = { set_state_name = boli }
+		561 = { set_state_name = waixingan }
+		560 = { set_state_name = miaojie }
+		657 = { set_state_name = hailanpao }
+		
+		set_province_name = { id = 957 name = "haishenwai"}
+		set_province_name = { id = 4677 name = "nibuchu"}
+		set_province_name = { id = 12189 name = "boli"}
+		set_province_name = { id = 4725 name = "hailanpao"}
+		set_province_name = { id = 6989 name = "shuangchengzi"}
+		set_province_name = { id = 12559 name = "miaojie"}
+		
+		
+every_state = {
+limit = {
+OR = {
+state = 561
+state = 560
+state = 657
+state = 409
+state = 408
+state = 563
+}
+}
+add_core_of = ROOT
+remove_core_of = SOV
+remove_core_of = FER
+remove_core_of = VLA
+}
+        }
+
+}
+
+}
+
+CHINA_recover_motherland = {
+
+CHINA_recover_waixibei = {
+
+priority = 9000
+#cancel_if_not_visible = yes
+		icon = generic_prepare_civil_war                                              
+                                
+		available = {
+has_full_control_of_state = 654                                      						
+has_full_control_of_state = 588   
+has_full_control_of_state = 589   
+has_full_control_of_state = 586 
+has_full_control_of_state = 732
+has_full_control_of_state = 1022
+ has_full_control_of_state = 405
+ has_full_control_of_state = 1065
+		}
+		cost = 100
+                                days_remove = 70
+                                
+                                fire_only_once = yes
+								
+		ai_will_do = {
+			base = 0
+            
+		}
+		visible = { #has_global_flag = lishilingtu_qiyong	
+ 
+ 
+is_subject = no
+
+		}	
+                                		
+
+		remove_effect = {	
+		
+every_state = {
+limit = {
+OR = {
+state = 654                                      						
+state = 588   
+state = 589   
+state = 586 
+state = 732
+state = 1022
+state = 405
+state = 1065
+}
+}
+add_core_of = ROOT
+remove_core_of = SOV
+remove_core_of = ALT
+remove_core_of = KAZ
+remove_core_of = KYR
+remove_core_of = TAJ
+remove_core_of = BUK
+remove_core_of = UZB
+}
+        }
+
+}
+
+}
+
+CHINA_recover_motherland = {
+
+CHINA_recover_kuyedao = {
+
+priority = 9000
+#cancel_if_not_visible = yes
+		icon = generic_prepare_civil_war                                              
+                                
+		available = {
+has_full_control_of_state = 655                                      						
+has_full_control_of_state = 537   
+ 
+		}
+		cost = 25
+                                days_remove = 35
+                                
+                                fire_only_once = yes
+								
+		ai_will_do = {
+			base = 0
+            
+		}
+		visible = { #has_global_flag = lishilingtu_qiyong	
+                                   						
+is_subject = no
+
+		}	
+                                		
+
+		remove_effect = {
+		655 = { set_state_name = beikuye }
+		537 = { set_state_name = nankuye }
+		
+every_state = {
+limit = {
+OR = {
+state = 655
+state = 537
+}
+}
+add_core_of = ROOT
+remove_core_of = SOV
+remove_core_of = FER
+}
+        }
+
+}
+
+}
+
+CHINA_recover_motherland = {
+
+CHINA_recover_waimenggu = {
+
+priority = 9000
+#cancel_if_not_visible = yes
+		icon = generic_prepare_civil_war                                              
+                                
+		available = {
+has_full_control_of_state = 818                                      						
+has_full_control_of_state = 820   
+has_full_control_of_state = 817   
+has_full_control_of_state = 330 
+has_full_control_of_state = 819   
+ 
+		}
+		cost = 100
+                                days_remove = 70
+                                
+                                fire_only_once = yes
+								
+		ai_will_do = {
+			base = 0
+            
+		}
+		visible = { #has_global_flag = lishilingtu_qiyong	
+
+    
+is_subject = no
+
+		}	
+                                		
+
+		remove_effect = {
+		330 = { set_state_name = kulun }
+		set_province_name = { id = 4801 name = "kulun"}
+		
+every_state = {
+limit = {
+OR = {
+state = 818
+state = 820
+state = 817
+state = 330
+state = 819
+is_core_of = MON
+}
+}
+add_core_of = ROOT
+remove_core_of = MON
+if = {
+limit = { NOT = { ROOT = { TAG = CHI } } }
+remove_core_of = CHI
+}
+}
+        }
+
+}
+
+}
+
+CHINA_recover_motherland = {
+
+CHINA_recover_tangnuwulianghai = {
+
+priority = 9000
+#cancel_if_not_visible = yes
+		icon = generic_prepare_civil_war                                              
+                                
+		available = {
+has_full_control_of_state = 329                                      						
+ 
+		}
+		cost = 25
+                                days_remove = 35
+                                
+                                fire_only_once = yes
+								
+		ai_will_do = {
+			base = 0
+            
+		}
+		visible = { #has_global_flag = lishilingtu_qiyong	
+                                     						
+is_subject = no
+
+		}	
+                                		
+
+		remove_effect = {
+		329 = { set_state_name = tangnu }
+		set_province_name = { id = 10627 name = "tangnu"}
+		
+every_state = {
+limit = {
+OR = {
+state = 329
+is_core_of = TAN
+}
+
+}
+add_core_of = ROOT
+remove_core_of = TAN
+remove_core_of = SOV
+if = {
+limit = { NOT = { ROOT = { TAG = CHI } } }
+remove_claim_by = CHI
+remove_core_of = CHI
+}
+}
+        }
+
+}
+
+}
+
+CHINA_recover_motherland = {
+
+CHINA_recover_OKINAWA = {
+
+priority = 9000
+#cancel_if_not_visible = yes
+		icon = generic_prepare_civil_war                                              
+                                
+		available = {
+has_full_control_of_state = 526                                      						
+ 
+		}
+		cost = 25
+                                days_remove = 35
+                                
+                                fire_only_once = yes
+								
+		ai_will_do = {
+			base = 0
+            
+		}
+		visible = { #has_global_flag = lishilingtu_qiyong	
+                                      						
+is_subject = no
+
+		}	
+                                		
+
+		remove_effect = {
+		526 = { set_state_name = liuqiu 
+		if = {
+limit = { NOT = { ROOT = { TAG = CHI } } }
+remove_claim_by = CHI
+remove_core_of = CHI
+}
+		}
+		set_province_name = { id = 11932 name = "shoulicheng"}
+		country_event = liuqiuwenti.1
+        }
+
+}
+
+}
+
+CHINA_recover_motherland = {
+
+CHINA_recover_zangnan = {
+
+priority = 9000
+#cancel_if_not_visible = yes
+		icon = generic_prepare_civil_war                                              
+                                
+		available = {
+has_full_control_of_state = 434                                      						
+ 
+		}
+		cost = 25
+                                days_remove = 35
+                                
+                                fire_only_once = yes
+								
+		ai_will_do = {
+			base = 0
+            
+		}
+		visible = { #has_global_flag = lishilingtu_qiyong	
+                                     						
+is_subject = no
+
+		}	
+                                		
+
+		remove_effect = {
+		434 = { set_state_name = zangnan }
+		every_state = {
+limit = {
+
+state = 434
+
+}
+add_core_of = ROOT
+remove_core_of = TIB
+remove_core_of = RAJ
+if = {
+limit = { NOT = { ROOT = { TAG = CHI } } }
+remove_claim_by = CHI
+remove_core_of = CHI
+}
+if = {
+limit = { NOT = { ROOT = { TAG = PRC } } }
+remove_claim_by = PRC
+remove_core_of = PRC
+}
+}
+		
+
+        }
+
+}
+
+}
+
+CHINA_recover_motherland = {
+
+CHINA_recover_keshimier = {
+
+priority = 9000
+#cancel_if_not_visible = yes
+		icon = generic_prepare_civil_war                                              
+                                
+		available = {
+has_full_control_of_state = 787                                      						
+has_full_control_of_state = 441  
+		}
+		cost = 25
+                                days_remove = 35
+                                
+                                fire_only_once = yes
+								
+		ai_will_do = {
+			base = 0
+            
+		}
+		visible = { #has_global_flag = lishilingtu_qiyong	
+                                     						
+is_subject = no
+
+		}	
+                                		
+
+		remove_effect = {
+		787 = { set_state_name = bolv }
+		441 = { set_state_name = ladake }
+		set_province_name = { id = 1910 name = "bolv"}
+		every_state = {
+limit = {
+OR = {
+state = 787
+state = 441
+}
+}
+add_core_of = ROOT
+remove_core_of = RAJ
+remove_claim_by = RAJ
+remove_core_of = PAK
+remove_claim_by = PAK
+}
+		
+
+        }
+
+}
+
+}
