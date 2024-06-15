@@ -1,0 +1,596 @@
+ideas = { #replace ideas
+	country = {
+		
+		
+		
+		
+		
+		
+		import_substitution_industrialization_idea = {
+			picture = generic_local_self_management
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+			}
+			removal_cost = -1
+			modifier = {
+				local_resources_factor = 0.10
+				min_export = -0.2
+			}
+		}
+		
+		balance_idea_usa = {
+			allowed_civil_war = {
+				always = yes
+			}
+			cancel = { 
+			    OR = {
+				    is_ai = no
+					date > 1946.12.1
+					has_global_flag = JAP_nuke_1
+					has_global_flag = JAP_nuke_2
+			    } 
+			}
+			modifier = {
+				nuclear_production_factor = 0.5
+				min_export = -0.15 #MODDED otherwise may lose too much steel
+			    ai_desired_divisions_factor = 1.5 #MODDED
+			} 
+			removal_cost = -1
+		}
+		
+		stronger_ai_zz = {
+			
+			picture = stronger_ai_zz
+			
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+			
+			removal_cost = -1
+	
+			modifier = {
+				
+			}
+		}
+		
+	    neutrality_idea = {
+			
+			
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				has_government = neutrality
+			}
+
+			cancel = {
+				OR = { has_war = yes is_in_faction = yes is_subject = yes }
+			}
+			
+			removal_cost = -1
+	
+			modifier = {
+				generate_wargoal_tension = 0.50
+				join_faction_tension = 1.00
+				lend_lease_tension = 0.50
+				send_volunteers_tension = 0.20
+				guarantee_tension = 1.0
+				embargo_threshold_factor = 2.5
+				ai_badass_factor = 0.01    # Will receive 1% of the threat from others
+				ai_get_ally_desire_factor = -5000
+			}
+		}
+		
+		CHI_chinese_general_staff = { #guo
+
+			picture = general_staff
+
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			modifier = {
+				army_leader_start_planning_level = 1
+				planning_speed = 0.10
+				max_planning = 0.10
+				coordination_bonus = 0.05
+			}
+	    }
+		
+		usa_tribute_idea = {
+			allowed = { always = no	}
+			picture = chinese_tribute2
+			allowed_civil_war = {
+				always = yes
+			}
+			available = {
+				NOT = {
+					has_war_with = USA
+				}
+				NOT = {
+					any_enemy_country = {
+						is_ally_with = USA
+					}
+				}
+				country_exists = event_target:WTT_communist_china
+			}
+			removal_cost = -1
+			#picture = generic_volunteer_expedition_bonus
+			targeted_modifier = { #GUO
+				tag = USA
+				ai_license_acceptance = 200
+				license_purchase_cost = -1
+				license_tech_difference_speed = 0.5
+				license_production_speed = 0.5
+				extra_trade_to_target_factor = 0.5
+				trade_cost_for_target_factor = -0.5
+			}
+			targeted_modifier = { #GUO
+				tag = PRC
+				breakthrough_bonus_against = 0.1
+				attack_bonus_against = 0.1
+			}
+			modifier = { #GUO		
+				research_speed_factor = 0.05
+			}
+		}
+		
+		USA_army_of_the_united_states = {
+			picture = HUN_secret_rearmament
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+
+				always = yes
+			}
+
+			removal_cost = -1
+
+			modifier = {#guo
+				mobilization_speed = 0.5
+				army_bonus_air_superiority_factor = 0.1
+			    cas_damage_reduction = 0.1
+			    enemy_army_bonus_air_superiority_factor = -0.1
+				air_superiority_bonus_in_combat = 0.15
+			    intel_from_combat_factor = 0.25
+		        recon_factor = 1
+				training_time_factor = -0.15
+				minimum_training_level = -0.15
+				max_planning = 0.1
+				planning_speed = 0.25
+				motorized_attack_factor = 0.1
+		
+		mechanized_attack_factor = 0.1
+		
+		special_forces_attack_factor = 0.1
+		
+		
+		army_artillery_attack_factor = 0.1
+		army_armor_attack_factor = 0.1
+		
+			}
+		}
+		new_deal = {
+
+
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				has_government = democratic
+			}
+			
+			available = { has_country_leader = { ruling_only = yes character = USA_franklin_delano_roosevelt } } #guo
+
+			removal_cost = -1
+            traits = {
+				plus_point_1_per_week #MODDED
+			}
+			modifier = { #guo
+				production_speed_infrastructure_factor = 0.5
+				stability_factor = 0.10
+				political_power_factor = 0.1
+                industrial_capacity_factory = 0.1
+				stability_weekly = 0.001
+			}
+		}
+		
+		SHX_shanxi_japan_pact_JAP = {	
+			picture = generic_constitutional_guarantees
+
+			allowed_civil_war = {
+				always = no
+			}
+
+            cancel = {
+				OR = {
+					NOT = {
+						country_exists = SHX
+					}
+					NOT = {
+						country_exists = JAP
+					}
+					NOT = {
+						JAP = {
+							has_war_with = SHX
+						}
+					}
+				}
+			}
+
+			removal_cost = -1
+			
+			targeted_modifier = {
+				tag = SHX
+				attack_bonus_against = -0.75
+            }
+			
+			modifier = {
+				
+			}
+		}
+		
+		chi_375_battle_plan = {
+			picture = chi_wargaming_division
+			allowed = {
+				always = no 
+			}
+
+			cancel = {
+				event_target:WTT_communist_china = {
+					exists = no
+				}
+			}
+			removal_cost = -1
+			
+			targeted_modifier = {
+				tag = PRC
+				attack_bonus_against = 0.20
+				defense_bonus_against = 0.20
+			    breakthrough_bonus_against = 0.20
+            }
+            
+			modifier = {
+				planning_speed = 0.25
+				max_planning_factor = 0.15
+				army_morale_factor = 0.15
+				army_org_factor = 0.15
+			}
+		}
+		
+		FRA_front_populaire = {
+			picture = SPR_the_popular_front
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				NOT = {
+					has_government = fascism
+				}
+			}
+
+			modifier = {
+				democratic_acceptance = 50
+				n_socialism_acceptance = 50
+				communism_acceptance = 25
+				
+				drift_defence_factor = 0.5
+				political_power_factor = 0.1
+				war_support_weekly = 0.001
+			}
+		}
+		
+		ETH_the_heroes_of_adwa_idea = { #replace ideas
+
+			picture = ETH_the_heroes_of_adwa 
+			
+			
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			targeted_modifier = {
+				tag = ITA 
+				attack_bonus_against = 0.1
+			}
+			
+			modifier = {
+				war_support_factor = 0.1
+				
+				surrender_limit = 0.25
+			}
+	    }
+
+	ETH_the_heroes_of_adwa_upgraded_idea = { #replace ideas
+
+			picture = ETH_the_heroes_of_adwa_upgraded
+			name = ETH_the_heroes_of_adwa_idea
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			targeted_modifier = {
+				tag = ITA 
+				attack_bonus_against = 0.15
+			}
+			
+			modifier = {
+				war_support_factor = 0.1
+				stability_factor = 0.1
+				political_power_factor = 0.1
+				army_core_attack_factor = 0.15
+				army_core_defence_factor = 0.1
+				
+				surrender_limit = 0.35
+			}
+	}
+		
+	FRA_disjointed_government = { #replace ideas
+			
+			allowed = {
+				original_tag = FRA
+				always = no
+			}
+
+			allowed_civil_war = {
+				OR = { #MODDED
+					has_government = democratic
+					has_government = n_socialism #MODDED
+				} #MODDED
+			}
+
+			removal_cost = -1
+
+			picture = generic_disjointed_gov
+			
+			modifier = {
+				political_power_cost = 0.5
+				stability_factor = -0.10
+				surrender_limit = -0.25
+				political_advisor_cost_factor = 0.15
+			}
+	}
+		
+	stiff_upper_lip = { #replace ideas
+			
+			allowed = {
+				always = no
+			}
+			
+			removal_cost = -1
+			
+			allowed_civil_war = {
+				always = yes
+			}
+			
+			modifier = {
+				drift_defence_factor = 0.5
+				guarantee_cost = -0.5
+			}
+			
+			rule = {
+				can_create_factions = yes
+			}			
+	}
+		
+	RCM_Comintern_moribund = { #replace ideas
+			allowed = {
+				always = no
+			}
+			picture = hol_de_vaarplicht
+			allowed_civil_war = {
+				is_faction_leader = yes
+			}
+			available = {
+				is_faction_leader = yes
+				or = {
+					has_government = communism
+					is_democratic_type = yes
+				}
+				has_war_together_with = event_target:leader_of_the_allies
+				not = { has_war_with = event_target:leader_of_the_allies }
+			}
+			removal_cost = -1
+			rule = {
+				can_only_justify_war_on_threat_country = yes
+				can_create_factions = no			
+			}
+			modifier = {
+				ai_get_ally_desire_factor = -9000
+			}
+			#on_add = {
+			#news_event = { id = zizhinews.34 days = 1 }
+			#}
+	}
+	
+	
+	
+	
+	
+	
+	
+
+		#土耳其投资
+		TUR_investment_financing_spirit = { 
+
+			allowed = {
+				always = no
+			}
+
+			picture = generic_foreign_capital
+				
+			removal_cost = -1
+				
+			modifier = {
+				#consumer_goods_factor = 0.15
+				production_speed_buildings_factor = -0.05
+			}
+		}
+		
+		GRE_schachtplan = { #GUO
+				
+			allowed = {
+				original_tag = GRE
+				NOT = {
+					has_war_with = GER
+				}
+			}
+
+			allowed_civil_war = {
+				OR = {
+has_government = fascism
+ has_government = neutrality
+}                                                                  
+			}
+                                                available = {
+												NOT = {
+					has_war_with = GER
+				}
+                                                                  OR = {
+has_government = fascism
+ has_government = neutrality
+}                                                                                                         
+                                                }
+			picture = gre_schachtplan
+				
+			removal_cost = -1
+
+			targeted_modifier = {
+					tag = GER
+				                
+				                
+				                trade_cost_for_target_factor = -0.25			
+			}	
+
+			modifier = {
+				economy_cost_factor = 0.25
+				trade_laws_cost_factor = 0.25
+				min_export = 0.3
+				consumer_goods_factor = -0.3
+				production_speed_industrial_complex_factor = 0.1	
+production_speed_arms_factory_factor = 0.05		
+			}
+		}
+
+		GRE_schachtplan_modified = { #guo
+				
+			allowed = {
+				original_tag = GRE
+				NOT = {
+					has_war_with = GER
+				}
+			}
+
+			allowed_civil_war = {
+				OR = {
+has_government = fascism
+ has_government = neutrality
+}                                                                  
+			}
+                                                available = {
+												NOT = {
+					has_war_with = GER
+				}
+                                                                  OR = {
+has_government = fascism
+ has_government = neutrality
+}                                                                                                         
+                                                }
+
+			picture = gre_schachtplan2
+				
+			removal_cost = -1
+				
+			targeted_modifier = {
+					tag = GER
+				                
+				                
+				                trade_cost_for_target_factor = -0.25			
+			}	
+
+			modifier = {
+				economy_cost_factor = 0.1
+				trade_laws_cost_factor = 0.1
+				min_export = 0.15
+				consumer_goods_factor = -0.3
+				production_speed_industrial_complex_factor = 0.15	
+		production_speed_arms_factory_factor = 0.1
+			}
+		}
+
+		GRE_schachtplan_fascistised = { #guo
+				
+			allowed = {
+				original_tag = GRE
+				NOT = {
+					has_war_with = GER
+				}
+			}
+
+			allowed_civil_war = {
+				OR = {
+has_government = fascism
+ has_government = neutrality
+}                                                                  
+			}
+                                                available = {
+												NOT = {
+					has_war_with = GER
+				}
+                                                                  OR = {
+has_government = fascism
+ has_government = neutrality
+}                                                                                                         
+                                                }
+
+			picture = gre_schachtplan3
+				
+			removal_cost = -1
+				
+			targeted_modifier = {
+					tag = GER
+				                
+				                
+				                trade_cost_for_target_factor = -0.25			
+			}	
+
+			modifier = {
+				#economy_cost_factor = 0.25
+				#trade_laws_cost_factor = 0.25
+				min_export = 0.1
+				consumer_goods_factor = -0.3
+				production_speed_industrial_complex_factor = 0.2	
+production_speed_arms_factory_factor = 0.15		
+			}
+		}
+	}
+}

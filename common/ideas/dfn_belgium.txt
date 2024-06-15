@@ -1,0 +1,1243 @@
+ideas = {
+
+	country = {
+
+	BEL_de_vlag = {
+		picture = BEL_devlag
+		
+		removal_cost = -1
+		
+		modifier = {
+			fascism_drift = 0.02
+			research_speed_factor = 0.03
+			stability_factor = -0.1
+			resistance_target_on_our_occupied_states = -0.1
+			}
+		}
+	
+	BEL_de_vlag1 = {
+		picture = BEL_devlag_no_nazi
+		
+		removal_cost = -1
+		
+		modifier = {
+			stability_factor = -0.05
+			research_speed_factor = 0.03
+			}
+		}
+	
+	BEL_de_vlag2 = {
+		picture = BEL_devlag
+		
+		removal_cost = -1
+		
+		modifier = {
+			fascism_drift = 0.1
+			research_speed_factor = 0.03
+			stability_factor = -0.1
+			war_support_factor = 0.05
+			}
+		}
+	
+	BEL_leopold_iii = {
+		picture = BEL_leopold_iii
+		
+		cancel = {
+			has_country_leader = {
+				character = BEL_leopold_iii 
+				ruling_only = yes 
+				}
+			}
+		
+		removal_cost = -1 
+		
+		modifier = {
+			stability_factor = 0.05
+			war_support_factor = 0.05
+		}
+	}
+	
+	BEL_leopold_iii_empowered = {
+		picture = BEL_leopold_iii
+		
+		cancel = {
+			has_country_leader = {
+				character = BEL_leopold_iii 
+				ruling_only = yes 
+				}
+			}
+		
+		removal_cost = -1 
+		
+		modifier = {
+			political_power_gain = 0.15
+			stability_factor = 0.1
+			war_support_factor = 0.1
+		}
+	}
+	
+	BEL_belgian_neutrality = {
+		picture = BEL_belgian_neutrality
+		
+		removal_cost = -1 
+		
+		cancel = { OR = { has_war = yes is_in_faction = yes is_puppet = yes } }
+		
+		modifier = {
+			political_power_gain = 0.1
+			stability_factor = 0.1
+			join_faction_tension = 1
+			send_volunteers_tension = 0.2
+			guarantee_tension = 0.35
+			enemy_justify_war_goal_time = 1
+			}
+		}
+	
+	BEL_belgian_neutrality2 = {
+		picture = BEL_belgian_neutrality
+		
+		removal_cost = -1 
+		
+		cancel = { OR = { has_war = yes is_in_faction = yes is_puppet = yes } }
+		
+		modifier = {
+			political_power_gain = 0.25
+			join_faction_tension = 1
+			send_volunteers_tension = 0.2
+			guarantee_tension = 0.35
+			enemy_justify_war_goal_time = 1
+			stability_factor = 0.2
+			}
+		}
+	
+	BEL_african_workers = {
+		picture = BEL_african_workers
+		
+		removal_cost = -1 
+		
+		modifier = {
+			production_factory_max_efficiency_factor = 0.1
+		}
+	}
+	
+	BEL_colonial_army = {
+		picture = BEL_colonial_army
+		
+		removal_cost = -1
+		
+		modifier = {
+			non_core_manpower = 0.07
+		}
+	}
+	
+	BEL_diamond_industry = {
+		picture = BEL_diamond
+		
+		removal_cost = -1 
+		
+		modifier = {
+			consumer_goods_factor = -0.15
+		}
+		
+		cancel = {
+			BEL_not_controls_congo = yes
+		}
+	}
+	
+	BEL_encourage_colonial_elite = {
+		picture = generic_research_bonus
+		
+		removal_cost = -1 
+		
+		modifier = {
+			research_speed_factor = 0.05
+		}
+	}
+	
+	BEL_belgian_highways = {
+		picture = BEL_belgian_highway
+		
+		removal_cost = -1 
+		
+		modifier = {
+			production_speed_infrastructure_factor = 0.25
+		}
+	}
+	
+	BEL_domestic_industry = {
+		picture = BEL_domestic_production
+		
+		removal_cost = -1
+		
+		modifier = {
+			industrial_capacity_factory = 0.15
+			consumer_goods_factor = 0.06
+		}
+	}
+	
+	BEL_arm_the_nation = {
+		picture = BEL_arm_the_nation
+		
+		removal_cost = -1 
+		
+		modifier = {
+			production_speed_arms_factory_factor = 0.15
+		}
+	}
+	
+	BEL_industrial_reconstruction = {
+		picture = BEL_industrial_reconstruction
+		
+		removal_cost = -1 
+		
+		modifier = {
+			production_speed_industrial_complex_factor = 0.15
+		}
+	}
+	
+	BEL_improved_labour_conditions = {
+		picture = BEL_improved_labour_conditions
+		
+		removal_cost = -1 
+		
+		modifier = {
+			production_factory_max_efficiency_factor = 0.1
+			production_factory_efficiency_gain_factor = 0.1
+		}
+	}
+	
+	BEL_host_exiled_scientists_idea = {
+		picture = BEL_host_exiled_scientists
+		
+		removal_cost = -1 
+		
+		modifier = {
+			research_speed_factor = 0.07
+		}
+	}
+	
+	BEL_planned_economy = {
+		picture = generic_central_management
+		
+		removal_cost = -1 
+		
+		modifier = {
+			political_power_cost = 0.15
+			production_speed_buildings_factor = 0.1
+			local_resources_factor = 0.05
+			global_building_slots_factor = 0.2
+			line_change_production_efficiency_factor = 0.1
+		}
+	}
+	
+	BEL_land_of_waffle_idea = {
+		picture = BEL_waffle_import
+		
+		removal_cost = -1 
+		
+		modifier = {
+			consumer_goods_factor = -0.15
+			trade_opinion_factor = 0.25
+		}
+	}
+	
+	BEL_no_knowledge_of_the_navy = {
+		picture = BEL_no_naval_knowledge
+		
+		removal_cost = -1 
+		
+		research_bonus = {
+			ship_modules_tech = -0.5
+			naval_equipment = -0.5
+		}
+		
+		modifier = {
+			experience_gain_navy_factor = -0.1
+		}
+	}
+	
+	BEL_invisible_wolfs = {
+		picture = BEL_invisible_wolfs
+		
+		removal_cost = -1 
+		
+		equipment_bonus = {
+			submarine = {
+				sub_visibility  = -0.1 instant = yes
+			}
+		}
+	}
+	
+	BEL_flying_school = {
+		picture = BEL_flying_school
+		
+		removal_cost = -1 
+		
+		research_bonus = {
+			air_equipment = 0.15
+		}
+	}
+	
+	BEL_flying_school2 = {
+		picture = BEL_flying_school
+		
+		removal_cost = -1 
+		
+		research_bonus = {
+			air_equipment = 0.15
+		}
+		
+		modifier = {
+			air_maximum_speed_factor = 0.1
+		}
+	}
+	
+	BEL_flying_school3 = {
+		picture = BEL_flying_school
+		
+		removal_cost = -1 
+		
+		research_bonus = {
+			air_equipment = 0.15
+		}
+		
+		modifier = {
+			air_maximum_speed_factor = 0.1
+			industrial_capacity_factory = 0.1
+		}
+	}
+	
+	BEL_flying_school4 = {
+		picture = BEL_flying_school
+		
+		removal_cost = -1 
+		
+		equipment_bonus = {
+			small_plane_airframe  = { 
+				build_cost_ic = -0.1 instant = yes
+			}
+			small_plane_cas_airframe = {
+				build_cost_ic = -0.1 instant = yes
+			}
+			medium_plane_airframe = {
+				build_cost_ic = -0.1 instant = yes
+			}
+		}
+		
+		research_bonus = {
+			air_equipment = 0.15
+		}
+		
+		modifier = {
+			air_maximum_speed_factor = 0.1
+			industrial_capacity_factory = 0.1
+		}
+	}
+	
+	BEL_modernize_aircraft_facilities = {
+		picture = BEL_modernize_aircraft
+		
+		removal_cost = -1 
+		
+		equipment_bonus = {
+			medium_plane_airframe = { #guo
+				reliability = 0.1 instant = yes
+			}
+			small_plane_airframe = {
+				reliability = 0.1 instant = yes
+			}
+		}
+		
+		modifier = {
+		
+		}
+	}
+	
+	BEL_great_depression = {
+		picture = usa_great_depression_3
+		
+		removal_cost = -1
+		
+		modifier = {
+			consumer_goods_factor = 0.24
+			industrial_capacity_factory = -0.2
+			production_factory_max_efficiency_factor = -0.1
+			stability_factor = -0.15
+			production_speed_buildings_factor = -0.1
+		}
+	}
+	
+	BEL_great_depression1 = {
+		picture = usa_great_depression_2
+		
+		removal_cost = -1
+		
+		modifier = {
+			consumer_goods_factor = 0.15
+			stability_factor = -0.15
+			industrial_capacity_factory = -0.1
+			production_speed_buildings_factor = -0.1
+		}
+	}
+	
+	BEL_great_depression2 = {
+		picture = usa_great_depression_2
+		
+		removal_cost = -1
+		
+		modifier = {
+			stability_factor = -0.15
+			industrial_capacity_factory = -0.1
+		}
+	}
+	
+	BEL_great_depression3 = {
+		picture = usa_great_depression_2
+		
+		removal_cost = -1
+		
+		modifier = {
+			consumer_goods_factor = 0.15
+			stability_factor = -0.15
+			production_speed_buildings_factor = -0.1
+		}
+	}
+	
+	BEL_great_depression4 = {
+		picture = usa_great_depression_2
+		
+		removal_cost = -1
+		
+		modifier = {
+			consumer_goods_factor = 0.10
+			industrial_capacity_factory = -0.2
+			production_factory_max_efficiency_factor = -0.1
+			stability_factor = -0.15
+		}
+	}
+	
+	BEL_great_depression5 = {
+		picture = usa_great_depression_2
+		
+		removal_cost = -1
+		
+		modifier = {
+			consumer_goods_factor = 0.15
+			stability_factor = -0.15
+			production_speed_buildings_factor = -0.1
+		}
+	}
+	
+	BEL_research_grants = {
+		picture = BEL_science_grants
+		
+		removal_cost = -1
+		
+		modifier = {
+			consumer_goods_factor = 0.03
+			research_speed_factor = 0.03
+		}
+	}
+	
+	BEL_industrial_plan = {
+		picture = BEL_industrial_plan
+		
+		removal_cost = -1 
+		
+		modifier = {
+			production_speed_industrial_complex_factor = 0.2
+			production_speed_arms_factory_factor = 0.15
+		}
+	}
+	
+	BEL_industrial_plan1 = {
+		picture = BEL_industrial_plan
+		
+		removal_cost = -1 
+		
+		modifier = {
+			production_speed_industrial_complex_factor = 0.2
+			production_speed_arms_factory_factor = 0.15
+			production_factory_max_efficiency_factor = 0.1
+			production_factory_efficiency_gain_factor = 0.1
+		}
+	}
+	
+	BEL_spy_training = {
+		picture = generic_spy_intel
+		
+		removal_cost = -1 
+		
+		modifier = {
+		foreign_subversive_activites = -0.1
+		intel_network_gain_factor = 0.1
+		operative_slot = 1
+		}
+	}
+	
+	BEL_industrial_plan2 = {
+		picture = BEL_industrial_plan
+		
+		removal_cost = -1 
+		
+		modifier = {
+			production_speed_industrial_complex_factor = 0.2
+			production_speed_arms_factory_factor = 0.15
+			production_factory_max_efficiency_factor = 0.1
+			production_factory_efficiency_gain_factor = 0.1
+			local_resources_factor = 0.1
+		}
+	}
+	
+	BEL_fortify_focus = {
+		picture = generic_wall_line
+		
+		removal_cost = -1 
+		
+		modifier = {
+			production_speed_bunker_factor = 0.25
+			production_speed_coastal_bunker_factor = 0.25
+			production_speed_anti_air_building_factor = 0.15
+		}
+	}
+	
+	BEL_armed_nation = {
+		picture = BEL_armed_nation
+		
+		removal_cost = -1
+		
+		modifier = {
+			conscription = 0.015
+			war_support_factor = 0.1
+		}
+	}
+	
+	BEL_air_training_plan = {
+		picture = generic_air_bonus
+		
+		removal_cost = -1 
+		
+		modifier = {
+			experience_gain_air = 0.05
+			experience_gain_air_factor = 0.1
+			air_mission_xp_gain_factor = 0.05
+			air_training_xp_gain_factor = 0.2
+		}
+	}
+	
+	BEL_fight_untill_death = {
+		picture = BEL_fight_untill_death
+		
+		removal_cost = -1 
+		
+		modifier = {
+			war_support_factor = 0.1
+			surrender_limit = 0.1
+			army_core_defence_factor = 0.1
+		}
+	}
+	
+	BEL_rebuild_belgium = {
+		picture = BEL_new_and_better_belgium
+		
+		removal_cost = -1 
+		
+		modifier = {
+			stability_weekly = 0.002
+			production_speed_buildings_factor = 0.1
+			industry_repair_factor = 0.25
+		}
+	}
+	
+	BEL_national_defence_industry = {
+		picture = BEL_national_defence_industry
+		
+		removal_cost = -1
+		
+		modifier = {
+			industrial_capacity_factory = 0.1
+			production_speed_arms_factory_factor = 0.15
+		}
+	}
+	
+	BEL_refugees_from_abroad = {
+		picture = SPR_the_popular_front
+		
+		removal_cost = -1 
+		
+		modifier = {
+			stability_weekly = -0.005
+			weekly_manpower = 2000
+		}
+	}
+	
+	BEL_benelux_defense_council = {
+		picture = generic_manpower_bonus
+		
+		removal_cost = -1 
+		
+		modifier = {
+			army_core_defence_factor = 0.1
+			army_morale_factor = 0.05
+			max_dig_in_factor = 0.1
+		}
+	}
+	
+	BEL_create_the_benelux_central_bank = {
+		picture = tur_balkan_central_bank_wealthy_greece
+		
+		removal_cost = -1 
+		
+		modifier = {
+			consumer_goods_factor = -0.15
+			production_speed_buildings_factor = 0.1
+		}
+	}
+	
+	BEL_three_year_industry_plan = {
+		picture = generic_local_self_management
+		
+		removal_cost = -1
+		
+		modifier = {
+			production_speed_industrial_complex_factor = 0.15
+			production_speed_arms_factory_factor = 0.1
+		}
+	}
+	
+	BEL_fortified_defensive_bases = {
+		picture = generic_wall_line
+		
+		removal_cost = -1 
+		
+		modifier = {
+		production_speed_bunker_factor = 0.25
+		production_speed_coastal_bunker_factor = 0.25
+		production_speed_anti_air_building_factor = 0.25
+		production_speed_air_base_factor = 0.25
+		production_speed_radar_station_factor = 0.25
+		}
+	}
+	
+	BEL_defense_primacy = {
+		picture = BEL_defense_primacy
+		
+		removal_cost = -1 
+		
+		targeted_modifier = {
+			tag = GER
+			army_defence_factor = 0.15
+		}
+		
+		modifier = {
+			industrial_capacity_factory = 0.05
+		}
+	}
+	
+	BEL_anti_german_military = {
+		picture = generic_fascism_banned
+		
+		removal_cost = -1 
+		
+		targeted_modifier = {
+			tag = GER 
+			army_defence_factor = 0.2
+			army_attack_factor = 0.1
+		}
+		
+		modifier = {
+			industrial_capacity_factory = 0.05
+		}
+	}
+	
+	BEL_professional_army = {
+		picture = BEL_professional_army
+		
+		removal_cost = -1 
+		
+		modifier = {
+			war_support_factor = 0.1
+			army_attack_factor = 0.1
+			army_org_factor = 0.07
+			army_morale_factor = 0.1
+			conscription = 0.015
+		}
+	}
+	
+	BEL_large_army = {
+		picture = BEL_large_army
+		
+		removal_cost = -1
+		
+		modifier = {
+			conscription = 0.05
+			training_time_army_factor = -0.1
+			war_support_factor = 0.1
+		}
+	}
+	
+	BEL_social_democracy = {
+		picture = BEL_social_democracy
+		
+		removal_cost = -1 
+		
+		modifier = {
+			communism_drift = 0.05
+			democratic_drift = 0.05
+			industrial_capacity_factory = 0.1
+		}
+	}
+	
+	BEL_empower_the_unions = {
+		picture = BEL_empower_unions
+		
+		removal_cost = -1 
+		
+		modifier = {
+			production_factory_max_efficiency_factor = 0.1
+			industrial_capacity_factory = 0.1
+		}
+	}
+	
+	BEL_create_the_workers_militia = {
+		picture = MEX_revolutionary_army
+		
+		removal_cost = -1 
+		
+		modifier = {
+		conscription = 0.015
+		production_factory_efficiency_gain_factor = 0.1
+		communism_drift = 0.02
+		}
+	}
+	
+	BEL_soviet_military_cooperation = {
+		picture = BEL_soviet_military_cooperation
+		
+		removal_cost = -1
+		
+		modifier = {
+			land_doctrine_cost_factor = -0.1
+			air_doctrine_cost_factor = -0.1
+		}
+	}
+	
+	BEL_the_red_officers = {
+		picture = BEL_red_officers
+		
+		removal_cost = -1 
+		
+		modifier = {
+			planning_speed = 0.1
+			max_planning_factor = 0.1
+		}
+	}
+	
+	BEL_british_military_staff = {
+		picture = BEL_british_military_staff
+		
+		removal_cost = -1 
+		
+		modifier = {
+			industrial_capacity_factory = 0.15
+			training_time_factor = -0.1
+		}
+	}
+	
+	BEL_belgian_liberator_army = {
+		picture = BEL_belgian_liberator_army
+		
+		removal_cost = -1 
+		
+		modifier = {
+			army_attack_factor = 0.1
+			conscription = 0.015
+			army_org_factor = 0.03
+		}
+	}
+	
+	BEL_suppress_the_rebellions = {
+		picture = BEL_supress_rebellions
+		
+		removal_cost = -1 
+		
+		modifier = {
+			war_support_factor = 0.05
+			required_garrison_factor = -0.1
+			compliance_gain = 0.01
+		}
+	}
+	
+	BEL_change_in_course = {
+		picture = eng_a_change_in_course
+		
+		removal_cost = -1
+		
+		modifier = {
+			political_power_factor = 0.1
+			democratic_drift = -0.05
+			war_support_weekly = 0.002
+		}
+	}
+	
+	BEL_rally_the_monarchists = {
+		picture = BEL_rally_the_monarchists
+		
+		removal_cost = -1 
+		
+		modifier = {
+			stability_weekly = -0.002
+			neutrality_drift = 0.1
+		}
+	}
+	
+	BEL_royal_officer_corps = {
+		picture = BEL_royal_officer_corps
+		
+		removal_cost = -1
+		
+		modifier = {
+			military_leader_cost_factor = -0.2
+			army_leader_start_level = 2
+			training_time_factor = -0.1
+		}
+	}
+	
+	BEL_new_and_better_belgium = {
+		picture = BEL_new_and_better_belgium
+		
+		removal_cost = -1
+		
+		modifier = {
+			production_speed_buildings_factor = 0.1
+		}
+	}
+	
+	BEL_democratic_opposition = {
+		picture = EST_democratic_opposition
+		
+		removal_cost = -1
+		
+		modifier = {
+			stability_factor = -0.15
+			political_power_factor = -0.1
+			war_support_factor = -0.1
+			democratic_drift = 0.02
+			drift_defence_factor = 0.1
+		}
+	}
+	
+	BEL_rise_of_belgium = {
+		picture = BEL_rise_of_belgium
+		
+		removal_cost = -1
+		
+		modifier = {
+			political_power_factor = 0.1
+			stability_factor = 0.05
+			industrial_capacity_factory = 0.05
+			command_power_gain = 0.1
+		}	
+	}
+	
+	BEL_kings_army = {
+		picture = BEL_kings_army
+		
+		removal_cost = -1
+		
+		modifier = {
+			conscription = 0.02
+		}
+	}
+	
+	BEL_work_hard_play_hard = {
+		picture = BEL_work_hard_play_hard
+		
+		removal_cost = -1 
+		
+		modifier = {
+			production_factory_max_efficiency_factor = 0.1 
+			production_factory_efficiency_gain_factor = 0.1
+		}
+	}
+	
+	BEL_improve_defensive_tactics = {
+		picture = BEL_improve_defensive_tactics
+		
+		removal_cost = -1 
+		
+		modifier = {
+			army_core_defence_factor = 0.1
+			experience_gain_army_factor = 0.1
+		}
+	}
+	
+	BEL_german_officers = {
+		picture = BEL_german_officers
+		
+		removal_cost = -1 
+		
+		modifier = {
+			army_org_factor = 0.05
+			planning_speed = 0.25
+		}
+	}
+	
+	BEL_belgian_paramilitarists = {
+		picture = BEL_belgian_paramilitarists
+		
+		removal_cost = -1
+		
+		modifier = {
+			conscription = 0.025
+		}
+	}
+	
+	BEL_train_the_youth_wings = {
+		picture = BEL_train_youth_wings
+		
+		removal_cost = -1 
+		
+		modifier = {
+			fascism_drift = 0.02
+			conscription = 0.03
+		}
+	}
+	
+	BEL_german_military_cooperation = {
+		picture = BEL_german_military_cooperation
+		
+		removal_cost = -1 
+		
+		modifier = {
+			land_doctrine_cost_factor = -0.1
+			air_doctrine_cost_factor = -0.1
+		}
+	}
+	
+	BEL_lessons_from_luftwaffe = {
+		picture = BEL_lessons_from_luftwaffe
+		
+		removal_cost = -1 
+		
+		research_bonus = {
+			air_equipment = 0.1
+		}
+		
+		modifier = {
+			air_maximum_speed_factor = 0.1
+			air_accidents_factor = -0.15
+			air_ace_generation_chance_factor = 0.1
+			experience_gain_air_factor = 0.1
+		}
+	}
+	
+	BEL_veteran_officers = {
+		picture = BEL_veteran_officers
+		
+		removal_cost = -1 
+		
+		modifier = {
+			experience_gain_army_factor = 0.1
+			training_time_army_factor = -0.25
+			max_planning_factor = 0.1
+			planning_speed = 0.1
+		}
+	}
+	
+	BEL_flemish_militarism = {
+		picture = BEL_flemish_militarism
+		
+		removal_cost = -1 
+		
+		modifier = {
+			conscription_factor = 0.1
+			war_support_factor = 0.05
+			industrial_capacity_factory = 0.05
+			}
+		}
+	
+	BEL_communist_ideals = {
+		picture = generic_communism_drift_bonus
+		
+		removal_cost = -1 
+		
+		modifier = {
+			communism_drift = 0.1
+			industrial_capacity_factory = 0.1
+		}
+	}
+	
+	BEL_form_the_workers_council = {
+		picture = BEL_workers_council
+		
+		removal_cost = -1 
+		
+		modifier = {
+			production_factory_max_efficiency_factor = 0.1
+			industrial_capacity_factory = 0.05
+			communism_drift = 0.03
+		}
+	}
+	
+	BEL_the_red_army = {
+		picture = BEL_red_army
+		
+		removal_cost = -1 
+		
+		modifier = {
+			conscription = 0.05
+		}
+	}
+	
+	BEL_revolutionary_army = {
+		picture = BEL_revolutionary_army
+		
+		removal_cost = -1 
+		
+		modifier = {
+			conscription = 0.05
+			army_attack_factor = 0.1
+			army_defence_factor = 0.1
+		}
+	}
+	
+	BEL_learning_from_nkvd = {
+		picture = generic_spy_political
+		
+		removal_cost = -1 
+		
+		modifier = {
+			agency_upgrade_time = -0.25
+			enemy_operative_capture_chance_factor = 0.15
+			enemy_operative_detection_chance_factor = 0.15
+			foreign_subversive_activites = -0.1
+			operative_slot = 1
+		}
+	}
+	
+	BEL_socialist_emulation = {
+		picture = BEL_socialist_realism
+		
+		removal_cost = -1 
+		
+		modifier = {
+			research_speed_factor = 0.03
+			production_factory_efficiency_gain_factor = 0.05
+		}
+	}
+	
+	BEL_socialist_realism = {
+		picture = BEL_socialist_realism
+		
+		removal_cost = -1
+		
+		modifier = {
+			consumer_goods_factor = -0.10
+			war_support_factor = 0.05 
+		}
+	}
+	
+	BEL_socialist_realism1 = {
+		picture = BEL_socialist_realism
+		
+		removal_cost = -1 
+		
+		modifier = {
+			consumer_goods_factor = -0.10
+			war_support_factor = 0.05
+			research_speed_factor = 0.03
+			production_factory_efficiency_gain_factor = 0.05
+		}
+	}
+	
+	BEL_socialist_emulation1 = {
+		picture = BEL_socialist_realism
+		
+		removal_cost = -1 
+		
+		modifier = {
+			consumer_goods_factor = -0.10
+			war_support_factor = 0.05
+			research_speed_factor = 0.03
+			production_factory_efficiency_gain_factor = 0.05
+		}
+	}
+	
+	BEL_woman_workers = {
+		picture = BEL_woman_workers
+		
+		removal_cost = -1 
+		
+		modifier = {
+			production_factory_max_efficiency_factor = 0.1
+			production_factory_efficiency_gain_factor = 0.1
+		}
+	}
+	
+	BEL_bsa = {
+		picture = BEL_bsa
+		
+		removal_cost = -1 
+		
+		equipment_bonus = {
+			infantry_equipment = {
+				build_cost_ic = -0.1 instant = yes
+			}
+		}
+	}
+	
+	BEL_increase_production = {
+		picture = POL_succesful_four_year_plan
+		
+		removal_cost = -1 
+		
+		modifier = {
+			production_factory_max_efficiency_factor = 0.1
+			production_factory_efficiency_gain_factor = 0.1
+		}
+	}
+	
+	BEL_superior_army = {
+		picture = BEL_superior_army
+		
+		removal_cost = -1 
+		
+		modifier = {
+			army_org_factor = 0.08
+			army_attack_factor = 0.1 
+			army_defence_factor = 0.1
+			army_morale_factor = 0.05
+		}
+	}
+	
+	BEL_benelux_economic_pact = {
+		picture = BEL_benelux_economic_pact
+		
+		removal_cost = -1 
+		
+		modifier = {
+			consumer_goods_factor = -0.15
+			production_factory_max_efficiency_factor = 0.05
+			research_speed_factor = 0.02
+		}
+	}
+	
+	BEL_benelux_economic_pact1 = {
+		picture = BEL_benelux_economic_pact
+		
+		removal_cost = -1 
+		
+		modifier = {
+			consumer_goods_factor = -0.06
+			production_factory_max_efficiency_factor = 0.025
+			research_speed_factor = 0.01
+		}
+	}
+	
+	BEL_german_trade_pact = {
+		picture = BEL_german_trade_pact
+		
+		removal_cost = -1 
+		
+		modifier = {
+			consumer_goods_factor = -0.15
+			industrial_capacity_factory = 0.05
+		}
+	}
+	
+	BEL_preparations_for_war = {
+		picture = BEL_preparations_for_war
+		
+		removal_cost = 1 
+		
+		modifier = {
+			political_power_cost = 0.25
+			consumer_goods_factor = -0.15
+			war_support_factor = 0.15
+			industrial_capacity_factory = 0.1
+			industrial_capacity_dockyard = 0.05
+			production_factory_efficiency_gain_factor = 0.05 
+			production_factory_max_efficiency_factor = 0.05
+			research_speed_factor = 0.05
+			global_building_slots_factor = 0.25
+			army_core_defence_factor = 0.05
+			conscription_factor = 0.1
+		}
+	}
+	
+	BEL_spread_communism = {
+		picture = generic_communism_drift
+		
+		removal_cost = -1 
+		
+		modifier = {
+			communism_drift = 0.25
+			political_power_factor = -0.1
+			stability_factor = -0.1
+		}
+		
+		cancel = {
+			has_government = communism
+		}
+	}
+	
+	BEL_princess_lilian_idea = {
+		picture = BEL_princess_lilian
+		
+		removal_cost = -1 
+		
+		traits = { BEL_princess_of_belgium }
+		}
+	
+	BEL_royal_question = {
+		picture = generic_king_handled
+		
+		removal_cost = -1 
+		
+		modifier = {
+			political_power_factor = -0.25
+			war_support_factor = -0.1
+			stability_factor = -0.15
+			neutrality_drift = -0.02
+		}
+	}
+	
+	BEL_angry_master = {
+		picture = generic_intel_bonus
+		
+		cancel = {
+			is_subject = no
+		}
+		
+		removal_cost = -1 
+		
+		modifier = {
+			autonomy_gain = -1
+		}
+	}
+	
+	BEL_political_reforms = {
+		picture = generic_pp_unity_bonus
+		
+		removal_cost = -1 
+		
+		modifier = {
+			stability_factor = 0.05
+			political_power_gain = 0.25
+		}
+	}
+	
+	BEL_railway_construction = {
+		picture = generic_exploit_mines
+		
+		removal_cost = -1
+		
+		modifier = {
+			production_speed_rail_way_factor = 0.25
+			production_speed_supply_node_factor = 0.15
+		}
+	}
+	
+	}
+}

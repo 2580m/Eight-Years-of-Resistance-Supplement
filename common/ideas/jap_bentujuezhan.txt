@@ -1,0 +1,625 @@
+ideas = {
+
+	country = {
+	
+	balance_idea_japan_buff = {
+	
+	        picture = jap_ichi_go
+	
+	        allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			available = {
+				has_war_with = event_target:WTT_current_china_leader
+				is_ai = yes
+				surrender_progress < 0.05
+				has_global_flag = japan_ai_just_jindun_and_tank_and_buff
+			}
+			cancel = {
+			any_enemy_country = {
+			is_literally_china = no
+			is_major = yes
+			}
+			}
+			traits = {
+				#plus_point_1_per_week #MODDED
+			}
+			modifier = {
+				dig_in_speed_factor = 0.1
+				max_dig_in_factor = 0.1
+				industrial_capacity_dockyard = 0.15
+		        production_factory_max_efficiency_factor = 0.15
+		        production_factory_efficiency_gain_factor = 0.15
+		        production_factory_start_efficiency_factor = 0.15
+		        line_change_production_efficiency_factor = 0.15
+				industrial_capacity_factory = 0.25
+				army_org_factor = 0.2
+		        army_morale_factor = 0.2
+				land_reinforce_rate = 0.05
+				experience_loss_factor = -0.2
+				supply_factor = 0.15
+				supply_node_range = 0.15
+				org_loss_at_low_org_factor = -0.15
+			    terrain_penalty_reduction = 0.15
+				naval_invasion_penalty = -0.5
+				ai_focus_aggressive_factor = 0.5
+				out_of_supply_factor = -0.15
+                supply_consumption_factor = -0.15
+			    attrition = -0.25
+				army_defence_factor = 0.2
+				
+				army_attack_factor = 0.15
+				breakthrough_factor = 0.15
+			}
+			on_remove = {
+			#Shanghai and Nanking #guo
+			every_state = {
+	        limit = {
+			is_core_of = event_target:WTT_current_china_leader
+	        has_dynamic_modifier = { modifier = jap_shanghai_modifier scope = JAP }
+	        }
+	        remove_dynamic_modifier = { modifier = jap_shanghai_modifier scope = JAP }
+			remove_dynamic_modifier = { modifier = jap_shanghai_modifier scope = SIA }
+	        }
+			}
+			removal_cost = -1
+	}
+	
+	death_of_shower_tianhuang_for_china = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+			
+			available = {
+			    
+			}
+			
+			removal_cost = -1
+
+			picture = japan_sun_fall
+			
+			modifier = {
+				army_morale_factor = 0.1
+				land_reinforce_rate = 0.05
+				army_org_factor = 0.1
+				war_support_factor = 0.15
+				stability_factor = 0.15
+				political_power_gain = 1
+			}
+	}
+	
+	death_of_shower_tianhuang = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				not = { has_government = communism }
+			}
+			
+			available = {
+			    not = { has_government = communism }
+			}
+
+			removal_cost = -1
+
+			picture = death_of_shower_tianhuang
+			
+			modifier = {
+				stability_factor = -0.15
+				political_power_factor = -0.15
+				compliance_growth_on_our_occupied_states = -0.25 #我们被敌人占领地区的顺从度增长速度
+		        resistance_decay_on_our_occupied_states = -0.25 #我们被敌人占领地区的抵抗下降速度
+		        resistance_growth_on_our_occupied_states = 0.25 #我们被敌人占领地区的抵抗增长速度
+		        resistance_damage_to_garrison_on_our_occupied_states = 0.25
+		        resistance_target_on_our_occupied_states = 0.25
+			}
+	}
+	
+	JAP_concentrate_on_china_player = {
+	
+	        picture = jap_ichi_go
+	
+	        allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				has_war_with = event_target:WTT_current_china_leader
+			}
+			available = {
+			has_global_flag = japan_ai_will_be_strong
+			has_war_with = event_target:WTT_current_china_leader
+			surrender_progress < 0.02
+			}
+			cancel = { 
+			   any_other_country = {
+			   is_literally_china = no
+			   is_major = yes
+			   has_war_with = ROOT
+			   }
+			}
+			traits = {
+				#plus_point_2_per_week #MODDED
+			}
+			modifier = {
+                army_attack_factor = 0.25
+				army_defence_factor = 0.25
+				breakthrough_factor = 0.25
+				dig_in_speed_factor = 0.25
+				industrial_capacity_factory = 0.25
+				army_morale_factor = 0.15
+				army_org_factor = 0.15
+				supply_factor = 0.15
+				supply_node_range = 0.15
+				org_loss_at_low_org_factor = -0.1
+			    terrain_penalty_reduction = 0.15
+				naval_invasion_penalty = -0.15
+				ai_focus_aggressive_factor = 0.5
+				experience_loss_factor = -0.15
+				#hidden_modifier = {
+					industrial_capacity_dockyard = 0.15
+		            production_factory_max_efficiency_factor = 0.15
+		            production_factory_efficiency_gain_factor = 0.15
+		            production_factory_start_efficiency_factor = 0.15
+		            line_change_production_efficiency_factor = 0.15
+					out_of_supply_factor = -0.125
+                    supply_consumption_factor = -0.125
+					attrition = -0.125
+				#}
+			}
+			on_remove = {
+			#Shanghai and Nanking #guo
+			every_state = {
+	        limit = {
+	        has_dynamic_modifier = { modifier = jap_shanghai_modifier scope = JAP }
+	        }
+	        remove_dynamic_modifier = { modifier = jap_shanghai_modifier scope = JAP }
+	        }
+	        608 = { remove_dynamic_modifier = { modifier = jap_shanghai_modifier scope = JAP } }
+	        598 = { remove_dynamic_modifier = { modifier = jap_shanghai_modifier scope = JAP } }
+	        1015 = { remove_dynamic_modifier = { modifier = jap_shanghai_modifier scope = JAP } }
+	        613 = { remove_dynamic_modifier = { modifier = jap_shanghai_modifier scope = JAP } }
+	        596 = { remove_dynamic_modifier = { modifier = jap_shanghai_modifier scope = JAP } }
+	        593 = { remove_dynamic_modifier = { modifier = jap_shanghai_modifier scope = JAP } }
+	        592 = { remove_dynamic_modifier = { modifier = jap_shanghai_modifier scope = JAP } }
+	        1037 = { remove_dynamic_modifier = { modifier = jap_shanghai_modifier scope = JAP } }
+	        591 = { remove_dynamic_modifier = { modifier = jap_shanghai_modifier scope = JAP } }
+			}
+			removal_cost = -1
+	}
+	
+	JAP_concentrate_on_prc_player = {
+	
+	        picture = jap_ichi_go
+			
+			name = JAP_concentrate_on_china_player
+	
+	        allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				has_war_with = event_target:WTT_current_china_leader
+			}
+			available = {
+			has_global_flag = japan_ai_will_be_strong
+			has_war_with = event_target:WTT_current_china_leader
+			event_target:WTT_communist_china = { is_ai = no }
+			surrender_progress < 0.02
+			not = { has_idea = JAP_concentrate_on_china_player }
+			}
+			cancel = { 
+			   any_other_country = {
+			   is_literally_china = no
+			   is_major = yes
+			   has_war_with = ROOT
+			   }
+			}
+			traits = {
+				#plus_point_2_per_week #MODDED
+			}
+			modifier = {
+                army_attack_factor = 0.175
+				army_defence_factor = 0.175
+				breakthrough_factor = 0.175
+				dig_in_speed_factor = 0.15
+				industrial_capacity_factory = 0.25
+				army_morale_factor = 0.1
+				army_org_factor = 0.1
+				supply_factor = 0.1
+				supply_node_range = 0.1
+				org_loss_at_low_org_factor = -0.1
+			    terrain_penalty_reduction = 0.1
+				naval_invasion_penalty = -0.1
+				ai_focus_aggressive_factor = 0.5
+				experience_loss_factor = -0.1
+				#hidden_modifier = {
+					industrial_capacity_dockyard = 0.15
+		            production_factory_max_efficiency_factor = 0.1
+		            production_factory_efficiency_gain_factor = 0.1
+		            production_factory_start_efficiency_factor = 0.1
+		            line_change_production_efficiency_factor = 0.1
+					out_of_supply_factor = -0.15
+                    supply_consumption_factor = -0.15
+					attrition = -0.1
+				#}
+			}
+			on_remove = {
+			#Shanghai and Nanking #guo
+			every_state = {
+	        limit = {
+	        has_dynamic_modifier = { modifier = jap_shanghai_modifier scope = JAP }
+	        }
+	        remove_dynamic_modifier = { modifier = jap_shanghai_modifier scope = JAP }
+	        }
+	        608 = { remove_dynamic_modifier = { modifier = jap_shanghai_modifier scope = JAP } }
+	        598 = { remove_dynamic_modifier = { modifier = jap_shanghai_modifier scope = JAP } }
+	        1015 = { remove_dynamic_modifier = { modifier = jap_shanghai_modifier scope = JAP } }
+	        613 = { remove_dynamic_modifier = { modifier = jap_shanghai_modifier scope = JAP } }
+	        596 = { remove_dynamic_modifier = { modifier = jap_shanghai_modifier scope = JAP } }
+	        593 = { remove_dynamic_modifier = { modifier = jap_shanghai_modifier scope = JAP } }
+	        592 = { remove_dynamic_modifier = { modifier = jap_shanghai_modifier scope = JAP } }
+	        1037 = { remove_dynamic_modifier = { modifier = jap_shanghai_modifier scope = JAP } }
+	        591 = { remove_dynamic_modifier = { modifier = jap_shanghai_modifier scope = JAP } }
+			}
+			removal_cost = -1
+	}
+	
+	jap_stalemate = {
+	
+	        picture = chi_incompetent_officers
+	
+	        allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				has_war_with = event_target:WTT_current_china_leader
+			}
+			available = {
+			has_war_with = event_target:WTT_current_china_leader
+			or = {
+			event_target:WTT_current_china_leader = { surrender_progress > 0.1 }
+			1034 = { is_controlled_by_jap_or_its_puppet = yes }
+			}
+			}
+			cancel = { 
+			   
+			}
+			traits = {
+				#plus_point_2_per_week #MODDED
+			}
+			modifier = {
+				planning_speed = -0.5
+				max_planning = -0.25
+			}
+			removal_cost = -1
+	}
+	
+	jap_three_months_crush_china = {
+	
+	        picture = CZE_planning_bonus
+	
+	        allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				OR = {
+				has_government = fascism
+				has_government = neutrality
+				}
+			}
+			available = {
+			
+			}
+			cancel = { 
+			   
+			}
+			traits = {
+				#plus_point_2_per_week #MODDED
+			}
+			modifier = {
+				planning_speed = 0.5
+				max_planning = 0.35
+				org_loss_when_moving = -0.25
+			} 
+			removal_cost = -1
+	}
+	
+	tripartite_pact_ideas = {
+	
+	        picture = HUN_treaty_of_triannon
+	
+	        allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				OR = {
+				has_government = fascism
+				has_government = neutrality
+				}
+			}
+			available = {
+			JAP = { is_subject = no }
+			GER = { is_subject = no }
+			ITA = { is_subject = no }
+			OR = {
+				has_government = fascism
+				has_government = neutrality
+				}
+			}
+			cancel = { 
+			   OR = {
+			   
+			   has_global_flag = JAP_defeated
+			   
+			   has_war_with = JAP
+			   has_war_with = GER
+			   has_war_with = ITA
+			   NOT = { country_exists = JAP }
+			   NOT = { country_exists = GER }
+			   NOT = { country_exists = ITA }
+			   }
+			}
+			traits = {
+				#plus_point_2_per_week #MODDED
+			}
+			modifier = {
+				political_power_factor = 0.05
+				war_support_factor = 0.05
+				stability_factor = 0.05
+				research_speed_factor = 0.05
+				surrender_limit = 0.15
+			} 
+			removal_cost = -1
+	}
+	
+	jap_Doolittle_Raid = {
+	
+	        picture = CHI_coast_focus_idea
+	
+	        allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				has_war_with = USA
+			}
+			available = {
+			has_war_with = USA
+			}
+			cancel = { 
+			   
+			}
+			traits = {
+				#plus_point_2_per_week #MODDED
+			}
+			modifier = {
+				political_power_factor = -0.1
+				war_support_factor = -0.1
+				stability_factor = -0.1
+				army_morale_factor = -0.15
+				army_org_factor = -0.05
+			} 
+			removal_cost = -1
+	}
+	
+	jap_beijinlun = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+			OR = {
+			    has_government = neutrality
+				has_government = fascism
+				}
+			}
+
+                                                available = {
+                                                      
+                                                      is_subject = no
+                                                }
+
+			removal_cost = -1
+
+			picture = JAP_reorganized_japanese_militarism_idea
+
+			targeted_modifier = {
+				tag = SOV
+				breakthrough_bonus_against = 0.35
+				attack_bonus_against = 0.35
+				defense_bonus_against = 0.35
+			}
+			modifier = {
+
+                                                                ai_focus_aggressive_factor = 0.5
+                                                             
+				planning_speed = 0.25
+				max_planning = 0.15
+				no_supply_grace = 144
+				SUPPLY_FACTOR = 0.15
+				SUPPLY_NODE_RANGE = 0.15
+				army_morale_factor = 0.15
+				supply_consumption_factor = -0.3
+                                                                out_of_supply_factor = -0.3
+				org_loss_when_moving = -0.1
+                                                                army_org_factor = 0.1
+                                                                army_speed_factor = 0.1
+                                                                winter_attrition_factor = -0.35
+			}
+		}
+		
+	nanshinyon = {#guo
+		name = nanshinyon
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				has_government = fascism
+			}
+			removal_cost = -1
+			picture = JAP_military_outweighs_the_government_idea
+			modifier = {
+				consumer_goods_factor = -0.35
+				army_org_factor = 0.15
+				army_morale_factor = 0.25
+				command_power_gain = 1
+			max_command_power = 50	
+experience_loss_factor = -0.25
+                                                                ai_focus_aggressive_factor = 1
+                                                                
+				industrial_capacity_factory = 0.25
+                                                                production_factory_max_efficiency_factor = 0.25
+                                                                production_factory_efficiency_gain_factor = 0.25
+				planning_speed = 0.25
+				max_planning = 0.25
+				no_supply_grace = 288
+				SUPPLY_FACTOR = 0.35
+				SUPPLY_NODE_RANGE = 0.35
+				                                                           
+				supply_consumption_factor = -0.5
+                                                                out_of_supply_factor = -0.5
+				org_loss_when_moving = -0.1				
+                                                                
+                                                                army_speed_factor = 0.1
+
+                                                                air_mission_efficiency = 0.15
+                                                                air_attack_factor = 0.15
+                                                                army_bonus_air_superiority_factor = 0.15
+                                                                attrition = -0.5				
+			}
+			targeted_modifier = {
+				tag = USA
+				breakthrough_bonus_against = 0.3
+				attack_bonus_against = 0.3
+				defense_bonus_against = 0.3
+			}
+			targeted_modifier = {
+				tag = ENG
+				breakthrough_bonus_against = 0.3
+				attack_bonus_against = 0.3
+				defense_bonus_against = 0.3
+			}
+			targeted_modifier = {
+				tag = PHI
+				breakthrough_bonus_against = 0.3
+				attack_bonus_against = 0.3
+				defense_bonus_against = 0.3
+			}
+			targeted_modifier = {
+				tag = INS
+				breakthrough_bonus_against = 0.3
+				attack_bonus_against = 0.3
+				defense_bonus_against = 0.3
+			}
+			targeted_modifier = {
+				tag = AST
+				breakthrough_bonus_against = 0.3
+				attack_bonus_against = 0.3
+				defense_bonus_against = 0.3
+			}
+			targeted_modifier = {
+				tag = BUR
+				breakthrough_bonus_against = 0.3
+				attack_bonus_against = 0.3
+				defense_bonus_against = 0.3
+			}
+			targeted_modifier = {
+				tag = MAL
+				breakthrough_bonus_against = 0.3
+				attack_bonus_against = 0.3
+				defense_bonus_against = 0.3
+			}
+			targeted_modifier = {
+				tag = RAJ
+				breakthrough_bonus_against = 0.3
+				attack_bonus_against = 0.3
+				defense_bonus_against = 0.3
+			}
+		}
+		
+    
+        jap_bentujuezhan = {
+			
+                                                picture = final_war_theory
+
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				is_fascism_type = yes
+			}
+
+                                                available = {
+  is_subject = no
+                                                     has_capitulated = no
+                                                }
+
+                                                visible = {
+                                                          
+                                                }
+			
+                                                cancel = {
+                                                    surrender_progress > 0.98          
+                                                }
+                 
+                                                equipment_bonus = {
+                                                                artillery_equipment = {
+					build_cost_ic = -0.8
+					instant = yes
+					reliability = -0.3
+				}
+				infantry_equipment = {
+					build_cost_ic = -0.8
+					instant = yes
+					reliability = -0.3
+				}
+				support_equipment = {
+					build_cost_ic = -0.8
+					instant = yes
+					reliability = -0.3
+				}
+				small_plane_airframe = {
+					build_cost_ic = -0.8
+					instant = yes
+					reliability = -0.3
+				}
+			}                
+
+                                                targeted_modifier = {
+					
+			}
+                                                     
+			modifier = {
+			war_support_factor = 5
+			stability_factor = -1
+land_reinforce_rate = 1
+ai_focus_aggressive_factor = 5
+experience_loss_factor = 0.5
+                                                                 surrender_limit = 1
+                                                                 army_morale_factor = 1
+                                                                 mobilization_speed = 5
+                                                                 training_time_factor = -0.75
+																 minimum_training_level = -0.75
+                                                                 #air_attack_factor = 0.5
+                                                                 army_core_defence_factor = 0.5
+                                                                 army_core_attack_factor = 0.5
+                                                                 max_dig_in = 35
+                                                                 dig_in_speed_factor = 1
+                                                                 conscription = 0.5
+                                                                 industrial_capacity_factory = -0.5
+                                                                 production_factory_max_efficiency_factor = -0.3
+                                                                 production_factory_efficiency_gain_factor = -0.3
+                                                                 consumer_goods_factor = -1
+																 army_org_factor = 0.35
+																 org_loss_at_low_org_factor = -0.75
+			}
+		}
+	}
+}

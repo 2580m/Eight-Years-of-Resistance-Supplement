@@ -1,0 +1,59 @@
+ideas = {
+    country = {
+        Yamamotos_Plan = {
+            allowed = {
+                always = no
+            }
+
+            allowed_civil_war = {
+                has_government = fascism
+            }
+
+            removal_cost = -1
+            
+            picture = generic_bomber_production_diverted
+
+            modifier = {
+                
+            }
+        }
+
+        the_day_of_infamy = { #guo
+            allowed = {
+                always = no
+            }
+
+            allowed_civil_war = {
+                is_democratic_type = yes
+            }
+
+            removal_cost = -1
+			
+			available = {
+			has_war_with = JAP
+			}
+
+            picture = generic_navy_bonus
+
+            modifier = {
+                industrial_capacity_dockyard = 0.15
+                war_support_factor = 15
+            }
+			
+			on_add = {
+			if = {
+				limit = {
+					USA = {
+					has_defensive_war_with = JAP #guo
+					has_country_leader = { character = USA_franklin_delano_roosevelt ruling_only = yes }
+					}
+				}
+				play_day_of_infamy_effect = yes
+			}
+			set_global_flag = day_of_infamy_happened
+			set_global_flag = usa_gei_in_war
+			USA = { country_event = super.4 }
+			}
+        }
+    }
+}

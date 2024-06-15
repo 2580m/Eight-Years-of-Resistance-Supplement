@@ -1,0 +1,386 @@
+ideas = {
+	hidden_ideas = {
+		AI_build_more_ship_1 = {
+			allowed = {
+				always = no
+			}
+			available = {
+				is_ai = yes
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			removal_cost = -1
+			picture = generic_navy_bonus
+			modifier = {
+				industrial_capacity_dockyard = 0.2
+			}
+			equipment_bonus = {
+
+				ship_hull_heavy = {
+					build_cost_ic = -0.1 instant = yes
+				}
+				ship_hull_carrier = {
+					build_cost_ic = -0.1 instant = yes
+				}
+				ship_hull_cruiser = {
+					build_cost_ic = -0.1 instant = yes
+				}
+				ship_hull_light = {
+					build_cost_ic = -0.1 instant = yes
+				}
+				
+				ship_hull_submarine = {
+					build_cost_ic = -0.1 instant = yes
+				}
+				convoy = {
+					instant = yes	build_cost_ic = -0.1
+				}
+			}
+		}
+		
+		AI_build_more_ship_2 = {
+			allowed = {
+				always = no
+			}
+			available = {
+				is_ai = yes
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			removal_cost = -1
+			picture = generic_navy_bonus
+			modifier = {
+				industrial_capacity_dockyard = 0.4
+			}
+			equipment_bonus = {
+
+				ship_hull_heavy = {
+					build_cost_ic = -0.2 instant = yes
+				}
+				ship_hull_carrier = {
+					build_cost_ic = -0.2 instant = yes
+				}
+				ship_hull_cruiser = {
+					build_cost_ic = -0.2 instant = yes
+				}
+				ship_hull_light = {
+					build_cost_ic = -0.2 instant = yes
+				}
+				
+				ship_hull_submarine = {
+					build_cost_ic = -0.2 instant = yes
+				}
+				convoy = {
+					instant = yes	build_cost_ic = -0.2
+				}
+			}
+		}
+		
+		AI_build_more_ship_3 = {
+			allowed = {
+				always = no
+			}
+			available = {
+				is_ai = yes
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			removal_cost = -1
+			picture = generic_navy_bonus
+			modifier = {
+				industrial_capacity_dockyard = 0.6
+			}
+			equipment_bonus = {
+
+				ship_hull_heavy = {
+					build_cost_ic = -0.3 instant = yes
+				}
+				ship_hull_carrier = {
+					build_cost_ic = -0.3 instant = yes
+				}
+				ship_hull_cruiser = {
+					build_cost_ic = -0.3 instant = yes
+				}
+				ship_hull_light = {
+					build_cost_ic = -0.3 instant = yes
+				}
+				
+				ship_hull_submarine = {
+					build_cost_ic = -0.3 instant = yes
+				}
+				convoy = {
+					instant = yes	build_cost_ic = -0.3
+				}
+			}
+		}
+		
+		AI_build_more_ship_4 = {
+			allowed = {
+				always = no
+			}
+			available = {
+				is_ai = yes
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			removal_cost = -1
+			picture = generic_navy_bonus
+			modifier = {
+				industrial_capacity_dockyard = 0.8
+			}
+			equipment_bonus = {
+
+				ship_hull_heavy = {
+					build_cost_ic = -0.4 instant = yes
+				}
+				ship_hull_carrier = {
+					build_cost_ic = -0.4 instant = yes
+				}
+				ship_hull_cruiser = {
+					build_cost_ic = -0.4 instant = yes
+				}
+				ship_hull_light = {
+					build_cost_ic = -0.4 instant = yes
+				}
+				
+				ship_hull_submarine = {
+					build_cost_ic = -0.4 instant = yes
+				}
+				convoy = {
+					instant = yes	build_cost_ic = -0.4
+				}
+			}
+		}
+		
+		AI_build_more_ship_5 = {
+			allowed = {
+				always = no
+			}
+			available = {
+				is_ai = yes
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			removal_cost = -1
+			picture = generic_navy_bonus
+			modifier = {
+				industrial_capacity_dockyard = 1.0
+			}
+			equipment_bonus = {
+				ship_hull_heavy = {
+					build_cost_ic = -0.5 instant = yes
+				}
+				ship_hull_carrier = {
+					build_cost_ic = -0.5 instant = yes
+				}
+				ship_hull_cruiser = {
+					build_cost_ic = -0.5 instant = yes
+				}
+				ship_hull_light = {
+					build_cost_ic = -0.5 instant = yes
+				}
+				
+				ship_hull_submarine = {
+					build_cost_ic = -0.5 instant = yes
+				}
+				convoy = {
+					instant = yes	build_cost_ic = -0.5
+				}
+			}
+		}
+		
+		more_screen_after_treaty = {
+			allowed = {
+				always = no
+			}
+			available = {
+				is_ai = yes
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			removal_cost = -1
+			picture = generic_navy_bonus
+			equipment_bonus = {
+				screen_ship = {
+					build_cost_ic = -0.4 instant = yes
+				}
+				ship_hull_light = {
+					build_cost_ic = -0.2 instant = yes
+				}
+			}
+		}
+		
+		more_screen_ship = {
+			allowed = {
+				always = no
+			}
+			available = {
+				is_ai = yes
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			removal_cost = -1
+			picture = generic_navy_bonus
+			equipment_bonus = {
+				screen_ship = {
+					build_cost_ic = -0.4 instant = yes
+				}
+				ship_hull_light = {
+					build_cost_ic = -0.2 instant = yes
+				}
+			}
+		}
+		
+		AI_naval_buff_1 = {
+			allowed = {
+				always = no
+			}
+			available = {
+				is_ai = yes
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			removal_cost = -1
+			picture = generic_navy_bonus
+			modifier = {
+				naval_damage_factor = 0.05
+				naval_defense_factor = 0.05
+				naval_hit_chance = 0.05
+				naval_strike_agility_factor = 0.05
+				naval_strike_attack_factor = 0.05
+				naval_strike_targetting_factor = 0.05
+				carrier_capacity_penalty_reduction = -0.1
+				sortie_efficiency = 0.1
+				naval_enemy_fleet_size_ratio_penalty_factor = 0.1
+				positioning = 0.1
+				navy_org_factor = 0.2
+				naval_retreat_speed = 0.2
+				screening_efficiency = 0.2
+			}
+		}
+		
+		AI_naval_buff_2 = {
+			allowed = {
+				always = no
+			}
+			available = {
+				is_ai = yes
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			removal_cost = -1
+			picture = generic_navy_bonus
+			modifier = {
+				naval_damage_factor = 0.1
+				naval_defense_factor = 0.1
+				naval_hit_chance = 0.1
+				naval_strike_agility_factor = 0.1
+				naval_strike_attack_factor = 0.1
+				naval_strike_targetting_factor = 0.1
+				carrier_capacity_penalty_reduction = -0.2
+				sortie_efficiency = 0.2
+				naval_enemy_fleet_size_ratio_penalty_factor = 0.2
+				positioning = 0.2
+				navy_org_factor = 0.4
+				naval_retreat_speed = 0.4
+				screening_efficiency = 0.4
+			}
+		}
+		
+		AI_naval_buff_3 = {
+			allowed = {
+				always = no
+			}
+			available = {
+				is_ai = yes
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			removal_cost = -1
+			picture = generic_navy_bonus
+			modifier = {
+				naval_damage_factor = 0.15
+				naval_defense_factor = 0.15
+				naval_hit_chance = 0.15
+				naval_strike_agility_factor = 0.15
+				naval_strike_attack_factor = 0.15
+				naval_strike_targetting_factor = 0.15
+				carrier_capacity_penalty_reduction = -0.3
+				sortie_efficiency = 0.3
+				naval_enemy_fleet_size_ratio_penalty_factor = 0.3
+				positioning = 0.3
+				navy_org_factor = 0.6
+				naval_retreat_speed = 0.6
+				screening_efficiency = 0.6
+			}
+		}
+		
+		AI_naval_buff_4 = {
+			allowed = {
+				always = no
+			}
+			available = {
+				is_ai = yes
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			removal_cost = -1
+			picture = generic_navy_bonus
+			modifier = {
+				naval_damage_factor = 0.2
+				naval_defense_factor = 0.2
+				naval_hit_chance = 0.2
+				naval_strike_agility_factor = 0.2
+				naval_strike_attack_factor = 0.2
+				naval_strike_targetting_factor = 0.2
+				carrier_capacity_penalty_reduction = -0.4
+				sortie_efficiency = 0.4
+				naval_enemy_fleet_size_ratio_penalty_factor = 0.4
+				positioning = 0.4
+				navy_org_factor = 0.8
+				naval_retreat_speed = 0.8
+				screening_efficiency = 0.8
+			}
+		}
+		
+		AI_naval_buff_5 = {
+			allowed = {
+				always = no
+			}
+			available = {
+				is_ai = yes
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			removal_cost = -1
+			picture = generic_navy_bonus
+			modifier = {
+				naval_damage_factor = 0.25
+				naval_defense_factor = 0.25
+				naval_hit_chance = 0.25
+				naval_strike_agility_factor = 0.25
+				naval_strike_attack_factor = 0.25
+				naval_strike_targetting_factor = 0.25
+				carrier_capacity_penalty_reduction = -0.5
+				sortie_efficiency = 0.5
+				naval_enemy_fleet_size_ratio_penalty_factor = 0.5
+				positioning = 0.5
+				navy_org_factor = 1
+				naval_retreat_speed = 1
+				screening_efficiency = 1
+			}
+		}
+	}
+}

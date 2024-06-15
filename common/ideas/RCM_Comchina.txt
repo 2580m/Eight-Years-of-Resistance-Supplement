@@ -1,0 +1,1000 @@
+ideas = {
+	country = {
+		
+		PRC_northeast_trade = { 
+			picture = generic_communism_drift_bonus
+			
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				has_government = communism
+			}
+
+			removal_cost = -1
+
+			cancel = {
+				OR = {
+					#NOT = {
+					#	has_war_with = event_target:WTT_current_china_leader
+					#}
+					NOT = {
+						is_neighbor_of = SOV
+					}
+					has_war_with = SOV
+				}
+			}
+
+		    modifier = {
+				consumer_goods_factor = 0.15
+            }
+
+			targeted_modifier = {
+				tag = SOV
+				cic_to_target_factor = 0.10
+				#mic_to_target_factor = 0.05
+				extra_trade_to_target_factor = 0.25
+				trade_cost_for_target_factor = -0.25
+			}
+        }
+		SOV_northeast_trade = { 
+			picture = generic_goods_red_bonus
+			
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				has_government = communism
+			}
+
+			removal_cost = -1
+
+            cancel = {
+				OR = {
+					#PRC = {
+                    #    NOT = {
+					#		has_war_with = event_target:WTT_current_china_leader
+					#	}
+					#}
+					NOT = {
+						is_neighbor_of = PRC
+					}
+					PRC = {
+						has_war_with = SOV
+					}	
+				}
+			}
+
+		    modifier = {
+				consumer_goods_factor = -0.15
+            }
+
+			targeted_modifier = {
+				tag = PRC
+				#cic_to_target_factor = 0.05
+				mic_to_target_factor = 0.05
+				extra_trade_to_target_factor = 0.25
+				trade_cost_for_target_factor = -0.25
+			}
+        }
+
+        PRC_new_red_army_idea = { 
+			picture = MEX_revolutionary_army
+			
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				has_government = communism
+			}
+
+			removal_cost = -1
+
+		    modifier = {
+				army_org_factor = 0.03
+				army_org_regain = 0.1
+            }
+        }
+		
+		
+		PRC_pla_idea = { 
+			picture = MEX_revolutionary_army
+			
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				has_government = communism
+			}
+
+			removal_cost = -1
+			
+		    modifier = {
+			    army_core_attack_factor = 0.05
+				army_core_defence_factor = 0.05
+				army_attack_against_major_factor = 0.025
+				army_defence_against_major_factor = 0.025
+            }
+        }
+		
+		CCP_go_west = { 
+            picture = chi_army_corruption3
+
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				has_government = communism
+			}
+
+			removal_cost = -1
+            
+            cancel = {
+				OR = {
+					1044 = {
+						is_owned_and_controlled_by = ROOT
+					}
+					EGM = {
+						exists = no
+					}
+				}
+			}
+			
+		    targeted_modifier = {
+			    tag = EGM
+				attack_bonus_against = 0.35
+				defense_bonus_against = 0.35
+			    breakthrough_bonus_against = 0.3
+            }
+
+			modifier = {
+				army_org_factor = 0.15
+				terrain_penalty_reduction = 0.25
+				ammunition_factor = 0.5
+				ammunition_consumption_factor = -0.8
+			}
+        }
+		
+		CCP_constitution_zhang = {
+			name = CCP_constitution
+			picture = CCP_constitution
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				has_government = communism
+			}
+
+			removal_cost = -1
+
+
+			modifier = {
+				custom_modifier_tooltip = ZHANG_faction_monthly_tt
+			}
+			on_add = {
+				hidden_effect = {
+					set_variable = { CCP_constitution_zhang_counter = 15 } #first increase after 15 days
+					add_to_variable = { teb_total = 0.5 } #monthly for locs
+				}
+			}
+			on_remove = {
+				hidden_effect = {
+					subtract_from_variable = { teb_total = 0.5 } #monthly for locs
+				}
+			}
+		}
+		CCP_constitution_mao = {
+			name = CCP_constitution
+			picture = CCP_constitution
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				has_government = communism
+			}
+
+			removal_cost = -1
+
+
+			modifier = {
+				custom_modifier_tooltip = MAO_faction_monthly_tt
+			}
+			on_add = {
+				hidden_effect = {
+					set_variable = { CCP_constitution_mao_counter = 15 } #first increase after 15 days
+					add_to_variable = { teb_total = 0.5 } #monthly for locs
+				}
+			}
+			on_remove = {
+				hidden_effect = {
+					subtract_from_variable = { teb_total = 0.5 } #monthly for locs
+				}
+			}
+		}
+		CCP_constitution_28b = {
+			name = CCP_constitution
+			picture = CCP_constitution
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				has_government = communism
+			}
+
+			removal_cost = -1
+
+
+			modifier = {
+				custom_modifier_tooltip = TEB_faction_monthly_tt
+			}
+			on_add = {
+				hidden_effect = {
+					set_variable = { CCP_constitution_28b_counter = 15 } #first increase after 15 days
+					add_to_variable = { teb_total = 0.5 } #monthly for locs
+				}
+			}
+			on_remove = {
+				hidden_effect = {
+					subtract_from_variable = { teb_total = 0.5 } #monthly for locs
+				}
+			}
+		}
+		CCP_constitution_trot = {
+			name = CCP_constitution
+			picture = CCP_constitution
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				has_government = communism
+			}
+
+			removal_cost = -1
+
+
+			modifier = {
+				custom_modifier_tooltip = TROT_faction_monthly_tt
+			}
+			on_add = {
+				hidden_effect = {
+					set_variable = { CCP_constitution_trot_counter = 15 } #first increase after 15 days
+					add_to_variable = { teb_total = 0.5 } #monthly for locs
+				}
+			}
+			on_remove = {
+				hidden_effect = {
+					subtract_from_variable = { teb_total = 0.5 } #monthly for locs
+				}
+			}
+		}
+
+
+
+		CCP_question_history_zhang = {
+			picture = CCP_question_history
+			name = CCP_question_history
+
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				has_government = communism
+			}
+
+			removal_cost = -1
+
+			
+
+			modifier = {
+				custom_modifier_tooltip = ZHANG_faction_neg_monthly_tt
+				#custom_modifier_tooltip = TEB_faction_neg_monthly_tt
+				#custom_modifier_tooltip = MAO_faction_neg_monthly_tt
+				#custom_modifier_tooltip = TROT_faction_neg_monthly_tt
+			}
+			on_add = {
+				hidden_effect = {
+					#set_variable = { CCP_question_history_zhang_counter = 15 } #first increase after 15 days
+					set_variable = { CCP_question_history_mao_counter = 15 } #first increase after 15 days
+					set_variable = { CCP_question_history_teb_counter = 15 } #first increase after 15 days
+					set_variable = { CCP_question_history_trot_counter = 15 } #first increase after 15 days
+					#add_to_variable = { zhang_total = -0.5 } #monthly for locs
+					add_to_variable = { mao_total = -0.5 } #monthly for locs
+					add_to_variable = { teb_total = -0.5 } #monthly for locs
+					add_to_variable = { trotskyist_total = -0.5 } #monthly for locs
+				}
+			}
+			on_remove = {
+				hidden_effect = {
+					#subtract_from_variable = { zhang_total = -0.5 } #monthly for locs
+					subtract_from_variable = { mao_total = -0.5 } #monthly for locs
+					subtract_from_variable = { teb_total = -0.5 } #monthly for locs
+					subtract_from_variable = { trotskyist_total = -0.5 } #monthly for locs
+				}
+			}
+		}
+		CCP_question_history_mao = {
+			picture = CCP_question_history
+			name = CCP_question_history
+
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				has_government = communism
+			}
+
+			removal_cost = -1
+
+			
+
+			modifier = {
+				#custom_modifier_tooltip = ZHANG_faction_neg_monthly_tt
+				custom_modifier_tooltip = MAO_faction_neg_monthly_tt
+				#custom_modifier_tooltip = TEB_faction_neg_monthly_tt
+				#custom_modifier_tooltip = TROT_faction_neg_monthly_tt
+			}
+			on_add = {
+				hidden_effect = {
+					set_variable = { CCP_question_history_zhang_counter = 15 } #first increase after 15 days
+					#set_variable = { CCP_question_history_mao_counter = 15 } #first increase after 15 days
+					set_variable = { CCP_question_history_teb_counter = 15 } #first increase after 15 days
+					set_variable = { CCP_question_history_trot_counter = 15 } #first increase after 15 days
+					add_to_variable = { zhang_total = -0.5 } #monthly for locs
+					#add_to_variable = { mao_total = -0.5 } #monthly for locs
+					add_to_variable = { teb_total = -0.5 } #monthly for locs
+					add_to_variable = { trotskyist_total = -0.5 } #monthly for locs
+				}
+			}
+			on_remove = {
+				hidden_effect = {
+					subtract_from_variable = { zhang_total = -0.5 } #monthly for locs
+					#subtract_from_variable = { mao_total = -0.5 } #monthly for locs
+					subtract_from_variable = { teb_total = -0.5 } #monthly for locs
+					subtract_from_variable = { trotskyist_total = -0.5 } #monthly for locs
+				}
+			}
+		}
+		CCP_question_history_teb = {
+			picture = CCP_question_history
+			name = CCP_question_history
+
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				has_government = communism
+			}
+
+			removal_cost = -1
+
+			
+
+			modifier = {
+				#custom_modifier_tooltip = ZHANG_faction_neg_monthly_tt
+				#custom_modifier_tooltip = MAO_faction_neg_monthly_tt
+				custom_modifier_tooltip = TEB_faction_neg_monthly_tt
+				#custom_modifier_tooltip = TROT_faction_neg_monthly_tt
+			}
+			on_add = {
+				hidden_effect = {
+					set_variable = { CCP_question_history_zhang_counter = 15 } #first increase after 15 days
+					set_variable = { CCP_question_history_mao_counter = 15 } #first increase after 15 days
+					#set_variable = { CCP_question_history_teb_counter = 15 } #first increase after 15 days
+					set_variable = { CCP_question_history_trot_counter = 15 } #first increase after 15 days
+					add_to_variable = { zhang_total = -0.5 } #monthly for locs
+					add_to_variable = { mao_total = -0.5 } #monthly for locs
+					#add_to_variable = { teb_total = -0.5 } #monthly for locs
+					add_to_variable = { trotskyist_total = -0.5 } #monthly for locs
+				}
+			}
+			on_remove = {
+				hidden_effect = {
+					subtract_from_variable = { zhang_total = -0.5 } #monthly for locs
+					subtract_from_variable = { mao_total = -0.5 } #monthly for locs
+					#subtract_from_variable = { teb_total = -0.5 } #monthly for locs
+					subtract_from_variable = { trotskyist_total = -0.5 } #monthly for locs
+				}
+			}
+		}
+		CCP_question_history_trot = {
+			picture = CCP_question_history
+			name = CCP_question_history
+
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				has_government = communism
+			}
+
+			removal_cost = -1
+
+			
+
+			modifier = {
+				#custom_modifier_tooltip = ZHANG_faction_neg_monthly_tt
+				#custom_modifier_tooltip = MAO_faction_neg_monthly_tt
+				#custom_modifier_tooltip = TEB_faction_neg_monthly_tt
+				custom_modifier_tooltip = TROT_faction_neg_monthly_tt
+			}
+			on_add = {
+				hidden_effect = {
+					set_variable = { CCP_question_history_zhang_counter = 15 } #first increase after 15 days
+					set_variable = { CCP_question_history_mao_counter = 15 } #first increase after 15 days
+					set_variable = { CCP_question_history_teb_counter = 15 } #first increase after 15 days
+					#set_variable = { CCP_question_history_trot_counter = 15 } #first increase after 15 days
+					add_to_variable = { zhang_total = -0.5 } #monthly for locs
+					add_to_variable = { mao_total = -0.5 } #monthly for locs
+					add_to_variable = { teb_total = -0.5 } #monthly for locs
+					#add_to_variable = { trotskyist_total = -0.5 } #monthly for locs
+				}
+			}
+			on_remove = {
+				hidden_effect = {
+					subtract_from_variable = { zhang_total = -0.5 } #monthly for locs
+					subtract_from_variable = { mao_total = -0.5 } #monthly for locs
+					subtract_from_variable = { teb_total = -0.5 } #monthly for locs
+					#subtract_from_variable = { trotskyist_total = -0.5 } #monthly for locs
+				}
+			}
+		}
+
+
+		
+		central_committee = {
+
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				has_government = communism
+			}
+
+			removal_cost = -1
+
+
+			modifier = {
+				political_advisor_cost_factor = -0.25 #MODDED
+				army_chief_cost_factor = -0.25 #MODDED
+				navy_chief_cost_factor = -0.25 #MODDED
+				air_chief_cost_factor = -0.25 #MODDED
+				theorist_cost_factor = -0.25 #MODDED
+				high_command_cost_factor = -0.25 #MODDED
+			}
+		}
+		changjiang_bureau = {
+
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				has_government = communism
+			}
+
+			removal_cost = -1
+
+			
+			#traits = {
+			#	TEB_faction_monthly_tt_trait
+			#}
+			modifier = {
+				custom_modifier_tooltip = TEB_faction_1_monthly_tt #guo
+				political_power_factor = 0.05
+				conscription_factor = 0.05
+				command_power_gain_mult = 0.05
+			}
+			on_add = {
+				hidden_effect = {
+					set_variable = { changjiang_bureau_counter = 15 } #first increase after 15 days
+					add_to_variable = { teb_total = 0.5 } #monthly for locs
+				}
+			}
+			on_remove = {
+				hidden_effect = {
+					subtract_from_variable = { teb_total = 0.5 } #monthly for locs
+				}
+			}
+		}
+		changjiang_bureau_2 = {
+			name = changjiang_bureau
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				has_government = communism
+			}
+
+			removal_cost = -1
+
+			picture = changjiang_bureau
+			#traits = {
+			#	TEB_faction_1_monthly_tt_trait
+			#}
+			modifier = {
+				custom_modifier_tooltip = TEB_faction_monthly_tt_1_5_percent #guo
+				political_power_factor = 0.1
+				conscription_factor = 0.1
+				command_power_gain_mult = 0.1
+			}
+			on_add = {
+				hidden_effect = {
+					set_variable = { changjiang_bureau_2_counter = 15 } #first increase after 15 days
+					add_to_variable = { teb_total = 1 } #monthly for locs
+				}
+			}
+			on_remove = {
+				hidden_effect = {
+					subtract_from_variable = { teb_total = 1 } #monthly for locs
+				}
+			}
+		}
+		internationalist_clique = {
+
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				has_government = communism
+			}
+
+			removal_cost = -1
+
+			
+
+			modifier = { #guo
+				send_volunteer_size = 24
+				send_volunteer_divisions_required = -0.8
+				join_faction_tension = -0.8
+				send_volunteers_tension = -0.8
+				guarantee_tension = -0.8
+			}
+		}
+		
+		on_protracted_war = { #GUO
+
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				has_government = communism
+			}
+			
+			available = { leader_is_maoist = yes }
+
+			removal_cost = -1
+
+			
+			modifier = {
+			    custom_modifier_tooltip = MAO_faction_monthly_tt
+				political_power_gain = 0.15
+				war_support_weekly = 0.001
+				stability_weekly = 0.001
+				attrition = -0.15
+				army_strength_factor = 0.10
+				experience_gain_factor = 0.10
+				experience_gain_army_factor = 0.10
+				experience_gain_army_unit_factor = 0.10
+				resistance_growth_on_our_occupied_states = 0.15
+				experience_loss_factor = -0.15
+				equipment_capture = 0.10
+				max_command_power = 20
+				command_power_gain_mult = 0.10
+				supply_combat_penalties_on_core_factor = -0.5
+			}
+			traits = {
+				plus_point_1_per_week
+				#plus_point_2_per_week
+				#hide_cost
+				#hide_cost_0_inf
+			}
+		}
+		prc_idea_politburo = {
+
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				has_government = communism
+			}
+
+			removal_cost = -1
+
+			
+
+			modifier = {
+				political_power_factor = 0.1
+			}
+		}
+		prc_idea_presidium = {
+
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				has_government = communism
+			}
+
+			removal_cost = -1
+
+			
+
+			modifier = {
+				stability_factor = 0.1
+				
+			}
+		}
+		prc_idea_secretariat = {
+
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				has_government = communism
+			}
+
+			removal_cost = -1
+
+			
+
+			modifier = {				
+				war_support_factor = 0.1
+			}
+		}
+		yanan_rect_1 = {
+
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				has_government = communism
+			}
+
+			removal_cost = -1
+
+			
+
+			modifier = {
+				political_power_factor = 0.1
+			}
+			do_effect = {
+				leader_is_maoist = yes
+			}
+		}
+		yanan_rect_2 = {
+
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				has_government = communism
+			}
+
+			removal_cost = -1
+
+			do_effect = {
+				leader_is_maoist = yes
+			}	
+
+			modifier = {
+				political_power_factor = 0.15
+				army_morale_factor = 0.1
+				stability_factor = 0.05
+				war_support_factor = 0.05
+			}
+			on_add = {
+				hidden_effect = {
+					set_variable = { yanan_rect_2_counter = 15 } #first increase after 15 days
+					add_to_variable = { mao_total = 0.5 } #monthly for locs
+				}
+			}
+			on_remove = {
+				hidden_effect = {
+					subtract_from_variable = { mao_total = 0.5 } #monthly for locs
+				}
+			}
+		}
+		yanan_rect_3 = {
+
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				has_government = communism
+			}
+
+			removal_cost = -1
+
+			
+			do_effect = {
+				leader_is_maoist = yes
+			}
+			modifier = {
+				army_morale_factor = 0.15
+				stability_factor = 0.1
+				war_support_factor = 0.1
+				political_power_factor = 0.20
+			}
+			on_add = {
+				hidden_effect = {
+					set_variable = { yanan_rect_3_counter = 15 } #first increase after 15 days
+					add_to_variable = { mao_total = 1 } #monthly for locs
+				}
+			}
+			on_remove = {
+				hidden_effect = {
+					subtract_from_variable = { mao_total = 1 } #monthly for locs
+				}
+			}
+		}
+		PRC_autonomy_over_unity_idea = {
+			picture = MEX_revolutionary_army
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				has_government = communism
+			}
+
+			removal_cost = -1
+
+			
+
+			modifier = {
+				max_command_power = 15
+				command_power_gain_mult = 0.05
+				stability_factor = -0.05
+				land_reinforce_rate = 0.05
+				INITIATIVE_FACTOR = 0.05
+				coordination_bonus = 0.05
+			}
+		}
+		PRC_unity_over_autonomy_idea = {
+			picture = chi_chinese_support
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				has_government = communism
+			}
+
+			removal_cost = -1
+
+			available = {
+				country_exists = event_target:WTT_current_china_leader
+				event_target:WTT_current_china_leader = {
+					NOT = {
+						has_government = communism
+					}
+				}
+			}
+
+			modifier = {
+				max_command_power = -15
+				command_power_gain_mult = -0.05
+				stability_factor = 0.1
+			}
+		}
+		PRC_cooperate_with_4th_international = {
+
+			picture = fourth_international #to do
+
+			allowed = {
+				has_government = communism
+			}
+
+			allowed_civil_war = {
+				has_government = communism
+			}
+
+			removal_cost = -1
+
+			modifier = {
+				custom_modifier_tooltip = TROT_faction_monthly_tt
+
+				#at on_action
+			}
+			on_add = {
+				hidden_effect = {
+					set_variable = { PRC_cooperate_with_4th_international_counter = 15 } #first increase after 15 days
+					add_to_variable = { trotskyist_total = 0.5 } #monthly for locs
+				}
+			}
+			on_remove = {
+				hidden_effect = {
+					subtract_from_variable = { trotskyist_total = 0.5 } #monthly for locs
+				}
+			}
+		}
+		#join communist idea
+
+
+		PRC_communist_support_low = {
+
+			picture = prc_low_popular_support #to do
+
+			allowed = {
+				has_government = communism
+			}
+
+			allowed_civil_war = {
+				has_government = communism
+			}
+
+			removal_cost = -1
+
+			modifier = {
+				communism_drift = 0.05
+			}
+		}
+		PRC_communist_support_med = {
+
+			picture = prc_low_popular_support2 #to do
+
+			allowed = {
+				has_government = communism
+			}
+
+			allowed_civil_war = {
+				has_government = communism
+			}
+
+			removal_cost = -1
+
+			modifier = {
+				communism_drift = 0.1
+			}
+		}
+		PRC_communist_support_high = {
+
+			picture = prc_low_popular_support3 #to do
+
+			allowed = {
+				has_government = communism
+			}
+
+			allowed_civil_war = {
+				has_government = communism
+			}
+
+			removal_cost = -1
+
+			modifier = {
+				communism_drift = 0.15
+			}
+		}
+		
+		line_struggle3 = {
+
+			allowed = {
+				has_government = communism
+			}
+
+			allowed_civil_war = {
+				has_government = communism
+			}
+
+			removal_cost = -1
+
+			modifier = {
+				political_power_factor = -0.1
+				stability_factor = -0.1
+			}
+		}
+		line_struggle2 = {
+
+			allowed = {
+				has_government = communism
+			}
+
+			allowed_civil_war = {
+				has_government = communism
+			}
+
+			removal_cost = -1
+
+			modifier = {
+				political_power_factor = -0.2
+				stability_factor = -0.2
+			}
+		}
+		line_struggle1 = {
+
+			allowed = {
+				has_government = communism
+			}
+
+			allowed_civil_war = {
+				has_government = communism
+			}
+
+			removal_cost = -1
+
+			modifier = {
+				political_power_factor = -0.3
+				stability_factor = -0.3
+			}
+		}
+		line_struggle0 = {
+			name = line_struggle1
+			picture = line_struggle1
+			allowed = {
+				has_government = communism
+			}
+
+			allowed_civil_war = {
+				has_government = communism
+			}
+
+			removal_cost = -1
+
+			modifier = {
+				political_power_factor = -0.4
+				stability_factor = -0.4
+			}
+		}
+	}
+	materiel_manufacturer = {
+
+		designer = yes
+
+		huangyadong_arsenal = {
+
+			allowed = {
+				tag = PRC
+			}
+
+			available = {
+				OR = {
+					PRC = { 
+					    controls_state = 1027
+					}					
+					any_allied_country = {
+						controls_state = 1027
+					}
+				}			
+			}
+			cost = 50			
+
+			research_bonus = {
+				infantry_weapons = 0.05
+			}           
+			traits = { infantry_equipment_plant }
+			
+		    equipment_bonus = {
+			    infantry_equipment = {
+				    soft_attack = -0.05  
+				    hard_attack = -0.05 
+				    breakthrough = -0.05 
+				    reliability = -0.05
+				    build_cost_ic = -0.2
+			    }
+		    }			
+		}	
+	}	
+}

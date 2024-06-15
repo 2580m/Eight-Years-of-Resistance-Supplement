@@ -1,0 +1,2135 @@
+ideas = {
+
+country = {
+
+HON_devalue_idea = {   
+	
+	allowed = {
+		always = yes
+	}
+
+			removal_cost = -1
+
+			picture = ITA_devaluated_lira
+			
+			modifier = {
+			
+			consumer_goods_factor = -0.3
+			political_power_factor = 0.05
+			}
+	}
+
+HON_army_idea_4 = {   
+	name = HON_army_idea_2
+	allowed = {
+		always = yes
+	}
+
+			removal_cost = -1
+
+			picture = ETH_national_studs
+			
+			modifier = {
+			
+			
+			equipment_capture_factor = 0.15
+			army_speed_factor = 0.1
+			
+			conscription = 0.01
+			org_loss_when_moving = -0.1
+			terrain_penalty_reduction = 0.1
+			pocket_penalty = -0.15
+			
+			army_core_defence_factor = 0.1
+			}
+	}
+
+
+HON_army_idea_3 = {   
+	name = HON_army_idea_2
+	allowed = {
+		always = yes
+	}
+
+			removal_cost = -1
+
+			picture = ETH_national_studs
+			
+			modifier = {
+			equipment_capture_factor = 0.15
+			army_speed_factor = 0.1
+			
+			org_loss_when_moving = -0.1
+			terrain_penalty_reduction = 0.1
+			pocket_penalty = -0.15
+			
+			army_core_defence_factor = 0.0
+			
+			}
+	}
+
+
+HON_army_idea_2 = {   
+	name = HON_army_idea_2
+	allowed = {
+		always = yes
+	}
+
+			removal_cost = -1
+
+			picture = ETH_national_studs
+			
+			modifier = {
+			
+			army_speed_factor = 0.1
+			
+			org_loss_when_moving = -0.1
+			terrain_penalty_reduction = 0
+			pocket_penalty = 0
+			army_org_factor = 0
+			army_core_defence_factor = 0.0
+			}
+	}
+
+HON_army_idea_1 = {   
+	name = HON_army_idea
+	allowed = {
+		always = yes
+	}
+
+			removal_cost = -1
+
+			picture = chi_forced_conscription
+			
+			modifier = {
+			
+			org_loss_when_moving = 0
+			terrain_penalty_reduction = 0
+			pocket_penalty = 0
+			army_org_factor = 0
+			army_core_defence_factor = 0.0
+			}
+	}
+
+HON_army_idea = {   
+	
+	allowed = {
+		always = yes
+	}
+
+			removal_cost = -1
+
+			picture = chi_forced_conscription
+			
+			modifier = {
+			
+			org_loss_when_moving = 0
+			terrain_penalty_reduction = 0
+			pocket_penalty = 0.05 
+			army_org_factor = -0.1
+			custom_modifier_tooltip = BUL_army_restrictions_mobilization_law_tt
+			custom_modifier_tooltip = HON_army_debuff_tt
+			}
+	}
+
+HON_mex_second_crist = {   
+	
+	allowed = {
+		always = yes
+	}
+
+			removal_cost = -1
+
+			picture = MEX_church_power_3
+			modifier = {
+			
+			surrender_limit = -0.1
+			army_core_defence_factor = -0.05
+			}
+	}
+	
+	HON_mex_second_crist1 = {   
+	
+	allowed = {
+		always = yes
+	}
+
+			removal_cost = -1
+
+			picture = MEX_church_power_4
+			modifier = {
+			stability_factor = -0.05
+			war_support_factor = -0.05
+			surrender_limit = -0.15
+			army_core_defence_factor = -0.05
+			}
+	}
+
+HON_mex_second_crist2 = {   
+	
+	allowed = {
+		always = yes
+	}
+
+			removal_cost = -1
+
+			picture = MEX_church_power_5
+			modifier = {
+			stability_factor = -0.1
+			war_support_factor = -0.1
+			surrender_limit = -0.25
+			army_core_defence_factor = -0.1
+			}
+	}
+
+HON_carlist_army_idea = {   
+	
+	allowed = {
+		always = yes
+	}
+
+			removal_cost = -1
+
+			picture = SPA_carlism
+			modifier = {
+			army_core_defence_factor = 0.1
+			army_morale_factor = 0.05
+			experience_gain_army_unit_factor = 0.1
+			max_planning_factor = 0.1
+			org_loss_when_moving = -0.05
+			
+			}
+	}
+
+HON_carlist_ideals = {   
+	
+	allowed = {
+		always = yes
+	}
+
+			removal_cost = -1
+
+			picture = SPA_carlism
+			modifier = {
+			
+			min_export = -0.05
+			offensive_war_stability_factor = 0.1
+			stability_factor = 0.1
+			war_support_factor = 0.1
+			conscription = 0.03
+			weekly_manpower = 2250
+			democratic_acceptance = -35
+			}
+	}
+
+HON_carlist_idea_1 = {   
+	 name = HON_carlist_idea_1
+	allowed = {
+		always = yes
+	}
+
+			removal_cost = -1
+
+			picture = SPA_carlism
+			modifier = {
+			
+			
+			
+			}
+	
+	targeted_modifier = {
+				tag = ELS
+				
+				attack_bonus_against = 0.15
+				
+			}
+		
+	}
+HON_carlist_idea_2 = {   
+	 name = HON_carlist_idea_1
+	allowed = {
+		always = yes
+	}
+
+			removal_cost = -1
+
+			picture = SPA_carlism
+			modifier = {
+			
+			
+			
+			}
+	
+	targeted_modifier = {
+				tag = GUA
+				
+				attack_bonus_against = 0.15
+				
+			}
+		
+	}
+HON_carlist_idea_3 = {   
+	 name = HON_carlist_idea_1
+	allowed = {
+		always = yes
+	}
+
+			removal_cost = -1
+
+			picture = SPA_carlism
+			modifier = {
+			
+			
+			
+			}
+	
+	targeted_modifier = {
+				tag = NIC
+				
+				attack_bonus_against = 0.15
+				
+			}
+			
+		
+	}
+HON_carlist_idea_4 = {   
+	 name = HON_carlist_idea_1
+	allowed = {
+		always = yes
+	}
+
+			removal_cost = -1
+
+			picture = SPA_carlism
+			modifier = {
+			
+			
+			
+			}
+	
+	targeted_modifier = {
+				tag = COS
+				
+				attack_bonus_against = 0.15
+				
+			}
+			
+		
+	}
+HON_carlist_idea_5 = {   
+	 name = HON_carlist_idea_1
+	allowed = {
+		always = yes
+	}
+
+			removal_cost = -1
+
+			picture = SPA_carlism
+			modifier = {
+			
+			
+			
+			}
+	
+	targeted_modifier = {
+				tag = MEX
+				
+				attack_bonus_against = 0.15
+				
+			}
+			
+		
+	}
+HON_honduras_first_idea = {   
+	 
+	allowed = {
+		always = yes
+	}
+
+			removal_cost = -1
+
+			picture = POL_ideology_drift_defence
+			modifier = {
+			
+			surrender_limit = 0.1
+			
+			army_defence_factor = 0.05
+			war_support_factor = 0.1
+			
+			}
+	}
+ 
+HON_surrender_idea = {   
+	
+	allowed = {
+		always = yes
+	}
+
+			removal_cost = -1
+
+			picture = EST_democratic_opposition
+			modifier = {
+			
+			
+			surrender_limit = -0.25
+			}
+	}
+
+HON_allied_exports_idea = {   
+	
+	allowed = {
+		always = yes
+	}
+
+			removal_cost = -1
+
+			picture = eng_the_sun_never_sets
+			modifier = {
+			
+			min_export = 0.15
+			production_factory_efficiency_gain_factor = 0.05
+			production_factory_max_efficiency_factor = 0.1
+			}
+	}
+
+HON_war_production_idea = {   
+	
+	allowed = {
+		always = yes
+	}
+
+			removal_cost = -1
+
+			picture = generic_acquire_tanks
+			modifier = {
+			
+			industrial_capacity_factory = 0.1
+			
+			}
+	}
+
+HON_guard_idea = {  
+	
+	allowed = {
+		always = yes
+	}
+
+			removal_cost = -1
+
+			picture = MEX_revolutionary_army
+			modifier = {
+			
+			army_defence_against_major_factor = 0.1
+			
+			}
+	}
+
+HON_neut_idea = {  
+	
+	allowed = {
+		always = yes
+	}
+
+			removal_cost = -1
+
+			picture = generic_deal_with_the_devil 
+			modifier = {
+			
+			enemy_justify_war_goal_time = 0.35
+			guarantee_tension = -0.25
+			join_faction_tension = 0.1
+			justify_war_goal_time = -0.25
+			}
+	}
+	
+	HON_neut_idea2 = {  
+	name = HON_neut_idea
+	allowed = {
+		always = yes
+	}
+
+			removal_cost = -1
+
+			picture = generic_deal_with_the_devil 
+			modifier = {
+			
+			enemy_justify_war_goal_time = 0.35
+			guarantee_tension = -0.25
+			join_faction_tension = 0.1
+			justify_war_goal_time = -0.25
+			drift_defence_factor = 0.1
+			political_power_factor = 0.1
+			}
+	}
+
+HON_juan_i_idea = {  
+	
+	allowed = {
+		always = yes
+	}
+
+			removal_cost = -1
+
+			picture = carlo_scorza 
+			modifier = {
+			
+			mic_to_overlord_factor = 0.75
+			cic_to_overlord_factor = 0.75
+			extra_trade_to_overlord_factor = 0.45
+			master_ideology_drift = 0.03
+			master_build_autonomy_factor = 0.25
+			generate_wargoal_tension = -0.35
+			
+			}
+	}
+
+HON_milise_idea = {  
+	
+	allowed = {
+		always = yes
+	}
+
+			removal_cost = -1
+
+			picture = ETH_peacekeeping_forces
+			modifier = {
+			
+			conscription = 0.03
+			army_defence_factor = 0.05
+			
+			
+			}
+	}
+
+HON_axis_idea = {  
+	
+	allowed = {
+		always = yes
+	}
+
+			removal_cost = -1
+
+			picture = generic_fascism_drift_bonus
+			modifier = {
+			
+			fascism_acceptance = 25
+			fascism_drift = 0.03
+			war_support_factor = 0.1
+			}
+	}
+
+HON_interest_idea = {  
+	
+	allowed = {
+		always = yes
+	}
+
+			removal_cost = -1
+
+			picture = FRA_matignon_agreements
+			modifier = {
+			
+			political_power_factor = 0.15
+			stability_factor = 0.05
+			drift_defence_factor = 0.1
+			political_advisor_cost_factor = -0.1
+			economy_cost_factor = -0.05
+			}
+	}
+
+HON_home_defence = {  
+	
+	allowed = {
+		always = yes
+	}
+
+			removal_cost = -1
+
+			picture = generic_fascism_rising
+			modifier = {
+			
+			planning_speed = 0.1
+			max_planning_factor = 0.1
+			
+			}
+	}  
+
+HON_autarky_idea = {  
+	
+	allowed = {
+		always = yes
+	}
+
+			removal_cost = -1
+
+			picture = man_five_year_plan_industry
+			modifier = {
+			
+			production_speed_buildings_factor = 0.1
+			
+			}
+	}  
+
+HON_cabinet_idea = {  
+	
+	allowed = {
+		always = yes
+	}
+
+			removal_cost = -1
+
+			picture = EST_democratic_opposition
+			modifier = { 
+			
+			political_advisor_cost_factor = -0.25
+			
+			}
+	} 
+
+HON_anarhist_production_idea = {  
+	
+	allowed = {
+		always = yes
+	}
+
+			removal_cost = -1
+
+			picture = SPR_political_violence
+			modifier = {
+			
+			required_garrison_factor = -0.25
+			resistance_growth_on_our_occupied_states = 0.1
+			resistance_damage_to_garrison_on_our_occupied_states = 0.25
+			army_core_defence_factor = 0.1
+			}
+	} 
+
+HON_disorganized_arms_idea = {  
+	
+	allowed = {
+		always = yes
+	}
+
+			removal_cost = -1
+
+			picture = SPR_international_brigades
+			modifier = {
+			
+			training_time_factor = -0.05
+			max_training = -0.1
+			army_attack_factor = 0.1
+			army_defence_factor = 0.1
+			army_org_factor = -0.05
+			army_morale_factor = 0.05
+			
+			}
+	}
+
+HON_production_front_idea = {  
+	
+	allowed = {
+		always = yes
+						}
+
+		equipment_bonus = {
+				infantry_equipment = {
+					build_cost_ic = -0.1 instant = yes
+				}
+				motorized_equipment = {
+					build_cost_ic = -0.1 instant = yes
+				}
+				artillery_equipment = {
+					build_cost_ic = -0.1 instant = yes
+				}
+				}
+			removal_cost = -1
+
+			picture = SOV_fourth_five_year_plan
+			modifier = {
+			
+			
+			
+			}
+	}
+
+HON_customization_idea = {  
+	
+	allowed = {
+		always = yes
+						}
+
+		
+			removal_cost = -1
+
+			picture = EST_exploit_the_banks
+			modifier = {
+			
+			consumer_goods_factor = -0.3
+			
+			}
+	}
+	
+HON_customization_idea1  = {  
+	
+	allowed = {
+		always = yes
+						}
+
+		
+			removal_cost = -1
+
+			picture = EST_exploit_the_banks
+			modifier = {
+			
+			consumer_goods_factor = -0.3
+			industrial_capacity_dockyard = 0.1
+			industrial_capacity_factory = 0.1
+			political_power_factor = -0.1
+			}
+	}
+
+
+HON_warlord_idea = {  
+	
+	allowed = {
+		always = yes
+						}
+
+		
+			removal_cost = -1
+
+			picture = hol_liberation
+			modifier = {
+			
+			conscription = 0.03
+			conscription_factor = 0.25
+			war_support_weekly = 0.002
+			
+			}
+	}
+
+
+HON_individual_armament_idea1 = {  
+	
+	allowed = {
+		always = yes
+						}
+
+		equipment_bonus = {
+				infantry_equipment = {
+					build_cost_ic = -0.1 instant = yes
+				}
+				}
+			removal_cost = -1
+
+			picture = ast_volunteer_defence_corps
+			modifier = {
+			
+			production_speed_arms_factory_factor = 0.1
+			
+			
+			}
+	}
+
+HON_individual_armament_idea = {  
+	
+	allowed = {
+		always = yes
+						}
+
+		equipment_bonus = {
+				infantry_equipment = {
+					build_cost_ic = -0.1 instant = yes
+				}
+				}
+			removal_cost = -1
+
+			picture = ast_volunteer_defence_corps
+			modifier = {
+			
+			
+			
+			}
+	}
+
+HON_advisor_idea_ancap = {  
+	
+	allowed = {
+		always = yes
+						}
+
+		
+			removal_cost = -1
+
+			picture = SPR_the_popular_front
+			modifier = {
+			
+			economy_cost_factor = -0.25 
+			political_advisor_cost_factor = -0.1
+			}
+	}
+
+HON_anarch_rise_idea = {  
+	
+	allowed = {
+		always = yes
+						}
+
+		
+			removal_cost = -1
+
+			picture = SPR_anarchist_society
+			modifier = {
+			
+			neutrality_drift = 0.25
+			stability_weekly = -0.01
+			
+			}
+	}
+
+HON_anarch_rise_idea2 = {  
+	name = HON_anarch_rise_idea
+	allowed = {
+		always = yes
+						}
+
+		
+			removal_cost = -1
+
+			picture = SPR_anarchist_society
+			modifier = {
+			
+			neutrality_drift = 0.35
+			stability_weekly = -0.01
+			
+			}
+	}
+
+
+HON_coffe_trade1 = {  
+	 name = HON_coffe_trade1
+	allowed = {
+		always = yes
+						}
+
+		
+			removal_cost = -1
+
+			picture = ETH_coffee_exports
+			modifier = {
+			
+			consumer_goods_factor = -0.24
+			industrial_capacity_factory = 0.05
+			
+			}
+	}
+
+HON_coffe_trade = {  
+	name = HON_coffe_trade_idea
+	allowed = {
+		always = yes
+						}
+
+		
+			removal_cost = -1
+
+			picture = ETH_coffee_exports
+			modifier = {
+			
+			consumer_goods_factor = -0.15
+			
+			}
+	}
+
+HON_war_inf_idea = {  
+	 
+	allowed = {
+		always = yes
+						}
+
+		
+			removal_cost = -1
+
+			picture = generic_supply_lines
+			modifier = {
+			
+			supply_factor = 0.1
+			production_speed_rail_way_factor = 0.15
+			
+			}
+	}
+
+HON_national_security_idea = {  
+	
+	allowed = {
+		always = yes
+						}
+
+		
+			removal_cost = -1
+
+			picture = SWI_spirit_of_helvetia_passive_peace
+			modifier = {
+			
+			intelligence_agency_defense = 15
+			decryption_factor = 0.05
+			encryption_factor = 0.05
+			new_operative_slot_bonus = 1
+			
+			}
+	}
+
+HON_arm_idea1 = {  
+	 name = HON_arm_idea
+	allowed = {
+		always = yes
+						}
+
+		
+			removal_cost = -1
+
+			picture = generic_goods_red_bonus
+			modifier = {
+			conscription = 0.01
+			production_speed_arms_factory_factor = 0.15
+			
+			}
+	}
+
+HON_conscription_idea = {  
+	 
+	allowed = {
+		always = yes
+						}
+
+		
+			removal_cost = -1
+
+			picture = ETH_peacekeeping_forces
+			modifier = {
+			conscription_factor = 0.15
+			war_support_weekly = 0.001
+			}
+	} 
+
+HON_arm_idea = {  
+	 
+	allowed = {
+		always = yes
+						}
+
+		
+			removal_cost = -1
+
+			picture = generic_goods_red_bonus
+			modifier = {
+			consumer_goods_factor = -0.3
+			}
+	} 
+
+HON_ita_submarines_idea = {  
+	 
+	allowed = {
+		always = yes
+						}
+
+		equipment_bonus = {
+				submarine = {
+					build_cost_ic = -0.15 instant = yes
+				}
+				}
+			removal_cost = -1
+
+			picture = ETH_italian_settlers
+			modifier = {
+			
+			}
+	} 
+
+HON_new_age_idea = { 
+	 
+	allowed = {
+		always = yes
+						}
+
+		
+			removal_cost = -1
+
+			picture = ITA_new_roman_empire_ns
+			modifier = {
+			generate_wargoal_tension = -0.35
+			join_faction_tension = -0.35
+			justify_war_goal_time = -0.25
+			war_support_factor = 0.05
+			}
+	} 
+
+HON_house_idea = { 
+	 
+	allowed = {
+		always = yes
+						}
+
+		
+			removal_cost = -1
+
+			picture = hol_the_foundations_of_defense 
+			modifier = {
+			production_speed_infrastructure_factor = 0.15
+			global_building_slots_factor = 0.15
+			}
+	} 
+
+HON_nationals_banned_idea = { 
+	 
+	allowed = {
+		always = yes
+						}
+
+		
+			removal_cost = -1
+
+			picture = SPR_anti_fascist_crusade 
+			modifier = {
+			fascism_drift = -0.15
+			civilian_intel_to_others = -10
+			}
+	} 
+
+HON_volunteers = { 
+	 
+	allowed = {
+		always = yes
+						}
+
+		
+			removal_cost = -1
+
+			picture = SPA_maquis 
+			modifier = {
+			send_volunteer_divisions_required = -0.3
+			send_volunteer_factor = 0.15
+			send_volunteer_size = 1
+			}
+	} 
+ 
+HON_national_officers_idea = { 
+	 
+	allowed = {
+		always = yes
+						}
+
+		
+			removal_cost = -1
+
+			picture = generic_fascist_workers 
+			modifier = {
+			max_planning_factor = 0.05
+			experience_gain_army_unit_factor = 0.1
+			
+			}
+	} 
+
+HON_move_army_idea2 = { 
+	 
+	allowed = {
+		always = yes
+						}
+
+		
+			removal_cost = -1
+
+			picture = chi_army_corruption3 
+			modifier = {
+			experience_gain_army_factor = -0.15
+			army_advisor_cost_factor = -0.25
+			}
+	} 
+
+HON_move_army_idea = { 
+	 
+	allowed = {
+		always = yes
+						}
+
+		
+			removal_cost = -1
+
+			picture = chi_army_corruption3 
+			modifier = {
+			experience_gain_army_factor = -0.25
+			
+			}
+	} 
+
+HON_favela_idea = { 
+	 
+	allowed = {
+		always = yes
+						}
+
+		
+			removal_cost = -1
+
+			picture = ITA_battaglie_per_la_nascite 
+			modifier = {
+			global_building_slots_factor = -0.15
+			monthly_population = 0.35
+			
+			}
+	} 
+
+HON_banana_rep_idea = { 
+	 
+	allowed = {
+		always = yes
+						}
+
+		
+			removal_cost = -1
+
+			picture = generic_fascism_drift_bonus 
+			modifier = {
+			war_support_weekly = 0.001
+			consumer_goods_factor = -0.10
+			party_popularity_stability_factor = 0.25
+			}
+	} 
+
+HON_giant_idea = { 
+	 
+	allowed = {
+		always = yes
+						}
+
+		equipment_bonus = {
+				infantry_equipment = {
+					build_cost_ic = -0.1 instant = yes
+				}
+				}
+			removal_cost = -1
+
+			picture = generic_usa_conflict 
+			modifier = {
+			army_defence_against_major_factor = 0.05
+			army_morale_factor = 0.1
+			}
+	} 
+
+HON_production_idea = { 
+	 
+	allowed = {
+		always = yes
+						}
+
+
+			removal_cost = -1
+
+			picture = generic_local_self_management 
+			modifier = {
+			industrial_capacity_factory = 0.1
+			required_garrison_factor = -0.05
+			}
+	} 
+
+HON_national_secure_idea = { 
+	 
+	allowed = {
+		always = yes
+						}
+
+
+			removal_cost = -1
+
+			picture = generic_secret_police 
+			modifier = {
+			encryption_factor = 0.1
+			decryption_factor = 0.1
+			agency_upgrade_time = -0.05
+			}
+	} 
+
+HON_military_council_idea = {
+	 
+	allowed = {
+		always = yes
+						}
+
+
+			removal_cost = -1
+
+			picture = ETH_corrupt_bureaucracy 
+			modifier = {
+			land_doctrine_cost_factor = -0.1
+			stability_factor = 0.05
+			political_power_factor = -0.05
+			}
+	} 
+
+HON_army_growth  = {
+	 
+	allowed = {
+		always = yes
+						}
+
+
+			removal_cost = -1
+
+			picture = prc_low_popular_support3
+			modifier = {
+			conscription = 0.03
+			conscription_factor = 0.1
+			
+			training_time_factor = 0.1
+			}
+	} 
+
+HON_army_train  = {
+	 
+	allowed = {
+		always = yes
+						}
+
+
+			removal_cost = -1
+
+			picture = prc_low_popular_support3
+			modifier = {
+			
+			max_training = 0.1
+			
+			}
+	} 
+
+HON_fund_idea  = {
+	 
+	allowed = {
+		always = yes
+						}
+
+
+			removal_cost = -1
+
+			picture = EST_exploit_the_banks
+			modifier = {
+			consumer_goods_factor = -0.15
+			production_speed_arms_factory_factor = 0.15
+			}
+	} 
+
+HON_population_idea = {
+	 
+	allowed = {
+		always = yes
+						}
+
+
+			removal_cost = -1
+
+			picture = ITA_battaglie_per_la_nascite
+			modifier = {
+			monthly_population = 0.15
+			}
+	} 
+
+HON_recud_idea = {
+	 
+	allowed = {
+		always = yes
+						}
+
+
+			removal_cost = -1
+
+			picture = generic_women_in_the_army
+			modifier = {
+			conscription_factor = 0.15
+			conscription = 0.01
+			}
+	} 
+
+HON_just_idea = {
+	name = HON_just_idea 
+	allowed = {
+		always = yes
+						}
+
+
+			removal_cost = -1
+
+			picture = received_attache
+			modifier = {
+			stability_factor = -0.25
+			political_advisor_cost_factor = 0.35
+			political_power_factor = -0.1
+			}
+	} 
+
+HON_just_idea_mil1 = {
+	name = HON_just_idea_mil 
+	allowed = {
+		always = yes
+						}
+
+
+			removal_cost = -1
+
+			picture = received_attache
+			modifier = {
+			stability_factor = -0.25
+			political_advisor_cost_factor = 0.2
+			political_power_factor = -0.1
+			army_advisor_cost_factor = -0.1
+			}
+	} 
+
+HON_just_idea_1 = {
+	name = HON_just_idea 
+	allowed = {
+		always = yes
+						}
+
+
+			removal_cost = -1
+
+			picture = received_attache
+			modifier = {
+			drift_defence_factor = -0.05
+			political_advisor_cost_factor = 0.3
+			political_power_factor = 0.15
+			}
+	} 
+
+HON_just_idea_2 = {
+	name = HON_just_idea 
+	allowed = {
+		always = yes
+						}
+
+
+			removal_cost = -1
+
+			picture = received_attache
+			modifier = {
+			stability_factor = -0.15
+			political_power_factor = -0.1
+			party_popularity_stability_factor = 0.1
+			stability_weekly = 0.003
+			}
+	} 
+
+
+
+HON_article = {
+	name = HON_article 
+	allowed = {
+		always = yes
+						}
+
+
+			removal_cost = -1
+
+			picture = generic_deal_with_the_devil2
+			modifier = {
+			min_export = -0.25
+			stability_factor = -0.15
+			#max_surrender_limit_offset = 0.1
+			surrender_limit = 0.1
+			}
+	} 
+
+
+HON_police_1 = {
+	name = HON_police 
+	allowed = {
+		always = yes
+						}
+
+
+			removal_cost = -1
+
+			picture = generic_spy_intel
+			modifier = {
+			required_garrison_factor = -0.10
+			civilian_intel_to_others = -10
+			encryption_factor = 0.1
+			decryption_factor = 0.1
+			operation_cost = -0.15
+			}
+	} 
+
+HON_police = {
+	name = HON_police 
+	allowed = {
+		always = yes
+						}
+
+
+			removal_cost = -1
+
+			picture = generic_spy_intel
+			modifier = {
+			required_garrison_factor = -0.10
+			civilian_intel_to_others = -10
+			}
+	} 
+
+HON_americans = {
+	name = HON_americans 
+	allowed = {
+		always = yes
+						}
+
+
+			removal_cost = -1
+
+			picture = ITA_papal_state_ns
+			modifier = {
+			offensive_war_stability_factor = 0.15
+			drift_defence_factor = 0.1	
+			stability_factor = 0.05
+			war_support_factor = 0.05
+			army_defence_against_minor_factor = 0.1
+			}
+	} 
+
+HON_cat_arms_2 = {
+	name = HON_cat_arms_2
+	allowed = {
+		always = yes
+						}
+
+
+			removal_cost = -1
+
+			picture = MEX_church_power_5
+			modifier = {
+			army_attack_factor = 0.1
+			army_defence_factor = 0.1
+			resistance_activity = -0.1
+			army_morale_factor = 0.05
+			war_support_factor = 0.05
+			stability_factor = 0.05
+			surrender_limit = 0.05
+			drift_defence_factor = 0.1	
+			political_advisor_cost_factor = -0.25
+			}
+	} 
+
+
+HON_cat_arms_1 = {
+	name = HON_cat_arms 
+	allowed = {
+		always = yes
+						}
+
+
+			removal_cost = -1
+
+			picture = MEX_church_power_5
+			modifier = {
+			army_attack_factor = 0.1
+			army_defence_factor = 0.1
+			resistance_activity = -0.1
+			army_morale_factor = 0.05
+			war_support_factor = 0.05
+			}
+	} 
+
+
+HON_cat_arms = {
+	
+	allowed = {
+		always = yes
+						}
+
+
+			removal_cost = -1
+
+			picture = MEX_church_power_5
+			modifier = {
+			army_attack_factor = 0.1
+			army_defence_factor = 0.1
+			}
+	} 
+
+HON_junta_fate = {
+	
+	allowed = {
+		always = yes
+						}
+
+
+			removal_cost = -1
+
+			picture = generic_volunteer_expedition_bonus
+			modifier = {
+			political_power_factor = 0.15
+			stability_factor = 0.05
+			}
+	} 
+
+HON_junta_fate_1 = {
+	name = HON_junta_fate
+	allowed = {
+		always = yes
+						}
+
+
+			removal_cost = -1
+
+			picture = generic_volunteer_expedition_bonus
+			modifier = {
+			political_power_factor = 0.15
+			stability_factor = 0.05
+			experience_gain_army_factor = 0.05
+			experience_gain_navy_factor = 0.05
+			experience_gain_air_factor = 0.05
+			weekly_manpower = 1000
+			}
+	} 
+
+
+HON_junta_democracy_idea = {
+	
+	allowed = {
+		always = yes
+						}
+
+
+			removal_cost = -1
+
+			picture = generic_deal_with_the_devil
+			modifier = {
+			democratic_drift = 0.03
+			drift_defence_factor = 0.15	
+			war_support_weekly = 0.003
+			}
+	} 
+
+HON_5_year = {
+	
+	allowed = {
+		always = yes
+						}
+
+
+			removal_cost = -1
+
+			picture = SOV_third_five_year_plan
+			modifier = {
+			consumer_goods_factor = 0.10
+			production_speed_buildings_factor = 0.05
+			global_building_slots_factor = 0.05
+			conversion_cost_civ_to_mil_factor = 0.1
+			conversion_cost_mil_to_civ_factor = -0.1
+			industrial_capacity_factory = 0.07
+			industrial_capacity_dockyard = 0.07
+			}
+	} 
+
+HON_new_ind  = {
+	
+	allowed = {
+		always = yes
+						}
+
+
+			removal_cost = -1
+
+			picture = SOV_second_five_year_plan
+			modifier = {
+			industry_repair_factor = 0.35
+			global_building_slots_factor = 0.15
+			}
+	} 
+
+HON_technich_idea_2 = {
+	name = HON_technich_idea
+	allowed = {
+		always = yes
+						}
+
+
+			removal_cost = -1
+
+			picture = FRA_factory_strikes
+			modifier = {
+			production_factory_efficiency_gain_factor = 0.05
+			production_factory_max_efficiency_factor = 0.1 		
+production_speed_buildings_factor = 0.05	
+			}
+	} 
+
+HON_technich_idea_1 = {
+	name = HON_technich_idea
+	allowed = {
+		always = yes
+						}
+
+
+			removal_cost = -1
+
+			picture = FRA_factory_strikes
+			modifier = {
+			production_speed_buildings_factor = 0.05
+			production_factory_efficiency_gain_factor = 0.05
+			production_speed_industrial_complex_factor = 0.05 
+			}
+	} 
+
+HON_technich_idea = {
+	 
+	allowed = {
+		always = yes
+						}
+
+
+			removal_cost = -1
+
+			picture = FRA_factory_strikes
+			modifier = {
+			production_speed_buildings_factor = 0.05
+			production_factory_efficiency_gain_factor = 0.05
+			}
+	} 
+
+HON_national_prodcution = {
+	
+	allowed = {
+		always = yes
+						}
+
+
+			removal_cost = -1
+
+			picture = generic_central_management
+			modifier = {
+			
+			research_speed_factor = 0.1
+			license_purchase_cost = 0.1
+			industrial_capacity_dockyard = 0.05
+			industrial_capacity_factory = 0.05
+			}
+	} 
+HON_national_prodcution1 = {
+	
+	allowed = {
+		always = yes
+						}
+
+
+			removal_cost = -1
+
+			picture = generic_central_management
+			modifier = {
+			stability_factor = 0.1
+			research_speed_factor = 0.1
+			license_purchase_cost = 0.1
+			industrial_capacity_dockyard = 0.1
+			industrial_capacity_factory = 0.1
+			consumer_goods_factor = 0.15
+			conscription_factor = 0.1
+			}
+	} 
+
+HON_production_academy = {
+	
+	allowed = {
+		always = yes
+						}
+
+
+			removal_cost = -1
+
+			picture = SOV_third_five_year_plan
+			modifier = {
+			production_speed_buildings_factor = 0.05
+			}
+	} 
+
+HON_attack_tech_idea = {
+	
+	allowed = {
+		always = yes
+						}
+
+
+			removal_cost = -1
+
+			picture = fortification_focus
+			modifier = {
+			fortification_collateral_chance = 0.1
+			fortification_damage = 0.1
+			max_army_group_size = 6 
+			}
+	} 
+
+HON_fortify = {
+	
+	allowed = {
+		always = yes
+						}
+
+
+			removal_cost = -1
+
+			picture = fortification_focus
+			modifier = {
+			production_speed_bunker_factor = 0.15 
+			}
+	} 
+
+HON_path = {
+	
+	allowed = {
+		always = yes
+						}
+
+
+			removal_cost = -1
+
+			picture = SOV_conspiracy_in_the_academy_airforce
+			modifier = {
+			offensive_war_stability_factor = 0.1
+			war_support_factor = 0.1
+			communism_acceptance = -15
+			}
+	} 
+
+HON_women_arms = {
+	
+	allowed = {
+		always = yes
+						}
+
+
+			removal_cost = -1
+
+			picture = SOV_fascist_womens_movement
+			modifier = {
+			conscription = 0.03
+			war_support_factor = 0.1
+			}
+	}
+
+HON_army_red_idea = {
+	
+	allowed = {
+		always = yes
+						}
+
+
+			removal_cost = -1
+
+			picture = SOV_war_heroes
+			modifier = {
+			conscription_factor = 0.25
+			army_attack_factor = 0.15
+			army_defence_factor = 0.15
+			army_leader_cost_factor = -0.25
+			army_leader_start_level = 2
+			experience_gain_army_factor = 0.05
+			experience_gain_navy_factor = 0.05
+			experience_gain_air_factor = 0.05
+			}
+	}
+
+HON_educ_idea = {
+	
+	allowed = {
+		always = yes
+						}
+
+
+			removal_cost = -1
+
+			picture = jap_duplicate_research
+			modifier = {
+			research_speed_factor = 0.1
+			}
+	}
+
+HON_structuring = {
+	
+	allowed = {
+		always = yes
+						}
+
+
+			removal_cost = -1
+
+			picture = generic_central_management
+			modifier = {
+			production_speed_buildings_factor = 0.05
+			}
+	}
+
+HON_agarian_welfare_idea = {
+	
+	allowed = {
+		always = yes
+						}
+
+
+			removal_cost = -1
+
+			picture = SOV_transformation_of_nature
+			modifier = {
+			consumer_goods_factor = -0.3 
+			stability_factor = 0.1
+			}
+	}
+
+HON_soviet_cult = {
+	
+	allowed = {
+		always = yes
+						}
+
+
+			removal_cost = -1
+
+			picture = SOV_soviet_hegemony
+			modifier = {
+			join_faction_tension = -0.25
+			conversion_cost_civ_to_mil_factor = -0.4
+			conversion_cost_mil_to_civ_factor = -0.4
+			conscription_factor = 0.1
+			army_defence_against_minor_factor = 0.05
+			}
+	}
+
+HON_sov_invest_idea = {
+	
+	allowed = {
+		always = yes
+						}
+
+
+			removal_cost = -1
+
+			picture = new_economic_policy
+			modifier = {
+			industrial_capacity_dockyard = 0.05
+			industrial_capacity_factory = 0.05
+			production_factory_efficiency_gain_factor = 0.1
+			}
+	}	
+
+HON_agarian_idea = {
+	
+	allowed = {
+		always = yes
+						}
+
+
+			removal_cost = -1
+
+			picture = LIT_invested_in_farms
+			modifier = {
+			global_building_slots_factor = 0.15
+			consumer_goods_factor = -0.10
+			local_resources_factor = 0.15
+			}
+	}	
+
+HON_national_opp = {
+	
+	allowed = {
+		always = yes
+						}
+
+
+			removal_cost = -1
+
+			picture = tfv_can_conscription_crisis
+			modifier = {
+			political_power_factor = -0.25
+			air_advisor_cost_factor = 0.1
+			army_advisor_cost_factor = 0.1
+			navy_advisor_cost_factor = 0.1
+			}
+	}	
+ 
+HON_junta_inf = {
+	
+	allowed = {
+		always = yes
+						}
+
+
+			removal_cost = -1
+
+			picture = FRA_scw_intervention_republicans_focus
+			modifier = {
+			political_power_factor = -0.1
+			}
+	}	
+
+HON_army_report = {
+	
+	allowed = {
+		always = yes
+						}
+
+
+			removal_cost = -1
+
+			picture = SPR_disbanded_army
+			modifier = {
+			stability_factor = -0.05
+			experience_gain_army_factor = -0.1
+			air_advisor_cost_factor = 0.25
+			army_advisor_cost_factor = 0.25
+			navy_advisor_cost_factor = 0.25
+			disabled_ideas = 1
+			max_training = -0.1
+			}
+	}	
+
+HON_army_report_1 = {
+	name = HON_army_report
+	allowed = {
+		always = yes
+						}
+
+
+			removal_cost = -1
+
+			picture = SPR_disbanded_army
+			modifier = {
+			stability_factor = -0.05
+			experience_gain_army_factor = -0.1
+			max_training = -0.1
+			
+			}
+	}
+
+HON_army_report_2 = {
+	name = HON_army_report
+	allowed = {
+		always = yes
+						}
+
+
+			removal_cost = -1
+
+			picture = SPR_disbanded_army
+			modifier = {
+			
+			
+			air_advisor_cost_factor = 0.25
+			army_advisor_cost_factor = 0.25
+			navy_advisor_cost_factor = 0.25
+			land_doctrine_cost_factor = 0.1
+			
+			}
+	}
+
+hon_banana_economy = {
+	name = hon_banana_economy
+	allowed = {
+		always = yes
+						}
+
+
+			removal_cost = -1
+
+			picture = GFX_idea_hon_banana
+			modifier = {
+			
+
+			}
+	}	
+	hon_anti_fa = {
+	
+	allowed = {
+		always = yes
+						}
+
+
+			removal_cost = -1
+
+			picture = SPR_anti_fascist_crusade
+			modifier = {
+			fascism_drift = -0.03
+			fascism_acceptance = -25
+
+			}
+	}	
+
+}
+
+materiel_manufacturer = {
+			
+		designer = yes
+		
+		HON_soviet_uralaz = {
+			allowed = {
+				original_tag = HON
+			}
+			available = {has_completed_focus = HON_uralaz}
+			equipment_bonus = {
+				motorized_equipment = {
+					instant = yes
+					build_cost_ic = -0.15
+				}
+		}
+			picture = SOV_the_road_of_life
+			research_bonus = {
+				motorized_equipment = 0.15
+			}
+			
+			traits = { motorized_equipment_manufacturer }
+			modifier = {supply_factor = 0.1}
+		}
+		
+	}
+	
+	aircraft_manufacturer = {	
+		
+		designer = yes
+		
+		HON_macchi = { 
+			allowed = {
+				original_tag = HON
+			}
+			cost = 150
+			visible = {
+				
+						
+						
+					
+				
+			}
+
+			available = {
+				has_completed_focus = HON_italian_air
+			}
+			picture = macchi
+			research_bonus = {
+				air_equipment = 0.15
+			}
+			
+			traits = { light_aircraft_manufacturer }
+		}
+		}
+		
+		industrial_concern = {	
+		
+		
+		
+		HON_ancap_agency = {    
+			allowed = {
+				original_tag = HON
+			}
+			
+			visible = {}
+
+			modifier = {
+			consumer_goods_factor = -0.3
+			
+			}
+			cost = 150
+			available = {
+				has_completed_focus = HON_agencies
+				
+			}
+			picture = ETH_dire_dawa_industries
+			research_bonus = {
+				industry = 0.15
+			}
+			traits = { industrial_concern }
+			
+		}
+		}
+		
+		economy = {
+		law = yes
+		HON_collectivized_society = {
+
+			picture = SPR_collectivized_society		
+			
+			allowed = {
+				always = no
+			}
+			removal_cost = -1
+		
+			modifier = {
+				resistance_target = -0.2
+				consumer_goods_factor = 0.4
+				production_speed_industrial_complex_factor = 0.15
+				production_speed_arms_factory_factor = 0.3
+				conversion_cost_civ_to_mil_factor= -0.3
+				conversion_cost_mil_to_civ_factor = -0.3
+				global_building_slots_factor = 0.1
+				industrial_capacity_factory = 0.7
+				industrial_capacity_dockyard = 0.7
+				research_speed_factor = -0.1
+				production_factory_efficiency_gain_factor = -0.2
+				production_factory_max_efficiency_factor = -0.2
+				line_change_production_efficiency_factor = 0.1
+			}
+			
+			allowed_to_remove = {
+				always = no
+			}
+			
+			cancel_if_invalid = no
+		}
+		HON_coperatist_society = {
+
+			picture = EST_exploit_the_banks	
+			
+			allowed = {
+				always = no
+			}
+			removal_cost = -1
+		
+			modifier = {
+				resistance_target = -0.2
+				consumer_goods_factor = 0.30
+				production_speed_industrial_complex_factor = 0.15
+				production_speed_arms_factory_factor = 0.3
+				conversion_cost_civ_to_mil_factor= -0.3
+				conversion_cost_mil_to_civ_factor = -0.3
+				global_building_slots_factor = 0.1
+				industrial_capacity_factory = 0.7
+				industrial_capacity_dockyard = 0.7
+				research_speed_factor = -0.1
+				production_factory_efficiency_gain_factor = -0.15
+				production_factory_max_efficiency_factor = -0.15
+				line_change_production_efficiency_factor = 0.1
+			}
+			
+			allowed_to_remove = {
+				always = no
+			}
+			
+			cancel_if_invalid = no
+		}
+		}
+		tank_manufacturer = { 
+		designer = yes
+		
+		henschel_HON = {
+		picture = henschel
+			name = henschel
+			allowed = {
+				original_tag = HON
+			}
+			available = {has_completed_focus = HON_german_tanks}
+			research_bonus = {
+				armor = 0.15
+			}
+			
+			traits = { fast_tank_manufacturer }
+			
+			ai_will_do = {
+				factor = 1
+			}
+		}
+		
+		}
+	}

@@ -1,0 +1,2145 @@
+ideas = {
+	hidden_ideas = {
+		# dujiangyan
+		monument_10000_level_0_idea = {
+			name = "MONUMENT_10000_NAME"
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			cancel_if_invalid = no
+
+			traits = {
+			}
+			modifier = {
+			}
+		}
+		monument_10000_level_1_idea = {
+			name = "MONUMENT_10000_NAME"
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			cancel_if_invalid = no
+
+			traits = {
+			}
+			modifier = {
+			}
+		}
+		monument_10000_level_2_idea = {
+			name = "MONUMENT_10000_NAME"
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			cancel_if_invalid = no
+
+			traits = {
+			}
+			modifier = {
+			}
+		}
+		monument_10000_level_3_idea = {
+			name = "MONUMENT_10000_NAME"
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			cancel_if_invalid = no
+
+			traits = {
+			}
+			modifier = {
+                monthly_population = 0.1
+			}
+		}
+
+        # terracotta_army
+        monument_10001_level_0_idea = {
+			name = "MONUMENT_10001_NAME"
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			cancel_if_invalid = no
+
+			traits = {
+			}
+			modifier = {
+			}
+		}
+		monument_10001_level_1_idea = {
+			name = "MONUMENT_10001_NAME"
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			cancel_if_invalid = no
+
+			traits = {
+			}
+			modifier = {
+                war_support_factor = 0.05
+			}
+		}
+		monument_10001_level_2_idea = {
+			name = "MONUMENT_10001_NAME"
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			cancel_if_invalid = no
+
+			traits = {
+			}
+			modifier = {
+                war_support_factor = 0.05
+                conscription = 0.01
+			}
+		}
+		monument_10001_level_3_idea = {
+			name = "MONUMENT_10001_NAME"
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			cancel_if_invalid = no
+
+			traits = {
+			}
+			modifier = {
+                war_support_factor = 0.05
+                conscription = 0.02
+                army_infantry_attack_factor = 0.1
+				army_infantry_defence_factor = 0.1
+			}
+		}
+
+        # silk_road
+        monument_10002_level_0_idea = {
+			name = "MONUMENT_10002_NAME"
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			cancel_if_invalid = no
+
+			traits = {
+			}
+			modifier = {
+			}
+		}
+		monument_10002_level_1_idea = {
+			name = "MONUMENT_10002_NAME"
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			cancel_if_invalid = no
+
+			traits = {
+			}
+			modifier = {
+                trade_opinion_factor = 1
+			}
+		}
+		monument_10002_level_2_idea = {
+			name = "MONUMENT_10002_NAME"
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			cancel_if_invalid = no
+
+			traits = {
+			}
+			modifier = {
+                trade_opinion_factor = 1
+                monthly_population = 0.1
+			}
+		}
+		monument_10002_level_3_idea = {
+			name = "MONUMENT_10002_NAME"
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			cancel_if_invalid = no
+
+			traits = {
+			}
+			modifier = {
+                trade_opinion_factor = 1
+                monthly_population = 0.1
+                research_speed_factor = 0.1
+			}
+		}
+
+        # longmen_grottoes
+		monument_10003_level_0_idea = {
+			name = "MONUMENT_10003_NAME"
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			cancel_if_invalid = no
+
+			traits = {
+			}
+			modifier = {
+			}
+		}
+		monument_10003_level_1_idea = {
+			name = "MONUMENT_10003_NAME"
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			cancel_if_invalid = no
+
+			traits = {
+			}
+			modifier = {
+			}
+		}
+		monument_10003_level_2_idea = {
+			name = "MONUMENT_10003_NAME"
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			cancel_if_invalid = no
+
+			traits = {
+			}
+			modifier = {
+                stability_factor = 0.05
+			}
+		}
+		monument_10003_level_3_idea = {
+			name = "MONUMENT_10003_NAME"
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			cancel_if_invalid = no
+
+			traits = {
+			}
+			modifier = {
+                stability_factor = 0.05
+                political_power_gain = 0.2
+			}
+		}
+
+        # beijing_hangzhou_canal
+        monument_10004_level_0_idea = {
+			name = "MONUMENT_10004_NAME"
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			cancel_if_invalid = no
+
+			traits = {
+			}
+			modifier = {
+			}
+		}
+		monument_10004_level_1_idea = {
+			name = "MONUMENT_10004_NAME"
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			cancel_if_invalid = no
+
+			traits = {
+			}
+			modifier = {
+			}
+		}
+		monument_10004_level_2_idea = {
+			name = "MONUMENT_10004_NAME"
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			cancel_if_invalid = no
+
+			traits = {
+			}
+			modifier = {
+                production_speed_buildings_factor = 0.1
+			}
+		}
+		monument_10004_level_3_idea = {
+			name = "MONUMENT_10004_NAME"
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			cancel_if_invalid = no
+
+			traits = {
+			}
+			modifier = {
+                production_speed_buildings_factor = 0.1
+                monthly_population = 0.1
+			}
+		}
+
+        # mount_tai
+        monument_10005_level_0_idea = {
+			name = "MONUMENT_10005_NAME"
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			cancel_if_invalid = no
+
+			traits = {
+			}
+			modifier = {
+			}
+		}
+		monument_10005_level_1_idea = {
+			name = "MONUMENT_10005_NAME"
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			cancel_if_invalid = no
+
+			traits = {
+			}
+			modifier = {
+			}
+		}
+		monument_10005_level_2_idea = {
+			name = "MONUMENT_10005_NAME"
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			cancel_if_invalid = no
+
+			traits = {
+			}
+			modifier = {
+                stability_factor = 0.05
+			}
+		}
+		monument_10005_level_3_idea = {
+			name = "MONUMENT_10005_NAME"
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			cancel_if_invalid = no
+
+			traits = {
+			}
+			modifier = {
+                stability_factor = 0.05
+                political_power_gain = 0.20
+			}
+		}
+
+        # shanhaiguan
+		monument_10006_level_0_idea = {
+			name = "MONUMENT_10006_NAME"
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			cancel_if_invalid = no
+
+			traits = {
+			}
+			modifier = {
+			}
+		}
+		monument_10006_level_1_idea = {
+			name = "MONUMENT_10006_NAME"
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			cancel_if_invalid = no
+
+			traits = {
+			}
+			modifier = {
+			}
+		}
+		monument_10006_level_2_idea = {
+			name = "MONUMENT_10006_NAME"
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			cancel_if_invalid = no
+
+			traits = {
+			}
+			modifier = {
+                production_speed_bunker_factor = 0.1
+			}
+		}
+		monument_10006_level_3_idea = {
+			name = "MONUMENT_10006_NAME"
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			cancel_if_invalid = no
+
+			traits = {
+			}
+			modifier = {
+                production_speed_bunker_factor = 0.1
+                army_core_defence_factor = 0.1
+			}
+		}
+
+        # zhenbeitai
+        monument_10007_level_0_idea = {
+			name = "MONUMENT_10007_NAME"
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			cancel_if_invalid = no
+
+			traits = {
+			}
+			modifier = {
+			}
+		}
+		monument_10007_level_1_idea = {
+			name = "MONUMENT_10007_NAME"
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			cancel_if_invalid = no
+
+			traits = {
+			}
+			modifier = {
+			}
+		}
+		monument_10007_level_2_idea = {
+			name = "MONUMENT_10007_NAME"
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			cancel_if_invalid = no
+
+			traits = {
+			}
+			modifier = {
+                production_speed_bunker_factor = 0.1
+			}
+		}
+		monument_10007_level_3_idea = {
+			name = "MONUMENT_10007_NAME"
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			cancel_if_invalid = no
+
+			traits = {
+			}
+			modifier = {
+                production_speed_bunker_factor = 0.1
+                army_core_defence_factor = 0.1
+			}
+		}
+
+        # jiayuguan
+        monument_10008_level_0_idea = {
+			name = "MONUMENT_10008_NAME"
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			cancel_if_invalid = no
+
+			traits = {
+			}
+			modifier = {
+			}
+		}
+		monument_10008_level_1_idea = {
+			name = "MONUMENT_10008_NAME"
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			cancel_if_invalid = no
+
+			traits = {
+			}
+			modifier = {
+			}
+		}
+		monument_10008_level_2_idea = {
+			name = "MONUMENT_10008_NAME"
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			cancel_if_invalid = no
+
+			traits = {
+			}
+			modifier = {
+                production_speed_bunker_factor = 0.1
+			}
+		}
+		monument_10008_level_3_idea = {
+			name = "MONUMENT_10008_NAME"
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			cancel_if_invalid = no
+
+			traits = {
+			}
+			modifier = {
+                production_speed_bunker_factor = 0.1
+                army_core_defence_factor = 0.1
+			}
+		}
+
+        # mount_hua
+        monument_10009_level_0_idea = {
+            name = "MONUMENT_10009_NAME"
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                always = yes
+            }
+            cancel_if_invalid = no
+
+            traits = {
+            }
+            modifier = {
+            }
+        }
+        monument_10009_level_1_idea = {
+            name = "MONUMENT_10009_NAME"
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                always = yes
+            }
+            cancel_if_invalid = no
+
+            traits = {
+            }
+            modifier = {
+            }
+        }
+        monument_10009_level_2_idea = {
+            name = "MONUMENT_10009_NAME"
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                always = yes
+            }
+            cancel_if_invalid = no
+
+            traits = {
+            }
+            modifier = {
+            }
+        }
+        monument_10009_level_3_idea = {
+            name = "MONUMENT_10009_NAME"
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                always = yes
+            }
+            cancel_if_invalid = no
+
+            traits = {
+            }
+            modifier = {
+                air_weather_penalty = -0.05
+            }
+        }
+
+        # mount_heng
+        monument_10010_level_0_idea = {
+            name = "MONUMENT_10010_NAME"
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                always = yes
+            }
+            cancel_if_invalid = no
+
+            traits = {
+            }
+            modifier = {
+            }
+        }
+        monument_10010_level_1_idea = {
+            name = "MONUMENT_10010_NAME"
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                always = yes
+            }
+            cancel_if_invalid = no
+
+            traits = {
+            }
+            modifier = {
+            }
+        }
+        monument_10010_level_2_idea = {
+            name = "MONUMENT_10010_NAME"
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                always = yes
+            }
+            cancel_if_invalid = no
+
+            traits = {
+            }
+            modifier = {
+            }
+        }
+        monument_10010_level_3_idea = {
+            name = "MONUMENT_10010_NAME"
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                always = yes
+            }
+            cancel_if_invalid = no
+
+            traits = {
+            }
+            modifier = {
+                air_weather_penalty = -0.05
+            }
+        }
+
+        # mount_heng2
+        monument_10011_level_0_idea = {
+            name = "MONUMENT_10011_NAME"
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                always = yes
+            }
+            cancel_if_invalid = no
+
+            traits = {
+            }
+            modifier = {
+            }
+        }
+        monument_10011_level_1_idea = {
+            name = "MONUMENT_10011_NAME"
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                always = yes
+            }
+            cancel_if_invalid = no
+
+            traits = {
+            }
+            modifier = {
+            }
+        }
+        monument_10011_level_2_idea = {
+            name = "MONUMENT_10011_NAME"
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                always = yes
+            }
+            cancel_if_invalid = no
+
+            traits = {
+            }
+            modifier = {
+            }
+        }
+        monument_10011_level_3_idea = {
+            name = "MONUMENT_10011_NAME"
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                always = yes
+            }
+            cancel_if_invalid = no
+
+            traits = {
+            }
+            modifier = {
+                air_weather_penalty = -0.05
+            }
+        }
+
+        # mount_song
+        monument_10012_level_0_idea = {
+            name = "MONUMENT_10012_NAME"
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                always = yes
+            }
+            cancel_if_invalid = no
+
+            traits = {
+            }
+            modifier = {
+            }
+        }
+        monument_10012_level_1_idea = {
+            name = "MONUMENT_10012_NAME"
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                always = yes
+            }
+            cancel_if_invalid = no
+
+            traits = {
+            }
+            modifier = {
+            }
+        }
+        monument_10012_level_2_idea = {
+            name = "MONUMENT_10012_NAME"
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                always = yes
+            }
+            cancel_if_invalid = no
+
+            traits = {
+            }
+            modifier = {
+            }
+        }
+        monument_10012_level_3_idea = {
+            name = "MONUMENT_10012_NAME"
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                always = yes
+            }
+            cancel_if_invalid = no
+
+            traits = {
+            }
+            modifier = {
+                air_weather_penalty = -0.05
+            }
+        }
+
+        # mount_wutai
+        monument_10013_level_0_idea = {
+            name = "MONUMENT_10013_NAME"
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                always = yes
+            }
+            cancel_if_invalid = no
+
+            traits = {
+            }
+            modifier = {
+            }
+        }
+        monument_10013_level_1_idea = {
+            name = "MONUMENT_10013_NAME"
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                always = yes
+            }
+            cancel_if_invalid = no
+
+            traits = {
+            }
+            modifier = {
+            }
+        }
+        monument_10013_level_2_idea = {
+            name = "MONUMENT_10013_NAME"
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                always = yes
+            }
+            cancel_if_invalid = no
+
+            traits = {
+            }
+            modifier = {
+                resistance_growth = -0.1
+            }
+        }
+        monument_10013_level_3_idea = {
+            name = "MONUMENT_10013_NAME"
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                always = yes
+            }
+            cancel_if_invalid = no
+
+            traits = {
+            }
+            modifier = {
+                resistance_growth = -0.1
+                compliance_growth = 0.03
+            }
+        }
+
+        # mount_qingcheng
+        monument_10014_level_0_idea = {
+            name = "MONUMENT_10014_NAME"
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                always = yes
+            }
+            cancel_if_invalid = no
+
+            traits = {
+            }
+            modifier = {
+            }
+        }
+        monument_10014_level_1_idea = {
+            name = "MONUMENT_10014_NAME"
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                always = yes
+            }
+            cancel_if_invalid = no
+
+            traits = {
+            }
+            modifier = {
+            }
+        }
+        monument_10014_level_2_idea = {
+            name = "MONUMENT_10014_NAME"
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                always = yes
+            }
+            cancel_if_invalid = no
+
+            traits = {
+            }
+            modifier = {
+                resistance_growth = -0.1
+            }
+        }
+        monument_10014_level_3_idea = {
+            name = "MONUMENT_10014_NAME"
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                always = yes
+            }
+            cancel_if_invalid = no
+
+            traits = {
+            }
+            modifier = {
+                resistance_growth = -0.1
+                compliance_growth = 0.03
+            }
+        }
+
+        # yellow_crane_tower
+        monument_10015_level_0_idea = {
+            name = "MONUMENT_10015_NAME"
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                always = yes
+            }
+            cancel_if_invalid = no
+
+            traits = {
+            }
+            modifier = {
+            }
+        }
+        monument_10015_level_1_idea = {
+            name = "MONUMENT_10015_NAME"
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                always = yes
+            }
+            cancel_if_invalid = no
+
+            traits = {
+            }
+            modifier = {
+            }
+        }
+        monument_10015_level_2_idea = {
+            name = "MONUMENT_10015_NAME"
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                always = yes
+            }
+            cancel_if_invalid = no
+
+            traits = {
+            }
+            modifier = {
+            }
+        }
+        monument_10015_level_3_idea = {
+            name = "MONUMENT_10015_NAME"
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                always = yes
+            }
+            cancel_if_invalid = no
+
+            traits = {
+            }
+            modifier = {
+                stability_factor = 0.05
+            }
+        }
+
+        # pavilion_of_prince_teng
+        monument_10016_level_0_idea = {
+            name = "MONUMENT_10016_NAME"
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                always = yes
+            }
+            cancel_if_invalid = no
+
+            traits = {
+            }
+            modifier = {
+            }
+        }
+        monument_10016_level_1_idea = {
+            name = "MONUMENT_10016_NAME"
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                always = yes
+            }
+            cancel_if_invalid = no
+
+            traits = {
+            }
+            modifier = {
+            }
+        }
+        monument_10016_level_2_idea = {
+            name = "MONUMENT_10016_NAME"
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                always = yes
+            }
+            cancel_if_invalid = no
+
+            traits = {
+            }
+            modifier = {
+            }
+        }
+        monument_10016_level_3_idea = {
+            name = "MONUMENT_10016_NAME"
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                always = yes
+            }
+            cancel_if_invalid = no
+
+            traits = {
+            }
+            modifier = {
+                stability_factor = 0.05
+            }
+        }
+
+        # yueyang_tower
+        monument_10017_level_0_idea = {
+            name = "MONUMENT_10017_NAME"
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                always = yes
+            }
+            cancel_if_invalid = no
+
+            traits = {
+            }
+            modifier = {
+            }
+        }
+        monument_10017_level_1_idea = {
+            name = "MONUMENT_10017_NAME"
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                always = yes
+            }
+            cancel_if_invalid = no
+
+            traits = {
+            }
+            modifier = {
+            }
+        }
+        monument_10017_level_2_idea = {
+            name = "MONUMENT_10017_NAME"
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                always = yes
+            }
+            cancel_if_invalid = no
+
+            traits = {
+            }
+            modifier = {
+            }
+        }
+        monument_10017_level_3_idea = {
+            name = "MONUMENT_10017_NAME"
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                always = yes
+            }
+            cancel_if_invalid = no
+
+            traits = {
+            }
+            modifier = {
+                stability_factor = 0.05
+            }
+        }
+
+        # stork_tower
+        monument_10018_level_0_idea = {
+            name = "MONUMENT_10018_NAME"
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                always = yes
+            }
+            cancel_if_invalid = no
+
+            traits = {
+            }
+            modifier = {
+            }
+        }
+        monument_10018_level_1_idea = {
+            name = "MONUMENT_10018_NAME"
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                always = yes
+            }
+            cancel_if_invalid = no
+
+            traits = {
+            }
+            modifier = {
+            }
+        }
+        monument_10018_level_2_idea = {
+            name = "MONUMENT_10018_NAME"
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                always = yes
+            }
+            cancel_if_invalid = no
+
+            traits = {
+            }
+            modifier = {
+            }
+        }
+        monument_10018_level_3_idea = {
+            name = "MONUMENT_10018_NAME"
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                always = yes
+            }
+            cancel_if_invalid = no
+
+            traits = {
+            }
+            modifier = {
+                stability_factor = 0.05
+            }
+        }
+
+        # penglai_pavilion
+        monument_10019_level_0_idea = {
+            name = "MONUMENT_10019_NAME"
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                always = yes
+            }
+            cancel_if_invalid = no
+
+            traits = {
+            }
+            modifier = {
+            }
+        }
+        monument_10019_level_1_idea = {
+            name = "MONUMENT_10019_NAME"
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                always = yes
+            }
+            cancel_if_invalid = no
+
+            traits = {
+            }
+            modifier = {
+            }
+        }
+        monument_10019_level_2_idea = {
+            name = "MONUMENT_10019_NAME"
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                always = yes
+            }
+            cancel_if_invalid = no
+
+            traits = {
+            }
+            modifier = {
+            }
+        }
+        monument_10019_level_3_idea = {
+            name = "MONUMENT_10019_NAME"
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                always = yes
+            }
+            cancel_if_invalid = no
+
+            traits = {
+            }
+            modifier = {
+            }
+        }
+
+        # leifeng_tower
+        monument_10020_level_0_idea = {
+            name = "MONUMENT_10020_NAME"
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                always = yes
+            }
+            cancel_if_invalid = no
+
+            traits = {
+            }
+            modifier = {
+            }
+        }
+        monument_10020_level_1_idea = {
+            name = "MONUMENT_10020_NAME"
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                always = yes
+            }
+            cancel_if_invalid = no
+
+            traits = {
+            }
+            modifier = {
+			resistance_damage_to_garrison = -0.05
+			resistance_target = -0.05
+			compliance_growth = 0.01
+            }
+        }
+        monument_10020_level_2_idea = {
+            name = "MONUMENT_10020_NAME"
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                always = yes
+            }
+            cancel_if_invalid = no
+
+            traits = {
+            }
+            modifier = {
+			resistance_damage_to_garrison = -0.10
+			resistance_target = -0.10
+			compliance_growth = 0.02
+            }
+        }
+        monument_10020_level_3_idea = {
+            name = "MONUMENT_10020_NAME"
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                always = yes
+            }
+            cancel_if_invalid = no
+
+            traits = {
+            }
+            modifier = {
+			resistance_damage_to_garrison = -0.15
+			resistance_target = -0.15
+			compliance_growth = 0.03
+            }
+        }
+
+        # dayan_pagoda
+        monument_10021_level_0_idea = {
+            name = "MONUMENT_10021_NAME"
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                always = yes
+            }
+            cancel_if_invalid = no
+
+            traits = {
+            }
+            modifier = {
+            }
+        }
+        monument_10021_level_1_idea = {
+            name = "MONUMENT_10021_NAME"
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                always = yes
+            }
+            cancel_if_invalid = no
+
+            traits = {
+            }
+            modifier = {
+            }
+        }
+        monument_10021_level_2_idea = {
+            name = "MONUMENT_10021_NAME"
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                always = yes
+            }
+            cancel_if_invalid = no
+
+            traits = {
+            }
+            modifier = {
+            }
+        }
+        monument_10021_level_3_idea = {
+            name = "MONUMENT_10021_NAME"
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                always = yes
+            }
+            cancel_if_invalid = no
+
+            traits = {
+            }
+            modifier = {
+            }
+        }
+
+        # bronze_bird_terrace
+        monument_10022_level_0_idea = {
+            name = "MONUMENT_10022_NAME"
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                always = yes
+            }
+            cancel_if_invalid = no
+
+            traits = {
+            }
+            modifier = {
+            }
+        }
+        monument_10022_level_1_idea = {
+            name = "MONUMENT_10022_NAME"
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                always = yes
+            }
+            cancel_if_invalid = no
+
+            traits = {
+            }
+            modifier = {
+            }
+        }
+        monument_10022_level_2_idea = {
+            name = "MONUMENT_10022_NAME"
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                always = yes
+            }
+            cancel_if_invalid = no
+
+            traits = {
+            }
+            modifier = {
+            }
+        }
+        monument_10022_level_3_idea = {
+            name = "MONUMENT_10022_NAME"
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                always = yes
+            }
+            cancel_if_invalid = no
+
+            traits = {
+            }
+            modifier = {
+            }
+        }
+
+        # loulan
+        monument_10023_level_0_idea = {
+            name = "MONUMENT_10023_NAME"
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                always = yes
+            }
+            cancel_if_invalid = no
+
+            traits = {
+            }
+            modifier = {
+            }
+        }
+        monument_10023_level_1_idea = {
+            name = "MONUMENT_10023_NAME"
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                always = yes
+            }
+            cancel_if_invalid = no
+
+            traits = {
+            }
+            modifier = {
+            }
+        }
+        monument_10023_level_2_idea = {
+            name = "MONUMENT_10023_NAME"
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                always = yes
+            }
+            cancel_if_invalid = no
+
+            traits = {
+            }
+            modifier = {
+            }
+        }
+        monument_10023_level_3_idea = {
+            name = "MONUMENT_10023_NAME"
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                always = yes
+            }
+            cancel_if_invalid = no
+
+            traits = {
+            }
+            modifier = {
+                trade_opinion_factor = 0.3
+            }
+        }
+
+        # mountain_khentii
+        monument_10024_level_0_idea = {
+            name = "MONUMENT_10024_NAME"
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                always = yes
+            }
+            cancel_if_invalid = no
+
+            traits = {
+            }
+            modifier = {
+            }
+        }
+        monument_10024_level_1_idea = {
+            name = "MONUMENT_10024_NAME"
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                always = yes
+            }
+            cancel_if_invalid = no
+
+            traits = {
+            }
+            modifier = {
+                war_support_factor = 0.05
+            }
+        }
+        monument_10024_level_2_idea = {
+            name = "MONUMENT_10024_NAME"
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                always = yes
+            }
+            cancel_if_invalid = no
+
+            traits = {
+            }
+            modifier = {
+                war_support_factor = 0.05
+                cavalry_attack_factor = 0.05
+				army_armor_attack_factor = 0.05
+            }
+        }
+        monument_10024_level_3_idea = {
+            name = "MONUMENT_10024_NAME"
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                always = yes
+            }
+            cancel_if_invalid = no
+
+            traits = {
+            }
+            modifier = {
+                war_support_factor = 0.05
+                cavalry_attack_factor = 0.1
+				army_armor_attack_factor = 0.1
+            }
+        }
+
+        # sanxingdui_site
+        monument_10025_level_0_idea = {
+            name = "MONUMENT_10025_NAME"
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                always = yes
+            }
+            cancel_if_invalid = no
+
+            traits = {
+            }
+            modifier = {
+            }
+        }
+        monument_10025_level_1_idea = {
+            name = "MONUMENT_10025_NAME"
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                always = yes
+            }
+            cancel_if_invalid = no
+
+            traits = {
+            }
+            modifier = {
+            }
+        }
+        monument_10025_level_2_idea = {
+            name = "MONUMENT_10025_NAME"
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                always = yes
+            }
+            cancel_if_invalid = no
+
+            traits = {
+            }
+            modifier = {
+                stability_factor = 0.05
+            }
+        }
+        monument_10025_level_3_idea = {
+            name = "MONUMENT_10025_NAME"
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                always = yes
+            }
+            cancel_if_invalid = no
+
+            traits = {
+            }
+            modifier = {
+                stability_factor = 0.05
+                political_power_gain = 0.2
+            }
+        }
+
+        # huangdi_mausoleum
+        monument_10026_level_0_idea = {
+            name = "MONUMENT_10026_NAME"
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                always = yes
+            }
+            cancel_if_invalid = no
+
+            traits = {
+            }
+            modifier = {
+            }
+        }
+        monument_10026_level_1_idea = {
+            name = "MONUMENT_10026_NAME"
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                always = yes
+            }
+            cancel_if_invalid = no
+
+            traits = {
+            }
+            modifier = {
+                stability_factor = 0.05
+            }
+        }
+        monument_10026_level_2_idea = {
+            name = "MONUMENT_10026_NAME"
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                always = yes
+            }
+            cancel_if_invalid = no
+
+            traits = {
+            }
+            modifier = {
+                stability_factor = 0.05
+                army_defence_factor = 0.05
+            }
+        }
+        monument_10026_level_3_idea = {
+            name = "MONUMENT_10026_NAME"
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                always = yes
+            }
+            cancel_if_invalid = no
+
+            traits = {
+            }
+            modifier = {
+                stability_factor = 0.05
+                army_defence_factor = 0.05
+                army_attack_factor = 0.05
+            }
+        }
+
+        # monument_to_the_people's_heroes
+        monument_10027_level_0_idea = {
+            name = "MONUMENT_10027_NAME"
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                always = yes
+            }
+            cancel_if_invalid = no
+
+            traits = {
+            }
+            modifier = {
+            }
+        }
+        monument_10027_level_1_idea = {
+            name = "MONUMENT_10027_NAME"
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                always = yes
+            }
+            cancel_if_invalid = no
+
+            traits = {
+            }
+            modifier = {
+                stability_factor = 0.1
+            }
+        }
+        monument_10027_level_2_idea = {
+            name = "MONUMENT_10027_NAME"
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                always = yes
+            }
+            cancel_if_invalid = no
+
+            traits = {
+            }
+            modifier = {
+                stability_factor = 0.1
+                army_org_factor = 0.05
+				army_morale_factor = 0.05
+				land_reinforce_rate = 0.05
+            }
+        }
+        monument_10027_level_3_idea = {
+            name = "MONUMENT_10027_NAME"
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                always = yes
+            }
+            cancel_if_invalid = no
+
+            traits = {
+            }
+            modifier = {
+                stability_factor = 0.1
+                army_org_factor = 0.10
+				army_morale_factor = 0.10
+				land_reinforce_rate = 0.10
+            }
+        }
+
+        # great_hall_of_the_people
+        monument_10028_level_0_idea = {
+            name = "MONUMENT_10028_NAME"
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                always = yes
+            }
+            cancel_if_invalid = no
+
+            traits = {
+            }
+            modifier = {
+            }
+        }
+        monument_10028_level_1_idea = {
+            name = "MONUMENT_10028_NAME"
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                always = yes
+            }
+            cancel_if_invalid = no
+
+            traits = {
+            }
+            modifier = {
+                stability_factor = 0.1
+            }
+        }
+        monument_10028_level_2_idea = {
+            name = "MONUMENT_10028_NAME"
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                always = yes
+            }
+            cancel_if_invalid = no
+
+            traits = {
+            }
+            modifier = {
+                stability_factor = 0.1
+                political_power_gain = 0.5
+            }
+        }
+        monument_10028_level_3_idea = {
+            name = "MONUMENT_10028_NAME"
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                always = yes
+            }
+            cancel_if_invalid = no
+
+            traits = {
+            }
+            modifier = {
+                stability_factor = 0.1
+                political_power_gain = 0.5
+                improve_relations_maintain_cost_factor = -0.5
+            }
+        }
+
+        # heian_kyo
+        monument_10029_level_0_idea = {
+            name = "MONUMENT_10029_NAME"
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                always = yes
+            }
+            cancel_if_invalid = no
+
+            traits = {
+            }
+            modifier = {
+            }
+        }
+        monument_10029_level_1_idea = {
+            name = "MONUMENT_10029_NAME"
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                always = yes
+            }
+            cancel_if_invalid = no
+
+            traits = {
+            }
+            modifier = {
+            }
+        }
+        monument_10029_level_2_idea = {
+            name = "MONUMENT_10029_NAME"
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                always = yes
+            }
+            cancel_if_invalid = no
+
+            traits = {
+            }
+            modifier = {
+            }
+        }
+        monument_10029_level_3_idea = {
+            name = "MONUMENT_10029_NAME"
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                always = yes
+            }
+            cancel_if_invalid = no
+
+            traits = {
+            }
+            modifier = {
+                stability_factor = 0.05
+            }
+        }
+
+        # horyu_ji
+        monument_10030_level_0_idea = {
+            name = "MONUMENT_10030_NAME"
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                always = yes
+            }
+            cancel_if_invalid = no
+
+            traits = {
+            }
+            modifier = {
+            }
+        }
+        monument_10030_level_1_idea = {
+            name = "MONUMENT_10030_NAME"
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                always = yes
+            }
+            cancel_if_invalid = no
+
+            traits = {
+            }
+            modifier = {
+            }
+        }
+        monument_10030_level_2_idea = {
+            name = "MONUMENT_10030_NAME"
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                always = yes
+            }
+            cancel_if_invalid = no
+
+            traits = {
+            }
+            modifier = {
+            }
+        }
+        monument_10030_level_3_idea = {
+            name = "MONUMENT_10030_NAME"
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                always = yes
+            }
+            cancel_if_invalid = no
+
+            traits = {
+            }
+            modifier = {
+                compliance_growth = 0.03
+            }
+        }
+
+        # rokuon_ji
+        monument_10031_level_0_idea = {
+            name = "MONUMENT_10031_NAME"
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                always = yes
+            }
+            cancel_if_invalid = no
+
+            traits = {
+            }
+            modifier = {
+            }
+        }
+        monument_10031_level_1_idea = {
+            name = "MONUMENT_10031_NAME"
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                always = yes
+            }
+            cancel_if_invalid = no
+
+            traits = {
+            }
+            modifier = {
+            }
+        }
+        monument_10031_level_2_idea = {
+            name = "MONUMENT_10031_NAME"
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                always = yes
+            }
+            cancel_if_invalid = no
+
+            traits = {
+            }
+            modifier = {
+            }
+        }
+        monument_10031_level_3_idea = {
+            name = "MONUMENT_10031_NAME"
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                always = yes
+            }
+            cancel_if_invalid = no
+
+            traits = {
+            }
+            modifier = {
+                compliance_growth = 0.03
+            }
+        }
+
+        # itsukushima_shrine
+        monument_10032_level_0_idea = {
+            name = "MONUMENT_10032_NAME"
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                always = yes
+            }
+            cancel_if_invalid = no
+
+            traits = {
+            }
+            modifier = {
+            }
+        }
+        monument_10032_level_1_idea = {
+            name = "MONUMENT_10032_NAME"
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                always = yes
+            }
+            cancel_if_invalid = no
+
+            traits = {
+            }
+            modifier = {
+                stability_factor = 0.05
+            }
+        }
+        monument_10032_level_2_idea = {
+            name = "MONUMENT_10032_NAME"
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                always = yes
+            }
+            cancel_if_invalid = no
+
+            traits = {
+            }
+            modifier = {
+                stability_factor = 0.05
+                resistance_growth = -0.05
+            }
+        }
+        monument_10032_level_3_idea = {
+            name = "MONUMENT_10032_NAME"
+            allowed = {
+                always = no
+            }
+            allowed_civil_war = {
+                always = yes
+            }
+            cancel_if_invalid = no
+
+            traits = {
+            }
+            modifier = {
+                stability_factor = 0.05
+                resistance_growth = -0.05
+                compliance_growth = 0.03
+            }
+        }
+    }
+}

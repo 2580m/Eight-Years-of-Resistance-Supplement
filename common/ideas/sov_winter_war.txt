@@ -1,0 +1,471 @@
+ideas = {
+
+	country = {
+	
+	sov_defense_moscow_idea = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				has_government = communism
+			}
+			
+			available = {
+			    has_war = yes
+			}
+
+			removal_cost = -1
+
+			picture = generic_victors_of_ww1
+			
+			modifier = {
+				army_core_defence_factor = 0.5
+				dig_in_speed_factor = 0.5
+				max_dig_in_factor = 0.35
+				land_reinforce_rate = 0.1
+				army_org_factor = 0.25
+				army_morale_factor = 0.25
+				mobilization_speed = 0.5
+				conscription = 0.03
+				industrial_capacity_factory = 0.25
+				enemy_army_bonus_air_superiority_factor = -0.1
+				command_power_gain_mult = 0.25
+				max_command_power = 50
+			}
+	}
+	
+	SOV_wood_replace_aluminium = {
+	
+	picture = generic_fighter_production_diverted
+	
+	allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			cancel = { 
+			    
+			}
+			equipment_bonus = {
+				#AIRCRAFT
+				small_plane_airframe = {
+					build_cost_ic = -0.2 instant = yes
+					reliability = -0.2
+				}
+				cv_small_plane_airframe = {
+					build_cost_ic = -0.2 instant = yes
+					reliability = -0.2
+				}
+				small_plane_cas_airframe = {
+					build_cost_ic = -0.2 instant = yes
+					reliability = -0.2
+				}
+				cv_small_plane_cas_airframe = {
+					build_cost_ic = -0.2 instant = yes
+					reliability = -0.2
+				}
+				small_plane_naval_bomber_airframe = {
+					build_cost_ic = -0.2 instant = yes
+					reliability = -0.2
+				}
+				cv_small_plane_naval_bomber_airframe = {
+					build_cost_ic = -0.2 instant = yes
+					reliability = -0.2
+				}
+				medium_plane_airframe = {
+					build_cost_ic = -0.2 instant = yes
+					reliability = -0.2
+				}
+				medium_plane_fighter_airframe = {
+					build_cost_ic = -0.2 instant = yes
+					reliability = -0.2
+				}
+				medium_plane_scout_plane_airframe = {
+					build_cost_ic = -0.2 instant = yes
+					reliability = -0.2
+				}
+				large_plane_airframe = {
+					build_cost_ic = -0.2 instant = yes
+					reliability = -0.2
+				}
+				large_plane_maritime_patrol_plane_airframe = {
+					build_cost_ic = -0.2 instant = yes
+					reliability = -0.2
+				}
+			}
+			modifier = {
+				production_lack_of_resource_penalty_factor = -0.1
+				
+			} 
+			removal_cost = -1
+	}
+		
+	SOV_big_storm_operation = {
+	
+	picture = sov_war_plan
+	
+	allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			cancel = { 
+			    NOT = { has_war_with = GER }
+			}
+			targeted_modifier = {
+			TAG = GER
+			breakthrough_bonus_against = 0.1
+				                attack_bonus_against = 0.1
+                                                                                
+			}
+			modifier = {
+				no_supply_grace = 72
+				planning_speed = 0.25
+				max_planning = 0.1
+				army_speed_factor = 0.1
+				org_loss_when_moving = -0.1
+				air_mission_efficiency = 0.1
+			}
+			removal_cost = -1
+		}
+		
+		sov_defense_player = {
+			picture = communist_spirit
+
+			available = {
+                                                       
+													  has_war = yes
+                                                }
+                                                cancel = {
+                                                              
+                                                }
+			                                              
+			modifier = {
+			
+                                     political_power_factor = 0.25
+																				
+				command_power_gain = 0.5
+							
+				                                    
+                                                                surrender_limit = 0.25
+                                                                conscription = 0.03
+max_command_power = 50						
+				dig_in_speed_factor = 0.25
+				max_dig_in_factor = 0.25
+                                    MOBILIZATION_SPEED = 0.5
+									training_time_army_factor = -0.25
+				
+				army_core_attack_factor = 0.15
+				army_core_defence_factor = 0.15
+			}
+	}
+	SOV_big_storm_operation_ai = {
+	name = SOV_big_storm_operation
+	picture = sov_war_plan
+	
+	allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			cancel = { 
+			    NOT = { has_war_with = GER }
+			}
+			targeted_modifier = {
+				tag = GER
+				attack_bonus_against = 0.35 #MODDED
+				defense_bonus_against = 0.45 #MODDED
+			    breakthrough_bonus_against = 0.35 #MODDED
+            }
+			modifier = {
+				army_speed_factor = 0.1 #MODDED
+                attrition = -0.5
+                out_of_supply_factor = -0.35
+                supply_consumption_factor = -0.35
+				no_supply_grace = 72
+				command_power_gain = 1
+	            max_command_power = 100
+				org_loss_when_moving = -0.25
+				ai_focus_aggressive_factor = 1
+				army_bonus_air_superiority_factor = 0.15#空优
+				air_mission_efficiency = 0.15#空军任务效率
+				air_bombing_targetting = 0.15#对地攻击瞄准
+				experience_loss_factor = -0.35
+				terrain_penalty_reduction = 0.25
+				army_morale_factor = 0.15
+				army_org_factor = 0.15
+				ammunition_factor = 0.35
+				ammunition_capacity_factor = 0.35
+				
+				hidden_modifier = {
+				industrial_capacity_factory = 1
+				industrial_capacity_dockyard = 0.25
+			    production_factory_efficiency_gain_factor = 0.5
+				production_factory_max_efficiency_factor = 0.5
+				line_change_production_efficiency_factor = 0.5
+				consumer_goods_factor = -0.5
+				}
+			}
+			removal_cost = -1
+		}
+		
+		
+	sov_shocked_by_barbarossa = {
+			
+                                                picture = chi_incompetent_officers
+
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				has_government = communism
+			}
+
+                                                available = {
+has_full_control_of_state = 219    
+has_full_control_of_state = 217                                                                                                
+                                                }
+
+                                                visible = {
+                                                              
+                                                }
+			
+                                                cancel = {
+                                                              
+                                                              
+                                                }
+
+                                                targeted_modifier = {
+					
+			}
+                                                
+			modifier = {                                                                                                                              
+
+air_attack_factor = -0.35
+air_agility_factor = -0.35
+air_mission_efficiency = -0.35
+air_superiority_efficiency = -0.35
+land_reinforce_rate = -0.05
+army_morale_factor = -0.35
+dig_in_speed_factor = -0.35
+army_org_factor = -0.35
+max_command_power = -50	
+command_power_gain = -0.35
+			}
+                                                
+		}
+		
+		sov_shocked_by_barbarossa_2 = {
+			
+                                                picture = chi_incompetent_officers
+
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				has_government = communism
+			}
+
+                                                available = {
+has_full_control_of_state = 219    
+has_full_control_of_state = 217                                                                                                
+                                                }
+
+                                                visible = {
+                                                              
+                                                }
+			
+                                                cancel = {
+                                                              
+                                                              
+                                                }
+
+                                                targeted_modifier = {
+					
+			}
+                                                
+			modifier = {                                                                                                                              
+air_attack_factor = -0.1
+air_agility_factor = -0.1
+air_mission_efficiency = -0.1
+air_superiority_efficiency = -0.1
+army_morale_factor = -0.1
+dig_in_speed_factor = -0.1
+army_org_factor = -0.1
+max_command_power = -15	
+command_power_gain = -0.1
+			}
+                                                
+		}
+		
+	SOV_nkvd_nsb_2 = {
+			name = nkvd
+                  picture = nkvd_2
+
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				tag = SOV
+				has_government = communism
+			}
+
+                                                available = {
+                                                      has_government = communism
+                                                                                                      
+                                                }
+
+                                                visible = {
+                                                              
+                                                }
+			
+                                                cancel = {
+                                                              
+                                                }
+
+                                                
+                                                
+			modifier = {
+				operative_slot = 10
+				agency_upgrade_time = -0.25
+				civilian_intel_to_others = -30
+				army_intel_to_others = -30
+				navy_intel_to_others = -30
+				airforce_intel_to_others = -30
+				encryption = 7
+				intelligence_agency_defense = 7
+				enemy_operative_capture_chance_factor = 0.3
+				enemy_operative_detection_chance_factor = 0.3
+				own_operative_capture_chance_factor = -0.3
+				own_operative_detection_chance_factor = -0.3
+				decryption_power = 75 #破译能力
+				army_intel_decryption_bonus = 10 #破译陆军密码加成
+				navy_intel_decryption_bonus = 10 #破译海军密码加成
+				airforce_intel_decryption_bonus = 10 #破译的空军密码加成
+				operation_infiltrate_outcome = 0.3 #渗透效率
+				operation_outcome = 0.3 #行动效率
+			}
+		}
+
+    SOV_socialism_in_one_country_idea = {#GUO
+		
+			name = SOV_socialism_in_one_country_idea
+
+			removal_cost = -1
+			
+			allowed = {
+				always = no # Added via focus
+			}
+                                                available = {
+                                                     has_government = communism
+                                                has_country_leader = { ruling_only = yes character = SOV_iosif_stalin }                                
+                                                }
+			allowed_civil_war = {
+				has_country_leader = { ruling_only = yes character = SOV_iosif_stalin }   
+			}
+
+			picture = generic_communism_drift_bonus
+			
+
+			modifier = {
+			opinion_gain_monthly_factor = 0.1 #改善关系
+			improve_relations_maintain_cost_factor = -0.1 #改善关系持续花费
+		    trade_opinion_factor = 0.1 #贸易协定关系修正
+			guarantee_tension = 1
+			#guarantee_cost = 5
+			ai_get_ally_desire_factor = -100 #AI修正:加入或扩大一个阵营的意愿
+			#subversive_activites_upkeep = 5
+operation_coup_government_outcome = -5
+operation_collaboration_government_outcome = -5
+#consumer_goods_factor = -0.15
+research_speed_factor = 0.15
+production_speed_arms_factory_factor = 0.20
+production_speed_industrial_complex_factor = 0.20
+production_speed_infrastructure_factor = 0.20
+production_speed_synthetic_refinery_factor = 0.20
+#industrial_capacity_factory = 0.15
+communism_drift = 0.05
+				political_power_factor = 0.15
+				generate_wargoal_tension = 1
+justify_war_goal_time = 0.5
+       trade_laws_cost_factor = -0.15
+		economy_cost_factor = -0.15
+		production_factory_max_efficiency_factor = 0.05 #生产效率上限
+		production_factory_efficiency_gain_factor = 0.05 #生产效率增长
+		industrial_capacity_factory = 0.1 #工厂产出
+		industrial_capacity_dockyard = 0.1
+stability_weekly = 0.001
+                                                                #civilian_intel_to_others = -50
+
+ #army_intel_to_others = -50
+ #navy_intel_to_others = -50
+ #airforce_intel_to_others = -50
+#encryption = 5
+#intelligence_agency_defense = 5
+#enemy_operative_capture_chance_factor = 0.5
+#enemy_operative_detection_chance_factor = 0.25
+			}
+                                                
+		}
+
+                                 sov_winter_war = {
+			
+                                                picture = tfv_can_conscription_crisis
+
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+                                                available = {
+                                                      has_war_with = FIN
+                                                      FIN = { is_ai = yes }                                                
+                                                }
+
+                                                visible = {
+                                                             
+                                                }
+			
+                                                cancel = {
+                                                     any_other_country = {
+													 not = { tag = FIN }
+													 has_war_with = root
+													 }
+                                                }
+
+                                                targeted_modifier = {
+				tag = FIN
+				breakthrough_bonus_against = -0.5
+				attack_bonus_against = -0.5
+                                                                			
+			}
+                                                
+			modifier = {
+                                                                #ai_join_ally_desire_factor = -10000
+                                                                #ai_get_ally_desire_factor = -10000
+army_morale_factor = -0.25
+army_org_factor = -0.25
+                                                                  political_power_factor = -0.15
+				  command_power_gain = -0.5
+                                                                  ai_focus_aggressive_factor = 0.5
+                                                                  experience_loss_factor = 0.15#有经验的士兵损失
+	                                                  experience_gain_army_factor = 0.15#陆军经验增长
+                                                                  experience_gain_factor = 0.15
+																  hidden_modifier = {
+					army_core_attack_factor = 0.5
+					army_core_defence_factor = 0.5
+				}
+			}
+		}
+	}
+}

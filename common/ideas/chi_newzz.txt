@@ -1,0 +1,3276 @@
+ideas = {
+
+	country = {
+	
+	chi_jiangjiawangchao = {
+		    picture = chiang
+			
+			allowed = {
+			}
+			
+			allowed_civil_war = {
+				CKS_in_charge = yes
+				NOT = {
+					OR = {
+						has_government = communism
+						has_government = n_socialism
+					}
+				}
+			}
+			
+			available = {
+				CKS_in_charge = yes
+				NOT = {
+					OR = {
+						has_government = communism
+						has_government = n_socialism
+					}
+				}
+			}
+			
+			cancel = {
+			    
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				war_stability_factor = 0.25
+				political_power_factor = 0.25
+				stability_factor = 0.25
+				resistance_growth = -0.25
+				drift_defence_factor = 0.5
+				consumer_goods_factor = -0.25
+				army_morale_factor = 0.15
+				conscription = 0.02
+				democratic_drift = -0.15
+				communism_drift = -0.15
+				neutrality_drift = 0.25
+				industrial_capacity_factory = 0.15
+				production_factory_max_efficiency_factor = 0.15
+			}
+	}
+	
+	chi_zhongguoneizhan = {
+		    picture = MEN_limited_war
+			
+			allowed = {
+			}
+			
+			allowed_civil_war = {
+				
+			}
+			
+			available = {
+				country_exists = event_target:WTT_communist_china
+				country_exists = event_target:WTT_current_china_leader
+				is_ai = yes
+				is_in_faction_with = event_target:WTT_communist_china
+				not = { has_war_with = event_target:WTT_current_china_leader }
+				not = { has_war_with = event_target:nato_leader }
+			}
+			
+			cancel = {
+			    has_global_flag = chi_guoguangjihua_bad_end
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				ai_focus_defense_factor = 1
+				ai_join_ally_desire_factor = -99999 #AI修正:参加战争意愿
+		        ai_call_ally_desire_factor = -99999 #AI修正:请求盟友加入战争意愿
+			}
+	}
+	
+	chi_guoguangjihua = {
+		    picture = chi_guoguangjihua
+			
+			allowed = {
+			}
+			
+			allowed_civil_war = {
+				has_war_with = event_target:WTT_communist_china
+			}
+			
+			available = {
+				country_exists = event_target:WTT_communist_china
+			}
+			
+			cancel = {
+			    has_global_flag = chi_guoguangjihua_bad_end
+			}
+
+			removal_cost = -1
+			
+			targeted_modifier = {
+				tag = PRC
+				attack_bonus_against = 0.35
+				defense_bonus_against = 0.35
+				breakthrough_bonus_against = 0.35
+			}
+			
+			modifier = {
+				war_stability_factor = 0.5
+				war_support_factor = 0.25
+				weekly_casualties_war_support = 0.003
+				army_morale_factor = 0.25
+				army_org_factor = 0.25
+				army_org = 10
+				conscription = 0.05
+				mobilization_speed = 0.5
+				industrial_capacity_factory = 0.25
+				production_factory_efficiency_gain_factor = 0.25
+				production_factory_max_efficiency_factor = 0.25
+				air_mission_efficiency = 0.15
+				land_reinforce_rate = 0.10
+				training_time_factor = -0.25
+				army_speed_factor = 0.20
+				naval_invasion_prep_speed = 0.50
+				naval_invasion_penalty = -0.50
+				amphibious_invasion_defence = 0.50
+				max_planning = 0.30
+				planning_speed = 0.40
+				no_supply_grace = 144
+				supply_consumption_factor = -0.35
+				out_of_supply_factor = -0.35
+				ammunition_factor = 0.80
+				ammunition_capacity_factor = 0.80
+				justify_war_goal_time = -0.50
+		        generate_wargoal_tension = -1
+			}
+	}
+	
+	chi_diwucongzui = {
+		    picture = chi_diwucongzui
+			
+			allowed = {
+			}
+			
+			allowed_civil_war = {
+				has_war_with = event_target:WTT_current_china_leader
+			}
+			
+			available = {
+				country_exists = event_target:WTT_current_china_leader
+			}
+			
+			cancel = {
+			    has_global_flag = chi_guoguangjihua_bad_end
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				army_speed_factor = -0.30
+				army_defence_factor = -0.30
+				army_attack_factor = -0.30
+				army_org_factor = -0.30
+				army_morale_factor = -0.30
+				org_loss_when_moving = 0.30
+				breakthrough_factor = -0.30
+				max_planning = -0.30
+				planning_speed = -0.50
+				attrition = 0.30
+				intel_from_combat_factor = -0.30
+				civilian_intel_to_others = 50 #泄露给他国的民政情报
+		army_intel_to_others = 50 #泄露给他国的陆军情报
+		navy_intel_to_others = 50 #泄露给他国的海军情报
+		airforce_intel_to_others = 50 #泄露给他国的空军情报
+		stability_factor = -0.35
+		stability_weekly = -0.01
+			}
+	}
+	
+	zhongguoshiwu = {
+		    picture = anti_soviet_pact
+			
+			allowed = {
+			}
+			
+			available = {
+			    country_exists = event_target:WTT_communist_china
+				country_exists = event_target:WTT_current_china_leader
+				#is_in_faction = no
+			}
+			
+			cancel = {
+				has_global_flag = PRC_civil_war_started
+				event_target:WTT_communist_china = { not = { has_war_with = event_target:WTT_current_china_leader } }
+			}
+			
+			rule = {
+			    can_join_factions = no
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				
+			}
+	}
+	
+	prc_ningsibuqu = {
+		    picture = nea_idea_national_model
+			
+			allowed = {
+			}
+			
+			available = {
+			    has_war_with = event_target:WTT_current_china_leader
+				num_divisions > 0
+			}
+			
+			removal_cost = -1
+			
+			modifier = {
+				surrender_limit = 5
+			}
+	}
+	chi_ningsibuqu = {
+		    picture = idea_chi_morale
+			
+			allowed = {
+			}
+			
+			available = {
+			    has_war_with = event_target:WTT_communist_china
+				num_divisions > 0
+			}
+			
+			removal_cost = -1
+			
+			modifier = {
+				surrender_limit = 5
+			}
+	}
+	
+	    sic_zhangguotao = {
+    
+            name = sic_zhangguotao
+    
+            picture = chinese_burning_red_army_flag
+            
+            allowed = {
+            }
+            
+            available = {
+
+            }
+            
+            cancel = {
+            }
+
+            removal_cost = -1
+            
+            targeted_modifier = {
+
+            }
+            
+            modifier = {
+                war_support_factor = -0.1
+                stability_factor = -0.1
+                army_morale_factor = -0.1
+                army_org_factor = -0.1
+                communism_drift = 0.1
+            }
+    }
+
+	    sik_xinjiangbingtuan = {
+    
+            name = sik_xinjiangbingtuan
+    
+            picture = PRC_WangZhen
+            allowed = {
+            }
+            
+            available = {
+
+            }
+            
+            cancel = {
+            }
+
+            removal_cost = -1
+            
+            targeted_modifier = {
+
+            }
+            
+            modifier = {
+                war_support_factor = 0.15
+                stability_factor = 0.15
+                communism_drift = 0.3
+				stability_weekly = 0.003
+				war_support_weekly = 0.003
+				consumer_goods_factor = -0.10
+				weekly_manpower = 500
+				production_speed_buildings_factor = 0.05
+				global_building_slots_factor = 0.10
+				
+				
+            }
+    }
+
+	    tib_banchan = {
+    
+            name = tib_banchan
+    
+            picture = PRC_TIB_Youth_Banchan
+            
+            allowed = {
+            }
+            
+            available = {
+
+            }
+            
+            cancel = {
+            }
+
+            removal_cost = -1
+            
+            targeted_modifier = {
+
+            }
+            
+            modifier = {
+				production_speed_buildings_factor = 0.05
+				political_power_gain = 0.10
+				stability_factor = 0.15
+				war_support_factor = -0.10
+				communism_drift = 0.05
+			
+            }
+    }
+
+	    tib_fanshennongnu = {
+    
+            name = tib_fanshennongnu
+    
+            picture = PRC_Fanshennongnu
+            
+            allowed = {
+            }
+            
+            available = {
+
+            }
+            
+            cancel = {
+            }
+
+            removal_cost = -1
+            
+            targeted_modifier = {
+
+            }
+            
+            modifier = {
+				production_speed_buildings_factor = 0.10
+				stability_weekly = 0.003
+				political_power_gain = 0.15
+				war_support_weekly = 0.003
+				conscription = 0.01
+				consumer_goods_factor = 0.05
+				communism_drift = 0.45
+			
+            }
+    }
+
+	    sik_huruyiyechunfenglai = {
+    
+            name = sik_huruyiyechunfenglai
+    
+            picture = PRC_SIX_Spring_Wind
+            
+            allowed = {
+            }
+            
+            available = {
+
+            }
+            
+            cancel = {
+            }
+
+            removal_cost = -1
+            
+            targeted_modifier = {
+
+            }
+            
+            modifier = {
+				production_speed_buildings_factor = 0.05
+				political_power_gain = 0.15
+				global_building_slots_factor = 0.10
+				consumer_goods_factor = 0.05
+				conscription = 0.01
+				communism_drift = 0.2
+				
+            }
+    }
+
+	    sic_yapianshui = {
+    
+            name = sic_yapianshui
+    
+            picture = prc_permit_opium_trade
+            
+            allowed = {
+            }
+            
+            available = {
+
+            }
+            
+            cancel = {
+            }
+
+            removal_cost = -1
+            
+            targeted_modifier = {
+
+            }
+            
+            modifier = {
+                consumer_goods_factor = -0.25
+                stability_factor = -0.1
+            }
+    }
+
+	    chi_jinyuanquan = {
+    
+            name = chi_jinyuanquan
+    
+            picture = CHI_jinyuanquan
+            
+            allowed = {
+            }
+            
+            available = {
+
+            }
+            
+            cancel = {
+            }
+
+            removal_cost = -1
+            
+            targeted_modifier = {
+
+            }
+            
+            modifier = {
+                war_support_factor = -0.1
+                stability_factor = -0.15
+				consumer_goods_factor = -0.25
+            }
+    }
+
+	    chi_meiguoyuanzhu = {
+    
+            name = chi_meiguoyuanzhu
+    
+            picture = CHI_USA_Defend_treaty
+            
+            allowed = {
+            }
+            
+            available = {
+            }
+            
+            cancel = {
+			   has_war_with = USA
+            }
+
+            removal_cost = -1
+            
+            targeted_modifier = {
+
+            }
+            
+            modifier = {
+				consumer_goods_factor = -0.15
+				production_speed_industrial_complex_factor = 0.15
+                production_speed_infrastructure_factor = 0.15
+				production_speed_arms_factory_factor = 0.15
+				production_speed_dockyard_factor = 0.15
+				industrial_capacity_factory = 0.15
+            }
+    }
+
+		chi_baomiju = { #GUO
+	        name = chi_baomiju
+			removal_cost = -1
+			picture = CHI_baomijv
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			modifier = {
+				resistance_growth = -0.3
+				political_power_factor = 0.1
+				foreign_subversive_activites = -0.5
+				army_intel_factor = 0.3
+				operative_slot = 5
+				
+				agency_upgrade_time = -0.15
+                civilian_intel_to_others = -10
+ army_intel_to_others = -10
+ navy_intel_to_others = -10
+ airforce_intel_to_others = -10
+encryption = 5
+intelligence_agency_defense = 5
+enemy_operative_capture_chance_factor = 0.1
+enemy_operative_detection_chance_factor = 0.1
+
+own_operative_capture_chance_factor = -0.1
+own_operative_detection_chance_factor = -0.1
+		decryption_power = 30 #破译能力
+army_intel_decryption_bonus = 5 #破译陆军密码加成
+		navy_intel_decryption_bonus = 5 #破译海军密码加成
+		airforce_intel_decryption_bonus = 5 #破译的空军密码加成
+operation_infiltrate_outcome = 0.15 #渗透效率
+operation_outcome = 0.15 #行动效率
+			}
+		}
+
+		chi_neiwubu = {
+			name = chi_neiwubu
+			removal_cost = -1
+			picture = CHI_neiwubu
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			modifier = {
+				drift_defence_factor = 0.2
+				neutrality_drift = 0.05 #0.02
+				civilian_intel_factor = 0.2
+				political_power_factor = 0.1
+				army_org_factor = 0.05
+				army_morale_Factor = 0.05
+				crypto_strength = 2
+				decryption_power = 15
+				decryption_factor = 0.2
+				encryption_factor = 0.2
+				intelligence_agency_defense = 0.25
+			}
+		}
+
+		chi_hangmu = {
+			picture = liberty_ships_focus
+			name = chi_hangmu
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+			modifier = {
+			production_speed_dockyard_factor = 0.20
+			industrial_capacity_dockyard = 0.15
+			}
+			equipment_bonus = {
+				submarine = {
+					sub_visibility = -0.15 #水下可见度
+					naval_speed = 0.15 #最大速度
+					naval_range = 0.15 #最大航程
+					surface_detection = 0.15 #对海探测
+					#sub_detection = 0.1 #对潜探测
+					#anti_air_attack = 0.1 #对空攻击
+					#sub_attack = 0.1 #深水炸弹
+					#torpedo_attack = 0.1 #鱼雷攻击
+					#lg_attack = 0.1 #轻型火炮攻击
+					#lg_armor_piercing = 0.1 #轻型火炮穿甲深度
+					#hg_attack = 0.1 #重型火炮攻击
+					#hg_armor_piercing = 0.1 #重型火炮穿甲深度
+					#carrier_size = 0.1 #搭载量
+					
+					reliability = 0.15
+					build_cost_ic = -0.20
+					instant = yes
+				}
+			
+				screen_ship = { #屏卫
+					naval_speed = 0.15 #最大速度
+					naval_range = 0.15 #最大航程
+					surface_detection = 0.15 #对海探测
+					sub_detection = 0.15 #对潜探测
+					#sub_visibility = 0.1 #水下可见度
+					anti_air_attack = 0.15 #对空攻击
+					#sub_attack = 0.1 #深水炸弹
+					#torpedo_attack = 0.1 #鱼雷攻击
+					lg_attack = 0.15 #轻型火炮攻击
+					lg_armor_piercing = 0.15 #轻型火炮穿甲深度
+					#hg_attack = 0.1 #重型火炮攻击
+					#hg_armor_piercing = 0.1 #重型火炮穿甲深度
+					#carrier_size = 0.1 #搭载量
+					
+					reliability = 0.15
+					build_cost_ic = -0.20
+					
+					instant = yes
+				}
+				
+				light_cruiser = { #轻巡
+					naval_speed = 0.15 #最大速度
+					naval_range = 0.15 #最大航程
+					#surface_detection = 0.1 #对海探测
+					#sub_detection = 0.1 #对潜探测
+					#sub_visibility = 0.1 #水下可见度
+					anti_air_attack = 0.15 #对空攻击
+					#sub_attack = 0.1 #深水炸弹
+					#torpedo_attack = 0.1 #鱼雷攻击
+					lg_attack = 0.15 #轻型火炮攻击
+					lg_armor_piercing = 0.15 #轻型火炮穿甲深度
+					#hg_attack = 0.1 #重型火炮攻击
+					#hg_armor_piercing = 0.1 #重型火炮穿甲深度
+					#carrier_size = 0.1 #搭载量
+					
+					reliability = 0.15
+					build_cost_ic = -0.20
+					
+					instant = yes
+				}
+				
+				destroyer = { #驱逐
+					naval_speed = 0.15 #最大速度
+					naval_range = 0.15 #最大航程
+					surface_detection = 0.15 #对海探测
+					sub_detection = 0.15 #对潜探测
+					#sub_visibility = 0.1 #水下可见度
+					anti_air_attack = 0.15 #对空攻击
+					sub_attack = 0.15 #深水炸弹
+					#torpedo_attack = 0.1 #鱼雷攻击
+					lg_attack = 0.15 #轻型火炮攻击
+					lg_armor_piercing = 0.15 #轻型火炮穿甲深度
+					#hg_attack = 0.1 #重型火炮攻击
+					#hg_armor_piercing = 0.1 #重型火炮穿甲深度
+					#carrier_size = 0.1 #搭载量
+				
+					reliability = 0.15
+					build_cost_ic = -0.20
+					
+					instant = yes
+				}
+				
+				convoy = {
+					naval_speed = 0.15 #最大速度
+					#naval_range = 0.1 #最大航程
+					#surface_detection = 0.1 #对海探测
+					#sub_detection = 0.1 #对潜探测
+					#sub_visibility = 0.1 #水下可见度
+					anti_air_attack = 0.15 #对空攻击
+					#sub_attack = 0.1 #深水炸弹
+					#torpedo_attack = 0.1 #鱼雷攻击
+					#lg_attack = 0.1 #轻型火炮攻击
+					#lg_armor_piercing = 0.1 #轻型火炮穿甲深度
+					#hg_attack = 0.1 #重型火炮攻击
+					#hg_armor_piercing = 0.1 #重型火炮穿甲深度
+					#carrier_size = 0.1 #搭载量
+				
+					reliability = 0.15
+					build_cost_ic = -0.20
+					
+					instant = yes
+				}
+				
+				ship_hull_light = { #轻型船
+					naval_speed = 0.15 #最大速度
+					naval_range = 0.15 #最大航程
+					surface_detection = 0.15 #对海探测
+					sub_detection = 0.15 #对潜探测
+					#sub_visibility = 0.1 #水下可见度
+					anti_air_attack = 0.15 #对空攻击
+					#sub_attack = 0.1 #深水炸弹
+					#torpedo_attack = 0.1 #鱼雷攻击
+					lg_attack = 0.15 #轻型火炮攻击
+					lg_armor_piercing = 0.15 #轻型火炮穿甲深度
+					#hg_attack = 0.1 #重型火炮攻击
+					#hg_armor_piercing = 0.1 #重型火炮穿甲深度
+					#carrier_size = 0.1 #搭载量
+				
+					reliability = 0.15
+					build_cost_ic = -0.20
+					
+					instant = yes
+				}
+			}
+		}
+
+	chi_huanxiangtuan = {
+	
+	        name = chi_huanxiangtuan
+			
+		    picture = citizen_militia_2
+			
+			allowed = {
+			}
+			
+			available = {
+			    has_war_with = prc
+			}
+			
+			cancel = {
+			    
+			}
+
+			removal_cost = -1
+			
+			targeted_modifier = {
+				tag = PRC
+				attack_bonus_against = 0.05
+				defense_bonus_against = 0.05
+				breakthrough_bonus_against = 0.05
+			}
+			
+			modifier = {
+				conscription = 0.10
+				mobilization_speed = 0.25
+				stability_factor = -0.15
+			}
+	}
+
+	    chi_fubai = {
+    
+            name = chi_fubai
+    
+            picture = tanwu
+            
+            allowed = {
+            }
+            
+            available = {
+            }
+            
+            cancel = {
+				OR = {
+					has_government = democratic
+					has_government = communism
+					has_government = n_socialism
+				}			
+            }
+
+            removal_cost = -1
+            
+            targeted_modifier = {
+
+            }
+            
+            modifier = {
+                war_support_factor = -0.05
+                stability_factor = -0.05
+                production_speed_buildings_factor = -0.05#建造速度
+				consumer_goods_factor = 0.05#生活消费品
+				production_factory_max_efficiency_factor = -0.05#生产效率上限
+				production_factory_efficiency_gain_factor = -0.05#生产效率增长
+				industrial_capacity_factory = -0.05
+				political_power_cost = 0.05
+				trade_laws_cost_factor = 0.30
+				economy_cost_factor = 0.30
+				min_export = 0.15
+				local_resources_factor = -0.05
+				research_speed_factor = -0.05
+            }
+    }
+
+		yun_jiangwutang = {
+		
+		    name = jiangwutang
+
+			picture = YUN_jiangwutang
+
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			modifier = {
+				army_leader_cost_factor = -0.5
+				army_leader_start_planning_level = 1
+				army_morale_factor = 0.05
+				army_org_factor = 0.05
+				
+			}
+		}
+
+		chi_guojun = { #guo
+		
+		    name = chi_guojun
+			
+		    picture = CHI_reorganized_army_focus
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			removal_cost = -1
+			modifier = {
+				army_morale_factor = 0.20
+				army_org_factor = 0.20
+				army_defence_factor = 0.20
+				army_attack_factor = 0.20
+				max_planning = 0.20
+				max_command_power = 50
+				command_power_gain_mult = 0.20
+				coordination_bonus = 0.15
+			}
+		}
+
+		chi_guojunhaijun = {#guo
+		
+		    name = chi_guojunhaijun
+			
+			picture = CHI_navy_reorganized
+
+			allowed = {
+				always = no
+			}
+			removal_cost = -1
+			modifier = {
+				convoy_escort_efficiency = 0.20
+				naval_coordination = 0.20
+				naval_hit_chance = 0.20
+				naval_speed_factor = 0.20
+			}
+		}
+
+		chi_guojunhaijun = {#guo
+		
+		    name = chi_guojunhaijun
+			
+			picture = CHI_navy_reorganized
+
+			allowed = {
+				always = no
+			}
+			removal_cost = -1
+			modifier = {
+				convoy_escort_efficiency = 0.15
+				naval_coordination = 0.15
+				naval_hit_chance = 0.15
+				naval_speed_factor = 0.15
+			}
+		}
+
+		chi_guojunkongjun = { #guo
+			
+			picture = CHI_air_reorganisation
+
+			allowed = {
+				always = no
+			}
+			removal_cost = -1
+			equipment_bonus = {
+				medium_plane_airframe = {
+					air_attack = 0.20 instant = yes
+				}
+				medium_plane_airframe = {
+					air_defence = 0.20 instant = yes
+				}
+				small_plane_airframe = {
+					air_attack = 0.20 instant = yes
+				}
+				small_plane_airframe = {
+					air_defence = 0.20  instant = yes
+				}
+                          }
+		}
+	
+	sic_zhuangshichuchuan = {
+		    picture = sic_zhuangshichuchuan
+			
+			allowed = {
+			}
+			
+			available = {
+			    has_war_with = JAP
+			}
+			
+			cancel = {
+			    
+			}
+
+			removal_cost = -1
+			
+			targeted_modifier = {
+				tag = JAP
+				attack_bonus_against = 0.1
+				defense_bonus_against = 0.1
+				breakthrough_bonus_against = 0.1
+			}
+			
+			modifier = {
+			    war_support_factor = 0.25
+				war_stability_factor = 0.25
+				surrender_limit = 0.25
+				war_support_weekly = 0.001
+				army_morale_factor = 0.1
+				army_org_factor = 0.1
+				land_reinforce_rate = 0.05
+				weekly_casualties_war_support = 0.001
+				conscription = 0.05
+				mobilization_speed = 0.5
+				consumer_goods_factor = -0.2
+			}
+	}
+
+		    chi_zhongmeitiaoyue = {
+    
+            name = chi_zhongmeitiaoyue
+    
+            picture = chi_usa_treaty
+            
+            allowed = {
+            }
+            
+            available = {
+            }
+            
+            cancel = {
+			    OR = {
+				    has_completed_focus = CHI_Faction_Research
+				    has_completed_focus = CHI_Found_Faction
+					has_completed_focus = CHI_Isolationism
+					has_completed_focus = CHI_a_possibly_ally
+			        has_war_with = USA					
+				}
+            }
+
+            removal_cost = -1
+            
+            targeted_modifier = {
+					tag = USA
+				                
+				                
+				                trade_cost_for_target_factor = -0.25
+            }
+            
+            modifier = {
+consumer_goods_expected_value = 0.10
+drift_defence_factor = -0.25
+trade_opinion_factor = 0.25
+opinion_gain_monthly_factor = 0.25
+improve_relations_maintain_cost_factor = -0.25
+global_building_slots_factor = 0.15
+research_speed_factor = 0.15
+local_resources_factor = -0.10                          
+local_resources = -0.10                                
+local_manpower = -0.10                                 
+local_factories = -0.10                                 
+local_supplies = -0.10
+            }
+    }
+	
+		 JAP_sanguangzhengce = {
+    
+            name = JAP_sanguangzhengce
+    
+            picture = jap_hosokuzumetsusakusen_sanguangzhengce
+            
+            allowed = {
+			has_completed_focus = nat_mob_law
+			has_war_with = PRC
+            }
+            
+            available = {
+			has_war_with = PRC
+            }
+            
+            cancel = {
+            }
+
+            removal_cost = -1
+			
+ 			targeted_modifier = {
+				tag = PRC
+				attack_bonus_against = 0.25
+				defense_bonus_against = 0.25
+			    breakthrough_bonus_against = 0.15
+            }           
+            modifier = {
+			    experience_loss_factor = 0.05
+                supply_consumption_factor = -0.1
+				consumer_goods_factor = -0.1
+				stability_factor = -0.1
+            }
+    }
+
+		 PRC_youqinzhuyi = {
+    
+            name = PRC_youqinzhuyi
+    
+            picture = PRC_Right_Zhangguotao
+            
+            allowed = {
+            }
+            
+            available = {
+            }
+            
+            cancel = {
+            }
+
+            removal_cost = -1
+			
+ 			targeted_modifier = {
+            }           
+            modifier = {
+				land_reinforce_rate = -0.05
+				stability_factor = -0.1
+				army_morale_factor = -0.05
+                army_org_factor = -0.05
+            }
+    }
+
+		 man_rangribenguizigunchuqu = {
+    
+            name = man_rangribenguizigunchuqu
+    
+            picture = japan_sun_fall
+            
+            allowed = {
+            }
+			
+			allowed_civil_war = {
+			   has_government = neutrality
+            }
+			
+            available = {
+			has_war_with = JAP
+            }
+            
+            cancel = {
+            }
+
+            removal_cost = -1
+			
+ 			targeted_modifier = {
+				tag = JAP
+				attack_bonus_against = 0.45
+				defense_bonus_against = 0.45
+			    breakthrough_bonus_against = 0.20
+            }           
+            modifier = {
+            }
+    }
+
+        usa_zhenzhugang = {
+		    name = usa_zhenzhugang
+            allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = no
+			}
+            picture = USA_Pearl_Harbor_Attack
+			
+			removal_cost = -1
+            modifier = {
+                navy_org_factor = -0.4
+                industrial_capacity_dockyard = -0.1
+                repair_speed_factor = -0.2
+            }
+        }
+
+        jap_zhenzhugang = {
+		    name = jap_zhenzhugang
+            allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = no
+			}
+            picture = JAP_Pearl_Harbor_Attack
+			
+			removal_cost = -1
+            modifier = {
+                naval_coordination = 0.2
+                navy_visibility = -0.1
+                navy_weather_penalty = -0.1
+                positioning = 0.1
+                navy_max_range_factor = 0.2
+                naval_invasion_prep_speed = 0.3
+                naval_invasion_capacity = 6
+            }
+        }
+
+		japchi_zhixianjiuguo = {
+			removal_cost = -1
+			picture = zhixianjiuguo
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			modifier = {
+				neutrality_drift = 0.50 #0.02
+				civilian_intel_factor = 0.1
+				political_power_factor = 0.05
+				crypto_strength = 1
+				decryption_power = 15
+				decryption_factor = 0.1
+				encryption_factor = 0.1
+				intelligence_agency_defense = 0.10
+			}
+		}
+
+	    jap_dadongyazhanzheng = {
+    
+            name = jap_dadongyazhanzheng
+    
+            picture = JAP_the_Greater_East_Asia_War
+            
+            allowed = {
+			has_government = fascism
+            }
+            
+            available = {
+            }
+            
+            cancel = {			
+                                          NOT = {
+                                          		has_government = fascism
+                                             }
+            }
+
+            removal_cost = -1
+              
+            modifier = {
+                non_core_manpower = 0.005
+                acclimatization_hot_climate_gain_factor = 0.05
+                army_morale_factor = 0.02
+                land_night_attack = 0.02
+            }
+            targeted_modifier = {
+                tag = USA
+                attack_bonus_against = 0.02
+                breakthrough_bonus_against = 0.02
+                defense_bonus_against = 0.02
+            }
+            equipment_bonus = {
+                infantry_equipment = {
+                    instant = yes
+                    build_cost_ic = -0.15
+                }
+            }
+    }
+
+		jap_duqizhan = { 
+		
+		    name = jap_duqizhan
+			
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				has_government = fascism
+			}
+            available = {
+				#is_ai = yes
+			}
+			removal_cost = -1
+
+			picture = JAP_JueShengWasi
+			
+			targeted_modifier = {
+				tag = SHX
+				attack_bonus_against = 0.01
+				defense_bonus_against = 0.01
+			    breakthrough_bonus_against = 0.01
+            }
+
+			targeted_modifier = {
+				tag = CHI
+				attack_bonus_against = 0.01
+				defense_bonus_against = 0.01
+			    breakthrough_bonus_against = 0.01
+            }
+
+			targeted_modifier = {
+				tag = GXC
+				attack_bonus_against = 0.01
+				defense_bonus_against = 0.01
+			    breakthrough_bonus_against = 0.01
+            }
+
+			targeted_modifier = {
+				tag = YUN
+				attack_bonus_against = 0.01
+				defense_bonus_against = 0.01
+			    breakthrough_bonus_against = 0.01
+            }
+			
+			targeted_modifier = {
+				tag = SUY
+				attack_bonus_against = 0.01
+				defense_bonus_against = 0.01
+			    breakthrough_bonus_against = 0.01
+            }
+
+			targeted_modifier = {
+				tag = PRC
+				attack_bonus_against = 0.01
+				defense_bonus_against = 0.01
+			    breakthrough_bonus_against = 0.01
+            }
+			
+			targeted_modifier = {
+				tag = SHC
+				attack_bonus_against = 0.01
+				defense_bonus_against = 0.01
+			    breakthrough_bonus_against = 0.01
+            }
+
+			targeted_modifier = {
+				tag = SIC
+				attack_bonus_against = 0.01
+				defense_bonus_against = 0.01
+			    breakthrough_bonus_against = 0.01
+            }
+
+			targeted_modifier = {
+				tag = XIK
+				attack_bonus_against = 0.01
+				defense_bonus_against = 0.01
+			    breakthrough_bonus_against = 0.01
+            }
+	
+			targeted_modifier = {
+				tag = XSM
+				attack_bonus_against = 0.01
+				defense_bonus_against = 0.01
+			    breakthrough_bonus_against = 0.01
+            }
+
+			targeted_modifier = {
+				tag = GSM
+				attack_bonus_against = 0.01
+				defense_bonus_against = 0.01
+			    breakthrough_bonus_against = 0.01
+            }
+	
+			targeted_modifier = {
+				tag = EGM
+				attack_bonus_against = 0.01
+				defense_bonus_against = 0.01
+			    breakthrough_bonus_against = 0.01
+            }
+	
+			targeted_modifier = {
+				tag = GUD
+				attack_bonus_against = 0.01
+				defense_bonus_against = 0.01
+			    breakthrough_bonus_against = 0.01
+            }
+	
+			targeted_modifier = {
+				tag = NXM
+				attack_bonus_against = 0.01
+				defense_bonus_against = 0.01
+			    breakthrough_bonus_against = 0.01
+            }
+			
+			modifier = {
+			    stability_factor = -0.1
+			}
+	    }
+
+		 man_baqi = {
+    
+            name = man_baqi
+    
+            picture = marshal_vassal
+            
+            allowed = {
+            }
+            
+			allowed_civil_war = {
+			   has_government = neutrality
+            }
+			
+            available = {
+            }
+            
+            cancel = {
+            }
+
+            removal_cost = -1
+			           
+            modifier = {
+                            max_dig_in_factor = 0.20
+                            dig_in_speed_factor= 0.3
+                            conscription = 0.10
+			    cavalry_attack_factor = 1
+			    cavalry_defence_factor = 1
+			    army_core_attack_factor = 0.35
+				army_core_defence_factor = 0.35
+				army_speed_factor = 0.50
+				terrain_penalty_reduction = 0.35
+				attrition = -0.35
+				army_morale_factor = 0.35
+				no_supply_grace = 88
+                                supply_node_range = 0.50
+                supply_consumption_factor = -0.50
+                out_of_supply_factor = -0.35
+                surrender_limit = 0.5
+            }
+    }
+
+		 man_ruguan = {
+    
+            name = man_ruguan
+    
+            picture = kmt_gun
+            
+            allowed = {
+            }
+            
+            available = {
+            }
+            
+            cancel = {
+            }
+
+            removal_cost = -1
+			
+			targeted_modifier = {
+				tag = CHI
+				attack_bonus_against = 0.85
+				defense_bonus_against = 0.85
+			    breakthrough_bonus_against = 0.75
+            }
+			
+ 			targeted_modifier = {
+				tag = PRC
+				attack_bonus_against = 1
+				defense_bonus_against = 1
+			    breakthrough_bonus_against = 1
+                               }		
+            modifier = {
+				planning_speed = 0.10
+				max_planning = 0.45
+				no_supply_grace = 100
+				army_speed_factor = 0.1
+				ammunition_consumption_factor = 0.45
+				equipment_capture = 0.45
+				org_loss_when_moving = -0.45
+				army_org_factor = 0.45
+				army_morale_factor = 0.45
+				out_of_supply_factor = -0.45
+                supply_consumption_factor = -0.45
+				command_power_gain = 0.45
+	            max_command_power = 1644
+				cas_damage_reduction = 0.45
+				enemy_army_bonus_air_superiority_factor = -0.45
+            }
+    }
+
+		man_yangzhoushiri = {
+		    picture = jap_hosokuzumetsusakusen_sanguangzhengce
+			
+			allowed = {
+			}
+			
+			allowed_civil_war = {
+			}
+			
+			available = {
+			}
+			
+			cancel = {
+			}
+
+			removal_cost = -1
+			
+			 targeted_modifier = {
+				tag = MAN
+				attack_bonus_against = -0.75
+				defense_bonus_against = -0.75
+            }  
+			
+			modifier = {
+				army_speed_factor = -0.85
+				army_defence_factor = -0.85
+				army_attack_factor = -0.85
+				army_org_factor = -0.85
+				army_morale_factor = -0.85
+				org_loss_when_moving = 0.85
+				breakthrough_factor = -0.85
+				max_planning = -0.85
+				planning_speed = -0.85
+				attrition = 0.85
+				intel_from_combat_factor = -0.85
+				civilian_intel_to_others = 95 #泄露给他国的民政情报
+		army_intel_to_others = 95 #泄露给他国的陆军情报
+		navy_intel_to_others = 95 #泄露给他国的海军情报
+		airforce_intel_to_others = 95 #泄露给他国的空军情报
+		stability_factor = -0.85
+		stability_weekly = -0.35
+			}
+	}
+
+		 prc_maquezhan = {
+    
+            name = maquezhan
+    
+            picture = PRC_Bird-Attack
+            
+            allowed = {
+            }
+            
+            available = {
+			has_war_with = JAP
+            }
+            
+            cancel = {
+            }
+
+            removal_cost = -1
+			
+ 			targeted_modifier = {
+				tag = JAP
+				attack_bonus_against = 0.05
+				defense_bonus_against = 0.05
+            }           
+            modifier = {
+			equipment_capture = 0.01
+            }
+    }
+	
+		 prc_didaozhan = {
+    
+            name = didaozhan
+    
+            picture = PRC_Didao_Attack
+            
+            allowed = {
+            }
+            
+            available = {
+			has_war_with = JAP
+            }
+            
+            cancel = {
+            }
+
+            removal_cost = -1
+			
+ 			targeted_modifier = {
+				tag = JAP
+				attack_bonus_against = 0.05
+				defense_bonus_against = 0.05
+            }           
+            modifier = {
+			equipment_capture = 0.01
+            }
+    }
+	
+		 prc_dileizhan = {
+    
+            name = dileizhan
+    
+            picture = PRC_BOOM_Dilei_Attack
+            
+            allowed = {
+            }
+            
+            available = {
+			has_war_with = JAP
+            }
+            
+            cancel = {
+            }
+
+            removal_cost = -1
+			
+ 			targeted_modifier = {
+				tag = JAP
+				attack_bonus_against = 0.05
+				defense_bonus_against = 0.05
+            }           
+            modifier = {
+			equipment_capture = 0.01
+            }
+    }
+	
+		 prc_shuishangyoujizhan = {
+    
+            name = shuishangyoujizhan
+    
+            picture = PRC_Sea_Youji_Attack
+            
+            allowed = {
+            }
+            
+            available = {
+			has_war_with = JAP
+            }
+            
+            cancel = {
+            }
+
+            removal_cost = -1
+			
+ 			targeted_modifier = {
+				tag = JAP
+				attack_bonus_against = 0.05
+				defense_bonus_against = 0.05
+            }           
+            modifier = {
+			equipment_capture = 0.01
+            }
+    }
+	
+	
+		 prc_poxizhan = {
+    
+            name = poxizhan
+    
+            picture = PRC_Poxi_Attack
+            
+            allowed = {
+            }
+            
+            available = {
+			has_war_with = JAP
+            }
+            
+            cancel = {
+            }
+
+            removal_cost = -1
+			
+ 			targeted_modifier = {
+				tag = JAP
+				attack_bonus_against = 0.05
+				defense_bonus_against = 0.05
+            }           
+            modifier = {
+			equipment_capture = 0.01
+            }
+    }
+	
+			    CSA_nulizhi = {
+    
+            name = CSA_nulizhi
+    
+            picture = tib_nongnuzhi
+            
+            allowed = {
+            }
+            
+            available = {
+            }
+            
+            cancel = {
+            }
+
+            removal_cost = -1
+                   
+            modifier = {
+				production_factory_max_efficiency_factor = 0.15
+				stability_factor = -0.10
+				conscription_factor = -0.10
+				research_speed_factor = -0.05
+				consumer_goods_factor = -0.35
+            }
+    }
+	
+			chi_dongyuankanluan = {
+			name = chi_dongyuankanluan
+			allowed = {
+				always = no
+			}
+			picture = CHI_dongyuankanluan
+			allowed_civil_war = {
+				OR = {
+					has_government = neutrality
+					has_government = fascism
+				}
+			}
+
+			removal_cost = -1
+			modifier = {
+				political_power_factor = 0.15
+				stability_factor = 0.35
+				war_support_factor = 0.15
+				
+			}
+		}
+	
+	    JAP_gongrongquan = {
+    
+            name = JAP_gongrongquan
+    
+            picture =  jap_daitouakyoueiken_dadongyagongrongquan
+            
+            allowed = {
+			has_government = fascism
+            }
+            
+            available = {
+            }
+            
+            cancel = {			
+                                          NOT = {
+                                          		has_government = fascism
+                                             }
+            }
+
+            removal_cost = -1
+              
+            modifier = {
+				production_speed_industrial_complex_factor = 0.10
+				production_speed_arms_factory_factor = 0.10
+				production_speed_dockyard_factor = 0.10
+				industrial_capacity_factory = 0.10
+				consumer_goods_factor = -0.15
+            }
+    }
+
+	    jap_zhanzhenxun = {
+    
+            name = jap_zhanzhenxun
+    
+            picture =  JAP_zhanzhenxun
+            
+            allowed = {
+			has_government = fascism
+            }
+            
+            available = {
+            }
+            
+            cancel = {			
+                                          NOT = {
+                                          		has_government = fascism
+                                             }
+            }
+
+            removal_cost = -1
+              
+            modifier = {
+			    army_attack_factor = 0.05
+				army_defence_factor = 0.05
+			    experience_loss_factor = 0.05
+            }
+    }
+
+	    jap_xianbingtongzhi = {
+    
+            name = jap_xianbingtongzhi
+    
+            picture =  JAP_xianbing
+            
+            allowed = {
+			has_government = fascism
+            }
+            
+            available = {
+            }
+            
+            cancel = {			
+                                          NOT = {
+                                          		has_government = fascism
+                                             }
+            }
+
+            removal_cost = -1
+              
+            modifier = {
+              political_power_factor = 0.15
+		      stability_factor = 0.30
+			  drift_defence_factor = 1.00
+            }
+    }
+
+	    chi_chenchenggaige = {
+    
+            name = chi_chenchenggaige
+    
+            picture = CHI_chenchenggaige
+            
+            allowed = {
+            }
+            
+            available = {
+            }
+            
+            cancel = {			
+            }
+
+            removal_cost = -1
+              
+            modifier = {
+			
+				production_speed_industrial_complex_factor = 0.05
+				production_speed_arms_factory_factor = 0.05
+				production_speed_dockyard_factor = 0.05
+				consumer_goods_factor = -0.10
+				
+            }
+    }
+	
+	    CHI_xuezhaixuechang = {
+    
+            name = xuezhaixuechang
+    
+            picture = JAP_JueShengWasi   
+			
+            allowed = {
+            }
+            
+            available = {
+            }
+            
+            cancel = {	
+                       NOT = {			    
+			has_war_with = JAP
+                               }
+            }
+
+            removal_cost = -1
+              
+ 			targeted_modifier = {
+				tag = JAP
+				attack_bonus_against = 0.05
+				defense_bonus_against = 0.05
+			    breakthrough_bonus_against = 0.05
+				
+            }           
+    }
+
+	    prc_dixie = {
+    
+            name = dixie
+    
+            picture = PRC_Dixie_tmp            
+            allowed = {
+            }
+            
+            available = {
+            }
+            
+            cancel = {	
+                       OR = {			    
+			has_war_with = CHI
+			has_war_with = USA
+                               }
+            }
+
+            removal_cost = -1
+              
+ 			targeted_modifier = {
+				tag = JAP
+				attack_bonus_against = 0.05
+				defense_bonus_against = 0.05
+			    breakthrough_bonus_against = 0.05
+				
+            }           
+            modifier = {
+			
+political_power_factor = 0.05			
+global_building_slots_factor = 0.05
+research_speed_factor = 0.05
+global_building_slots_factor = 0.05
+research_speed_factor = 0.05
+consumer_goods_factor = -0.05
+improve_relations_maintain_cost_factor = -0.15
+
+            }
+    }
+
+	    jap_hongsetianhuang = {
+    
+            name = jap_hongsetianhuang
+    
+            picture = JAP_Red_Emperor
+            
+            allowed = {
+            }
+            
+            available = {
+            }
+            
+            cancel = {				    
+            }
+
+            removal_cost = -1
+                       
+            modifier = {
+			
+political_power_factor = 0.30			
+war_support_factor = -0.15
+stability_factor = 0.30
+consumer_goods_factor = -0.10
+communism_drift = 0.15
+production_speed_industrial_complex_factor = 0.10
+production_speed_infrastructure_factor = 0.10
+
+            }
+    }
+	
+	chi_shibaizhuyi = {
+		    picture = JAP_appeasement_idea
+			
+			allowed = {
+			}
+			
+			available = {
+			    has_war_with = JAP
+			}
+			
+			cancel = {
+			    605 = { is_controlled_by_ROOT_or_ally = yes }
+				744 = { is_controlled_by_ROOT_or_ally = yes }
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+			    war_support_factor = -0.60
+				stability_factor = -0.60
+				surrender_limit = -0.60
+				war_support_weekly = -0.003
+				stability_weekly = -0.003
+				army_attack_factor = -0.60
+				army_defence_factor = -0.60
+				army_morale_factor = -0.60
+				army_org_factor = -0.60
+			}
+	}
+
+		PRC_Shadow_of_the_defeat_of_FifthAE_War = {
+    
+            name = PRC_Shadow_of_the_defeat_of_FifthAE_War
+    
+            picture = PRC_FIFTHAE_War
+            
+            allowed = {
+			    tag = PRC
+            }
+            
+            available = {
+            }
+            
+            cancel = {
+		        OR = {
+					NOT = {
+						has_government = communism
+					}
+					has_war_with = JAP
+					has_completed_focus = PRC_challenge_the_first_red_army_focus
+					has_completed_focus = PRC_Join_the_War
+					has_completed_focus = PRC_route_struggle_focus
+					has_completed_focus = PRC_consolidate_wang_mings_authority_focus
+					has_completed_focus = PRC_reunite_the_group_of_three_focus
+					has_completed_focus = PRC_trotskyist_coup
+					is_in_faction_with = CHI
+				}
+            }
+
+            removal_cost = -1
+              
+            modifier = {
+			    war_support_factor = -0.05
+				war_stability_factor = 0.03
+				drift_defence_factor = -0.05
+                surrender_limit = -0.15
+            }
+        }
+	
+	prc_kmt_shuangshixieding = {
+		    picture = CHI_Shuangshi_treaty
+			
+			allowed = {
+			}
+			
+			available = {
+			    event_target:WTT_communist_china = { exists = yes }
+				event_target:WTT_current_china_leader = { exists = yes }
+			}
+			
+			cancel = {
+			    event_target:WTT_communist_china = { has_war_with = event_target:WTT_current_china_leader }
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+			    political_power_factor = 0.1
+				stability_factor = 0.1
+				war_support_factor = -0.1
+				enemy_justify_war_goal_time = 5
+			}
+	}
+	prc_kmt_lianhezhengfu = {
+		    picture = prc_kmt_lianhezhengfu
+			
+			allowed = {
+			}
+			
+			available = {
+			    not = { has_war_with = event_target:WTT_current_china_leader }
+				not = { has_war_with = event_target:WTT_communist_china }
+			}
+			
+			cancel = {
+			    has_civil_war = yes
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+			    political_power_gain = 0.25
+				stability_factor = 0.15
+				war_support_factor = 0.15
+				
+				communism_drift = 0.15
+				democratic_drift = 0.15
+				neutrality_drift = 0.15
+				n_socialism_drift = 0.15
+				
+				political_advisor_cost_factor = -0.15 #政治顾问花费
+				trade_laws_cost_factor = -0.15 #贸易法案花费
+				mobilization_laws_cost_factor = -0.15 #征兵法案花费
+				economy_cost_factor = -0.15 #经济法案花费
+				tank_manufacturer_cost_factor = -0.15 #装甲制造商花费
+				naval_manufacturer_cost_factor = -0.15 #海军制造商花费
+				aircraft_manufacturer_cost_factor = -0.15 #飞机制造商花费
+				materiel_manufacturer_cost_factor = -0.15 #军需品设计花费
+				industrial_concern_cost_factor = -0.15 #工业企业花费
+				high_command_cost_factor = -0.15 #总司令花费
+				air_chief_cost_factor = -0.15 #空军部长花费
+				navy_chief_cost_factor = -0.15 #海军部长花费
+				army_chief_cost_factor = -0.15 #陆军部长花费
+				theorist_cost_factor = -0.15 #理论家花费
+				
+				research_speed_factor = 0.10
+				compliance_gain = 0.05
+				army_morale_factor = 0.10
+				conscription_factor = 0.10
+			}
+	}
+	
+	victory_in_shanghai_roc = {
+		    picture = victory_in_shanghai_roc
+			
+			allowed = {
+			}
+			
+			cancel = {
+			    NOT = { has_war_with = JAP }
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+			    army_core_attack_factor = 0.1
+				army_core_defence_factor = 0.1
+				army_morale_factor = 0.15
+				army_org_factor = 0.1
+				conscription_factor = 0.25
+				mobilization_speed = 0.5
+				war_support_factor = 0.25
+				war_stability_factor = 0.25
+			}
+	}
+	
+	nea_idea_CHI_he_umezu_agreement = {
+			picture = generic_constitutional_guarantees
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes			
+			}
+			removal_cost = -1
+			cancel = {
+				or = {
+				has_war_with = JAP
+				is_in_faction_with = HPC
+				HPC = { is_subject_of = root }
+				JAP = { has_civil_war = yes }
+				}
+			}
+			modifier = {
+                
+			}
+	}
+		
+	nea_idea_CHI_shanghai_ceasefire_agreement = {
+			picture = generic_constitutional_guarantees
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			removal_cost = -1
+			cancel = {
+			    or = {
+				has_global_flag = no_shanghai_DMZ
+				613 = { is_controlled_by_jap_or_its_puppet = yes }
+				JAP = { has_civil_war = yes }
+				}
+			}
+			modifier = {
+                
+			}
+			on_remove = {
+			    set_global_flag = no_shanghai_DMZ
+			}
+	}
+		
+	KMT_Strategic_initiative = {
+			removal_cost = -1
+
+			picture = CZE_planning_bonus
+
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+			
+			available = {
+			has_war_with = event_target:WTT_communist_china
+			}
+
+			cancel = {
+				surrender_progress > 0.80
+			}
+			
+			targeted_modifier = {
+				tag = PRC
+				attack_bonus_against = 0.40
+				defense_bonus_against = 0.40
+				breakthrough_bonus_against = 0.40
+			}
+			
+			modifier = {
+				command_power_gain = 0.5
+			    max_command_power = 50
+				ai_focus_aggressive_factor = 1
+				planning_speed = 0.25
+				max_planning = 0.20
+				army_org_factor = 0.25
+				army_morale_factor = 0.25
+				supply_consumption_factor = -0.25
+				out_of_supply_factor = -0.25
+				land_reinforce_rate = 0.05
+				dig_in_speed_factor = 0.35
+				max_dig_in_factor = 0.35
+				SUPPLY_FACTOR = 0.15
+		        SUPPLY_NODE_RANGE = 0.15
+				org_loss_at_low_org_factor = -0.20
+				terrain_penalty_reduction = 0.20
+				ammunition_consumption_factor = -0.25
+				attrition = -0.25
+			}
+			
+			on_add = {
+			set_global_flag = KMT_Strategic_initiative_happen
+			}
+			
+			on_remove = {
+			event_target:WTT_current_china_leader = { country_event = fate_of_jiajizhanfan.555 }
+			}
+	}
+	
+	kmt_minxinjianshi = {
+			removal_cost = -1
+
+			picture = kmt_minxinjianshi
+
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+			
+			available = {
+			has_war_with = event_target:WTT_communist_china
+			not = { has_global_flag = roc_in_taiwan_flag }
+			}
+
+			cancel = {
+				event_target:WTT_communist_china = { surrender_progress > 0.8 }
+			}
+			
+			traits = {
+				minus_point_1_per_week #MODDED
+			}
+			
+			targeted_modifier = {
+				
+			}
+			
+			modifier = {
+				stability_weekly = -0.001
+				war_support_weekly = -0.001
+				political_power_factor = -0.1
+				stability_factor = -0.1
+				war_support_factor = -0.1
+			}
+	}
+	
+	NEA_918_918 = {
+			removal_cost = -1
+
+			picture = jiachouguowen
+
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+			
+			available = {
+			NOT = { is_in_faction_with = JAP }
+			}
+
+			cancel = {
+				716 = {
+				owner = {
+				OR = {
+				TAG = ROOT
+				is_in_faction_with = ROOT
+				}
+				}
+				}
+			}
+			
+			targeted_modifier = {
+				tag = JAP			                			                
+				breakthrough_bonus_against = 0.2
+				attack_bonus_against = 0.2
+				defense_bonus_against = 0.2
+			}
+			targeted_modifier = {
+				tag = MAN			                			                
+				breakthrough_bonus_against = 0.2
+				attack_bonus_against = 0.2
+				defense_bonus_against = 0.2
+			}
+
+			modifier = {
+				war_support_weekly = 0.001
+				weekly_casualties_war_support = 0.001
+				war_stability_factor = 0.5
+			}
+	}
+		
+	###黄金十年计划精神
+
+        KMT_second_golden_ten_years = {
+			
+                                                picture = SOV_third_five_year_plan_civilian
+
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+                                                available = {
+                                                                                                       
+                                                }
+
+                                                visible = {
+                                                             
+                                                }
+			
+                                                cancel = {
+                                                      USA = {
+					OR = {
+						has_opinion = {
+							target = ROOT
+							value < -50
+						}
+						has_war_with = ROOT
+						#NOT = { has_government = ROOT }
+						NOT = { is_in_faction_with = ROOT }
+						exists = no
+					}
+				}        
+                                                }
+
+            targeted_modifier = {
+				tag = USA
+				cic_to_target_factor = 0.1
+				extra_trade_to_target_factor = 0.5
+				trade_cost_for_target_factor = -1
+					
+			}
+                                                     
+			modifier = {
+consumer_goods_factor = -0.15
+global_building_slots_factor = 0.15
+research_speed_factor = 0.25
+production_speed_infrastructure_factor = 0.3
+				production_speed_arms_factory_factor = 0.3
+                production_speed_industrial_complex_factor = 0.3
+				production_speed_dockyard_factor = 0.3
+				production_speed_synthetic_refinery_factor = 0.3
+				local_resources_factor = 0.15
+			}
+		}
+		
+		KMT_adopt_usa_education_system = {
+			removal_cost = -1
+
+			picture = home_of_the_free
+
+			allowed = {
+				always = no
+			}
+
+			modifier = {
+				research_speed_factor = 0.15
+			}
+		}
+		
+		KMT_usa_machinery = {
+			removal_cost = -1
+
+			picture = generic_construct_infrastructure
+
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			cancel = {
+				USA = {
+					OR = {
+						has_opinion = {
+							target = ROOT
+							value < -50
+						}
+						has_war_with = ROOT
+						#NOT = { has_government = ROOT }
+						NOT = { is_in_faction_with = ROOT }
+						exists = no
+					}
+				}
+			}
+
+			modifier = {
+				industrial_capacity_factory = 0.25
+				industrial_capacity_dockyard = 0.25
+				production_factory_efficiency_gain_factor = 0.25
+				line_change_production_efficiency_factor = 0.25
+				production_factory_max_efficiency_factor = 0.25
+			}
+		}
+		
+		KMT_usa_experts = {
+			removal_cost = -1
+
+			picture = generic_research_bonus
+
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			cancel = {
+				USA = {
+					OR = {
+						has_opinion = {
+							target = ROOT
+							value < -50
+						}
+						has_war_with = ROOT
+						#NOT = { has_government = ROOT }
+						NOT = { is_in_faction_with = ROOT }
+						exists = no
+					}
+				}
+			}
+
+			modifier = {
+				#research_speed_factor = 0.05
+			}
+
+			research_bonus = {		
+				naval_equipment = 0.08
+	            rocketry = 0.08
+	            nuclear = 0.08
+				armor = 0.08
+				artillery = 0.08
+				infantry_weapons = 0.08
+	            nuclear = 0.08
+	            industry = 0.08
+	            electronics = 0.08
+				air_equipment = 0.08
+			}
+		}
+		
+		KMT_usa_Military_instructors = {
+			removal_cost = -1
+
+			picture = generic_manpower_bonus
+
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			cancel = {
+				USA = {
+					OR = {
+						has_opinion = {
+							target = ROOT
+							value < -50
+						}
+						has_war_with = ROOT
+						#NOT = { has_government = ROOT }
+						NOT = { is_in_faction_with = ROOT }
+						exists = no
+					}
+				}
+			}
+
+			modifier = {
+				experience_gain_army = 0.25
+                experience_gain_navy = 0.25
+                experience_gain_air = 0.25
+				high_command_cost_factor = -0.25
+                experience_gain_factor = 0.25
+                experience_gain_army_factor = 0.25
+				experience_gain_navy_factor = 0.25
+				experience_gain_air_factor = 0.25
+				army_org_factor = 0.1
+				planning_speed = 0.1
+                max_planning = 0.1
+				land_doctrine_cost_factor = -0.25
+				naval_doctrine_cost_factor = -0.25 #海军军学说花费
+		        air_doctrine_cost_factor = -0.25 #空军学说花费
+			}
+		}
+		
+		KMT_usa_Military_equipment = {
+			removal_cost = -1
+
+			picture = ast_volunteer_defence_corps
+
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			cancel = {
+				USA = {
+					OR = {
+						has_opinion = {
+							target = ROOT
+							value < -50
+						}
+						has_war_with = ROOT
+						#NOT = { has_government = ROOT }
+						NOT = { is_in_faction_with = ROOT }
+						exists = no
+					}
+				}
+			}
+
+			equipment_bonus = {
+			
+			infantry_equipment = {
+				soft_attack = 0.1#对人员杀伤
+			    hard_attack = 0.1#对装甲杀伤
+				reliability = 0.1
+				build_cost_ic = -0.1
+				
+				instant = yes
+			}
+			
+			artillery = {
+				soft_attack = 0.1#对人员杀伤
+			    hard_attack = 0.1#对装甲杀伤
+				reliability = 0.1
+				build_cost_ic = -0.1
+				
+				instant = yes
+			}
+			
+			capital_ship = {
+				sub_visibility = -0.1#水下可见度
+				naval_range = 0.1#最大航程
+			    surface_detection = 0.1#对海探测
+				reliability = 0.1
+				build_cost_ic = -0.1
+			
+				instant = yes
+			}
+			
+			medium_plane_airframe = {
+			    air_agility = 0.1
+				air_range = 0.1
+				air_attack = 0.1
+			
+				reliability = 0.1
+				build_cost_ic = -0.1
+				
+				instant = yes
+			}
+			
+			medium_tank_chassis = {
+			    soft_attack = 0.1#对人员杀伤
+			    hard_attack = 0.1#对装甲杀伤
+			    ap_attack = 0.1#穿甲深度
+			    hardness = 0.1#装甲率
+				armor_value = 0.1
+			
+				reliability = 0.1
+				build_cost_ic = -0.1
+				
+				instant = yes
+			}
+			
+			}
+		}
+	
+	    xsm_majiajun = {
+			
+                                                picture = xsm_majiajun
+
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+            available = {                                                   
+				surrender_progress < 0.8
+            }
+
+            visible = {
+                                                            
+            }
+			
+                cancel = {
+			        or = {
+                       tag = event_target:WTT_current_china_leader
+			           and = { tag = TNG is_ai = yes }
+			        }
+                }
+
+                targeted_modifier = {		
+			    }
+                                                     
+			    modifier = {
+                    army_core_attack_factor = 0.15
+				    army_core_defence_factor = 0.15
+				    army_speed_factor = 0.10
+				    terrain_penalty_reduction = 0.15
+				    attrition = -0.25
+				    army_morale_factor = 0.15
+				    no_supply_grace = 48
+                    supply_consumption_factor = -0.15
+                    out_of_supply_factor = -0.15
+                    surrender_limit = 0.5
+			    }
+			
+			    do_effect = {
+			        or = {
+			            and = { original_tag = TNG is_ai = no }
+				        original_tag = XSM
+				        original_tag = GSM
+				        original_tag = NXM
+			        }
+			    }
+	    }
+		
+
+        german_advisorszz = {
+		
+		    picture = german_advisors
+		
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+                                              
+                                                available = {
+			              has_idea = CHI_alexander_von_falkenhausen
+			}
+
+
+                                                targeted_modifier = {
+					tag = GER
+				                
+				                
+				                trade_cost_for_target_factor = -0.5	
+			}
+
+		}
+
+        chi_xinanlianda_idea = {
+		                
+			picture = generic_research_bonus
+
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				has_war_with = JAP
+			}
+
+			removal_cost = -1
+                                              
+                                                cancel = {
+			             NOT = { has_war_with = JAP }
+            #has_full_control_of_state = 613
+            #has_full_control_of_state = 1015
+            # has_full_control_of_state = 608
+
+			}
+			
+			modifier = {
+				research_speed_factor = 0.10
+			}
+
+			research_bonus = {
+            electronics = 0.05
+				industry = 0.05
+			}
+
+			
+		}
+
+		PRC_Shadow_of_the_defeat_of_FifthAE_War = {
+    
+            name = PRC_Shadow_of_the_defeat_of_FifthAE_War
+    
+            picture = PRC_FIFTHAE_War
+            
+            allowed = {
+			    tag = PRC
+            }
+            
+            available = {
+            }
+            
+            cancel = {
+		        OR = {
+					NOT = {
+						has_government = communism
+					}
+					has_war_with = JAP
+					has_completed_focus = PRC_challenge_the_first_red_army_focus
+					has_completed_focus = PRC_Join_the_War
+					has_completed_focus = PRC_route_struggle_focus
+					has_completed_focus = PRC_consolidate_wang_mings_authority_focus
+					has_completed_focus = PRC_reunite_the_group_of_three_focus
+					has_completed_focus = PRC_trotskyist_coup
+					is_in_faction_with = CHI
+				}
+            }
+
+            removal_cost = -1
+              
+            modifier = {
+			    war_support_factor = -0.05
+				war_stability_factor = 0.03
+				drift_defence_factor = -0.05
+                surrender_limit = -0.15
+            }
+        }
+
+		JAP_thefail_of_three_month_conquer_china = {
+
+			name = JAP_thefail_of_three_month_conquer_china
+
+			picture = JAP_thefail_of_three_month_conquer_china
+
+			allowed = {
+				always = no
+			}
+
+			available = {
+			}
+
+			cancel = {
+				OR = {
+					NOT = {
+						has_government = fascism
+					}
+					has_war_with = USA
+					has_completed_focus = strike_usa_focus
+					has_completed_focus = JAP_subdue_warlords_focus
+					DATE > 1942.7.7
+				}
+			}
+
+			removal_cost = -1
+
+			modifier = {
+				land_reinforce_rate = -0.025
+				war_support_factor = -0.01
+				supply_consumption_factor = 0.025
+			}
+		}
+
+		CHI_chinese_national = {
+
+			name = CHI_chinese_national
+
+			picture = CHI_chinese_national
+
+			allowed = {
+			}
+
+			available = {
+			}
+
+			cancel = {
+				NOT = {
+					OR = {
+						has_government = neutrality
+						has_government = democratic
+					}
+				}
+			}
+
+			removal_cost = -1
+
+			modifier = {
+				stability_weekly = 0.05
+				war_support_weekly = 0.05
+				weekly_manpower = 150
+				monthly_population = 0.05
+				local_non_core_manpower = 0.01
+			}
+		}
+
+		CHI_chinese_culture = {
+
+			name = CHI_chinese_culture
+
+			picture = CHI_chinese_culture
+
+			allowed = {
+			}
+
+			available = {				
+			}
+
+			cancel = {
+				NOT = {
+					OR = {
+						has_government = neutrality
+						has_government = democratic
+					}
+				}
+			}
+
+			removal_cost = -1
+
+			modifier = {
+				stability_weekly = 0.05
+				war_support_weekly = 0.05
+				drift_defence_factor = 0.10
+				communism_acceptance = 10
+				democratic_acceptance = 10
+				neutrality_acceptance = 10
+				fascism_acceptance = 10
+				n_socialism_acceptance = 10
+			}
+		}
+
+		CHI_five_yuan = {
+
+			name = CHI_five_yuan
+
+			picture = CHI_five_yuan
+
+			allowed = {
+			}
+
+			available = {				
+			}
+
+			cancel = {
+				NOT = {
+					OR = {
+						has_government = neutrality
+						has_government = democratic
+					}
+				}
+			}
+
+			removal_cost = -1
+
+			modifier = {
+				political_power_gain = 1.50
+				war_support = 0.10
+				war_support_weekly = 0.01
+				democratic_drift = 0.15
+				political_power_factor = 0.40
+				stability_factor = 0.10
+				stability_weekly = 0.01
+				research_speed_factor = 0.05
+				custom_modifier_tooltip = form_CHI_neigehuafei
+				hidden_modifier = {
+					political_advisor_cost_factor = -0.10
+					economy_cost_factor = -0.10
+					trade_laws_cost_factor = -0.10
+					mobilization_laws_cost_factor = -0.10
+					army_chief_cost_factor = -0.10
+					navy_chief_cost_factor = -0.10
+					air_chief_cost_factor = -0.10
+					high_command_cost_factor = -0.10
+					theorist_cost_factor = -0.10
+					materiel_manufacturer_cost_factor = -0.10
+					naval_manufacturer_cost_factor = -0.10
+					aircraft_manufacturer_cost_factor = -0.10
+					tank_manufacturer_cost_factor = -0.10
+					industrial_concern_cost_factor = -0.10
+				}	
+			}	
+		}
+
+		CHI_industrial_plan = {
+
+			name = CHI_industrial_plan
+
+			picture = CHI_industrial_plan
+
+			allowed = {
+			}
+
+			available = {				
+			}
+
+			cancel = {
+				NOT = {
+					OR = {
+						has_government = neutrality
+						has_government = democratic
+					}
+				}
+			}
+
+			removal_cost = -1
+
+			modifier = {
+				research_speed_factor = 0.10
+				industrial_capacity_dockyard = 0.10
+				industrial_capacity_factory = 0.10
+				consumer_goods_factor = -0.10
+				production_speed_buildings_factor = 0.10
+			}
+		}
+
+		CHI_may_fifth_DC = {
+			
+			name = CHI_may_fifth_DC
+
+			picture =  CHI_may_fifth_DC
+
+			allowed = {
+			}
+
+			available = {
+			}
+
+			cancel = {
+				has_completed_focus = CHI_constitution_focus
+			}
+
+			modifier = {
+				political_power_gain = 0.1
+				drift_defence_factor = 0.10
+			}
+		}
+
+		CHI_Shanchuanzhuangli = {
+
+			name = CHI_shanchuanzhuangli
+
+			picture = CHI_shanchuanzhuangli
+
+			allowed = {
+			}
+
+			available = {
+			}
+
+			cancel = {
+				has_government = fascism
+			}
+
+			modifier = {
+				local_resources_factor = 0.10
+				political_power_gain = 0.1
+			}
+		}
+
+		chi_peikuan = {
+
+			name = chi_peikuan
+
+			picture = army_pamphlet
+
+			allowed = {
+			}
+
+			available = {		
+			}
+
+			cancel = {
+			}
+
+			modifier = {
+				political_power_factor = 0.10		
+                consumer_goods_factor = -0.60				
+			}
+		}
+
+		prc_jianzujianxi = {
+
+			name = prc_jianzujianxi
+
+			picture = jianzujianxi
+
+			allowed = {
+			}
+
+			available = {
+			}
+
+			cancel = {
+			has_ideas = agrarian_reform_idea_PRC_tudigaigefa
+			}
+
+			modifier = {
+				production_speed_buildings_factor = 0.05 #guo
+				political_power_gain = 0.15
+				global_building_slots_factor = 0.25
+				consumer_goods_factor = 0.1
+				conscription = 0.01
+				weekly_manpower = 750	
+			}
+		}
+
+		jap_peikuan = {
+
+			name = jap_peikuan
+
+			picture = idea_chi_emergency_bailout
+
+			allowed = {
+			}
+
+			available = {		
+			}
+
+			cancel = {
+			}
+
+			modifier = {
+                war_support_factor = -0.15	
+                consumer_goods_factor = 0.60				
+			}
+		}
+
+		prc_xinsijun = {
+
+			name = prc_xinsijun
+
+			picture = prc_xinsijun
+
+			allowed = {
+			}
+
+			available = {
+			    has_war_with = JAP			
+			}
+
+			cancel = {
+			}
+
+			modifier = {
+				initiative_factor = 0.05			
+				land_reinforce_rate = 0.05
+				coordination_bonus = 0.05				
+			}
+		}
+
+		prc_feimapaixiangyan = {
+
+			name = prc_feimapaixiangyan
+
+			picture = prc_feimapaixiangyan
+
+			allowed = {
+			}
+
+			available = {		
+			}
+
+			cancel = {
+			}
+
+			modifier = {
+                consumer_goods_factor = -0.10
+			}
+		}
+
+			USA_paihua = {
+    
+            name = USA_paihua
+    
+            picture = generic_constitutional_guarantees
+            
+            allowed = {
+            }
+            
+            available = {
+            }
+            
+            cancel = {
+            }
+
+            removal_cost = -1
+                   
+            modifier = {
+				stability_factor = -0.05
+				conscription_factor = -0.01
+				research_speed_factor = -0.05
+				production_factory_max_efficiency_factor = 0.05				
+            }
+    }
+	
+			CSA_paihua = {
+    
+            name = CSA_paihua
+    
+            picture = generic_constitutional_guarantees
+            
+            allowed = {
+            }
+            
+            available = {
+            }
+            
+            cancel = {
+            }
+
+            removal_cost = -1
+                   
+            modifier = {
+				stability_factor = -0.10
+				conscription_factor = -0.02
+				research_speed_factor = -0.10
+				production_factory_max_efficiency_factor = 0.10				
+            }
+    }	
+
+	    chi_zhuangbeijingliang = {
+    
+            name = chi_zhuangbeijingliang
+    
+            picture = zhuangbeijingliang
+			
+			allowed = {
+				always = yes
+			}
+            
+            available = {
+            }
+            
+            cancel = {
+            }
+
+            removal_cost = -1
+            
+            targeted_modifier = {
+            }
+            
+            modifier = {
+                stability_factor = -0.25
+				weekly_manpower = 1000
+				build_cost_ic = -0.15
+				war_support_weekly = -0.001				
+				industrial_capacity_factory = 0.15 #工厂产出
+				production_factory_max_efficiency_factor = 0.15 #生产效率上限
+				production_factory_efficiency_gain_factor = 0.15 #生产效率增长
+				production_factory_start_efficiency_factor = 0.15 #基础生产效率
+				line_change_production_efficiency_factor = 0.15 #生产效率保持				
+                army_artillery_attack_factor = 0.10
+                army_artillery_defence_factor = 0.10				
+				army_infantry_attack_factor = 0.10 #步兵攻击
+				army_infantry_defence_factor = 0.10 #步兵防御
+                army_speed_factor = 0.15				
+				army_core_attack_factor = 0.15 #核心领土单位攻击
+				army_core_defence_factor = 0.15 #核心领土单位防御				
+				intel_from_combat_factor = 0.15 #战斗中获取的情报
+                training_time_factor = -0.2	
+                training_time_army_factor = -0.2			 				
+				recon_factor = 0.15 #侦察					
+            }
+    }
+
+	    chi_jiaozong = {
+    
+            name = chi_jiaozong
+    
+            picture = dongyuanling
+			
+			allowed = {
+				always = yes
+			}
+            
+            available = {
+            }
+            
+            cancel = {
+            }
+
+            removal_cost = -1
+            
+            targeted_modifier = {
+            }
+            
+            modifier = {
+				consumer_goods_factor = -0.3
+				cic_to_overlord_factor = 0.5
+				mic_to_overlord_factor = 0.5
+				extra_trade_to_overlord_factor = 0.75
+				overlord_trade_cost_factor = -1.0
+				autonomy_gain_trade_factor = -0.95
+				autonomy_gain = -5
+				conscription = 0.05
+				mobilization_speed = 0.5
+				drift_defence_factor = 0.5
+				neutrality_drift = 0.25
+				foreign_subversive_activites = -0.5
+				offensive_war_stability_factor = 0.25
+				local_resources_factor = 0.15
+				industry_repair_factor = 0.25
+				industry_free_repair_factor = 0.25
+				neutrality_acceptance = 200
+				ai_focus_defense_factor = 0.5
+				political_power_factor = 0.15
+				autonomy_manpower_share = 1.0					
+            }
+    }
+
+	    prc_sulianshiya = {
+    
+            name = prc_sulianshiya
+    
+            picture = shiya
+			
+			allowed = {
+				always = yes
+			}
+            
+            available = {
+            }
+            
+            cancel = {
+            }
+
+            removal_cost = -1
+            
+            targeted_modifier = {
+            }
+            
+            modifier = {
+                political_power_factor = -0.15			
+				army_infantry_attack_factor = -0.15 #步兵攻击
+				army_infantry_defence_factor = -0.15 #步兵防御			
+                army_speed_factor = -0.15 				
+                war_support_factor = -0.15
+                stability_factor = -0.15
+                army_morale_factor = -0.15
+                army_org_factor = -0.15
+                consumer_goods_factor = 0.15				
+                communism_drift = -0.1					
+            }
+    }
+
+	    chi_zhuangjiabudui = {
+    
+            name = chi_zhuangjiabudui
+    
+            picture = zhuangjia
+			
+			allowed = {
+				always = yes
+			}
+            
+            available = {
+            }
+            
+            cancel = {
+            }
+
+            removal_cost = -1
+            
+            targeted_modifier = {
+            }
+            
+            modifier = {
+            army_armor_attack_factor = 0.15			
+            army_armor_defence_factor = 0.15
+            mechanized_attack_factor = 0.15
+            mechanized_defence_factor = 0.15
+            motorized_attack_factor = 0.15
+            motorized_defence_factor = 0.15					
+            }
+    }
+
+		    chi_zhongsutiaoyue = {
+    
+            name = chi_zhongsutiaoyue
+    
+            picture = zhongdonglu
+            
+            allowed = {
+            }
+            
+            available = {
+            }
+            
+            cancel = {
+			    OR = {
+				    has_completed_focus = CHI_Faction_Research
+				    has_completed_focus = CHI_Found_Faction
+					has_completed_focus = CHI_Isolationism
+					has_completed_focus = CHI_a_possibly_ally
+			        has_war_with = USA					
+				}
+            }
+
+            removal_cost = -1
+            
+            targeted_modifier = {
+					tag = SOV
+				                
+				                
+				                trade_cost_for_target_factor = -0.15
+            }
+            
+            modifier = {
+            consumer_goods_expected_value = 0.05
+            production_speed_buildings_factor = -0.05 
+            industry_repair_factor = -0.05
+            global_building_slots_factor = -0.05
+            production_speed_infrastructure_factor = -0.05
+            }
+    }
+
+		CHI_minquanism = {
+
+			name = CHI_minquanism
+
+			picture = CHI_minquanism
+
+			allowed = {
+			}
+
+			available = {
+			}
+
+			cancel = {
+				has_government = fascism
+			}
+
+			modifier = {
+				democratic_acceptance = 85
+				custom_modifier_tooltip = CHI_minquan_idea
+				hidden_effect = {
+					democratic_drift = 0.10
+				}
+				drift_defence_factor = 0.53
+			}
+		}
+
+		CHI_Minzuism = {#guo
+			
+			picture = CHI_minzuism
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				OR = {
+					has_government = democratic
+					has_government = neutrality
+				}
+			}
+			removal_cost = -1
+			modifier = {
+				conscription = 0.10
+				mobilization_speed = 0.15
+				army_morale_factor = 0.15
+				army_org_factor = 0.10
+				army_morale_factor = 0.15 #guo
+				defensive_war_stability_factor = 0.1
+				army_attack_against_major_factor = 0.1 #guo
+				army_org_regain = 0.1
+				attack_bonus_against_cores = 0.1
+				conscription_factor = 0.1
+				drift_defence_factor = 0.53
+			}
+			rule = {
+				can_declare_war_on_same_ideology = yes
+			    #can_send_volunteers = yes
+			    can_puppet = yes
+			    can_only_justify_war_on_threat_country = no
+			}
+		}
+    }
+}

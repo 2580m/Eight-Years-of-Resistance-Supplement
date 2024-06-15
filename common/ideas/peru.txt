@@ -1,0 +1,30 @@
+ideas = {
+	country = {
+		Peru_on_our_own = {
+			name = ETH_on_our_own_idea
+			picture = generic_intel_bonus
+			
+			allowed = {
+				always = yes
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			available = { 
+                              always = yes 
+			}
+                        visible = {
+                              always = yes
+			}
+			removal_cost = -1
+			rule = {
+				can_join_factions = no 
+				can_access_market = no
+			}
+			modifier = {
+				
+			}
+		}
+
+	}
+}

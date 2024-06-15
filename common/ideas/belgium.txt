@@ -1,0 +1,295 @@
+ideas = {
+	# MILITARY
+
+	tank_manufacturer = { 
+		
+		designer = yes
+		
+		renault_bel = {
+			picture = renault
+
+			
+			allowed = {
+				original_tag = BEL
+			}
+			
+			research_bonus = {
+				armor = 0.15
+			}
+			
+			traits = { fast_tank_manufacturer }
+			
+			modifier = {
+				# Renault FT
+			}
+		}
+
+		vickers_armstrong_bel = {
+			picture = vickers_armstrong
+		
+			
+			allowed = {
+				original_tag = BEL
+			}
+			
+			research_bonus = {
+				armor = 0.15
+			}
+			
+			traits = { medium_tank_manufacturer }
+			
+			modifier = {
+				
+			}
+		}
+		
+		fn_herstal_tank = {
+			picture = fn_herstal
+			
+			allowed = {
+				original_tag = BEL 
+				}
+			
+			available = {	
+				has_idea = fn_herstal
+				}
+			
+			research_bonus = {
+				armor = 0.2
+				}
+			
+			cost = 250
+			
+			traits = { BEL_herstal_tank_designer }
+		}
+	}
+
+	aircraft_manufacturer = {
+	
+		designer = yes
+		
+		avions_fairey = {
+			picture = avions_fairey
+
+			
+			allowed = {
+				original_tag = BEL
+			}
+			
+			research_bonus = {
+				air_equipment = 0.15
+			}
+			
+			traits = { light_aircraft_manufacturer }
+			
+			equipment_bonus = {
+				# Tipsy B, firefly, fairey fox
+			}
+			
+			ai_will_do = {
+				factor = 1
+			}
+		}
+
+		renard = {
+			picture = renard
+
+			
+			allowed = {
+				original_tag = BEL
+			}
+			
+			research_bonus = {
+				air_equipment = 0.15
+			}
+			
+			traits = { medium_aircraft_manufacturer }
+			
+			equipment_bonus = {
+				# Tipsy B, firefly, fairey fox
+			}
+			
+			ai_will_do = {
+				factor = 1
+			}
+		}
+		
+		sabena = {
+			picture = sabena
+			
+			allowed = {
+				original_tag = BEL 
+			}
+			
+			research_bonus = {
+				air_equipment = 0.15
+			}
+			
+			traits = { heavy_aircraft_manufacturer }
+		}
+		
+		sabca = {
+			picture = sabca
+			
+			allowed = {
+				original_tag = BEL 
+			}
+			
+			research_bonus = {
+				air_equipment = 0.15
+			}
+			
+			traits = { fuel_efficient_aircraft_manufacturer }
+		}
+	}
+	
+	naval_manufacturer = { 
+		
+		designer = yes
+		
+		cockerill = { 
+			picture = cockerill
+
+			
+			allowed = {
+				original_tag = BEL
+			}
+			
+			research_bonus = {
+				naval_equipment = 0.15
+			}
+						
+			traits = { naval_manufacturer }
+		}
+	}
+
+	materiel_manufacturer = {
+		
+		designer = yes
+		
+		mecar = {
+			
+			picture = mecar
+
+			
+			allowed = {
+				original_tag = BEL
+			}
+			
+			research_bonus = {
+				infantry_weapons = 0.2
+			}
+			
+			
+			traits = { infantry_equipment_manufacturer }
+		}
+		
+		fn_herstal = {
+			picture = fn_herstal
+			
+			allowed = {
+				original_tag = BEL 
+				}
+			
+			cost = 200
+			
+			research_bonus = {
+				infantry_weapons = 0.1
+				motorized_equipment = 0.1
+				artillery = 0.1
+			}
+			
+			traits = { BEL_herstal_military_manufacturer }
+		}
+		
+		cockerill_artillery = {
+			
+			picture = cockerill
+			
+			allowed = {
+				original_tag = BEL 
+			}
+			
+			research_bonus = {
+				artillery = 0.2
+			}
+			
+			traits = { artillery_manufacturer }
+		}
+		
+		moes = {
+			
+			picture = moes
+			
+			allowed = {
+				original_tag = BEL 
+			}
+			
+			research_bonus = {
+				motorized_equipment = 0.2
+			}
+			
+			traits = { motorized_equipment_manufacturer }
+		}
+	}
+	
+	industrial_concern = {
+	
+		ackermans_van_haaren = {
+			picture = ackermans_van_haaren
+			
+			allowed = {
+				original_tag = BEL
+			}
+			
+			research_bonus = {
+				industry = 0.15
+			}
+			
+			traits = { industrial_concern }
+		}
+		
+		agfa = {
+			picture = agfa
+			
+			allowed = {
+				original_tag = BEL
+			}
+			
+			research_bonus = {
+				electronics = 0.15
+			}
+			
+			traits = { electronics_concern }
+		}
+		
+		besix = {
+			picture = besix
+			
+			allowed = {
+				original_tag = BEL
+			}
+			
+			research_bonus = {
+				industry = 0.1
+			}
+			
+			traits = { BEL_construction_company }
+		}
+		
+		nmbs = {
+			picture = nmbs
+			
+			allowed = {
+				original_tag = BEL
+			}
+			
+			research_bonus = {
+				industry = 0.15
+			}
+			
+			traits = { linchpin_of_infrastructure }
+		}
+	}
+	
+}

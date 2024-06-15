@@ -1,0 +1,2356 @@
+ideas = {
+
+	hidden_ideas = {
+	
+	balance_idea_buff_ally = {
+
+		allowed = {
+			always = no
+		}
+
+		allowed_civil_war = {
+			always = yes
+		}
+		
+		available = {
+			has_war_with = GER
+		}
+		
+		cancel = {
+			has_war_with_human_player = yes
+		}
+		
+		removal_cost = -1
+
+			targeted_modifier = {
+				tag = GER
+				attack_bonus_against = 0.25
+				defense_bonus_against = 0.25
+			    breakthrough_bonus_against = 0.25
+            }
+			targeted_modifier = {
+				tag = ITA
+				attack_bonus_against = 0.25
+				defense_bonus_against = 0.25
+			    breakthrough_bonus_against = 0.25
+            }
+			targeted_modifier = {
+				tag = RSI
+				attack_bonus_against = 0.25
+				defense_bonus_against = 0.25
+			    breakthrough_bonus_against = 0.25
+            }
+			targeted_modifier = {
+				tag = GEF
+				attack_bonus_against = 0.25
+				defense_bonus_against = 0.25
+			    breakthrough_bonus_against = 0.25
+            }
+			targeted_modifier = {
+				tag = VIC
+				attack_bonus_against = 0.25
+				defense_bonus_against = 0.25
+			    breakthrough_bonus_against = 0.25
+            }
+			
+			modifier = {
+				army_speed_factor = 0.15
+                attrition = -0.5
+                out_of_supply_factor = -0.5
+                supply_consumption_factor = -0.5
+			    army_org_factor = 0.20
+				army_morale_factor = 0.20
+				
+				SUPPLY_FACTOR = 0.20
+				SUPPLY_NODE_RANGE = 0.20
+			}
+	}
+	balance_idea_buff_soviet = {
+
+		allowed = {
+			always = no
+		}
+
+		allowed_civil_war = {
+			always = yes
+		}
+		
+		available = {
+			has_war_with = GER
+		}
+		
+		cancel = {
+			has_war_with_human_player = yes
+		}
+		
+		removal_cost = -1
+
+			targeted_modifier = {
+				tag = GER
+				attack_bonus_against = 0.10
+				defense_bonus_against = 0.10
+			    breakthrough_bonus_against = 0.10
+            }
+			targeted_modifier = {
+				tag = ITA
+				attack_bonus_against = 0.10
+				defense_bonus_against = 0.10
+			    breakthrough_bonus_against = 0.10
+            }
+			targeted_modifier = {
+				tag = FIN
+				attack_bonus_against = 0.10
+				defense_bonus_against = 0.10
+			    breakthrough_bonus_against = 0.10
+            }
+			targeted_modifier = {
+				tag = ROM
+				attack_bonus_against = 0.10
+				defense_bonus_against = 0.10
+			    breakthrough_bonus_against = 0.10
+            }
+			targeted_modifier = {
+				tag = HUN
+				attack_bonus_against = 0.10
+				defense_bonus_against = 0.10
+			    breakthrough_bonus_against = 0.10
+            }
+			
+			modifier = {
+				army_speed_factor = 0.10
+                attrition = -0.4
+                out_of_supply_factor = -0.4
+                supply_consumption_factor = -0.4
+			    army_org_factor = 0.15
+				army_morale_factor = 0.15
+				
+				SUPPLY_FACTOR = 0.20
+				SUPPLY_NODE_RANGE = 0.20
+				
+				industrial_capacity_factory = 0.20
+				production_factory_max_efficiency_factor = 0.20
+				production_factory_efficiency_gain_factor = 0.20
+			}
+	}
+	
+	balance_idea_dont_kick_your_ally = {
+
+		allowed = {
+			always = no
+		}
+
+		allowed_civil_war = {
+			always = yes
+		}
+		
+		available = { always = no  }
+		
+		cancel = {
+		    has_war = no
+		}
+		
+		removal_cost = -1
+
+		modifier = {
+			ai_get_ally_desire_factor = 1000 #AI修正:加入或扩大一个阵营的意愿
+		}
+	}
+	
+	balance_idea_SIK_ATTACK_hidden = {
+
+		allowed = {
+			always = no
+		}
+
+		allowed_civil_war = {
+			always = yes
+		}
+		
+		available = { is_ai = yes date < 1939.1.1 }
+		
+		cancel = {
+		    or = { any_enemy_country = { is_ai = no } any_neighbor_country = { is_ai = no } }
+		}
+		
+		removal_cost = -1
+
+		modifier = {
+			army_attack_factor = 0.5
+			army_defence_factor = 0.5
+			breakthrough_factor = 0.5
+			army_org_factor = 0.4
+			army_morale_factor = 0.4
+			land_reinforce_rate = 0.1
+			out_of_supply_factor = -0.4
+            supply_consumption_factor = -0.4
+			attrition = -0.5
+			
+			ai_focus_aggressive_factor = 1
+			
+			industrial_capacity_dockyard = 0.3
+		    production_factory_max_efficiency_factor = 0.3
+		    production_factory_efficiency_gain_factor = 0.3
+		    production_factory_start_efficiency_factor = 0.3
+		    line_change_production_efficiency_factor = 0.3
+		    industrial_capacity_factory = 0.3
+		}
+	}
+	
+	balance_idea_PHI_surrender = {
+
+		allowed = {
+			always = no
+		}
+
+		allowed_civil_war = {
+			always = yes
+		}
+		
+		available = { is_ai = yes }
+		
+		cancel = {
+		    any_enemy_country = { is_ai = no }
+		}
+		
+		removal_cost = -1
+
+		modifier = {
+			surrender_limit = -0.30
+			army_attack_factor = -0.30
+			army_defence_factor = -0.30
+		}
+	}
+	
+	balance_idea_ITA_ATTACK_hidden = {
+
+		allowed = {
+			always = no
+		}
+
+		allowed_civil_war = {
+			always = yes
+		}
+		
+		available = { is_ai = yes date < 1942.1.1 }
+			
+		removal_cost = -1
+
+		modifier = {
+			army_attack_factor = 0.08
+			army_defence_factor = 0.08
+			breakthrough_factor = 0.08
+			army_org_factor = 0.12
+			army_morale_factor = 0.12
+			land_reinforce_rate = 0.05
+			out_of_supply_factor = -0.15
+            supply_consumption_factor = -0.15
+			attrition = -0.25
+			
+			ai_focus_defense_factor = 5
+			
+			industrial_capacity_dockyard = 0.15
+		    production_factory_max_efficiency_factor = 0.15
+		    production_factory_efficiency_gain_factor = 0.15
+		    production_factory_start_efficiency_factor = 0.15
+		    line_change_production_efficiency_factor = 0.15
+		    industrial_capacity_factory = 0.15
+		}
+	}
+	
+	balance_idea_sanqu_defend_hidden = {
+
+		allowed = {
+			always = no
+		}
+
+		allowed_civil_war = {
+			always = yes
+		}
+		
+		available = {
+		    SOV = { is_ai = yes }
+		    country_exists = PRC
+			is_ai = yes
+		}
+		
+		cancel = { any_enemy_country = { is_ai = no NOT = { has_government = communism } } }
+			
+		removal_cost = -1
+
+		modifier = {
+			army_attack_factor = 0.5
+			army_defence_factor = 5
+			army_org_factor = 1
+			army_morale_factor = 1
+			land_reinforce_rate = 1
+			out_of_supply_factor = -0.99
+            supply_consumption_factor = -0.99
+			attrition = -0.99
+			max_dig_in_factor = 2
+			dig_in_speed_factor = 8
+			org_loss_at_low_org_factor = -0.99
+			
+			ai_focus_defense_factor = 1000
+			surrender_limit = 1
+		}
+	}
+	
+	balance_idea_prc_kmt_ai = {
+	
+	        picture = sss
+	
+	        allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = no
+			}
+			available = {
+			always = no
+				has_war_with = event_target:WTT_current_china_leader
+				is_ai = yes
+				event_target:WTT_current_china_leader = { is_ai = yes }
+			}
+			cancel = {
+			any_enemy_country = {
+			is_ai = no
+			}
+			}
+			traits = {
+				#plus_point_1_per_week #MODDED
+			}
+			modifier = {
+				dig_in_speed_factor = 0.5
+				max_dig_in_factor = 0.5
+				army_morale_factor = 0.5
+				production_factory_efficiency_gain_factor = 0.25
+				production_factory_max_efficiency_factor = 0.25
+				industrial_capacity_factory = 0.25
+				army_defence_factor = 0.35
+				army_attack_factor = 0.175 #MODDED
+				breakthrough_factor = 0.175
+				land_reinforce_rate = 0.15
+				org_loss_at_low_org_factor = -0.25
+				army_speed_factor = 0.075
+				org_loss_when_moving = -0.25
+				army_org_factor = 0.25
+				terrain_penalty_reduction = 0.25
+			}
+			removal_cost = -1
+	}
+	
+	PNSD_hidden = {
+
+		allowed = {
+			always = no
+		}
+
+		allowed_civil_war = {
+			always = yes
+		}
+			
+		removal_cost = -1
+
+		on_add = {
+			set_rule = { units_deployed_to_overlord = no }
+		}
+	}
+	
+	balance_idea_ita_hesitate = {
+	
+	        picture = sss
+	
+	        allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				has_government = fascism
+			}
+			available = {
+				is_ai = yes
+				is_historical_focus_on = yes
+				#date < 1940.6.10
+		not = { has_war_with = ENG }
+		not = { has_war_with = FRA }
+			is_in_faction_with = GER
+			}
+			cancel = {
+			    or = {
+					any_enemy_country = { is_major = yes }
+					FRA = {
+						OR = {
+						surrender_progress > 0.15 #time to cash in
+						has_capitulated = yes
+						is_in_faction_with = ITA
+						exists = no
+						}
+					}
+					ENG = {
+						OR = {
+						surrender_progress > 0.15 #time to cash in
+						has_capitulated = yes
+						is_in_faction_with = ITA
+						exists = no
+						}
+					}
+				}
+			}
+			traits = {
+				#plus_point_1_per_week #MODDED
+			}
+			modifier = {
+				ai_join_ally_desire_factor = -99999 #AI修正:参加战争意愿
+		        ai_call_ally_desire_factor = -99999 #AI修正:请求盟友加入战争意愿
+			}
+			removal_cost = -1
+	}
+	balance_idea_bul_hesitate = {
+	
+	        picture = sss
+	
+	        allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				is_in_faction_with = GER
+			}
+			available = {
+				is_ai = yes
+				is_historical_focus_on = yes
+			    is_in_faction_with = GER
+			}
+			cancel = {
+			    or = {
+					any_enemy_country = { TAG = SOV }
+					ENG = {
+						OR = {
+						surrender_progress > 0.20 #time to cash in
+						has_capitulated = yes
+						is_in_faction_with = GER
+						exists = no
+						}
+					}
+					SOV = {
+						OR = {
+						surrender_progress > 0.70 #time to cash in
+						has_capitulated = yes
+						is_in_faction_with = GER
+						exists = no
+						}
+					}
+				}
+			}
+			traits = {
+				#plus_point_1_per_week #MODDED
+			}
+			modifier = {
+				ai_join_ally_desire_factor = -99999 #AI修正:参加战争意愿
+		        ai_call_ally_desire_factor = -99999 #AI修正:请求盟友加入战争意愿
+			}
+			removal_cost = -1
+	}
+	
+	balance_idea_ai_be_democratic = {
+	
+	        picture = sss
+	
+	        allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				has_government = democratic
+			}
+			available = {
+				is_ai = yes
+				is_historical_focus_on = yes
+				has_government = democratic
+			}
+			cancel = {
+			    has_war = yes
+			}
+			traits = {
+				#plus_point_1_per_week #MODDED
+			}
+			modifier = {
+				democratic_drift = 1
+				drift_defence_factor = 0.5
+				ai_get_ally_desire_factor = -99999 #AI修正:加入或扩大一个阵营的意愿
+				ai_join_ally_desire_factor = -99999 #AI修正:参加战争意愿
+		        ai_call_ally_desire_factor = -99999 #AI修正:请求盟友加入战争意愿
+				ai_badass_factor = 0.01 #AI修正:威胁度敏感度
+				ai_focus_peaceful_factor = 100
+			}
+			removal_cost = -1
+	}
+	
+	balance_idea_ai_war_stability = {
+	
+	        picture = sss
+	
+	        allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			available = {
+				is_ai = yes
+				is_major = no
+				has_war = yes
+				is_historical_focus_on = yes
+			}
+			cancel = {
+			
+			}
+			traits = {
+				#plus_point_1_per_week #MODDED
+			}
+			modifier = {
+				stability_factor = 0.3
+				war_support_factor = 0.3
+			}
+			removal_cost = -1
+	}
+	
+	balance_idea_ai_line_change = {
+	
+	        picture = sss
+	
+	        allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			available = {
+				is_ai = yes
+			}
+			cancel = {
+			
+			}
+			traits = {
+				#plus_point_1_per_week #MODDED
+			}
+			modifier = {
+				line_change_production_efficiency_factor = 0.275
+				production_factory_start_efficiency_factor = 0.275
+				production_factory_efficiency_gain_factor = 0.275
+			} 
+			removal_cost = -1
+	}
+	balance_idea_AI_more_pp = {
+	        allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			cancel = { 
+			    is_ai = no
+			}
+			modifier = {
+				political_power_factor = 0.3
+				attrition = -0.15
+				political_advisor_cost_factor = -0.15
+				high_command_cost_factor = -0.15 #总司令花费
+				
+				ammunition_consumption_factor = -0.25
+				ammunition_factor = 0.25
+				ammunition_capacity_factor = 0.25
+			}
+			removal_cost = -1
+	}
+	
+	balance_idea_cheap_supply_node = {
+	
+	        picture = sss
+			
+			name = "补给中心造价修正"
+	
+	        allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			available = {
+				
+			}
+			cancel = {
+			
+			}
+			traits = {
+				#plus_point_1_per_week #MODDED
+			}
+			modifier = {
+				production_speed_supply_node_factor = 1.5
+			} 
+			removal_cost = -1
+	}
+	
+	balance_idea_ai_desired_divisions = {
+	
+	        picture = sss
+	
+	        allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			available = {
+				is_subject = no
+				is_major = yes
+			}
+			cancel = { 
+			
+			}
+			traits = {
+				#plus_point_1_per_week #MODDED
+			}
+			modifier = {
+				ai_desired_divisions_factor = 1
+			} 
+			removal_cost = -1
+	}
+	
+	balance_idea_south_america_netruality = {
+	
+	        picture = sss
+	
+	        allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			available = {
+				has_war = no
+				is_in_faction = no
+				is_historical_focus_on = yes
+				is_subject = no
+			}
+			cancel = { 
+			
+			}
+			traits = {
+				#plus_point_1_per_week #MODDED
+			}
+			modifier = {
+				ai_get_ally_desire_factor = -9999 #AI修正:加入或扩大一个阵营的意愿
+			} 
+			removal_cost = -1
+	}
+	
+	balance_idea_ger = { #guo forger 
+			allowed_civil_war = {
+				always = no
+			}
+			cancel = {
+			    OR = {
+				    GER = { is_ai = no }
+			        date > 1944.1.1
+					has_idea = balance_idea_ger_player
+					has_global_flag = d_day_happened
+			    }
+			}
+			available = { always = no }
+			targeted_modifier = {
+				tag = SOV
+				attack_bonus_against = 0.15
+				defense_bonus_against = 0.20
+                breakthrough_bonus_against = 0.15 #guo
+			}
+			modifier = {
+			    army_org_factor = 0.10 #guo
+			    army_morale_factor = 0.10 #guo
+				terrain_penalty_reduction = 0.10 #guo
+				experience_loss_factor = -0.10
+				out_of_supply_factor = -0.10
+                supply_consumption_factor = -0.10
+				production_factory_efficiency_gain_factor = 0.10
+				production_factory_max_efficiency_factor = 0.10
+				industrial_capacity_factory = 0.10 #MODDED
+			}
+			removal_cost = -1
+			
+			on_add = {
+			    GER = {
+				add_fuel = 500000 #yes the ai needs all this shit
+					add_manpower = 500000
+					
+					add_equipment_to_stockpile = {
+						type = infantry_equipment
+						amount = 100000
+						producer = GER
+					}
+					add_equipment_to_stockpile = {
+						type = anti_air_equipment
+						amount = 1500
+						producer = GER
+					}
+					add_equipment_to_stockpile = {
+						type = anti_tank_equipment
+						amount = 1500
+						producer = GER
+					}
+					add_equipment_to_stockpile = {
+						type = artillery_equipment
+						amount = 3500
+						producer = GER
+					}
+					add_equipment_to_stockpile = {#always biggest gap
+						type = support_equipment
+						amount = 3500 #not a typo
+						producer = GER
+					}
+                    add_equipment_to_stockpile = {
+				        type = train_equipment
+				        amount = 100
+				        producer = GER
+			        }
+					add_equipment_to_stockpile = {
+						type = medium_tank_chassis
+						amount = 3000
+						producer = GER
+					}
+					add_equipment_to_stockpile = {
+						type = motorized_equipment
+						amount = 2500
+						producer = GER
+					}
+					add_equipment_to_stockpile = {#always losing air war at this point
+						type = small_plane_airframe
+						amount = 350
+						producer = GER
+					}
+					add_equipment_to_stockpile = {
+						type = convoy
+						amount = 150
+						producer = GER
+					}
+				}
+			}
+			
+			do_effect = {
+			
+			SOV = {
+			has_full_control_of_state = 219
+			has_full_control_of_state = 217
+			}
+			
+			}
+	}	
+	balance_idea_ger_player = {
+	
+	        picture = sss
+	
+	        allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			available = { always = no }
+			cancel = { 
+			OR = {
+			date > 1944.6.1
+			has_idea = balance_idea_ger_defend
+			has_global_flag = d_day_happened
+			}
+			}
+			traits = {
+				#plus_point_1_per_week #MODDED
+			}
+			targeted_modifier = {
+				tag = SOV
+				attack_bonus_against = 0.15
+				defense_bonus_against = 0.20
+				breakthrough_bonus_against = 0.15
+			}
+			modifier = {
+				production_factory_efficiency_gain_factor = 0.20
+				production_factory_max_efficiency_factor = 0.20
+				industrial_capacity_factory = 0.20 #MODDED
+				land_reinforce_rate = 0.05
+				army_org_factor = 0.12
+				army_morale_factor = 0.12
+				org_loss_at_low_org_factor = -0.12
+				terrain_penalty_reduction = 0.12 #guo
+				experience_loss_factor = -0.12
+				out_of_supply_factor = -0.15
+                supply_consumption_factor = -0.15
+			}
+			removal_cost = -1
+			
+			do_effect = {
+			
+			SOV = {
+			has_full_control_of_state = 219
+			has_full_control_of_state = 217
+			or = { #库尔斯克一线
+	controls_state = 220
+	controls_state = 221
+	controls_state = 224
+	controls_state = 242
+	controls_state = 243
+	controls_state = 209
+	}
+			}
+			
+			}
+	}
+	balance_idea_ger_more_gun = {
+	
+			allowed_civil_war = {
+				always = no
+			}
+			cancel = { 
+			    OR = {
+				    GER = { is_ai = no }
+			        date > 1944.1.1
+			    }
+			}
+			available = { always = no }
+			modifier = {
+			    industrial_capacity_factory = 0.20
+				industrial_capacity_dockyard = 0.05
+			    production_factory_efficiency_gain_factor = 0.20
+				production_factory_max_efficiency_factor = 0.20
+				line_change_production_efficiency_factor = 0.20
+				production_lack_of_resource_penalty_factor = -0.20
+				consumer_goods_factor = -0.30
+			} 
+			removal_cost = -1
+	}
+	balance_idea_ger_aden_attack = {
+	
+	        picture = sss
+	
+	        allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			available = { always = no }
+			cancel = {
+			   64 = {
+	any_neighbor_state = {
+	controller = {
+		is_in_faction_with = SOV
+	}
+	}
+	}
+			}
+			traits = {
+				#plus_point_1_per_week #MODDED
+			}
+			targeted_modifier = {
+				tag = USA
+				attack_bonus_against = 0.2
+				defense_bonus_against = 0.225
+                breakthrough_bonus_against = 0.2
+				army_org_factor = 0.15
+			}
+			targeted_modifier = {
+				tag = ENG
+				attack_bonus_against = 0.2
+				defense_bonus_against = 0.225
+                breakthrough_bonus_against = 0.2
+				army_org_factor = 0.15
+			}
+			targeted_modifier = {
+				tag = FRA
+				attack_bonus_against = 0.2
+				defense_bonus_against = 0.225
+                breakthrough_bonus_against = 0.2
+				army_org_factor = 0.15
+			}
+			targeted_modifier = {
+				tag = ITA
+				attack_bonus_against = 0.2
+				defense_bonus_against = 0.225
+                breakthrough_bonus_against = 0.2
+				army_org_factor = 0.15
+			}
+			modifier = {
+				experience_loss_factor = -0.15
+				out_of_supply_factor = -0.15
+                supply_consumption_factor = -0.15
+			}
+			removal_cost = -1
+	}
+	
+	balance_idea_kmt_more = {
+	
+	        picture = sss
+	
+	        allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			available = {
+			always = no
+				has_war_with = JAP
+				not = { has_war_with = PRC }
+				is_ai = yes
+			}
+			cancel = { 
+			
+			}
+			traits = {
+				#plus_point_1_per_week #MODDED
+			}
+			targeted_modifier = {
+				tag = JAP
+				attack_bonus_against = 0.15
+				defense_bonus_against = 0.15
+			}
+			modifier = {
+				dig_in_speed_factor = 0.3
+				max_dig_in_factor = 0.3 #MODDED
+				#army_speed_factor = 0.2 #MODDED
+				army_morale_factor = 0.15
+				army_org_factor = 0.15
+				production_factory_efficiency_gain_factor = 0.15
+				production_factory_max_efficiency_factor = 0.15
+				industrial_capacity_factory = 0.2 #MODDED
+				land_reinforce_rate = 0.05
+			} 
+			removal_cost = -1
+	}
+	
+	balance_idea_ger_crush_yug = {
+	
+	        picture = sss
+	
+	        allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			available = {
+            is_ai = yes
+			YUG = { is_ai = yes }
+            GRE = { is_ai = yes }
+			date < 1941.6.20
+			not = { has_war_with = SOV }
+			}
+			cancel = { 
+			   YUG = { has_capitulated = yes }
+               GRE = { has_capitulated = yes }
+			}
+			traits = {
+				#plus_point_1_per_week #MODDED
+			}
+			targeted_modifier = {
+				tag = YUG
+				attack_bonus_against = 0.5
+				defense_bonus_against = 0.5
+                breakthrough_bonus_against = 0.5
+				army_org_factor = 0.5
+			}
+			targeted_modifier = {
+				tag = GRE
+				attack_bonus_against = 0.5
+				defense_bonus_against = 0.5
+                breakthrough_bonus_against = 0.5
+				army_org_factor = 0.5
+			}
+			modifier = {
+				army_speed_factor = 0.35 #MODDED
+				org_loss_when_moving = -0.5
+                attrition = -0.5
+				supply_consumption_factor = -0.8
+				out_of_supply_factor = -0.8
+				no_supply_grace = 360
+				planning_speed = 1
+				terrain_penalty_reduction = 0.5
+			}
+			removal_cost = -1
+	}
+	balance_idea_ger_crush_fra = {
+	
+	        picture = sss
+	
+	        allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			available = {
+            is_ai = yes
+			has_war_with = FRA
+			date < 1941.1.1
+			not = { has_war_with = SOV }
+			}
+			cancel = { 
+			   any_enemy_country = { is_ai = no }
+			}
+			traits = {
+				#plus_point_1_per_week #MODDED
+			}
+			targeted_modifier = {
+				tag = FRA
+				attack_bonus_against = 0.5
+				defense_bonus_against = 0.5
+                breakthrough_bonus_against = 0.5
+				army_org_factor = 0.5
+			}
+			targeted_modifier = {
+				tag = HOL
+				attack_bonus_against = 0.5
+				defense_bonus_against = 0.5
+                breakthrough_bonus_against = 0.5
+				army_org_factor = 0.5
+			}
+			targeted_modifier = {
+				tag = BEL
+				attack_bonus_against = 0.5
+				defense_bonus_against = 0.5
+                breakthrough_bonus_against = 0.5
+				army_org_factor = 0.5
+			}
+			targeted_modifier = {
+				tag = LUX
+				attack_bonus_against = 0.5
+				defense_bonus_against = 0.5
+                breakthrough_bonus_against = 0.5
+				army_org_factor = 0.5
+			}
+			targeted_modifier = {
+				tag = NOR
+				attack_bonus_against = 0.5
+				defense_bonus_against = 0.5
+                breakthrough_bonus_against = 0.5
+				army_org_factor = 0.5
+			}
+			targeted_modifier = {
+				tag = DEN
+				attack_bonus_against = 0.5
+				defense_bonus_against = 0.5
+                breakthrough_bonus_against = 0.5
+				army_org_factor = 0.5
+			}
+			modifier = {
+				army_speed_factor = 0.15 #MODDED
+				org_loss_when_moving = -0.5
+                attrition = -0.5
+				supply_consumption_factor = -0.8
+				out_of_supply_factor = -0.8
+				no_supply_grace = 360
+				planning_speed = 1
+				terrain_penalty_reduction = 0.5
+			}
+			removal_cost = -1
+	}
+	balance_idea_minor_be_weak = {
+	
+	        picture = sss
+	
+	        allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			available = {
+            is_ai = yes
+			date < 1943.1.1
+			}
+			cancel = { 
+			   any_enemy_country = { is_ai = no }
+			}
+			traits = {
+				#plus_point_1_per_week #MODDED
+			}
+			targeted_modifier = {
+				tag = GER
+				attack_bonus_against = -0.25
+				defense_bonus_against = -0.25
+                breakthrough_bonus_against = -0.25
+			}
+			targeted_modifier = {
+				tag = ITA
+				attack_bonus_against = -0.25
+				defense_bonus_against = -0.25
+                breakthrough_bonus_against = -0.25
+			}
+			modifier = {
+				army_morale_factor = -0.25
+				army_org_factor = -0.25
+			}
+			removal_cost = -1
+	}
+	balance_idea_eng_crush_irq = {
+	
+	        picture = sss
+	
+	        allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			available = {
+            is_ai = yes
+			IRQ = { is_ai = yes }
+			}
+			cancel = { 
+			   
+			}
+			traits = {
+				#plus_point_1_per_week #MODDED
+			}
+			targeted_modifier = {
+				tag = IRQ
+				attack_bonus_against = 0.75
+				defense_bonus_against = 0.75
+                breakthrough_bonus_against = 0.75
+				army_org_factor = 0.75
+			}
+			modifier = {
+				
+			}
+			removal_cost = -1
+	}
+	
+	balance_idea_prc_will_not_be_attacked = {
+	
+	        picture = sss
+	
+	        allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			available = {
+			has_government = communism
+			event_target:WTT_communist_china = { exists = yes }
+			event_target:WTT_current_china_leader = { exists = yes }
+			}
+			cancel = {
+			OR = {
+			event_target:WTT_communist_china = { has_war_with = event_target:WTT_current_china_leader }
+			any_other_country = {
+			is_literally_china = yes
+			has_war_with = root
+			}
+			}
+			}
+			traits = {
+				#plus_point_1_per_week #MODDED
+			}
+			modifier = {
+				enemy_justify_war_goal_time = 50
+				army_defence_factor = 0.1
+				ai_get_ally_desire_factor = -99999 #AI修正:加入或扩大一个阵营的意愿
+			}
+			removal_cost = -1
+	}
+	
+	balance_idea_chi_will_not_be_attacked = {
+	
+	        picture = sss
+	
+	        allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			available = {
+			not = {
+			has_government = fascism
+			has_government = communism
+			}
+			event_target:WTT_communist_china = { exists = yes }
+			event_target:WTT_current_china_leader = { exists = yes }
+			}
+			cancel = {
+			OR = {
+			event_target:WTT_communist_china = { has_war_with = event_target:WTT_current_china_leader }
+			any_other_country = {
+			is_literally_china = yes
+			has_war_with = root
+			}
+			}
+			}
+			traits = {
+				#plus_point_1_per_week #MODDED
+			}
+			modifier = {
+				enemy_justify_war_goal_time = 50
+				army_defence_factor = 0.1
+				ai_get_ally_desire_factor = -99999 #AI修正:加入或扩大一个阵营的意愿
+			}
+			removal_cost = -1
+	}
+	
+	balance_idea_shx_will_not_be_attacked = {
+	
+	        picture = sss
+	
+	        allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			available = {
+			event_target:WTT_communist_china = { exists = yes }
+		    event_target:WTT_current_china_leader = { exists = yes }
+			}
+			cancel = {
+			OR = {
+			event_target:WTT_communist_china = { has_war_with = event_target:WTT_current_china_leader }
+			any_other_country = {
+			is_literally_china = yes
+			has_war_with = root
+			}
+			}
+			}
+			traits = {
+				#plus_point_1_per_week #MODDED
+			}
+			modifier = {
+				enemy_justify_war_goal_time = 50
+				army_defence_factor = 0.1
+				ai_get_ally_desire_factor = -99999 #AI修正:加入或扩大一个阵营的意愿
+			}
+			removal_cost = -1
+	}
+	
+	balance_idea_worlord_will_not_be_attacked = {
+	
+	        picture = sss
+	
+	        allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			available = {
+			is_ai = yes
+			not = { tag = SHX }
+			not = { tag = event_target:WTT_current_china_leader }
+			not = { tag = event_target:WTT_communist_china }
+			event_target:WTT_communist_china = { exists = yes }
+			event_target:WTT_current_china_leader = { exists = yes }
+			}
+			cancel = {
+			OR = {
+			event_target:WTT_communist_china = { has_war_with = event_target:WTT_current_china_leader }
+			any_other_country = {
+			is_literally_china = yes
+			has_war_with = root
+			}
+			}
+			}
+			traits = {
+				#plus_point_1_per_week #MODDED
+			}
+			modifier = {
+				enemy_justify_war_goal_time = 50
+				army_core_attack_factor = 0.5
+				army_core_defence_factor = 0.5
+				army_org_factor = 0.5
+				ai_get_ally_desire_factor = -99999 #AI修正:加入或扩大一个阵营的意愿
+			} 
+			removal_cost = -1
+	}
+	
+	balance_idea_pol_dont_call_eng = {
+	
+	        picture = sss
+	
+	        allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			available = {
+			has_capitulated = no
+			}
+			cancel = { 
+			   has_global_flag = peace_with_pol
+			}
+			traits = {
+				#plus_point_1_per_week #MODDED
+			}
+			modifier = {
+				ai_join_ally_desire_factor = -99999 #AI修正:参加战争意愿
+		        ai_call_ally_desire_factor = -99999 #AI修正:请求盟友加入战争意愿
+			} 
+			removal_cost = -1
+	}
+	
+	balance_idea_yug_pol_dont_call_sov_too_early = {
+	
+	        picture = sss
+	
+	        allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			available = {
+			has_war_with = JAP
+			is_in_faction_with = SOV
+			}
+			cancel = { 
+			   SOV = { has_war_with = JAP }
+			}
+			traits = {
+				#plus_point_1_per_week #MODDED
+			}
+			modifier = {
+				ai_call_ally_desire_factor = -99999
+			} 
+			removal_cost = -1
+	}
+	
+	balance_idea_jap_push_south_east = {
+	
+	        picture = sss
+	
+	        allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			available = {
+                is_ai = yes
+			}
+			cancel = { 
+			   #date > 1943.1.1
+			}
+			traits = {
+				#plus_point_1_per_week #MODDED
+			}
+			targeted_modifier = {
+				tag = USA
+				attack_bonus_against = 0.15
+				defense_bonus_against = 0.15
+                breakthrough_bonus_against = 0.15
+				army_org_factor = 0.15
+				terrain_penalty_reduction = 0.15
+			}
+			targeted_modifier = {
+				tag = ENG
+				attack_bonus_against = 0.15
+				defense_bonus_against = 0.15
+                breakthrough_bonus_against = 0.15
+				army_org_factor = 0.15
+				terrain_penalty_reduction = 0.15
+			}
+			targeted_modifier = {
+				tag = RAJ
+				attack_bonus_against = 0.15
+				defense_bonus_against = 0.15
+                breakthrough_bonus_against = 0.15
+				army_org_factor = 0.15
+				terrain_penalty_reduction = 0.15
+			}
+			targeted_modifier = {
+				tag = PHI
+				attack_bonus_against = 0.15
+				defense_bonus_against = 0.15
+                breakthrough_bonus_against = 0.15
+				army_org_factor = 0.15
+				terrain_penalty_reduction = 0.15
+			}
+			targeted_modifier = {
+				tag = INS
+				attack_bonus_against = 0.15
+				defense_bonus_against = 0.15
+                breakthrough_bonus_against = 0.15
+				army_org_factor = 0.15
+			}
+			targeted_modifier = {
+				tag = MAL
+				attack_bonus_against = 0.15
+				defense_bonus_against = 0.15
+                breakthrough_bonus_against = 0.15
+				army_org_factor = 0.15
+			}
+			targeted_modifier = {
+				tag = BUR
+				attack_bonus_against = 0.15
+				defense_bonus_against = 0.15
+                breakthrough_bonus_against = 0.15
+				army_org_factor = 0.15
+			}
+			targeted_modifier = {
+				tag = AST
+				attack_bonus_against = 0.15
+				defense_bonus_against = 0.15
+                breakthrough_bonus_against = 0.15
+				army_org_factor = 0.15
+			}
+			targeted_modifier = {
+				tag = NZL
+				attack_bonus_against = 0.15
+				defense_bonus_against = 0.15
+                breakthrough_bonus_against = 0.15
+				army_org_factor = 0.15
+			}
+			modifier = {
+			    industrial_capacity_factory = 0.3
+				industrial_capacity_dockyard = 0.15
+				production_factory_max_efficiency_factor = 0.2#生产效率上限
+		        production_factory_efficiency_gain_factor = 0.2#生产效率增长
+		        production_factory_start_efficiency_factor = 0.2#基础生产效率
+		        line_change_production_efficiency_factor = 0.2#生产效率保持
+				naval_invasion_penalty = -0.3
+				amphibious_invasion_defence = 0.3
+				army_speed_factor = 0.1 #MODDED
+                attrition = -0.25
+				supply_consumption_factor = -0.175
+				out_of_supply_factor = -0.175
+			} 
+			removal_cost = -1
+	}
+	
+	balance_idea_usa_kick_japs = {
+	
+	        picture = sss
+	
+	        allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			available = {
+			has_war_with = JAP
+			is_ai = yes
+			}
+			cancel = { 
+			   
+			}
+			traits = {
+				#plus_point_1_per_week #MODDED
+			}
+			targeted_modifier = {
+				tag = JAP
+				attack_bonus_against = 0.2
+				defense_bonus_against = 0.2
+                breakthrough_bonus_against = 0.2
+				army_org_factor = 0.15
+				amphibious_invasion_defence = 0.35
+				naval_invasion_penalty = -0.35
+			}
+			modifier = {
+				sortie_efficiency = 0.25
+				naval_coordination = 0.25
+				screening_efficiency = 0.25
+				air_mission_efficiency = 0.25
+			} 
+			removal_cost = -1
+	}
+	
+	balance_idea_ger_defend = {
+	
+	        picture = sss
+	
+	        allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			available = {
+			always = no
+			}
+			cancel = { 
+			   date > 1945.1.1
+			}
+			traits = {
+				#plus_point_1_per_week #MODDED
+			}
+			targeted_modifier = {
+				tag = SOV
+				attack_bonus_against = 0.15
+				defense_bonus_against = 0.20
+                breakthrough_bonus_against = 0.15
+			}
+			modifier = {
+				dig_in_speed_factor = 0.25
+				max_dig_in_factor = 0.25
+				army_morale_factor = 0.12
+				army_org_factor = 0.12
+				production_factory_efficiency_gain_factor = 0.25
+				production_factory_max_efficiency_factor = 0.25
+				industrial_capacity_factory = 0.25
+				army_core_attack_factor = 0.15
+				army_core_defence_factor = 0.15 #MODDED
+				land_reinforce_rate = 0.05
+			} 
+			removal_cost = -1
+	}
+
+	balance_idea_kmt_be_strong = {
+	
+	        picture = sss
+	
+	        allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			available = {
+			has_war_with = event_target:WTT_communist_china
+			event_target:WTT_communist_china = { is_ai = no }
+			is_ai = yes
+			}
+			cancel = { 
+			   surrender_progress > 0.80
+			}
+			traits = {
+				#plus_point_1_per_week #MODDED
+			}
+			modifier = {
+				dig_in_speed_factor = 0.35
+				max_dig_in_factor = 0.35
+				army_morale_factor = 0.225
+				army_org_factor = 0.225
+				terrain_penalty_reduction = 0.25
+				production_factory_efficiency_gain_factor = 0.25
+				production_factory_max_efficiency_factor = 0.25
+				industrial_capacity_factory = 0.40
+				army_attack_factor = 0.185
+				army_defence_factor = 0.25 #MODDED
+				breakthrough_factor = 0.185
+				land_reinforce_rate = 0.125
+				planning_speed = 0.25
+				max_planning = 0.20
+				supply_consumption_factor = -0.15
+				out_of_supply_factor = -0.15
+				command_power_gain = 0.5
+			    max_command_power = 50
+			} 
+			removal_cost = -1
+	}
+	
+	balance_idea_AI_invade_quickly = {
+	
+	        picture = sss
+	
+	        allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			available = {
+			is_ai = yes
+			}
+			cancel = { 
+			   
+			}
+			traits = {
+				#plus_point_2_per_week #MODDED
+			}
+			modifier = {
+				invasion_preparation = -0.25
+				naval_invasion_penalty = -0.15
+				naval_invasion_prep_speed = 0.25
+				naval_invasion_capacity = 10
+			}
+			removal_cost = -1
+	}
+	
+	balance_idea_SHX_crush_ECA = {
+	
+	        picture = sss
+	
+	        allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			available = {
+			is_ai = yes
+			ECA = { is_ai = yes }
+			has_war_with = ECA
+			NOT = {
+			has_war_with = JAP
+			has_war_with = CHI
+			has_war_with = PRC
+			}
+			}
+			cancel = { 
+			   
+			}
+			traits = {
+				plus_point_2_per_week #MODDED
+			}
+			modifier = {
+				army_core_attack_factor = 1
+				army_core_defence_factor = 1
+				breakthrough_factor = 1
+				army_morale_factor = 0.5
+			} 
+			removal_cost = -1
+	}
+	
+	balance_idea_AI_more_supply = {
+	
+	        picture = sss
+	
+	        allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			available = {
+			is_ai = yes
+			}
+			cancel = { 
+			   
+			}
+			traits = {
+				plus_point_2_per_week #MODDED
+			}
+			modifier = {
+				
+			} 
+			removal_cost = -1
+	}
+	
+	balance_idea_AI_more_XP = {
+	
+	picture = sss
+	
+	allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			available = {
+			always = no
+			}
+			cancel = { 
+			   
+			}
+			modifier = {
+				experience_gain_army = 0.25
+                experience_gain_navy = 0.25
+                experience_gain_air = 0.25
+			} 
+			removal_cost = -1
+	}
+	
+	balance_idea_PRC_more_gun = {
+	
+	picture = sss
+	
+	allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			available = {
+			has_war_with = JAP
+			is_ai = yes
+			}
+			cancel = { 
+			   
+			}
+			equipment_bonus = {
+				infantry_equipment = {
+					build_cost_ic = -0.25
+					instant = yes
+				}
+			}
+			modifier = {
+				industrial_capacity_factory = 0.1
+				production_factory_max_efficiency_factor = 0.1
+			} 
+			removal_cost = -1
+	}
+	
+	balance_idea_AI_more_building = {
+	
+	picture = sss
+	
+	allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			available = {
+			always = no
+			
+			is_ai = yes
+			}
+			cancel = { 
+			    date > 1941.6.22
+			}
+			modifier = {
+				industrial_capacity_factory = 0.15
+				industrial_capacity_dockyard = 0.15
+			} 
+			removal_cost = -1
+	}
+	
+	balance_idea_pol_motherland = {
+	        allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			cancel = { 
+			    is_ai = no
+			}
+			modifier = {
+				surrender_limit = 0.25
+			} 
+			removal_cost = -1
+	}
+	
+	balance_idea_eng_motherland = {
+	        allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			cancel = { 
+			    is_ai = no
+			}
+			modifier = {
+				surrender_limit = 0.5
+				army_core_attack_factor = 0.25
+				army_core_defence_factor = 0.25
+			} 
+			removal_cost = -1
+	}
+	
+	balance_idea_TNG_dont_win = {
+	allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			available = {
+			has_war_with = SIK
+			}
+			cancel = { 
+			is_ai = no
+			}
+			modifier = {
+				#army_attack_factor = -0.3
+				#army_defence_factor = -0.3
+				#breakthrough_factor = -0.3
+				#army_org_factor = -0.3
+				#army_morale_factor = -0.3
+				#ai_focus_defense_factor = 50
+			} 
+			removal_cost = -1
+	}
+	
+	balance_idea_PRC_hold_jinpulu = {
+	allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			cancel = { 
+			606 = { has_border_war = no }		#MODDED
+			598 = { has_border_war = no }
+			597 = { has_border_war = no }
+			}
+			modifier = {
+				army_attack_factor = 0.35
+				army_defence_factor = 0.35
+				breakthrough_factor = 0.35
+				army_org_factor = 0.35
+				terrain_penalty_reduction = 0.5
+			} 
+			removal_cost = -1
+	}
+	
+	balance_idea_KMT_attack_shanhaiguan = {
+	allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			cancel = { 
+			608 = { has_border_war = no }		#MODDED
+			609 = { has_border_war = no }
+			}
+			modifier = {
+				army_attack_factor = 0.75
+				army_defence_factor = 0.75
+				breakthrough_factor = 0.75
+				army_org_factor = 0.5
+				terrain_penalty_reduction = 0.95
+			} 
+			removal_cost = -1
+	}
+		
+	balance_idea_PRC_attack_shangdang = {
+	allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			cancel = { 
+			1027 = { has_border_war = no }		#MODDED
+			607 = { has_border_war = no }
+			}
+			targeted_modifier = {
+			tag = SHX
+			breakthrough_bonus_against = 0.75
+			attack_bonus_against = 0.75
+			defense_bonus_against = 0.75
+			}
+			modifier = {
+				#army_attack_factor = 0.75
+				#army_defence_factor = 0.75
+				#breakthrough_factor = 0.75
+				army_org_factor = 0.5
+				terrain_penalty_reduction = 0.95
+			} 
+			removal_cost = -1
+		}
+		
+	balance_idea_KMT_attack_changchun = {
+	allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			cancel = { 
+			716 = { has_border_war = no }		#MODDED
+			328 = { has_border_war = no }
+			}
+			modifier = {
+				army_attack_factor = 0.5
+				army_defence_factor = 0.5
+				breakthrough_factor = 0.5
+				army_org_factor = 0.5
+				terrain_penalty_reduction = 0.95
+			} 
+			removal_cost = -1
+		}
+		
+	SOV_hold_the_nuomenhan = {
+	allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			cancel = {
+			761 = { has_border_war = no }		#MODDED
+			819 = { has_border_war = no }
+			}
+			targeted_modifier = {
+				tag = JAP
+				attack_bonus_against = 0.65 #MODDED
+				defense_bonus_against = 0.8 #MODDED
+			    breakthrough_bonus_against = 0.65 #MODDED
+            }
+			modifier = {		
+				army_org_factor = 0.5
+				terrain_penalty_reduction = 0.5
+				supply_consumption_factor = -0.99
+				out_of_supply_factor = -0.99
+				org_loss_at_low_org_factor = -0.75
+			} 
+			removal_cost = -1
+		}
+		
+	JAP_get_the_nuomenhan = {
+	allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			cancel = { 
+			761 = { has_border_war = no }		#MODDED
+			819 = { has_border_war = no }
+			}
+			targeted_modifier = {
+				tag = SOV
+				attack_bonus_against = 0.15 #MODDED
+				defense_bonus_against = 0.15 #MODDED
+			    breakthrough_bonus_against = 0.15 #MODDED
+            }
+			targeted_modifier = {
+				tag = MON
+				attack_bonus_against = 0.15 #MODDED
+				defense_bonus_against = 0.15 #MODDED
+			    breakthrough_bonus_against = 0.15 #MODDED
+            }
+			modifier = {		
+				army_org_factor = 0.15
+				terrain_penalty_reduction = 0.15
+				supply_consumption_factor = -0.35
+				out_of_supply_factor = -0.35
+				org_loss_at_low_org_factor = -0.25
+			} 
+			removal_cost = -1
+		}
+		
+	balance_idea_plm = {
+	allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			cancel = {
+			    is_ai = no
+			}
+			modifier = {
+				surrender_limit = 1
+				army_core_attack_factor = 0.15
+				army_core_defence_factor = 0.15
+			} 
+			removal_cost = -1
+		}
+		
+	balance_idea_eth = {
+	allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			cancel = { 
+			    is_ai = no
+			}
+			modifier = {
+				surrender_limit = 1
+				army_core_attack_factor = 0.075
+				army_core_defence_factor = 0.075
+			} 
+			removal_cost = -1
+		}
+		
+	ger_hidden_balance = {
+			
+                                                picture = generic_wall_line
+
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+                                                available = {
+			always = no
+			}
+
+                                                visible = {
+                                                            
+                                                }
+			targeted_modifier = {
+				tag = USA
+				breakthrough_bonus_against = 0.1
+				attack_bonus_against = 0.3
+				defense_bonus_against = 0.3
+			}
+			targeted_modifier = {
+				tag = ENG
+				breakthrough_bonus_against = 0.1
+				attack_bonus_against = 0.3
+				defense_bonus_against = 0.3
+			}
+			targeted_modifier = {
+				tag = FRA
+				breakthrough_bonus_against = 0.1
+				attack_bonus_against = 0.3
+				defense_bonus_against = 0.3
+			}
+           
+			modifier = {
+			out_of_supply_factor = -0.25
+                supply_consumption_factor = -0.25
+				
+                army_core_attack_factor = 0.1
+			    army_core_defence_factor = 0.1
+				
+				attrition = -0.25
+				fuel_gain_factor = 0.5
+				land_reinforce_rate = 0.03
+				
+				production_factory_max_efficiency_factor = 0.3
+				production_factory_efficiency_gain_factor = 0.3
+				industrial_capacity_dockyard = 0.3
+				conscription = 0.05
+				
+			}
+		}
+		
+	sov_jiangchi = {
+			
+                                                picture = generic_wall_line
+
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+                                                available = {
+                                                      GER = {
+                                                                 is_ai = yes
+                                                                 }
+                                                      is_ai = yes
+                                                      has_war_with = GER 
+                                                      115 = { CONTROLLER = { NOT = { has_war_with = GER } } }
+                                                      15 = { CONTROLLER = { NOT = { has_war_with = GER } } }                                                                                                   
+                                                }
+
+                                                visible = {
+                                                             
+                                                }
+			
+                                                targeted_modifier = {
+				tag = GER				
+                                                                defense_bonus_against = 1
+                                                                attack_bonus_against = -1
+                                                                breakthrough_bonus_against = -1		
+			}                                               
+              
+			modifier = {
+                                                              ai_focus_defense_factor = 15                                                                                                                                                                                    
+			}
+		}
+		
+	ger_jiangchi = {
+			
+                                                picture = generic_wall_line
+
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+                                                available = {
+                                                      SOV = {
+                                                                 is_ai = yes
+                                                                 }
+                                                      is_ai = yes
+                                                      has_war_with = SOV 
+                                                      115 = { CONTROLLER = { NOT = { has_war_with = GER } } }
+                                                      15 = { CONTROLLER = { NOT = { has_war_with = GER } } }                                                                                                   
+                                                }
+
+                                                visible = {
+                                                             
+                                                }
+			
+                                                targeted_modifier = {
+				tag = SOV
+                                                                defense_bonus_against = 1
+                                                                attack_bonus_against = -1
+                                                                breakthrough_bonus_against = -1		
+			}                                               
+              
+			modifier = {
+                                                              ai_focus_defense_factor = 15                                                                                                                                                                                    
+			}
+		}
+		
+	jap_ai_zhicai_balance = {
+			
+                                                picture = generic_acquire_tanks
+
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+                                                available = {
+                                                      
+OR = {
+has_idea = jap_nengyuanzhicai
+has_idea = jap_dongjiezichan
+has_idea = jap_yuancailiaozhicai
+}
+                                                      is_ai = yes                                                    
+                                                }
+
+                                                visible = {
+                                                             
+                                                }
+			
+                                                cancel = {
+                                                              
+                                                }
+
+                                                targeted_modifier = {
+					
+			}
+                                                     
+			modifier = {
+                                                                 army_fuel_consumption_factor = -0.4
+	air_fuel_consumption_factor = -0.4
+ 	navy_fuel_consumption_factor = -0.4
+fuel_gain_factor = 0.4
+stability_weekly = 0.001
+                war_support_weekly = 0.001 
+			}
+		}
+	
+
+                                den_chaos = {
+			
+                                                picture = generic_acquire_tanks
+
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+                                                available = {
+                                                      
+has_capitulated = no
+                                                      is_ai = yes                                                    
+                                                }
+
+                                                visible = {
+                                                             
+                                                }
+			
+                                                cancel = {
+                                                              
+                                                }
+
+                                                targeted_modifier = {
+					
+			}
+                                                     
+			modifier = {
+                                                                 army_attack_factor = -0.99
+                                                                 army_defence_factor = -0.99
+                                                                 army_org_factor = -0.99
+                                                                 war_support_factor = -1
+                                                                 forced_surrender_limit = -1.0
+			}
+		}
+
+                                ita_ger_lianhezhihui = {
+			
+                                                picture = general_staff
+
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+                                                available = {
+has_war_with = ENG
+                                                      any_other_country = {
+OR = {
+tag = ENG
+is_in_faction_with = ENG
+}
+                                                                 has_full_control_of_state = 447
+                                                      }
+                                                      is_ai = yes
+                                                      date < 1942.11.1
+                                                      country_exists = ITA
+                                                }
+
+                                                visible = {
+                                                           
+                                                }
+			
+                                                cancel = {
+                                                              
+                                                }
+
+                                                targeted_modifier = {
+				tag = ENG
+				breakthrough_bonus_against = 0.15
+				attack_bonus_against = 0.15
+                                                                defense_bonus_against = 0.35				
+			}
+                                                targeted_modifier = {
+				tag = FRA
+				breakthrough_bonus_against = 0.15
+				attack_bonus_against = 0.15
+                                                                defense_bonus_against = 0.35				
+			}
+			modifier = {
+                                                                 ai_focus_aggressive_factor = 0.5
+                                                                 supply_consumption_factor = -0.35
+                                                                 out_of_supply_factor = -0.35
+                                                                  
+
+			}
+		}
+
+                                zhujunshanghai = {
+			
+                                                picture = generic_acquire_tanks
+
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+                                                available = {
+                                                      always = yes                                                  
+                                                }
+
+                                                visible = {
+                                                            
+                                                }
+			
+                                                cancel = {
+                                                              
+                                                }
+
+                                                targeted_modifier = {
+					
+			}
+                                                     
+			modifier = {
+###equipment_capture_factor = 0.12
+                                                                 
+resistance_damage_to_garrison = -0.35
+required_garrison_factor = -0.15
+
+resistance_growth = -0.15
+compliance_gain = 0.0001
+				non_core_manpower = 0.02
+			}
+		}
+
+                                d01_rout = {
+			
+                                                picture = generic_acquire_tanks
+
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+                                                available = {
+                                                      has_civil_war = yes
+                                                      is_ai = yes                                                    
+                                                }
+
+                                                visible = {
+                                                            
+                                                }
+			
+                                                cancel = {
+                                                              any_other_country = {
+				is_major = yes
+                                                                NOT = { tag = SPR }
+				has_war_with = ROOT
+			              }
+                                                }
+
+                                                targeted_modifier = {
+					
+			}
+                                                     
+			modifier = {
+                                                                 army_attack_factor = -0.85
+                                                                 army_defence_factor = -0.85
+                                                                 army_org_factor = -0.85
+war_support_factor = -1
+                                                                 forced_surrender_limit = -1.0
+			}
+		}
+
+        ETH_rout = {
+			
+                                                picture = generic_acquire_tanks
+
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+                                                available = {
+                                                      has_war_with = ITA
+has_capitulated = no  
+                                                      is_ai = yes                                                    
+                                                }
+
+                                                visible = {
+                                                           
+                                                }
+			
+                                                cancel = {
+                                                              any_other_country = {
+				is_major = yes
+                                                                NOT = { tag = ITA }
+				has_war_with = ROOT
+			              }
+                                                }
+
+                                                targeted_modifier = {
+					
+			}
+                                                     
+			modifier = {
+                                                                 army_attack_factor = -0.85
+                                                                 army_defence_factor = -0.85
+                                                                 army_org_factor = -0.85
+war_support_factor = -1
+                                                                 forced_surrender_limit = -1.0
+			}
+		}
+	}
+}

@@ -1,0 +1,343 @@
+ideas = {
+
+	country = {
+    
+                                 lianheguojiaxuanyan = {
+			
+                                                picture = lianheguojiaxuanyan
+
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = no
+			}
+			on_add = {
+				owner = {
+				    if = {
+					limit = { not = { tag = USA } }
+					add_ideas = usa_lend_lease_support
+					}
+					set_country_flag = i_have_opinion_lianheguojiaxuanyan
+				add_opinion_modifier = {
+					target = SOV
+					modifier = anti_facism_league
+				}
+				add_opinion_modifier = {
+					target = USA
+					modifier = anti_facism_league
+				}
+				add_opinion_modifier = {
+					target = event_target:WTT_current_china_leader
+					modifier = anti_facism_league
+				}
+				add_opinion_modifier = {
+					target = ENG
+					modifier = anti_facism_league
+				}
+				
+				USA = {
+				add_opinion_modifier = {
+					target = ROOT
+					modifier = anti_facism_league
+				}
+				
+				}
+				
+				ENG = {
+				add_opinion_modifier = {
+					target = ROOT
+					modifier = anti_facism_league
+				}
+				
+				}
+				
+				event_target:WTT_current_china_leader = {
+				add_opinion_modifier = {
+					target = ROOT
+					modifier = anti_facism_league
+				}
+				
+				}
+				
+				SOV = {
+				add_opinion_modifier = {
+					target = ROOT
+					modifier = anti_facism_league
+				}
+				
+				}
+				
+				}
+			}
+			on_remove = {
+				owner = {
+					remove_ideas = usa_lend_lease_support
+				}
+				
+				random_country = { news_event = GER_economy_so_cute.111 }
+				
+				random_country = { news_event = CHI_guorugui.456 }
+				
+				event_target:WTT_current_china_leader = { news_event = CHI_guorugui.33 }
+				
+				if = {
+				limit = {
+				JAP = {
+				NOT = {
+				has_war_with = event_target:WTT_current_china_leader
+				}
+				}
+				}
+				event_target:WTT_current_china_leader = {
+				diplomatic_relation = {
+				    country = USA
+				    relation = guarantee
+				    active = no
+                }
+                diplomatic_relation = {
+				    country = SOV
+				    relation = guarantee
+				    active = no
+                }
+				}
+				
+				SOV = {
+				diplomatic_relation = {
+				    country = event_target:WTT_current_china_leader
+				    relation = guarantee
+				    active = no
+                }
+				}
+				USA = {
+				diplomatic_relation = {
+				    country = event_target:WTT_current_china_leader
+				    relation = guarantee
+				    active = no
+                }
+				}
+				
+				every_country = {
+				limit = { has_country_flag = i_have_opinion_lianheguojiaxuanyan }
+				remove_opinion_modifier = {
+					target = event_target:WTT_current_china_leader
+					modifier = anti_facism_league
+				}
+				}
+				
+				every_country = {
+				limit = { has_country_flag = i_have_opinion_lianheguojiaxuanyan }
+				event_target:WTT_current_china_leader = {
+				remove_opinion_modifier = {
+					target = PREV
+					modifier = anti_facism_league
+				}
+				}
+				}
+				
+				}
+			
+				if = {
+				limit = {
+				USA = {
+				NOT = {
+				has_war_with = GER
+				has_war_with = ITA
+				has_war_with = JAP
+				}
+				}
+				}
+				USA = {
+				set_faction_name = zibenzhuyi
+diplomatic_relation = {
+				                               country = SOV
+				                               relation = guarantee
+				                               active = no
+                                                                }
+diplomatic_relation = {
+				                               country = event_target:WTT_current_china_leader
+				                               relation = guarantee
+				                               active = no
+                                                                }
+}
+
+SOV = {
+set_faction_name = shehuizhuyi
+diplomatic_relation = {
+				                               country = USA
+				                               relation = guarantee
+				                               active = no
+                                                                }
+diplomatic_relation = {
+				                               country = event_target:WTT_current_china_leader
+				                               relation = guarantee
+				                               active = no
+                                                                }
+}
+
+event_target:WTT_current_china_leader = {
+set_faction_name = guomindang
+diplomatic_relation = {
+				                               country = USA
+				                               relation = guarantee
+				                               active = no
+                                                                }
+diplomatic_relation = {
+				                               country = SOV
+				                               relation = guarantee
+				                               active = no
+                                                                }
+}               
+				
+                every_country = {
+				limit = { has_country_flag = i_have_opinion_lianheguojiaxuanyan }
+				remove_opinion_modifier = {
+					target = event_target:WTT_current_china_leader
+					modifier = anti_facism_league
+				}
+				remove_opinion_modifier = {
+					target = USA
+					modifier = anti_facism_league
+				}
+				remove_opinion_modifier = {
+					target = ENG
+					modifier = anti_facism_league
+				}
+				remove_opinion_modifier = {
+					target = SOV
+					modifier = anti_facism_league
+				}
+				remove_opinion_modifier = {
+					target = root
+					modifier = anti_facism_league
+				}
+				}
+				
+				every_country = {
+				limit = { has_country_flag = i_have_opinion_lianheguojiaxuanyan }
+				USA = {
+				remove_opinion_modifier = {
+					target = PREV
+					modifier = anti_facism_league
+				}
+				}
+				ENG = {
+				remove_opinion_modifier = {
+					target = PREV
+					modifier = anti_facism_league
+				}
+				}
+				SOV = {
+				remove_opinion_modifier = {
+					target = PREV
+					modifier = anti_facism_league
+				}
+				}
+				event_target:WTT_current_china_leader = {
+				remove_opinion_modifier = {
+					target = PREV
+					modifier = anti_facism_league
+				}
+				}
+				root = {
+				remove_opinion_modifier = {
+					target = PREV
+					modifier = anti_facism_league
+				}
+				}
+				}
+				
+				}
+
+
+
+
+			}
+
+                                                available = {
+												OR = {
+												is_subject = no
+												has_autonomy_state = autonomy_dominion
+												}
+												NOT = {
+												is_in_faction_with = GER
+												is_in_faction_with = JAP
+												}
+												NOT = { has_war_with = USA }
+												NOT = { has_war_with = SOV }
+												NOT = { has_war_with = ENG }
+												NOT = { has_war_with = event_target:WTT_current_china_leader }
+                                                USA = {
+												OR = {
+												has_war_with = GER
+												has_war_with = ITA
+												has_war_with = JAP
+												}
+												}
+                                                }
+
+                                                visible = {
+                                                           
+                                                }
+			
+                                                cancel = {
+                                                              any_other_country = {
+                                                                                              has_idea = lianheguojiaxuanyan
+                                                                                              has_war_with = ROOT
+                                                              }
+                                                }
+                                                traits = {
+				plus_point_1_per_week #MODDED
+			}
+                                                rule = {
+			can_lower_tension = yes
+			can_only_justify_war_on_threat_country = yes
+			can_guarantee_other_ideologies = yes
+			}
+                                    
+																								
+												targeted_modifier = {
+					tag = USA
+				                
+				                
+				                trade_cost_for_target_factor = -0.5
+			}
+                                                targeted_modifier = {
+					tag = SOV
+				                
+				                
+				                trade_cost_for_target_factor = -0.5
+			}
+                                                targeted_modifier = {
+					tag = ENG
+				                
+				                
+				                trade_cost_for_target_factor = -0.5
+			}
+                                                targeted_modifier = {
+					tag = event_target:WTT_current_china_leader
+				                
+				                
+				                trade_cost_for_target_factor = -0.5
+			}
+                                                
+																																
+
+			modifier = {
+			ai_get_ally_desire_factor = 1000 #AI修正:加入或扩大一个阵营的意愿
+surrender_limit = 0.15
+                                                                 stability_weekly = 0.001
+war_support_weekly = 0.001
+political_power_factor = 0.1
+research_speed_factor = 0.05
+drift_defence_factor = -0.5
+trade_opinion_factor = 0.5
+opinion_gain_monthly_factor = 0.5
+production_speed_buildings_factor = 0.05
+license_purchase_cost = -0.25#生产许可购买花费
+		license_production_speed = 0.25#许可装备生产速度
+			}
+		}
+	}
+}

@@ -1,0 +1,1871 @@
+ideas = {
+
+	country = {
+	
+	usa_banglianyichan = {
+			picture = usa_banglianyichan
+			
+			
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				or = { has_government = neutrality has_government = fascism }
+			}
+			
+			available = {
+			    
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				army_org = 5
+				army_infantry_attack_factor = 0.1
+				army_infantry_defence_factor = 0.1
+				army_morale_factor = 0.1
+				drift_defence_factor = 0.5
+				fascism_acceptance = 200
+		        communism_acceptance = -200
+		        democratic_acceptance = -200
+				political_power_factor = 0.1
+				war_support_factor = 0.1
+			}
+			
+			rule = {
+			    
+			}
+	}
+	
+	USA_unrestricted_submarine_warfare = {
+
+
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			picture = FRA_army_of_aggression_focus
+
+			equipment_bonus = {
+
+				submarine = {
+					surface_detection = 0.1 instant = yes
+					sub_visibility = -0.1 instant = yes
+					build_cost_ic = -0.10
+				}
+			}
+	}
+	
+	usa_Marshall_plan = {
+			picture = usa_Marshall_plan
+			
+			
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				is_democratic_type = yes
+			}
+			
+			available = {
+			    is_subject = no
+				is_faction_leader = yes
+				any_other_country = { has_idea = usa_Marshall_plan_ally }
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				consumer_goods_factor = 0.25
+			}
+			
+			rule = {
+			    
+			}
+	}
+	
+	usa_Marshall_plan_ally = {
+			picture = usa_Marshall_plan
+			name = usa_Marshall_plan
+			
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				is_democratic_type = yes
+			}
+			
+			available = {
+			    USA = {
+				    has_idea = usa_Marshall_plan
+					not = { has_war_with = root }
+				}
+				NOT = { has_government = communism has_government = fascism }
+			}
+
+			removal_cost = -1
+			
+			targeted_modifier = {
+				tag = USA
+				#cic_to_target_factor = 0.05
+				extra_trade_to_target_factor = 0.25
+				trade_cost_for_target_factor = -0.5
+			}
+			
+			modifier = {
+				industry_repair_factor = 0.3
+				production_speed_buildings_factor = 0.15
+				research_speed_factor = 0.15
+				industrial_capacity_factory = 0.15
+				industrial_capacity_dockyard = 0.15
+				consumer_goods_factor = -0.2
+				local_resources_factor = 0.15
+				stability_weekly = 0.002
+				weekly_manpower = 500
+				global_building_slots_factor = 0.15
+				production_factory_max_efficiency_factor = 0.15
+				production_factory_efficiency_gain_factor = 0.15
+			}
+			
+			on_add = {
+				add_offsite_building = { type = industrial_complex level = 5 }
+				add_offsite_building = { type = arms_factory level = 5 }
+			}
+
+			on_remove = {
+				add_offsite_building = { type = industrial_complex level = -5 }
+				add_offsite_building = { type = arms_factory level = -5 }
+			}
+			
+			rule = {
+			    
+			}
+	}
+	
+	kaibai = {
+			picture = hol_aloof_neutrality
+			
+			name = "孤立主义"
+			
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+			
+			available = { is_ai = yes }
+
+			removal_cost = -1
+			
+			modifier = {
+				ai_get_ally_desire_factor = -99999 #AI修正:加入或扩大一个阵营的意愿
+				ai_join_ally_desire_factor = -99999 #AI修正:参加战争意愿
+		        ai_call_ally_desire_factor = -99999 #AI修正:请求盟友加入战争意愿
+				ai_focus_peaceful_factor = 10
+				ai_badass_factor = 0.01 # cares for 3% of normal threat
+				ai_desired_divisions_factor = -10 #MODDED
+			}
+			
+			rule = {
+			    can_join_factions = no
+				can_not_declare_war = yes
+				can_send_volunteers = no
+				can_create_factions = no
+				can_create_collaboration_government = no
+				can_puppet = no
+				can_guarantee_other_ideologies = no
+				can_only_justify_war_on_threat_country = yes
+			}
+	}
+	
+	democratic_influence_zzz = {
+			name = democratic_influence
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				has_government = democratic
+			}
+
+			removal_cost = -1
+
+			picture = generic_democratic_drift_bonus
+			
+			modifier = {
+				democratic_drift = 0.75
+				democratic_acceptance = 200
+			}
+	}
+	socialist_influence_zzz = {
+            name = socialist_influence
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				has_government = n_socialism
+			}
+			removal_cost = -1
+			picture = generic_socialism_drift_bonus
+
+			modifier = {
+				n_socialism_drift = 0.75
+				n_socialism_acceptance = 200
+			}
+	}
+		
+	fic_be_loyal_to_vic = {
+		    picture = hol_de_vaarplicht
+			
+			available = {
+			    OR = {
+			       has_government = neutrality
+				   has_government = fascism
+			    }
+				any_other_country = {
+				has_focus_tree = vichy_french_focus
+				exists = yes
+				or = {
+				is_subject = no
+				is_subject_of = GER
+				}
+				}
+			}
+			
+			cancel = {
+			    OR = {
+			       has_war_with = event_target:vichy_france
+				   has_war_with = GER
+				   is_in_faction_with = ENG
+				   is_in_faction_with = JAP
+			    }
+			}
+
+			removal_cost = -1
+			
+			targeted_modifier = {
+				tag = VIC
+				cic_to_target_factor = 0.1
+				mic_to_target_factor = 0.1
+				extra_trade_to_target_factor = 0.5
+				trade_cost_for_target_factor = -0.5
+			}
+			
+			modifier = {
+				drift_defence_factor = 0.25
+				fascism_acceptance = 200
+		        communism_acceptance = -200
+		        democratic_acceptance = -200
+				political_power_factor = 0.1
+				stability_factor = 0.1
+				ai_get_ally_desire_factor = -50000 #AI修正:加入或扩大一个阵营的意愿
+				ai_join_ally_desire_factor = -50000 #AI修正:参加战争意愿
+		        ai_call_ally_desire_factor = -50000 #AI修正:请求盟友加入战争意愿
+			}
+	}
+	
+	irq_british_presence = {
+		    picture = eng_the_sun_never_sets
+			
+			allowed = {
+			}
+			
+			cancel = {
+			    has_war_with = ENG
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				neutrality_drift = 0.2
+				drift_defence_factor = 0.5
+				fascism_acceptance = -200
+		        neutrality_acceptance = 200
+		        communism_acceptance = -200
+		        democratic_acceptance = 200
+			}
+	}
+		
+	USA_gulizhuyi = { #
+			
+			allowed = {
+				always = no
+			}
+			
+			picture = hol_aloof_neutrality
+			
+			name = "孤立主义"
+			
+			removal_cost = -1
+			
+			allowed_civil_war = {
+				always = no
+			}
+			
+			available = {
+			has_war = no
+			is_in_faction = no
+			is_democratic_type = yes
+			ENG = { surrender_progress < 0.1 }
+			SOV = { surrender_progress < 0.75 }
+			date < 1942.1.1
+			}
+			
+			modifier = {
+			ai_get_ally_desire_factor = -9999 #AI修正:加入或扩大一个阵营的意愿
+			}
+			
+			cancel = {
+			CHI = { is_subject_of = JAP }
+			}
+			
+			rule = { #guo
+			can_join_factions = no
+			}
+	}
+		
+	USA_national_prosperity_program_ideas = {
+			allowed = {
+				always = no
+			}
+			picture = generic_build_infrastructure
+			allowed_civil_war = {
+				is_democratic_type = no
+			}
+			available = {
+				
+			}
+			removal_cost = -1
+			
+			modifier = {
+				consumer_goods_factor = -0.15
+				production_speed_buildings_factor = 0.1
+			}
+	}
+		
+	AFG_Imperial_Cemetery = {
+	
+	        picture = chi_war_of_resistance
+	
+	        allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			available = {
+			    
+			}
+			cancel = {
+			   is_subject = yes
+			}
+			targeted_modifier = {
+			    
+			}
+			modifier = {
+				army_core_attack_factor = 0.5
+				army_core_defence_factor = 0.5
+				army_morale_factor = 0.25
+				army_org_factor = 0.15
+				supply_combat_penalties_on_core_factor = -0.8
+				pocket_penalty = -0.8
+				
+				compliance_growth_on_our_occupied_states = -1 #我们被敌人占领地区的顺从度增长速度
+		        resistance_decay_on_our_occupied_states = -1 #我们被敌人占领地区的抵抗下降速度
+		        resistance_growth_on_our_occupied_states = 1 #我们被敌人占领地区的抵抗增长速度
+				resistance_damage_to_garrison_on_our_occupied_states = 1
+		        resistance_target_on_our_occupied_states = 1
+				
+				conscription = 0.1
+				surrender_limit = 1
+				defensive_war_stability_factor = 0.5
+				war_support_factor = 0.25
+				consumer_goods_factor = -0.3
+				dig_in_speed_factor = 0.5
+				max_dig_in_factor = 0.3
+				mobilization_speed = 0.5
+			}
+			removal_cost = -1
+	}
+	
+	VIC_puppet_of_ger = {
+	
+	        picture = hol_de_vaarplicht
+	
+	        allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				is_democratic_type = no
+			}
+			available = {
+			    NOT = { controls_state = 16 }
+			    has_focus_tree = vichy_french_focus
+			}
+			cancel = {
+			   OR = {
+			   is_subject_of = GER
+			   is_puppet_of = GER
+			   }
+			}
+			targeted_modifier = {
+			    tag = GER
+				cic_to_target_factor = 0.15
+				mic_to_target_factor = 0.15
+				extra_trade_to_target_factor = 0.5
+				trade_cost_for_target_factor = -0.5
+			}
+			modifier = {
+				
+			} 
+			removal_cost = -1
+	}
+	
+	USA_more_XP = {
+	
+	picture = junqing6chu
+	
+	allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			available = {
+			
+			}
+			cancel = { 
+			   
+			}
+			modifier = {
+				experience_gain_army = 0.25
+                experience_gain_navy = 0.25
+                experience_gain_air = 0.25
+				conscription_factor = 0.15
+			} 
+			removal_cost = -1
+	}
+	
+	all_infected_by_commi = {
+			name = rom_infected_by_commi
+                                                picture = generic_communism_drift_bonus
+
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				has_government = communism 
+			}
+
+                                                available = {
+                                                      has_government = communism                                                    
+                                                }
+
+                                                visible = {
+                                                             
+                                                }
+			
+                                                cancel = {
+                                                         
+                                                }
+
+                                                targeted_modifier = {
+					
+			}
+                                                     
+			modifier = {
+                          communism_drift = 0.1
+						  communism_acceptance = 200
+			}
+	}
+		
+	rom_infected_by_commi = {
+			
+                                                picture = generic_communism_drift_bonus
+
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				has_government = communism 
+			}
+
+                                                available = {
+                                                       not = { has_idea = all_infected_by_commi }                                                 
+                                                }
+
+                                                visible = {
+                                                             
+                                                }
+			
+                                                cancel = {
+                                                     has_government = communism     
+                                                }
+
+                                                targeted_modifier = {
+					
+			}
+                                                     
+			modifier = {
+                          communism_drift = 0.25
+						  drift_defence_factor = -0.5
+						  communism_acceptance = 200
+			}
+	}
+		
+	usa_lend_lease_support = {
+			
+                                                picture = usa_fuckyeah
+
+			allowed = {
+				NOT = { TAG = USA }
+			}
+
+			allowed_civil_war = {
+				NOT = { has_war_with = USA }
+			}
+
+                                                available = {
+                                                                  has_defensive_war = yes
+                                                                  NOT = { has_war_with = USA } 
+																  NOT = { TAG = USA }
+                                                }
+
+                                                visible = {
+                                                             
+                                                }
+			
+                                                cancel = {
+                                                         USA = { surrender_progress > 0.05 }     
+                                                }
+
+                                                targeted_modifier = {
+					tag = USA
+				                
+				                
+				                trade_cost_for_target_factor = -0.25
+			}
+                                                     
+			modifier = {
+                                                                 consumer_goods_factor = -0.15
+                                                                 industrial_capacity_factory = 0.05
+																 industrial_capacity_dockyard = 0.05
+																 production_factory_max_efficiency_factor = 0.05
+																 production_factory_efficiency_gain_factor = 0.05
+																 production_lack_of_resource_penalty_factor = -0.25
+			}
+		}
+		
+	swi_ruishiyinhang = {
+			
+                                                picture = SPR_seize_the_gold_reserves
+
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+                                                available = {
+                                                                  has_war = no
+                                                                                                          
+                                                }
+
+                                                visible = {
+                                                             
+                                                }
+			
+                                                cancel = {
+                                                              
+                                                }
+
+                                                targeted_modifier = {
+					
+			}
+                                                     
+			modifier = {
+                                                                 consumer_goods_factor = -0.3
+                                                                 global_building_slots_factor = 0.15
+																 production_speed_buildings_factor = 0.1
+                                                                 research_speed_factor = 0.1
+			}
+		}
+		
+	usa_FBI = {
+			
+            picture = fbi_anti_communism
+
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				NOT = { has_government = communism }
+			}
+
+            available = {
+                NOT = { has_government = communism }
+				
+            }
+
+            visible = {
+                
+            }
+			
+            cancel = {
+					
+                                                              
+            }
+
+            targeted_modifier = {
+				
+			}
+			
+            #rule = {
+			   #can_only_justify_war_on_threat_country = yes
+			#}      
+			modifier = {
+            operative_slot = 3
+agency_upgrade_time = -0.15
+                                                                 civilian_intel_to_others = -10
+
+ army_intel_to_others = -10
+ navy_intel_to_others = -10
+ airforce_intel_to_others = -10
+encryption = 5
+intelligence_agency_defense = 5
+enemy_operative_capture_chance_factor = 0.15
+enemy_operative_detection_chance_factor = 0.15
+
+own_operative_capture_chance_factor = -0.15
+own_operative_detection_chance_factor = -0.15
+		decryption_power = 50 #破译能力
+army_intel_decryption_bonus = 5 #破译陆军密码加成
+		navy_intel_decryption_bonus = 5 #破译海军密码加成
+		airforce_intel_decryption_bonus = 5 #破译的空军密码加成
+operation_infiltrate_outcome = 0.15 #渗透效率
+operation_outcome = 0.15 #行动效率
+			}
+			#equipment_bonus = {
+             #                                                   
+				#convoy = {
+				#	build_cost_ic = -0.25
+				#	instant = yes
+				#}
+			#	
+			#}   
+            #traits = {
+			#	plus_point_1_per_week #MODDED
+			#}
+	}
+	
+	ally_prepare_for_overlord = {
+			
+            picture = liberty_ships_focus
+
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				has_idea = lianheguojiaxuanyan
+			}
+
+            available = {
+                has_war_with = GER
+				has_idea = lianheguojiaxuanyan
+				
+            }
+
+            visible = {
+                
+            }
+			
+            cancel = {
+OR = {
+15 = { controller = { has_war_with = GER } }
+14 = { controller = { has_war_with = GER } }
+29 = { controller = { has_war_with = GER } }
+21 = { controller = { has_war_with = GER } }
+}					
+                                                              
+            }
+
+            targeted_modifier = {
+				
+			}
+			
+            #rule = {
+			   #can_only_justify_war_on_threat_country = yes
+			#}      
+			modifier = {
+            command_power_gain = 0.5
+experience_gain_army = 0.25
+experience_gain_navy = 0.25
+experience_gain_air = 0.25
+max_planning = 0.1
+naval_invasion_planning_bonus_speed = 0.15
+training_time_factor = -0.25
+decryption_power = 50
+operation_outcome = 0.25
+boost_resistance_factor = 0.25
+mines_sweeping_by_fleets_factor = 0.25
+production_speed_air_base_factor = 0.25
+production_speed_radar_station_factor = 0.25
+			}
+			equipment_bonus = {
+                                                                
+				convoy = {
+					build_cost_ic = -0.25
+					instant = yes
+				}
+				
+			}   
+            #traits = {
+			#	plus_point_1_per_week #MODDED
+			#}
+	}
+	
+	ally_ready_for_overlord = {
+			
+            picture = liberty_ships_focus
+
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				has_idea = lianheguojiaxuanyan
+			}
+
+            available = {
+                has_war_with = GER
+				has_idea = lianheguojiaxuanyan
+				
+            }
+
+            visible = {
+                
+            }
+			
+            cancel = {
+					
+                                                              
+            }
+
+            targeted_modifier = {
+				tag = GER
+				breakthrough_bonus_against = 0.05
+				attack_bonus_against = 0.05
+                defense_bonus_against = 0.05
+			}
+			
+            #rule = {
+			   #can_only_justify_war_on_threat_country = yes
+			#}      
+			modifier = {
+            command_power_gain = 0.5
+			max_command_power = 30
+			air_superiority_efficiency = 0.15
+			army_bonus_air_superiority_factor = 0.15
+			navy_anti_air_attack_factor = 0.15
+			army_intel_decryption_bonus = 5
+		navy_intel_decryption_bonus = 5
+		airforce_intel_decryption_bonus = 5
+		invasion_preparation = -0.25
+naval_invasion_penalty = -0.25
+                                                                  naval_invasion_capacity = 25
+                                                                  amphibious_invasion_defence = 0.25
+                                                                  amphibious_invasion = 0.25
+                                                                  transport_capacity = -0.25
+
+			}
+			#equipment_bonus = {
+             #                                                   
+				#convoy = {
+				#	build_cost_ic = -0.25
+				#	instant = yes
+				#}
+				#
+			#}   
+            #traits = {
+			#	plus_point_1_per_week #MODDED
+			#}
+	}
+	            
+	first_defeat_germany = {
+			
+            picture = generic_acquire_tanks
+
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				has_idea = lianheguojiaxuanyan
+			}
+
+            available = {
+                has_war_with = GER
+				has_idea = lianheguojiaxuanyan
+            }
+
+            visible = {
+                
+            }
+			
+            cancel = {
+                                                              
+                                                              
+            }
+
+            targeted_modifier = {
+				tag = GER
+				                
+				attack_bonus_against = 0.05
+                defense_bonus_against = 0.05
+			}
+			
+			targeted_modifier = {
+				tag = JAP
+				                
+				attack_bonus_against = -0.05
+                defense_bonus_against = -0.05
+			}
+			
+            #rule = {
+			   #can_only_justify_war_on_threat_country = yes
+			#}      
+			modifier = {
+            
+			}
+            #traits = {
+			#	plus_point_1_per_week #MODDED
+			#}
+	}
+	eng_colony_mobalization = {
+	
+	picture = por_colonial_army
+	
+	allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			cancel = { 
+			    has_war = no
+			}
+			modifier = {
+				resistance_damage_to_garrison = -0.5
+required_garrison_factor = -0.5
+resistance_target = -0.5
+resistance_growth = -0.5
+				non_core_manpower = 0.5
+			} 
+			removal_cost = -1
+		}
+	
+    
+                                 eng_alaman = {
+			
+                                                picture = generic_acquire_tanks
+
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+                                                available = {                                                                
+                                                                  448 = {
+                                                                          is_controlled_by = ITA
+                                                                   }                                                                 
+                                                      has_war_with = ITA
+                                                                                                         
+                                                }
+
+                                                visible = {
+                                                            
+                                                }
+			
+                                                cancel = {
+                                                              
+                                                }
+
+                                                targeted_modifier = {
+				tag = ITA
+				breakthrough_bonus_against = 0.35
+				attack_bonus_against = 0.35
+                                                                defense_bonus_against = 0.35				
+			}
+                                                targeted_modifier = {
+				tag = GER
+				breakthrough_bonus_against = 0.35
+				attack_bonus_against = 0.35
+                                                                defense_bonus_against = 0.35				
+			}
+                                                targeted_modifier = {
+				tag = VIC
+				breakthrough_bonus_against = 0.35
+				attack_bonus_against = 0.35
+                                                                defense_bonus_against = 0.35				
+			}
+			modifier = {
+                                                                 ai_focus_aggressive_factor = 2.00
+                                                                 supply_consumption_factor = -0.75
+                                                                 out_of_supply_factor = -0.75
+                                                                 planning_speed = 0.3
+				 max_planning = 0.3
+
+			}
+		}
+
+	                eng_junqing6chu = {
+			
+                                                picture = junqing6chu
+
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+                                                available = {                                                                
+                                                                                                          
+                                                }
+
+                                                visible = {
+                                                        
+                                                }
+			
+                                                cancel = {
+                                                              
+                                                }
+
+                                                
+			modifier = {
+            operative_slot = 3
+agency_upgrade_time = -0.15
+                                                                 civilian_intel_to_others = -10
+
+ army_intel_to_others = -10
+ navy_intel_to_others = -10
+ airforce_intel_to_others = -10
+encryption = 5
+intelligence_agency_defense = 5
+enemy_operative_capture_chance_factor = 0.15
+enemy_operative_detection_chance_factor = 0.15
+
+own_operative_capture_chance_factor = -0.15
+own_operative_detection_chance_factor = -0.15
+		decryption_power = 50 #破译能力
+army_intel_decryption_bonus = 5 #破译陆军密码加成
+		navy_intel_decryption_bonus = 5 #破译海军密码加成
+		airforce_intel_decryption_bonus = 5 #破译的空军密码加成
+operation_infiltrate_outcome = 0.15 #渗透效率
+operation_outcome = 0.15 #行动效率
+			}
+		}
+
+                                eng_weixiayicidazhanzuohaozhunbei = {
+			
+                                                picture = generic_reserve_divisions
+
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+                                                available = {                                                                
+                                                                  has_country_leader = { ruling_only = yes name = "Winston Churchill" }
+		has_government = democratic                                                     
+                                                }
+
+                                                visible = {
+                                                            
+                                                }
+			
+                                                cancel = {
+                                                              
+                                                }
+
+                                                
+			modifier = {
+                                                                 ai_focus_military_equipment_factor = 0.5
+                                                               
+consumer_goods_factor = -0.07
+
+industrial_capacity_factory = 0.1
+industrial_capacity_dockyard = 0.1
+drift_defence_factor = 0.25
+stability_factor = -0.1
+war_support_factor = 0.1
+conscription_factor = 0.15
+production_speed_infrastructure_factor = -0.1
+production_speed_industrial_complex_factor = -0.1
+production_speed_arms_factory_factor = 0.1
+
+			}
+		}
+		
+        dulizuozhan = {
+			
+                                                picture = hol_de_vaarplicht
+
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+                                                available = {                                                                                               
+                                                                  any_other_country = {
+                                            has_government = fascism
+is_major = yes
+has_war_with = ROOT
+}                                    
+                                                }
+
+                                                visible = {
+                                                           
+                                                }
+			
+                                                cancel = {
+                                                              
+                                                }
+
+                                                targeted_modifier = {
+								
+			}
+
+			modifier = {
+                                                               army_attack_factor = -0.1
+breakthrough_factor = -0.1
+army_defence_factor = -0.1
+army_morale_factor = -0.2
+stability_weekly = -0.003
+war_support_weekly = -0.003
+			}
+                                                traits = {
+				minus_point_1_per_week #MODDED
+			}
+
+		
+		}
+		
+        eng_shehuifulifaan = {
+			
+                                                picture = generic_constitutional_guarantee
+
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+                                                available = {
+                                                            #has_country_leader = { ruling_only = yes name = "kelaimente_lichade_aideli"}
+		has_government = n_socialism 
+                                                                                                          
+                                                }
+
+                                                visible = {
+                                                            
+                                                }
+			
+                                                cancel = {
+                                                              
+                                                              
+                                                }
+
+                                                targeted_modifier = {
+					
+			}
+                                                
+                                                
+    
+			modifier = {
+ai_focus_peaceful_factor = 0.5
+political_power_factor = 0.1
+                   research_speed_factor = 0.075
+consumer_goods_factor = 0.07
+global_building_slots_factor = 0.15
+industrial_capacity_factory = -0.05
+industrial_capacity_dockyard = -0.05
+stability_factor = 0.1
+war_support_factor = -0.1
+weekly_manpower = 500
+production_speed_infrastructure_factor = 0.1
+production_speed_industrial_complex_factor = 0.1
+production_speed_arms_factory_factor = -0.1
+
+			}
+	    }
+			  
+	mon_weibeichengren = {
+			
+                                                picture = hol_de_vaarplicht
+
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+                                                available = {
+is_subject_of = SOV  												
+                                                         														 
+                                                }
+
+                                                visible = {
+                                                             
+                                                }
+			
+                                                cancel = {
+												OR = {
+                                                          SOV = { has_completed_focus = SOV_found_the_comecon } 
+														  CHI = { is_subject = yes }
+														  NOT = { country_exists = CHI }
+														  is_in_faction_with = CHI
+														  is_major = yes
+														  num_of_controlled_states > 10
+														  num_of_factories > 35
+														  has_army_manpower = { size > 150000 }
+                                                }														  
+                                                }
+
+                                                targeted_modifier = {
+								
+			                                    }											
+
+			modifier = {
+            political_power_factor = -0.05
+stability_factor = -0.05
+war_support_factor = -0.05
+trade_opinion_factor = -0.25
+			}
+		}
+		
+	first_defeat_japan = {
+			
+            picture = generic_acquire_tanks
+
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				has_idea = lianheguojiaxuanyan
+			}
+
+            available = {
+                has_war_with = JAP
+				has_idea = lianheguojiaxuanyan
+            }
+
+            visible = {
+                
+            }
+			
+            cancel = {
+                                                              
+                                                              
+            }
+
+            targeted_modifier = {
+				tag = JAP
+				                
+				attack_bonus_against = 0.05
+                defense_bonus_against = 0.05
+			}
+			
+			targeted_modifier = {
+				tag = GER
+				                
+				attack_bonus_against = -0.05
+                defense_bonus_against = -0.05
+			}
+			
+            #rule = {
+			   #can_only_justify_war_on_threat_country = yes
+			#}      
+			modifier = {
+            
+			}
+            #traits = {
+			#	plus_point_1_per_week #MODDED
+			#}
+	}
+	
+
+                                usa_pearl_harbour_afterwinds = {
+			
+                                                picture = CHI_coast_focus_idea
+
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = no
+			}
+
+                                                available = {
+has_war_with = JAP                                                                                                
+                                                }
+
+                                                visible = {
+                                                             
+                                                }
+			
+                                                cancel = {
+                                                              
+                                                              
+                                                }
+
+                                                targeted_modifier = {
+					
+			}
+                                                
+			modifier = {
+                                                                 ai_focus_defense_factor = 1
+																 
+                                                                 naval_invasion_capacity = -50
+                                                                 invasion_preparation = 5
+naval_strike = -0.2
+naval_hit_chance = -0.2
+naval_speed_factor = -0.2
+navy_max_range_factor = -0.2
+navy_anti_air_attack_factor = -0.2
+navy_org_factor = -0.2
+naval_detection = -0.2
+positioning = -0.2
+naval_coordination = -0.2
+screening_efficiency = -0.2
+air_attack_factor = -0.2
+air_agility_factor = -0.2
+air_mission_efficiency = -0.2
+naval_strike_targetting_factor = -0.2
+			}
+                                                
+		}
+
+                                nato_member = {
+			
+                                                picture = generic_NATO
+
+			allowed = {
+				always = no
+			}
+			
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+                                                available = {
+	if = {
+limit = { is_faction_leader = no }	
+any_country = {
+OR = {
+         is_democratic_type = yes
+		 }
+is_major = yes         
+is_faction_leader = yes  
+is_in_faction_with = ROOT                                                                                                         
+}         
+}                                                                                                 
+                                                }
+
+                                                visible = {
+                                                             
+                                                }
+			
+                                                cancel = {
+                                                              
+                                                              
+                                                }
+
+                                                targeted_modifier = {
+					
+			}
+                                                rule = {
+				can_send_volunteers = yes
+	can_puppet = yes
+	can_only_justify_war_on_threat_country = no
+			}
+			
+			modifier = {
+			justify_war_goal_time = -0.5
+			generate_wargoal_tension = -1
+			lend_lease_tension = -1
+		guarantee_tension = -1
+		send_volunteer_size = 5
+	    send_volunteers_tension = -1
+			army_attack_against_major_factor = 0.1
+			
+                                                                 communism_drift = -0.2
+surrender_limit = 0.15
+operative_slot = 1
+communism_acceptance = -1000
+democratic_acceptance = 200
+neutrality_acceptance = 200
+			}
+                                                #traits = {
+			#	plus_point_1_per_week #MODDED
+			#}
+		}
+
+                                warsaw_member = {
+			
+                                                picture = warsaw_pact
+
+			allowed = {
+				always = no
+			}
+			
+			
+			allowed_civil_war = {
+				always = yes
+			}
+
+                                                available = {
+
+is_in_faction_with = SOV
+                                                                                                         
+                                                }
+
+                                                visible = {
+                                                              
+                                                }
+			
+                                                cancel = {
+                                                              
+                                                              
+                                                }
+
+                                                targeted_modifier = {
+					
+			}
+                                                rule = {
+				can_send_volunteers = yes
+	can_puppet = yes
+	can_only_justify_war_on_threat_country = no
+			}
+			
+			modifier = {
+justify_war_goal_time = -0.5
+			generate_wargoal_tension = -1
+			lend_lease_tension = -1
+		guarantee_tension = -1
+		send_volunteer_size = 5
+	    send_volunteers_tension = -1
+army_attack_against_major_factor = 0.1
+                                                                 democratic_drift = -0.1
+																 communism_drift = 0.1
+surrender_limit = 0.15
+operative_slot = 1
+communism_acceptance = 200
+neutrality_acceptance = 200
+democratic_acceptance = -1000
+			}
+                                                #traits = {
+			#	plus_point_1_per_week #MODDED
+			#}
+		}
+
+                                TO_chose_neutrality_modded = {
+			
+                                                picture = generic_pp_unity_bonus
+
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+                                                available = {
+has_war = no                                                                                                      
+                                                }
+
+                                                visible = {
+                                                             
+                                                }
+			
+                                                cancel = {
+                                                              
+                                                              
+                                                }
+
+                                                targeted_modifier = {
+					
+			}
+                                                rule = {
+				can_join_factions = no
+			}      
+			modifier = {
+                                                                 trade_opinion_factor = 0.2
+opinion_gain_monthly_factor = 0.2
+improve_relations_maintain_cost_factor = -0.2
+ai_focus_peaceful_factor = 1
+enemy_justify_war_goal_time = 0.5
+				democratic_acceptance = -100
+				communism_acceptance = -100
+			}
+                                                #traits = {
+			#	plus_point_1_per_week #MODDED
+			#}
+		}
+
+            EGY_non_independence = {#guo
+			picture = generic_disjointed_gov
+			allowed = {			
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+                                                available = {
+                                                              is_subject_of = ENG
+			}
+			cancel = { is_subject = no }
+
+			removal_cost = -1
+			
+			#targeted_modifier = {
+			#	tag = ENG
+			#	cic_to_target_factor = 0.15
+			#	mic_to_target_factor = 0.15
+			#	extra_trade_to_target_factor = 0.25
+			#	trade_cost_for_target_factor = -0.25
+			#}
+			
+			modifier = {
+				cic_to_overlord_factor = 0.25
+				mic_to_overlord_factor = 0.25
+				extra_trade_to_overlord_factor = 0.25
+				overlord_trade_cost_factor = -0.25
+				
+			autonomy_manpower_share = 0.25
+			can_master_build_for_us = 1
+max_command_power = -15
+command_power_gain = -0.25
+consumer_goods_factor = 0.15
+#conscription_factor = -0.3
+                                                                 political_advisor_cost_factor = 0.25
+				trade_laws_cost_factor = 0.25
+				mobilization_laws_cost_factor = 0.25
+				economy_cost_factor = 0.25
+                                                                political_power_factor = -0.1
+			}
+                                                
+		}
+
+                                SAF_gold_exports1 = {#guo
+			picture = SPR_seize_the_gold_reserves
+			allowed = {
+				original_tag = FRA
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = no
+			}
+
+                                                available = {
+                                                              controls_state = 772
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+                                                                 consumer_goods_factor = -0.06
+                                                                
+			}
+                                                traits = {
+				plus_point_1_per_week #MODDED
+			}
+		}
+
+        FRA_FREE_army = {#guo
+			picture = chi_army_corruption3
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				is_democratic_type = yes
+			}
+
+            cancel = {
+                has_capitulated = no
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				mobilization_laws_cost_factor = -0.5
+high_command_cost_factor = -0.5
+political_power_factor = 0.15
+operative_slot = 3
+max_planning = -0.1
+planning_speed = -0.1
+stability_factor = 0.1
+                war_support_factor = 0.1
+			}
+		}
+
+        FRA_colonial_recruitment111 = {#guo
+			picture = por_colonial_army
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				is_democratic_type = yes
+			}
+
+			removal_cost = -1
+			
+			available = {
+			
+			}
+
+			cancel = {
+has_war = no
+            }
+
+			modifier = {
+army_attack_factor = 0.1
+				army_defence_factor = 0.1
+breakthrough_factor = 0.1
+no_supply_grace = 72
+resistance_damage_to_garrison = -0.5
+required_garrison_factor = -0.5
+resistance_target = -0.5
+resistance_growth = -0.5
+compliance_gain = 0.5
+				non_core_manpower = 0.5
+				conscription = 0.02
+			}
+		}
+
+        rt56_the_gaint_wakes_idea = { #guo
+			picture = generic_democratic_drift_bonus
+
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				is_democratic_type = yes
+			}
+available = {
+                                                                  is_democratic_type = yes
+                                                                                                          
+                                                }
+			removal_cost = -1
+			
+			modifier = {
+consumer_goods_factor = -0.15
+				production_speed_arms_factory_factor = 0.25
+				production_speed_dockyard_factor = 0.25
+			}
+		}
+
+        wartime_industry_focus_usa = { #guo
+			picture = usa_fuckyeah
+
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				is_democratic_type = yes
+			}
+available = {
+                                                                  is_democratic_type = yes
+                                                                                                      has_war = yes    
+                                                }
+			removal_cost = -1
+			traits = {
+				plus_point_1_per_week #MODDED
+			}
+			modifier = {
+stability_factor = -0.1
+production_speed_synthetic_refinery_factor = 0.25
+conversion_cost_civ_to_mil_factor = -0.5
+production_factory_max_efficiency_factor = 0.25
+production_factory_start_efficiency_factor = 0.25
+				production_factory_efficiency_gain_factor = 0.25
+line_change_production_efficiency_factor = 0.25
+industrial_capacity_factory = 0.25
+industrial_capacity_dockyard = 0.25
+research_speed_factor = 0.10
+ammunition_factor = 0.25
+				ammunition_capacity_factor = 0.25
+			}
+		}
+
+        swi_bank = {
+			
+                                                picture = SPR_seize_the_gold_reserves
+
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				NOT = { has_government = communism }
+			}
+
+                                                available = {
+                                                                  SWI = { NOT = { has_government = communism } }
+                                                                  NOT = { has_government = communism }                                        
+                                                }
+
+                                                visible = {
+                                                             
+                                                }
+			
+                                                cancel = {
+                                                              SWI = { has_war = yes }
+                                                              
+                                                }
+
+                                                targeted_modifier = {
+					
+			}
+                                                     
+			modifier = {
+                                                                 consumer_goods_factor = -0.06
+                                                                 industrial_capacity_factory = 0.05     
+ production_factory_max_efficiency_factor = 0.05
+
+ production_factory_efficiency_gain_factor = 0.05
+			}
+                                                traits = {
+				plus_point_1_per_week #MODDED
+			}
+		}
+		
+		fin_continue_war = {
+			
+            picture = tur_sub_zero_survival_training
+
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = no
+			}
+
+                                                available = {
+                                                has_war_with = SOV
+                                                }
+
+                                                visible = {
+                                                      
+                                                }
+			
+                                                cancel = {
+                                                           
+                                                }
+                                                
+                                                targeted_modifier = {
+								 tag = SOV
+				breakthrough_bonus_against = 0.15
+				attack_bonus_against = 0.15
+				defense_bonus_against = 0.15
+			}
+
+			modifier = {
+				ai_focus_aggressive_factor = 0.5
+				planning_speed = 0.25
+				max_planning = 0.15
+				org_loss_when_moving = -0.15
+				army_speed_factor = 0.15
+				army_morale_factor = 0.15
+                attrition = -0.25
+                out_of_supply_factor = -0.5
+				supply_combat_penalties_on_core_factor = -0.4
+                supply_consumption_factor = -0.5
+				command_power_gain = 0.5
+	            max_command_power = 50
+				experience_loss_factor = -0.5
+				terrain_penalty_reduction = 0.25
+			}
+		}
+		
+	    fin_revenge_sov = {
+			
+            picture = FRA_scw_intervention_republicans_focus
+
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = no
+			}
+
+                                                available = {
+                                        is_subject = no
+                                                }
+
+                                                visible = {
+                                                        
+                                                }
+			
+                                                cancel = {
+                                                    OR = {
+SOV = { exists = no }
+SOV = { is_subject = yes }
+SOV = { is_in_faction_with = root }
+												  }
+                                                }
+                                                
+                                                targeted_modifier = {
+								 tag = SOV
+				attack_bonus_against = 0.2
+				defense_bonus_against = 0.2
+				breakthrough_bonus_against = 0.2
+			}
+
+			modifier = {
+                war_support_factor = 0.15
+				war_stability_factor = 0.25
+				political_power_factor = 0.15
+				weekly_manpower = 750
+				surrender_limit = 0.5
+				supply_combat_penalties_on_core_factor = -0.5
+				consumer_goods_factor = -0.3
+				production_speed_arms_factory_factor = 0.15
+				industrial_capacity_factory = 0.15
+				conscription = 0.05
+				mobilization_speed = 0.5
+				communism_acceptance = -200
+			}
+		}
+		
+        fin_ger_brother = {
+			
+            picture = neutrality_idea
+
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = no
+			}
+
+                                                available = {  
+                                                  is_subject = no
+                                                  is_in_faction = no
+												  not = { has_war_with = GER }
+												  GER = {
+												  exists = yes
+												  is_subject = no
+												  }
+                                                }
+
+                                                visible = {
+                                                   
+                                                }
+			
+                                                cancel = {
+                                                  
+                                                }
+                                                #rule = {
+												#can_join_factions = no
+												#}
+                                                targeted_modifier = {
+								 tag = GER
+			trade_cost_for_target_factor = -0.25
+			}
+
+			modifier = {
+                ai_get_ally_desire_factor = -99999 #AI修正:加入或扩大一个阵营的意愿
+				fascism_acceptance = 200
+			}
+		}
+		
+        fin_zhongli = {
+			
+            picture = neutrality_idea
+
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = no
+			}
+
+                                                available = {  
+                                                is_subject = no
+                                                      NOT = {
+                                                                 USA = {
+                                                                           has_war_with = SOV
+                                                                 }   
+                                                      }                                                                                             
+                                                                                                           
+                                                }
+
+                                                visible = {
+                                                             
+                                                }
+			
+                                                cancel = {
+                                                              is_in_faction = yes
+                                                }
+
+                                                targeted_modifier = {
+								
+			}
+
+			modifier = {
+                                                                 ai_focus_peaceful_factor = 1
+                                                                 ai_call_ally_desire_factor = -50000
+                                                                 ai_join_ally_desire_factor = -50000
+                                                                 ai_get_ally_desire_factor = -50000
+
+			}
+		}
+	}
+}

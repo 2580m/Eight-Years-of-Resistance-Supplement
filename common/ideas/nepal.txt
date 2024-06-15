@@ -1,0 +1,28 @@
+ideas = {
+	country = {
+		NEP_royal_army = {
+			
+			picture = raj_indian_gentlemen_officers
+			
+			allowed = {
+				always = no
+			}
+			
+			modifier = {#guo
+				special_forces_cap = 1
+				special_forces_attack_factor = 0.25
+				special_forces_defence_factor = 0.25
+				special_forces_out_of_supply_factor = -0.25
+				heat_attrition_factor = -0.25#炎热损耗
+		winter_attrition_factor = -0.25 #寒冷损耗
+		acclimatization_hot_climate_gain_factor = 0.25 #炎热适应度增长率
+		acclimatization_cold_climate_gain_factor = 0.25 #寒冷适应度增长率
+		pocket_penalty = -0.5 #包围惩罚
+		intel_from_combat_factor = 0.25 #战斗中获取的情报
+		recon_factor = 1 #侦察
+		special_forces_training_time_factor = -0.25
+		terrain_trait_xp_gain_factor = 0.25
+			}
+		}
+	}
+}
