@@ -1,0 +1,198 @@
+leader_traits = {
+	
+
+    ###萨法罗夫###
+	radical_opposition= {
+		random = no
+		sprite = 13
+		political_power_factor = 0.05
+		resistance_growth_on_our_occupied_states = 0.1
+		stability_factor = -0.05
+		conscription_factor = 0.03
+	}
+
+    ####塔尔汉诺夫###
+	new_opposition_member = {
+		random = no
+		sprite = 13
+		political_power_factor = 0.1
+		stability_factor = -0.1
+        industrial_capacity_factory = 0.05
+		party_popularity_stability_factor = 0.1
+        production_factory_efficiency_gain_factor = 0.05
+	}
+
+
+
+
+    ###克列斯京斯基###
+	peoples_commissar_of_diplomatic = {
+		random = no
+		sprite = 13
+		political_power_factor = 0.05
+		intel_network_gain_factor = 0.05
+		intel_from_operatives_factor = 0.05
+		subversive_activites_upkeep = -0.15
+		opinion_gain_monthly_same_ideology_factor = 0.25
+		#fascism_acceptance = -40
+		ai_will_do = {
+			factor = 0.1
+		}
+	}
+
+
+    ###拉科夫斯基###
+	international_communist_fighter = {
+		random = no
+		sprite = 13
+		party_popularity_stability_factor = -0.05
+		boost_ideology_mission_factor = 0.05
+		license_purchase_cost = -0.5
+		subversive_activites_upkeep = -0.15
+		improve_relations_maintain_cost_factor = -0.5
+		intel_from_operatives_factor = 0.05
+		ai_will_do = {
+			factor = 0.2
+		}
+	}
+
+	#叶夫多基莫夫
+	new_opposition_veteran= {
+		random = no
+		sprite = 13
+		political_power_factor = 0.05
+		production_factory_start_efficiency_factor = -0.1
+        industrial_capacity_factory = 0.05
+		party_popularity_stability_factor = 0.1
+        production_factory_efficiency_gain_factor = 0.05
+	} 
+
+	#拉扎尔·沙茨金
+	founder_of_youth_league= {
+		random = no
+		sprite = 13
+		mobilization_speed = 0.15
+		conscription_factor = 0.05
+		communism_drift = 0.1
+		compliance_gain = 0.02
+		ai_will_do = {
+			factor = 0.2
+		}
+	} 
+
+
+
+
+    #萨普龙诺夫
+    leader_of_democratic_centralists_sapronov = {
+		random = no
+		sprite = 13
+        high_command_cost_factor = -0.25
+        air_chief_cost_factor = -0.5
+        navy_chief_cost_factor = -0.5
+        army_chief_cost_factor = -0.5
+        theorist_cost_factor = -0.25
+        stability_weekly = 0.003
+		political_power_factor = -0.05
+        party_popularity_stability_factor = -0.2
+        research_speed_factor = -0.03
+		ai_will_do = {
+			factor = 0.1
+		}
+	}
+
+	#尼古拉·奥辛斯基
+	leader_of_democratic_centralists_osinsky = {
+		random = no
+		sprite = 13
+		industrial_capacity_factory = 0.15
+        industrial_capacity_dockyard = 0.15
+		political_power_factor = -0.1
+        stability_weekly = 0.002
+        party_popularity_stability_factor = -0.2
+		ai_will_do = {
+			factor = 0.2
+		}
+	}
+	
+	#弗拉基米尔·斯米尔诺夫
+	leader_of_democratic_centralists_smirnov = {
+		random = no
+		sprite = 13
+		trade_opinion_factor = 0.1
+        tank_manufacturer_cost_factor = -0.5
+        naval_manufacturer_cost_factor = -0.5
+        aircraft_manufacturer_cost_factor = -0.5
+        materiel_manufacturer_cost_factor = -0.5
+        industrial_concern_cost_factor = -0.5
+        stability_weekly = 0.001
+        war_support_weekly = 0.001
+		political_power_factor = -0.05
+        party_popularity_stability_factor = -0.1
+	}
+
+	#布勃诺夫
+    leader_of_democratic_centralists_bubnov = {
+		random = no
+		sprite = 13
+		out_of_supply_factor = -0.15
+		army_morale_factor = 0.1
+        army_org_factor = -0.05
+        experience_loss_factor = -0.15
+        party_popularity_stability_factor = -0.1
+        resistance_target = -0.1
+	}
+
+
+
+	
+	#谢尔盖·梅德韦杰夫
+	leader_of_worker_medvedev = {
+		random = no
+		sprite = 13
+		political_power_factor = -0.05
+		consumer_goods_factor = -0.25
+		min_export = 0.15
+		ai_will_do = {
+			factor = 0.1
+		}
+	}
+
+	#弗拉基米尔·涅夫斯基
+    leader_of_worker_nevsky = {
+		random = no
+		sprite = 13
+		political_power_factor = -0.05
+		stability_factor = 0.05
+		research_speed_factor = 0.05
+        communism_drift = 0.05
+		ai_will_do = {
+			factor = 0.1
+		}
+	}
+
+
+
+	#米哈伊洛夫
+	organizer_of_right_union= {
+		random = no
+		sprite = 13
+		political_power_factor = 0.05
+		global_building_slots_factor = -0.1
+		production_factory_max_efficiency_factor = 0.1
+		production_factory_start_efficiency_factor = 0.10
+	} 
+    organizer_of_right_union_after= {
+		random = no
+		sprite = 13
+		political_power_factor = 0.05
+		production_factory_max_efficiency_factor = 0.15
+		production_factory_start_efficiency_factor = 0.15
+		ai_will_do = {
+			factor = 0.2
+		}
+	} 
+
+
+
+}
