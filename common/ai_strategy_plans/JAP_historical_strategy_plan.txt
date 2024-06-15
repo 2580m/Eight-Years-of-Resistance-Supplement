@@ -1,0 +1,183 @@
+JAP_historical_plan = {
+	name = "Japan historical plan"
+	desc = "Historical behavior for Japan"
+
+	allowed = {
+		original_tag = JAP
+	}
+	enable = {		
+		OR = {
+			has_global_flag = pm_killed	#MODDED
+			AND = {
+				is_historical_focus_on = yes
+				#MODDED
+				#MODDED
+				has_game_rule = {
+					rule = JAP_ai_behavior
+					option = DEFAULT
+				}
+			}
+				#MODDED
+			has_game_rule = {
+				rule = JAP_ai_behavior
+				option = PLACATE_MILITARY_KONOES_CABINET #MODDED
+			}
+			has_country_flag = JAP_AI_RANDOM_FASCIST
+		}
+		#MAN = { #guo
+		#	is_ai = yes
+		#}
+	}
+	abort = {
+		MAN = {
+			has_completed_focus = MAN_assertiveness
+		}
+	}
+
+	ai_national_focuses = {
+		#MODDEDvv
+		JAP_warrior_spirit #December 30 1942
+		JAP_army_expansion_law #10
+		JAP_new_naval_estimates #10
+		JAP_placate_military_focus #5
+		student_movement_focus
+		industrial_effort_focus
+		JAP_purge_the_kodoha_faction #7
+		pressure_pm_focus #7
+		JAP_konoe_cabinet_focus #10
+		JAP_aggressive_china_politics_focus #10
+		JAP_intervene_in_china #10 1937 JUL 7
+		JAP_secure_china
+		JAP_unite_china_focus #in case china accept hiro
+		spiritual_mobilization_focus  #10 1937 sept 17
+		JAP_supremacy_of_the_battlefleet  #10 1937 sept 17
+		JAP_liaison_conference #10 1937 nov 27			
+		JAP_guide_the_zaibatsus
+		nat_mob_law #10 1938 FEB 7
+		
+		JAP_the_ultimate_battleship
+		JAP_small_arms_modernization #10
+		JAP_second_konoe_cabinet_focus #MODDED
+		
+        JAP_greater_east_asian_co_prosperity_sphere #guo
+		
+		JAP_sign_tripartite_pact #August 30 1940 #MODDED
+		southern_expansion_focus #MODDED
+		
+		JAP_Soviet_Japanese_Neutrality_Pact_focus #guo 1941.4.13
+		oust_soviet
+		
+		oust_germans_focus	 #MODDED#guo 请求德国承认“亲善”政权 1941.7.1
+		
+		 #November 20 1939 #MODDED
+		
+		tojo_cabinet_focus
+		strike_usa_focus
+		
+		siamese_puppet_focus #guo
+		
+		subvert_india_focus
+		Second_indian_focus #guo
+		
+		JAP_army_expansion
+		JAP_supremacy_of_will
+		JAP_zen_at_war_focus
+		
+		JAP_small_arms_modernization #10
+		
+		JAP_supremacy_of_technology #10
+		JAP_fighter_modernization #10				
+		JAP_carrier_warfare_experiments #10
+		JAP_cruiser_modernization #February 20 1938
+		#unit_731#October 20 1942
+		JAP_torpedo_cruisers #September 10 1939
+		JAP_long_lance_torpedoes
+		
+		JAP_agility_focus #January 30 1940
+		JAP_first_air_fleet #April 10 1940
+		JAP_the_zero #June 20 1940
+		JAP_bomber_modernization #November 10 1940
+		JAP_range_focus #January 20 1941
+		 #March 30 1941
+		JAP_modern_artillery #June 10 1941
+ 		 #October 30 1941
+ 		#JAP_alliance_with_siam #January 10
+ 		JAP_strategic_bomber_effort #March 20 1942
+ 		JAP_modern_escorts #May 30 1942
+ 		#JAP_exploit_the_southern_resource_area #May 20 1943
+ 		#JAP_secure_china #July 30 1943
+		
+		
+ 		JAP_jet_prototypes
+ 		JAP_armored_divisions
+	}  #MODDED^^^^^^^^^^^^^^
+
+	research = {
+
+	}
+	
+	traits = { #guo
+		war_industrialist = 4
+		head_of_intelligence = 3
+		financial_expert = 5
+		economist = 3
+		the_foreign_connection = 3
+		appeaser = 3
+		devil_of_showa = 3
+		editor = 3
+	}
+	
+	ai_strategy = {
+		type = template_prio
+		id = medium_armor
+		value = 50
+	}
+	ai_strategy = {
+		type = template_prio
+		id = light_armor
+		value = 150
+	}
+
+	ideas = {
+	
+	
+	kawasaki_tank = 0
+	hitachi_tank = 0
+	sasebo_naval_arsenal = 0
+	yokosuka_naval_arsenal = 50
+	yokosuka = 50
+	mitsubishi = 50
+	bridgestone = 50
+	hitachi_materiel = 50
+	nagoya_arsenal = 50
+	kobe_steel = 50
+	sumitomo = 50
+	japan_steelworks = 50
+	
+	hisaichi_terauchi = 100
+	
+	fumimaro_konoe = 9999
+	hideki_tojo = 9999
+	
+	bold_attack_spirit = 8000#大胆进攻
+	professional_officer_corps_spirit = 9999#职业军官团
+	victory_or_death_spirit = 8000#不胜则死
+	
+    night_fighting_spirit = 8888#夜战
+	base_strike_academy_spirit = 8888
+	naval_reform_spirit = 9999#海军改革
+	
+	air_crew_surveys_spirit = 9999#访谈机组
+	veteran_air_instructors_spirit = 8888#以老带新
+	}
+
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+
+}

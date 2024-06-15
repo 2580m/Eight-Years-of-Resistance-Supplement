@@ -1,0 +1,120 @@
+PRC_alternate_plan_1 = {#guo
+	name = "Communist China Alternate 1: Japan Communist"
+	desc = "With Japan Communist, Communist China will try to not antagonize them"
+
+	allowed = {	#MODDED
+		original_tag = PRC	#MODDED
+	}
+	enable = {
+		#MODDED
+		#is_historical_focus_on = no
+		#MODDED
+		JAP = {
+			has_government = communism
+		}
+	}
+	abort = {
+		always = no
+	}
+
+	ai_national_focuses = { #MODDED
+		#PRC_Join_the_war #MODDED
+	} #MODDED
+	focus_factors = {
+		#MODDED
+	}
+
+	research = {
+
+	}
+
+	ideas = {
+
+	}
+
+	ai_strategy = {
+		type = befriend
+		id = "JAP"
+		value = 750
+	}
+
+	ai_strategy = {
+		type = alliance
+		id = "JAP"
+		value = 2000
+	}
+
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		factor = 1
+		modifier = {
+			factor = 1.0
+		}
+	}
+
+}
+#MODDED, no need alt plan 2
+
+
+PRC_alternate_plan_3 = { 
+	name = "Communist China Alternate 2: Marxist orthodoxy"
+	desc = "Ai choose to go marxist"
+	allowed = {
+		OR = {
+			original_tag = PRC
+			is_chinese_warlord = yes
+		}
+	}
+	enable = {
+		OR = {
+			original_tag = PRC
+			AND = {
+				is_chinese_warlord = yes
+				has_focus_tree = warlord_generic_communist
+			}
+		}
+		has_completed_focus = PRC_expand_changjiang_bureau_focus #MODDED
+	}
+	abort = {
+		always = no
+	}
+
+
+	focus_factors = {
+		#MODDED
+	}
+
+	research = {
+
+	}
+
+	ideas = {
+		prc_mao_zedong = 0
+		prc_zhang_wentian = 0
+		prc_bo_gu = 10 #MODDED
+		prc_wang_ming = 10 #MODDED
+	}
+
+	ai_strategy = {
+		type = befriend
+		id = "CHI"
+		value = 200
+	}
+
+	ai_strategy = {
+		type = alliance
+		id = "CHI"
+		value = 200
+	}
+
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		factor = 1
+		modifier = {
+			factor = 1.0
+		}
+	}
+
+}

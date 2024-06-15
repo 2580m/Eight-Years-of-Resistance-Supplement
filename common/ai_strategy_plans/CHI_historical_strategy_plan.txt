@@ -1,0 +1,160 @@
+CHI_nationalist_historical_plan = {
+	name = "Nationalist China historical plan"
+	desc = "Essentially historical behavior for Nationalist China"
+
+	allowed = {
+		original_tag = CHI
+	}
+	enable = {
+		OR = {
+			AND = {
+				is_historical_focus_on = yes
+				has_game_rule = {
+					rule = CHI_ai_behavior
+					option = DEFAULT
+				}
+			}
+			has_country_flag = CHI_AI_RANDOM_HISTORICAL
+			has_game_rule = {
+				rule = CHI_ai_behavior
+				option = HISTORICAL
+			}
+		}
+	}
+	abort = {
+		JAP = {
+			OR = {
+				has_completed_focus = JAP_strengthen_civilian_government
+				has_global_flag = kodoha_won #MODDED
+				is_in_faction_with = ENG
+				is_in_faction_with = USA
+			}
+		}
+		has_game_rule = {
+			rule = CHI_ai_behavior
+			option = ALTERNATE
+		}
+		MAN = {
+			is_subject = no
+		}
+	}
+		#MODDEDvVV
+	ai_national_focuses = {
+	
+	    CHI_political_consultative_assembly_focus #guo
+		CHI_axis_help_diplo_focus
+		CHI_german_training_method
+		CHI_join_axis
+		CHI_axis_help_party_focus
+		CHI_assume_intra_party_leadership
+		CHI_cult_of_chiang_kai_shek
+		CHI_sino_british_pact
+		CHI_chinese_expeditionary_force
+		
+		CHI_NW_mobile_barracks_focus #do these asap #MODDED
+		#CHI_send_in_the_ma_focus #do these asap
+
+		centralizing_power
+		CHI_government_bailout_focus #MODDED
+		CHI_nationalize_industry_focus
+		CHI_nationalize_industry_ii_focus
+		CHI_nationalize_industry_iii_focus #MODDED
+		CHI_split_plm_focus
+		CHI_monetary_reform			 #MODDED
+		constit_draft_focus
+		CHI_foreign_help_focus
+		CHI_inst_reform_focus		
+		CHI_Encirclement_Campaign_focus #MODDED
+		CHI_national_political_council_focus		
+		CHI_National_Defense_Council_focus #MODDED
+		CHI_axis_help_focus #MODDED
+		#CHI_pressure_Ma_lin	
+		one_party_tutelage		
+		CHI_allies_help_focus		 #MODDED
+		CHI_national_resources_commission
+		CHI_mission_to_the_soviet_union
+		CHI_infrastructure_effort_i		 #MODDED
+		CHI_warlord_issues
+		CHI_deal_with_sichuan
+		CHI_Establish_Hsikang_province
+		CHI_purchase_tanks		
+		#CHI_axis_help_focus #MODDED
+		CHI_reorganize_nra
+		strengthen_cc
+		CHI_sov_pact_focus #MODDED
+		strengthen_the_kmt
+		CHI_reinforce_new_life_movement
+		strengthen_bs		 #MODDED
+		CHI_fighter_purchases
+		CHI_public_school_program_focus		
+		CHI_reform_military_academy #MODDED
+		
+		CHI_invite_the_flying_tigers
+		CHI_allies_help_diplo_focus
+		CHI_increase_equipment_production_focus #MODDED
+		CHI_whampoa_rifle
+		CHI_logistical_reform_focus
+		CHI_the_soviet_volunteer_group		 #MODDED
+		
+		CHI_army_reorganisation_focus #guo
+		
+		found_cbis #MODDED
+		found_mbis
+		CHI_sino_british_pact
+		CHI_chinese_expeditionary_force
+		CHI_reinforce_air_force
+		CHI_the_hump
+		CHI_receive_usa_equipment
+		CHI_Second_United_Front_focus		
+		CHI_political_consultative_assembly_focus #MODDED
+
+		political_indoctrination #MODDED
+		espionage_network #MODDED
+		CHI_yi_dang_zhi_guo_focus
+		CHI_western_yunnan_campaign
+
+		CHI_streamlined_industry #MODDED
+		CHI_pacify_yunnan
+		CHI_replace_zhang_zhizhong #MODDED
+		CHI_annex_sinkiang #MODDED
+		
+		CHI_land_focus
+		
+		#CHI_coast_infra_focus
+		#CHI_defend_river_focus
+		#MODDED^^
+	}
+	research = {
+	}
+
+	ideas = {
+		#MODDED# CHI_soong_mei_ling = 10 #MODDED
+		central_aircraft = 100
+		nanchang_aircraft = 100
+		idea_gongxian_arsenal = 150
+		central_machine_works = 150
+		northwest_industrial_company = 150
+		central_electrical_manufacturing_works = 100
+		
+	bold_attack_spirit = 8888#大胆进攻
+	professional_officer_corps_spirit = 9999#职业军官团
+	static_warfare_spirit = 8888
+	
+    night_fighting_spirit = 8888#夜战
+	instilled_aggression_spirit = 8888
+	naval_reform_spirit = 9999#海军改革
+	
+	air_crew_surveys_spirit = 9999#访谈机组
+	veteran_air_instructors_spirit = 8888#以老带新
+	}
+
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+
+}

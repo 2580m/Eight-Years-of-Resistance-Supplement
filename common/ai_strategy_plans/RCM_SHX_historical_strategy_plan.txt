@@ -1,0 +1,66 @@
+SHX_warlord_historical_plan = {
+	name = "Shanxi Clique historical plan" #MODDED
+	desc = "Historical behavior for Shanxi Clique"
+	allowed = { #MODDED
+	    original_tag = SHX
+	}
+	enable = {
+		#has_country_flag = cooperation_with_nationalist_flag #MODDED
+		is_historical_focus_on = yes
+	}
+	abort = {
+	    NOT = {
+			has_focus_tree = RCM_EFM_shanxi
+		}
+	}
+
+	ai_national_focuses = {
+		#DO THESE ASAP
+		#guo
+		SHX_Contact_the_communist
+		SHX_United_front
+		
+		SHX_move_capital
+		SHX_western_shanxi_incident
+		SHX_Stop_cooperation_with_comchina
+		SHX_Purge_communists
+
+        SHX_Three_eggs
+		SHX_Contact_nationalist_government
+		SHX_Model_warlord
+		SHX_Expand_the_taiyuan_arsenal
+		SHX_Second_theater
+		SHX_Shanxi_defense
+		
+		SHX_Red_army_mode_of_operation
+        SHX_Experience_of_the_central_plains_war
+		SHX_Cooperation_with_chiang
+	}
+
+	focus_factors = {
+		#Never attempt a take over
+		SHX_Prepare_for_civilwar = 0 
+		#SHX_Invite_democrats = 0 
+	}
+
+	research = { #MODDED
+
+	}
+
+	ideas = {
+		northwest_industrial_company = 100
+	}
+
+	# Keep small, as it is used as a factor for some things (such as research needs) #MODDED
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+
+}
+
+
+#MODDED^^^^^^^^^^^^

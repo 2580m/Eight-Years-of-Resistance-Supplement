@@ -1,0 +1,212 @@
+ITA_historical_plan = {
+	name = "Italy historical plan"
+	desc = "Historical behavior for Italy"
+
+	allowed = {
+		original_tag = ITA
+	}
+	enable = {
+		OR = {
+			AND = {
+				is_historical_focus_on = yes
+				has_game_rule = {
+					rule = ITA_ai_behavior
+					option = DEFAULT
+				}
+			}
+			has_country_flag = ITA_AI_RANDOM_FASCIST_HISTORICAL
+			has_game_rule = {
+				rule = ITA_ai_behavior
+				option = FASCIST_HISTORICAL
+			}
+		}
+	}
+	abort = {
+		GER = {
+			has_completed_focus = GER_oppose_hitler
+		}
+	}
+
+	ai_national_focuses = {
+		#1936
+		ITA_italian_highways_bba #35
+		ITA_servizio_informazione_militare
+		ITA_triumph_in_africa_bba #35
+		ITA_culto_del_duce
+		ITA_la_battaglia_per_la_terra
+		ITA_la_battaglia_per_le_nascite #35
+		ITA_steel_industry_in_terni
+
+		#1937
+		#35
+		ITA_industria_della_gomma_sintetica #35
+		ITA_strengthen_northern_industry
+		ITA_railway_innovations
+		ITA_investments_in_edison
+		ITA_expand_national_universities
+
+		#1938
+		ITA_the_man_of_providence #35
+		ITA_new_industrialization_program
+		ITA_fiocchi_munizioni #35
+		ITA_brescia_small_arms_industry #35
+		ITA_redirect_alfa_romeo_production
+		ITA_increase_production #35
+		ITA_naval_power_projection #35
+		ITA_foreign_affairs #35
+
+		#1939
+		ITA_potential_allies_in_the_balkans #35
+		ITA_expand_naval_facilities #35
+		ITA_stockpile_fuel #35
+		ITA_albanian_occupation #35
+		ITA_pact_of_steel #35
+		ITA_air_innovations_bba #35
+		ITA_expand_rome_flying_school
+		ITA_supermarina #35
+		ITA_citta_dell_aria 
+		ITA_italian_irredentism
+
+		#1940
+		#35
+		ITA_superaereo #35
+		ITA_naval_air_coordination
+		ITA_incrociatori_leggeri #35
+		ITA_army_primacy_bba #35
+		ITA_oto_naval_guns #35 extra
+		ITA_to_live_as_a_lion #35
+		ITA_war_with_greece #35
+
+		#1941
+		ITA_officers_of_the_service_role #35
+		ITA_ispettorato_dei_mezzi_antisommergibili #35
+		ITA_flotta_d_evasione
+		ITA_intensify_torpedo_manufacturing
+		ITA_standardization
+		ITA_long_range_aircraft
+
+		#1942
+		#35
+		ITA_supremacy_in_the_skies
+		ITA_increase_artillery_production
+		ITA_preserve_army_traditions
+		ITA_superesercito #35
+		ITA_expand_foggia_farm_fields
+		
+		#1943
+		#35
+		ITA_devaluate_the_lire #35
+		ITA_army_leaders
+		ITA_italian_tankettes
+		ITA_security_militias #35
+		ITA_self_propelled_guns
+		ITA_modernize_ansaldo_facilities #35
+		
+		#1944
+		ITA_ferrea_mole_ferreo_cuore
+		ITA_bersaglieri
+		ITA_divisioni_alpine
+		ITA_strengthen_the_regime
+		ITA_devotion #35
+		ITA_moschettieri_del_duce #35
+
+		#1945
+		ITA_ministero_della_cultura_popolare #35
+		ITA_believe_obey_fight #35
+		ITA_banda_carita
+		ITA_banda_koch
+		ITA_thermojet_research
+		ITA_ministry_of_italian_africa #35
+		ITA_develop_libya #35
+
+		#1946------------
+		ITA_develop_eritrea #35
+		ITA_develop_ethiopia #35
+		ITA_develop_somaliland #35
+		ITA_the_new_emperor_of_ethiopia #35
+		ITA_regional_development
+		ITA_litoranea_balbo #35
+		ITA_prospect_for_oil #35
+		ITA_libyan_refineries #35
+		ITA_polizia_dell_africa_italiana
+		ITA_battaglioni_d_assalto
+		ITA_milizia_coloniale
+
+
+
+		
+
+
+
+	####################
+	}
+
+	#Focuses never to take
+	focus_factors = {
+		ITA_defy_the_duce = 0
+		ITA_unite_the_opposition = 0
+		ITA_liberate_gramsci = 0
+		ITA_convene_the_grand_council = 0
+		ITA_undermine_the_duce = 0
+		ITA_guarantee_austrian_independence = 0 #Italy First is okay to take if Pact of Steel is unavailable
+		
+		#guo
+		ITA_power_to_the_king = 0
+		ITA_democratic_king = 0
+		ITA_demand_balearic_islands_bba = 0
+	}
+
+	research = {
+
+	}
+
+	ideas = {
+		export_focus = 0
+
+		ITA_alberto_beneduce = 2000#工业领袖
+		ITA_guido_jung = 1800#金融学家
+		ITA_giacomo_acerbo = 1600#战争实业家
+		ITA_adelchi_serena = 800#沉默实干家
+
+		alfredo_guzzoni = 800#步兵部队
+		carlo_bergamini = 800#主力舰作战
+		marziale_cerutti = 800#空军战斗训练
+
+		pietro_badoglio = 1000#陆军士气
+
+		professional_officer_corps_spirit = 1000#职业军官团
+		meticulous_preparation_spirit = 900#精心准备
+		logistical_focus_spirit = 1200#专注后勤
+
+		ITA_raffaele_de_courten = 700#贸易袭击
+
+		naval_reform_spirit = 99999#海军改革
+		night_fighting_spirit = 9999#夜战
+		signals_training_spirit = 9999#信号训练
+
+		francesco_pricolo = 600#空军改革
+
+		air_crew_surveys_spirit = 1000#访谈机组
+		veteran_air_instructors_spirit = 900#以老带新
+
+		#industry
+		danieli = 10
+		ITA_danieli_improved = 10#imp
+	}
+
+	ai_strategy = {
+		type = support
+		id = "GER"			
+		value = 200
+	}
+
+	# Keep small, as it is used as a factor for some things (such as research needs)
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+
+}

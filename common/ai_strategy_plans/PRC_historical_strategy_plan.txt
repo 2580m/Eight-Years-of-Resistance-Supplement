@@ -1,0 +1,165 @@
+PRC_historical_plan = { #guo
+	name = "Communist China historical plan"
+	desc = "Historical behavior for Communist China"
+	allowed = {
+		original_tag = PRC
+	}
+	enable = {
+		#MODDED
+		is_historical_focus_on = yes
+		#MODDED
+	}
+	abort = {
+		#MODDED
+		OR = {
+			JAP = {
+				has_government = communism
+			}
+			SOV = { #MODDED
+				exists = no #MODDED
+			}
+		}
+	}
+
+	ai_national_focuses = {
+		#MODDED
+		PRC_kangmeiyuanchao
+		PRC_7th_plenary_session_of_the_6th_CPC_central_committee_focus
+		PRC_7th_National_Congress_focus
+		PRC_xibaipohuiyi
+		PRC_jinzhuyanan
+		
+		PRC_huifuguominjingji
+		PRC_zhangwozhudongquan
+		PRC_bukebimiandeneizhan
+		PRC_lighthouse_of_democracy_focus
+		PRC_wayaobaohuiyi_end
+		PRC_xibaipo
+		PRC_request_northeast_china
+		PRC_War_of_Liberation
+		PRC_Join_the_war
+		PRC_send_trotskyists_to_sinkiang_focus #guo
+        PRC_partisan_offensive
+		PRC_Japan_war_focus #guo
+		PRC_for_china
+		
+		#do these ASAP
+		PRC_contact_cheng_qian_focus
+		
+		PRC_Combat_laboratory
+		PRC_Field_army
+		
+		PRC_Theater_Settings
+        PRC_Reorganize_NRA
+		
+		PRC_zhengxiehuiyi_1st
+		PRC_A_New_Country
+		PRC_reunification_of_china
+		PRC_Join_USSR
+		PRC_jiefang_xinjiang
+		PRC_xinjiangbingtuan
+		PRC_Claim_Tibet
+		PRC_TIB_minzhugaige_focus
+
+		PRC_End_of_Long_March
+		PRC_6th_plenary_session_of_the_6th_CPC_central_committee_focus
+		PRC_demand_another_politburo_meeting_focus
+        PRC_found_the_military_commission_general_political_department_focus
+		PRC_dispatch_ren_bishi_to_moscow_focus
+		PRC_East_conquest
+		PRC_contact_Zhang_Xueliang_focus
+		PRC_Western_expedition
+		PRC_West_road_army_victory
+		PRC_Red_Army_Recovery
+		PRC_Peasant_class #guo
+		PRC_Land_reform #guo
+		PRC_Developing_Focus #guo
+		PRC_Red_Army #guo
+		PRC_kangda_focus
+        PRC_Soviet_armed
+		PRC_Weapon_production	
+		PRC_enlarged_central_politburo_conference_focus
+		PRC_Confrontation_Focus
+		PRC_question_of_chen_duxiu_focus
+		
+		PRC_great_troskyist_purge_focus
+		PRC_Republican
+		PRC_empower_the_general_secretary_focus
+		PRC_disrespect_the_united_front_focus
+		PRC_promote_prolonged_warfare_focus
+		PRC_route_struggle_focus
+		
+		PRC_Strategic_offensive
+		PRC_Protection_of_intelligence
+		PRC_Strengthen_assault_ability
+		PRC_Guerrilla_warfare_orientation
+		PRC_Roundabout_Tactics
+		PRC_Underground_bunker
+		
+		PRC_maquezhan
+		PRC_didaozhan
+		PRC_dileizhan
+		PRC_shuishangyouji
+		PRC_poxizhan
+		
+		PRC_Type_81_ma
+		PRC_Improve_construction_method
+		PRC_Homemade_artillery
+		
+		PRC_PLA
+		PRC_New_Red_Army
+		PRC_Soviet_cooperation_plan
+		PRC_the_16th_aligned_republic
+		
+		PRC_northeast_trade_hq
+		PRC_the_dongbei_hangxiao
+		
+		#MODDED
+	}
+	
+	research = {
+
+	}
+
+	ideas = {
+	    idea_gongxian_arsenal = 150
+		central_machine_works = 150
+		northwest_industrial_company = 150
+		central_electrical_manufacturing_works = 100
+		
+	bold_attack_spirit = 8888#大胆进攻
+	professional_officer_corps_spirit = 9999#职业军官团
+	victory_or_death_spirit = 8888#不胜则死
+	
+    night_fighting_spirit = 8888#夜战
+	instilled_aggression_spirit = 8888
+	naval_reform_spirit = 9999#海军改革
+	
+	air_crew_surveys_spirit = 9999#访谈机组
+	steel_wings_steel_hearts_spirit = 8888#铁翼雄心
+	
+	
+	
+	}
+        
+    focus_factors = {
+		PRC_submit_to_comintern_and_the_united_front_focus = 0
+	    PRC_expand_changjiang_bureau_focus = 0
+	}
+	
+    ai_strategy = {
+		type = alliance
+		id = "JAP"
+		value = -9999
+	}
+
+	# Keep small, as it is used as a factor for some things (such as research needs) 
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+
+}

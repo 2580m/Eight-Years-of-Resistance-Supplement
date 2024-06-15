@@ -1,0 +1,64 @@
+CHI_warlord_historical_plan_nationalist = {
+	name = "Chinese Warlord historical plan supporting Nationalists, power struggle" #MODDED
+	desc = "Historical behavior for Chinese Warlord"
+	allowed = { #MODDED
+		tag = SIK
+	}
+	enable = {
+		tag = SIK
+		has_focus_tree = SIK_Clique
+	}
+	abort = {
+		always = no
+	}
+
+	ai_national_focuses = {
+		SIK_reception_CCP#GUO
+	
+		SIK_Six_major_policies
+		SIK_Consolidate_regime
+		SIK_Soviet_support
+		Sinkiang_Road_Construction
+		SIK_New_currency
+		SIK_USSR_investment
+		SIK_Soviet_equipment
+		SIK_Battlefield_equipment
+		SIK_Soviet_Car
+		SIK_Destroy_the_Hotan_warlord
+		SIK_Keep_the_rule
+		SIK_Forgery_offense
+		SIK_Befriend_CHI#GUO
+		SIK_Vigilant_ma_clique#GUO
+		SIK_Accept_chinese_rule
+		SIK_Join_anti_Japanese_front
+		SIK_Sinkiang_King
+		SIK_reapprochement_with_the_soviet_union
+		#SIK_Negotiate_with_nanjing
+	}
+
+	focus_factors = {
+		#Never attempt a take over
+		SIK_preemptive_purge = 0
+		SIK_Knock_down_the_sheng = 0
+		#CHI_join_the_republican_government = 0 #MODDED
+		#CHI_power_struggle = 0 #MODDED
+	}
+
+	research = { #MODDED
+
+	}
+
+	ideas = {
+		
+	}
+
+	# Keep small, as it is used as a factor for some things (such as research needs) #MODDED
+	# Recommended around 1.0. Useful for relation between plans
+	weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.0
+		}
+	}
+
+}
