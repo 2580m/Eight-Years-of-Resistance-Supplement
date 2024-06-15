@@ -1,0 +1,1030 @@
+# Scripted AI desire for peace actions.
+# See documentation.info file for more detailed scripting information.
+
+#all modded guo
+
+peace_ai_desires = {
+
+    ally_puppet_japan = { #guo
+        peace_action_type = { puppet }
+        enable = {
+            FROM.FROM.FROM = {
+                is_core_of = JAP
+                NOT = { state = 526 } # Keep Okinawa
+            }
+            FROM = {
+                original_tag = JAP
+            }
+            ROOT = {
+			    or = {
+                is_faction_leader = yes
+				tag = USA
+				}
+                is_democratic_type = yes #guo
+                pc_total_score > 1000 # Only attempt if we can puppet all of Japan
+            }
+        }
+        ai_desire = 50000 #MODDED #guo
+    }
+
+    RCM_puppet_west_germany = {
+        peace_action_type = { puppet }
+        enable = {
+            NOT = { 64 = { is_core_of = DDR } }
+			NOT = { 58 = { is_core_of = WGR } }
+			NOT = { has_global_flag = had_yalta_conference } #guo
+			is_historical_focus_on = yes
+			FROM.FROM.FROM = {
+                is_core_of = GER
+                NOT = { state = 69 } 
+                NOT = { state = 28 } 
+				NOT = { is_core_of = CZE } 
+				NOT = { is_core_of = AUS } 
+			    NOT = { is_core_of = POL } 
+			    NOT = { state = 61 } 
+			    NOT = { state = 62 } 
+			    NOT = { state = 64 } 
+			    NOT = { state = 65 } 
+			    NOT = { state = 763 } 
+			    NOT = { state = 188 } 
+			}
+            FROM = {
+                original_tag = GER
+            }
+            ROOT = {
+                OR = {
+				    original_tag = USA
+					original_tag = ENG
+				}
+				is_faction_leader = yes
+                is_democratic_type = yes #guo
+            }
+        }
+        ai_desire = 50000 #MODDED #GUO
+    }
+	
+	RCM_puppet_east_germany = {
+        peace_action_type = { puppet }
+        enable = {
+            NOT = { 64 = { is_core_of = DDR } }
+			NOT = { 58 = { is_core_of = WGR } }
+			NOT = { has_global_flag = had_yalta_conference } #guo
+			is_historical_focus_on = yes
+			FROM.FROM.FROM = {
+                is_core_of = GER
+                NOT = { is_core_of = CZE } 
+                NOT = { state = 69 } 
+  			    NOT = { state = 28 } 
+				NOT = { is_core_of = AUS } 
+			    NOT = { is_core_of = POL } 
+			    NOT = { state = 763 } 
+			    NOT = { state = 188 } 
+				OR = {
+				    state = 61
+			        state = 62 
+			        state = 64
+			        state = 65
+				}
+			}
+            FROM = {
+                original_tag = GER
+            }
+            ROOT = {
+				original_tag = SOV
+				is_faction_leader = yes
+            }
+        }
+        ai_desire = 50000 #MODDED #GUO
+    }
+	
+	RCM_dont_puppet_germany = { #guo
+        peace_action_type = { liberate puppet take_states force_government }
+        enable = {
+            64 = { is_core_of = DDR }
+			58 = { is_core_of = WGR }
+			has_global_flag = had_yalta_conference #guo
+			is_historical_focus_on = yes
+			FROM.FROM.FROM = {
+                is_core_of = GER
+			}
+            FROM = {
+                original_tag = GER
+            }
+            ROOT = {
+            }
+        }
+        ai_desire = -50000 #MODDED #guo
+    }
+	
+	RCM_dont_take_chinese_lands_allies = {
+        peace_action_type = { liberate puppet take_states force_government }
+        enable = {
+            is_historical_focus_on = yes
+			OR = {
+			is_in_faction_with = ENG
+			is_in_faction_with = SOV
+			}
+			FROM.FROM.FROM = {
+                is_core_of = event_target:WTT_current_china_leader
+			}
+            FROM = {
+            }
+            ROOT = {
+            }
+        }
+        ai_desire = -50000 #MODDED
+    }
+	
+	RCM_sov_dont_puppet_italy = {
+        peace_action_type = { liberate puppet take_states force_government }
+        enable = {
+			ENG = {
+			    is_ally_with = USA
+				NOT = { has_war_with = SOV }
+				is_subject = no
+			}
+			is_historical_focus_on = yes
+			FROM.FROM.FROM = {
+                is_core_of = ITA
+			}
+            FROM = {
+                original_tag = ITA
+            }
+            ROOT = {
+				original_tag = SOV
+				is_faction_leader = yes
+                has_government = communism
+            }
+        }
+        ai_desire = -99999 #MODDED
+    }
+	
+	RCM_sov_dont_take_african_lands = {
+        peace_action_type = { liberate puppet take_states force_government }
+        enable = {
+			is_historical_focus_on = yes
+			FROM.FROM.FROM = {
+                is_on_continent = africa
+			}
+            #FROM = {
+            #    capital_scope = { is_on_continent = africa }
+            #}
+            ROOT = {
+				original_tag = SOV
+				is_faction_leader = yes
+                has_government = communism
+            }
+        }
+        ai_desire = -50000 #MODDED
+    }
+	
+	RCM_no_take_states_from_germany = {
+        peace_action_type = { take_states }
+        enable = {
+            SOV = {
+				NOT = { has_war_with = ROOT }
+				is_subject = no
+			}
+			64 = { is_core_of = DDR }
+			58 = { is_core_of = WGR }
+			has_global_flag = had_yalta_conference #guo
+			is_historical_focus_on = yes
+			FROM.FROM.FROM = {
+                is_core_of = GER
+			}
+            FROM = {
+                original_tag = GER
+            }
+            ROOT = {
+                NOT = { original_tag = SOV }
+			}
+        }
+        ai_desire = -50000 #MODDED #guo
+    }
+	
+	RCM_make_WGR = {
+        peace_action_type = { liberate }
+        enable = {
+            is_historical_focus_on = yes
+			FROM.FROM.FROM = {              
+			    is_core_of = WGR  
+			}
+            FROM = {
+               original_tag = WGR
+            }
+            ROOT = {
+                is_faction_leader = yes
+                is_democratic_type = yes #guo
+            }    
+        }
+        ai_desire = 50000 #guo
+    }
+	
+	RCM_make_DDR = {
+        peace_action_type = { puppet }
+        enable = {
+            is_historical_focus_on = yes
+			FROM.FROM.FROM = {              
+			    is_core_of = DDR 
+			}
+            FROM = {
+               original_tag = DDR
+            }
+            ROOT = {
+                is_faction_leader = yes
+                original_tag = SOV
+            }    
+        }
+        ai_desire = 50000 #guo
+    }
+	
+	CHI_liberates_those_nations = {
+        peace_action_type = { liberate force_government }
+        enable = {
+            FROM.FROM.FROM = {
+                OR = {
+			        is_core_of = KOR
+                    is_core_of = VIN #guo
+			    is_core_of = LAO
+				is_core_of = CAM
+				is_core_of = CHP
+				is_core_of = FIC
+				}
+			}
+            FROM = {
+               OR = {
+			        original_tag = KOR
+                    original_tag = VIN #guo
+			    original_tag = LAO
+				original_tag = CAM
+				original_tag = CHP
+				original_tag = FIC
+				}
+            }
+            ROOT = {
+                tag = event_target:WTT_current_china_leader
+                NOT = { has_government = fascism } 
+            }    
+        }
+        ai_desire = 500
+    }
+	
+	CHi_we_dont_want_other_places = {
+        peace_action_type = { take_states }
+        enable = {
+            is_historical_focus_on = yes
+			FROM.FROM.FROM = {
+				NOT = { is_core_of = event_target:WTT_current_china_leader }
+                NOT = { is_claimed_by = event_target:WTT_current_china_leader }
+			    NOT = { is_core_of = TIB }
+				NOT = { is_core_of = MON }
+				NOT = { is_core_of = TAN }
+			    NOT = { is_core_of = SIK }
+			}
+            FROM = {
+                #OR = {
+				#    original_tag = JAP
+                #    original_tag = SIA
+				#}
+			}
+            ROOT = {
+                OR = {
+				    tag = event_target:WTT_current_china_leader
+					is_literally_china = yes
+				}
+            }
+        }
+        ai_desire = -5000
+    }
+ 
+    CHi_we_want_these_places = {
+        peace_action_type = { take_states }
+        enable = {
+            #is_historical_focus_on = yes
+			FROM.FROM.FROM = {
+				OR = {
+				    is_core_of = event_target:WTT_current_china_leader 
+                    is_claimed_by = event_target:WTT_current_china_leader 
+                    is_core_of = TIB 
+				    is_core_of = MON 
+				    is_core_of = TAN 
+			        is_core_of = SIK 
+                    region = 143
+                    region = 144
+                    region = 145
+                    region = 164
+                    region = 165
+                    region = 200
+                    region = 244
+                    region = 245
+                    region = 247
+                    region = 248
+                    region = 249
+                    region = 251
+                    region = 252
+				}
+			}
+            FROM = {
+                #OR = {
+				#    original_tag = JAP
+                #    original_tag = SIA
+				#}
+			}
+            ROOT = {
+                OR = {
+				    tag = event_target:WTT_current_china_leader
+					is_literally_china = yes
+				}
+            }
+        }
+        ai_desire = 9999
+    }
+
+    no_force_government_for_jap_and_ger = {
+        peace_action_type = { liberate force_government }
+        enable = {
+            FROM.FROM.FROM = {
+                OR = {
+			        is_core_of = JAP
+                    is_core_of = GER
+				}
+			}
+            FROM = {
+               OR = {
+			        original_tag = JAP
+                    original_tag = GER
+				}
+            }
+            ROOT = {
+                NOT = { has_government = communism } 
+            }    
+        }
+        ai_desire = -50000 #guo
+   }
+
+    SOV_historical_states = {
+        peace_action_type = { take_states }
+        enable = {
+            ENG = {
+			    is_ally_with = USA
+				NOT = { has_war_with = SOV }
+				is_subject = no
+			}		
+			is_historical_focus_on = yes
+            ROOT = { tag = SOV }
+            FROM.FROM.FROM = { 
+			    OR = {
+				    is_core_of = AUS 
+			        is_core_of = GER
+				    is_core_of = CZE
+                    is_core_of = FRA
+                    is_core_of = ITA
+                    is_core_of = GRE
+                    is_core_of = SYR
+				}
+			    NOT = {  
+				    state = 73
+                    state = 763
+                    state = 5
+                    state = 188		
+			    }
+            }
+		}
+        ai_desire = -50000
+    }
+    
+	RCM_sov_no_iraq = {
+        peace_action_type = { take_states puppet liberate force_government }
+        enable = {
+            ENG = {
+			    is_ally_with = USA
+				NOT = { has_war_with = SOV }
+				is_subject = no
+			}
+			is_historical_focus_on = yes
+			FROM.FROM.FROM = {              
+			    is_core_of = IRQ  
+			}
+            FROM = {
+               original_tag = IRQ
+            }
+            ROOT = {
+                original_tag = SOV
+            }    
+        }
+        ai_desire = -99999
+    }
+	
+	ally_dont_care_east_europe = { #guo
+        peace_action_type = { liberate puppet take_states force_government }
+        enable = {
+            is_historical_focus_on = yes
+			has_global_flag = had_yalta_conference
+			FROM.FROM.FROM = {
+			    OR = {
+			    is_core_of = POL
+				is_core_of = CZE
+				is_core_of = HUN
+				is_core_of = ROM
+				is_core_of = BUL
+				is_core_of = DDR
+				is_core_of = ALB
+				is_core_of = YUG
+				}
+			}
+            FROM = {
+			   OR = {
+               original_tag = POL
+			   original_tag = CZE
+			   original_tag = HUN
+			   original_tag = ROM
+			   original_tag = BUL
+			   original_tag = DDR
+			   original_tag = ALB
+			   original_tag = YUG
+			   }
+            }
+            ROOT = {
+                is_democratic_type = yes
+				or = {
+				is_in_faction_with = USA
+				is_in_faction_with = ENG
+				is_in_faction_with = FRA
+				}
+            }
+        }
+        ai_desire = -50000
+    }
+	
+	SOV_dont_care_this_zz = { #guo
+        peace_action_type = { liberate puppet take_states force_government }
+        enable = {
+            is_historical_focus_on = yes
+			has_global_flag = had_yalta_conference
+			FROM.FROM.FROM = {
+			    OR = {
+			    is_core_of = NOR
+				is_core_of = DEN
+				is_core_of = GRE
+				is_core_of = WGR
+				
+				is_core_of = FIC
+                is_core_of = VIN
+			    is_core_of = LAO
+				is_core_of = CAM
+				is_core_of = CHP
+				}
+			}
+            FROM = {
+			   OR = {
+               original_tag = NOR
+			   original_tag = DEN
+			   original_tag = GRE
+			   original_tag = WGR
+			   
+			   original_tag = FIC
+                original_tag = VIN
+			    original_tag = LAO
+				original_tag = CAM
+				original_tag = CHP
+			   }
+            }
+            ROOT = {
+			    OR = {
+                original_tag = SOV
+				is_in_faction_with = SOV
+				}
+            }
+        }
+        ai_desire = -99999
+    }
+	
+	SOV_care_this_zz = { #guo
+        peace_action_type = { puppet }
+        enable = {
+            is_historical_focus_on = yes
+			#has_global_flag = had_yalta_conference
+			#has_global_flag = had_yalta_conference
+			FROM.FROM.FROM = {
+			    OR = {
+			    is_core_of = POL
+				is_core_of = CZE
+				is_core_of = HUN
+				is_core_of = ROM
+				is_core_of = BUL
+				is_core_of = DDR
+				is_core_of = ALB
+				is_core_of = YUG
+				}
+			}
+            FROM = {
+			   OR = {
+               original_tag = POL
+			   original_tag = CZE
+			   original_tag = HUN
+			   original_tag = ROM
+			   original_tag = BUL
+			   original_tag = DDR
+			   original_tag = ALB
+			   original_tag = YUG
+			   }
+            }
+            ROOT = {
+			    OR = {
+                original_tag = SOV
+				}
+            }
+        }
+        ai_desire = 10000
+    }
+	
+	ally_liberate_this_zz = { #guo
+        peace_action_type = { liberate force_government }
+        enable = {
+            is_historical_focus_on = yes
+			#has_global_flag = had_yalta_conference
+			#has_global_flag = had_yalta_conference
+			FROM.FROM.FROM = {
+			    OR = {
+			    is_core_of = NOR
+				is_core_of = DEN
+				#is_core_of = LBA
+				is_core_of = ETH
+				is_core_of = GRE
+				}
+			}
+            FROM = {
+			   OR = {
+               original_tag = NOR
+			   original_tag = DEN
+			   #original_tag = LBA
+			   original_tag = ETH
+			   original_tag = GRE
+			   }
+            }
+            ROOT = {
+                is_democratic_type = yes
+				#is_faction_leader = yes
+				or = {
+				is_in_faction_with = USA
+				is_in_faction_with = ENG
+				is_in_faction_with = FRA
+				}
+            }
+        }
+        ai_desire = 7777
+    }
+	ally_liberate_this_zz_most_firstly = { #guo
+        peace_action_type = { liberate force_government }
+        enable = {
+            is_historical_focus_on = yes
+			#has_global_flag = had_yalta_conference
+			#has_global_flag = had_yalta_conference
+			FROM.FROM.FROM = {
+			    OR = {
+			    is_core_of = NOR
+				is_core_of = DEN
+				is_core_of = D05
+				}
+			}
+            FROM = {
+			   OR = {
+               original_tag = NOR
+			   original_tag = DEN
+			   original_tag = D05
+			   }
+            }
+            ROOT = {
+                is_democratic_type = yes
+				#is_faction_leader = yes
+				or = {
+				is_in_faction_with = USA
+				is_in_faction_with = ENG
+				is_in_faction_with = FRA
+				}
+            }
+        }
+        ai_desire = 99999
+    }
+	ally_liberate_LBA_zz = { #guo
+        peace_action_type = { liberate force_government }
+        enable = {
+            is_historical_focus_on = yes
+			#has_global_flag = had_yalta_conference
+			#has_global_flag = had_yalta_conference
+			FROM.FROM.FROM = {
+			    OR = {
+			    
+				is_core_of = LBA
+				
+				}
+			}
+            FROM = {
+			   OR = {
+               
+			   original_tag = LBA
+			   
+			   }
+            }
+            ROOT = {
+                is_democratic_type = yes
+				or = {
+				is_in_faction_with = USA
+				is_in_faction_with = ENG
+				is_in_faction_with = FRA
+				}
+            }
+        }
+        ai_desire = 99999
+    }
+	
+	ally_puppet_this_zz = { #guo
+        peace_action_type = { puppet }
+        enable = {
+            is_historical_focus_on = yes
+			#has_global_flag = had_yalta_conference
+			#has_global_flag = had_yalta_conference
+			FROM.FROM.FROM = {
+			    OR = {
+				is_core_of = RSI
+			    is_core_of = ITA
+				is_core_of = JAP
+				is_core_of = SPR
+				is_core_of = POR
+				is_core_of = SIA
+				is_core_of = FIC
+				}
+				NOT = { is_core_of = LBA }
+			}
+            FROM = {
+			   OR = {
+			    original_tag = RSI
+                original_tag = ITA
+				original_tag = JAP
+				original_tag = SPR
+				original_tag = POR
+				original_tag = SIA
+				original_tag = FIC
+			   }
+			   NOT = { original_tag = LBA }
+            }
+            ROOT = {
+                is_democratic_type = yes
+				is_faction_leader = yes
+				or = {
+				is_in_faction_with = USA
+				is_in_faction_with = ENG
+				is_in_faction_with = FRA
+				}
+            }
+        }
+        ai_desire = 20000
+    }
+	
+	FRA_puppet_FIC = { #guo
+        peace_action_type = { puppet }
+        enable = {
+		    any_state = { is_core_of = FIC }
+			FROM.FROM.FROM = {
+			    is_core_of = FIC
+			}
+            FROM = {
+               original_tag = FIC
+            }
+            ROOT = {
+                original_tag = FRA
+				is_subject = no
+            }
+        }
+        ai_desire = 9999
+    }
+	FRA_puppet_VIN = { #guo
+        peace_action_type = { puppet }
+        enable = {
+		    NOT = { any_state = { is_core_of = FIC } }
+			FROM.FROM.FROM = {
+			    OR = {
+			    is_core_of = VIN
+			    is_core_of = LAO
+				is_core_of = CAM
+				is_core_of = CHP
+				}
+			}
+            FROM = {
+			    OR = {
+			    original_tag = VIN
+			    original_tag = LAO
+				original_tag = CAM
+				original_tag = CHP
+				}
+            }
+            ROOT = {
+                original_tag = FRA
+				is_subject = no
+            }
+        }
+        ai_desire = 9999
+    }
+	
+	SOV_take_PER = { #guo
+        peace_action_type = { take_states }
+        enable = {
+			has_global_flag = SOV_agreed_anglo_soviet_invasion_of_iran_flag_ZZZ
+			FROM.FROM.FROM = {
+			    OR = {
+			    is_core_of = PER
+				}
+				OR = {
+				    state = 419 #Tibriz (AZB)
+				    state = 420 #Gilan (AZB)
+				    state = 416 #Khorasan
+			        state = 998 #MODDED
+			        state = 416 #MODDED
+			        state = 417 #MODDED	
+			    }
+			}
+            FROM = {
+			    OR = {
+			    original_tag = PER
+				}
+            }
+            ROOT = {
+                original_tag = SOV
+				has_war_together_with = ENG
+            }
+        }
+        ai_desire = 9999
+    }
+	SOV_dont_take_PER = { #guo
+        peace_action_type = { liberate puppet take_states force_government }
+        enable = {
+			has_global_flag = SOV_agreed_anglo_soviet_invasion_of_iran_flag_ZZZ
+			FROM.FROM.FROM = {
+			    OR = {
+			    is_core_of = PER
+				}
+				NOT = {
+				    state = 419 #Tibriz (AZB)
+				    state = 420 #Gilan (AZB)
+				    state = 416 #Khorasan
+			        state = 998 #MODDED
+			        state = 416 #MODDED
+			        state = 417 #MODDED	
+			    }
+			}
+            FROM = {
+			    OR = {
+			    original_tag = PER
+				}
+            }
+            ROOT = {
+                original_tag = SOV
+				has_war_together_with = ENG
+            }
+        }
+        ai_desire = -50000
+    }
+	SOV_dont_puppet_PER = { #guo
+        peace_action_type = { puppet liberate force_government }
+        enable = {
+			has_global_flag = SOV_agreed_anglo_soviet_invasion_of_iran_flag_ZZZ
+			FROM.FROM.FROM = {
+			    OR = {
+			    is_core_of = PER
+				}
+			}
+            FROM = {
+			    OR = {
+			    original_tag = PER
+				}
+            }
+            ROOT = {
+                original_tag = SOV
+				has_war_together_with = ENG
+            }
+        }
+        ai_desire = -99999
+    }
+	SOV_dont_puppet_asia_country = { #guo
+        peace_action_type = { puppet liberate force_government }
+        enable = {
+			has_global_flag = lianheguojiaxuanyan
+			FROM.FROM.FROM = {
+			    OR = {
+			    always = yes
+				}
+			}
+            FROM = {
+			    OR = {
+			    capital_scope = { is_on_continent = asia }
+				}
+				not = { original_tag = KOR original_tag = DPR }
+            }
+            ROOT = {
+                original_tag = SOV
+				has_government = communism
+				NOT = { has_war_with = event_target:WTT_communist_china has_war_with = event_target:WTT_current_china_leader }
+            }
+        }
+        ai_desire = -99999
+    }
+	SOV_take_MAN_ECA_EHB_PLM = { #guo
+        peace_action_type = { take_states }
+        enable = {
+			has_global_flag = lianheguojiaxuanyan
+			FROM.FROM.FROM = {
+			    OR = {
+			    has_state_flag = manzhou
+				is_core_of = MAN
+				is_core_of = ECA
+				is_core_of = EHB
+				is_core_of = PLM
+				}
+			}
+            FROM = {
+			    OR = {
+			    always = yes
+				}
+				
+            }
+            ROOT = {
+                original_tag = SOV
+				has_government = communism
+				NOT = { has_war_with = event_target:WTT_communist_china has_war_with = event_target:WTT_current_china_leader }
+            }
+        }
+        ai_desire = 99999
+    }
+	
+	ENG_take_PER = { #guo
+        peace_action_type = { take_states }
+        enable = {
+			has_global_flag = SOV_agreed_anglo_soviet_invasion_of_iran_flag_ZZZ
+			FROM.FROM.FROM = {
+			    OR = {
+			    is_core_of = PER
+				}
+				OR = {
+				    state = 413 #Tibriz (AZB)
+				    state = 412 #Gilan (AZB)
+			    }
+			}
+            FROM = {
+			    OR = {
+			    original_tag = PER
+				}
+            }
+            ROOT = {
+                original_tag = ENG
+				has_war_together_with = SOV
+            }
+        }
+        ai_desire = 8000
+    }
+	ENG_puppet_PER = { #guo
+        peace_action_type = { puppet }
+        enable = {
+			has_global_flag = SOV_agreed_anglo_soviet_invasion_of_iran_flag_ZZZ
+			FROM.FROM.FROM = {
+			    OR = {
+			    is_core_of = PER
+				}
+				NOT = {
+				    state = 413 #Tibriz (AZB)
+				    state = 412 #Gilan (AZB)
+					
+					state = 419 #Tibriz (AZB)
+				    state = 420 #Gilan (AZB)
+				    state = 416 #Khorasan
+			        state = 998 #MODDED
+			        state = 416 #MODDED
+			        state = 417 #MODDED
+			    }
+			}
+            FROM = {
+			    OR = {
+			    original_tag = PER
+				}
+            }
+            ROOT = {
+                original_tag = ENG
+				has_war_together_with = SOV
+            }
+        }
+        ai_desire = 9999
+    }
+	
+	ENG_force_IRQ = { #guo
+        peace_action_type = { force_government }
+        enable = {
+			is_historical_focus_on = yes
+			FROM.FROM.FROM = {
+			    OR = {
+			    is_core_of = IRQ
+				}
+			}
+            FROM = {
+			    OR = {
+			    original_tag = IRQ
+				}
+            }
+            ROOT = {
+			    OR = {
+                original_tag = ENG
+				}
+				is_democratic_type = yes
+            }
+        }
+        ai_desire = 9999
+    }
+	ENG_dont_take_IRQ = { #guo
+        peace_action_type = { liberate take_states }
+        enable = {
+			is_historical_focus_on = yes
+			FROM.FROM.FROM = {
+			    OR = {
+			    is_core_of = IRQ
+				is_core_of = KUR
+				}
+			}
+            FROM = {
+			    OR = {
+			    original_tag = IRQ
+				original_tag = KUR
+				}
+            }
+            ROOT = {
+			    OR = {
+                original_tag = ENG
+				original_tag = USA
+				original_tag = FRA
+				is_in_faction_with = ENG
+				}
+				is_democratic_type = yes
+            }
+        }
+        ai_desire = -50000
+    }
+	sov_dont_take_iraq = {
+        peace_action_type = { take_states puppet liberate force_government }
+        enable = {
+            ENG = {
+			    is_ally_with = USA
+				NOT = { has_war_with = SOV }
+				is_subject = no
+			}
+			is_historical_focus_on = yes
+			has_global_flag = had_yalta_conference
+			FROM.FROM.FROM = {              
+			    OR = {
+			    is_core_of = IRQ
+				is_core_of = KUR
+				}
+			}
+            FROM = {
+               always = yes
+            }
+            ROOT = {
+                original_tag = SOV
+            }    
+        }
+        ai_desire = -99999
+    }
+	
+	all_take_core_state_first = {
+        peace_action_type = { take_states }
+        enable = {
+			FROM.FROM.FROM = {
+			    OR = {
+			    is_core_of = ROOT
+				}
+			}
+            FROM = {
+               always = yes
+            }
+            ROOT = {
+                is_subject = no
+            }    
+        }
+        ai_desire = 99999
+    }
+	
+	sov_take_claim_state_too = {
+        peace_action_type = { take_states }
+        enable = {
+			FROM.FROM.FROM = {
+			    OR = {
+			    is_core_of = ROOT
+				is_claimed_by = ROOT
+				}
+			}
+            FROM = {
+               always = yes
+            }
+            ROOT = {
+                original_tag = SOV
+            }    
+        }
+        ai_desire = 99999
+    }
+}
