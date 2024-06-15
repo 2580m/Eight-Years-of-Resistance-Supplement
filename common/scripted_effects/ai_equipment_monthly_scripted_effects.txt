@@ -1,0 +1,1678 @@
+on_monthly_settlement_rcm = {#每月结算一次 #非变种装备不要用effects写出来不然煞笔ai不会用制造商 #煞笔p🐍我测你老木
+		#这里的部队模板也需要随时更改 傻狗ai尼玛死了
+		every_country = {
+		limit = {
+		is_ai = yes
+		has_tech = tech_engineers2
+		has_tech = gwtank_chassis
+		not = { has_country_flag = medium_tank_flame_chassis_0_zz }
+		}
+		
+		if = {
+		limit = { tag = SOV }
+		create_equipment_variant = {
+			name = "步兵中喷火"
+			type = medium_tank_flame_chassis_0
+			design_team = mio:SOV_mytishchy_machine_building_plant_organization
+			allow_without_tech = yes
+			modules = {
+				main_armament_slot = flamethrower
+				turret_type_slot = tank_light_one_man_tank_turret
+				suspension_type_slot = tank_bogie_suspension
+				armor_type_slot = tank_riveted_armor
+				engine_type_slot = tank_gasoline_engine
+				special_type_slot_1 = easy_maintenance
+				special_type_slot_2 = extra_ammo_storage
+				special_type_slot_3 = extra_ammo_storage
+				special_type_slot_4 = extra_ammo_storage
+			}
+			upgrades = {
+				tank_nsb_engine_upgrade = 0
+				tank_nsb_armor_upgrade = 0
+			}
+		}
+		}
+		else_if = {
+		limit = { tag = GER }
+		create_equipment_variant = {
+			name = "步兵中喷火"
+			type = medium_tank_flame_chassis_0
+			design_team = mio:GER_daimler_benz_organization
+			allow_without_tech = yes
+			modules = {
+				main_armament_slot = flamethrower
+				turret_type_slot = tank_light_one_man_tank_turret
+				suspension_type_slot = tank_bogie_suspension
+				armor_type_slot = tank_riveted_armor
+				engine_type_slot = tank_gasoline_engine
+				special_type_slot_1 = easy_maintenance
+				special_type_slot_2 = extra_ammo_storage
+				special_type_slot_3 = extra_ammo_storage
+				special_type_slot_4 = extra_ammo_storage
+			}
+			upgrades = {
+				tank_nsb_engine_upgrade = 0
+				tank_nsb_armor_upgrade = 0
+			}
+		}
+		}
+		else_if = {
+		limit = { tag = USA }
+		create_equipment_variant = {
+			name = "步兵中喷火"
+			type = medium_tank_flame_chassis_0
+			design_team = mio:USA_chrysler_organization
+			allow_without_tech = yes
+			modules = {
+				main_armament_slot = flamethrower
+				turret_type_slot = tank_light_one_man_tank_turret
+				suspension_type_slot = tank_bogie_suspension
+				armor_type_slot = tank_riveted_armor
+				engine_type_slot = tank_gasoline_engine
+				special_type_slot_1 = easy_maintenance
+				special_type_slot_2 = extra_ammo_storage
+				special_type_slot_3 = extra_ammo_storage
+				special_type_slot_4 = extra_ammo_storage
+			}
+			upgrades = {
+				tank_nsb_engine_upgrade = 0
+				tank_nsb_armor_upgrade = 0
+			}
+		}
+		}
+		else_if = {
+		limit = { tag = ENG }
+		create_equipment_variant = {
+			name = "步兵中喷火"
+			type = medium_tank_flame_chassis_0
+			design_team = mio:ENG_vickers_armstrong_eng_organization
+			allow_without_tech = yes
+			modules = {
+				main_armament_slot = flamethrower
+				turret_type_slot = tank_light_one_man_tank_turret
+				suspension_type_slot = tank_bogie_suspension
+				armor_type_slot = tank_riveted_armor
+				engine_type_slot = tank_gasoline_engine
+				special_type_slot_1 = easy_maintenance
+				special_type_slot_2 = extra_ammo_storage
+				special_type_slot_3 = extra_ammo_storage
+				special_type_slot_4 = extra_ammo_storage
+			}
+			upgrades = {
+				tank_nsb_engine_upgrade = 0
+				tank_nsb_armor_upgrade = 0
+			}
+		}
+		}
+		else_if = {
+		limit = { tag = FRA }
+		create_equipment_variant = {
+			name = "步兵中喷火"
+			type = medium_tank_flame_chassis_0
+			design_team = mio:FRA_apx_organization
+			allow_without_tech = yes
+			modules = {
+				main_armament_slot = flamethrower
+				turret_type_slot = tank_light_one_man_tank_turret
+				suspension_type_slot = tank_bogie_suspension
+				armor_type_slot = tank_riveted_armor
+				engine_type_slot = tank_gasoline_engine
+				special_type_slot_1 = easy_maintenance
+				special_type_slot_2 = extra_ammo_storage
+				special_type_slot_3 = extra_ammo_storage
+				special_type_slot_4 = extra_ammo_storage
+			}
+			upgrades = {
+				tank_nsb_engine_upgrade = 0
+				tank_nsb_armor_upgrade = 0
+			}
+		}
+		}
+		else_if = {
+		limit = { tag = ITA }
+		create_equipment_variant = {
+			name = "步兵中喷火"
+			type = medium_tank_flame_chassis_0
+			design_team = mio:ITA_fiat_organization
+			allow_without_tech = yes
+			modules = {
+				main_armament_slot = flamethrower
+				turret_type_slot = tank_light_one_man_tank_turret
+				suspension_type_slot = tank_bogie_suspension
+				armor_type_slot = tank_riveted_armor
+				engine_type_slot = tank_gasoline_engine
+				special_type_slot_1 = easy_maintenance
+				special_type_slot_2 = extra_ammo_storage
+				special_type_slot_3 = extra_ammo_storage
+				special_type_slot_4 = extra_ammo_storage
+			}
+			upgrades = {
+				tank_nsb_engine_upgrade = 0
+				tank_nsb_armor_upgrade = 0
+			}
+		}
+		}
+		else_if = {
+		limit = { tag = JAP }
+		create_equipment_variant = {
+			name = "步兵中喷火"
+			type = medium_tank_flame_chassis_0
+			design_team = mio:JAP_osaka_army_arsenal_organization
+			allow_without_tech = yes
+			modules = {
+				main_armament_slot = flamethrower
+				turret_type_slot = tank_light_one_man_tank_turret
+				suspension_type_slot = tank_bogie_suspension
+				armor_type_slot = tank_riveted_armor
+				engine_type_slot = tank_gasoline_engine
+				special_type_slot_1 = easy_maintenance
+				special_type_slot_2 = extra_ammo_storage
+				special_type_slot_3 = extra_ammo_storage
+				special_type_slot_4 = extra_ammo_storage
+			}
+			upgrades = {
+				tank_nsb_engine_upgrade = 0
+				tank_nsb_armor_upgrade = 0
+			}
+		}
+		}
+		
+		set_country_flag = medium_tank_flame_chassis_0_zz
+		}
+		
+		every_country = {
+		limit = {
+		is_ai = yes
+		has_navy_size = { size > 50 }
+		has_tech = marines
+		not = { has_country_flag = marines_ai_template }
+		}
+		division_template = {
+		name = "35宽海军陆战队"
+		priority = 2
+		regiments = {
+		            marine = { x = 0 y = 0 }
+					marine = { x = 0 y = 1 }
+					marine = { x = 0 y = 2 }
+					marine = { x = 0 y = 3 }
+                    marine = { x = 0 y = 4 }
+					
+					marine = { x = 1 y = 0 }
+					marine = { x = 1 y = 1 }
+					marine = { x = 1 y = 2 }
+					marine = { x = 1 y = 3 }
+                    marine = { x = 1 y = 4 }
+					
+					marine = { x = 2 y = 0 }
+					marine = { x = 2 y = 1 }
+					
+		artillery_brigade = { x = 3 y = 0 }
+		artillery_brigade = { x = 3 y = 1 }
+		artillery_brigade = { x = 3 y = 2 }
+		
+		amphibious_armor = { x = 4 y = 0 }
+		}
+		support = {
+		field_hospital = { x = 0 y = 0 } 
+		engineer = { x = 0 y = 1 }
+		artillery = { x = 0 y = 2 } 
+		anti_tank = { x = 0 y = 3 } 
+		rangers_support = { x = 0 y = 4 }
+		}
+	    }
+		set_country_flag = marines_ai_template
+		}
+		every_country = {
+		limit = {
+		always = no
+		
+		is_ai = yes
+		has_navy_size = { size > 50 }
+		has_tech = amphibious_tank_chassis
+		not = { has_country_flag = amphibious_tank_chassis_original }
+		}
+		
+		if = {
+		limit = { tag = USA }
+		create_equipment_variant = {
+		    name = "初始两栖坦克"
+			type = amphibious_tank_chassis_1
+			design_team = mio:USA_chrysler_organization
+			allow_without_tech = yes
+			modules = {
+				main_armament_slot = tank_small_cannon_2
+				turret_type_slot = tank_light_three_man_tank_turret
+				suspension_type_slot = tank_interleaved_suspension
+				armor_type_slot = tank_riveted_armor
+				engine_type_slot = tank_diesel_engine
+				special_type_slot_1 = easy_maintenance
+				special_type_slot_2 = tank_radio_2
+				special_type_slot_3 = extra_ammo_storage
+				special_type_slot_4 = extra_ammo_storage
+			}
+			upgrades = {
+				tank_nsb_engine_upgrade = 0
+				tank_nsb_armor_upgrade = 4
+			}
+		}
+		}
+		else_if = {
+		limit = { tag = JAP }
+		create_equipment_variant = {
+		    name = "初始两栖坦克"
+			type = amphibious_tank_chassis_1
+			design_team = mio:JAP_hitachi_tank_organization
+			allow_without_tech = yes
+			modules = {
+				main_armament_slot = tank_small_cannon_2
+				turret_type_slot = tank_light_three_man_tank_turret
+				suspension_type_slot = tank_interleaved_suspension
+				armor_type_slot = tank_riveted_armor
+				engine_type_slot = tank_diesel_engine
+				special_type_slot_1 = easy_maintenance
+				special_type_slot_2 = tank_radio_2
+				special_type_slot_3 = extra_ammo_storage
+				special_type_slot_4 = extra_ammo_storage
+			}
+			upgrades = {
+				tank_nsb_engine_upgrade = 0
+				tank_nsb_armor_upgrade = 4
+			}
+		}
+		}
+		else_if = {
+		limit = { tag = ENG }
+		create_equipment_variant = {
+		    name = "初始两栖坦克"
+			type = amphibious_tank_chassis_1
+			design_team = mio:ENG_vickers_armstrong_eng_organization
+			allow_without_tech = yes
+			modules = {
+				main_armament_slot = tank_small_cannon_2
+				turret_type_slot = tank_light_three_man_tank_turret
+				suspension_type_slot = tank_interleaved_suspension
+				armor_type_slot = tank_riveted_armor
+				engine_type_slot = tank_diesel_engine
+				special_type_slot_1 = easy_maintenance
+				special_type_slot_2 = tank_radio_2
+				special_type_slot_3 = extra_ammo_storage
+				special_type_slot_4 = extra_ammo_storage
+			}
+			upgrades = {
+				tank_nsb_engine_upgrade = 0
+				tank_nsb_armor_upgrade = 4
+			}
+		}
+		}
+		else_if = {
+		limit = { tag = ITA }
+		create_equipment_variant = {
+		    name = "初始两栖坦克"
+			type = amphibious_tank_chassis_1
+			design_team = mio:ITA_fiat_organization
+			allow_without_tech = yes
+			modules = {
+				main_armament_slot = tank_small_cannon_2
+				turret_type_slot = tank_light_three_man_tank_turret
+				suspension_type_slot = tank_interleaved_suspension
+				armor_type_slot = tank_riveted_armor
+				engine_type_slot = tank_diesel_engine
+				special_type_slot_1 = easy_maintenance
+				special_type_slot_2 = tank_radio_2
+				special_type_slot_3 = extra_ammo_storage
+				special_type_slot_4 = extra_ammo_storage
+			}
+			upgrades = {
+				tank_nsb_engine_upgrade = 0
+				tank_nsb_armor_upgrade = 4
+			}
+		}
+		}
+		else_if = {
+		limit = { tag = CAN }
+		create_equipment_variant = {
+		    name = "初始两栖坦克"
+			type = amphibious_tank_chassis_1
+			design_team = mio:CAN_vickers_armstrong_can_organization
+			allow_without_tech = yes
+			modules = {
+				main_armament_slot = tank_small_cannon_2
+				turret_type_slot = tank_light_three_man_tank_turret
+				suspension_type_slot = tank_interleaved_suspension
+				armor_type_slot = tank_riveted_armor
+				engine_type_slot = tank_diesel_engine
+				special_type_slot_1 = easy_maintenance
+				special_type_slot_2 = tank_radio_2
+				special_type_slot_3 = extra_ammo_storage
+				special_type_slot_4 = extra_ammo_storage
+			}
+			upgrades = {
+				tank_nsb_engine_upgrade = 0
+				tank_nsb_armor_upgrade = 4
+			}
+		}
+		}
+		
+		
+		set_country_flag = amphibious_tank_chassis_original
+		}
+		every_country = {
+		limit = {
+		is_ai = yes
+		has_navy_size = { size > 50 }
+		has_tech = amphibious_tank_chassis
+		has_tech = amphibious_drive
+		not = { has_country_flag = marines_ai_template_amphibious_tank_chassis }
+		}
+		division_template = {
+		name = "两栖登陆装甲师"
+		priority = 2
+		regiments = {#要写变种amphibious_medium_armor
+		            amphibious_medium_armor = { x = 0 y = 0 }
+					amphibious_medium_armor = { x = 0 y = 1 }
+					amphibious_medium_armor = { x = 0 y = 2 }
+					amphibious_medium_armor = { x = 0 y = 3 }
+                    amphibious_medium_armor = { x = 0 y = 4 }
+					
+					amphibious_medium_armor = { x = 1 y = 0 }
+					amphibious_medium_armor = { x = 1 y = 1 }
+					amphibious_medium_armor = { x = 1 y = 2 }
+					amphibious_medium_armor = { x = 1 y = 3 }
+					
+					marine = { x = 2 y = 0 }
+					marine = { x = 2 y = 1 }
+					marine = { x = 2 y = 2 }
+					marine = { x = 2 y = 3 }
+					marine = { x = 2 y = 4 }
+					
+					marine = { x = 3 y = 0 }
+					marine = { x = 3 y = 1 }
+					marine = { x = 3 y = 2 }
+					
+					medium_tank_destroyer_brigade = { x = 4 y = 0 }
+		}
+		support = {
+		medium_flame_tank = { x = 0 y = 0 } 
+		engineer = { x = 0 y = 1 }
+		logistics_company = { x = 0 y = 2 } 
+		anti_air = { x = 0 y = 3 } 
+		rangers_support = { x = 0 y = 4 }
+		}
+	    }
+		
+		if = {
+		limit = { tag = USA }
+		create_equipment_variant = {
+		    name = "变体中海陆"
+			type = medium_tank_amphibious_chassis_2
+			design_team = mio:USA_chrysler_organization
+			allow_without_tech = yes
+			modules = {
+				main_armament_slot = tank_medium_cannon_2
+				turret_type_slot = tank_medium_three_man_tank_turret 
+				suspension_type_slot = tank_interleaved_suspension
+				armor_type_slot = tank_riveted_armor
+				engine_type_slot = tank_diesel_engine
+				special_type_slot_1 = secondary_turret_small_cannon
+				special_type_slot_2 = secondary_turret_small_cannon
+				special_type_slot_3 = easy_maintenance
+				special_type_slot_4 = amphibious_drive
+			}
+			upgrades = {
+				tank_nsb_engine_upgrade = 0
+				tank_nsb_armor_upgrade = 4
+			}
+		}
+		}
+		else_if = {
+		limit = { tag = JAP }
+		create_equipment_variant = {
+		    name = "变体中海陆"
+			type = medium_tank_amphibious_chassis_2
+			design_team = mio:JAP_hitachi_tank_organization
+			allow_without_tech = yes
+			modules = {
+				main_armament_slot = tank_medium_cannon_2
+				turret_type_slot = tank_medium_three_man_tank_turret 
+				suspension_type_slot = tank_interleaved_suspension
+				armor_type_slot = tank_riveted_armor
+				engine_type_slot = tank_diesel_engine
+				special_type_slot_1 = secondary_turret_small_cannon
+				special_type_slot_2 = secondary_turret_small_cannon
+				special_type_slot_3 = easy_maintenance
+				special_type_slot_4 = amphibious_drive
+			}
+			upgrades = {
+				tank_nsb_engine_upgrade = 0
+				tank_nsb_armor_upgrade = 4
+			}
+		}
+		}
+		else_if = {
+		limit = { tag = ENG }
+		create_equipment_variant = {
+		    name = "变体中海陆"
+			type = medium_tank_amphibious_chassis_2
+			design_team = mio:ENG_vickers_armstrong_eng_organization
+			allow_without_tech = yes
+			modules = {
+				main_armament_slot = tank_medium_cannon_2
+				turret_type_slot = tank_medium_three_man_tank_turret 
+				suspension_type_slot = tank_interleaved_suspension
+				armor_type_slot = tank_riveted_armor
+				engine_type_slot = tank_diesel_engine
+				special_type_slot_1 = secondary_turret_small_cannon
+				special_type_slot_2 = secondary_turret_small_cannon
+				special_type_slot_3 = easy_maintenance
+				special_type_slot_4 = amphibious_drive
+			}
+			upgrades = {
+				tank_nsb_engine_upgrade = 0
+				tank_nsb_armor_upgrade = 4
+			}
+		}
+		}
+		else_if = {
+		limit = { tag = ITA }
+		create_equipment_variant = {
+		    name = "变体中海陆"
+			type = medium_tank_amphibious_chassis_2
+			design_team = mio:ITA_fiat_organization
+			allow_without_tech = yes
+			modules = {
+				main_armament_slot = tank_medium_cannon_2
+				turret_type_slot = tank_medium_three_man_tank_turret 
+				suspension_type_slot = tank_interleaved_suspension
+				armor_type_slot = tank_riveted_armor
+				engine_type_slot = tank_diesel_engine
+				special_type_slot_1 = secondary_turret_small_cannon
+				special_type_slot_2 = secondary_turret_small_cannon
+				special_type_slot_3 = easy_maintenance
+				special_type_slot_4 = amphibious_drive
+			}
+			upgrades = {
+				tank_nsb_engine_upgrade = 0
+				tank_nsb_armor_upgrade = 4
+			}
+		}
+		}
+		else_if = {
+		limit = { tag = CAN }
+		create_equipment_variant = {
+		    name = "变体中海陆"
+			type = medium_tank_amphibious_chassis_2
+			design_team = mio:CAN_vickers_armstrong_can_organization
+			allow_without_tech = yes
+			modules = {
+				main_armament_slot = tank_medium_cannon_2
+				turret_type_slot = tank_medium_three_man_tank_turret 
+				suspension_type_slot = tank_interleaved_suspension
+				armor_type_slot = tank_riveted_armor
+				engine_type_slot = tank_diesel_engine
+				special_type_slot_1 = secondary_turret_small_cannon
+				special_type_slot_2 = secondary_turret_small_cannon
+				special_type_slot_3 = easy_maintenance
+				special_type_slot_4 = amphibious_drive
+			}
+			upgrades = {
+				tank_nsb_engine_upgrade = 0
+				tank_nsb_armor_upgrade = 4
+			}
+		}
+		}
+		
+		set_country_flag = marines_ai_template_amphibious_tank_chassis
+		}
+		
+		every_country = {
+		limit = {
+		is_ai = yes
+		#is_incompetent_heavy_industry_country = no
+		has_tech = tech_engineers2
+		not = { has_country_flag = medium_tank_chassis_1_already }
+		}
+		division_template = {
+		name = "35宽步兵师"
+		priority = 1
+		regiments = {
+		            infantry = { x = 0 y = 0 }
+					infantry = { x = 0 y = 1 }
+					infantry = { x = 0 y = 2 }
+					infantry = { x = 0 y = 3 }
+                    infantry = { x = 0 y = 4 }
+					
+					infantry = { x = 1 y = 0 }
+					infantry = { x = 1 y = 1 }
+					infantry = { x = 1 y = 2 }
+					infantry = { x = 1 y = 3 }
+                    infantry = { x = 1 y = 4 }
+					
+					infantry = { x = 2 y = 0 }
+					infantry = { x = 2 y = 1 }
+					
+		artillery_brigade = { x = 3 y = 0 }
+		artillery_brigade = { x = 3 y = 1 }
+		artillery_brigade = { x = 3 y = 2 }
+		anti_air_brigade = { x = 3 y = 3 }
+		anti_tank_brigade = { x = 3 y = 4 }
+		}
+		support = {
+		medium_flame_tank = { x = 0 y = 0 } 
+		engineer = { x = 0 y = 1 }
+		logistics_company = { x = 0 y = 2 } 
+		field_hospital = { x = 0 y = 3 } 
+		rangers_support = { x = 0 y = 4 }
+		}
+	    }
+		division_template = {
+		name = "35宽山地师"
+		priority = 2
+		regiments = {
+		            mountaineers = { x = 0 y = 0 }
+					mountaineers = { x = 0 y = 1 }
+					mountaineers = { x = 0 y = 2 }
+					mountaineers = { x = 0 y = 3 }
+                    mountaineers = { x = 0 y = 4 }
+					
+					mountaineers = { x = 1 y = 0 }
+					mountaineers = { x = 1 y = 1 }
+					mountaineers = { x = 1 y = 2 }
+					mountaineers = { x = 1 y = 3 }
+                    mountaineers = { x = 1 y = 4 }
+					
+					mountaineers = { x = 2 y = 0 }
+					mountaineers = { x = 2 y = 1 }
+					
+					artillery_brigade = { x = 3 y = 0 }
+		artillery_brigade = { x = 3 y = 1 }
+		artillery_brigade = { x = 3 y = 2 }
+		anti_air_brigade = { x = 3 y = 3 }
+		anti_tank_brigade = { x = 3 y = 4 }
+		}
+		support = {
+		medium_flame_tank = { x = 0 y = 0 } 
+		engineer = { x = 0 y = 1 }
+		logistics_company = { x = 0 y = 2 } 
+		field_hospital = { x = 0 y = 3 } 
+		rangers_support = { x = 0 y = 4 }
+		}
+	    }
+		#create_equipment_variant = {
+		#	name = "1938中坦"
+		#	type = medium_tank_chassis_1
+		#	modules = {
+		#		main_armament_slot = tank_medium_cannon
+		#		turret_type_slot = tank_medium_two_man_tank_turret
+		#		suspension_type_slot = tank_christie_suspension
+		#		armor_type_slot = tank_cast_armor
+		#		engine_type_slot = tank_gasoline_engine
+		#		special_type_slot_1 = tank_radio_1
+		#		special_type_slot_2 = sloped_armor
+		#		special_type_slot_3 = expanded_fuel_tank
+		#		special_type_slot_4 = easy_maintenance
+		#	}
+		#	upgrades = {
+		#		tank_nsb_engine_upgrade = 8
+		#		tank_nsb_armor_upgrade = 4
+		#	}
+		#}
+		set_country_flag = medium_tank_chassis_1_already
+		}
+		
+		every_country = {
+		limit = {
+		always = no
+		
+		is_ai = yes
+		is_incompetent_heavy_industry_country = no
+		has_tech = interwar_antiair
+		has_tech = basic_medium_tank_chassis
+		not = { has_country_flag = medium_tank_aa_chassis_1_already }
+		}
+		#create_equipment_variant = {
+		#	name = "金盾中防空"
+		#	type = medium_tank_aa_chassis_1
+		#	allow_without_tech = yes
+		#	modules = {
+		#		main_armament_slot = tank_anti_air_cannon
+		#		turret_type_slot = tank_light_one_man_tank_turret
+		#		suspension_type_slot = tank_bogie_suspension
+		#		armor_type_slot = tank_welded_armor
+		#		engine_type_slot = tank_diesel_engine
+		#		special_type_slot_1 = sloped_armor
+		#		special_type_slot_2 = extra_ammo_storage
+		#		special_type_slot_3 = extra_ammo_storage
+		#		special_type_slot_4 = extra_ammo_storage
+		#	}
+		#	upgrades = {
+		#		tank_nsb_engine_upgrade = 0
+		#		tank_nsb_armor_upgrade = 12
+		#	}
+		#}
+		set_country_flag = medium_tank_aa_chassis_1_already
+		}
+		
+		
+		#坦歼ai居然可以自己捏
+		every_country = {
+		limit = {
+		always = no
+		
+		is_ai = yes
+		not = { has_country_flag = medium_tank_destroyer_chassis_2_zz }
+		has_tech = improved_medium_tank_chassis
+		is_incompetent_heavy_industry_country = no
+		}
+		    create_equipment_variant = {
+				name = "40年中型自反"
+				type = medium_tank_destroyer_chassis_2
+				allow_without_tech = yes
+				modules = {
+				main_armament_slot = tank_high_velocity_cannon
+				turret_type_slot = tank_medium_fixed_superstructure_turret 
+				suspension_type_slot = tank_bogie_suspension
+				armor_type_slot = tank_cast_armor
+				engine_type_slot = tank_gasoline_engine
+				special_type_slot_1 = armor_skirts
+				special_type_slot_2 = sloped_armor
+				special_type_slot_3 = squeezebore_adaptor
+				special_type_slot_4 = easy_maintenance
+			}
+			upgrades = {
+				tank_nsb_engine_upgrade = 0
+				tank_nsb_armor_upgrade = 15
+			}
+			}
+			create_equipment_variant = {
+				name = "40年中型步兵坦克自反"
+				type = medium_tank_destroyer_chassis_2
+				allow_without_tech = yes
+				modules = {
+				main_armament_slot = tank_high_velocity_cannon
+				turret_type_slot = tank_medium_fixed_superstructure_turret 
+				suspension_type_slot = tank_bogie_suspension
+				armor_type_slot = tank_cast_armor
+				engine_type_slot = tank_gasoline_engine
+				special_type_slot_1 = armor_skirts
+				special_type_slot_2 = sloped_armor
+				special_type_slot_3 = squeezebore_adaptor
+				special_type_slot_4 = easy_maintenance
+			}
+			upgrades = {
+				tank_nsb_engine_upgrade = 0
+				tank_nsb_armor_upgrade = 15
+			}
+			}
+			set_country_flag = medium_tank_destroyer_chassis_2_zz
+		}
+		every_country = {
+		limit = {
+		always = no
+		
+		is_ai = yes
+		not = { has_country_flag = medium_tank_destroyer_chassis_3_zz }
+		has_tech = advanced_medium_tank_chassis
+		is_incompetent_heavy_industry_country = no
+		}
+		    create_equipment_variant = {
+			name = "43年中型自反"
+			type = medium_tank_destroyer_chassis_3
+			allow_without_tech = yes
+			modules = {
+				main_armament_slot = tank_high_velocity_cannon_3
+				turret_type_slot = tank_medium_fixed_superstructure_turret
+				suspension_type_slot = tank_christie_suspension
+				armor_type_slot = tank_cast_armor
+				engine_type_slot = tank_gasoline_engine
+				special_type_slot_1 = armor_skirts
+				special_type_slot_2 = sloped_armor
+				special_type_slot_3 = squeezebore_adaptor
+				special_type_slot_4 = easy_maintenance
+			}
+			upgrades = {
+				tank_nsb_engine_upgrade = 8
+				tank_nsb_armor_upgrade = 15
+			}
+		    }
+			create_equipment_variant = {
+			name = "43年中型步兵坦克自反"
+			type = medium_tank_destroyer_chassis_3
+			allow_without_tech = yes
+			modules = {
+				main_armament_slot = tank_high_velocity_cannon_3
+				turret_type_slot = tank_medium_fixed_superstructure_turret
+				suspension_type_slot = tank_bogie_suspension
+				armor_type_slot = tank_cast_armor
+				engine_type_slot = tank_gasoline_engine
+				special_type_slot_1 = armor_skirts
+				special_type_slot_2 = sloped_armor
+				special_type_slot_3 = squeezebore_adaptor
+				special_type_slot_4 = easy_maintenance
+			}
+			upgrades = {
+				tank_nsb_engine_upgrade = 0
+				tank_nsb_armor_upgrade = 15
+			}
+		    }
+			set_country_flag = medium_tank_destroyer_chassis_3_zz
+		}
+		
+		every_country = {
+		limit = {
+		is_ai = yes
+		not = { has_country_flag = medium_armor_3_all_use }
+		has_tech = basic_medium_tank_chassis
+		has_tech = motorised_infantry
+		is_incompetent_heavy_industry_country = no
+		#date > 1938.6.1
+		}
+		#    division_template = {
+		#name = "中型反坦克装甲师"
+		#priority = 2
+		#regiments = {
+		#            medium_armor = { x = 0 y = 0 }
+		#			medium_armor = { x = 0 y = 1 }
+		#			medium_armor = { x = 0 y = 2 }
+		#			medium_armor = { x = 0 y = 3 }
+        #            medium_armor = { x = 0 y = 4 }
+		#			
+		#			motorized = { x = 1 y = 0 }
+		#			motorized = { x = 1 y = 1 }
+		#			motorized = { x = 1 y = 2 }
+		#			motorized = { x = 1 y = 3 }
+        #            
+		#			medium_tank_destroyer_brigade = { x = 2 y = 0 }
+		#			
+		#}
+		#support = {
+		#medium_flame_tank = { x = 0 y = 0 } 
+		#engineer = { x = 0 y = 1 }
+		#logistics_company = { x = 0 y = 2 } 
+		#anti_air = { x = 0 y = 3 } 
+		#rangers_support = { x = 0 y = 4 }
+		#}
+	    #}
+		    division_template = {
+		name = "中型反坦克步兵装甲师"
+		priority = 2
+		regiments = {
+		            medium_armor = { x = 0 y = 0 }
+					medium_armor = { x = 0 y = 1 }
+					medium_armor = { x = 0 y = 2 }
+					medium_armor = { x = 0 y = 3 }
+                    medium_armor = { x = 0 y = 4 }
+					
+					infantry = { x = 1 y = 0 }
+					infantry = { x = 1 y = 1 }
+					infantry = { x = 1 y = 2 }
+					infantry = { x = 1 y = 3 }
+                    
+					medium_tank_destroyer_brigade = { x = 2 y = 0 }
+					
+		}
+		support = {
+		medium_flame_tank = { x = 0 y = 0 } 
+		engineer = { x = 0 y = 1 }
+		logistics_company = { x = 0 y = 2 } 
+		anti_air = { x = 0 y = 3 } 
+		rangers_support = { x = 0 y = 4 }
+		}
+	    }
+			set_country_flag = medium_armor_3_all_use
+		}
+		every_country = {
+		limit = {
+		is_ai = yes
+		not = { has_country_flag = medium_armor_generic_ZZ_BEST }
+		has_tech = improved_medium_tank_chassis
+		has_tech = mechanised_infantry
+		is_incompetent_heavy_industry_country = no
+		}
+		    division_template = {
+		name = "机械化步兵高速装甲师"
+		priority = 2
+		regiments = {
+		            medium_armor = { x = 0 y = 0 }
+					medium_armor = { x = 0 y = 1 }
+					medium_armor = { x = 0 y = 2 }
+					medium_armor = { x = 0 y = 3 }
+                    medium_armor = { x = 0 y = 4 }
+					
+					mechanized = { x = 1 y = 0 }
+					mechanized = { x = 1 y = 1 }
+					mechanized = { x = 1 y = 2 }
+					mechanized = { x = 1 y = 3 }
+                    
+					medium_tank_destroyer_brigade = { x = 2 y = 0 }
+					
+		}
+		support = {
+		medium_flame_tank = { x = 0 y = 0 } 
+		engineer = { x = 0 y = 1 }
+		logistics_company = { x = 0 y = 2 } 
+		anti_air = { x = 0 y = 3 } 
+		rangers_support = { x = 0 y = 4 }
+		}
+	    }
+			set_country_flag = medium_armor_generic_ZZ_BEST
+		}
+		every_country = {
+		limit = {
+		is_ai = yes
+		not = { has_country_flag = medium_armor_generic_ZZ_MORDEN }
+		has_tech = improved_medium_tank_chassis
+		has_tech = mechanised_infantry
+		is_incompetent_heavy_industry_country = no
+		}
+		    division_template = {
+		name = "机械化步兵高速现代装甲师"
+		priority = 2
+		regiments = {
+		            medium_armor = { x = 0 y = 0 }
+					medium_armor = { x = 0 y = 1 }
+					medium_armor = { x = 0 y = 2 }
+					medium_armor = { x = 0 y = 3 }
+                    medium_armor = { x = 0 y = 4 }
+					
+					medium_armor = { x = 1 y = 0 }
+					medium_armor = { x = 1 y = 1 }
+					medium_armor = { x = 1 y = 2 }
+					medium_armor = { x = 1 y = 3 }
+                    
+					mechanized = { x = 2 y = 0 }
+					mechanized = { x = 2 y = 1 }
+					mechanized = { x = 2 y = 2 }
+					mechanized = { x = 2 y = 3 }
+					mechanized = { x = 2 y = 4 }
+					
+					mechanized = { x = 3 y = 0 }
+					mechanized = { x = 3 y = 1 }
+					mechanized = { x = 3 y = 2 }
+					
+					medium_tank_destroyer_brigade = { x = 4 y = 0 }
+		}
+		support = {
+		medium_flame_tank = { x = 0 y = 0 } 
+		engineer = { x = 0 y = 1 }
+		logistics_company = { x = 0 y = 2 } 
+		anti_air = { x = 0 y = 3 } 
+		rangers_support = { x = 0 y = 4 }
+		}
+	    }
+		    division_template = {
+		name = "机械化步兵低速现代装甲师"
+		priority = 2
+		regiments = {
+		            medium_armor = { x = 0 y = 0 }
+					medium_armor = { x = 0 y = 1 }
+					medium_armor = { x = 0 y = 2 }
+					medium_armor = { x = 0 y = 3 }
+                    medium_armor = { x = 0 y = 4 }
+					
+					medium_armor = { x = 1 y = 0 }
+					medium_armor = { x = 1 y = 1 }
+					medium_armor = { x = 1 y = 2 }
+					medium_armor = { x = 1 y = 3 }
+                    
+					infantry = { x = 2 y = 0 }
+					infantry = { x = 2 y = 1 }
+					infantry = { x = 2 y = 2 }
+					infantry = { x = 2 y = 3 }
+					infantry = { x = 2 y = 4 }
+					
+					infantry = { x = 3 y = 0 }
+					infantry = { x = 3 y = 1 }
+					infantry = { x = 3 y = 2 }
+					
+					medium_tank_destroyer_brigade = { x = 4 y = 0 }
+		}
+		support = {
+		medium_flame_tank = { x = 0 y = 0 } 
+		engineer = { x = 0 y = 1 }
+		logistics_company = { x = 0 y = 2 } 
+		anti_air = { x = 0 y = 3 } 
+		rangers_support = { x = 0 y = 4 }
+		}
+	    }
+			set_country_flag = medium_armor_generic_ZZ_MORDEN
+		}
+		
+		if = {
+		limit = {
+		or = {
+		GER = { NOT = { has_government = fascism } }
+		SOV = { NOT = { has_government = communism } }
+		}
+		}
+		GER = { remove_opinion_modifier = { target = SOV modifier = embargo } }
+		SOV = {
+		remove_opinion_modifier = { target = GER modifier = SOV_anti_nazi_zz }
+		remove_opinion_modifier = { target = GER modifier = embargo }
+		}
+		}
+		
+		every_country = {
+			limit = {
+				has_tech = improved_small_airframe
+				not = { has_country_flag = improved_small_airframe_ai_done }
+			}
+			set_country_flag = improved_small_airframe_ai_done
+			set_country_flag = AI_40_light_fighter_done
+		}
+		
+		every_country = {
+		limit = { has_idea = home_of_the_free }
+		add_to_variable = {
+		    var = This.supply_condition
+			value = 0.8 #MODDED
+		}
+		add_to_variable = {
+			var = This.supply_condition_base
+			value = 0.8 #MODDED
+		}
+		}
+		
+		every_country = {
+		limit = { has_idea = GER_erwin_rommel_in_africa_army }
+		add_to_variable = {
+		    var = This.supply_condition
+			value = 0.8 #MODDED
+		}
+		add_to_variable = {
+			var = This.supply_condition_base
+			value = 0.8 #MODDED
+		}
+		}
+		
+		every_country = {
+		limit = { has_idea = kmt_minxinjianshi }
+		add_to_variable = {
+		    var = This.supply_condition
+			value = -0.4 #MODDED
+		}
+		add_to_variable = {
+			var = This.supply_condition_base
+			value = -0.4 #MODDED
+		}
+		}
+		
+		every_country = {
+		limit = { has_idea = wartime_industry_focus_usa }
+		add_to_variable = {
+		    var = This.supply_condition
+			value = 0.4 #MODDED
+		}
+		add_to_variable = {
+			var = This.supply_condition_base
+			value = 0.4 #MODDED
+		}
+		}
+		
+		every_country = {
+		limit = { has_idea = JAP_ichi_go }
+		add_to_variable = {
+		    var = This.supply_condition
+			value = -0.8 #MODDED
+		}
+		add_to_variable = {
+			var = This.supply_condition_base
+			value = -0.8 #MODDED
+		}
+		}
+		
+		every_country = {
+		limit = { has_idea = PRC_songqingling }
+		add_to_variable = {
+		    var = This.supply_condition
+			value = 0.4 #MODDED
+		}
+		add_to_variable = {
+			var = This.supply_condition_base
+			value = 0.4 #MODDED
+		}
+		}
+		
+		every_country = {
+		limit = { has_idea = PRC_guerilla_warfare_zz }
+		add_to_variable = {
+		    var = This.supply_condition
+			value = 0.4 #MODDED
+		}
+		add_to_variable = {
+			var = This.supply_condition_base
+			value = 0.4 #MODDED
+		}
+		}
+		
+		every_country = {
+		limit = { has_idea = PRC_guerilla_warfare_zz_2 }
+		add_to_variable = {
+		    var = This.supply_condition
+			value = 0.8 #MODDED
+		}
+		add_to_variable = {
+			var = This.supply_condition_base
+			value = 0.8 #MODDED
+		}
+		}
+		
+		every_country = {
+		limit = { is_ai = no has_idea = PRC_hundred_regiment_offensive }
+		add_to_variable = {
+		    var = This.supply_condition
+			value = -2.0 #MODDED
+		}
+		add_to_variable = {
+			var = This.supply_condition_base
+			value = -2.0 #MODDED
+		}
+		}
+		
+		if = {
+			
+		    limit = {
+		    any_state = {
+		    is_core_of = SAU
+		    OR = {
+		    is_core_of = PRC
+		    is_core_of = CHI
+		    }
+		    }
+			}
+			
+		    every_state = {
+		    limit = { is_core_of = SAU }
+		    remove_core_of = PRC
+		    remove_core_of = CHI
+		    }
+			
+		}
+			
+		if = {
+		limit = {
+		USA = {
+		not = { has_idea = balance_idea_usa_kick_japs }
+		has_war_with = JAP
+		is_ai = yes
+		}
+		date > 1944.1.1
+		}
+		USA = { add_ideas = balance_idea_usa_kick_japs }
+		ENG = { add_ideas = balance_idea_usa_kick_japs }
+		AST = { add_ideas = balance_idea_usa_kick_japs }
+		NZL = { add_ideas = balance_idea_usa_kick_japs }
+		}
+		
+		every_country = {
+		limit = { has_idea = general_staff }
+		add_to_variable = {
+		    var = This.supply_condition
+			value = 0.8 #MODDED
+		}
+		add_to_variable = {
+			var = This.supply_condition_base
+			value = 0.8 #MODDED
+		}
+		}
+		
+		every_country = {
+		limit = { has_idea = home_of_revolution }
+		add_to_variable = {
+		    var = This.supply_condition
+			value = 0.8 #MODDED
+		}
+		add_to_variable = {
+			var = This.supply_condition_base
+			value = 0.8 #MODDED
+		}
+		}
+		
+		every_country = {
+		limit = {
+		has_idea = xingxingzhihuo_keyiliaoyuan
+		}
+			add_to_variable = {
+		    var = This.supply_condition
+			value = 0.4 #MODDED
+		    }
+		    add_to_variable = {
+			var = This.supply_condition_base
+			value = 0.4 #MODDED
+		    }
+		}
+		every_country = {
+		limit = {
+		has_idea = xingxingzhihuo_keyiliaoyuan_2
+		}
+			add_to_variable = {
+		    var = This.supply_condition
+			value = 0.8 #MODDED
+		    }
+		    add_to_variable = {
+			var = This.supply_condition_base
+			value = 0.8 #MODDED
+		    }
+		}
+		every_country = {
+		limit = {
+		has_idea = xingxingzhihuo_keyiliaoyuan_3
+		}
+			add_to_variable = {
+		    var = This.supply_condition
+			value = 1.2 #MODDED
+		    }
+		    add_to_variable = {
+			var = This.supply_condition_base
+			value = 1.2 #MODDED
+		    }
+		}
+		every_country = {
+		limit = {
+		has_idea = xingxingzhihuo_keyiliaoyuan_4
+		}
+			add_to_variable = {
+		    var = This.supply_condition
+			value = 1.2 #MODDED
+		    }
+		    add_to_variable = {
+			var = This.supply_condition_base
+			value = 1.2 #MODDED
+		    }
+		}
+		every_country = {
+		limit = {
+		has_idea = xingxingzhihuo_keyiliaoyuan_5
+		}
+			add_to_variable = {
+		    var = This.supply_condition
+			value = 1.2 #MODDED
+		    }
+		    add_to_variable = {
+			var = This.supply_condition_base
+			value = 1.2 #MODDED
+		    }
+		}
+		
+		every_country = {
+			limit = {
+				NOT = { has_idea = PNSD_hidden }
+			}
+			add_ideas = PNSD_hidden
+		}
+		every_country = {
+			limit = {
+				NOT = { has_idea = balance_idea_cheap_supply_node }
+			}
+			add_ideas = balance_idea_cheap_supply_node
+		}
+			
+		every_country = {
+		limit = { has_idea = tax_rate_3 }
+		add_to_variable = {
+		    var = This.supply_condition
+			value = -1.2 #MODDED
+		}
+		add_to_variable = {
+			var = This.supply_condition_base
+			value = -1.2 #MODDED
+		}
+		}
+		
+		every_country = {
+		limit = { has_idea = tax_rate_2 }
+		add_to_variable = {
+		    var = This.supply_condition
+			value = -0.8 #MODDED
+		}
+		add_to_variable = {
+			var = This.supply_condition_base
+			value = -0.8 #MODDED
+		}
+		}
+		
+		every_country = {
+		limit = { has_idea = tax_rate_1 }
+		add_to_variable = {
+		    var = This.supply_condition
+			value = -0.4 #MODDED
+		}
+		add_to_variable = {
+			var = This.supply_condition_base
+			value = -0.4 #MODDED
+		}
+		}
+		
+		every_country = {
+		limit = { has_idea = tax_rate_negative_1 }
+		add_to_variable = {
+		    var = This.supply_condition
+			value = 0.4 #MODDED
+		}
+		add_to_variable = {
+			var = This.supply_condition_base
+			value = 0.4 #MODDED
+		}
+		}
+		
+		every_country = {
+		limit = { has_idea = tax_rate_negative_2 }
+		add_to_variable = {
+		    var = This.supply_condition
+			value = 0.8 #MODDED
+		}
+		add_to_variable = {
+			var = This.supply_condition_base
+			value = 0.8 #MODDED
+		}
+		}
+		
+		every_country = {
+		limit = { has_idea = tax_rate_negative_3 }
+		add_to_variable = {
+		    var = This.supply_condition
+			value = 1.2 #MODDED
+		}
+		add_to_variable = {
+			var = This.supply_condition_base
+			value = 1.2 #MODDED
+		}
+		}
+		
+		every_country = {
+		limit = { has_idea = swi_bank }
+		add_to_variable = {
+		    var = This.supply_condition
+			value = 0.4 #MODDED
+		}
+		add_to_variable = {
+			var = This.supply_condition_base
+			value = 0.4 #MODDED
+		}
+		}
+		
+		every_country = {
+		limit = { has_idea = new_deal }
+		add_to_variable = {
+		    var = This.supply_condition
+			value = 0.4 #MODDED
+		}
+		add_to_variable = {
+			var = This.supply_condition_base
+			value = 0.4 #MODDED
+		}
+		}
+		
+		every_country = {
+		limit = { has_idea = lianheguojiaxuanyan }
+		add_to_variable = {
+		    var = This.supply_condition
+			value = 0.4 #MODDED
+		}
+		add_to_variable = {
+			var = This.supply_condition_base
+			value = 0.4 #MODDED
+		}
+		}
+		
+		every_country = {
+		limit = { has_idea = GER_barbarossa }
+		add_to_variable = {
+		    var = This.supply_condition
+			value = 0.8 #MODDED
+		}
+		add_to_variable = {
+			var = This.supply_condition_base
+			value = 0.8 #MODDED
+		}
+		}
+		
+		every_country = {
+		limit = { has_idea = GER_barbarossa_player }
+		add_to_variable = {
+		    var = This.supply_condition
+			value = 0.8 #MODDED
+		}
+		add_to_variable = {
+			var = This.supply_condition_base
+			value = 0.8 #MODDED
+		}
+		}
+		
+		every_country = {
+		limit = { has_idea = balance_idea_AI_more_supply }
+		add_to_variable = {
+		    var = This.supply_condition
+			value = 0.8 #MODDED
+		}
+		add_to_variable = {
+			var = This.supply_condition_base
+			value = 0.8 #MODDED
+		}
+		}
+		
+		every_country = {
+		limit = { 
+		has_idea = changjiang_bureau
+		}
+		    set_temp_variable = { temp_member = 3 }
+		    set_temp_variable = { temp_seats = 0.005 tooltip = TEB_faction_support_tt }
+										#percentage
+		    modify_parliament_seat = yes
+		}
+		
+		every_country = {
+		limit = { 
+		has_idea = changjiang_bureau_2
+		}
+		    set_temp_variable = { temp_member = 3 }
+		    set_temp_variable = { temp_seats = 0.005 tooltip = TEB_faction_support_tt }
+										#percentage
+		    modify_parliament_seat = yes
+		}
+		
+		every_country = {
+		limit = {
+		has_character = PRC_zhang_guotao
+		has_idea = PRC_Victory_in_the_west
+		}
+		    set_temp_variable = { temp_member = 1 }
+			set_temp_variable = { temp_seats = 0.01 tooltip = ZHANG_faction_support_tt } #guo
+							#percentage
+			modify_parliament_seat = yes
+		}
+		every_country = {
+		limit = {
+		has_character = PRC_zhang_guotao
+		has_idea = prc_chen_changhao
+		}
+		    set_temp_variable = { temp_member = 1 }
+			set_temp_variable = { temp_seats = 0.005 tooltip = ZHANG_faction_support_tt } #guo
+							#percentage
+			modify_parliament_seat = yes
+		}
+		every_country = {
+		limit = {
+		has_character = PRC_zhang_guotao
+		has_idea = PRC_xu_xiangqian
+		has_global_flag = PRC_xu_xiangqian_now_be_zhang
+		}
+		    set_temp_variable = { temp_member = 1 }
+			set_temp_variable = { temp_seats = 0.005 tooltip = ZHANG_faction_support_tt } #guo
+							#percentage
+			modify_parliament_seat = yes
+		}
+		
+		every_country = {
+		limit = { 
+		has_character = prc_mao_zedong
+		has_idea = on_protracted_war
+		}
+		    set_temp_variable = { temp_member = 2 }
+			set_temp_variable = { temp_seats = 0.005 tooltip = MAOIST_faction_support_tt } #guo
+							#percentage
+			modify_parliament_seat = yes
+		}
+		
+		every_country = {
+		limit = { 
+		has_character = prc_mao_zedong
+		has_idea = PRC_linyuying
+		}
+		    set_temp_variable = { temp_member = 2 }
+			set_temp_variable = { temp_seats = 0.005 tooltip = MAOIST_faction_support_tt } #guo
+							#percentage
+			modify_parliament_seat = yes
+		}
+		
+		
+		
+		every_country = {
+		limit = {
+		has_character = prc_mao_zedong
+		has_idea = PRC_maoism
+		}
+		    set_temp_variable = { temp_member = 2 }
+			set_temp_variable = { temp_seats = 0.01 tooltip = MAO_faction_monthly_tt_1_point } #guo
+							#percentage
+			modify_parliament_seat = yes
+			
+			add_to_variable = {
+		    var = This.supply_condition
+			value = 0.8 #MODDED
+		    }
+		    add_to_variable = {
+			var = This.supply_condition_base
+			value = 0.8 #MODDED
+		    }
+		}
+		
+		every_country = {
+		limit = {
+		has_idea = prc_kaifeng
+		has_global_flag = prc_kaifeng_now_be_28b
+		}
+		    set_temp_variable = { temp_member = 3 }
+			set_temp_variable = { temp_seats = 0.005 tooltip = TEB_faction_support_tt }
+							#percentage
+			modify_parliament_seat = yes
+		}
+		every_country = {
+		limit = {
+		has_idea = PRC_xiang_ying
+		}
+		    set_temp_variable = { temp_member = 3 }
+			set_temp_variable = { temp_seats = 0.005 tooltip = TEB_faction_support_tt }
+							#percentage
+			modify_parliament_seat = yes
+		}
+		every_country = {
+		limit = {
+		has_idea = PRC_zhou_enlai_2
+		has_global_flag = PRC_zhou_enlai_2_now_be_28b
+		}
+		    set_temp_variable = { temp_member = 3 }
+			set_temp_variable = { temp_seats = 0.005 tooltip = TEB_faction_support_tt }
+							#percentage
+			modify_parliament_seat = yes
+		}
+		every_country = {
+		limit = {
+		has_idea = PRC_otto_braun_2
+		}
+		    set_temp_variable = { temp_member = 3 }
+			set_temp_variable = { temp_seats = 0.005 tooltip = TEB_faction_support_tt }
+							#percentage
+			modify_parliament_seat = yes
+		}
+		
+		every_country = {
+		limit = {
+		has_idea = PRC_zhu_de
+		}
+		    set_temp_variable = { temp_member = 2 }
+			set_temp_variable = { temp_seats = 0.005 tooltip = MAOIST_faction_support_tt }
+							#percentage
+			modify_parliament_seat = yes
+		}
+		every_country = {
+		limit = {
+		has_idea = PRC_liu_shaoqi
+		has_global_flag = PRC_liu_shaoqi_maoists_trait_liushaoqi
+		}
+		    set_temp_variable = { temp_member = 2 }
+			set_temp_variable = { temp_seats = 0.005 tooltip = MAOIST_faction_support_tt }
+							#percentage
+			modify_parliament_seat = yes
+		}
+		every_country = {
+		limit = {
+		has_idea = prc_ren_bishi
+		has_global_flag = prc_ren_bishi_maoists_trait_renbishi
+		}
+		    set_temp_variable = { temp_member = 2 }
+			set_temp_variable = { temp_seats = 0.005 tooltip = MAOIST_faction_support_tt }
+							#percentage
+			modify_parliament_seat = yes
+		}
+		every_country = {
+		limit = {
+		has_idea = PRC_zhou_enlai
+		has_global_flag = PRC_zhou_enlai_maoists_trait_zhouenlai
+		}
+		    set_temp_variable = { temp_member = 2 }
+			set_temp_variable = { temp_seats = 0.005 tooltip = MAOIST_faction_support_tt }
+							#percentage
+			modify_parliament_seat = yes
+		}
+		
+		every_country = {
+		limit = { 
+		TAG = JAP
+		NOT = { has_country_flag = bocitan_happen }
+		is_ai = yes
+		has_war_with = event_target:WTT_current_china_leader
+		has_war_support < 0.3
+		}
+		add_war_support = 0.1
+		add_to_variable = {
+		    var = This.supply_condition
+			value = 0.5 #MODDED
+		}
+		add_to_variable = {
+			var = This.supply_condition_base
+			value = 0.5 #MODDED
+		}
+		}
+		every_country = {
+		limit = { 
+		TAG = JAP
+		NOT = { has_country_flag = bocitan_happen }
+		is_ai = yes
+		has_war_with = event_target:WTT_current_china_leader
+		has_stability < 0.3
+		}
+		add_stability = 0.20
+		add_to_variable = {
+		    var = This.supply_condition
+			value = 0.5 #MODDED
+		}
+		add_to_variable = {
+			var = This.supply_condition_base
+			value = 0.5 #MODDED
+		}
+		}
+		
+		event_target:WTT_current_china_leader = {
+			if = {
+				limit = {
+				has_global_flag = { flag = PRC_civil_war_started days > 365 } #guo
+					NOT = {
+						has_active_mission = retake_important_cities
+						#has_war_with = JAP
+					}
+					has_global_flag = CHI_no_longer_united_flag
+					has_war_with = event_target:WTT_communist_china
+				    any_core_state = {
+						OR = {
+							state = 328
+							state = 716
+							state = 608
+							state = 615
+							state = 1015
+						}
+					    is_controlled_by = event_target:WTT_communist_china
+						NOT = {
+							has_state_flag = took_by_ccp_flag
+						}
+					}
+				    NOT = {
+						has_completed_focus = CHI_the_fall_of_mainland
+					}
+				}
+			    every_core_state = {
+					limit = {
+						OR = {
+							state = 328
+							state = 716
+							state = 608
+							state = 597
+							state = 1015
+						}
+					    is_controlled_by = event_target:WTT_communist_china
+						NOT = {
+							has_state_flag = took_by_ccp_flag
+						}
+					}
+				    set_state_flag = took_by_ccp_flag
+				}
+				country_event = ccw.19
+			}				
+	    }
+		event_target:WTT_current_china_leader = {
+			if = {
+				limit = {
+				has_global_flag = { flag = PRC_civil_war_started days > 365 } #guo
+					NOT = {
+						has_active_mission = retake_important_cities
+						#has_war_with = JAP
+					}
+					has_global_flag = CHI_no_longer_united_flag
+					has_war_with = event_target:WTT_communist_china
+				    any_core_state = {
+						OR = {
+							state = 328
+							state = 716
+							state = 608
+							state = 597
+							state = 1015
+						}
+						has_state_flag = took_by_ccp_flag
+					    NOT = {
+							is_controlled_by = event_target:WTT_communist_china
+						}		
+					}
+					NOT = {
+						has_completed_focus = CHI_the_fall_of_mainland
+					}
+				}
+			    every_core_state = {
+					limit = {
+						OR = {
+							state = 328
+							state = 716
+							state = 608
+							state = 597
+							state = 1015
+						}
+					    has_state_flag = took_by_ccp_flag
+						NOT = {
+							is_controlled_by = event_target:WTT_communist_china
+						}
+					}
+				    clr_state_flag = took_by_ccp_flag
+				}
+				country_event = ccw.19
+			}				
+	    }
+		
+		1063 = { #西黑森
+				if = {
+					limit = {
+						is_demilitarized_zone = yes
+						42 = { is_demilitarized_zone = no }
+						51 = { is_demilitarized_zone = no }
+					}
+					set_demilitarized_zone = no
+				}
+		}
+		1064 = { #西符腾堡
+				if = {
+					limit = {
+						is_demilitarized_zone = yes
+						42 = { is_demilitarized_zone = no }
+						51 = { is_demilitarized_zone = no }
+					}
+					set_demilitarized_zone = no
+				}
+		}
+}
