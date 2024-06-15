@@ -13,3 +13,4 @@ The option system used(使用的操作系统):Windows&MacOS&Linux(Ubentu,Debian,
 Mounted mods(挂载的模组):请提供你开启的模组
 This submod version(你的模组版本):请提供你的模组版本
 Your game version(你的游戏版本):请提供你的游戏版本
+ERROR LOG(错误日志):请提供游戏崩溃时生成的错误日志
