@@ -1,0 +1,43 @@
+﻿#没去西路军的部队
+units = {
+	division = {
+		name="红四方面军第四军团" #【1936年底直轄第10師》第28、30、31團、第12師》第33、34、36團、第11師、獨立師】
+		location = 4939 # Hwansien
+		division_template = "中国工农红军军团级编制"
+		start_experience_factor = 0.75
+		start_manpower_factor = 0.8  #9000餘人
+		start_equipment_factor = 0.4
+	}
+	division = {
+		name="红四方面军第三十一军团" #【1936年底第91、93師】   
+		location = 4939 # Hwansien
+		division_template = "中国工农红军军团级编制"
+		start_experience_factor = 0.75
+		start_manpower_factor = 0.6  #7000餘人
+		start_equipment_factor = 0.3
+	}
+	division = {  
+		name="红二方面军第二军团" #【1936年7月2日：第16、17、18、模範師約5500人】【1936年11月第49、51、53團約3500人】
+		location = 10880 # Tingpien
+		division_template = "中国工农红军军团级编制"	
+		start_experience_factor = 0.75
+		start_manpower_factor = 0.6  #6000餘人
+		start_equipment_factor = 0.25
+	}
+	division = {  
+		name="红二方面军第六军团" #【1936年7月2日：第16、17、18、模範師約5500人】【1936年11月第49、51、53團約3500人】
+		location = 10880 # Tingpien
+		division_template = "中国工农红军军团级编制"	
+		start_experience_factor = 0.75
+		start_manpower_factor = 0.5  #5000餘人
+		start_equipment_factor = 0.25
+	}
+	division = {  
+		name="红二方面军第三十二军" #【1936年7月-10月：第94師第280、282團，第96師第286、288團】
+		location = 10880 # Tingpien
+		division_template = "中国工农红军军级编制"		
+		start_experience_factor = 0.75
+		start_manpower_factor = 0.3  #2000餘人
+		start_equipment_factor = 0.15
+	}
+}

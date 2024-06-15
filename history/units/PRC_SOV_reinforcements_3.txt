@@ -1,0 +1,114 @@
+﻿division_template = {
+	name="东北抗日联军"			# Binary Infantry Corps
+
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+	}
+}
+
+units = {
+
+	division = {
+		name="Tungpei Yuchi Ti 1 Chihtui"
+		location = 10521
+		division_template = "东北抗日联军"
+	}
+	division = {
+		name="Tungpei Yuchi Ti 2 Chihtui"
+		location = 10521
+		division_template = "东北抗日联军"
+	}
+	division = {
+		name="Tungpei Yuchi Ti 3 Chihtui"
+		location = 10521
+		division_template = "东北抗日联军"
+	}
+	division = {
+		name="Tungpei Yuchi Ti 4 Chihtui"
+		location = 4551
+		division_template = "东北抗日联军"
+	}
+	division = {
+		name="Tungpei Yuchi Ti 5 Chihtui"
+		location = 4551
+		division_template = "东北抗日联军"
+	}
+	division = {
+		name="Tungpei Yuchi Ti 6 Chihtui"
+		location = 4551
+		division_template = "东北抗日联军"
+	}
+	division = {
+		name="Tungpei Yuchi Ti 7 Chihtui"
+		location = 7569
+		division_template = "东北抗日联军"
+	}
+	division = {
+		name="Tungpei Yuchi Ti 8 Chihtui"
+		location = 7569
+		division_template = "东北抗日联军"
+	}
+	division = {
+		name="Tungpei Yuchi Ti 9 Chihtui"
+		location = 7569
+		division_template = "东北抗日联军"
+	}
+	division = {
+		name="Tungpei Yuchi Ti 10 Chihtui"
+		location = 7569
+		division_template = "东北抗日联军"
+	}
+	division = {
+		name="Tungpei Yuchi Ti 11 Chihtui"
+		location = 10521
+		division_template = "东北抗日联军"
+	}
+	division = {
+		name="Tungpei Yuchi Ti 12 Chihtui"
+		location = 10521
+		division_template = "东北抗日联军"
+	}
+	division = {
+		name="Tungpei Yuchi Ti 13 Chihtui"
+		location = 10521
+		division_template = "东北抗日联军"
+	}
+	division = {
+		name="Tungpei Yuchi Ti 14 Chihtui"
+		location = 4551
+		division_template = "东北抗日联军"
+	}
+	division = {
+		name="Tungpei Yuchi Ti 15 Chihtui"
+		location = 4551
+		division_template = "东北抗日联军"
+	}
+	division = {
+		name="Tungpei Yuchi Ti 16 Chihtui"
+		location = 4551
+		division_template = "东北抗日联军"
+	}
+	division = {
+		name="Tungpei Yuchi Ti 17 Chihtui"
+		location = 7569
+		division_template = "东北抗日联军"
+	}
+	division = {
+		name="Tungpei Yuchi Ti 18 Chihtui"
+		location = 7569
+		division_template = "东北抗日联军"
+	}
+	division = {
+		name="Tungpei Yuchi Ti 19 Chihtui"
+		location = 7569
+		division_template = "东北抗日联军"
+	}
+	division = {
+		name="Tungpei Yuchi Ti 20 Chihtui"
+		location = 7569
+		division_template = "东北抗日联军"
+	}
+}

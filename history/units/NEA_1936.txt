@@ -1,0 +1,424 @@
+﻿division_template = {
+	name = "国民革命军步兵师"			
+	division_names_group = NEA_INF_01
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 0 y = 2 }
+		infantry = { x = 0 y = 3 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+		infantry = { x = 1 y = 2 }
+		infantry = { x = 1 y = 3 }
+		infantry = { x = 2 y = 0 }
+		infantry = { x = 2 y = 1 }
+		infantry = { x = 2 y = 2 }
+		infantry = { x = 3 y = 0 }
+		infantry = { x = 3 y = 1 }
+		#infantry = { x = 3 y = 2 }
+	}
+	support = {
+	}
+}
+
+division_template = {
+	name = "国民革命军调整师" #11026 men in total(甲種1937)			
+	division_names_group = NEA_INF_01
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 0 y = 2 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+		infantry = { x = 1 y = 2 }
+		infantry = { x = 2 y = 0 }
+		infantry = { x = 2 y = 1 }
+		infantry = { x = 2 y = 2 }
+		infantry = { x = 3 y = 0 }
+		artillery_brigade = { x = 4 y = 0 }
+	}
+	support = {
+		engineer = { x = 0 y = 0 } 
+		artillery = { x = 0 y = 1 } 
+	}
+}
+
+division_template = {
+	name = "四团制整理师" #8652 men in total(乙種1937)		
+	division_names_group = NEA_INF_01
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+		infantry = { x = 2 y = 0 }
+		infantry = { x = 2 y = 1 }
+		infantry = { x = 3 y = 0 }
+		infantry = { x = 3 y = 1 }
+	}
+	support = {
+		engineer = { x = 0 y = 0 } 
+		artillery = { x = 0 y = 1 } 
+	}
+}
+
+division_template = {
+	name = "国民革命军骑兵师"	
+	division_names_group = NEA_CAV_01
+	regiments = {
+		cavalry = { x = 0 y = 0 }
+		cavalry = { x = 0 y = 1 }
+		cavalry = { x = 1 y = 0 }
+		cavalry = { x = 1 y = 1 }
+		#cavalry = { x = 2 y = 0 }
+		#cavalry = { x = 2 y = 1 }
+		#cavalry = { x = 3 y = 0 }
+		#cavalry = { x = 3 y = 1 }
+	}
+	support = {
+	}
+}
+
+division_template = {
+	name = "国民革命军独立旅"	
+	division_names_group = CHI_INF_02
+
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+	}
+	support = {
+	}
+}
+
+division_template = {
+	name = "国民革命军独立骑兵旅"	
+	division_names_group = CHI_CAV_02
+
+	regiments = {
+		cavalry = { x = 0 y = 0 }
+		cavalry = { x = 0 y = 1 }
+		#cavalry = { x = 1 y = 0 }
+		#cavalry = { x = 1 y = 1 }
+	}
+	support = {
+	}
+}
+
+division_template = {
+	name = "地方保安团"	
+	division_names_group = WRL_INF_03
+	regiments = {
+		militia = { x = 0 y = 0 }
+		militia = { x = 0 y = 1 }
+	}
+}
+
+units = {
+    #西北軍(陝軍) 第十七路軍
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 17
+		}
+		location = 10733 #陝西 三原
+		division_template = "国民革命军步兵师"		
+		start_equipment_factor = 1
+		start_experience_factor = 0.2
+	}
+	
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 42
+		}
+		location = 10733 #陝西 三原
+		division_template = "国民革命军步兵师"		
+		start_equipment_factor = 0.95
+		start_experience_factor = 0.2
+	}
+	
+	division = {
+		name = "陕西警备第一旅" 
+		location = 7301 #西安
+		division_template = "国民革命军独立旅"		
+		start_equipment_factor = 0.75
+		start_experience_factor = 0.2
+	}
+    
+	division = {
+		name = "陕西警备第二旅" #1937/1/15改獨立第19旅 1938/6/21改獨立46旅
+		location = 7301 #西安
+		division_template = "国民革命军独立旅"		
+		start_equipment_factor = 0.75
+		start_experience_factor = 0.2
+	}
+   
+	division = {
+		name = "陕西警备第三旅" #1938/6/21改獨立47旅
+		location = 7301 #西安
+		division_template = "国民革命军独立旅"		
+		start_equipment_factor = 0.75
+		start_experience_factor = 0.2
+	}
+	#東北軍
+	division = { #https://ahonline.drnh.gov.tw/index.php?act=Display/image/3160309g3k=-99#9cx
+		division_name = {
+			is_name_ordered = yes
+			name_order = 105
+		}
+		location = 5007 #宜川 https://ahonline.drnh.gov.tw/index.php?act=Display/image/3160324h9WmD==#6eu
+		division_template = "国民革命军步兵师"		
+		start_equipment_factor = 1
+		start_experience_factor = 0.2
+	}
+		
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 106
+		}
+		location = 1933 #甘肅寧縣
+		division_template = "国民革命军步兵师"		
+		start_equipment_factor = 0.45
+		start_experience_factor = 0.2
+	}
+	
+	division = { #https://ahonline.drnh.gov.tw/index.php?act=Display/image/3160390Tk8pfHE#94F
+		division_name = {
+			is_name_ordered = yes
+			name_order = 107
+		}
+		location = 13405 #陝西 榆林 但此oob放在延安
+		division_template = "国民革命军步兵师"		
+		start_equipment_factor = 0.4
+		start_experience_factor = 0.2
+	}
+	
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 108
+		}
+		location = 1933 #甘肅合水
+		division_template = "国民革命军步兵师"		
+		start_equipment_factor = 0.4
+		start_experience_factor = 0.2
+	}
+	
+	division = { #1935/11在直羅鎮戰役後重建 https://zh.wikipedia.org/zh-tw/%E7%9B%B4%E7%BD%97%E9%95%87%E6%88%98%E5%BD%B9
+		division_name = {
+			is_name_ordered = yes
+			name_order = 109
+		}
+		location = 8049 #陝西宜君
+		division_template = "国民革命军步兵师"		
+		start_equipment_factor = 0.4
+		start_experience_factor = 0
+	}
+	
+	division = { #1935/10被重創後重建 https://ahonline.drnh.gov.tw/index.php?act=Display/image/3160292V=i9Twb https://ahonline.drnh.gov.tw/index.php?act=Display/image/3160294Aq9S9DW
+		division_name = {
+			is_name_ordered = yes
+			name_order = 110
+		}
+		location = 13405 #陝西嶗山
+		division_template = "国民革命军步兵师"		
+		start_equipment_factor = 0.3
+		start_experience_factor = 0
+	}
+	
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 111
+		}
+		location = 1933 #甘肅合水
+		division_template = "国民革命军步兵师"		
+		start_equipment_factor = 0.4
+		start_experience_factor = 0.2
+	}
+	
+	division = { #https://ahonline.drnh.gov.tw/index.php?act=Display/image/3160309g3k=-99#9cx
+		division_name = { 
+			is_name_ordered = yes
+			name_order = 112 
+		}
+		location = 7301 #西安
+		division_template = "国民革命军步兵师"		
+		start_equipment_factor = 0.5
+		start_experience_factor = 0.2
+	}
+	
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 113
+		}
+		location = 2022 #甘肅蘭州
+		division_template = "国民革命军步兵师"		
+		start_equipment_factor = 0.4
+		start_experience_factor = 0.2
+	}
+	
+	division = { #https://ahonline.drnh.gov.tw/index.php?act=Display/image/3160335a=bRDjz#54J
+		division_name = { 
+			is_name_ordered = yes
+			name_order = 114
+		}
+		location = 7911 #甘肅武山
+		division_template = "国民革命军步兵师"		
+		start_equipment_factor = 0.4
+		start_experience_factor = 0.2
+	}
+
+	division = { #https://ahonline.drnh.gov.tw/index.php?act=Display/image/31603841-5=nM=#f1J
+		division_name = {
+			is_name_ordered = yes
+			name_order = 115
+		}
+		location = 10733 #陝西乾縣
+		division_template = "国民革命军步兵师"		
+		start_equipment_factor = 0.3
+		start_experience_factor = 0.2
+	} 
+
+	division = { #https://ahonline.drnh.gov.tw/index.php?act=Display/image/3160376XjeAL3Y#82l
+		division_name = {
+			is_name_ordered = yes
+			name_order = 116
+		}
+		location = 7911 #天水西固附近
+		division_template = "国民革命军步兵师"		
+		start_equipment_factor = 0.4
+		start_experience_factor = 0.2
+	} 
+	
+	division = { #https://ahonline.drnh.gov.tw/index.php?act=Display/image/3160388VRNkDX=#46l
+		division_name = {
+			is_name_ordered = yes
+			name_order = 117
+		}
+		location = 13406 #陝西 鄜縣
+		division_template = "国民革命军步兵师"		
+		start_equipment_factor = 0.4
+		start_experience_factor = 0.2
+	}
+	
+	division = { #https://ahonline.drnh.gov.tw/index.php?act=Display/image/3160367wL00x8R#c2l
+		division_name = { 
+			is_name_ordered = yes
+			name_order = 118
+		}
+		location = 7397 #甘肅臨洮
+		division_template = "国民革命军步兵师"		
+		start_equipment_factor = 0.4
+		start_experience_factor = 0.2
+	}
+	
+	division = { #https://ahonline.drnh.gov.tw/index.php?act=Display/image/3160426Zm=65=C#60F
+		division_name = {
+			is_name_ordered = yes
+			name_order = 120
+		}
+		location = 1647 #甘肅平涼
+		division_template = "国民革命军步兵师"		
+		start_equipment_factor = 0.4
+		start_experience_factor = 0.2
+	}
+
+	#division = { #https://ahonline.drnh.gov.tw/index.php?act=Display/image/3160403B_ufflD#a5J
+	#	division_name = {
+	#		is_name_ordered = yes
+	#		name_order = 130
+	#	}
+	#	location = 4619 #河北保定 
+	#	division_template = "国民革命军步兵师"		
+	#	start_equipment_factor = 0.45
+    #
+	#	start_experience_factor = 0.25
+	#}
+	
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 3
+		}
+		location = 517 #甘肅
+		division_template = "国民革命军骑兵师"		
+		start_equipment_factor = 0.5
+		start_experience_factor = 0.2
+	}
+
+	division = { 
+		division_name = {
+			is_name_ordered = yes
+			name_order = 4
+		}
+		location = 5007 #大部分在河北大名，一團在陝西孝義鎮 #https://ahonline.drnh.gov.tw/index.php?act=Display/image/31604210cKnX22#6fJ
+		division_template = "国民革命军骑兵师"		
+		start_equipment_factor = 0.3
+		start_experience_factor = 0.2
+	}
+	
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 6
+		}
+		location = 517 #甘肅
+		division_template = "国民革命军骑兵师"		
+		start_equipment_factor = 1
+		start_experience_factor = 0.2
+	}
+	
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 10
+		}
+		location = 517 #甘肅 邠州
+		division_template = "国民革命军骑兵师"		
+		start_equipment_factor = 0.5
+		start_experience_factor = 0.2
+	}
+    #鄧寶珊 新編第一軍
+	division = {
+		name = "新编第十旅" 
+		location = 2022 #蘭州
+		division_template = "国民革命军独立旅"		
+		start_equipment_factor = 0.45
+		start_experience_factor = 0.2
+	}
+	
+	division = {
+		name = "新编第十一旅" 
+		location = 2022 #蘭州
+		division_template = "国民革命军独立旅"		
+		start_equipment_factor = 0.75
+		start_experience_factor = 0.2
+	}
+	#魯大昌 新編第十四師
+	division = {
+		name = "新编第十四师" 
+		location = 12882 #臨潭
+		division_template = "国民革命军步兵师"		
+		start_equipment_factor = 0.7
+		start_experience_factor = 0.2
+	}
+}
+
+### STARTING PRODUCTION ###
+instant_effect = {
+	add_equipment_production = {
+		equipment = {
+			type = infantry_equipment_0
+			creator = "NEA"
+		}
+		requested_factories = 1
+		progress = 0.79
+		efficiency = 100
+	}	
+}

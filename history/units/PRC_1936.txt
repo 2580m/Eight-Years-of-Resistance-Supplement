@@ -1,0 +1,187 @@
+﻿division_template = {
+	name="红一方面军军团级编制"				 								 
+	division_names_group = PRC_PLA_00
+	is_locked = yes
+	force_allow_recruiting = no
+	regiments = {
+		infantry = { x = 0 y = 0 }	 
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 0 y = 2 }
+		infantry = { x = 0 y = 3 }	 
+		infantry = { x = 1 y = 0 }	 
+		infantry = { x = 1 y = 1 }
+		infantry = { x = 1 y = 2 }
+		infantry = { x = 1 y = 3 }
+		infantry = { x = 2 y = 0 }	 
+		infantry = { x = 2 y = 1 }
+		infantry = { x = 2 y = 2 }
+		infantry = { x = 2 y = 3 }	 
+	}
+}
+
+#division_template = {
+#	name="Chungkuo Hungchün Chüntuan (4 regiments)"				 							 
+#	division_names_group = PRC_INF_01
+#	regiments = {
+#		infantry = { x = 0 y = 0 }	 
+#		infantry = { x = 0 y = 1 }
+#		infantry = { x = 1 y = 0 }
+#		infantry = { x = 1 y = 1 }
+#		infantry = { x = 2 y = 0 }	 
+#		infantry = { x = 2 y = 1 }
+#		infantry = { x = 3 y = 0 }
+#		infantry = { x = 3 y = 1 }
+#	}
+#}
+
+division_template = {
+	name="红一方面军军级编制"				 							 
+	division_names_group = PRC_PLA_00
+	is_locked = yes
+	force_allow_recruiting = no
+	regiments = {
+		infantry = { x = 0 y = 0 }	 
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+		infantry = { x = 2 y = 0 }	 
+		infantry = { x = 2 y = 1 }
+		infantry = { x = 3 y = 0 }
+		infantry = { x = 3 y = 1 }
+	}
+}
+
+division_template = {
+	name="中国工农红军独立纵队"				 							 
+	division_names_group = PRC_PLA_00
+	regiments = {
+		infantry = { x = 0 y = 0 }	 
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+		infantry = { x = 2 y = 0 }	 
+		infantry = { x = 2 y = 1 }	 
+	}
+}
+
+division_template = {
+	name="地方红军"	
+	division_names_group = PRC_PLA_GAR_01
+	regiments = {
+		militia = { x = 0 y = 0 }
+		militia = { x = 0 y = 1 }
+		militia = { x = 0 y = 2 }
+		militia = { x = 0 y = 3 }
+		
+		militia = { x = 1 y = 0 }
+	}
+}
+
+units = {
+	#####First Front Red Army
+	division = {
+		name="红一方面军第一军团" #【1935年11月3日：第1、2、4師】
+		location = 13402 # Tingpien  
+		division_template =  "红一方面军军团级编制"
+		start_experience_factor = 1
+		start_equipment_factor = 0.9 
+		start_manpower_factor = 0.9 #10000餘人
+	}
+	division = {
+		name="红一方面军第十五军团" #【1935年11月3日：第75師第223、225團，第78師第232、234團，第81師第241、243團】【1936年4月1日：第73、75、78師】
+		location = 13402 # Hwansien 
+		division_template =  "红一方面军军团级编制"
+		start_experience_factor = 0.9 
+		start_equipment_factor = 0.8  
+		start_manpower_factor = 0.8 #7000餘人
+	}
+	division = {
+		name="红一方面军第二十八军" #【1935年12月30日】
+		location = 13402 # Yenan
+		division_template = "红一方面军军级编制"
+		start_experience_factor = 0.85
+		start_equipment_factor = 0.7   
+		start_manpower_factor = 0.7 #1500餘人  
+	}
+	division = {
+		name="红一方面军第二十九军" #【1935年12月30日：第1、2團】【1936年4月1日：第255、256、257團】
+		location = 13403 # Yenchwan
+		division_template = "红一方面军军级编制"
+		start_experience_factor = 0.85
+		start_equipment_factor = 0.7  
+		start_manpower_factor = 0.7 #800餘人  
+	}
+	division = {
+		name="红一方面军第三十军" #【1936年4月1日：第262、263、264團】
+		location = 13403 # Anting
+		division_template = "红一方面军军级编制"
+		start_experience_factor = 0.85
+		start_equipment_factor = 0.7  
+		start_manpower_factor = 0.7 #1000餘人  
+	}
+	
+	division = {
+		division_template = "地方红军" division_name = { is_name_ordered = yes name_order = 1 }
+		location = 13408 start_experience_factor = 0.5 start_equipment_factor = 0.5
+	}
+	division = {
+		division_template = "地方红军" division_name = { is_name_ordered = yes name_order = 2 }
+		location = 13404 start_experience_factor = 0.5 start_equipment_factor = 0.5
+	}
+	division = {
+		division_template = "地方红军" division_name = { is_name_ordered = yes name_order = 3 }
+		location = 13408 start_experience_factor = 0.5 start_equipment_factor = 0.5
+	}
+	division = {
+		division_template = "地方红军" division_name = { is_name_ordered = yes name_order = 4 }
+		location = 13404 start_experience_factor = 0.5 start_equipment_factor = 0.5
+	}
+	division = {
+		division_template = "地方红军" division_name = { is_name_ordered = yes name_order = 5 }
+		location = 13403 start_experience_factor = 0.5 start_equipment_factor = 0.5
+	}
+	division = {
+		division_template = "地方红军" division_name = { is_name_ordered = yes name_order = 6 }
+		location = 13408 start_experience_factor = 0.5 start_equipment_factor = 0.5
+	}
+	division = {
+		division_template = "地方红军" division_name = { is_name_ordered = yes name_order = 7 }
+		location = 13403 start_experience_factor = 0.5 start_equipment_factor = 0.5
+	}
+	
+	
+#	division = {
+#		name="紅27軍" #【1936年12月：第81師】
+#		location = 7208
+#		division_template = "中國工農紅軍"
+#		start_experience_factor = 0.1
+#		start_equipment_factor = 0.15
+#	}
+#	division = {
+#		name="獨立1師" #【1936年12月】
+#		location = 12356
+#		division_template = "中國工農紅軍"
+#		start_experience_factor = 0.1
+#		start_equipment_factor = 0.15
+#	}
+#	division = {
+#		name="獨立2師" #【1936年12月】
+#		location = 12356
+#		division_template = "中國工農紅軍"
+#		start_experience_factor = 0.1
+#		start_equipment_factor = 0.15
+#	}
+}
+
+##### STARTING PRODUCTION #####
+instant_effect = {
+	add_equipment_production = {
+		equipment = {
+			type = infantry_equipment_0
+			creator = "PRC"
+		}
+		requested_factories = 5
+		progress = 0.33
+		efficiency = 100
+	}
+}

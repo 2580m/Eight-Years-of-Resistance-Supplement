@@ -1,0 +1,65 @@
+﻿division_template = { #西路军
+	name="中国工农红军西路军军团级编制"				 								 
+	division_names_group = PRC_INF_01
+	is_locked = yes
+	force_allow_recruiting = no
+	regiments = {
+		infantry = { x = 0 y = 0 }	 
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 0 y = 2 }
+		infantry = { x = 0 y = 3 }	 
+		infantry = { x = 1 y = 0 }	 
+		infantry = { x = 1 y = 1 }
+		infantry = { x = 1 y = 2 }
+		infantry = { x = 1 y = 3 }
+		infantry = { x = 2 y = 0 }	 
+		infantry = { x = 2 y = 1 }
+		infantry = { x = 2 y = 2 }
+		infantry = { x = 2 y = 3 }	 
+	}
+}
+
+division_template = {
+	name="中国工农红军西路军军级编制"				 							 
+	division_names_group = PRC_INF_02
+	is_locked = yes
+	force_allow_recruiting = no
+	regiments = {
+		infantry = { x = 0 y = 0 }	 
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+		infantry = { x = 2 y = 0 }	 
+		infantry = { x = 2 y = 1 }
+		infantry = { x = 3 y = 0 }
+		infantry = { x = 3 y = 1 }
+	}
+}
+
+units = {
+	division = {
+		name="红四方面军第五军" #【1936年1月第13、15師各2團】【1936年7月第37、39、40、43、45團】【1936年10月約4100人】
+		location = 3742
+		division_template = "中国工农红军西路军军级编制"
+		start_experience_factor = 0.7
+		start_manpower_factor = 0.4  #轄2師4個團，3000餘人
+		start_equipment_factor = 0.2  #1000餘支
+	}
+	division = {
+		name="红四方面军第九军团" #【1936年底直轄第25、26、27、模範師】 
+		location = 3742
+		division_template = "中国工农红军西路军军团级编制"	
+		start_experience_factor = 0.7
+		start_manpower_factor = 0.6  #轄2師6個團，6500餘人
+		start_equipment_factor = 0.3  #2500餘支
+	}
+	division = {
+		name="红四方面军第三十军团" #【1936年底第88、89、90師】   
+		location = 3742
+		division_template = "中国工农红军西路军军团级编制"	
+		start_experience_factor = 0.7
+		start_manpower_factor = 0.6  #轄2師6個團，7000餘人
+		start_equipment_factor = 0.3  #3200餘支
+	}
+	
+}

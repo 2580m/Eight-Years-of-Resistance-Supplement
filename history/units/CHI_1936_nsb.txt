@@ -1,0 +1,1459 @@
+﻿division_template = {
+	name = "二十一年整理师" #13390 men in total (1932), 又稱二十一年整理師(甲種)		
+	division_names_group = CHI_INF_01
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 0 y = 2 }
+		infantry = { x = 0 y = 3 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+		infantry = { x = 1 y = 2 }
+		infantry = { x = 1 y = 3 }
+		infantry = { x = 2 y = 0 }
+		infantry = { x = 2 y = 1 }
+		infantry = { x = 2 y = 2 }
+		infantry = { x = 3 y = 0 }
+		infantry = { x = 3 y = 1 }
+		#infantry = { x = 3 y = 2 }
+	}
+	#support = {
+	#	artillery = { x = 0 y = 1 }
+	#}
+}
+
+division_template = {
+	name = "税警总团" #around 15000 men in 1936	
+	division_names_group = CHI_INF_01
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 0 y = 2 }
+		infantry = { x = 0 y = 3 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+		infantry = { x = 1 y = 2 }
+		infantry = { x = 1 y = 3 }
+		infantry = { x = 2 y = 0 }
+		infantry = { x = 2 y = 1 }
+		infantry = { x = 2 y = 2 }
+		infantry = { x = 3 y = 0 }
+		infantry = { x = 3 y = 1 }
+		infantry = { x = 3 y = 2 }
+		artillery_brigade = { x = 4 y = 0 }
+	}
+	support = {
+		engineer = { x = 0 y = 0 } 
+		artillery = { x = 0 y = 1 } 
+	}
+	priority = 2
+}
+
+division_template = {
+	name = "国民革命军甲种调整师" #11026 men in total(甲種1937)			
+	division_names_group = CHI_INF_01
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 0 y = 2 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+		infantry = { x = 1 y = 2 }
+		infantry = { x = 2 y = 0 }
+		infantry = { x = 2 y = 1 }
+		infantry = { x = 2 y = 2 }
+		infantry = { x = 3 y = 0 }
+		artillery_brigade = { x = 4 y = 0 }
+	}
+	support = {
+		engineer = { x = 0 y = 0 } 
+		artillery = { x = 0 y = 1 } 
+	}
+	priority = 2
+}
+
+division_template = {
+	name = "四团制整理师" #8652 men in total(乙種1937)		
+	division_names_group = CHI_INF_01
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+		infantry = { x = 2 y = 0 }
+		infantry = { x = 2 y = 1 }
+		infantry = { x = 3 y = 0 }
+		infantry = { x = 3 y = 1 }
+	}
+	support = {
+		engineer = { x = 0 y = 0 } 
+		artillery = { x = 0 y = 1 } 
+	}
+}
+
+division_template = {
+	name = "五团制整理师" #15520 men in total(1935？)		
+	division_names_group = CHI_INF_01
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 0 y = 2 }
+		infantry = { x = 0 y = 3 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+		infantry = { x = 1 y = 2 }
+		infantry = { x = 1 y = 3 }
+		infantry = { x = 2 y = 0 }
+		infantry = { x = 2 y = 1 }
+		infantry = { x = 2 y = 2 }
+		infantry = { x = 2 y = 3 }
+		infantry = { x = 3 y = 0 }
+		infantry = { x = 3 y = 1 }
+		infantry = { x = 3 y = 2 }
+	}
+	support = {
+		engineer = { x = 0 y = 0 } 
+		artillery = { x = 0 y = 1 } 
+	}
+}
+
+division_template = {
+	name = "二十二年三团师" #8500 men in total, 二十二年三團師(丙種，3團無旅)
+	division_names_group = CHI_INF_01
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+		infantry = { x = 2 y = 0 }
+		infantry = { x = 2 y = 1 }
+		infantry = { x = 3 y = 0 }
+		infantry = { x = 3 y = 1 }
+	}
+	support = {
+	}
+}
+
+division_template = {
+	name = "国民革命军独立旅"	
+	division_names_group = CHI_INF_02
+
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+	}
+	support = {
+	}
+}
+
+division_template = {
+	name = "国民革命军骑兵师"	
+	division_names_group = CHI_CAV_01
+	regiments = {
+		cavalry = { x = 0 y = 0 }
+		cavalry = { x = 0 y = 1 }
+		cavalry = { x = 1 y = 0 }
+		cavalry = { x = 1 y = 1 }
+		#cavalry = { x = 2 y = 0 }
+		#cavalry = { x = 2 y = 1 }
+		#cavalry = { x = 3 y = 0 }
+		#cavalry = { x = 3 y = 1 }
+	}
+	support = {
+	}
+}
+
+division_template = {
+	name = "国民革命军独立骑兵旅"	
+	division_names_group = CHI_CAV_02
+
+	regiments = {
+		cavalry = { x = 0 y = 0 }
+		cavalry = { x = 0 y = 1 }
+		#cavalry = { x = 1 y = 0 }
+		#cavalry = { x = 1 y = 1 }
+	}
+	support = {
+	}
+}
+
+division_template = {
+	name = "地方保安团"	
+	division_names_group = WRL_INF_03
+	regiments = {
+		militia = { x = 0 y = 0 }
+		militia = { x = 0 y = 1 }
+	}
+}
+
+division_template = {
+	name = "战车教导营" 			
+	division_names_group = CHI_ARM_02
+	regiments = {
+		motorized = { x = 0 y = 0 }
+		light_armor = { x = 1 y = 0 }	
+	}
+	support = {
+		recon = { x = 0 y = 0 }
+		#artillery = { x = 0 y = 1 }
+		#engineer = { x = 0 y = 2 }
+	}
+}
+
+### OOB ###
+units = {
+	## information based on this spreadsheet: https://docs.google.com/spreadsheets/d/1ez0Nnu_qInXxsgdkaDQppKIxU08PVFrAXFXqQe1-kRU/edit?usp=sharing ##
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 1
+		}
+		location = 1933
+		division_template = "五团制整理师"		
+		start_experience_factor = 0.2
+	}
+	
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 2
+		}
+		location = 6932
+		division_template = "国民革命军甲种调整师"		
+		start_equipment_factor = 0.8
+		start_experience_factor = 0.3
+	}
+	
+	division = {
+		division_name = { 
+			is_name_ordered = yes
+			name_order = 3
+		}
+		location = 1066
+		#1936下半年接受調整
+		division_template = "国民革命军甲种调整师"		
+		start_equipment_factor = 0.7
+		start_experience_factor = 0.25
+	}
+	
+	division = {
+		division_name = { 
+			is_name_ordered = yes
+			name_order = 4
+		}
+		location = 12017
+		#1936下半年接受調整
+		division_template = "国民革命军甲种调整师"		
+		start_equipment_factor = 0.7
+		start_experience_factor = 0.25
+	}
+	
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 5
+		}
+		location = 2067
+		division_template = "二十二年三团师"		
+		start_equipment_factor = 0.65
+		start_experience_factor = 0.2
+	}
+	
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 9
+		}
+		location = 10069
+		#1936下半年接受調整
+		division_template = "国民革命军甲种调整师"		
+		start_equipment_factor = 0.7
+		start_experience_factor = 0.25
+	}
+	
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 10
+		}
+		location = 12017
+		#1936下半年接受調整
+		division_template = "国民革命军甲种调整师"		
+		start_equipment_factor = 0.7
+		start_experience_factor = 0.25
+	}
+	
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 11
+		}
+		location = 9944
+		division_template = "国民革命军甲种调整师"		
+		start_equipment_factor = 0.8
+		start_experience_factor = 0.3
+	}
+	
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 13
+		}
+		location = 10763
+		division_template = "二十一年整理师"		
+		start_equipment_factor = 1
+		start_experience_factor = 0.2
+	}
+	
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 14
+		}
+		location = 10006
+		division_template = "国民革命军甲种调整师"		
+		start_equipment_factor = 0.8
+		start_experience_factor = 0.3
+	}
+	
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 18
+		}
+		location = 4156
+		division_template = "二十一年整理师"		
+		start_equipment_factor = 0.85
+        start_experience_factor = 0.25
+	}
+		
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 21
+		}
+		location = 1066
+		division_template = "二十一年整理师"		
+		start_equipment_factor = 0.8
+        start_experience_factor = 0.2
+	}
+	
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 23
+		}
+		location = 8095
+		division_template = "二十一年整理师"		
+		start_equipment_factor = 0.95
+		start_experience_factor = 0.2
+	}
+
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 24
+		}
+		location = 517 #甘肅阜城(慶城縣)
+		division_template = "二十二年三团师"		
+		start_equipment_factor = 0.75
+		start_experience_factor = 0.2
+	}
+	
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 25
+		}
+		location = 11913
+		division_template = "国民革命军甲种调整师"		
+		start_equipment_factor = 0.8
+		start_experience_factor = 0.3
+	}
+	
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 27
+		}
+		location = 7434
+		#1936下半年接受調整
+		division_template = "国民革命军甲种调整师"		
+		start_equipment_factor = 0.6
+		start_experience_factor = 0.25
+	}
+	
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 28
+		}
+		location = 7665
+		division_template = "二十一年整理师"		
+		start_equipment_factor = 0.5
+		start_experience_factor = 0.2
+	}
+	
+	division = { #?
+		division_name = {
+			is_name_ordered = yes
+			name_order = 30
+		}
+		location = 1612
+		division_template = "二十二年三团师"		
+		start_equipment_factor = 1
+        start_experience_factor = 0.2
+	}
+	
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 31
+		}
+		location = 7434
+		division_template = "二十一年整理师"		
+		start_equipment_factor = 0.65
+        start_experience_factor = 0.2
+	}
+	
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 32
+		}
+		location = 7097
+		division_template = "二十一年整理师"		
+		start_equipment_factor = 0.75
+        start_experience_factor = 0.2
+	}
+	
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 33
+		}
+		location = 10114
+		division_template = "二十二年三团师"		
+		start_equipment_factor = 0.95
+        start_experience_factor = 0.2
+	}
+	
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 36
+		}
+		location = 3992
+		division_template = "国民革命军甲种调整师"		
+		start_equipment_factor = 0.8
+		start_experience_factor = 0.3
+	}
+	
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 39
+		}
+		location = 1139
+		division_template = "二十一年整理师"		
+		start_equipment_factor = 0.5
+        start_experience_factor = 0.2
+	}
+	
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 40
+		}
+		location = 10114
+		division_template = "二十二年三团师"		
+		start_equipment_factor = 0.5
+        start_experience_factor = 0.2
+	}
+	
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 41
+		}
+		location = 10006
+		division_template = "二十一年整理师"		
+		start_equipment_factor = 0.65
+        start_experience_factor = 0.2
+	}
+	
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 6
+		}
+		location = 2022
+		#1936下半年接受調整
+		division_template = "国民革命军甲种调整师"		
+		start_equipment_factor = 0.7
+		start_experience_factor = 0.25
+	}
+	
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 7
+		}
+		location = 2022
+		division_template = "二十一年整理师"		
+		start_equipment_factor = 0.7
+        start_experience_factor = 0.2
+	}
+	
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 8
+		}
+		location = 1647
+		division_template = "二十一年整理师"		
+		start_equipment_factor = 0.7
+        start_experience_factor = 0.2
+	}
+	
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 12
+		}
+		location = 12882
+		division_template = "二十一年整理师"		
+		start_equipment_factor = 0.5
+        start_experience_factor = 0.2
+	}
+	
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 43
+		}
+		location = 7665
+		division_template = "二十二年三团师"		
+		start_equipment_factor = 0.7
+		start_experience_factor = 0.2
+	}
+	
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 44
+		}
+		location = 7301
+		division_template = "二十一年整理师"		
+		start_equipment_factor = 1
+		start_experience_factor = 0.2
+	}
+	
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 45
+		}
+		location = 10042
+		division_template = "二十一年整理师"		
+		start_equipment_factor = 0.5
+        start_experience_factor = 0.2
+	}
+	
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 46
+		}
+		location = 10112
+		division_template = "二十一年整理师"		
+		start_equipment_factor = 0.35
+		start_experience_factor = 0.2
+	}
+	
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 47
+		}
+		location = 4480
+		division_template = "二十一年整理师"		
+		start_equipment_factor = 0.65
+        start_experience_factor = 0.2
+	}
+	
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 48
+		}
+		location = 4896
+		division_template = "二十一年整理师"		
+		start_equipment_factor = 0.65
+		start_experience_factor = 0.2
+	}
+	
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 49
+		}
+		location = 10257
+		division_template = "二十一年整理师"		
+		start_equipment_factor = 0.6
+		start_experience_factor = 0.2
+	}
+	
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 50
+		}
+		location = 11988
+		division_template = "二十一年整理师"		
+		start_equipment_factor = 0.6
+		start_experience_factor = 0.2
+	}
+	
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 51
+		}
+		location = 10057
+		division_template = "二十一年整理师"		
+		start_equipment_factor = 0.85
+		start_experience_factor = 0.2
+	}
+	
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 52
+		}
+		location = 4192
+		division_template = "二十一年整理师"		
+		start_equipment_factor = 0.45
+		start_experience_factor = 0.2
+	}
+	
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 53
+		}
+		location = 4999
+		division_template = "二十一年整理师"		
+		start_equipment_factor = 0.85
+        start_experience_factor = 0.2
+	}
+	
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 54
+		}
+		location = 7577
+		division_template = "二十一年整理师"		
+		start_equipment_factor = 0.5
+		start_experience_factor = 0.2
+	}
+	
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 55
+		}
+		location = 10017
+		division_template = "二十一年整理师"		
+		start_equipment_factor = 0.6
+		start_experience_factor = 0.2
+	}
+	
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 56
+		}
+		location = 10042
+		division_template = "二十一年整理师"		
+		start_equipment_factor = 0.8
+		start_experience_factor = 0.2
+	}
+	
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 57
+		}
+		location = 7007
+		division_template = "国民革命军甲种调整师"		
+		start_equipment_factor = 0.8
+		start_experience_factor = 0.3
+	}
+	
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 58
+		}
+		location = 4619
+		division_template = "二十一年整理师"		
+		start_equipment_factor = 0.8
+		start_experience_factor = 0.2
+	}
+	
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 59
+		}
+		location = 10763
+		division_template = "二十一年整理师"		
+		start_equipment_factor = 0.6
+        start_experience_factor = 0.2
+	}
+	
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 60
+		}
+		location = 4325
+		division_template = "二十二年三团师"		
+		start_equipment_factor = 0.5
+        start_experience_factor = 0.2
+	}
+	
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 61
+		}
+		location = 12705
+		division_template = "二十二年三团师"		
+		start_equipment_factor = 0.5
+        start_experience_factor = 0.2
+	}
+		
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 64
+		}
+		location = 1153
+		division_template = "二十一年整理师"		
+		start_equipment_factor = 0.7
+        start_experience_factor = 0.2
+	}
+	
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 65
+		}
+		location = 4203
+		division_template = "二十一年整理师"		
+		start_equipment_factor = 0.7
+        start_experience_factor = 0.2
+	}
+	
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 67
+		}
+		location = 7104
+		division_template = "国民革命军甲种调整师"		
+		start_equipment_factor = 0.8
+		start_experience_factor = 0.3
+	}
+	
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 75
+		}
+		location = 10084
+		division_template = "二十一年整理师"		
+		start_equipment_factor = 0.5
+        start_experience_factor = 0.2
+	}
+	
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 76
+		}
+		location = 10042
+		division_template = "二十一年整理师"		
+		start_equipment_factor = 0.5
+        start_experience_factor = 0.2
+	}
+	
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 78
+		}
+		location = 1171
+		division_template = "二十一年整理师"		
+		start_equipment_factor = 0.5
+        start_experience_factor = 0.2
+	}
+	
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 80
+		}
+		location = 3992
+		#1936下半年接受調整
+		division_template = "国民革命军甲种调整师"		
+		start_equipment_factor = 0.7
+		start_experience_factor = 0.25
+	}
+	
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 82
+		}
+		location = 10474
+		division_template = "二十二年三团师"		
+		start_equipment_factor = 0.5
+        start_experience_factor = 0.2
+	}
+	
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 83
+		}
+		location = 3992
+		#1936下半年接受調整
+		division_template = "国民革命军甲种调整师"		
+		start_equipment_factor = 0.7
+		start_experience_factor = 0.25
+	}
+	
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 85
+		}
+		location = 10757
+		division_template = "二十一年整理师"		
+		start_equipment_factor = 0.45
+        start_experience_factor = 0.25
+	}
+	
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 87
+		}
+		location = 1006
+		division_template = "国民革命军甲种调整师"		
+		start_equipment_factor = 0.8
+		start_experience_factor = 0.3
+	}
+	
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 88
+		}
+		location = 12414
+		#1936下半年接受調整
+		division_template = "国民革命军甲种调整师"		
+		start_equipment_factor = 0.7
+		start_experience_factor = 0.25
+	}
+	
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 89
+		}
+		location = 10006
+		#1936下半年接受調整
+		division_template = "国民革命军甲种调整师"		
+		start_equipment_factor = 0.7
+		start_experience_factor = 0.25
+	}
+	
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 90
+		}
+		location = 8095
+		division_template = "二十一年整理师"		
+		start_equipment_factor = 0.55
+		start_experience_factor = 0.2
+	}
+	
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 91
+		}
+		location = 7167
+		division_template = "二十一年整理师"		
+		start_equipment_factor = 1
+        start_experience_factor = 0.2
+	}
+	
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 92
+		}
+		location = 4619
+		division_template = "二十二年三团师"		
+		start_equipment_factor = 0.8
+        start_experience_factor = 0.2
+	}
+	
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 93
+		}
+		location = 10616
+		division_template = "二十一年整理师"		
+		start_equipment_factor = 0.5
+		start_experience_factor = 0.2
+	}
+	
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 94
+		}
+		location = 11947
+		division_template = "四团制整理师"	
+		start_equipment_factor = 1 #4594+4947
+		start_experience_factor = 0.1
+	}
+	
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 95
+		}
+		location = 7596
+		division_template = "二十一年整理师"		
+		start_equipment_factor = 0.7
+        start_experience_factor = 0.2
+	}
+	
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 96
+		}
+		location = 4999
+		division_template = "二十二年三团师"		
+		start_equipment_factor = 0.45
+        start_experience_factor = 0.2
+	}
+	
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 97
+		}
+		location = 7665
+		division_template = "二十一年整理师"		
+		start_equipment_factor = 0.5
+		start_experience_factor = 0.2
+	}
+	
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 98
+		}
+		location = 7101
+		division_template = "四团制整理师"		
+		start_equipment_factor = 1
+		start_experience_factor = 0.2
+	}
+	
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 99
+		}
+		location = 10616
+		division_template = "二十一年整理师"		
+		start_equipment_factor = 0.75
+		start_experience_factor = 0.2
+	}
+	
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 102
+		}
+		location = 4619
+		division_template = "二十二年三团师"		
+		start_equipment_factor = 0.95
+        start_experience_factor = 0.2
+	}
+	
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 103
+		}
+		location = 4619
+		division_template = "二十二年三团师"		
+		start_equipment_factor = 0.95
+		start_experience_factor = 0.2
+	}
+	
+	#division = {
+	#	division_name = {
+	#		is_name_ordered = yes
+	#		name_order = 105
+	#	}
+	#	location = 4619
+	#	division_template = "二十二年三团师"		
+	#	start_equipment_factor = 0.45
+    #
+	#	start_experience_factor = 0.25
+	#}
+	
+	#division = {
+	#	division_name = {
+	#		is_name_ordered = yes
+	#		name_order = 112
+	#	}
+	#	location = 4619
+	#	division_template = "二十二年三团师"		
+	#	start_equipment_factor = 0.45
+    #
+	#	start_experience_factor = 0.25
+	#}
+	
+	#division = {
+	#	division_name = {
+	#		is_name_ordered = yes
+	#		name_order = 115
+	#	}
+	#	location = 4619
+	#	division_template = "二十二年三团师"		
+	#	start_equipment_factor = 0.45
+    #
+	#	start_experience_factor = 0.25
+	#}
+	
+	#division = {
+	#	division_name = {
+	#		is_name_ordered = yes
+	#		name_order = 120
+	#	}
+	#	location = 4619
+	#	division_template = "二十二年三团师"		
+	#	start_equipment_factor = 0.45
+#   #
+	#	start_experience_factor = 0.25
+	#}
+	
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 121
+		}
+		location = 4999
+		division_template = "二十二年三团师"		
+		start_equipment_factor = 0.8
+		start_experience_factor = 0.2
+	}
+
+	#division = { #東北軍 https://ahonline.drnh.gov.tw/index.php?act=Display/image/3160403B_ufflD#a5J
+	#	division_name = {
+	#		is_name_ordered = yes
+	#		name_order = 130
+	#	}
+	#	location = 4619 #河北保定 
+	#	division_template = "二十二年三团师"		
+	#	start_equipment_factor = 0.45
+    #
+	#	start_experience_factor = 0.25
+	#}
+	
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 139
+		}
+		location = 7074
+		division_template = "二十一年整理师"		
+		start_equipment_factor = 0.5
+		start_experience_factor = 0.2
+	}
+
+	division = { #https://ahonline.drnh.gov.tw/index.php?act=Display/image/3160401yJ=IBm1#a6F
+		division_name = {
+			is_name_ordered = yes
+			name_order = 140
+		}
+		location = 12882 #甘肅徽縣附近？ #https://ahonline.drnh.gov.tw/index.php?act=Display/image/3160402trcl=HN#b1F
+		division_template = "二十一年整理师"		
+		start_equipment_factor = 0.9
+		start_experience_factor = 0.2
+	}
+	
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 141
+		}
+		location = 4606
+		division_template = "二十二年三团师"		
+		start_equipment_factor = 0.5
+		start_experience_factor = 0.2
+	}
+	
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 142
+		}
+		location = 4606
+		division_template = "二十一年整理师"		
+		start_equipment_factor = 0.5
+		start_experience_factor = 0.2
+	}
+	
+	division = {
+		name = "新编第五师"
+		location = 11931
+		division_template = "二十二年三团师"		
+		start_equipment_factor = 0.6
+		start_experience_factor = 0.1
+	}
+
+	division = {
+		name = "新编第八师"
+		location = 7577 #銅仁
+		division_template = "二十二年三团师"		
+		start_equipment_factor = 0.6
+		start_experience_factor = 0.1
+	}
+	
+	division = {
+		name = "新编第十师"
+		location = 4196
+		division_template = "二十二年三团师"		
+		start_equipment_factor = 0.5
+		start_experience_factor = 0.1
+	}
+
+	division = {
+		division_name = { #1934~?
+			is_name_ordered = yes
+			name_order = 4
+		}
+		location = 8072 #竹谿
+		division_template = "国民革命军独立旅"		
+		start_equipment_factor = 1
+		start_experience_factor = 0.2
+	}
+	
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 5
+		}
+		location = 4480
+		division_template = "国民革命军独立旅"		
+		start_equipment_factor = 0.5
+		start_experience_factor = 0.2
+	}
+	
+    division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 34
+		}
+		location = 7201 #湖北高羅
+		division_template = "国民革命军独立旅"		
+		start_equipment_factor = 0.5
+		start_experience_factor = 0.2
+	}
+
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 35
+		}
+		location = 4631
+		division_template = "国民革命军独立旅"		
+		start_equipment_factor = 1
+		start_experience_factor = 0.2
+	}
+
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 36
+		}
+		location = 10114 #酒江
+		division_template = "国民革命军独立旅"		
+		start_equipment_factor = 1
+		start_experience_factor = 0.2
+	}
+
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 37
+		}
+		location = 10054 #南靖
+		division_template = "国民革命军独立旅"		
+		start_equipment_factor = 0.45
+		start_experience_factor = 0.25
+	}
+    
+	#第卅八旅 新編第三旅 暫編第四旅於1936年2月合併成94D
+
+    division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 43
+		}
+		location = 7007 #婺源
+		division_template = "国民革命军独立旅"		
+		start_equipment_factor = 0.45
+		start_experience_factor = 0.25
+	}
+
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 44
+		}
+		location = 10446 #信陽？
+		division_template = "国民革命军独立旅"		
+		start_equipment_factor = 0.45
+		start_experience_factor = 0.25
+	}
+
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 45
+		}
+		location = 10012 #福建崇安
+		division_template = "国民革命军独立旅"		
+		start_equipment_factor = 0.45
+		start_experience_factor = 0.25
+	}
+
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 46
+		}
+		location = 12019 #安徽祁門
+		division_template = "国民革命军独立旅"		
+		start_equipment_factor = 0.45
+		start_experience_factor = 0.25
+	}
+
+    division = { 
+		name = "Luchün Puch'ung Ti 1 Lü"
+		location = 1257 #四川樟臘
+		division_template = "国民革命军独立旅"		
+		start_equipment_factor = 0.45
+		start_experience_factor = 0.25
+	}
+
+	division = { #西北補充旅
+		name = "Luchün Hsipei Puch'ung Lü"
+		location = 7397 #甘肅？
+		division_template = "国民革命军独立旅"		
+		start_equipment_factor = 0.45
+		start_experience_factor = 0.25
+	}
+
+	division = { 
+		name = "Wuhan Chingpei Lü"
+		location = 7167
+		division_template = "国民革命军独立旅"		
+		start_equipment_factor = 0.45
+		start_experience_factor = 0.25
+	}
+
+	division = { 
+		name = "Anhwei Chingpei Lü"
+		location = 7222 #合肥
+		division_template = "国民革命军独立旅"		
+		start_equipment_factor = 0.45
+		start_experience_factor = 0.25
+	}
+
+	division = {
+		name = "Luchün Chanpien Ti 5 Lü"
+		location = 10616 #貴陽
+		division_template = "国民革命军独立旅"		
+		start_equipment_factor = 0.45
+		start_experience_factor = 0.25
+	}
+	
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 1
+		}
+		location = 2067
+		division_template = "国民革命军骑兵师"		
+		start_equipment_factor = 1
+		start_experience_factor = 0.2
+	}
+	
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 7
+		}
+		location = 517 #甘肅寧縣
+		division_template = "国民革命军骑兵师"		
+		start_equipment_factor = 1
+		start_experience_factor = 0.2
+	}
+
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 14
+		}
+		location = 10434 #駐馬店
+		division_template = "国民革命军独立骑兵旅"		
+		start_equipment_factor = 1
+		start_experience_factor = 0.2
+	}
+
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 24
+		}
+		location = 11916 #蚌埠
+		division_template = "国民革命军独立骑兵旅"		
+		start_equipment_factor = 0.5
+		start_experience_factor = 0.2
+	}
+
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 26
+		}
+		location = 4896
+		division_template = "二十二年三团师"		
+		start_equipment_factor = 0.7
+        start_experience_factor = 0.2
+	}
+	
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 34
+		}
+		location = 10006
+		division_template = "二十二年三团师"		
+		start_equipment_factor = 0.6
+        start_experience_factor = 0.2
+	}
+	
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 77
+		}
+		location = 10042
+		division_template = "二十二年三团师"		
+		start_equipment_factor = 0.55
+        start_experience_factor = 0.2
+	}
+	
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 79
+		}
+		location = 4183
+		division_template = "二十一年整理师"		
+		start_equipment_factor = 0.75
+		start_experience_factor = 0.3
+	}
+	#
+	division = { # "Peixun Shi"
+		name = "中央军校教导总队"
+		location = 11913 #南京
+		division_template = "国民革命军甲种调整师"		# Reorganized German-trained division (frontline infantry, better equipment and highest experience)
+		start_experience_factor = 0.5
+		start_equipment_factor = 1
+		force_equipment_variants = { infantry_equipment_1 = { owner = "GER" } }
+		force_equipment_variants = { artillery_equipment_1 = { owner = "GER" } }
+		force_equipment_variants = { support_equipment_1 = { owner = "GER" } }
+	}
+
+	division = { # 稅警總團
+		name = "税警总团"
+		location = 11913 #南京
+		division_template = "税警总团"		#
+		start_experience_factor = 0.5
+		start_equipment_factor = 1
+		force_equipment_variants = { infantry_equipment_1 = { owner = "GER" } }
+		force_equipment_variants = { artillery_equipment_1 = { owner = "GER" } }
+		force_equipment_variants = { support_equipment_1 = { owner = "GER" } }
+	}
+
+	division = {  #戰車教導營
+		name = "战车教导营"
+		location = 11913  #南京
+		division_template = "战车教导营"
+		start_experience_factor = 0.3
+		start_equipment_factor = 0.834 #50輛坦克(維克斯6噸戰車16輛+維克斯兩棲戰車16輛+18輛卡登．洛伊德型超輕型戰車)
+		force_equipment_variants = { light_tank_chassis_0 = { owner = "ENG" version_name = "Vickers 6 ton B" } } #https://zh.wikipedia.org/zh-tw/%E7%B6%AD%E5%85%8B%E6%96%AF%E5%85%AD%E5%99%B8%E5%9D%A6%E5%85%8B
+	}
+}
+
+instant_effect = {
+	add_equipment_production = {
+		equipment = {
+			type = infantry_equipment_0
+			creator = "CHI"
+		}
+		requested_factories = 2
+		progress = 0.55
+		efficiency = 100
+	}
+	add_equipment_production = {
+		equipment = {
+			type = support_equipment_1
+			creator = "CHI"
+		}
+		requested_factories = 1
+		progress = 0.55
+		efficiency = 100
+	}	
+	add_equipment_production = {
+		equipment = {
+			type = artillery_equipment_1
+			creator = "CHI"
+		}
+		requested_factories = 1
+		progress = 0.55
+		efficiency = 100
+	}	
+}

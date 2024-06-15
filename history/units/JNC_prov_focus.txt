@@ -1,0 +1,55 @@
+﻿division_template = {
+	name = "Puping Lü"				# Represents: German-trained divisions (better equipment than rest),
+	division_names_group = WRL_INF_02	# 	as well as two-division infantry corps (generally poorly-equipped militias),
+	regiments = {					#	and local militia groups.
+		infantry = { x = 0 y = 0 }	# Note: Chinese divisions were brigade-sized compared other nations' armies
+		infantry = { x = 0 y = 1 }
+	}
+}
+#division_template = {
+#	name = "Duli Juntuán"			# Represents three-division infantry corps (generally poorly-equipped militias)
+#    division_names_group = WRL_INF_02
+#	regiments = {
+#		infantry = { x = 0 y = 0 }
+#	}
+#}
+units = { #guo
+	division = {
+			name = "Peking Lü" #1
+			location = 9843
+			division_template = "Puping Lü"
+	}
+	division = {
+			name = "Paotingfu Lü" #2
+			location = 9843
+			division_template = "Puping Lü"
+	}
+	division = {
+			name = "Kaiping Lü" #3
+			location = 9843
+			division_template = "Puping Lü"
+	}
+	division = {
+			name = "Tientsin Lü" #7
+			location = 9843
+			division_template = "Puping Lü"
+	}
+	division = {
+			name = "Tsinanfu Lü" #8
+			location = 9843
+			division_template = "Puping Lü"
+	}
+}
+
+##### STARTING PRODUCTION #####
+instant_effect = {
+	add_equipment_production = {
+		equipment = {
+			type = infantry_equipment_0
+			creator = "EHB"
+		}
+		requested_factories = 1
+		progress = 0.82
+		efficiency = 100
+	}
+}

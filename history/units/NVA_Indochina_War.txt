@@ -1,0 +1,300 @@
+﻿division_template = {
+	name = "Viet Minh Phan Cong"
+    division_names_group = NVA_INF_01
+	regiments = {
+		infantry = { x = 0 y = 0 }	 
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 0 y = 2 }	
+        infantry = { x = 1 y = 0 }
+        infantry = { x = 1 y = 1 }
+		infantry = { x = 1 y = 2 }
+		infantry = { x = 2 y = 0 }
+		infantry = { x = 2 y = 1 }
+		infantry = { x = 2 y = 2 }
+	}
+	support = {
+	    anti_air = { x = 0 y = 0 }
+	}
+}
+
+division_template = {
+	name = "Phia Nam Viet Minh"		
+    division_names_group = NVA_INF_02	
+	regiments = {
+		infantry = { x = 0 y = 0 }	 
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 0 y = 2 }	
+        infantry = { x = 1 y = 0 }
+        infantry = { x = 1 y = 1 }
+		infantry = { x = 1 y = 2 }
+		infantry = { x = 2 y = 0 }
+		infantry = { x = 2 y = 1 }
+		infantry = { x = 2 y = 2 }
+	}
+}
+
+units = {
+    # TONKIN FRONT #
+	division = {
+		name = "1. Viet Minh Quy Dinh"
+		location = 4075
+		division_template =  "Viet Minh Phan Cong"
+		start_experience_factor = 0.5
+		start_equipment_factor = 0.7 
+		start_manpower_factor = 0.9
+	}
+	division = {
+		name = "2. Viet Minh Quy Dinh"
+		location = 4075
+		division_template =  "Viet Minh Phan Cong"
+		start_experience_factor = 0.5
+		start_equipment_factor = 0.7 
+		start_manpower_factor = 0.9
+	}
+	division = {
+		name = "3. Viet Minh Quy Dinh"
+		location = 4075
+		division_template =  "Viet Minh Phan Cong"
+		start_experience_factor = 0.5
+		start_equipment_factor = 0.7 
+		start_manpower_factor = 0.9
+	}
+	division = {
+		name = "4. Viet Minh Quy Dinh"
+		location = 10129
+		division_template =  "Viet Minh Phan Cong"
+		start_experience_factor = 0.5
+		start_equipment_factor = 0.7 
+		start_manpower_factor = 0.9
+	}
+	division = {
+		name = "5. Viet Minh Quy Dinh"
+		location = 10129
+		division_template =  "Viet Minh Phan Cong"
+		start_experience_factor = 0.5
+		start_equipment_factor = 0.7 
+		start_manpower_factor = 0.9
+	}
+	division = {
+		name = "6. Viet Minh Quy Dinh"
+		location = 1185
+		division_template =  "Viet Minh Phan Cong"
+		start_experience_factor = 0.5
+		start_equipment_factor = 0.7 
+		start_manpower_factor = 0.9
+	}
+	division = {
+		name = "7. Viet Minh Quy Dinh"
+		location = 1185
+		division_template =  "Viet Minh Phan Cong"
+		start_experience_factor = 0.5
+		start_equipment_factor = 0.7 
+		start_manpower_factor = 0.9
+	}
+	division = {
+		name = "8. Viet Minh Quy Dinh"
+		location = 12048
+		division_template =  "Viet Minh Phan Cong"
+		start_experience_factor = 0.5
+		start_equipment_factor = 0.7 
+		start_manpower_factor = 0.9
+	}
+	division = {
+		name = "9. Viet Minh Quy Dinh"
+		location = 12048
+		division_template =  "Viet Minh Phan Cong"
+		start_experience_factor = 0.5
+		start_equipment_factor = 0.7 
+		start_manpower_factor = 0.9
+	}
+	division = {
+		name = "10. Viet Minh Quy Dinh"
+		location = 1073
+		division_template =  "Viet Minh Phan Cong"
+		start_experience_factor = 0.5
+		start_equipment_factor = 0.7 
+		start_manpower_factor = 0.9
+	}
+	division = {
+		name = "11. Viet Minh Quy Dinh"
+		location = 1073
+		division_template =  "Viet Minh Phan Cong"
+		start_experience_factor = 0.5
+		start_equipment_factor = 0.7 
+		start_manpower_factor = 0.9
+	}
+	division = {
+		name = "12. Viet Minh Quy Dinh"
+		location = 7518
+		division_template =  "Viet Minh Phan Cong"
+		start_experience_factor = 0.5
+		start_equipment_factor = 0.7 
+		start_manpower_factor = 0.9
+	}
+	division = {
+		name = "13. Viet Minh Quy Dinh"
+		location = 7518
+		division_template =  "Viet Minh Phan Cong"
+		start_experience_factor = 0.5
+		start_equipment_factor = 0.7 
+		start_manpower_factor = 0.9
+	}
+	division = {
+		name = "14. Viet Minh Quy Dinh"
+		location = 9988
+		division_template =  "Viet Minh Phan Cong"
+		start_experience_factor = 0.5
+		start_equipment_factor = 0.7 
+		start_manpower_factor = 0.9
+	}
+	division = {
+		name = "15. Viet Minh Quy Dinh"
+		location = 9988
+		division_template =  "Viet Minh Phan Cong"
+		start_experience_factor = 0.5
+		start_equipment_factor = 0.7 
+		start_manpower_factor = 0.9
+	}
+	division = {
+		name = "16. Viet Minh Quy Dinh"
+		location = 11936
+		division_template =  "Viet Minh Phan Cong"
+		start_experience_factor = 0.5
+		start_equipment_factor = 0.7 
+		start_manpower_factor = 0.9
+	}
+	division = {
+		name = "17. Viet Minh Quy Dinh"
+		location = 11936
+		division_template =  "Viet Minh Phan Cong"
+		start_experience_factor = 0.5
+		start_equipment_factor = 0.7 
+		start_manpower_factor = 0.9
+	}
+	division = {
+		name = "18. Viet Minh Quy Dinh"
+		location = 1302
+		division_template =  "Viet Minh Phan Cong"
+		start_experience_factor = 0.5
+		start_equipment_factor = 0.7 
+		start_manpower_factor = 0.9
+	}
+	division = {
+		name = "19. Viet Minh Quy Dinh"
+		location = 1302
+		division_template =  "Viet Minh Phan Cong"
+		start_experience_factor = 0.5
+		start_equipment_factor = 0.7 
+		start_manpower_factor = 0.9
+	}
+	division = {
+		name = "20. Viet Minh Quy Dinh"
+		location = 1302
+		division_template =  "Viet Minh Phan Cong"
+		start_experience_factor = 0.5
+		start_equipment_factor = 0.7 
+		start_manpower_factor = 0.9
+	}
+	division = {
+		name = "21. Viet Minh Quy Dinh"
+		location = 7280
+		division_template =  "Viet Minh Phan Cong"
+		start_experience_factor = 0.5
+		start_equipment_factor = 0.7 
+		start_manpower_factor = 0.9
+	}
+	division = {
+		name = "22. Viet Minh Quy Dinh"
+		location = 12297
+		division_template =  "Viet Minh Phan Cong"
+		start_experience_factor = 0.5
+		start_equipment_factor = 0.7 
+		start_manpower_factor = 0.9
+	}
+	division = {
+		name = "23. Viet Minh Quy Dinh"
+		location = 4397
+		division_template =  "Viet Minh Phan Cong"
+		start_experience_factor = 0.5
+		start_equipment_factor = 0.7 
+		start_manpower_factor = 0.9
+	}
+	division = {
+		name = "24. Viet Minh Quy Dinh"
+		location = 11909
+		division_template =  "Viet Minh Phan Cong"
+		start_experience_factor = 0.5
+		start_equipment_factor = 0.7 
+		start_manpower_factor = 0.9
+	}
+	## SOUTH VIET MINH ##
+	division = {
+		name = "1. Viet Minh Thurong Xuyen"
+		location = 4255
+		division_template =  "Phia Nam Viet Minh"
+		start_experience_factor = 0.7
+		start_equipment_factor = 0.7 
+		start_manpower_factor = 0.9
+	}
+	division = {
+		name = "3. Viet Minh Thurong Xuyen"
+		location = 1300
+		division_template =  "Phia Nam Viet Minh"
+		start_experience_factor = 0.7
+		start_equipment_factor = 0.7 
+		start_manpower_factor = 0.9
+	}
+	division = {
+		name = "4. Viet Minh Thurong Xuyen"
+		location = 1300
+		division_template =  "Phia Nam Viet Minh"
+		start_experience_factor = 0.4
+		start_equipment_factor = 0.77
+		start_manpower_factor = 0.9
+	}
+	## MEKONG ##
+	division = {
+		name = "1. Viet Minh Me Cong"
+		location = 4341
+		division_template =  "Phia Nam Viet Minh"
+		start_experience_factor = 0.6
+		start_equipment_factor = 0.7 
+		start_manpower_factor = 0.9
+	}
+	division = {
+		name = "2. Viet Minh Me Cong"
+		location = 4341
+		division_template =  "Phia Nam Viet Minh"
+		start_experience_factor = 0.6
+		start_equipment_factor = 0.7 
+		start_manpower_factor = 0.9
+	}
+	division = {
+		name = "3. Viet Minh Me Cong"
+		location = 4341
+		division_template =  "Phia Nam Viet Minh"
+		start_experience_factor = 0.6
+		start_equipment_factor = 0.7 
+		start_manpower_factor = 0.9
+	}
+	division = {
+		name = "4. Viet Minh Me Cong"
+		location = 4341
+		division_template =  "Phia Nam Viet Minh"
+		start_experience_factor = 0.6
+		start_equipment_factor = 0.7 
+		start_manpower_factor = 0.9
+	}
+}
+
+instant_effect = {
+    add_equipment_production = {
+        equipment = {
+	        type = infantry_equipment_1
+	        creator = "NVA"
+		}
+	    requested_factories = 3
+	    progress = 0.33
+	    efficiency = 100
+	}
+}

@@ -1,0 +1,136 @@
+﻿division_template = {
+	name="八路军步兵旅"
+	division_names_group = PRC_INF_01
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 0 y = 2 }
+		infantry = { x = 0 y = 3 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+		infantry = { x = 1 y = 2 }
+	}
+	#priority = 1
+}
+division_template = {
+	name="八路军留守兵团"
+	division_names_group = PRC_GAR_01
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+	}
+	#priority = 0
+}
+### OOB ###
+units = {
+	## 18GA-朱德 ##
+	# 115D #
+	division = { # "115D343B"
+		name="115师343旅"
+		location = 12356 #陕西延安
+		division_template = "八路军步兵旅"
+		start_experience_factor = 0.9
+		start_equipment_factor = 0.8
+		start_manpower_factor = 1.0
+	}
+	division = { # "115D344B"
+		name="115师344旅"
+		location = 12356 #陕西延安
+		division_template = "八路军步兵旅"
+		start_experience_factor = 0.9
+		start_equipment_factor = 0.8
+		start_manpower_factor = 1.0
+	}
+	division = { # "120D358B"
+		name="120师358旅"
+		location = 12356 #陕西延安
+		division_template = "八路军步兵旅"
+		start_experience_factor = 0.9
+		start_equipment_factor = 0.8
+		start_manpower_factor = 1.0
+	}
+	division = { # "120D359B"
+		name="120师359旅"
+		location = 12356 #陕西延安
+		division_template = "八路军步兵旅"
+		start_experience_factor = 0.9
+		start_equipment_factor = 0.8
+		start_manpower_factor = 1.0
+	}
+	division = { # "129D385B"
+		name="129师385旅"
+		location = 12356 #陕西延安
+		division_template = "八路军步兵旅"
+		start_experience_factor = 0.9
+		start_equipment_factor = 0.8
+		start_manpower_factor = 1.0
+	}
+	division = { # "129D386B"
+		name="129师386旅"
+		location = 12356 #陕西延安
+		division_template = "八路军步兵旅"
+		start_experience_factor = 0.9
+		start_equipment_factor = 0.8
+		start_manpower_factor = 1.0
+	}
+	## 其他 ##
+	# 留守兵团 #
+	division = { # "G1R"
+		name="八路军第一留守兵团"
+		location = 12356 #陕西延安
+		division_template = "八路军留守兵团"
+		start_experience_factor = 0.5
+		start_equipment_factor = 0.8
+		start_manpower_factor = 1.0
+	}
+	division = { # "G2R"
+		name="八路军第二留守兵团"
+		location = 12356 #陕西延安
+		division_template = "八路军留守兵团"
+		start_experience_factor = 0.5
+		start_equipment_factor = 0.8
+		start_manpower_factor = 1.0
+	}
+	division = { # "G3R"
+		name="八路军第三留守兵团"
+		location = 12356 #陕西延安
+		division_template = "八路军留守兵团"
+		start_experience_factor = 0.5
+		start_equipment_factor = 0.8
+		start_manpower_factor = 1.0
+	}
+	division = { # "G4R"
+		name="八路军第四留守兵团"
+		location = 12356 #陕西延安
+		division_template = "八路军留守兵团"
+		start_experience_factor = 0.5
+		start_equipment_factor = 0.8
+		start_manpower_factor = 1.0
+	}
+	division = { # "G5R"
+		name="八路军第五留守兵团"
+		location = 12356 #陕西延安
+		division_template = "八路军留守兵团"
+		start_experience_factor = 0.5
+		start_equipment_factor = 0.8
+		start_manpower_factor = 1.0
+	}
+	division = { # "G6R"
+		name="八路军第六留守兵团"
+		location = 12356 #陕西延安
+		division_template = "八路军留守兵团"
+		start_experience_factor = 0.5
+		start_equipment_factor = 0.8
+		start_manpower_factor = 1.0
+	}
+	division = { # "G7R"
+		name="八路军第七留守兵团"
+		location = 12356 #陕西延安
+		division_template = "八路军留守兵团"
+		start_experience_factor = 0.5
+		start_equipment_factor = 0.8
+		start_manpower_factor = 1.0
+	}
+}

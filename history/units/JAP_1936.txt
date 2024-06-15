@@ -1,0 +1,623 @@
+﻿
+# Manchukuo ideas file for Historical Japanese OOB with Manchukuo MOD
+# [JP] http://steamcommunity.com/sharedfiles/filedetails/?id=774245196
+# [EN] http://steamcommunity.com/sharedfiles/filedetails/?id=788664629
+
+division_template = {
+	name = "甲种步兵师团" 			# (Square) Infantry Division - 4 infantry regiments (3k men each), 1 field artillery regiment
+	division_names_group = JAP_INF_01
+									# 1 engineering regiment, 1 recon regiment
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 0 y = 2 }
+		infantry = { x = 0 y = 3 }
+
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+		infantry = { x = 1 y = 2 }
+		infantry = { x = 1 y = 3 }
+
+		infantry = { x = 2 y = 0 }
+		infantry = { x = 2 y = 1 }
+		infantry = { x = 2 y = 2 }
+		infantry = { x = 2 y = 3 }
+		
+		artillery_brigade = { x = 3 y = 0 }
+		artillery_brigade = { x = 3 y = 1 }
+		artillery_brigade = { x = 3 y = 2 }
+		
+	}
+	support = {
+		artillery = { x = 0 y = 0 }
+		engineer = { x = 0 y = 1 }
+		recon = { x = 0 y = 2 }
+	}
+}
+division_template = {
+	name = "独立机动混成旅团" 	# Independent Mixed Brigade: Tank(First 1IMB - Disbanded August 1938)			- 3 motorized infantry battalions (2.5k men), 2 armored battalion, 1 field artillery battalion
+						#			     Heavy Fire Power(First 11IMB - Disbanded September 1937) - 6 infantry battalions (5k men), 1 field artillery battalion, 1 mountain gun battlion 
+						#			     Standard(Others)					- 5 infantry battalions (4k men total), 1 field artillery battalion
+										# 1 engineering battalion
+	division_names_group = JAP_IMB_01
+	regiments = {
+		motorized = { x = 0 y = 0 }
+		motorized = { x = 0 y = 1 }
+		motorized = { x = 0 y = 2 }
+		light_armor = { x = 1 y = 0 }
+		light_armor = { x = 1 y = 1 }
+		artillery_brigade = { x = 2 y = 0 }
+	}
+	support = {
+		engineer = { x = 0 y = 0 }
+	}
+}
+division_template = {
+	name = "独立步兵混成旅团"
+	division_names_group = JAP_IMB_01
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 0 y = 2 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+		infantry = { x = 1 y = 2 }
+		artillery_brigade = { x = 2 y = 0 }
+		artillery_brigade = { x = 3 y = 0 }
+	}
+	support = {
+		engineer = { x = 0 y = 0 }
+	}
+}
+division_template = {
+	name = "步兵旅团"
+	division_names_group = JAP_IMB_01
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 0 y = 2 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+		infantry = { x = 1 y = 2 }
+	}
+	support = {
+		engineer = { x = 0 y = 0 }
+	}
+}
+division_template = {
+	name = "骑兵旅团" 			# Cavalry Brigade - 2 cavalry regiments (3k men); 1 mounted artillery regiment
+	division_names_group = JAP_CAV_01
+	regiments = {
+		cavalry = { x = 0 y = 0 }
+		cavalry = { x = 0 y = 1 }
+		cavalry = { x = 0 y = 2 }
+		cavalry = { x = 1 y = 0 }
+		cavalry = { x = 1 y = 1 }
+		cavalry = { x = 1 y = 2 }
+	}
+	support = {
+		artillery = { x = 0 y = 0 }
+	}
+}
+division_template = {
+	name = "机动师团" 			# Motorized divisions - 4 motorized infantry regiments (3k men each), 1 recon regiment, 
+	division_names_group = JAP_MOT_01
+										#1 engineer regiment, 1 mounted artillery regiment
+	regiments = {
+		motorized = { x = 0 y = 0 }
+		motorized = { x = 0 y = 1 }
+		motorized = { x = 0 y = 2 }
+		motorized = { x = 1 y = 0 }
+		motorized = { x = 1 y = 1 }
+		motorized = { x = 1 y = 2 }
+		motorized = { x = 2 y = 0 }
+		motorized = { x = 2 y = 1 }
+		motorized = { x = 2 y = 2 }
+		motorized = { x = 3 y = 0 }
+		motorized = { x = 3 y = 1 }
+		motorized = { x = 3 y = 2 }
+	}
+	support = {
+		artillery = { x = 0 y = 0 }
+		engineer = { x = 0 y = 1 }
+		recon = { x = 0 y = 2 }
+	}
+}
+division_template = {#guo
+	name = "海军特种陆战队"				#This template covers SNLF divisions; historically there were 7-8 independent units for each naval district
+	division_names_group = JAP_MAR_01
+	regiments = {
+		marine = { x = 0 y = 0 }
+					marine = { x = 0 y = 1 }
+					marine = { x = 0 y = 2 }
+					marine = { x = 0 y = 3 }
+                    marine = { x = 0 y = 4 }
+					
+					marine = { x = 1 y = 0 }
+					marine = { x = 1 y = 1 }
+					marine = { x = 1 y = 2 }
+					marine = { x = 1 y = 3 }
+                    marine = { x = 1 y = 4 }
+					
+					marine = { x = 2 y = 0 }
+					marine = { x = 2 y = 1 }
+					
+					artillery_brigade = { x = 3 y = 0 }
+		artillery_brigade = { x = 3 y = 1 }
+		artillery_brigade = { x = 3 y = 2 }
+		
+	}
+	support = {
+		artillery = { x = 0 y = 0 }
+		engineer = { x = 0 y = 1 }
+		recon = { x = 0 y = 2 }
+	}
+	priority = 2
+}
+division_template = {#guo
+	name = "警备队"				# IJN Garrison Unit; 1-2 infantry squadrons/battalions
+	division_names_group = JAP_GAR_01
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 0 y = 2 }
+		infantry = { x = 0 y = 3 }
+		infantry = { x = 0 y = 4 }
+	}
+	support = {
+		engineer = { x = 0 y = 0 }
+	}	
+	priority = 0
+}
+# division_template = {
+# 	name = "Dokuritsu Kokyo Shubitai"		# Independent Border Garrison - IJA Garrison Unit on Manchukuo-Soviet border; 2-14 infantry squadrons, 2-8 artillery squadrons
+# 	regiments = {
+# 		infantry = { x = 0 y = 0 }
+# 	}
+# 	support = {
+# 		artillery = { x = 0 y = 0 }
+# 		engineer = { x = 0 y = 1 }
+# 	}	
+# 	priority = 0
+# }
+# division_template = {
+# 	name = "警备队" 			# Garrison template - represents Imperial Manchukuo Army infantry divisions: 2 infantry regiments (3k men) -- militia (lowest equipment, experience)
+# 										# Also represents (over-sized) IJN Base Defense Unit (island, city and naval base garrisons): 2 infantry rgts (3k men), 1 field artillery rgt (abstracted), 1 engineering rgt
+# 	regiments = {
+# 		infantry = { x = 0 y = 0 }
+# 		infantry = { x = 0 y = 1 }
+# 		infantry = { x = 0 y = 2 }
+# 		infantry = { x = 1 y = 0 }
+# 		infantry = { x = 1 y = 1 }
+# 		infantry = { x = 1 y = 2 }
+# 	}
+# 	priority = 0
+# }
+
+
+
+##### OOB #####
+units = {
+
+	# Konoe Shidan
+	division = {
+	#	name = "Konoe Shidan"
+		division_name = {
+			is_name_ordered = yes
+			name_order = 168
+		}
+		location = 1182 #Tokyo
+		division_template = "甲种步兵师团"			# Elite Guard unit (highest experience, best equipment)
+		start_experience_factor = 0.4
+	}
+
+	# Dai 7 Shidan
+	division = {
+	#	name = "7 Shidan" # 'Kuma'
+		division_name = {
+			is_name_ordered = yes
+			name_order = 7
+		}
+		location = 12421 # Asahikawa
+		division_template = "甲种步兵师团"
+		start_experience_factor = 0.3
+	}
+
+	# later Tobu Gun - Eastern Army
+	division = {
+	#	name = "1 Shidan" # 'Gyoku'
+		division_name = {
+			is_name_ordered = yes
+			name_order = 1
+		}
+		location = 1182 #Tokyo
+		division_template = "甲种步兵师团"
+		start_experience_factor = 0.3
+	}
+	division = {
+	#	name = "2 Shidan" # 'Yu'
+		division_name = {
+			is_name_ordered = yes
+			name_order = 2
+		}
+		location = 7169 # Sendai
+		division_template = "甲种步兵师团"
+		start_experience_factor = 0.3
+	}
+	division = {
+	#	name = "8 Shidan" # 'Sugi'
+		division_name = {
+			is_name_ordered = yes
+			name_order = 8
+		}
+		location = 6873 # Hirosaki
+		division_template = "甲种步兵师团"
+		start_experience_factor = 0.3
+	}
+	division = {
+	#	name = "14 Shidan" # 'Sho'
+		division_name = {
+			is_name_ordered = yes
+			name_order = 14
+		}
+		location = 1113 # Utsunomiya
+		division_template = "甲种步兵师团"
+		start_experience_factor = 0.3
+	}
+	division = {
+	#	name = "Kihei 2 Ryodan"
+		division_name = {
+			is_name_ordered = yes
+			name_order = 2
+		}
+		location = 1182
+		division_template = "骑兵旅团"
+		start_experience_factor = 0.3
+	}
+
+	# later Chubu Gun - Central Army
+	division = {
+	#	name = "4 Shidan" # 'Yodo'
+		division_name = {
+			is_name_ordered = yes
+			name_order = 4
+		}
+		location = 7072 # Osaka
+		division_template = "甲种步兵师团"
+		start_experience_factor = 0.3
+	}
+	division = {
+	#	name = "5 Shidan" # 'Koi'
+		division_name = {
+			is_name_ordered = yes
+			name_order = 5
+		}
+		location = 1092 # Hiroshima
+		division_template = "甲种步兵师团"
+		start_experience_factor = 0.3
+	}
+	division = {
+	#	name = "10 Shidan" # 'Tetsu'
+		division_name = {
+			is_name_ordered = yes
+			name_order = 10
+		}
+		location = 12031 # Himeji
+		division_template = "甲种步兵师团"
+		start_experience_factor = 0.3
+	}
+
+	# later Seibu Gun - Western Army
+	division = {
+	#	name = "6 Shidan" # 'Mei'
+		division_name = {
+			is_name_ordered = yes
+			name_order = 6
+		}
+		location = 11925 # Kumamoto
+		division_template = "甲种步兵师团"
+		start_experience_factor = 0.3
+	}
+	division = {
+	#	name = "11 Shidan" # 'Nishiki'
+		division_name = {
+			is_name_ordered = yes
+			name_order = 11
+		}
+		location = 4094 # Zentsuji
+		division_template = "甲种步兵师团"
+		start_experience_factor = 0.3
+	}
+	division = {
+	#	name = "12 Shidan" # 'Ken'
+		division_name = {
+			is_name_ordered = yes
+			name_order = 12
+		}
+		location = 1025 # Kokura
+		division_template = "甲种步兵师团"
+		start_experience_factor = 0.3
+	}
+
+	# Taiwan Gun - Taiwan Army
+	division = {
+		name = "Taiwan Shubitai"
+		location = 7186 #Taipei
+		division_template = "步兵旅团"
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.3		
+	}
+
+	# Chosen Gun - Korea Army
+	division = {
+	#	name = "19 Shidan" # 'Tora'
+		division_name = {
+			is_name_ordered = yes
+			name_order = 19
+		}
+		location = 4052 #Pyongyang
+		division_template = "甲种步兵师团"
+		start_experience_factor = 0.3
+	}
+	division = {
+	#	name = "20 Shidan" # 'Asa'
+		division_name = {
+			is_name_ordered = yes
+			name_order = 20
+		}
+		location = 7125 #Seoul
+		division_template = "甲种步兵师团"
+		start_experience_factor = 0.3
+	}
+
+	##### Kanto Gun - Kwantung Army #####
+
+	division = {
+	#	name = "3 Shidan" # 'Ko'
+		division_name = {
+			is_name_ordered = yes
+			name_order = 3
+		}
+		location = 7832
+		division_template = "甲种步兵师团"
+		start_experience_factor = 0.3
+	}
+	division = {
+	#	name = "9 Shidan" # 'Take'
+		division_name = {
+			is_name_ordered = yes
+			name_order = 9
+		}
+		location = 1150 # Port Arthur
+		division_template = "甲种步兵师团"
+		start_experience_factor = 0.3
+	}
+	division = {
+	#	name = "16 Shidan" # 'Kaki'
+		division_name = {
+			is_name_ordered = yes
+			name_order = 16
+		}
+		location = 1645
+		division_template = "甲种步兵师团"
+		start_experience_factor = 0.3
+	}
+	division = {
+	#	name = "16 Shidan" # 'Kaki'
+		division_name = {
+			is_name_ordered = yes
+			name_order = 16
+		}
+		location = 1645
+		division_template = "甲种步兵师团"
+		start_experience_factor = 0.3
+	}
+	division = {
+	#	name = "Dokuritsu Konsei 1 Ryodan"
+		division_name = {
+			is_name_ordered = yes
+			name_order = 1
+		}
+		location = 3929
+		division_template = "独立机动混成旅团"
+		start_experience_factor = 0.3
+	}
+	division = {
+	#	name = "Dokuritsu Konsei 11 Ryodan"
+		division_name = {
+			is_name_ordered = yes
+			name_order = 11
+		}
+		location = 13497 #East Hebei Autonomous Council
+		division_template = "独立步兵混成旅团"
+		start_experience_factor = 0.3
+	}
+
+	
+	##### Kwantung Army #####
+	##Garrisons
+	#division = {
+	#	name = "Manshu Tetsudo Shubitai" # Manchuria Railway Guard
+	#	location = 11771 #Mukden
+	#	division_template = "警备队"		# Japanese garrison (better than militia, but still with older equipment)
+	#	start_experience_factor = 0.1
+	#	start_equipment_factor = 0.2
+	#}
+	#division = {
+	#	name = "Kantogun Shureibu 警备队"
+	#	location = 4572 #Hsinking
+	#	division_template = "警备队"		# Japanese garrison (better than militia, but still with older equipment)
+	#	start_experience_factor = 0.1
+	#	start_equipment_factor = 0.2		
+	#}
+	#division = {
+	#	name = "Ryojun Kichi Shubitai"
+	#	location = 1150 #Dalian
+	#	division_template = "警备队"
+	#	start_experience_factor = 0.1
+	#	start_equipment_factor = 0.3		
+	#}
+	#division = { # "9 'Take' 甲种步兵师团"
+	#	division_name = {
+	#		is_name_ordered = yes
+	#		name_order = 9
+	#	}
+	#	location = 3944 #Near Changkufeng Lake
+	#	division_template = "步兵旅团"
+	#	start_experience_factor = 0.3
+	#	start_equipment_factor = 0.6
+	#}
+	#division = { # "14 'Sho' 步兵旅团"
+	#	division_name = {
+	#		is_name_ordered = yes
+	#		name_order = 14
+	#	}
+	#	location = 3815 #Eastern Manchuria
+	#	division_template = "步兵旅团"
+	#	start_experience_factor = 0.3
+	#	start_equipment_factor = 0.6
+	#}
+#
+	## Kihei Shudan
+	#division = {
+	##	name = "Kihei 1 Ryodan"
+	#	division_name = {
+	#		is_name_ordered = yes
+	#		name_order = 1
+	#	}
+	#	location = 13150
+	#	division_template = "骑兵旅团"
+	#	start_experience_factor = 0.3
+	#}
+	#division = {
+	##	name = "Kihei 3 Ryodan"
+	#	division_name = {
+	#		is_name_ordered = yes
+	#		name_order = 3
+	#	}
+	#	location = 1693
+	#	division_template = "骑兵旅团"
+	#	start_experience_factor = 0.3
+	#}
+	#division = {
+	##	name = "Kihei 4 Ryodan"
+	#	division_name = {
+	#		is_name_ordered = yes
+	#		name_order = 4
+	#	}
+	#	location = 13150
+	#	division_template = "骑兵旅团"
+	#	start_experience_factor = 0.3
+	#}
+
+	### IJN Garrison ###
+
+	division = {
+		name = "Yokosuka Chinjufu Bobisentai"
+		location = 9998 #Yokosuka
+		division_template = "警备队"
+		start_experience_factor = 0.3
+		start_equipment_factor = 0.3
+	}
+	division = {
+		name = "Kure Chinjufu Bobisentai"
+		location = 1092 #Hiroshima
+		division_template = "警备队"
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.3
+	}
+	division = {
+		name = "Sasebo Chinjufu Bobisentai"
+		location = 9950 #Sasebo/Nagasaki
+		division_template = "警备队"
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.3		
+	}
+	division = {
+		name = "Maizuru Yokobu Bobitai"
+		location = 1136 # Maizuru
+		division_template = "警备队"
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.3
+	}
+	division = {
+		name = "Ominato Yokobu Bobitai"
+		location = 9859 #Ominato Naval Base
+		division_template = "警备队"
+		start_equipment_factor = 0.3
+	}
+	division = {
+		name = "Chinkai Yokobu Bobitai"
+		location = 4056 #Pusan
+		division_template = "警备队"
+		start_equipment_factor = 0.3		
+	}
+	division = {
+		name = "Ryojun Yokobu Bobitai"
+		location = 1150 #Dalian
+		division_template = "警备队"
+		start_equipment_factor = 0.3
+	}
+	division = {
+		name = "Makou Yokobu Bobitai"
+		location = 12068
+		division_template = "警备队"
+		start_equipment_factor = 0.3
+	}
+}
+
+#########################
+## STARTING PRODUCTION ##
+#########################
+instant_effect = 
+{
+	add_equipment_production = {
+		equipment = {
+			type = infantry_equipment_1
+			creator = "JAP"
+		}
+		requested_factories = 10
+		progress = 0.8
+		efficiency = 50
+	}
+
+	add_equipment_production = {
+		equipment = {
+			type = support_equipment_1
+			creator = "JAP" 
+		}
+		requested_factories = 1
+		progress = 0.3
+		efficiency = 50
+	}
+
+	add_equipment_production = {
+		equipment = {
+			type = artillery_equipment_1
+			creator = "JAP" 
+		}
+		requested_factories = 1
+		progress = 0.4
+		efficiency = 50
+	}
+
+	add_equipment_production = {
+		equipment = {
+			type = fighter_equipment_0
+			creator = "JAP" 
+		}
+		requested_factories = 1
+		progress = 0.15
+		efficiency = 50
+	}
+
+	add_equipment_production = {
+		equipment = {
+			type = cv_nav_bomber_equipment_1
+			creator = "JAP" 
+		}
+		requested_factories = 1
+		progress = 0.2
+		efficiency = 50
+	}
+}

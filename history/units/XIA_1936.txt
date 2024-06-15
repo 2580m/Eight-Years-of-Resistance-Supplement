@@ -1,0 +1,156 @@
+﻿division_template = {
+	name="国民革命军湘军步兵师"			
+	division_names_group = XIA_INF_01
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 0 y = 2 }
+		infantry = { x = 0 y = 3 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+		infantry = { x = 1 y = 2 }
+		infantry = { x = 1 y = 3 }
+		infantry = { x = 2 y = 0 }
+		infantry = { x = 2 y = 1 }
+		infantry = { x = 2 y = 2 }
+		infantry = { x = 3 y = 0 }
+		infantry = { x = 3 y = 1 }
+		#infantry = { x = 3 y = 2 }
+	}
+	support = {
+	}
+}
+
+#division_template = {
+#	name = "Hunan T'iaocheng Shih"			
+#	division_names_group = XIA_INF_01
+#	regiments = {
+#		infantry = { x = 0 y = 0 }
+#		infantry = { x = 0 y = 1 }
+#		infantry = { x = 1 y = 0 }
+#		infantry = { x = 1 y = 1 }
+#		infantry = { x = 2 y = 0 }
+#		infantry = { x = 2 y = 1 }
+#		infantry = { x = 3 y = 0 }
+#		infantry = { x = 3 y = 1 }
+#	}
+#	support = {
+#		artillery = { x = 0 y = 0 } 
+#	}
+#}
+
+#division_template = {
+#	name = "Hunan Chengli Shih"			
+#	division_names_group = XIA_INF_01
+#	regiments = {
+#		infantry = { x = 0 y = 0 }
+#		infantry = { x = 0 y = 1 }
+#		infantry = { x = 1 y = 0 }
+#		infantry = { x = 1 y = 1 }
+#		infantry = { x = 2 y = 0 }
+#		infantry = { x = 2 y = 1 }
+#		infantry = { x = 3 y = 0 }
+#		infantry = { x = 3 y = 1 }
+#		artillery_brigade = { x = 4 y = 0 }
+#	}
+#	support = {
+#		engineer = { x = 0 y = 0 } 
+#		artillery = { x = 0 y = 1 } 
+#	}
+#}
+
+division_template = {
+	name="国民革命军湘军独立旅"	
+	division_names_group = XIA_INF_02
+
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+	}
+	support = {
+	}
+}
+
+#division_template = {
+#	name = "Hunan Paoan T'uan"	
+#	division_names_group = WRL_INF_03
+#	regiments = {
+#		militia = { x = 0 y = 0 }
+#		militia = { x = 0 y = 1 }
+#	}
+#}
+
+### OOB ###
+units = {
+	
+	division = {
+		name="湘军第一步兵师"
+		location = 10006
+		division_template = "国民革命军湘军步兵师"		
+		start_equipment_factor = 0.45
+		start_experience_factor = 0.25
+	}
+	
+	division = {
+		name="湘军第二步兵师"
+		location = 8095
+		division_template = "国民革命军湘军步兵师"		
+		start_equipment_factor = 0.45
+		start_experience_factor = 0.5
+	}
+
+	division = {
+		name="湘军第三步兵师"
+		location = 7101
+		division_template = "国民革命军湘军步兵师"		
+		start_equipment_factor = 0.45
+		start_experience_factor = 0.25
+	}
+
+	division = {
+		name="湘军第四步兵师"
+		location = 1474
+		division_template = "国民革命军湘军步兵师"		
+		start_equipment_factor = 0.45
+		start_experience_factor = 0.25
+	}
+	
+	division = {
+		name="湘军第五步兵师"
+		location = 1474
+		division_template = "国民革命军湘军步兵师"		
+		start_equipment_factor = 0.45
+		start_experience_factor = 0.25
+	}
+
+	division = { # "N34D"   
+		name="湘军第三十四步兵师"
+		location = 10335 #湖南永綏 
+		division_template = "国民革命军湘军步兵师"
+		start_equipment_factor = 0.45
+		start_experience_factor = 0.1
+	}
+
+	division = { # "32B"
+		name="湘军第三十二独立旅"
+		location = 7097 #湖南長沙 
+		division_template = "国民革命军湘军独立旅"
+		start_equipment_factor = 0.45
+		start_experience_factor = 0.1
+	}
+}
+
+### STARTING PRODUCTION ###
+#instant_effect = {
+#	add_equipment_production = {
+#		equipment = {
+#			type = infantry_equipment_0
+#			creator = "XIA"
+#		}
+#		requested_factories = 1
+#		progress = 0.79
+#		efficiency = 100
+#	}	
+#}

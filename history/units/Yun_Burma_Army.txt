@@ -1,0 +1,92 @@
+﻿division_template = {
+	name = "国民革命军整理师"
+	division_names_group = CHI_INF_01
+
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 0 y = 2 }
+        infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+		infantry = { x = 1 y = 2 }
+        infantry = { x = 2 y = 0 }
+	    infantry = { x = 2 y = 1 }
+        infantry = { x = 2 y = 2 }
+    }
+	support = {
+	    engineer = { x = 0 y = 1 }
+        artillery = { x = 0 y = 0 }
+	}
+}
+
+division_template = { 
+	name = "反共救国军"      
+	division_names_group = CHI_INF_02
+
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 0 y = 2 }
+		infantry = { x = 0 y = 3 }
+    }
+	support = {
+	    #engineer = { x = 0 y = 1 }
+        artillery = { x = 0 y = 0 }
+	}
+}
+
+### OOB ###
+#1950/4/12 
+#around 2900~3000 men
+units = {
+	division = {
+	    name = "国民革命军第93师第278团"
+		location = 4175
+		division_template = "反共救国军"
+		start_experience_factor = 1.0
+		start_manpower_factor = 1
+		start_equipment_factor = 0.4
+		officer={
+			"T'an Chung"
+		}
+	}
+    
+	division = {
+	    name = "国民革命军第237师第709团"
+		location = 4175
+		division_template = "反共救国军"
+		start_experience_factor = 1.0
+		start_manpower_factor = 1
+		start_equipment_factor = 0.4
+	}
+
+	division = { #滇南五縣自衛總隊
+	    name = "滇南五县自卫总队"
+		location = 4175
+		division_template = "反共救国军"
+		start_experience_factor = 1.0
+		start_manpower_factor = 1
+		start_equipment_factor = 0.6
+		officer={
+			"Lo Kêng"
+		}
+	}
+	
+	division = {
+	    name = "地方游击部队"
+		location = 4175
+		division_template = "反共救国军"
+		start_experience_factor = 0.25
+		start_manpower_factor = 1
+		start_equipment_factor = 0.5
+	}
+    
+	division = {
+	    name = "地方游击部队"
+		location = 4175
+		division_template = "反共救国军"
+		start_experience_factor = 0.25
+		start_manpower_factor = 1
+		start_equipment_factor = 0.5
+	}
+}
