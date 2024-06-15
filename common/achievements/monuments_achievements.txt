@@ -1,0 +1,196 @@
+unique_id = monuments_achievements
+
+monuments_achievement_truely_magnificient = {
+	possible = {
+		game_rules_allow_achievements = yes
+		custom_trigger_tooltip = {
+			tooltip = monuments_achievement_truely_magnificient_tt_possible
+			NOT = {
+				any_controlled_state = {
+					state_has_any_monument = yes
+					any_of = {
+						array = state_monuments_array
+						set_temp_variable = { monument_id = v }
+						monument_can_downgrade = yes
+						set_temp_variable = { level = 3 }
+						has_at_least_monument_level = yes
+						are_monument_bonuses_active = yes
+					}
+				}
+			}
+		}
+	}
+	happened = {
+		custom_trigger_tooltip = {
+			tooltip = monuments_achievement_truely_magnificient_tt
+			any_controlled_state = {
+				state_has_any_monument = yes
+				any_of = {
+					array = state_monuments_array
+					set_temp_variable = { monument_id = v }
+					monument_can_downgrade = yes
+					set_temp_variable = { level = 3 }
+					has_at_least_monument_level = yes
+					are_monument_bonuses_active = yes
+				}
+			}
+		}
+	}
+}
+
+monuments_achievement_the_wonders_of_nature = {
+	possible = {
+		game_rules_allow_achievements = yes
+	}
+	happened = {
+		custom_trigger_tooltip = {
+			tooltip = monuments_achievement_the_wonders_of_nature_tt
+			all_state = {
+				OR = {
+					NOT = { state_has_any_monument = yes }
+					all_of = {
+						array = state_monuments_array
+						set_temp_variable = { monument_id = v }
+						NOT = { monument_can_downgrade = yes }
+					}
+					is_controlled_by = ROOT
+				}
+			}
+		}
+	}
+}
+
+monuments_achievement_i_am_something_of_a_collector_myself = {
+	possible = {
+		game_rules_allow_achievements = yes
+	}
+	happened = {
+		custom_trigger_tooltip = {
+			tooltip = monuments_achievement_i_am_something_of_a_collector_myself_tt
+			all_state = {
+				OR = {
+					NOT = { state_has_any_monument = yes }
+					is_owned_by = ROOT
+				}
+			}
+		}
+	}
+}
+
+monuments_achievement_the_new_world_capital = {
+	possible = {
+		game_rules_allow_achievements = yes
+		original_tag = GER
+	}
+	happened = {
+		owns_state = 64
+		controls_state = 64
+		64 = {
+			set_temp_variable = { monument_id = 28 }
+			custom_trigger_tooltip = {
+				tooltip = monuments_achievement_has_active_lvl_3_monument_here_tt
+				has_monument = yes
+				set_temp_variable = { level = 3 }
+				has_at_least_monument_level = yes
+				are_monument_bonuses_active = yes
+			}
+		}
+	}
+}
+
+monuments_achievement_mommy_mommy_i_won = {
+	possible = {
+		game_rules_allow_achievements = yes
+		is_a_soviet_union_monument_country = yes
+	}
+	happened = {
+		owns_state = 219
+		controls_state = 219
+		219 = {
+			set_temp_variable = { monument_id = 64 }
+			custom_trigger_tooltip = {
+				tooltip = monuments_achievement_has_active_lvl_3_monument_here_tt
+				has_monument = yes
+				set_temp_variable = { level = 3 }
+				has_at_least_monument_level = yes
+				are_monument_bonuses_active = yes
+			}
+		}
+		217 = {
+			set_temp_variable = { monument_id = 91 }
+			custom_trigger_tooltip = {
+				tooltip = monuments_achievement_has_active_lvl_3_monument_here_tt
+				has_monument = yes
+				set_temp_variable = { level = 3 }
+				has_at_least_monument_level = yes
+				are_monument_bonuses_active = yes
+			}
+		}
+	}
+}
+
+monuments_achievement_the_beacon_of_democracy = {
+	possible = {
+		game_rules_allow_achievements = yes
+		original_tag = USA
+	}
+	happened = {
+		monument_ideology_trigger_democratic = yes
+		owns_state = 358
+		controls_state = 358
+		358 = {
+			set_temp_variable = { monument_id = 7 }
+			custom_trigger_tooltip = {
+				tooltip = monuments_achievement_has_active_lvl_3_monument_here_tt
+				has_monument = yes
+				set_temp_variable = { level = 3 }
+				has_at_least_monument_level = yes
+				are_monument_bonuses_active = yes
+			}
+		}
+	}
+}
+
+monuments_achievement_knowledge_is_key = {
+	possible = {
+		game_rules_allow_achievements = yes
+	}
+	happened = {
+		controls_state = 126
+		controls_state = 88
+		controls_state = 161
+		controls_state = 358
+		controls_state = 556
+		controls_state = 291
+	}
+}
+
+monuments_achievement_collective_freedom = {
+	possible = {
+		game_rules_allow_achievements = yes
+	}
+	happened = {
+		is_subject = no
+		monument_ideology_trigger_communism = yes
+		controls_state = 808
+		controls_state = 277
+	}
+}
+
+monuments_achievement_revenge_for_1813 = {
+	possible = {
+		game_rules_allow_achievements = yes
+		original_tag = FRA
+	}
+	happened = {
+		is_subject = no
+		monument_ideology_trigger_neutrality = yes
+		controls_state = 65
+		65 = {
+			set_temp_variable = { monument_id = 23 }
+			has_monument = yes
+			set_temp_variable = { level = 1 }
+			has_less_monument_level = yes
+		}
+	}
+}
