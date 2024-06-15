@@ -1,0 +1,1669 @@
+ideas = { #heavily modded file
+
+	economy = {
+		law = yes
+		use_list_view = yes
+		
+		undisturbed_isolation = {
+
+			traits = { 		#MODDED
+			#uncomment this to reenable ES#
+				#plus_point_1_per_week		#MODDED
+			#uncomment this to reenable ES#
+			}		#MODDED
+			allowed = {
+				always = no
+			}
+			removal_cost = -1
+			level = 1 #MODDED<
+			
+			rule = { #guo
+			can_join_factions = no
+			}
+			
+			#MODDEDv
+			modifier = {
+				war_stability_factor = -0.1		#MODDED
+				consumer_goods_expected_value = 0.50		#MODDED
+				#production_speed_infrastructure_factor = 0.2		#MODDED
+				production_speed_industrial_complex_factor = -0.45		#MODDED
+				production_speed_arms_factory_factor = -0.45		#MODDED
+				production_speed_dockyard_factor = -0.45		#MODDED
+				conversion_cost_civ_to_mil_factor = 0.45		#MODDED
+				conversion_cost_mil_to_civ_factor = 0.45		#MODDED
+				#production_factory_efficiency_gain_factor = -0.2		#MODDED
+				#line_change_production_efficiency_factor = -0.2		#MODDED
+				generate_wargoal_tension = 1.00
+				join_faction_tension = 0.20
+				lend_lease_tension = 0.50
+				send_volunteers_tension = 0.20
+				guarantee_tension = 0.75
+				max_fuel_factor = -0.4		#MODDED
+				fuel_gain_factor = -0.5		#MODDED
+				ammunition_factor = -0.4		#MODDED
+				ammunition_capacity_factor = -0.5		#MODDED
+			}
+			#MODDED^
+			allowed_to_remove = {
+				IF = {
+					limit = {
+						original_tag = USA
+					}
+					OR = {
+						has_war_support > 0.5
+						has_war = yes
+						has_completed_focus = USA_limited_intervention
+					}
+				}
+				ELSE = {
+					OR = {
+						has_war_support > 0.5
+						has_war = yes
+					}
+				}
+			}
+
+			cancel_if_invalid = no
+		}
+
+		isolation = {
+
+			#uncomment this to reenable ES#
+			traits = {		#MODDED
+			#uncomment this to reenable ES#
+				no_inflation_risk		#MODDED
+			#uncomment this to reenable ES#
+			}		#MODDED
+			allowed = {
+				always = no
+			}
+			removal_cost = -1
+			level = 2 #MODDED<
+			
+			rule = { #guo
+			can_join_factions = no
+			}
+			
+			#MODDEDv
+			modifier = {
+				war_stability_factor = -0.1		#MODDED
+				consumer_goods_expected_value = 0.4
+				#production_speed_infrastructure_factor = 0.2		#MODDED
+				production_speed_industrial_complex_factor = -0.35		#MODDED
+				production_speed_arms_factory_factor = -0.35		#MODDED
+				production_speed_dockyard_factor = -0.35		#MODDED
+				conversion_cost_civ_to_mil_factor= 0.35		#MODDED
+				conversion_cost_mil_to_civ_factor = 0.35		#MODDED
+				#production_factory_efficiency_gain_factor = -0.15		#MODDED
+				#line_change_production_efficiency_factor = -0.15		#MODDED
+				generate_wargoal_tension = 1.00
+				join_faction_tension = 0.20
+				lend_lease_tension = 0.10
+				send_volunteers_tension = 0.20
+				guarantee_tension = 0.5
+				max_fuel_factor = -0.3		#MODDED
+				fuel_gain_factor = -0.4		#MODDED
+				ammunition_factor = -0.3		#MODDED
+				ammunition_capacity_factor = -0.4		#MODDED
+				agency_upgrade_time = 0.8
+			}
+			#MODDED^
+			allowed_to_remove = {
+				IF = {
+					limit = {
+						original_tag = USA
+					}
+					OR = {
+						has_war_support > 0.75
+						has_war = yes
+						has_completed_focus = USA_limited_intervention
+					}
+				}
+				ELSE = {
+					OR = {
+						has_war_support > 0.75
+						has_war = yes
+					}
+				}
+			}
+
+			cancel_if_invalid = no
+		}
+
+		civilian_economy = {
+			on_add = {#MODDEDV
+				custom_effect_tooltip = civilian_economy_TT
+			}#MODDEDV
+			#uncomment this to reenable ES#
+			traits = {		#MODDED
+			#uncomment this to reenable ES#
+				plus_point_2_per_week		#MODDED
+			#uncomment this to reenable ES#
+			}		#MODDED
+			cost = 100 #<MODDED
+			removal_cost = -1
+			level = 3 #MODDED<
+			#MODDEDV
+			modifier = {
+				war_stability_factor = -0.1		#MODDED
+				consumer_goods_expected_value = 0.35
+				production_speed_infrastructure_factor = 0.15 #guo		#MODDED
+				production_speed_industrial_complex_factor = 0.15 #guo
+				production_speed_arms_factory_factor = -0.3
+				production_speed_dockyard_factor = -0.3		#MODDED
+				conversion_cost_civ_to_mil_factor = 0.3
+				conversion_cost_mil_to_civ_factor = -0.3 #guo
+				#production_factory_efficiency_gain_factor = -0.10		#MODDED
+				#line_change_production_efficiency_factor = -0.10		#MODDED
+				max_fuel_factor = -0.2		#MODDED
+				fuel_gain_factor = -0.3		#MODDED
+				ammunition_factor = -0.2		#MODDED
+				ammunition_capacity_factor = -0.3		#MODDED
+			}
+			#MODDED^
+			default = yes
+			available = {
+				has_war = no		#MODDED
+			}
+			cancel_if_invalid = no
+			ai_will_do = {		#MODDEDv
+				base = 0
+				modifier = {
+					add = 2000
+					OR = {
+						has_idea = low_economic_mobilisation
+						has_idea = partial_economic_mobilisation
+						has_idea = war_economy
+						has_idea = tot_economic_mobilisation
+					}
+					NOT = {
+						tag = GER
+					}
+					OR = {
+						has_war = no
+						has_stability > 0.7
+					}
+					check_variable = {
+						Root.supply_condition < 35
+					}
+				}
+			}		#MODDED^
+		}
+
+		low_economic_mobilisation = {
+			
+			#uncomment this to reenable ES#
+			traits = {		#MODDED
+			#uncomment this to reenable ES#
+				minus_point_1_per_week
+			#uncomment this to reenable ES#
+			}		#MODDED
+			available = {
+				has_war_support > 0.15
+				if = {
+					limit = {
+						original_tag = HUN
+						has_dlc = "Death or Dishonor"
+					}
+					if = {
+						limit = {
+							has_dlc = "Arms Against Tyranny"
+						}
+						NOT = { has_idea = HUN_treaty_of_triannon_aat }
+					}
+					else = {
+						NOT = { has_idea = HUN_treaty_of_triannon }
+					}
+				}
+				#MODDED
+				if = {
+					limit = {
+						original_tag = JAP
+						has_completed_focus = nat_mob_law
+					}
+					NOT = { has_idea = JAP_intervene_in_china_1 }
+				}
+				#MODDED
+				if = {
+					limit = {
+						has_completed_focus = USA_limited_intervention
+						has_defensive_war = no
+					}
+					has_war_support > 0.3
+					congress_high_support_trigger = yes
+				}
+				if = {
+					limit = {
+						original_tag = TUR
+						has_dlc = "Battle for the Bosporus" 
+					}
+					NOT = { 
+						OR = {
+							has_active_mission = TUR_etatism_crisis_2
+							has_active_mission = TUR_etatism_crisis_3
+							has_active_mission = TUR_etatism_crisis_4
+						}
+					}
+				}
+			}
+			on_add = {
+				#MODDEDV
+				custom_effect_tooltip = low_economic_mobilisation_TT
+				if = {
+					limit = {
+						tag = USA
+						has_completed_focus = USA_limited_intervention
+						has_defensive_war = no
+					}
+					USA_congress_large_opposition = yes
+				}
+			}
+
+			cost = 100 #<MODDED
+			removal_cost = -1
+			level = 4 #MODDED<
+			#MODDEDV
+			modifier = {
+				war_stability_factor = -0.05
+				consumer_goods_expected_value = 0.3
+				#production_speed_infrastructure_factor = 0.1
+				production_speed_industrial_complex_factor = -0.1
+				production_speed_arms_factory_factor = -0.1
+				production_speed_dockyard_factor = -0.1
+				conversion_cost_civ_to_mil_factor = 0.1
+				conversion_cost_mil_to_civ_factor = 0.1
+				#production_factory_efficiency_gain_factor = -0.05
+				#line_change_production_efficiency_factor = -0.05
+				max_fuel_factor = -0.1
+				fuel_gain_factor = -0.2
+				ammunition_factor = -0.1		#MODDED
+				ammunition_capacity_factor = -0.2		#MODDED
+			}
+			#MODDED^
+			cancel_if_invalid = no
+
+			ai_will_do = {
+   				factor = 2000 #GUO
+
+   				modifier = {
+					factor = 20
+
+					is_major = yes
+				}
+				#GUOmodifier = {
+				#GUO	#only choose this when at war economy		#MODDED
+				#GUO	factor = 0		#MODDED
+				#GUO	has_political_power < 150		#MODDED
+				#GUO}
+				#modifier = {		#MODDED
+				#	has_war_support > 0.25
+				#	factor = 0 #don't even look at it if you could be taking partial mob
+				#}
+				modifier = {
+					tag = ENG
+					has_war = no
+					date < 1937.6.1
+					factor = 0
+				}
+				#choose this at all cost if economy is bad		#MODDEDv
+				modifier = {
+					add = 2000
+					OR = {
+						has_idea = partial_economic_mobilisation
+						has_idea = war_economy
+						has_idea = tot_economic_mobilisation
+					}
+					check_variable = {
+						Root.supply_condition < 35
+					}
+				}
+				modifier = {
+					#only choose this when at war economy
+					factor = 0
+					num_of_factories < 15
+				}
+				modifier = {
+					#facist and commies don't need this
+					factor = 0
+					OR = {
+						has_government = communism
+						has_government = fascism
+					}
+				}
+				#MODDED^
+   			}
+		}
+
+		partial_economic_mobilisation = {
+			#uncomment this to reenable ES#
+			traits = {		#MODDED
+			#uncomment this to reenable ES#
+				minus_point_2_per_week		#MODDED
+			#uncomment this to reenable ES#
+			}		#MODDED
+			available = {
+				has_war_support > 0.25
+				#MODDED
+				if = {
+					limit = {
+						original_tag = JAP
+						has_completed_focus = nat_mob_law
+					}
+					NOT = { has_idea = JAP_intervene_in_china_1 }
+				}
+				#MODDED
+				if = {
+					limit = {
+						original_tag = HUN
+						has_dlc = "Death or Dishonor"
+					}
+					if = {
+						limit = {
+							has_dlc = "Arms Against Tyranny"
+						}
+						OR = {
+							has_completed_focus = HUN_secret_rearmament
+							NOT = { has_idea = HUN_treaty_of_triannon_aat }
+						}
+					}
+					else = {
+						OR = {
+							has_completed_focus = HUN_secret_rearmament
+							NOT = { has_idea = HUN_treaty_of_triannon }
+						}
+					}
+				}
+				if = {
+					limit = {
+						has_completed_focus = USA_limited_intervention
+						has_defensive_war = no
+					}
+					has_war_support > 0.5
+					congress_high_support_trigger = yes
+				}
+				if = {
+					limit = {
+						original_tag = TUR
+						has_dlc = "Battle for the Bosporus" 
+					}
+					NOT = { 
+						OR = {
+							has_active_mission = TUR_etatism_crisis_1
+							has_active_mission = TUR_etatism_crisis_3
+							has_active_mission = TUR_etatism_crisis_4
+						}
+					}
+				}
+			}
+
+			cost = 100 #<MODDED
+			removal_cost = -1
+			#MODDEDV
+			
+			modifier = {
+				war_stability_factor = 0.05		#MODDED
+				consumer_goods_expected_value = 0.25
+				#production_speed_infrastructure_factor = -0.1		#MODDED
+				production_speed_industrial_complex_factor = 0.1		#MODDED
+				production_speed_arms_factory_factor = 0.1
+				production_speed_dockyard_factor = 0.1		#MODDED
+				conversion_cost_civ_to_mil_factor = -0.1
+				conversion_cost_mil_to_civ_factor = -0.1
+				#production_factory_start_efficiency_factor = 0.1		#MODDED
+				#production_factory_efficiency_gain_factor = 0.1		#MODDED
+				#line_change_production_efficiency_factor = 0.05		#MODDED
+				fuel_gain_factor = -0.1
+				ammunition_factor = -0.1		#MODDED
+			}
+			#MODDED^
+			level = 5 #MODDED<
+			cancel_if_invalid = no
+			on_add = {
+				#MODDEDV
+				custom_effect_tooltip = partial_economic_mobilisation_TT
+				if = {
+					limit = {
+						tag = USA
+						has_completed_focus = USA_limited_intervention
+						has_defensive_war = no
+					}
+					USA_congress_large_opposition = yes
+				}
+			}
+			ai_will_do = {
+   				factor = 4000 #GUO
+
+   				modifier = {
+					factor = 20
+
+					is_major = yes
+				}
+				#MODDEDV
+				modifier = {
+					#Block  unless has low inflation
+					factor = 0
+					has_idea = low_economic_mobilisation
+					has_idea = CHI_hyper_inflation_5
+				}
+				#GUOmodifier = {
+				#GUO	#only choose this when at war economy
+				#GUO	factor = 0
+				#GUO	has_political_power < 150
+				#GUO}
+				#choose this at all cost if economy is bad
+				modifier = {
+					factor = 1000
+					OR = {
+						has_idea = war_economy
+						has_idea = tot_economic_mobilisation
+					}
+					check_variable = {
+						Root.supply_condition < 45
+					}
+				}
+				#MODDEDV
+				modifier = {
+					#only choose this when at war economy
+					factor = 0
+					num_of_factories < 15
+				}
+				modifier = {
+					factor = 300 #why not
+					check_variable = {
+						Root.supply_condition > 60
+					}
+					check_variable = {
+						Root.supply_condition_weeky > -0.1
+					}
+				}
+				#MODDEDV
+   			}
+		}
+
+		war_economy = {
+			#uncomment this to reenable ES#
+			traits = {		#MODDED
+			#uncomment this to reenable ES#
+				minus_point_3_per_week		#MODDED
+			#uncomment this to reenable ES#
+			}		#MODDED
+			available = {
+				has_war_support > 0.5
+				OR = {
+					has_government = fascism
+					has_government = communism
+					custom_trigger_tooltip = { tooltip = or_clarification_tooltip always = no }
+					AND = {
+						has_war = yes
+						any_enemy_country = {
+							ic_ratio = {
+								tag = ROOT
+								ratio > 0.4
+							}
+						}
+					}
+				}
+
+				if = {
+					limit = {
+						original_tag = HUN
+						has_dlc = "Death or Dishonor"
+					}
+					if = {
+						limit = {
+							has_dlc = "Arms Against Tyranny"
+						}
+						NOT = { has_idea = HUN_treaty_of_triannon_aat }
+					}
+					else = {
+						NOT = { has_idea = HUN_treaty_of_triannon }
+					}
+				}
+				if = {
+					limit = {
+						has_completed_focus = USA_limited_intervention
+						has_defensive_war = no
+					}
+					has_war_support > 0.75
+					congress_high_support_trigger = yes
+				}
+				if = {
+					limit = {
+						original_tag = TUR
+						has_dlc = "Battle for the Bosporus" 
+					}
+					NOT = { 
+						OR = {
+							has_active_mission = TUR_etatism_crisis_1
+							has_active_mission = TUR_etatism_crisis_2
+							has_active_mission = TUR_etatism_crisis_4
+						}
+					}
+				}
+			}
+
+			cost = 100 #<MODDED
+			removal_cost = -1
+
+			modifier = {
+				war_stability_factor = 0.1		#MODDED
+				consumer_goods_expected_value = 0.2
+				#production_speed_infrastructure_factor = -0.2		#MODDED
+				production_speed_industrial_complex_factor = 0.2		#MODDED
+				production_speed_arms_factory_factor = 0.2
+				production_speed_dockyard_factor = 0.2		#MODDED
+				conversion_cost_civ_to_mil_factor = -0.2
+				conversion_cost_mil_to_civ_factor = -0.2
+				ammunition_factor = 0.1
+				#production_factory_start_efficiency_factor = 0.15		#MODDED
+				#production_factory_efficiency_gain_factor = 0.15		#MODDED
+				#line_change_production_efficiency_factor = 0.1		#MODDED
+			}
+			#MODDED^
+			level = 6 #MODDED<
+			cancel_if_invalid = no
+			on_add = {#MODDEDV
+				custom_effect_tooltip = war_economy_TT		#MODDED
+				if = {
+					limit = {
+						tag = USA
+						has_completed_focus = USA_limited_intervention
+						has_defensive_war = no
+					}
+					USA_congress_large_opposition = yes
+				}
+			}
+			ai_will_do = {
+   				factor = 10000 #GUO
+				
+				modifier = {
+					factor = 20
+
+					is_major = yes
+				}
+				
+				modifier = { #guo
+					#only choose this when at war economy
+					factor = 200
+					any_enemy_country = { is_major = yes }
+				}
+
+				modifier = {
+					#High prio on production
+					factor = 20
+					manpower_per_military_factory >  1000
+				}
+				#MODDEDV
+				modifier = {
+					#Block  unless has low inflation
+					factor = 0
+					has_idea = partial_economic_mobilisation
+					OR = {
+						has_idea = CHI_hyper_inflation_5
+						has_idea = CHI_hyper_inflation_4
+						has_idea = CHI_hyper_inflation_3
+					}
+				}
+				#GUOmodifier = {
+				#GUO	#only choose this when at war economy
+				#GUO	factor = 0
+				#GUO	has_political_power < 150
+				#GUO}
+				#choose this at all cost if economy is bad
+				modifier = {
+					factor = 300
+					has_idea = tot_economic_mobilisation
+					check_variable = {
+						Root.supply_condition < 65
+					}
+					NOT = {
+						tag = GER
+					}
+				}
+				#choose this at all cost if no manpower
+				modifier = {
+					factor = 3000
+					has_idea = tot_economic_mobilisation
+					has_manpower < 2000
+					NOT = {
+						tag = GER
+					}
+				}
+				modifier = {
+					factor = 300 #why not
+					check_variable = {
+						Root.supply_condition > 75
+					}
+					check_variable = {
+						Root.supply_condition_weeky > 0
+					}
+				}
+				#modifier = {
+				#	#only choose this if pp is sufficient to do bailouts
+				#	factor = 0
+				#	political_power_growth < 0.75
+				#}
+				#MODDEDV
+				modifier = {
+					#only choose this when at war economy
+					factor = 0
+					num_of_factories < 15
+				}
+				modifier = {
+					#only choose this when at war economy
+					factor = 0
+					check_variable = {
+						Root.supply_condition < 40
+					}
+				}
+				
+				modifier = {
+					factor = 300 #why not
+					check_variable = {
+						Root.supply_condition > 85
+					}
+					check_variable = {
+						Root.supply_condition_weeky > 0
+					}
+					NOT = {
+						has_idea = tot_economic_mobilisation
+					}
+					NOT = {
+						tag = GER
+					}
+				}
+				modifier = {
+					factor = 0 #No
+					tag = GER
+					has_war = yes
+					has_government = fascism
+					has_idea = tot_economic_mobilisation
+				}
+				#MODDEDV
+				#GUOmodifier = {
+				#GUO	add = 1800
+				#GUO	
+				#GUO	# revert from closed_economy if we have large allies
+				#GUO	has_idea = closed_economy
+				#GUO	has_large_ally_not_pick_closed_economy = yes
+				#GUO}
+   			}
+		}
+
+		tot_economic_mobilisation = {
+			#uncomment this to reenable ES#
+			traits = {		#MODDED
+			#uncomment this to reenable ES#
+				minus_point_5_per_week
+			#uncomment this to reenable ES#
+			}		#MODDED
+			level = 7 #MODDED<
+			available = {
+				has_war = yes
+				has_war_support > 0.8
+				any_enemy_country = {
+					ic_ratio = {
+						tag = ROOT
+						ratio > 0.5
+					}
+				}
+				
+				if = { #guo
+					limit = {
+						original_tag = GER
+						has_government = fascism
+						has_character = GER_joseph_goebbels
+					}
+					has_idea = joseph_goebbels
+					has_global_flag = goebbels_total_war_mobalization_speech
+				}
+
+				if = {
+					limit = {
+						original_tag = HUN
+						has_dlc = "Death or Dishonor"
+					}
+					if = {
+						limit = {
+							has_dlc = "Arms Against Tyranny"
+						}
+						NOT = { has_idea = HUN_treaty_of_triannon_aat }
+					}
+					else = {
+						NOT = { has_idea = HUN_treaty_of_triannon }
+					}
+				}
+				if = {
+					limit = {
+						has_completed_focus = USA_limited_intervention
+						has_defensive_war = no
+					}
+					has_war_support > 0.9
+					congress_high_support_trigger = yes
+				}
+				if = {
+					limit = {
+						original_tag = TUR
+						has_dlc = "Battle for the Bosporus" 
+					}
+					NOT = { 
+						OR = {
+							has_active_mission = TUR_etatism_crisis_1
+							has_active_mission = TUR_etatism_crisis_2
+							has_active_mission = TUR_etatism_crisis_3
+						}
+					}
+				}
+			}
+			on_add = {
+				#MODDEDV
+				custom_effect_tooltip = tot_economic_mobilisation_TT
+				if = {
+					limit = {
+						tag = USA
+						has_completed_focus = USA_limited_intervention
+						has_defensive_war = no
+					}
+					USA_congress_large_opposition = yes
+				}
+			}
+			ai_will_do = {
+   				factor = 50000 #GUO
+				
+				modifier = {
+					factor = 5000#guo
+
+					is_major = yes
+				}
+				
+				modifier = {
+					factor = 500 #why not
+					check_variable = {
+						Root.supply_condition > 75
+					}
+					check_variable = {
+						Root.supply_condition_weeky > 0
+					}
+				}
+				modifier = {
+					factor = 500 #why not
+					check_variable = {
+						Root.supply_condition > 85
+					}
+					check_variable = {
+						Root.supply_condition_weeky > 0
+					}
+				}
+
+				modifier = {
+					factor = 20 #MODDED<
+					#Prio this if nation has a lot of manpower compared to MIC
+					manpower_per_military_factory > 15000
+				}
+
+				modifier = {
+					#Block  unless nation has a lot of manpower
+					factor = 0
+					manpower_per_military_factory <  7000
+				}
+
+
+				modifier = {
+					# never take this if we are on low conscription laws for safety
+					factor = 0
+					OR = {
+						has_idea = volunteer_only
+						has_idea = limited_conscription
+					}
+				}
+
+				# Germany needs to be careful
+				modifier = {
+					factor = 0
+                    NOT = { has_global_flag = goebbels_total_war_mobalization_speech } #guo
+					tag = GER
+					has_idea = joseph_goebbels
+					#MODDED
+				}
+				#GUOmodifier = {
+				#GUO	factor = 1#GUO
+#GUO
+				#GUO	tag = SOV
+				#GUO	has_war = yes
+				#GUO	OR = {
+				#GUO		has_manpower < 2000000
+				#GUO		NOT = {
+				#GUO			OR = {
+				#GUO				has_idea = all_adults_serve
+				#GUO				has_idea = service_by_requirement
+				#GUO			}
+				#GUO		}
+				#GUO	}
+				#GUO}
+				modifier = { #guo
+					#only choose this when at war economy
+					factor = 2000
+					any_enemy_country = { is_major = yes }
+				}
+				modifier = {		#MODDEDvvvvvvvvv
+					#only choose this when at war economy
+					factor = 1000 #guo
+					tag = ENG
+				}
+				modifier = {		#MODDEDvvvvvvvvv
+					#only choose this when at war economy
+					factor = 1000 #guo
+					tag = SOV
+				}
+				modifier = {		#MODDEDvvvvvvvvv
+					#only choose this when at war economy
+					factor = 1000 #guo
+					tag = USA
+				}
+				modifier = {
+					#only choose this when at war economy
+					factor = 1000
+					tag = GER
+				}
+				#MODDEDV
+				modifier = {
+					#only choose this when at war economy
+					factor = 0
+					NOT = {
+						has_idea = war_economy
+					}
+				}
+				modifier = {
+					#Block  unless has low inflation
+					factor = 0
+					OR = {
+						has_idea = CHI_hyper_inflation_5
+						has_idea = CHI_hyper_inflation_4
+						has_idea = CHI_hyper_inflation_3
+					}
+				}
+				#GUOmodifier = {
+				#GUO	#only choose this when at war economy
+				#GUO	factor = 0
+				#GUO	NOT = {
+				#GUO		tag = GER
+				#GUO	}
+				#GUO	has_political_power < 150
+				#GUO}
+				#modifier = {
+				#	#only choose this if pp is sufficient to do bailouts
+				#	factor = 0
+				#	political_power_growth < 0.9
+				#}
+				#MODDEDV
+				modifier = {
+					#only choose this when at war economy
+					factor = 0
+					num_of_factories < 15
+				}
+				modifier = {
+					#only choose this when at war economy
+					factor = 0
+					NOT = {
+						tag = GER
+					}
+					check_variable = {
+						Root.supply_condition < 60
+					}
+				}
+				#MODDEDV
+   			}		#MODDED^^^^^^^^
+
+			cost = 100 #<MODDED
+			removal_cost = -1
+
+			#MODDEDV
+			modifier = {
+				war_stability_factor = 0.2
+				conscription_factor = -0.3 #guo
+				consumer_goods_expected_value = 0.15
+				#production_speed_infrastructure_factor = -0.3
+				production_speed_industrial_complex_factor = 0.3
+				production_speed_arms_factory_factor = 0.3
+				production_speed_dockyard_factor = 0.3
+				conversion_cost_civ_to_mil_factor = -0.3
+				conversion_cost_mil_to_civ_factor = -0.3
+				ammunition_factor = 0.3
+				production_factory_efficiency_gain_factor = 0.25
+				line_change_production_efficiency_factor = 0.25
+			}
+			#MODDED^
+
+			cancel_if_invalid = no
+		}
+		
+		evacuated_assets_r56_law = { #guo
+
+			picture = evacuated_assets
+
+			available = {
+				has_war = yes
+				has_capitulated = yes
+			}
+			
+			ai_will_do = {
+			factor = 0
+			}
+
+			cost = 0
+			level = 8 #MODDED<
+			removal_cost = -1
+
+			on_add = {
+				add_offsite_building = { type = industrial_complex level = 3 }
+				add_offsite_building = { type = arms_factory level = 3 }
+				add_offsite_building = { type = dockyard level = 1 }
+			}
+
+			on_remove = {
+				add_offsite_building = { type = industrial_complex level = -3 }
+				add_offsite_building = { type = arms_factory level = -3 }
+				add_offsite_building = { type = dockyard level = -1 }
+			}
+		
+			modifier = {
+				consumer_goods_expected_value = 0.05
+				production_speed_industrial_complex_factor = -0.15
+				production_speed_arms_factory_factor = 0.15
+				conversion_cost_civ_to_mil_factor = 0.25
+				conversion_cost_mil_to_civ_factor = 0.25
+				war_stability_factor = 0.25
+				military_leader_cost_factor = -0.25
+				operative_slot = 3
+				weekly_manpower = 500
+				non_core_manpower = 0.05
+				min_export = -0.25
+				political_advisor_cost_factor = -0.5
+			}
+			
+			allowed_to_remove = {
+				has_capitulated = no
+			}
+		}
+		
+		PRC_guerilla_warfare_zz = { #guo
+			removal_cost = -1
+                                                cost = 0
+                                                level = 1 #MODDED<
+			picture = nea_idea_national_model
+
+			allowed = {
+				original_tag = PRC
+			}
+			
+			#on_remove = {
+			#hidden_effect = {
+			#if = {
+			#limit = {
+			#PRC = {
+			#not = { has_country_flag = concentrate_on_develop }
+			#}
+			#}
+			#PRC = {
+			#add_ideas = partial_economic_mobilisation
+			#}
+			#}
+			#}
+			#}
+                                                visible = {
+                                                              original_tag = PRC
+															  num_of_controlled_states < 10
+NOT = { has_country_flag = concentrate_on_develop }
+                                                }
+												available = {
+                                                    num_of_controlled_states < 10
+                                                }
+                                                ai_will_do = {
+   				base = 100
+
+   				modifier = {
+					add = -1000
+
+					num_of_controlled_states > 10
+				}
+                                                }
+			modifier = {
+			SUPPLY_FACTOR = 0.10
+		SUPPLY_NODE_RANGE = 0.10
+		attrition = -0.10
+		min_export = -0.25
+		pocket_penalty = -0.25
+supply_consumption_factor = -0.25
+                                                                out_of_supply_factor = -0.25
+no_supply_grace = 72
+industrial_capacity_factory = -0.3
+production_speed_buildings_factor = -0.3
+production_lack_of_resource_penalty_factor = -0.25
+global_building_slots_factor = 0.15
+				consumer_goods_expected_value = 0.1
+				conversion_cost_civ_to_mil_factor = -0.75
+				conversion_cost_mil_to_civ_factor = -0.75
+				custom_modifier_tooltip = remove_PRC_guerilla_warfare_zz
+			}
+
+                                                traits = {
+				plus_point_1_per_week #MODDED
+			}
+
+			
+			cancel_if_invalid = yes
+                                                
+			allowed_to_remove = {
+				num_of_controlled_states > 10
+			}
+		}
+
+        PRC_guerilla_warfare_zz_2 = { #guo
+name = PRC_guerilla_warfare_zz
+			removal_cost = -1
+                                                cost = 0
+                                                level = 1 #MODDED<
+			picture = nea_idea_national_model
+
+			allowed = {
+				original_tag = PRC
+			}
+			
+			#on_remove = {
+			#hidden_effect = {
+			#PRC = {
+			#add_ideas = partial_economic_mobilisation
+			#}
+			#}
+			#}
+                                                visible = {
+                                                              original_tag = PRC
+															  num_of_controlled_states < 10
+has_country_flag = concentrate_on_develop
+                                                }
+												available = {
+                                                    num_of_controlled_states < 10
+                                                }
+                                                ai_will_do = {
+   				base = 100
+
+   				modifier = {
+					add = -1000
+
+					num_of_controlled_states > 10
+				}
+                                                }
+			modifier = {
+			SUPPLY_FACTOR = 0.20
+		SUPPLY_NODE_RANGE = 0.20
+		attrition = -0.20
+		min_export = -0.50
+		pocket_penalty = -0.50
+supply_consumption_factor = -0.50
+                                                                out_of_supply_factor = -0.50
+no_supply_grace = 96
+industrial_capacity_factory = -0.05
+production_speed_buildings_factor = -0.05
+production_lack_of_resource_penalty_factor = -0.5
+global_building_slots_factor = 0.25
+				consumer_goods_expected_value = 0.05
+				conversion_cost_civ_to_mil_factor = -0.90
+				conversion_cost_mil_to_civ_factor = -0.90
+				custom_modifier_tooltip = remove_PRC_guerilla_warfare_zz
+			}
+
+			
+
+                                                traits = {
+				plus_point_2_per_week #MODDED
+			}
+
+			
+			cancel_if_invalid = yes
+                                                
+			allowed_to_remove = {
+				num_of_controlled_states > 10
+			}
+		}
+		
+		new_economic_policy = {
+
+			picture = new_economic_policy
+
+			allowed = {
+				always = no
+			}
+			allowed_to_remove = {
+				OR = {
+					surrender_progress > 0.75
+					NOT = { has_government = communism }
+				}
+			}
+
+			removal_cost = -1
+
+			modifier = {
+				consumer_goods_expected_value = 0.15
+				production_speed_buildings_factor = -0.15
+
+			}
+
+			cancel_if_invalid = no
+
+			ai_will_do = {
+   				factor = 0
+   			}
+		}
+		new_economic_policy_2 = {
+			name = new_economic_policy
+
+			picture = new_economic_policy
+
+			allowed = {
+				always = no
+			}
+			allowed_to_remove = {
+				OR = {
+					surrender_progress > 0.75
+					NOT = { has_government = communism }
+				}
+			}
+
+			removal_cost = -1
+
+			modifier = {
+				consumer_goods_expected_value = 0.10
+				production_speed_buildings_factor = -0.2
+				global_building_slots_factor = 0.1
+			}
+
+			cancel_if_invalid = no
+
+			ai_will_do = {
+   				factor = 0
+   			}
+		}
+	}
+
+	trade_laws = {
+		law = yes
+		use_list_view = yes
+
+		uncontrolled_exports = {
+
+
+			allowed = {
+				always = no
+			}
+			removal_cost = -1
+			picture = isolation
+
+            rule = {
+				can_access_market = no
+			}
+
+			modifier = {
+				min_export = 0.25
+				consumer_goods_expected_value = 0.05
+				civilian_intel_to_others = 40.0
+				navy_intel_to_others = 40.0
+				agency_upgrade_time = 0.15
+				cic_construction_boost = 0.15
+			}
+
+			allowed_to_remove = {
+				OR = {
+					has_war = yes
+					has_completed_focus = POL_integrate_gdansk_industries
+					has_completed_focus = POL_expand_gdynia_seaport
+					NOT = {
+						owns_state = 85
+						owns_state = 807
+					}
+					any_owned_state = {
+						NOT = {
+							state = 85
+							state = 807
+						}
+						is_coastal = yes
+					}
+				}
+			}
+
+			on_remove = {
+				effect_tooltip =  {
+					remove_dynamic_modifier = { modifier = international_city }
+				}
+				hidden_effect = {
+					if = {
+						limit = {
+							tag = POL
+							85 = { is_demilitarized_zone = no }
+							has_civil_war = no 
+						}
+						85 = {
+							if = {
+								limit = {
+									has_dynamic_modifier = { modifier = international_city }
+								}
+								remove_dynamic_modifier = { modifier = international_city }
+							}
+						}
+					}
+				}
+			}
+			
+			cancel_if_invalid = no
+		}
+
+		free_trade = {
+
+			available = {
+				if = {
+					limit = {
+						original_tag = SPR
+						has_dlc = "La Resistance"
+					}
+					NOT = { has_completed_focus = SPR_all_must_bear_the_torch }
+				}
+			}
+						
+			cost = 150
+			removal_cost = -1
+			available = {		#MODDED
+				has_stability > 0.15		#MODDED
+			}		#MODDED
+			modifier = {
+				min_export = 0.8
+				industrial_capacity_factory = 0.15
+				industrial_capacity_dockyard = 0.15
+				production_speed_buildings_factor = 0.15
+				research_speed_factor = 0.10
+				civilian_intel_to_others = 40.0
+				navy_intel_to_others = 20.0
+				cic_construction_boost_factor = 0.10
+			}
+			#MODDED
+			traits = {
+				low_inflation_risk
+			}
+			on_add = {
+				custom_effect_tooltip = low_inflation_risk_tt
+			}		#MODDED
+			cancel_if_invalid = no
+
+			ai_will_do = {
+   				factor = 1
+				
+				modifier = { #guo
+					factor = 999
+					has_idea = evacuated_assets_r56_law
+				}
+				
+				modifier = { #guo
+					factor = 0
+					is_major = yes
+					date > 1938.6.1
+					check_variable = { resource_imported@steel > 160 }
+				}
+
+   				modifier = { #guo
+					factor = 999
+					OR = {
+						tag = PER
+						tag = IRQ
+						tag = POR
+						tag = INS
+						tag = MAL
+						tag = SPR
+						tag = TUR
+						tag = SAF
+						tag = SST
+						tag = BOR
+						tag = SAR
+						tag = BRA
+						tag = SWE
+					}
+					has_civil_war = no
+					#is_in_faction = no
+				}
+
+				modifier = {
+					factor = 300
+
+					tag = BRA
+					date > 1943.1.1 # at this point we can probably cash in on rubber lack in the world
+				}
+
+                modifier = {
+					factor = 400
+					original_tag = SWE
+					date > 1941.6.1
+				}
+
+				# Oil for hitlers oil throne!
+				#guomodifier = {
+				#guo	factor = 600
+				#guo	tag = ROM
+				#guo	is_in_faction_with = GER
+				#guo}
+   			}
+		}
+
+		export_focus = {
+			
+			available = {
+				has_stability > 0.35		#MODDED
+				if = {
+					limit = {
+						original_tag = CHI
+						has_dlc = "Waking the Tiger"
+					}
+					NOT = {		#MODDED
+						has_idea = CHI_nine_power_treaty
+					}		#MODDED
+				}
+				if = {
+					limit = {
+						original_tag = SPR
+						has_dlc = "La Resistance"
+					}
+					NOT = { has_completed_focus = SPR_all_must_bear_the_torch }
+				}
+			}
+
+
+			cost = 150
+			removal_cost = -1
+
+			modifier = {
+				min_export = 0.5
+				industrial_capacity_factory = 0.1
+				industrial_capacity_dockyard = 0.1
+				production_speed_buildings_factor = 0.1
+				research_speed_factor = 0.05
+				civilian_intel_to_others = 20.0
+				navy_intel_to_others = 10.0
+				cic_construction_boost_factor = 0.05
+			}
+
+			default = yes
+			#MODDED #guo
+			traits = {
+				moderate_inflation_risk
+			}
+			on_add = {
+				custom_effect_tooltip = moderate_inflation_risk_tt
+			}		#MODDED
+			cancel_if_invalid = no
+
+			ai_will_do = {
+   				factor = 1
+				modifier = { #MODDED
+					factor = 200 #MODDED
+					tag = USA #MODDED
+					has_war_with = JAP #MODDED
+				}	 #MODDED
+				modifier = {
+					factor = 0
+
+					is_major = no
+					has_war = no
+					is_in_faction = no
+					OR = {
+						# portugal and sweden are special tungsten snowflakes
+						tag = POR
+						tag = SWE
+
+						# Iraq & Iran are special oil snowflakes
+						tag = PER
+						tag = IRQ
+					}
+				}
+                modifier = {
+					factor = 1000
+					has_idea = uncontrolled_exports #Poland should try and escape this as soon as they can
+				}
+				
+				modifier = { #guo
+					factor = 200
+					is_major = yes
+					has_idea = free_trade
+					date > 1938.6.1
+					check_variable = { resource_imported@steel > 160 }
+				}
+				
+				modifier = { #guo
+					factor = 0
+					is_major = yes
+					has_idea = limited_exports
+					check_variable = { resource_imported@steel > 160 }
+				}
+   		    }
+		}
+
+		limited_exports = {
+			available = {
+				has_stability > 0.55		#MODDED
+				OR = {
+					AND = {
+						has_government = democratic
+						has_war = yes
+						any_enemy_country = {
+							ic_ratio = {
+								tag = ROOT
+								ratio > 0.2
+							}
+						}
+					}
+					AND = {
+						NOT = { has_government = democratic }
+						OR = {
+							has_idea = partial_economic_mobilisation
+							has_idea = war_economy
+							has_idea = tot_economic_mobilisation
+							
+							has_idea = PRC_guerilla_warfare_zz #guo
+							hidden_trigger = { has_idea = PRC_guerilla_warfare_zz_2 }
+						}
+					}
+				}
+
+
+				if = {
+					limit = {
+						original_tag = CHI
+						has_dlc = "Waking the Tiger"
+					}
+					NOT = {		#MODDED
+						has_idea = CHI_nine_power_treaty
+					}	#MODDED
+				}
+				if = {
+					limit = {
+						original_tag = SPR
+						has_dlc = "La Resistance"
+					}
+					NOT = { has_completed_focus = SPR_all_must_bear_the_torch }
+				}
+			}
+
+			cost = 150
+			removal_cost = -1
+
+			modifier = {
+				min_export = 0.25
+				industrial_capacity_factory = 0.05
+				industrial_capacity_dockyard = 0.05
+				production_speed_buildings_factor = 0.05
+				research_speed_factor = 0.01
+				civilian_intel_to_others = 10.0
+				navy_intel_to_others = 5
+				lend_lease_tension = 0.20
+				cic_construction_boost = -0.05
+			}
+
+			cancel_if_invalid = no
+			#MODDED #guo
+			traits = {
+				considerable_inflation_risk 
+			}
+			on_add = {
+				custom_effect_tooltip = considerable_inflation_risk_tt
+			}		#MODDED
+			ai_will_do = {
+   				factor = 1
+				
+				modifier = { #guo
+					factor = 0
+
+					has_idea = evacuated_assets_r56_law
+				}
+				
+				modifier = { #guo
+					factor = 400
+					is_major = yes
+					not = { tag = USA }
+					has_idea = export_focus
+					check_variable = { resource_imported@steel > 240 }
+				}
+
+   				modifier = {
+					add = -1
+
+					is_major = no
+					is_in_faction = yes
+					has_war = yes
+				}
+
+				# minors not at war should want to get the bonuses from free trade
+				modifier = {
+					add = -1
+
+					is_major = no
+					has_war = no
+				}
+
+                modifier = {
+					factor = 200
+					NOT = { has_government = fascism }
+					NOT = { has_idea = closed_economy }
+					has_war = yes
+					is_major = yes
+				}
+				
+				modifier = {
+					add = 1500
+					
+					# revert from closed_economy if we have large allies
+					has_idea = closed_economy
+					has_large_ally_not_pick_closed_economy = yes
+				}
+   			}
+		}
+
+		closed_economy = {
+
+
+			available = {
+				has_stability > 0.75		#MODDED
+				has_war = yes
+				OR = {
+					has_government = fascism
+					has_government = communism
+				}
+				OR = {
+					has_idea = war_economy
+					has_idea = tot_economic_mobilisation
+					
+					has_idea = PRC_guerilla_warfare_zz #guo
+					hidden_trigger = { has_idea = PRC_guerilla_warfare_zz_2 }
+				}
+				OR = {
+					NOT = {	tag = SOV }
+					NOT = { has_opinion_modifier = MR_pact }
+				}
+
+				if = {
+					limit = {
+						original_tag = CHI
+						has_dlc = "Waking the Tiger"
+					}
+					NOT = {		#MODDED
+						has_idea = CHI_nine_power_treaty
+					}		#MODDED
+				}
+				
+				if = { #guo
+			    limit = { has_idea = PRC_sov_156_project }
+			    NOT = { has_idea = PRC_sov_156_project }
+			    }
+				if = { #guo
+			    limit = { has_idea = KMT_second_golden_ten_years }
+			    NOT = { has_idea = KMT_second_golden_ten_years }
+			    }
+			}
+
+            rule = {
+				can_access_market = no
+				desc = can_not_access_market_closed_economy
+			}
+
+			cost = 150
+			removal_cost = -1
+
+			#MODDED
+			traits = {
+				high_inflation_risk
+			}		#MODDED
+			modifier = {
+				min_export = 0
+				#civilian_intel_to_others = 0.0
+				lend_lease_tension = 0.40
+				cic_construction_boost = -0.1
+				 
+			}
+
+			on_add = {				
+				custom_effect_tooltip = closed_economy_TT
+				custom_effect_tooltip = high_inflation_risk_tt		#MODDED
+			}
+
+			cancel_if_invalid = no
+
+			ai_will_do = {
+   				factor = 1
+				
+				modifier = { #guo
+					factor = 0
+
+					has_idea = evacuated_assets_r56_law
+				}
+
+   				modifier = {
+					factor = 0
+
+					is_major = no
+					is_in_faction = yes
+					has_war = yes
+				}
+
+				# minors not at war should want to get the bonuses from free trade
+				modifier = {
+					factor = 0
+
+					is_major = no
+					has_war = no
+				}
+				
+				modifier = {
+					factor = 0
+					
+					# don't take if we have a reasonable sized ally
+					# since they will require our trades
+					has_large_ally_not_pick_closed_economy = yes
+				}
+   		    }
+		}
+	}
+}
