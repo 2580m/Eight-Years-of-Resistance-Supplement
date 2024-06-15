@@ -1,0 +1,116 @@
+technologies = {
+	jianmiezhan = {
+		enable_tactic = tactic_jianmiezhan
+
+		doctrine = yes
+		research_cost = 1
+
+		#set at gamestart
+		allow = {
+			always = no
+		}
+	}
+	jianmiezhan_2 = {
+		enable_tactic = tactic_jianmiezhan_2
+
+		doctrine = yes
+		research_cost = 1
+
+		#set at gamestart
+		allow = {
+			always = no
+		}
+	}
+	
+	yejiantuji = {
+		enable_tactic = tactic_yejiantuji
+
+		doctrine = yes
+		research_cost = 1
+
+		#set at gamestart
+		allow = {
+			always = no
+		}
+	}
+	yejiantuji_2 = {
+		enable_tactic = tactic_yejiantuji_2
+
+		doctrine = yes
+		research_cost = 1
+
+		#set at gamestart
+		allow = {
+			always = no
+		}
+	}
+	
+	sansanzhi = {
+		enable_tactic = tactic_sansanzhi
+
+		doctrine = yes
+		research_cost = 1
+
+		#set at gamestart
+		allow = {
+			always = no
+		}
+	}
+	sansanzhi_2 = {
+		enable_tactic = tactic_sansanzhi_2
+
+		doctrine = yes
+		research_cost = 1
+
+		#set at gamestart
+		allow = {
+			always = no
+		}
+	}
+	
+	zhanshuchuancha = {
+		enable_tactic = tactic_zhanshuchuancha
+
+		doctrine = yes
+		research_cost = 1
+
+		#set at gamestart
+		allow = {
+			always = no
+		}
+	}
+	zhanshuchuancha_2 = {
+		enable_tactic = tactic_zhanshuchuancha_2
+
+		doctrine = yes
+		research_cost = 1
+
+		#set at gamestart
+		allow = {
+			always = no
+		}
+	}
+	
+	tech_irregulars = {
+
+		research_cost = 1
+
+		allow = {
+			always = no
+		}
+		enable_subunits = {
+			irregular_infantry
+		}
+	}
+	tech_militias = {
+
+		research_cost = 1
+
+		allow = {
+			always = no
+		}
+		enable_subunits = {
+			militia
+		}
+	}
+}
