@@ -1,0 +1,14 @@
+#reborn_all_generic = {
+#	name = "WHOOPS_ALL_GENERIC"
+#	group = "RULE_GROUP_GAME_SETUP"
+#	default = {
+#		name = DEFAULT
+#		text = "RULE_OPTION_DEFAULT"
+#		desc = "RULE_OPTION_DEFAULT_DESC"
+#	}
+#	option = {
+#		name = ALL_GENERIC
+#		text = "ALL_GENERIC"
+#		desc = "ALL_GENERIC_DESC"
+#	}
+#}
